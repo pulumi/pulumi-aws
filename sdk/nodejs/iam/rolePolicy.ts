@@ -141,20 +141,20 @@ export interface RolePolicyState {
      * The name of the role policy. If omitted, this provider will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string | Role>;
 }
 
 /**
@@ -165,18 +165,18 @@ export interface RolePolicyArgs {
      * The name of the role policy. If omitted, this provider will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The IAM role to attach to the policy.
      */
-    readonly role: pulumi.Input<string | Role>;
+    role: pulumi.Input<string | Role>;
 }

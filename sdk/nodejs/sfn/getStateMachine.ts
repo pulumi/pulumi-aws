@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.sfn.getStateMachine({
  *     name: "an_example_sfn_name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
@@ -41,7 +41,7 @@ export interface GetStateMachineArgs {
     /**
      * The friendly name of the state machine to match.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

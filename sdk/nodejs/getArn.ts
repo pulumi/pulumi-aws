@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  *
  * const dbInstance = pulumi.output(aws.getArn({
  *     arn: "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getArn(args: GetArnArgs, opts?: pulumi.InvokeOptions): Promise<GetArnResult> {
@@ -39,7 +39,7 @@ export interface GetArnArgs {
     /**
      * The ARN to parse.
      */
-    readonly arn: string;
+    arn: string;
 }
 
 /**

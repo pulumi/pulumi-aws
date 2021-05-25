@@ -40,7 +40,7 @@ export interface GetSecretRotationArgs {
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
      */
-    readonly secretId: string;
+    secretId: string;
 }
 
 /**

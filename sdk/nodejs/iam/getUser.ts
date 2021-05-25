@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.iam.getUser({
  *     userName: "an_example_user_name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
@@ -42,11 +42,11 @@ export interface GetUserArgs {
     /**
      * Map of key-value pairs associated with the user.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * The friendly IAM user name to match.
      */
-    readonly userName: string;
+    userName: string;
 }
 
 /**

@@ -106,15 +106,15 @@ export interface RegexPatternSetState {
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name or description of the Regex Pattern Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    readonly regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -124,9 +124,9 @@ export interface RegexPatternSetArgs {
     /**
      * The name or description of the Regex Pattern Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of regular expression (regex) patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`.
      */
-    readonly regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
+    regexPatternStrings?: pulumi.Input<pulumi.Input<string>[]>;
 }

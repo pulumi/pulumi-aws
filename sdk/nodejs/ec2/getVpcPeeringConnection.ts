@@ -61,52 +61,52 @@ export interface GetVpcPeeringConnectionArgs {
     /**
      * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly cidrBlock?: string;
+    cidrBlock?: string;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcPeeringConnectionFilter[];
+    filters?: inputs.ec2.GetVpcPeeringConnectionFilter[];
     /**
      * The ID of the specific VPC Peering Connection to retrieve.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly ownerId?: string;
+    ownerId?: string;
     /**
      * The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerCidrBlock?: string;
+    peerCidrBlock?: string;
     /**
      * The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerOwnerId?: string;
+    peerOwnerId?: string;
     /**
      * The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerRegion?: string;
+    peerRegion?: string;
     /**
      * The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly peerVpcId?: string;
+    peerVpcId?: string;
     /**
      * The region of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly region?: string;
+    region?: string;
     /**
      * The status of the specific VPC Peering Connection to retrieve.
      */
-    readonly status?: string;
+    status?: string;
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
      */
-    readonly vpcId?: string;
+    vpcId?: string;
 }
 
 /**

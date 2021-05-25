@@ -96,7 +96,7 @@ export interface AccountAliasState {
     /**
      * The account alias
      */
-    readonly accountAlias?: pulumi.Input<string>;
+    accountAlias?: pulumi.Input<string>;
 }
 
 /**
@@ -106,5 +106,5 @@ export interface AccountAliasArgs {
     /**
      * The account alias
      */
-    readonly accountAlias: pulumi.Input<string>;
+    accountAlias: pulumi.Input<string>;
 }

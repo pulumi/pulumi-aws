@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const stream = pulumi.output(aws.kinesis.getStream({
  *     name: "stream-name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
@@ -43,11 +43,11 @@ export interface GetStreamArgs {
     /**
      * The name of the Kinesis Stream.
      */
-    readonly name: string;
+    name: string;
     /**
      * A map of tags to assigned to the stream.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

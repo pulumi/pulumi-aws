@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.imagebuilder.getDistributionConfiguration({
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
@@ -40,11 +40,11 @@ export interface GetDistributionConfigurationArgs {
     /**
      * Amazon Resource Name (ARN) of the distribution configuration.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Key-value map of resource tags for the distribution configuration.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getRegion({ async: true }));
+ * const current = pulumi.output(aws.getRegion());
  * const example = current.apply(current => aws.ec2.getManagedPrefixList({
  *     name: `com.amazonaws.${current.name!}.dynamodb`,
- * }, { async: true }));
+ * }));
  * ```
  * ### Find a managed prefix list using filters
  *
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         name: "prefix-list-name",
  *         values: ["my-prefix-list"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListResult> {
@@ -59,19 +59,19 @@ export interface GetManagedPrefixListArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetManagedPrefixListFilter[];
+    filters?: inputs.ec2.GetManagedPrefixListFilter[];
     /**
      * The ID of the prefix list to select.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

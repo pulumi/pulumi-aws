@@ -108,19 +108,19 @@ export interface UserProfileState {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    readonly allowSelfManagement?: pulumi.Input<boolean>;
+    allowSelfManagement?: pulumi.Input<boolean>;
     /**
      * The users public key
      */
-    readonly sshPublicKey?: pulumi.Input<string>;
+    sshPublicKey?: pulumi.Input<string>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    readonly sshUsername?: pulumi.Input<string>;
+    sshUsername?: pulumi.Input<string>;
     /**
      * The user's IAM ARN
      */
-    readonly userArn?: pulumi.Input<string>;
+    userArn?: pulumi.Input<string>;
 }
 
 /**
@@ -130,17 +130,17 @@ export interface UserProfileArgs {
     /**
      * Whether users can specify their own SSH public key through the My Settings page
      */
-    readonly allowSelfManagement?: pulumi.Input<boolean>;
+    allowSelfManagement?: pulumi.Input<boolean>;
     /**
      * The users public key
      */
-    readonly sshPublicKey?: pulumi.Input<string>;
+    sshPublicKey?: pulumi.Input<string>;
     /**
      * The ssh username, with witch this user wants to log in
      */
-    readonly sshUsername: pulumi.Input<string>;
+    sshUsername: pulumi.Input<string>;
     /**
      * The user's IAM ARN
      */
-    readonly userArn: pulumi.Input<string>;
+    userArn: pulumi.Input<string>;
 }

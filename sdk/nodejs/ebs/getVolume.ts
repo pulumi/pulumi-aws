@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     mostRecent: true,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVolume(args?: GetVolumeArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeResult> {
@@ -55,16 +55,16 @@ export interface GetVolumeArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.ebs.GetVolumeFilter[];
+    filters?: inputs.ebs.GetVolumeFilter[];
     /**
      * If more than one result is returned, use the most
      * recent Volume.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

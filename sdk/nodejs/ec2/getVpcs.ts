@@ -32,12 +32,12 @@ export interface GetVpcsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcsFilter[];
+    filters?: inputs.ec2.GetVpcsFilter[];
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired vpcs.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -181,55 +181,55 @@ export interface FirewallState {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * A friendly description of the firewall.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
-    readonly firewallPolicyArn?: pulumi.Input<string>;
+    firewallPolicyArn?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
-    readonly firewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
      * Nested list of information about the current status of the firewall.
      */
-    readonly firewallStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatus>[]>;
+    firewallStatuses?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallFirewallStatus>[]>;
     /**
      * A friendly name of the firewall.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
      */
-    readonly subnetChangeProtection?: pulumi.Input<boolean>;
+    subnetChangeProtection?: pulumi.Input<boolean>;
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
     /**
      * Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A string token used when updating a firewall.
      */
-    readonly updateToken?: pulumi.Input<string>;
+    updateToken?: pulumi.Input<string>;
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -239,41 +239,41 @@ export interface FirewallArgs {
     /**
      * A boolean flag indicating whether it is possible to delete the firewall. Defaults to `false`.
      */
-    readonly deleteProtection?: pulumi.Input<boolean>;
+    deleteProtection?: pulumi.Input<boolean>;
     /**
      * A friendly description of the firewall.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the VPC Firewall policy.
      */
-    readonly firewallPolicyArn: pulumi.Input<string>;
+    firewallPolicyArn: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether it is possible to change the associated firewall policy. Defaults to `false`.
      */
-    readonly firewallPolicyChangeProtection?: pulumi.Input<boolean>;
+    firewallPolicyChangeProtection?: pulumi.Input<boolean>;
     /**
      * A friendly name of the firewall.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether it is possible to change the associated subnet(s). Defaults to `false`.
      */
-    readonly subnetChangeProtection?: pulumi.Input<boolean>;
+    subnetChangeProtection?: pulumi.Input<boolean>;
     /**
      * Set of configuration blocks describing the public subnets. Each subnet must belong to a different Availability Zone in the VPC. AWS Network Firewall creates a firewall endpoint in each subnet. See Subnet Mapping below for details.
      */
-    readonly subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
+    subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMapping>[]>;
     /**
      * Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

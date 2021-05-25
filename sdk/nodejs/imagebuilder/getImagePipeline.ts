@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.imagebuilder.getImagePipeline({
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
@@ -40,11 +40,11 @@ export interface GetImagePipelineArgs {
     /**
      * Amazon Resource Name (ARN) of the image pipeline.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Key-value map of resource tags for the image pipeline.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

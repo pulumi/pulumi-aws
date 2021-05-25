@@ -115,19 +115,19 @@ export interface ResolverDnsSecConfigState {
     /**
      * The ARN for a configuration for DNSSEC validation.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
      */
-    readonly validationStatus?: pulumi.Input<string>;
+    validationStatus?: pulumi.Input<string>;
 }
 
 /**
@@ -137,5 +137,5 @@ export interface ResolverDnsSecConfigArgs {
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
 }

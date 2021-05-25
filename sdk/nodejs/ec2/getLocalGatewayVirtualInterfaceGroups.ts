@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const all = pulumi.output(aws.ec2.getLocalGatewayVirtualInterfaceGroups({ async: true }));
+ * const all = pulumi.output(aws.ec2.getLocalGatewayVirtualInterfaceGroups());
  * ```
  */
 export function getLocalGatewayVirtualInterfaceGroups(args?: GetLocalGatewayVirtualInterfaceGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalGatewayVirtualInterfaceGroupsResult> {
@@ -39,11 +39,11 @@ export interface GetLocalGatewayVirtualInterfaceGroupsArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupsFilter[];
+    filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupsFilter[];
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

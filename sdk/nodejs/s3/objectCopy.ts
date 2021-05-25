@@ -362,181 +362,181 @@ export interface ObjectCopyState {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to `private`. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in.
      */
-    readonly bucket?: pulumi.Input<string>;
-    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
+    bucket?: pulumi.Input<string>;
+    bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    readonly cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    readonly contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    readonly contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string>;
     /**
      * Language the content is in e.g. en-US or en-GB.
      */
-    readonly contentLanguage?: pulumi.Input<string>;
+    contentLanguage?: pulumi.Input<string>;
     /**
      * Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
      */
-    readonly copyIfMatch?: pulumi.Input<string>;
+    copyIfMatch?: pulumi.Input<string>;
     /**
      * Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly copyIfModifiedSince?: pulumi.Input<string>;
+    copyIfModifiedSince?: pulumi.Input<string>;
     /**
      * Copies the object if its entity tag (ETag) is different than the specified ETag.
      */
-    readonly copyIfNoneMatch?: pulumi.Input<string>;
+    copyIfNoneMatch?: pulumi.Input<string>;
     /**
      * Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly copyIfUnmodifiedSince?: pulumi.Input<string>;
+    copyIfUnmodifiedSince?: pulumi.Input<string>;
     /**
      * Specifies the algorithm to use to when encrypting the object (for example, AES256).
      */
-    readonly customerAlgorithm?: pulumi.Input<string>;
+    customerAlgorithm?: pulumi.Input<string>;
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
-    readonly customerKey?: pulumi.Input<string>;
+    customerKey?: pulumi.Input<string>;
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
-    readonly customerKeyMd5?: pulumi.Input<string>;
+    customerKeyMd5?: pulumi.Input<string>;
     /**
      * The ETag generated for the object (an MD5 sum of the object content). For plaintext objects or objects encrypted with an AWS-managed key, the hash is an MD5 digest of the object data. For objects encrypted with a KMS key or objects created by either the Multipart Upload or Part Copy operation, the hash is not an MD5 digest, regardless of the method of encryption. More information on possible values can be found on [Common Response Headers](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html).
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
-    readonly expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
-    readonly expectedSourceBucketOwner?: pulumi.Input<string>;
+    expectedSourceBucketOwner?: pulumi.Input<string>;
     /**
      * If the object expiration is configured, this attribute will be set.
      */
-    readonly expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string>;
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly expires?: pulumi.Input<string>;
+    expires?: pulumi.Input<string>;
     /**
      * Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      */
-    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
     /**
      * Name of the object once it is in the bucket.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
-    readonly kmsEncryptionContext?: pulumi.Input<string>;
+    kmsEncryptionContext?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Returns the date that the object was last modified, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
-    readonly metadataDirective?: pulumi.Input<string>;
+    metadataDirective?: pulumi.Input<string>;
     /**
      * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    readonly objectLockLegalHoldStatus?: pulumi.Input<string>;
+    objectLockLegalHoldStatus?: pulumi.Input<string>;
     /**
      * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    readonly objectLockMode?: pulumi.Input<string>;
+    objectLockMode?: pulumi.Input<string>;
     /**
      * The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    readonly objectLockRetainUntilDate?: pulumi.Input<string>;
+    objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
      * If present, indicates that the requester was successfully charged for the request.
      */
-    readonly requestCharged?: pulumi.Input<boolean>;
+    requestCharged?: pulumi.Input<boolean>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    requestPayer?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
-    readonly serverSideEncryption?: pulumi.Input<string>;
+    serverSideEncryption?: pulumi.Input<string>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * Specifies the algorithm to use when decrypting the source object (for example, AES256).
      */
-    readonly sourceCustomerAlgorithm?: pulumi.Input<string>;
+    sourceCustomerAlgorithm?: pulumi.Input<string>;
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
-    readonly sourceCustomerKey?: pulumi.Input<string>;
+    sourceCustomerKey?: pulumi.Input<string>;
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
-    readonly sourceCustomerKeyMd5?: pulumi.Input<string>;
+    sourceCustomerKeyMd5?: pulumi.Input<string>;
     /**
      * Version of the copied object in the source bucket.
      */
-    readonly sourceVersionId?: pulumi.Input<string>;
+    sourceVersionId?: pulumi.Input<string>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
      */
-    readonly storageClass?: pulumi.Input<string>;
+    storageClass?: pulumi.Input<string>;
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
-    readonly taggingDirective?: pulumi.Input<string>;
+    taggingDirective?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version ID of the newly created copy.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    readonly websiteRedirect?: pulumi.Input<string>;
+    websiteRedirect?: pulumi.Input<string>;
 }
 
 /**
@@ -546,155 +546,155 @@ export interface ObjectCopyArgs {
     /**
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Defaults to `private`. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string>;
+    acl?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in.
      */
-    readonly bucket: pulumi.Input<string>;
-    readonly bucketKeyEnabled?: pulumi.Input<boolean>;
+    bucket: pulumi.Input<string>;
+    bucketKeyEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies caching behavior along the request/reply chain Read [w3c cacheControl](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
      */
-    readonly cacheControl?: pulumi.Input<string>;
+    cacheControl?: pulumi.Input<string>;
     /**
      * Specifies presentational information for the object. Read [w3c contentDisposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
      */
-    readonly contentDisposition?: pulumi.Input<string>;
+    contentDisposition?: pulumi.Input<string>;
     /**
      * Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
      */
-    readonly contentEncoding?: pulumi.Input<string>;
+    contentEncoding?: pulumi.Input<string>;
     /**
      * Language the content is in e.g. en-US or en-GB.
      */
-    readonly contentLanguage?: pulumi.Input<string>;
+    contentLanguage?: pulumi.Input<string>;
     /**
      * Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * Copies the object if its entity tag (ETag) matches the specified tag.
      */
-    readonly copyIfMatch?: pulumi.Input<string>;
+    copyIfMatch?: pulumi.Input<string>;
     /**
      * Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly copyIfModifiedSince?: pulumi.Input<string>;
+    copyIfModifiedSince?: pulumi.Input<string>;
     /**
      * Copies the object if its entity tag (ETag) is different than the specified ETag.
      */
-    readonly copyIfNoneMatch?: pulumi.Input<string>;
+    copyIfNoneMatch?: pulumi.Input<string>;
     /**
      * Copies the object if it hasn't been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly copyIfUnmodifiedSince?: pulumi.Input<string>;
+    copyIfUnmodifiedSince?: pulumi.Input<string>;
     /**
      * Specifies the algorithm to use to when encrypting the object (for example, AES256).
      */
-    readonly customerAlgorithm?: pulumi.Input<string>;
+    customerAlgorithm?: pulumi.Input<string>;
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side-encryption-customer-algorithm header.
      */
-    readonly customerKey?: pulumi.Input<string>;
+    customerKey?: pulumi.Input<string>;
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
-    readonly customerKeyMd5?: pulumi.Input<string>;
+    customerKeyMd5?: pulumi.Input<string>;
     /**
      * Account id of the expected destination bucket owner. If the destination bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
-    readonly expectedBucketOwner?: pulumi.Input<string>;
+    expectedBucketOwner?: pulumi.Input<string>;
     /**
      * Account id of the expected source bucket owner. If the source bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
-    readonly expectedSourceBucketOwner?: pulumi.Input<string>;
+    expectedSourceBucketOwner?: pulumi.Input<string>;
     /**
      * Date and time at which the object is no longer cacheable, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly expires?: pulumi.Input<string>;
+    expires?: pulumi.Input<string>;
     /**
      * Allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Configuration block for header grants. Documented below. Conflicts with `acl`.
      */
-    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.s3.ObjectCopyGrant>[]>;
     /**
      * Name of the object once it is in the bucket.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Encryption Context to use for object encryption. The value is a base64-encoded UTF-8 string holding JSON with the encryption context key-value pairs.
      */
-    readonly kmsEncryptionContext?: pulumi.Input<string>;
+    kmsEncryptionContext?: pulumi.Input<string>;
     /**
      * Specifies the AWS KMS Key ARN to use for object encryption. This value is a fully qualified **ARN** of the KMS Key. If using `aws.kms.Key`, use the exported `arn` attribute: `kmsKeyId = aws_kms_key.foo.arn`
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * A map of keys/values to provision metadata (will be automatically prefixed by `x-amz-meta-`, note that only lowercase label are currently supported by the AWS Go API).
      */
-    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request. Valid values are `COPY` and `REPLACE`.
      */
-    readonly metadataDirective?: pulumi.Input<string>;
+    metadataDirective?: pulumi.Input<string>;
     /**
      * The [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds) status that you want to apply to the specified object. Valid values are `ON` and `OFF`.
      */
-    readonly objectLockLegalHoldStatus?: pulumi.Input<string>;
+    objectLockLegalHoldStatus?: pulumi.Input<string>;
     /**
      * The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
      */
-    readonly objectLockMode?: pulumi.Input<string>;
+    objectLockMode?: pulumi.Input<string>;
     /**
      * The date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
      */
-    readonly objectLockRetainUntilDate?: pulumi.Input<string>;
+    objectLockRetainUntilDate?: pulumi.Input<string>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    requestPayer?: pulumi.Input<string>;
     /**
      * Specifies server-side encryption of the object in S3. Valid values are `AES256` and `aws:kms`.
      */
-    readonly serverSideEncryption?: pulumi.Input<string>;
+    serverSideEncryption?: pulumi.Input<string>;
     /**
      * Specifies the source object for the copy operation. You specify the value in one of two formats. For objects not accessed through an access point, specify the name of the source bucket and the key of the source object, separated by a slash (`/`). For example, `testbucket/test1.json`. For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format `arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key>`. For example, `arn:aws:s3:us-west-2:9999912999:accesspoint/my-access-point/object/testbucket/test1.json`.
      */
-    readonly source: pulumi.Input<string>;
+    source: pulumi.Input<string>;
     /**
      * Specifies the algorithm to use when decrypting the source object (for example, AES256).
      */
-    readonly sourceCustomerAlgorithm?: pulumi.Input<string>;
+    sourceCustomerAlgorithm?: pulumi.Input<string>;
     /**
      * Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.
      */
-    readonly sourceCustomerKey?: pulumi.Input<string>;
+    sourceCustomerKey?: pulumi.Input<string>;
     /**
      * Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
      */
-    readonly sourceCustomerKeyMd5?: pulumi.Input<string>;
+    sourceCustomerKeyMd5?: pulumi.Input<string>;
     /**
      * Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
      * for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
      */
-    readonly storageClass?: pulumi.Input<string>;
+    storageClass?: pulumi.Input<string>;
     /**
      * Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
      */
-    readonly taggingDirective?: pulumi.Input<string>;
+    taggingDirective?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies a target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
      */
-    readonly websiteRedirect?: pulumi.Input<string>;
+    websiteRedirect?: pulumi.Input<string>;
 }

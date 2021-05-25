@@ -163,35 +163,35 @@ export interface NetworkAclState {
     /**
      * The ARN of the network ACL
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**
      * The ID of the AWS account that owns the network ACL.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated VPC.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -201,25 +201,25 @@ export interface NetworkAclArgs {
     /**
      * Specifies an egress rule. Parameters defined below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclEgress>[]>;
     /**
      * Specifies an ingress rule. Parameters defined below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkAclIngress>[]>;
     /**
      * A list of Subnet IDs to apply the ACL to
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated VPC.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

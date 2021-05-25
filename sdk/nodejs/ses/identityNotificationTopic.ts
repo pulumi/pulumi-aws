@@ -118,19 +118,19 @@ export interface IdentityNotificationTopicState {
     /**
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
-    readonly identity?: pulumi.Input<string>;
+    identity?: pulumi.Input<string>;
     /**
      * Whether SES should include original email headers in SNS notifications of this type. *false* by default.
      */
-    readonly includeOriginalHeaders?: pulumi.Input<boolean>;
+    includeOriginalHeaders?: pulumi.Input<boolean>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
      */
-    readonly notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
      */
-    readonly topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string>;
 }
 
 /**
@@ -140,17 +140,17 @@ export interface IdentityNotificationTopicArgs {
     /**
      * The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
      */
-    readonly identity: pulumi.Input<string>;
+    identity: pulumi.Input<string>;
     /**
      * Whether SES should include original email headers in SNS notifications of this type. *false* by default.
      */
-    readonly includeOriginalHeaders?: pulumi.Input<boolean>;
+    includeOriginalHeaders?: pulumi.Input<boolean>;
     /**
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
      */
-    readonly notificationType: pulumi.Input<string>;
+    notificationType: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
      */
-    readonly topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string>;
 }

@@ -176,40 +176,40 @@ export interface ZoneState {
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    readonly delegationSetId?: pulumi.Input<string>;
+    delegationSetId?: pulumi.Input<string>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * This is the name of the hosted zone.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of name servers in associated (or default) delegation set.
      * Find more about delegation sets in [AWS docs](https://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-reusable-delegation-sets.html).
      */
-    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A mapping of tags to assign to the zone.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    readonly vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
     /**
      * The Hosted Zone ID. This can be referenced by zone records.
      */
-    readonly zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -219,29 +219,29 @@ export interface ZoneArgs {
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
      */
-    readonly delegationSetId?: pulumi.Input<string>;
+    delegationSetId?: pulumi.Input<string>;
     /**
      * Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * This is the name of the hosted zone.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the zone.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegationSetId` argument in this resource and any `aws.route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
      */
-    readonly vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
+    vpcs?: pulumi.Input<pulumi.Input<inputs.route53.ZoneVpc>[]>;
 }

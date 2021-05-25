@@ -167,43 +167,43 @@ export interface ConfigurationState {
     /**
      * ARN of the configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      */
-    readonly authenticationStrategy?: pulumi.Input<string>;
+    authenticationStrategy?: pulumi.Input<string>;
     /**
      * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
-    readonly data?: pulumi.Input<string>;
+    data?: pulumi.Input<string>;
     /**
      * Description of the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
-    readonly engineType?: pulumi.Input<string>;
+    engineType?: pulumi.Input<string>;
     /**
      * Version of the broker engine.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * Latest revision of the configuration.
      */
-    readonly latestRevision?: pulumi.Input<number>;
+    latestRevision?: pulumi.Input<number>;
     /**
      * Name of the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -213,33 +213,33 @@ export interface ConfigurationArgs {
     /**
      * Authentication strategy associated with the configuration. Valid values are `simple` and `ldap`. `ldap` is not supported for `engineType` `RabbitMQ`.
      */
-    readonly authenticationStrategy?: pulumi.Input<string>;
+    authenticationStrategy?: pulumi.Input<string>;
     /**
      * Broker configuration in XML format. See [official docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-configuration-parameters.html) for supported parameters and format of the XML.
      */
-    readonly data: pulumi.Input<string>;
+    data: pulumi.Input<string>;
     /**
      * Description of the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
      */
-    readonly engineType: pulumi.Input<string>;
+    engineType: pulumi.Input<string>;
     /**
      * Version of the broker engine.
      */
-    readonly engineVersion: pulumi.Input<string>;
+    engineVersion: pulumi.Input<string>;
     /**
      * Name of the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

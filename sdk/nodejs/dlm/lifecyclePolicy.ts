@@ -202,31 +202,31 @@ export interface LifecyclePolicyState {
     /**
      * Amazon Resource Name (ARN) of the DLM Lifecycle Policy.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A description for the DLM lifecycle policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    readonly executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    readonly policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -236,25 +236,25 @@ export interface LifecyclePolicyArgs {
     /**
      * A description for the DLM lifecycle policy.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that is able to be assumed by the DLM service.
      */
-    readonly executionRoleArn: pulumi.Input<string>;
+    executionRoleArn: pulumi.Input<string>;
     /**
      * See the `policyDetails` configuration block. Max of 1.
      */
-    readonly policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
+    policyDetails: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetails>;
     /**
      * Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

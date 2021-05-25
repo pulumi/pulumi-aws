@@ -172,15 +172,15 @@ export interface IdentityPoolRoleAttachmentState {
     /**
      * An identity pool ID in the format REGION:GUID.
      */
-    readonly identityPoolId?: pulumi.Input<string>;
+    identityPoolId?: pulumi.Input<string>;
     /**
      * A List of Role Mapping.
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
+    roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    roles?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -190,13 +190,13 @@ export interface IdentityPoolRoleAttachmentArgs {
     /**
      * An identity pool ID in the format REGION:GUID.
      */
-    readonly identityPoolId: pulumi.Input<string>;
+    identityPoolId: pulumi.Input<string>;
     /**
      * A List of Role Mapping.
      */
-    readonly roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
+    roleMappings?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolRoleAttachmentRoleMapping>[]>;
     /**
      * The map of roles associated with this pool. For a given role, the key will be either "authenticated" or "unauthenticated" and the value will be the Role ARN.
      */
-    readonly roles: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    roles: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

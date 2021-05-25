@@ -231,67 +231,67 @@ export interface ClusterState {
     /**
      * ARN of the cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
-    readonly certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
+    certificateAuthority?: pulumi.Input<inputs.eks.ClusterCertificateAuthority>;
     /**
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
-    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
-    readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
      * Endpoint for your Kubernetes API server.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * Attribute block containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. Detailed below.
      */
-    readonly identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
+    identities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterIdentity>[]>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Platform version for the cluster.
      */
-    readonly platformVersion?: pulumi.Input<string>;
+    platformVersion?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      */
-    readonly vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.eks.ClusterVpcConfig>;
 }
 
 /**
@@ -301,37 +301,37 @@ export interface ClusterArgs {
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
-    readonly enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledClusterLogTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
      */
-    readonly encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
+    encryptionConfig?: pulumi.Input<inputs.eks.ClusterEncryptionConfig>;
     /**
      * Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
      */
-    readonly kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
+    kubernetesNetworkConfig?: pulumi.Input<inputs.eks.ClusterKubernetesNetworkConfig>;
     /**
      * Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Desired Kubernetes master version. If you do not specify a value, the latest available version at resource creation is used and no upgrades will occur except those automatically triggered by EKS. The value must be configured and increased to upgrade the version when desired. Downgrades are not supported by EKS.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
      */
-    readonly vpcConfig: pulumi.Input<inputs.eks.ClusterVpcConfig>;
+    vpcConfig: pulumi.Input<inputs.eks.ClusterVpcConfig>;
 }

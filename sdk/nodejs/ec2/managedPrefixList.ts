@@ -162,33 +162,33 @@ export interface ManagedPrefixListState {
     /**
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
-    readonly addressFamily?: pulumi.Input<string>;
+    addressFamily?: pulumi.Input<string>;
     /**
      * ARN of the prefix list.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    readonly entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
-    readonly maxEntries?: pulumi.Input<number>;
+    maxEntries?: pulumi.Input<number>;
     /**
      * Name of this resource. The name must not start with `com.amazonaws`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * ID of the AWS account that owns this prefix list.
      */
-    readonly ownerId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ownerId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Latest version of this prefix list.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -198,19 +198,19 @@ export interface ManagedPrefixListArgs {
     /**
      * Address family (`IPv4` or `IPv6`) of this prefix list.
      */
-    readonly addressFamily: pulumi.Input<string>;
+    addressFamily: pulumi.Input<string>;
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    readonly entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
+    entries?: pulumi.Input<pulumi.Input<inputs.ec2.ManagedPrefixListEntry>[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */
-    readonly maxEntries: pulumi.Input<number>;
+    maxEntries: pulumi.Input<number>;
     /**
      * Name of this resource. The name must not start with `com.amazonaws`.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

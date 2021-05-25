@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.sns.getTopic({
  *     name: "an_example_topic",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
@@ -41,7 +41,7 @@ export interface GetTopicArgs {
     /**
      * The friendly name of the topic to match.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

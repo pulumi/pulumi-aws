@@ -158,39 +158,39 @@ export interface ModelState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this model.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    readonly enableNetworkIsolation?: pulumi.Input<boolean>;
+    enableNetworkIsolation?: pulumi.Input<boolean>;
     /**
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
-    readonly executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
+    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }
 
 /**
@@ -200,33 +200,33 @@ export interface ModelArgs {
     /**
      * Specifies containers in the inference pipeline. If not specified, the `primaryContainer` argument is required. Fields are documented below.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
+    containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainer>[]>;
     /**
      * Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
      */
-    readonly enableNetworkIsolation?: pulumi.Input<boolean>;
+    enableNetworkIsolation?: pulumi.Input<boolean>;
     /**
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
-    readonly executionRoleArn: pulumi.Input<string>;
+    executionRoleArn: pulumi.Input<string>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
      */
-    readonly primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
+    primaryContainer?: pulumi.Input<inputs.sagemaker.ModelPrimaryContainer>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the VPC that you want your model to connect to. VpcConfig is used in hosting services and in batch transform.
      */
-    readonly vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.ModelVpcConfig>;
 }

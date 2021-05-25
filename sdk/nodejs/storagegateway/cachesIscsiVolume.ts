@@ -238,71 +238,71 @@ export interface CachesIscsiVolumeState {
     /**
      * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Whether mutual CHAP is enabled for the iSCSI target.
      */
-    readonly chapEnabled?: pulumi.Input<boolean>;
+    chapEnabled?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string>;
     /**
      * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
      */
-    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
-    readonly kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string>;
     /**
      * Logical disk number.
      */
-    readonly lunNumber?: pulumi.Input<number>;
+    lunNumber?: pulumi.Input<number>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The port used to communicate with iSCSI targets.
      */
-    readonly networkInterfacePort?: pulumi.Input<number>;
+    networkInterfacePort?: pulumi.Input<number>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string>;
     /**
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      */
-    readonly sourceVolumeArn?: pulumi.Input<string>;
+    sourceVolumeArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */
-    readonly targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string>;
     /**
      * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
-    readonly volumeArn?: pulumi.Input<string>;
+    volumeArn?: pulumi.Input<string>;
     /**
      * Volume ID, e.g. `vol-12345678`.
      */
-    readonly volumeId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string>;
     /**
      * The size of the volume in bytes.
      */
-    readonly volumeSizeInBytes?: pulumi.Input<number>;
+    volumeSizeInBytes?: pulumi.Input<number>;
 }
 
 /**
@@ -312,41 +312,41 @@ export interface CachesIscsiVolumeArgs {
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn: pulumi.Input<string>;
+    gatewayArn: pulumi.Input<string>;
     /**
      * Set to `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3.
      */
-    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      */
-    readonly kmsKey?: pulumi.Input<string>;
+    kmsKey?: pulumi.Input<string>;
     /**
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
-    readonly networkInterfaceId: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string>;
     /**
      * The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
      */
-    readonly sourceVolumeArn?: pulumi.Input<string>;
+    sourceVolumeArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */
-    readonly targetName: pulumi.Input<string>;
+    targetName: pulumi.Input<string>;
     /**
      * The size of the volume in bytes.
      */
-    readonly volumeSizeInBytes: pulumi.Input<number>;
+    volumeSizeInBytes: pulumi.Input<number>;
 }

@@ -140,11 +140,11 @@ export interface QueryLogState {
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    readonly zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -154,9 +154,9 @@ export interface QueryLogArgs {
     /**
      * CloudWatch log group ARN to send query logs.
      */
-    readonly cloudwatchLogGroupArn: pulumi.Input<string>;
+    cloudwatchLogGroupArn: pulumi.Input<string>;
     /**
      * Route53 hosted zone ID to enable query logs.
      */
-    readonly zoneId: pulumi.Input<string>;
+    zoneId: pulumi.Input<string>;
 }

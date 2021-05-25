@@ -136,27 +136,27 @@ export interface CodeSigningConfigState {
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      */
-    readonly allowedPublishers?: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
+    allowedPublishers?: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Unique identifier for the code signing configuration.
      */
-    readonly configId?: pulumi.Input<string>;
+    configId?: pulumi.Input<string>;
     /**
      * Descriptive name for this code signing configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The date and time that the code signing configuration was last modified.
      */
-    readonly lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string>;
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    readonly policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
 }
 
 /**
@@ -166,13 +166,13 @@ export interface CodeSigningConfigArgs {
     /**
      * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
      */
-    readonly allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
+    allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishers>;
     /**
      * Descriptive name for this code signing configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
      */
-    readonly policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
+    policies?: pulumi.Input<inputs.lambda.CodeSigningConfigPolicies>;
 }

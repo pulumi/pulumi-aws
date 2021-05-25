@@ -234,63 +234,63 @@ export interface CatalogTableState {
     /**
      * The ARN of the Glue Table.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * ID of the Data Catalog in which the table resides.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * Name of the catalog database that contains the target table.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Description of the table.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the target table.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner of the table.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Map of initialization parameters for the SerDe, in key-value form.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    readonly partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    readonly partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**
      * Retention time for this table.
      */
-    readonly retention?: pulumi.Input<number>;
+    retention?: pulumi.Input<number>;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    readonly tableType?: pulumi.Input<string>;
+    tableType?: pulumi.Input<string>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    readonly targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    readonly viewExpandedText?: pulumi.Input<string>;
+    viewExpandedText?: pulumi.Input<string>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    readonly viewOriginalText?: pulumi.Input<string>;
+    viewOriginalText?: pulumi.Input<string>;
 }
 
 /**
@@ -300,57 +300,57 @@ export interface CatalogTableArgs {
     /**
      * ID of the Data Catalog in which the table resides.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * Name of the catalog database that contains the target table.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Description of the table.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the target table.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner of the table.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Map of initialization parameters for the SerDe, in key-value form.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    readonly partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
+    partitionIndices?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionIndex>[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
-    readonly partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
     /**
      * Retention time for this table.
      */
-    readonly retention?: pulumi.Input<number>;
+    retention?: pulumi.Input<number>;
     /**
      * Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
      */
-    readonly storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
+    storageDescriptor?: pulumi.Input<inputs.glue.CatalogTableStorageDescriptor>;
     /**
      * Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
      */
-    readonly tableType?: pulumi.Input<string>;
+    tableType?: pulumi.Input<string>;
     /**
      * Configuration block of a target table for resource linking. See `targetTable` below.
      */
-    readonly targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
+    targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */
-    readonly viewExpandedText?: pulumi.Input<string>;
+    viewExpandedText?: pulumi.Input<string>;
     /**
      * If the table is a view, the original text of the view; otherwise null.
      */
-    readonly viewOriginalText?: pulumi.Input<string>;
+    viewOriginalText?: pulumi.Input<string>;
 }

@@ -154,35 +154,35 @@ export interface ApplicationState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * The ARN of the CodeDeploy application.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    readonly computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string>;
     /**
      * The name for a connection to a GitHub account.
      */
-    readonly githubAccountName?: pulumi.Input<string>;
+    githubAccountName?: pulumi.Input<string>;
     /**
      * Whether the user has authenticated with GitHub for the specified application.
      */
-    readonly linkedToGithub?: pulumi.Input<boolean>;
+    linkedToGithub?: pulumi.Input<boolean>;
     /**
      * The name of the application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -192,17 +192,17 @@ export interface ApplicationArgs {
     /**
      * The compute platform can either be `ECS`, `Lambda`, or `Server`. Default is `Server`.
      */
-    readonly computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string>;
     /**
      * The name of the application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

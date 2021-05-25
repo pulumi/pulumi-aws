@@ -105,15 +105,15 @@ export interface LogStreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the log stream.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    readonly logGroupName?: pulumi.Input<string>;
+    logGroupName?: pulumi.Input<string>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -123,9 +123,9 @@ export interface LogStreamArgs {
     /**
      * The name of the log group under which the log stream is to be created.
      */
-    readonly logGroupName: pulumi.Input<string>;
+    logGroupName: pulumi.Input<string>;
     /**
      * The name of the log stream. Must not be longer than 512 characters and must not contain `:`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

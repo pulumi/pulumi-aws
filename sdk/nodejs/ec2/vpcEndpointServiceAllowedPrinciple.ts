@@ -105,11 +105,11 @@ export interface VpcEndpointServiceAllowedPrincipleState {
     /**
      * The ARN of the principal to allow permissions.
      */
-    readonly principalArn?: pulumi.Input<string>;
+    principalArn?: pulumi.Input<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */
-    readonly vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string>;
 }
 
 /**
@@ -119,9 +119,9 @@ export interface VpcEndpointServiceAllowedPrincipleArgs {
     /**
      * The ARN of the principal to allow permissions.
      */
-    readonly principalArn: pulumi.Input<string>;
+    principalArn: pulumi.Input<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */
-    readonly vpcEndpointServiceId: pulumi.Input<string>;
+    vpcEndpointServiceId: pulumi.Input<string>;
 }

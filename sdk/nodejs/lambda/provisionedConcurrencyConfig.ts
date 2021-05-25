@@ -127,15 +127,15 @@ export interface ProvisionedConcurrencyConfigState {
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      */
-    readonly functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string>;
     /**
      * Amount of capacity to allocate. Must be greater than or equal to `1`.
      */
-    readonly provisionedConcurrentExecutions?: pulumi.Input<number>;
+    provisionedConcurrentExecutions?: pulumi.Input<number>;
     /**
      * Lambda Function version or Lambda Alias name.
      */
-    readonly qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string>;
 }
 
 /**
@@ -145,13 +145,13 @@ export interface ProvisionedConcurrencyConfigArgs {
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function.
      */
-    readonly functionName: pulumi.Input<string>;
+    functionName: pulumi.Input<string>;
     /**
      * Amount of capacity to allocate. Must be greater than or equal to `1`.
      */
-    readonly provisionedConcurrentExecutions: pulumi.Input<number>;
+    provisionedConcurrentExecutions: pulumi.Input<number>;
     /**
      * Lambda Function version or Lambda Alias name.
      */
-    readonly qualifier: pulumi.Input<string>;
+    qualifier: pulumi.Input<string>;
 }

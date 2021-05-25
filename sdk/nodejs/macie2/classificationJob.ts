@@ -185,55 +185,55 @@ export interface ClassificationJobState {
     /**
      * The date and time, in UTC and extended RFC 3339 format, when the job was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * The custom data identifiers to use for data analysis and classification.
      */
-    readonly customDataIdentifierIds?: pulumi.Input<pulumi.Input<string>[]>;
+    customDataIdentifierIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      */
-    readonly initialRun?: pulumi.Input<boolean>;
-    readonly jobArn?: pulumi.Input<string>;
-    readonly jobId?: pulumi.Input<string>;
+    initialRun?: pulumi.Input<boolean>;
+    jobArn?: pulumi.Input<string>;
+    jobId?: pulumi.Input<string>;
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      */
-    readonly jobStatus?: pulumi.Input<string>;
+    jobStatus?: pulumi.Input<string>;
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
-    readonly jobType?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    jobType?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    readonly s3JobDefinition?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
+    s3JobDefinition?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
-    readonly samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number>;
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    readonly scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
+    scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
-    readonly userPausedDetails?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobUserPausedDetail>[]>;
+    userPausedDetails?: pulumi.Input<pulumi.Input<inputs.macie2.ClassificationJobUserPausedDetail>[]>;
 }
 
 /**
@@ -243,43 +243,43 @@ export interface ClassificationJobArgs {
     /**
      * The custom data identifiers to use for data analysis and classification.
      */
-    readonly customDataIdentifierIds?: pulumi.Input<pulumi.Input<string>[]>;
+    customDataIdentifierIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A custom description of the job. The description can contain as many as 200 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies whether to analyze all existing, eligible objects immediately after the job is created.
      */
-    readonly initialRun?: pulumi.Input<boolean>;
+    initialRun?: pulumi.Input<boolean>;
     /**
      * The status for the job. Valid values are: `CANCELLED`, `RUNNING` and `USER_PAUSED`
      */
-    readonly jobStatus?: pulumi.Input<string>;
+    jobStatus?: pulumi.Input<string>;
     /**
      * The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `scheduleFrequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `scheduleFrequency` property to define the recurrence pattern for the job.
      */
-    readonly jobType: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    jobType: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
-    readonly s3JobDefinition: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
+    s3JobDefinition: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
     /**
      * The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
      */
-    readonly samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number>;
     /**
      * The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `jobType` property to `ONE_TIME`. (documented below)
      */
-    readonly scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
+    scheduleFrequency?: pulumi.Input<inputs.macie2.ClassificationJobScheduleFrequency>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

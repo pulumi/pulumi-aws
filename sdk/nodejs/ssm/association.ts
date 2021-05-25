@@ -171,59 +171,59 @@ export interface AssociationState {
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
-    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * The ID of the SSM association.
      */
-    readonly associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string>;
     /**
      * The descriptive name for the association.
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
      */
-    readonly automationTargetParameterName?: pulumi.Input<string>;
+    automationTargetParameterName?: pulumi.Input<string>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    readonly complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<string>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    readonly documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
-    readonly instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    readonly maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    readonly maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
-    readonly scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
 }
 
 /**
@@ -233,53 +233,53 @@ export interface AssociationArgs {
     /**
      * By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
      */
-    readonly applyOnlyAtCronInterval?: pulumi.Input<boolean>;
+    applyOnlyAtCronInterval?: pulumi.Input<boolean>;
     /**
      * The descriptive name for the association.
      */
-    readonly associationName?: pulumi.Input<string>;
+    associationName?: pulumi.Input<string>;
     /**
      * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
      */
-    readonly automationTargetParameterName?: pulumi.Input<string>;
+    automationTargetParameterName?: pulumi.Input<string>;
     /**
      * The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
      */
-    readonly complianceSeverity?: pulumi.Input<string>;
+    complianceSeverity?: pulumi.Input<string>;
     /**
      * The document version you want to associate with the target(s). Can be a specific version or the default version.
      */
-    readonly documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string>;
     /**
      * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
      */
-    readonly instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
     /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    readonly maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string>;
     /**
      * The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
-    readonly maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string>;
     /**
      * The name of the SSM document to apply.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * An output location block. Output Location is documented below.
      */
-    readonly outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
+    outputLocation?: pulumi.Input<inputs.ssm.AssociationOutputLocation>;
     /**
      * A block of arbitrary string parameters to pass to the SSM document.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A cron expression when the association will be applied to the target(s).
      */
-    readonly scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
 }

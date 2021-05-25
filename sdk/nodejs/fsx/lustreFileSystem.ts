@@ -251,99 +251,99 @@ export interface LustreFileSystemState {
     /**
      * Amazon Resource Name of the file system.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
      */
-    readonly autoImportPolicy?: pulumi.Input<string>;
+    autoImportPolicy?: pulumi.Input<string>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
-    readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    automaticBackupRetentionDays?: pulumi.Input<number>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
      */
-    readonly copyTagsToBackups?: pulumi.Input<boolean>;
+    copyTagsToBackups?: pulumi.Input<boolean>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
-    readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
-    readonly deploymentType?: pulumi.Input<string>;
+    deploymentType?: pulumi.Input<string>;
     /**
      * DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
-    readonly driveCacheType?: pulumi.Input<string>;
+    driveCacheType?: pulumi.Input<string>;
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
      */
-    readonly exportPath?: pulumi.Input<string>;
+    exportPath?: pulumi.Input<string>;
     /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
      */
-    readonly importPath?: pulumi.Input<string>;
+    importPath?: pulumi.Input<string>;
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
      */
-    readonly importedFileChunkSize?: pulumi.Input<number>;
+    importedFileChunkSize?: pulumi.Input<number>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The value to be used when mounting the filesystem.
      */
-    readonly mountName?: pulumi.Input<string>;
+    mountName?: pulumi.Input<string>;
     /**
      * Set of Elastic Network Interface identifiers from which the file system is accessible. As explained in the [documentation](https://docs.aws.amazon.com/fsx/latest/LustreGuide/mounting-on-premises.html), the first network interface returned is the primary network interface.
      */
-    readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * AWS account identifier that created the file system.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
      */
-    readonly perUnitStorageThroughput?: pulumi.Input<number>;
+    perUnitStorageThroughput?: pulumi.Input<number>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
      */
-    readonly storageCapacity?: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number>;
     /**
      * - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      */
-    readonly storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
      */
-    readonly subnetIds?: pulumi.Input<string>;
+    subnetIds?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    readonly weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    weeklyMaintenanceStartTime?: pulumi.Input<string>;
 }
 
 /**
@@ -353,73 +353,73 @@ export interface LustreFileSystemArgs {
     /**
      * How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
      */
-    readonly autoImportPolicy?: pulumi.Input<string>;
+    autoImportPolicy?: pulumi.Input<string>;
     /**
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
-    readonly automaticBackupRetentionDays?: pulumi.Input<number>;
+    automaticBackupRetentionDays?: pulumi.Input<number>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
      */
-    readonly copyTagsToBackups?: pulumi.Input<boolean>;
+    copyTagsToBackups?: pulumi.Input<boolean>;
     /**
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
-    readonly dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
-    readonly deploymentType?: pulumi.Input<string>;
+    deploymentType?: pulumi.Input<string>;
     /**
      * - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
      */
-    readonly driveCacheType?: pulumi.Input<string>;
+    driveCacheType?: pulumi.Input<string>;
     /**
      * S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `importPath` argument and the path must use the same Amazon S3 bucket as specified in `importPath`. Set equal to `importPath` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
      */
-    readonly exportPath?: pulumi.Input<string>;
+    exportPath?: pulumi.Input<string>;
     /**
      * S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
      */
-    readonly importPath?: pulumi.Input<string>;
+    importPath?: pulumi.Input<string>;
     /**
      * For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. Can only be specified with `importPath` argument. Defaults to `1024`. Minimum of `1` and maximum of `512000`.
      */
-    readonly importedFileChunkSize?: pulumi.Input<number>;
+    importedFileChunkSize?: pulumi.Input<number>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storageType are 50, 100, 200. Valid values for `HDD` storageType are 12, 40.
      */
-    readonly perUnitStorageThroughput?: pulumi.Input<number>;
+    perUnitStorageThroughput?: pulumi.Input<number>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The storage capacity (GiB) of the file system. Minimum of `1200`. Storage capacity is provisioned in increments of 3,600 GiB.
      */
-    readonly storageCapacity: pulumi.Input<number>;
+    storageCapacity: pulumi.Input<number>;
     /**
      * - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      */
-    readonly storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
     /**
      * A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
      */
-    readonly subnetIds: pulumi.Input<string>;
+    subnetIds: pulumi.Input<string>;
     /**
      * A map of tags to assign to the file system. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
      */
-    readonly weeklyMaintenanceStartTime?: pulumi.Input<string>;
+    weeklyMaintenanceStartTime?: pulumi.Input<string>;
 }

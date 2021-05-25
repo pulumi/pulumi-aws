@@ -142,27 +142,27 @@ export interface EventArchiveState {
     /**
      * The Amazon Resource Name (ARN) of the event archive.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the new event archive.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
-    readonly eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string>;
     /**
      * Event bus source ARN from where these events should be archived.
      */
-    readonly eventSourceArn?: pulumi.Input<string>;
+    eventSourceArn?: pulumi.Input<string>;
     /**
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
-    readonly retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number>;
 }
 
 /**
@@ -172,21 +172,21 @@ export interface EventArchiveArgs {
     /**
      * The description of the new event archive.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Instructs the new event archive to only capture events matched by this pattern. By default, it attempts to archive every event received in the `eventSourceArn`.
      */
-    readonly eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string>;
     /**
      * Event bus source ARN from where these events should be archived.
      */
-    readonly eventSourceArn: pulumi.Input<string>;
+    eventSourceArn: pulumi.Input<string>;
     /**
      * The name of the new event archive. The archive name cannot exceed 48 characters.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
      */
-    readonly retentionDays?: pulumi.Input<number>;
+    retentionDays?: pulumi.Input<number>;
 }

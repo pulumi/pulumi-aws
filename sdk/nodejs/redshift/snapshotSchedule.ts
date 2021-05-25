@@ -136,36 +136,36 @@ export interface SnapshotScheduleState {
     /**
      * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      */
-    readonly definitions?: pulumi.Input<pulumi.Input<string>[]>;
+    definitions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the snapshot schedule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,30 +175,30 @@ export interface SnapshotScheduleArgs {
     /**
      * The definition of the snapshot schedule. The definition is made up of schedule expressions, for example `cron(30 12 *)` or `rate(12 hours)`.
      */
-    readonly definitions: pulumi.Input<pulumi.Input<string>[]>;
+    definitions: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the snapshot schedule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to destroy all associated clusters with this snapshot schedule on deletion. Must be enabled and applied before attempting deletion.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * The snapshot schedule identifier. If omitted, this provider will assign a random, unique identifier.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

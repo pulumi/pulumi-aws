@@ -168,41 +168,41 @@ export interface TrafficMirrorSessionState {
     /**
      * The ARN of the traffic mirror session.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A description of the traffic mirror session.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The AWS account ID of the session owner.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    readonly packetLength?: pulumi.Input<number>;
+    packetLength?: pulumi.Input<number>;
     /**
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
-    readonly sessionNumber?: pulumi.Input<number>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sessionNumber?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the traffic mirror filter to be used
      */
-    readonly trafficMirrorFilterId?: pulumi.Input<string>;
+    trafficMirrorFilterId?: pulumi.Input<string>;
     /**
      * ID of the traffic mirror target to be used
      */
-    readonly trafficMirrorTargetId?: pulumi.Input<string>;
+    trafficMirrorTargetId?: pulumi.Input<string>;
     /**
      * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    readonly virtualNetworkId?: pulumi.Input<number>;
+    virtualNetworkId?: pulumi.Input<number>;
 }
 
 /**
@@ -212,31 +212,31 @@ export interface TrafficMirrorSessionArgs {
     /**
      * A description of the traffic mirror session.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * ID of the source network interface. Not all network interfaces are eligible as mirror sources. On EC2 instances only nitro based instances support mirroring.
      */
-    readonly networkInterfaceId: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
     /**
      * The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
      */
-    readonly packetLength?: pulumi.Input<number>;
+    packetLength?: pulumi.Input<number>;
     /**
      * - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      */
-    readonly sessionNumber: pulumi.Input<number>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    sessionNumber: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the traffic mirror filter to be used
      */
-    readonly trafficMirrorFilterId: pulumi.Input<string>;
+    trafficMirrorFilterId: pulumi.Input<string>;
     /**
      * ID of the traffic mirror target to be used
      */
-    readonly trafficMirrorTargetId: pulumi.Input<string>;
+    trafficMirrorTargetId: pulumi.Input<string>;
     /**
      * - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
      */
-    readonly virtualNetworkId?: pulumi.Input<number>;
+    virtualNetworkId?: pulumi.Input<number>;
 }

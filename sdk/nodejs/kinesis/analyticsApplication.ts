@@ -262,60 +262,60 @@ export interface AnalyticsApplicationState {
     /**
      * The ARN of the Kinesis Analytics Appliation.
      */
-    readonly arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<ARN>;
     /**
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    readonly cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    readonly code?: pulumi.Input<string>;
+    code?: pulumi.Input<string>;
     /**
      * The Timestamp when the application version was created.
      */
-    readonly createTimestamp?: pulumi.Input<string>;
+    createTimestamp?: pulumi.Input<string>;
     /**
      * Description of the application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    readonly inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
     /**
      * The Timestamp when the application was last updated.
      */
-    readonly lastUpdateTimestamp?: pulumi.Input<string>;
+    lastUpdateTimestamp?: pulumi.Input<string>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    readonly referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
-    readonly startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean>;
     /**
      * The Status of the application.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Version of the application.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -326,37 +326,37 @@ export interface AnalyticsApplicationArgs {
      * The CloudWatch log stream options to monitor application errors.
      * See CloudWatch Logging Options below for more details.
      */
-    readonly cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.AnalyticsApplicationCloudwatchLoggingOptions>;
     /**
      * SQL Code to transform input data, and generate output.
      */
-    readonly code?: pulumi.Input<string>;
+    code?: pulumi.Input<string>;
     /**
      * Description of the application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Input configuration of the application. See Inputs below for more details.
      */
-    readonly inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
+    inputs?: pulumi.Input<inputs.kinesis.AnalyticsApplicationInputs>;
     /**
      * Name of the Kinesis Analytics Application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Output destination configuration of the application. See Outputs below for more details.
      */
-    readonly outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
+    outputs?: pulumi.Input<pulumi.Input<inputs.kinesis.AnalyticsApplicationOutput>[]>;
     /**
      * An S3 Reference Data Source for the application.
      * See Reference Data Sources below for more details.
      */
-    readonly referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
+    referenceDataSources?: pulumi.Input<inputs.kinesis.AnalyticsApplicationReferenceDataSources>;
     /**
      * Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
-    readonly startApplication?: pulumi.Input<boolean>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    startApplication?: pulumi.Input<boolean>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

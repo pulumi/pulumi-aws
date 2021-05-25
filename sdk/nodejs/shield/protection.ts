@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const available = pulumi.output(aws.getAvailabilityZones({ async: true }));
- * const currentRegion = pulumi.output(aws.getRegion({ async: true }));
- * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity({ async: true }));
+ * const available = pulumi.output(aws.getAvailabilityZones());
+ * const currentRegion = pulumi.output(aws.getRegion());
+ * const currentCallerIdentity = pulumi.output(aws.getCallerIdentity());
  * const exampleEip = new aws.ec2.Eip("example", {
  *     vpc: true,
  * });
@@ -129,23 +129,23 @@ export interface ProtectionState {
     /**
      * The ARN of the Protection.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A friendly name for the Protection you are creating.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -155,17 +155,17 @@ export interface ProtectionArgs {
     /**
      * A friendly name for the Protection you are creating.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN (Amazon Resource Name) of the resource to be protected.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -179,59 +179,59 @@ export interface TopicSubscriptionState {
     /**
      * ARN of the subscription.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
-    readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
+    confirmationTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Whether the subscription confirmation request was authenticated.
      */
-    readonly confirmationWasAuthenticated?: pulumi.Input<boolean>;
+    confirmationWasAuthenticated?: pulumi.Input<boolean>;
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      */
-    readonly deliveryPolicy?: pulumi.Input<string>;
+    deliveryPolicy?: pulumi.Input<string>;
     /**
      * Endpoint to send data to. The contents vary with the protocol. See details below.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
      */
-    readonly endpointAutoConfirms?: pulumi.Input<boolean>;
+    endpointAutoConfirms?: pulumi.Input<boolean>;
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
-    readonly filterPolicy?: pulumi.Input<string>;
+    filterPolicy?: pulumi.Input<string>;
     /**
      * AWS account ID of the subscription's owner.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * Whether the subscription has not been confirmed.
      */
-    readonly pendingConfirmation?: pulumi.Input<boolean>;
+    pendingConfirmation?: pulumi.Input<boolean>;
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
      */
-    readonly rawMessageDelivery?: pulumi.Input<boolean>;
+    rawMessageDelivery?: pulumi.Input<boolean>;
     /**
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      */
-    readonly redrivePolicy?: pulumi.Input<string>;
+    redrivePolicy?: pulumi.Input<string>;
     /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      */
-    readonly subscriptionRoleArn?: pulumi.Input<string>;
+    subscriptionRoleArn?: pulumi.Input<string>;
     /**
      * ARN of the SNS topic to subscribe to.
      */
-    readonly topic?: pulumi.Input<string | Topic>;
+    topic?: pulumi.Input<string | Topic>;
 }
 
 /**
@@ -241,41 +241,41 @@ export interface TopicSubscriptionArgs {
     /**
      * Integer indicating number of minutes to wait in retrying mode for fetching subscription arn before marking it as failure. Only applicable for http and https protocols. Default is `1`.
      */
-    readonly confirmationTimeoutInMinutes?: pulumi.Input<number>;
+    confirmationTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * JSON String with the delivery policy (retries, backoff, etc.) that will be used in the subscription - this only applies to HTTP/S subscriptions. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html) for more details.
      */
-    readonly deliveryPolicy?: pulumi.Input<string>;
+    deliveryPolicy?: pulumi.Input<string>;
     /**
      * Endpoint to send data to. The contents vary with the protocol. See details below.
      */
-    readonly endpoint: pulumi.Input<string>;
+    endpoint: pulumi.Input<string>;
     /**
      * Whether the endpoint is capable of [auto confirming subscription](http://docs.aws.amazon.com/sns/latest/dg/SendMessageToHttp.html#SendMessageToHttp.prepare) (e.g., PagerDuty). Default is `false`.
      */
-    readonly endpointAutoConfirms?: pulumi.Input<boolean>;
+    endpointAutoConfirms?: pulumi.Input<boolean>;
     /**
      * JSON String with the filter policy that will be used in the subscription to filter messages seen by the target resource. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-filtering.html) for more details.
      */
-    readonly filterPolicy?: pulumi.Input<string>;
+    filterPolicy?: pulumi.Input<string>;
     /**
      * Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
      */
-    readonly rawMessageDelivery?: pulumi.Input<boolean>;
+    rawMessageDelivery?: pulumi.Input<boolean>;
     /**
      * JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
      */
-    readonly redrivePolicy?: pulumi.Input<string>;
+    redrivePolicy?: pulumi.Input<string>;
     /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      */
-    readonly subscriptionRoleArn?: pulumi.Input<string>;
+    subscriptionRoleArn?: pulumi.Input<string>;
     /**
      * ARN of the SNS topic to subscribe to.
      */
-    readonly topic: pulumi.Input<string | Topic>;
+    topic: pulumi.Input<string | Topic>;
 }

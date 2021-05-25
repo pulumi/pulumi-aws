@@ -168,29 +168,29 @@ export interface InstanceFleetState {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Configuration block for instance fleet
      */
-    readonly instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
     /**
      * Configuration block for launch specification
      */
-    readonly launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
     /**
      * Friendly name given to the instance fleet.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly provisionedOnDemandCapacity?: pulumi.Input<number>;
-    readonly provisionedSpotCapacity?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    provisionedOnDemandCapacity?: pulumi.Input<number>;
+    provisionedSpotCapacity?: pulumi.Input<number>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
-    readonly targetOnDemandCapacity?: pulumi.Input<number>;
+    targetOnDemandCapacity?: pulumi.Input<number>;
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      */
-    readonly targetSpotCapacity?: pulumi.Input<number>;
+    targetSpotCapacity?: pulumi.Input<number>;
 }
 
 /**
@@ -200,25 +200,25 @@ export interface InstanceFleetArgs {
     /**
      * ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
      */
-    readonly clusterId: pulumi.Input<string>;
+    clusterId: pulumi.Input<string>;
     /**
      * Configuration block for instance fleet
      */
-    readonly instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
+    instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.InstanceFleetInstanceTypeConfig>[]>;
     /**
      * Configuration block for launch specification
      */
-    readonly launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
+    launchSpecifications?: pulumi.Input<inputs.emr.InstanceFleetLaunchSpecifications>;
     /**
      * Friendly name given to the instance fleet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
      */
-    readonly targetOnDemandCapacity?: pulumi.Input<number>;
+    targetOnDemandCapacity?: pulumi.Input<number>;
     /**
      * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
      */
-    readonly targetSpotCapacity?: pulumi.Input<number>;
+    targetSpotCapacity?: pulumi.Input<number>;
 }

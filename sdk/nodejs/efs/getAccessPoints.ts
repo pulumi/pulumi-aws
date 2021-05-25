@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.efs.getAccessPoints({
  *     fileSystemId: "fs-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointsResult> {
@@ -39,7 +39,7 @@ export interface GetAccessPointsArgs {
     /**
      * EFS File System identifier.
      */
-    readonly fileSystemId: string;
+    fileSystemId: string;
 }
 
 /**

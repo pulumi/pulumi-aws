@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     namePrefix: "AWS-",
  *     operatingSystem: "CENTOS",
  *     owner: "AWS",
- * }, { async: true }));
+ * }));
  * ```
  *
  * To retrieve a baseline on your account:
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     namePrefix: "MyCustomBaseline",
  *     operatingSystem: "WINDOWS",
  *     owner: "Self",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
@@ -60,19 +60,19 @@ export interface GetPatchBaselineArgs {
     /**
      * Filters the results against the baselines defaultBaseline field.
      */
-    readonly defaultBaseline?: boolean;
+    defaultBaseline?: boolean;
     /**
      * Filter results by the baseline name prefix.
      */
-    readonly namePrefix?: string;
+    namePrefix?: string;
     /**
      * The specified OS for the baseline.
      */
-    readonly operatingSystem?: string;
+    operatingSystem?: string;
     /**
      * The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
      */
-    readonly owner: string;
+    owner: string;
 }
 
 /**

@@ -224,81 +224,81 @@ export interface SnapshotState {
     /**
      * Specifies the allocated storage size in gigabytes (GB).
      */
-    readonly allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number>;
     /**
      * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The DB Instance Identifier from which to take the snapshot.
      */
-    readonly dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the DB snapshot.
      */
-    readonly dbSnapshotArn?: pulumi.Input<string>;
+    dbSnapshotArn?: pulumi.Input<string>;
     /**
      * The Identifier for the snapshot.
      */
-    readonly dbSnapshotIdentifier?: pulumi.Input<string>;
+    dbSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the DB snapshot is encrypted.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the database engine.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * Specifies the version of the database engine.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
-    readonly iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * License model information for the restored DB instance.
      */
-    readonly licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string>;
     /**
      * Provides the option group name for the DB snapshot.
      */
-    readonly optionGroupName?: pulumi.Input<string>;
-    readonly port?: pulumi.Input<number>;
-    readonly snapshotType?: pulumi.Input<string>;
+    optionGroupName?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+    snapshotType?: pulumi.Input<string>;
     /**
      * The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
      */
-    readonly sourceDbSnapshotIdentifier?: pulumi.Input<string>;
+    sourceDbSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The region that the DB snapshot was created in or copied from.
      */
-    readonly sourceRegion?: pulumi.Input<string>;
+    sourceRegion?: pulumi.Input<string>;
     /**
      * Specifies the status of this DB snapshot.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
-    readonly storageType?: pulumi.Input<string>;
+    storageType?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the storage type associated with DB snapshot.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -308,17 +308,17 @@ export interface SnapshotArgs {
     /**
      * The DB Instance Identifier from which to take the snapshot.
      */
-    readonly dbInstanceIdentifier: pulumi.Input<string>;
+    dbInstanceIdentifier: pulumi.Input<string>;
     /**
      * The Identifier for the snapshot.
      */
-    readonly dbSnapshotIdentifier: pulumi.Input<string>;
+    dbSnapshotIdentifier: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -123,11 +123,11 @@ export interface LogServiceState {
     /**
      * The id of directory.
      */
-    readonly directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string>;
     /**
      * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
      */
-    readonly logGroupName?: pulumi.Input<string>;
+    logGroupName?: pulumi.Input<string>;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface LogServiceArgs {
     /**
      * The id of directory.
      */
-    readonly directoryId: pulumi.Input<string>;
+    directoryId: pulumi.Input<string>;
     /**
      * Name of the cloudwatch log group to which the logs should be published. The log group should be already created and the directory service principal should be provided with required permission to create stream and publish logs. Changing this value would delete the current subscription and create a new one. A directory can only have one log subscription at a time.
      */
-    readonly logGroupName: pulumi.Input<string>;
+    logGroupName: pulumi.Input<string>;
 }

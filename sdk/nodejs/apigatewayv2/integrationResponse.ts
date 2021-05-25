@@ -134,27 +134,27 @@ export interface IntegrationResponseState {
     /**
      * The API identifier.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      */
-    readonly contentHandlingStrategy?: pulumi.Input<string>;
+    contentHandlingStrategy?: pulumi.Input<string>;
     /**
      * The identifier of the `aws.apigatewayv2.Integration`.
      */
-    readonly integrationId?: pulumi.Input<string>;
+    integrationId?: pulumi.Input<string>;
     /**
      * The integration response key.
      */
-    readonly integrationResponseKey?: pulumi.Input<string>;
+    integrationResponseKey?: pulumi.Input<string>;
     /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
-    readonly templateSelectionExpression?: pulumi.Input<string>;
+    templateSelectionExpression?: pulumi.Input<string>;
 }
 
 /**
@@ -164,25 +164,25 @@ export interface IntegrationResponseArgs {
     /**
      * The API identifier.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
      */
-    readonly contentHandlingStrategy?: pulumi.Input<string>;
+    contentHandlingStrategy?: pulumi.Input<string>;
     /**
      * The identifier of the `aws.apigatewayv2.Integration`.
      */
-    readonly integrationId: pulumi.Input<string>;
+    integrationId: pulumi.Input<string>;
     /**
      * The integration response key.
      */
-    readonly integrationResponseKey: pulumi.Input<string>;
+    integrationResponseKey: pulumi.Input<string>;
     /**
      * A map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
      */
-    readonly templateSelectionExpression?: pulumi.Input<string>;
+    templateSelectionExpression?: pulumi.Input<string>;
 }

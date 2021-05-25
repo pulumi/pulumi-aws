@@ -188,43 +188,43 @@ export interface ProxyTargetState {
     /**
      * DB cluster identifier.
      */
-    readonly dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
     /**
      * DB instance identifier.
      */
-    readonly dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * The name of the DB proxy.
      */
-    readonly dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string>;
     /**
      * Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * Port for the target RDS DB Instance or Aurora DB Cluster.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Identifier representing the DB Instance or DB Cluster target.
      */
-    readonly rdsResourceId?: pulumi.Input<string>;
+    rdsResourceId?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string>;
     /**
      * The name of the target group.
      */
-    readonly targetGroupName?: pulumi.Input<string>;
+    targetGroupName?: pulumi.Input<string>;
     /**
      * DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
      */
-    readonly trackedClusterId?: pulumi.Input<string>;
+    trackedClusterId?: pulumi.Input<string>;
     /**
      * Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -234,17 +234,17 @@ export interface ProxyTargetArgs {
     /**
      * DB cluster identifier.
      */
-    readonly dbClusterIdentifier?: pulumi.Input<string>;
+    dbClusterIdentifier?: pulumi.Input<string>;
     /**
      * DB instance identifier.
      */
-    readonly dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * The name of the DB proxy.
      */
-    readonly dbProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
     /**
      * The name of the target group.
      */
-    readonly targetGroupName: pulumi.Input<string>;
+    targetGroupName: pulumi.Input<string>;
 }

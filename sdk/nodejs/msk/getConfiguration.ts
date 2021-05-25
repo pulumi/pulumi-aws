@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.msk.getConfiguration({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
@@ -39,7 +39,7 @@ export interface GetConfigurationArgs {
     /**
      * Name of the configuration.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

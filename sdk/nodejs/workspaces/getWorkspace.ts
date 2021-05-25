@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.workspaces.getWorkspace({
  *     workspaceId: "ws-cj5xcxsz5",
- * }, { async: true }));
+ * }));
  * ```
  * ### Filter By Directory ID & User Name
  *
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.workspaces.getWorkspace({
  *     directoryId: "d-9967252f57",
  *     userName: "Example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getWorkspace(args?: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -55,19 +55,19 @@ export interface GetWorkspaceArgs {
     /**
      * The ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
      */
-    readonly directoryId?: string;
+    directoryId?: string;
     /**
      * The tags for the WorkSpace.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
      */
-    readonly userName?: string;
+    userName?: string;
     /**
      * The ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
      */
-    readonly workspaceId?: string;
+    workspaceId?: string;
 }
 
 /**

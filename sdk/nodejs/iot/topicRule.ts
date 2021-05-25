@@ -238,105 +238,105 @@ export interface TopicRuleState {
     /**
      * The ARN of the topic rule
      */
-    readonly arn?: pulumi.Input<string>;
-    readonly cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
-    readonly cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
+    arn?: pulumi.Input<string>;
+    cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
+    cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
     /**
      * The description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
-    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
+    description?: pulumi.Input<string>;
+    dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
+    elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
      */
-    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
-    readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
-    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
-    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
-    readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
-    readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
+    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
+    firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
+    kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
+    lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
      * The name of the rule.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly republish?: pulumi.Input<inputs.iot.TopicRuleRepublish>;
-    readonly s3?: pulumi.Input<inputs.iot.TopicRuleS3>;
-    readonly sns?: pulumi.Input<inputs.iot.TopicRuleSns>;
+    name?: pulumi.Input<string>;
+    republish?: pulumi.Input<inputs.iot.TopicRuleRepublish>;
+    s3?: pulumi.Input<inputs.iot.TopicRuleS3>;
+    sns?: pulumi.Input<inputs.iot.TopicRuleSns>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    readonly sql?: pulumi.Input<string>;
+    sql?: pulumi.Input<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    readonly sqlVersion?: pulumi.Input<string>;
-    readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
-    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    sqlVersion?: pulumi.Input<string>;
+    sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a TopicRule resource.
  */
 export interface TopicRuleArgs {
-    readonly cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
-    readonly cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
+    cloudwatchAlarm?: pulumi.Input<inputs.iot.TopicRuleCloudwatchAlarm>;
+    cloudwatchMetric?: pulumi.Input<inputs.iot.TopicRuleCloudwatchMetric>;
     /**
      * The description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
-    readonly dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
-    readonly elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
+    description?: pulumi.Input<string>;
+    dynamodb?: pulumi.Input<inputs.iot.TopicRuleDynamodb>;
+    dynamodbv2s?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleDynamodbv2>[]>;
+    elasticsearch?: pulumi.Input<inputs.iot.TopicRuleElasticsearch>;
     /**
      * Specifies whether the rule is enabled.
      */
-    readonly enabled: pulumi.Input<boolean>;
+    enabled: pulumi.Input<boolean>;
     /**
      * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
      */
-    readonly errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
-    readonly firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
-    readonly iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
-    readonly iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
-    readonly kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
-    readonly lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
+    errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
+    firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
+    iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
+    kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
+    lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
      * The name of the rule.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly republish?: pulumi.Input<inputs.iot.TopicRuleRepublish>;
-    readonly s3?: pulumi.Input<inputs.iot.TopicRuleS3>;
-    readonly sns?: pulumi.Input<inputs.iot.TopicRuleSns>;
+    name?: pulumi.Input<string>;
+    republish?: pulumi.Input<inputs.iot.TopicRuleRepublish>;
+    s3?: pulumi.Input<inputs.iot.TopicRuleS3>;
+    sns?: pulumi.Input<inputs.iot.TopicRuleSns>;
     /**
      * The SQL statement used to query the topic. For more information, see AWS IoT SQL Reference (http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference) in the AWS IoT Developer Guide.
      */
-    readonly sql: pulumi.Input<string>;
+    sql: pulumi.Input<string>;
     /**
      * The version of the SQL rules engine to use when evaluating the rule.
      */
-    readonly sqlVersion: pulumi.Input<string>;
-    readonly sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
-    readonly stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
+    sqlVersion: pulumi.Input<string>;
+    sqs?: pulumi.Input<inputs.iot.TopicRuleSqs>;
+    stepFunctions?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleStepFunction>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

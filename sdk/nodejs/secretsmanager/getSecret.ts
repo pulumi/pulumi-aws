@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const by_arn = pulumi.output(aws.secretsmanager.getSecret({
  *     arn: "arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456",
- * }, { async: true }));
+ * }));
  * ```
  * ### Name
  *
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * const by_name = pulumi.output(aws.secretsmanager.getSecret({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
@@ -52,11 +52,11 @@ export interface GetSecretArgs {
     /**
      * The Amazon Resource Name (ARN) of the secret to retrieve.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * The name of the secret to retrieve.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

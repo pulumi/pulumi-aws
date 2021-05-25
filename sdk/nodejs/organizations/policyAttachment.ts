@@ -127,11 +127,11 @@ export interface PolicyAttachmentState {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    readonly policyId?: pulumi.Input<string>;
+    policyId?: pulumi.Input<string>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
 }
 
 /**
@@ -141,9 +141,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The unique identifier (ID) of the policy that you want to attach to the target.
      */
-    readonly policyId: pulumi.Input<string>;
+    policyId: pulumi.Input<string>;
     /**
      * The unique identifier (ID) of the root, organizational unit, or account number that you want to attach the policy to.
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
 }

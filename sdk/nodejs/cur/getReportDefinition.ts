@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * const reportDefinition = pulumi.output(aws.cur.getReportDefinition({
  *     reportName: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetReportDefinitionResult> {
@@ -43,7 +43,7 @@ export interface GetReportDefinitionArgs {
     /**
      * The name of the report definition to match.
      */
-    readonly reportName: string;
+    reportName: string;
 }
 
 /**

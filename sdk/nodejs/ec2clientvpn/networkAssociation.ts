@@ -145,27 +145,27 @@ export interface NetworkAssociationState {
     /**
      * The unique ID of the target network association.
      */
-    readonly associationId?: pulumi.Input<string>;
+    associationId?: pulumi.Input<string>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId?: pulumi.Input<string>;
+    clientVpnEndpointId?: pulumi.Input<string>;
     /**
      * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The current state of the target network association.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the target subnet is located.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -175,13 +175,13 @@ export interface NetworkAssociationArgs {
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId: pulumi.Input<string>;
+    clientVpnEndpointId: pulumi.Input<string>;
     /**
      * A list of up to five custom security groups to apply to the target network. If not specified, the VPC's default security group is assigned.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the subnet to associate with the Client VPN endpoint.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

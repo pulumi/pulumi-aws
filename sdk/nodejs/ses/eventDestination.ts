@@ -188,35 +188,35 @@ export interface EventDestinationState {
     /**
      * The SES event destination ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
-    readonly configurationSetName?: pulumi.Input<string>;
+    configurationSetName?: pulumi.Input<string>;
     /**
      * If true, the event destination will be enabled
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    readonly kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
-    readonly matchingTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    matchingTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the event destination
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Send the events to an SNS Topic destination
      */
-    readonly snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
 }
 
 /**
@@ -226,29 +226,29 @@ export interface EventDestinationArgs {
     /**
      * CloudWatch destination for the events
      */
-    readonly cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
+    cloudwatchDestinations?: pulumi.Input<pulumi.Input<inputs.ses.EventDestinationCloudwatchDestination>[]>;
     /**
      * The name of the configuration set
      */
-    readonly configurationSetName: pulumi.Input<string>;
+    configurationSetName: pulumi.Input<string>;
     /**
      * If true, the event destination will be enabled
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Send the events to a kinesis firehose destination
      */
-    readonly kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
+    kinesisDestination?: pulumi.Input<inputs.ses.EventDestinationKinesisDestination>;
     /**
      * A list of matching types. May be any of `"send"`, `"reject"`, `"bounce"`, `"complaint"`, `"delivery"`, `"open"`, `"click"`, or `"renderingFailure"`.
      */
-    readonly matchingTypes: pulumi.Input<pulumi.Input<string>[]>;
+    matchingTypes: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the event destination
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Send the events to an SNS Topic destination
      */
-    readonly snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
+    snsDestination?: pulumi.Input<inputs.ses.EventDestinationSnsDestination>;
 }

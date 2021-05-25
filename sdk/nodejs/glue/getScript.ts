@@ -32,15 +32,15 @@ export interface GetScriptArgs {
     /**
      * A list of the edges in the DAG. Defined below.
      */
-    readonly dagEdges: inputs.glue.GetScriptDagEdge[];
+    dagEdges: inputs.glue.GetScriptDagEdge[];
     /**
      * A list of the nodes in the DAG. Defined below.
      */
-    readonly dagNodes: inputs.glue.GetScriptDagNode[];
+    dagNodes: inputs.glue.GetScriptDagNode[];
     /**
      * The programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
-    readonly language?: string;
+    language?: string;
 }
 
 /**

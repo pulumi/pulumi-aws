@@ -189,39 +189,39 @@ export interface IntegrationResponseState {
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      */
-    readonly contentHandling?: pulumi.Input<string>;
+    contentHandling?: pulumi.Input<string>;
     /**
      * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    readonly httpMethod?: pulumi.Input<string>;
+    httpMethod?: pulumi.Input<string>;
     /**
      * The API resource ID
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
      * For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the templates used to transform the integration response body
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
-    readonly selectionPattern?: pulumi.Input<string>;
+    selectionPattern?: pulumi.Input<string>;
     /**
      * The HTTP status code
      */
-    readonly statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string>;
 }
 
 /**
@@ -231,37 +231,37 @@ export interface IntegrationResponseArgs {
     /**
      * Specifies how to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
      */
-    readonly contentHandling?: pulumi.Input<string>;
+    contentHandling?: pulumi.Input<string>;
     /**
      * The HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
      */
-    readonly httpMethod: pulumi.Input<string>;
+    httpMethod: pulumi.Input<string>;
     /**
      * The API resource ID
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * A map of response parameters that can be read from the backend response.
      * For example: `responseParameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the templates used to transform the integration response body
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Specifies the regular expression pattern used to choose
      * an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
      * If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
      * For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
      */
-    readonly selectionPattern?: pulumi.Input<string>;
+    selectionPattern?: pulumi.Input<string>;
     /**
      * The HTTP status code
      */
-    readonly statusCode: pulumi.Input<string>;
+    statusCode: pulumi.Input<string>;
 }

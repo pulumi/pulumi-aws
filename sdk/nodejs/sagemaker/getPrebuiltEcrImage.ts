@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const test = pulumi.output(aws.sagemaker.getPrebuiltEcrImage({
  *     imageTag: "2.2-1.0.11.0",
  *     repositoryName: "sagemaker-scikit-learn",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPrebuiltEcrImage(args: GetPrebuiltEcrImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPrebuiltEcrImageResult> {
@@ -47,19 +47,19 @@ export interface GetPrebuiltEcrImageArgs {
     /**
      * The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
      */
-    readonly dnsSuffix?: string;
+    dnsSuffix?: string;
     /**
      * The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
      */
-    readonly imageTag?: string;
+    imageTag?: string;
     /**
      * The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
      */
-    readonly region?: string;
+    region?: string;
     /**
      * The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, and `tensorflow-training`.
      */
-    readonly repositoryName: string;
+    repositoryName: string;
 }
 
 /**

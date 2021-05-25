@@ -123,19 +123,19 @@ export interface ResourceState {
     /**
      * The ID of the parent API resource
      */
-    readonly parentId?: pulumi.Input<string>;
+    parentId?: pulumi.Input<string>;
     /**
      * The complete path for this API resource, including all parent paths.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The last path segment of this API resource.
      */
-    readonly pathPart?: pulumi.Input<string>;
+    pathPart?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
 }
 
 /**
@@ -145,13 +145,13 @@ export interface ResourceArgs {
     /**
      * The ID of the parent API resource
      */
-    readonly parentId: pulumi.Input<string>;
+    parentId: pulumi.Input<string>;
     /**
      * The last path segment of this API resource.
      */
-    readonly pathPart: pulumi.Input<string>;
+    pathPart: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
 }

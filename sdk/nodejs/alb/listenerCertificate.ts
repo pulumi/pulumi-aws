@@ -116,11 +116,11 @@ export interface ListenerCertificateState {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    readonly listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string>;
 }
 
 /**
@@ -130,9 +130,9 @@ export interface ListenerCertificateArgs {
     /**
      * The ARN of the certificate to attach to the listener.
      */
-    readonly certificateArn: pulumi.Input<string>;
+    certificateArn: pulumi.Input<string>;
     /**
      * The ARN of the listener to which to attach the certificate.
      */
-    readonly listenerArn: pulumi.Input<string>;
+    listenerArn: pulumi.Input<string>;
 }

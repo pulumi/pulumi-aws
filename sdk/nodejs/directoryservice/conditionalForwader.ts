@@ -117,15 +117,15 @@ export interface ConditionalForwaderState {
     /**
      * The id of directory.
      */
-    readonly directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    readonly dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    readonly remoteDomainName?: pulumi.Input<string>;
+    remoteDomainName?: pulumi.Input<string>;
 }
 
 /**
@@ -135,13 +135,13 @@ export interface ConditionalForwaderArgs {
     /**
      * The id of directory.
      */
-    readonly directoryId: pulumi.Input<string>;
+    directoryId: pulumi.Input<string>;
     /**
      * A list of forwarder IP addresses.
      */
-    readonly dnsIps: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIps: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
-    readonly remoteDomainName: pulumi.Input<string>;
+    remoteDomainName: pulumi.Input<string>;
 }

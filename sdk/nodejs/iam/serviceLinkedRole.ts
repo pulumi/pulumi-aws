@@ -136,35 +136,35 @@ export interface ServiceLinkedRoleState {
     /**
      * The Amazon Resource Name (ARN) specifying the role.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
-    readonly awsServiceName?: pulumi.Input<string>;
+    awsServiceName?: pulumi.Input<string>;
     /**
      * The creation date of the IAM role.
      */
-    readonly createDate?: pulumi.Input<string>;
+    createDate?: pulumi.Input<string>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    readonly customSuffix?: pulumi.Input<string>;
+    customSuffix?: pulumi.Input<string>;
     /**
      * The description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the role.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The path of the role.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The stable and unique string identifying the role.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
 }
 
 /**
@@ -174,13 +174,13 @@ export interface ServiceLinkedRoleArgs {
     /**
      * The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
      */
-    readonly awsServiceName: pulumi.Input<string>;
+    awsServiceName: pulumi.Input<string>;
     /**
      * Additional string appended to the role name. Not all AWS services support custom suffixes.
      */
-    readonly customSuffix?: pulumi.Input<string>;
+    customSuffix?: pulumi.Input<string>;
     /**
      * The description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
 }

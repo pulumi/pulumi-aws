@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         "t3.micro",
  *         "t2.micro",
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingResult> {
@@ -52,15 +52,15 @@ export interface GetInstanceTypeOfferingArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetInstanceTypeOfferingFilter[];
+    filters?: inputs.ec2.GetInstanceTypeOfferingFilter[];
     /**
      * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
      */
-    readonly locationType?: string;
+    locationType?: string;
     /**
      * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    readonly preferredInstanceTypes?: string[];
+    preferredInstanceTypes?: string[];
 }
 
 /**

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const database = pulumi.output(aws.rds.getInstance({
  *     dbInstanceIdentifier: "my-test-database",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
@@ -40,8 +40,8 @@ export interface GetInstanceArgs {
     /**
      * The name of the RDS instance
      */
-    readonly dbInstanceIdentifier: string;
-    readonly tags?: {[key: string]: string};
+    dbInstanceIdentifier: string;
+    tags?: {[key: string]: string};
 }
 
 /**

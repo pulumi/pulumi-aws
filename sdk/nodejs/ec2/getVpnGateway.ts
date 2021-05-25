@@ -51,32 +51,32 @@ export interface GetVpnGatewayArgs {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
      */
-    readonly amazonSideAsn?: string;
+    amazonSideAsn?: string;
     /**
      * The ID of a VPC attached to the specific VPN Gateway to retrieve.
      */
-    readonly attachedVpcId?: string;
+    attachedVpcId?: string;
     /**
      * The Availability Zone of the specific VPN Gateway to retrieve.
      */
-    readonly availabilityZone?: string;
+    availabilityZone?: string;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpnGatewayFilter[];
+    filters?: inputs.ec2.GetVpnGatewayFilter[];
     /**
      * The ID of the specific VPN Gateway to retrieve.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The state of the specific VPN Gateway to retrieve.
      */
-    readonly state?: string;
+    state?: string;
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired VPN Gateway.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

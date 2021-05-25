@@ -177,51 +177,51 @@ export interface PlatformApplicationState {
     /**
      * The ARN of the SNS platform application
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    readonly eventDeliveryFailureTopicArn?: pulumi.Input<string>;
+    eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    readonly eventEndpointCreatedTopicArn?: pulumi.Input<string>;
+    eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    readonly eventEndpointDeletedTopicArn?: pulumi.Input<string>;
+    eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    readonly eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
+    eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive failure feedback for this application.
      */
-    readonly failureFeedbackRoleArn?: pulumi.Input<string>;
+    failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The friendly name for the SNS platform application
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
-    readonly platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformCredential?: pulumi.Input<string>;
+    platformCredential?: pulumi.Input<string>;
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformPrincipal?: pulumi.Input<string>;
+    platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.
      */
-    readonly successFeedbackRoleArn?: pulumi.Input<string>;
+    successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The percentage of success to sample (0-100)
      */
-    readonly successFeedbackSampleRate?: pulumi.Input<string>;
+    successFeedbackSampleRate?: pulumi.Input<string>;
 }
 
 /**
@@ -231,45 +231,45 @@ export interface PlatformApplicationArgs {
     /**
      * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
-    readonly eventDeliveryFailureTopicArn?: pulumi.Input<string>;
+    eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
-    readonly eventEndpointCreatedTopicArn?: pulumi.Input<string>;
+    eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
-    readonly eventEndpointDeletedTopicArn?: pulumi.Input<string>;
+    eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
      * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
-    readonly eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
+    eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive failure feedback for this application.
      */
-    readonly failureFeedbackRoleArn?: pulumi.Input<string>;
+    failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The friendly name for the SNS platform application
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
      */
-    readonly platform: pulumi.Input<string>;
+    platform: pulumi.Input<string>;
     /**
      * Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformCredential: pulumi.Input<string>;
+    platformCredential: pulumi.Input<string>;
     /**
      * Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
      */
-    readonly platformPrincipal?: pulumi.Input<string>;
+    platformPrincipal?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this application.
      */
-    readonly successFeedbackRoleArn?: pulumi.Input<string>;
+    successFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The percentage of success to sample (0-100)
      */
-    readonly successFeedbackSampleRate?: pulumi.Input<string>;
+    successFeedbackSampleRate?: pulumi.Input<string>;
 }

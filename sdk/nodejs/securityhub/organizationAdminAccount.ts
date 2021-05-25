@@ -99,7 +99,7 @@ export interface OrganizationAdminAccountState {
     /**
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      */
-    readonly adminAccountId?: pulumi.Input<string>;
+    adminAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface OrganizationAdminAccountArgs {
     /**
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      */
-    readonly adminAccountId: pulumi.Input<string>;
+    adminAccountId: pulumi.Input<string>;
 }

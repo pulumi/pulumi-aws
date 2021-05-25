@@ -269,47 +269,47 @@ export interface RouteState {
     /**
      * The ARN of the route.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The creation date of the route.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The last update date of the route.
      */
-    readonly lastUpdatedDate?: pulumi.Input<string>;
+    lastUpdatedDate?: pulumi.Input<string>;
     /**
      * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
-    readonly meshName?: pulumi.Input<string>;
+    meshName?: pulumi.Input<string>;
     /**
      * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
-    readonly meshOwner?: pulumi.Input<string>;
+    meshOwner?: pulumi.Input<string>;
     /**
      * The name to use for the route. Must be between 1 and 255 characters in length.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The resource owner's AWS account ID.
      */
-    readonly resourceOwner?: pulumi.Input<string>;
+    resourceOwner?: pulumi.Input<string>;
     /**
      * The route specification to apply.
      */
-    readonly spec?: pulumi.Input<inputs.appmesh.RouteSpec>;
+    spec?: pulumi.Input<inputs.appmesh.RouteSpec>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      */
-    readonly virtualRouterName?: pulumi.Input<string>;
+    virtualRouterName?: pulumi.Input<string>;
 }
 
 /**
@@ -319,29 +319,29 @@ export interface RouteArgs {
     /**
      * The name of the service mesh in which to create the route. Must be between 1 and 255 characters in length.
      */
-    readonly meshName: pulumi.Input<string>;
+    meshName: pulumi.Input<string>;
     /**
      * The AWS account ID of the service mesh's owner. Defaults to the account ID the [AWS provider](https://www.terraform.io/docs/providers/aws/index.html) is currently connected to.
      */
-    readonly meshOwner?: pulumi.Input<string>;
+    meshOwner?: pulumi.Input<string>;
     /**
      * The name to use for the route. Must be between 1 and 255 characters in length.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The route specification to apply.
      */
-    readonly spec: pulumi.Input<inputs.appmesh.RouteSpec>;
+    spec: pulumi.Input<inputs.appmesh.RouteSpec>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual router in which to create the route. Must be between 1 and 255 characters in length.
      */
-    readonly virtualRouterName: pulumi.Input<string>;
+    virtualRouterName: pulumi.Input<string>;
 }

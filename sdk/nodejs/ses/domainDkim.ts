@@ -121,11 +121,11 @@ export interface DomainDkimState {
      * Find out more about verifying domains in Amazon SES
      * in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html).
      */
-    readonly dkimTokens?: pulumi.Input<pulumi.Input<string>[]>;
+    dkimTokens?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface DomainDkimArgs {
     /**
      * Verified domain name to generate DKIM tokens for.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
 }

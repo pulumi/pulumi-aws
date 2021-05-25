@@ -162,31 +162,31 @@ export interface UserPoolDomainState {
     /**
      * The AWS account ID for the user pool owner.
      */
-    readonly awsAccountId?: pulumi.Input<string>;
+    awsAccountId?: pulumi.Input<string>;
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The URL of the CloudFront distribution. This is required to generate the ALIAS `aws.route53.Record`
      */
-    readonly cloudfrontDistributionArn?: pulumi.Input<string>;
+    cloudfrontDistributionArn?: pulumi.Input<string>;
     /**
      * The domain string.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The S3 bucket where the static files for this domain are stored.
      */
-    readonly s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string>;
     /**
      * The user pool ID.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string>;
     /**
      * The app version.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -196,13 +196,13 @@ export interface UserPoolDomainArgs {
     /**
      * The ARN of an ISSUED ACM certificate in us-east-1 for a custom domain.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The domain string.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
     /**
      * The user pool ID.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

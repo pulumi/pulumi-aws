@@ -132,30 +132,30 @@ export interface ConfigurationTemplateState {
     /**
      * name of the application to associate with this configuration template
      */
-    readonly application?: pulumi.Input<string>;
+    application?: pulumi.Input<string>;
     /**
      * Short description of the Template
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the environment used with this configuration template
      */
-    readonly environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string>;
     /**
      * A unique name for this Template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
-    readonly solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string>;
 }
 
 /**
@@ -165,28 +165,28 @@ export interface ConfigurationTemplateArgs {
     /**
      * name of the application to associate with this configuration template
      */
-    readonly application: pulumi.Input<string>;
+    application: pulumi.Input<string>;
     /**
      * Short description of the Template
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the environment used with this configuration template
      */
-    readonly environmentId?: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string>;
     /**
      * A unique name for this Template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Option settings to configure the new Environment. These
      * override specific values that are set as defaults. The format is detailed
      * below in Option Settings
      */
-    readonly settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
+    settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[]>;
     /**
      * A solution stack to base your Template
      * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
-    readonly solutionStackName?: pulumi.Input<string>;
+    solutionStackName?: pulumi.Input<string>;
 }

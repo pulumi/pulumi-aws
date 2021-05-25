@@ -279,95 +279,95 @@ export interface GatewayState {
     /**
      * Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    readonly activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the gateway.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    readonly averageDownloadRateLimitInBitsPerSec?: pulumi.Input<number>;
+    averageDownloadRateLimitInBitsPerSec?: pulumi.Input<number>;
     /**
      * The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    readonly averageUploadRateLimitInBitsPerSec?: pulumi.Input<number>;
+    averageUploadRateLimitInBitsPerSec?: pulumi.Input<number>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      */
-    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * The ID of the Amazon EC2 instance that was used to launch the gateway.
      */
-    readonly ec2InstanceId?: pulumi.Input<string>;
+    ec2InstanceId?: pulumi.Input<string>;
     /**
      * The type of endpoint for your gateway.
      */
-    readonly endpointType?: pulumi.Input<string>;
+    endpointType?: pulumi.Input<string>;
     /**
      * Identifier of the gateway.
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    readonly gatewayIpAddress?: pulumi.Input<string>;
+    gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Name of the gateway.
      */
-    readonly gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * An array that contains descriptions of the gateway network interfaces. See Gateway Network Interface.
      */
-    readonly gatewayNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.storagegateway.GatewayGatewayNetworkInterface>[]>;
+    gatewayNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.storagegateway.GatewayGatewayNetworkInterface>[]>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
-    readonly gatewayTimezone?: pulumi.Input<string>;
+    gatewayTimezone?: pulumi.Input<string>;
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
      */
-    readonly gatewayType?: pulumi.Input<string>;
+    gatewayType?: pulumi.Input<string>;
     /**
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
-    readonly gatewayVpcEndpoint?: pulumi.Input<string>;
+    gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
      * The type of hypervisor environment used by the host.
      */
-    readonly hostEnvironment?: pulumi.Input<string>;
+    hostEnvironment?: pulumi.Input<string>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
-    readonly mediumChangerType?: pulumi.Input<string>;
+    mediumChangerType?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    readonly smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
+    smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */
-    readonly smbFileShareVisibility?: pulumi.Input<boolean>;
+    smbFileShareVisibility?: pulumi.Input<boolean>;
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
-    readonly smbGuestPassword?: pulumi.Input<string>;
+    smbGuestPassword?: pulumi.Input<string>;
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      */
-    readonly smbSecurityStrategy?: pulumi.Input<string>;
+    smbSecurityStrategy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
-    readonly tapeDriveType?: pulumi.Input<string>;
+    tapeDriveType?: pulumi.Input<string>;
 }
 
 /**
@@ -377,69 +377,69 @@ export interface GatewayArgs {
     /**
      * Gateway activation key during resource creation. Conflicts with `gatewayIpAddress`. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    readonly activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string>;
     /**
      * The average download bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    readonly averageDownloadRateLimitInBitsPerSec?: pulumi.Input<number>;
+    averageDownloadRateLimitInBitsPerSec?: pulumi.Input<number>;
     /**
      * The average upload bandwidth rate limit in bits per second. This is supported for the `CACHED`, `STORED`, and `VTL` gateway types.
      */
-    readonly averageUploadRateLimitInBitsPerSec?: pulumi.Input<number>;
+    averageUploadRateLimitInBitsPerSec?: pulumi.Input<number>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
      */
-    readonly cloudwatchLogGroupArn?: pulumi.Input<string>;
+    cloudwatchLogGroupArn?: pulumi.Input<string>;
     /**
      * Gateway IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
      */
-    readonly gatewayIpAddress?: pulumi.Input<string>;
+    gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Name of the gateway.
      */
-    readonly gatewayName: pulumi.Input<string>;
+    gatewayName: pulumi.Input<string>;
     /**
      * Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
      */
-    readonly gatewayTimezone: pulumi.Input<string>;
+    gatewayTimezone: pulumi.Input<string>;
     /**
      * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
      */
-    readonly gatewayType?: pulumi.Input<string>;
+    gatewayType?: pulumi.Input<string>;
     /**
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
-    readonly gatewayVpcEndpoint?: pulumi.Input<string>;
+    gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
-    readonly mediumChangerType?: pulumi.Input<string>;
+    mediumChangerType?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
-    readonly smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
+    smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
      * Specifies whether the shares on this gateway appear when listing shares.
      */
-    readonly smbFileShareVisibility?: pulumi.Input<boolean>;
+    smbFileShareVisibility?: pulumi.Input<boolean>;
     /**
      * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
-    readonly smbGuestPassword?: pulumi.Input<string>;
+    smbGuestPassword?: pulumi.Input<string>;
     /**
      * Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
      */
-    readonly smbSecurityStrategy?: pulumi.Input<string>;
+    smbSecurityStrategy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
-    readonly tapeDriveType?: pulumi.Input<string>;
+    tapeDriveType?: pulumi.Input<string>;
 }

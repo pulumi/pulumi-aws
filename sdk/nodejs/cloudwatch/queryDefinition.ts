@@ -119,19 +119,19 @@ export interface QueryDefinitionState {
     /**
      * Specific log groups to use with the query.
      */
-    readonly logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the query.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query definition ID.
      */
-    readonly queryDefinitionId?: pulumi.Input<string>;
+    queryDefinitionId?: pulumi.Input<string>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
-    readonly queryString?: pulumi.Input<string>;
+    queryString?: pulumi.Input<string>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface QueryDefinitionArgs {
     /**
      * Specific log groups to use with the query.
      */
-    readonly logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the query.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
      */
-    readonly queryString: pulumi.Input<string>;
+    queryString: pulumi.Input<string>;
 }

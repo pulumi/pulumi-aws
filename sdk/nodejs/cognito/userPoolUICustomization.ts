@@ -129,35 +129,35 @@ export interface UserPoolUICustomizationState {
     /**
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      */
-    readonly css?: pulumi.Input<string>;
+    css?: pulumi.Input<string>;
     /**
      * The CSS version number.
      */
-    readonly cssVersion?: pulumi.Input<string>;
+    cssVersion?: pulumi.Input<string>;
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      */
-    readonly imageFile?: pulumi.Input<string>;
+    imageFile?: pulumi.Input<string>;
     /**
      * The logo image URL for the UI customization.
      */
-    readonly imageUrl?: pulumi.Input<string>;
+    imageUrl?: pulumi.Input<string>;
     /**
      * The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
      */
-    readonly lastModifiedDate?: pulumi.Input<string>;
+    lastModifiedDate?: pulumi.Input<string>;
     /**
      * The user pool ID for the user pool.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string>;
 }
 
 /**
@@ -167,17 +167,17 @@ export interface UserPoolUICustomizationArgs {
     /**
      * The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `imageFile` settings will be used for every client that has no UI customization set previously.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * The CSS values in the UI customization, provided as a String. At least one of `css` or `imageFile` is required.
      */
-    readonly css?: pulumi.Input<string>;
+    css?: pulumi.Input<string>;
     /**
      * The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
      */
-    readonly imageFile?: pulumi.Input<string>;
+    imageFile?: pulumi.Input<string>;
     /**
      * The user pool ID for the user pool.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

@@ -52,31 +52,31 @@ export interface GetPermissionsArgs {
     /**
      * Identifier for the Data Catalog. By default, it is the account ID of the caller.
      */
-    readonly catalogId?: string;
+    catalogId?: string;
     /**
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
-    readonly catalogResource?: boolean;
+    catalogResource?: boolean;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
-    readonly dataLocation?: inputs.lakeformation.GetPermissionsDataLocation;
+    dataLocation?: inputs.lakeformation.GetPermissionsDataLocation;
     /**
      * Configuration block for a database resource. Detailed below.
      */
-    readonly database?: inputs.lakeformation.GetPermissionsDatabase;
+    database?: inputs.lakeformation.GetPermissionsDatabase;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      */
-    readonly principal: string;
+    principal: string;
     /**
      * Configuration block for a table resource. Detailed below.
      */
-    readonly table?: inputs.lakeformation.GetPermissionsTable;
+    table?: inputs.lakeformation.GetPermissionsTable;
     /**
      * Configuration block for a table with columns resource. Detailed below.
      */
-    readonly tableWithColumns?: inputs.lakeformation.GetPermissionsTableWithColumns;
+    tableWithColumns?: inputs.lakeformation.GetPermissionsTableWithColumns;
 }
 
 /**

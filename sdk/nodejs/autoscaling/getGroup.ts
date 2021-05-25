@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const foo = pulumi.output(aws.autoscaling.getGroup({
  *     name: "foo",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -39,7 +39,7 @@ export interface GetGroupArgs {
     /**
      * Specify the exact name of the desired autoscaling group.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

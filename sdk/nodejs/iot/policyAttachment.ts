@@ -117,11 +117,11 @@ export interface PolicyAttachmentState {
     /**
      * The name of the policy to attach.
      */
-    readonly policy?: pulumi.Input<string | Policy>;
+    policy?: pulumi.Input<string | Policy>;
     /**
      * The identity to which the policy is attached.
      */
-    readonly target?: pulumi.Input<ARN>;
+    target?: pulumi.Input<ARN>;
 }
 
 /**
@@ -131,9 +131,9 @@ export interface PolicyAttachmentArgs {
     /**
      * The name of the policy to attach.
      */
-    readonly policy: pulumi.Input<string | Policy>;
+    policy: pulumi.Input<string | Policy>;
     /**
      * The identity to which the policy is attached.
      */
-    readonly target: pulumi.Input<ARN>;
+    target: pulumi.Input<ARN>;
 }

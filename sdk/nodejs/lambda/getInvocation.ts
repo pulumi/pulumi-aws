@@ -32,16 +32,16 @@ export interface GetInvocationArgs {
     /**
      * The name of the lambda function.
      */
-    readonly functionName: string;
+    functionName: string;
     /**
      * A string in JSON format that is passed as payload to the lambda function.
      */
-    readonly input: string;
+    input: string;
     /**
      * The qualifier (a.k.a version) of the lambda function. Defaults
      * to `$LATEST`.
      */
-    readonly qualifier?: string;
+    qualifier?: string;
 }
 
 /**

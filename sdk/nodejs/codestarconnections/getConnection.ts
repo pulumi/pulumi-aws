@@ -40,11 +40,11 @@ export interface GetConnectionArgs {
     /**
      * The CodeStar Connection ARN.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Map of key-value resource tags to associate with the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

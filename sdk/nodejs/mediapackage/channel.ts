@@ -126,27 +126,27 @@ export interface ChannelState {
     /**
      * The ARN of the channel
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A unique identifier describing the channel
      */
-    readonly channelId?: pulumi.Input<string>;
+    channelId?: pulumi.Input<string>;
     /**
      * A description of the channel
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A single item list of HLS ingest information
      */
-    readonly hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
+    hlsIngests?: pulumi.Input<pulumi.Input<inputs.mediapackage.ChannelHlsIngest>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface ChannelArgs {
     /**
      * A unique identifier describing the channel
      */
-    readonly channelId: pulumi.Input<string>;
+    channelId: pulumi.Input<string>;
     /**
      * A description of the channel
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

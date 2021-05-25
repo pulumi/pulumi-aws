@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.ram.getResourceShare({
  *     name: "example",
  *     resourceOwner: "SELF",
- * }, { async: true }));
+ * }));
  * ```
  * ## Search by filters
  *
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     }],
  *     name: "MyResourceName",
  *     resourceOwner: "SELF",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
@@ -58,19 +58,19 @@ export interface GetResourceShareArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
-    readonly filters?: inputs.ram.GetResourceShareFilter[];
+    filters?: inputs.ram.GetResourceShareFilter[];
     /**
      * The name of the tag key to filter on.
      */
-    readonly name: string;
+    name: string;
     /**
      * The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
      */
-    readonly resourceOwner: string;
+    resourceOwner: string;
     /**
      * The Tags attached to the RAM share
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

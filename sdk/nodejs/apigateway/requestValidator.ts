@@ -116,19 +116,19 @@ export interface RequestValidatorState {
     /**
      * The name of the request validator
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    readonly validateRequestBody?: pulumi.Input<boolean>;
+    validateRequestBody?: pulumi.Input<boolean>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    readonly validateRequestParameters?: pulumi.Input<boolean>;
+    validateRequestParameters?: pulumi.Input<boolean>;
 }
 
 /**
@@ -138,17 +138,17 @@ export interface RequestValidatorArgs {
     /**
      * The name of the request validator
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * Boolean whether to validate request body. Defaults to `false`.
      */
-    readonly validateRequestBody?: pulumi.Input<boolean>;
+    validateRequestBody?: pulumi.Input<boolean>;
     /**
      * Boolean whether to validate request parameters. Defaults to `false`.
      */
-    readonly validateRequestParameters?: pulumi.Input<boolean>;
+    validateRequestParameters?: pulumi.Input<boolean>;
 }

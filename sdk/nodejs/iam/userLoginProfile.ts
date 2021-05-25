@@ -153,27 +153,27 @@ export interface UserLoginProfileState {
     /**
      * The encrypted password, base64 encoded. Only available if password was handled on this provider resource creation, not import.
      */
-    readonly encryptedPassword?: pulumi.Input<string>;
+    encryptedPassword?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the password. Only available if password was handled on this provider resource creation, not import.
      */
-    readonly keyFingerprint?: pulumi.Input<string>;
+    keyFingerprint?: pulumi.Input<string>;
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly passwordLength?: pulumi.Input<number>;
+    passwordLength?: pulumi.Input<number>;
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly passwordResetRequired?: pulumi.Input<boolean>;
+    passwordResetRequired?: pulumi.Input<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly pgpKey?: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string>;
     /**
      * The IAM user's name.
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -183,17 +183,17 @@ export interface UserLoginProfileArgs {
     /**
      * The length of the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly passwordLength?: pulumi.Input<number>;
+    passwordLength?: pulumi.Input<number>;
     /**
      * Whether the user should be forced to reset the generated password on resource creation. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly passwordResetRequired?: pulumi.Input<boolean>;
+    passwordResetRequired?: pulumi.Input<boolean>;
     /**
      * Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:username`. Only applies on resource creation. Drift detection is not possible with this argument.
      */
-    readonly pgpKey: pulumi.Input<string>;
+    pgpKey: pulumi.Input<string>;
     /**
      * The IAM user's name.
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

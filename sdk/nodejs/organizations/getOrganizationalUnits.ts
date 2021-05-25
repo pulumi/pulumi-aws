@@ -40,7 +40,7 @@ export interface GetOrganizationalUnitsArgs {
     /**
      * The parent ID of the organizational unit.
      */
-    readonly parentId: string;
+    parentId: string;
 }
 
 /**

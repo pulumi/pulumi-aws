@@ -129,39 +129,39 @@ export interface UsagePlanState {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of a usage plan.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the usage plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    readonly productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string>;
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }
 
 /**
@@ -171,33 +171,33 @@ export interface UsagePlanArgs {
     /**
      * The associated API stages of the usage plan.
      */
-    readonly apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
+    apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStage>[]>;
     /**
      * The description of a usage plan.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the usage plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The AWS Marketplace product identifier to associate with the usage plan as a SaaS product on AWS Marketplace.
      */
-    readonly productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string>;
     /**
      * The quota settings of the usage plan.
      */
-    readonly quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
+    quotaSettings?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettings>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throttling limits of the usage plan.
      */
-    readonly throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
+    throttleSettings?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettings>;
 }

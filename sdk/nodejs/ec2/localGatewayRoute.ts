@@ -114,15 +114,15 @@ export interface LocalGatewayRouteState {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */
-    readonly localGatewayRouteTableId?: pulumi.Input<string>;
+    localGatewayRouteTableId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
-    readonly localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -132,13 +132,13 @@ export interface LocalGatewayRouteArgs {
     /**
      * IPv4 CIDR range used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock: pulumi.Input<string>;
+    destinationCidrBlock: pulumi.Input<string>;
     /**
      * Identifier of EC2 Local Gateway Route Table.
      */
-    readonly localGatewayRouteTableId: pulumi.Input<string>;
+    localGatewayRouteTableId: pulumi.Input<string>;
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
-    readonly localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
+    localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
 }

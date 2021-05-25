@@ -306,117 +306,117 @@ export interface ClusterState {
     /**
      * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      */
-    readonly applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean>;
     /**
      * The ARN of the created ElastiCache Cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
      */
-    readonly azMode?: pulumi.Input<string>;
+    azMode?: pulumi.Input<string>;
     /**
      * List of node objects including `id`, `address`, `port` and `availabilityZone`.
      */
-    readonly cacheNodes?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterCacheNode>[]>;
+    cacheNodes?: pulumi.Input<pulumi.Input<inputs.elasticache.ClusterCacheNode>[]>;
     /**
      * (Memcached only) DNS name of the cache cluster without the port appended.
      */
-    readonly clusterAddress?: pulumi.Input<string>;
+    clusterAddress?: pulumi.Input<string>;
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * (Memcached only) Configuration endpoint to allow host discovery.
      */
-    readonly configurationEndpoint?: pulumi.Input<string>;
+    configurationEndpoint?: pulumi.Input<string>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
      * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * The running version of the cache engine.
      */
-    readonly engineVersionActual?: pulumi.Input<string>;
+    engineVersionActual?: pulumi.Input<string>;
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
-    readonly maintenanceWindow?: pulumi.Input<string>;
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
-    readonly nodeType?: pulumi.Input<string>;
+    nodeType?: pulumi.Input<string>;
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
      */
-    readonly notificationTopicArn?: pulumi.Input<string>;
+    notificationTopicArn?: pulumi.Input<string>;
     /**
      * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
-    readonly numCacheNodes?: pulumi.Input<number>;
+    numCacheNodes?: pulumi.Input<number>;
     /**
      * The name of the parameter group to associate with this cache cluster.
      */
-    readonly parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
-    readonly preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
-    readonly replicationGroupId?: pulumi.Input<string>;
+    replicationGroupId?: pulumi.Input<string>;
     /**
      * One or more VPC security groups associated with the cache cluster
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
-    readonly snapshotArns?: pulumi.Input<string>;
+    snapshotArns?: pulumi.Input<string>;
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
-    readonly snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number>;
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
-    readonly snapshotWindow?: pulumi.Input<string>;
+    snapshotWindow?: pulumi.Input<string>;
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
      */
-    readonly subnetGroupName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subnetGroupName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -426,95 +426,95 @@ export interface ClusterArgs {
     /**
      * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
      */
-    readonly applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean>;
     /**
      * Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
      */
-    readonly azMode?: pulumi.Input<string>;
+    azMode?: pulumi.Input<string>;
     /**
      * Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * Version number of the cache engine to be used.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
      * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * Name of your final cluster snapshot. If omitted, no final snapshot will be made.
      */
-    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies the weekly time range for when maintenance
      * on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
      * The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
      */
-    readonly maintenanceWindow?: pulumi.Input<string>;
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * The instance class used. See AWS documentation for information on [supported node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Redis](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html). See AWS documentation for information on [supported node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types for Memcached](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-select-size.html). For Memcached, changing this value will re-create the resource.
      */
-    readonly nodeType?: pulumi.Input<string>;
+    nodeType?: pulumi.Input<string>;
     /**
      * ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
      */
-    readonly notificationTopicArn?: pulumi.Input<string>;
+    notificationTopicArn?: pulumi.Input<string>;
     /**
      * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
-    readonly numCacheNodes?: pulumi.Input<number>;
+    numCacheNodes?: pulumi.Input<number>;
     /**
      * The name of the parameter group to associate with this cache cluster.
      */
-    readonly parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `numCacheNodes`. If you want all the nodes in the same Availability Zone, use `availabilityZone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
      */
-    readonly preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    preferredAvailabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
-    readonly replicationGroupId?: pulumi.Input<string>;
+    replicationGroupId?: pulumi.Input<string>;
     /**
      * One or more VPC security groups associated with the cache cluster
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of security group names to associate with this cache cluster. Changing this value will re-create the resource.
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshotArns` forces a new resource.
      */
-    readonly snapshotArns?: pulumi.Input<string>;
+    snapshotArns?: pulumi.Input<string>;
     /**
      * Name of a snapshot from which to restore data into the new node group. Changing `snapshotName` forces a new resource.
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Number of days for which ElastiCache will retain automatic cache cluster snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, then a snapshot that was taken today will be retained for 5 days before being deleted. If the value of SnapshotRetentionLimit is set to zero (0), backups are turned off. Please note that setting a `snapshotRetentionLimit` is not supported on cache.t1.micro cache nodes
      */
-    readonly snapshotRetentionLimit?: pulumi.Input<number>;
+    snapshotRetentionLimit?: pulumi.Input<number>;
     /**
      * Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
      */
-    readonly snapshotWindow?: pulumi.Input<string>;
+    snapshotWindow?: pulumi.Input<string>;
     /**
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
      */
-    readonly subnetGroupName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subnetGroupName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

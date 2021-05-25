@@ -144,31 +144,31 @@ export interface AliasState {
     /**
      * The Amazon Resource Name (ARN) identifying your Lambda function alias.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the alias.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Lambda Function name or ARN.
      */
-    readonly functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    readonly functionVersion?: pulumi.Input<string>;
+    functionVersion?: pulumi.Input<string>;
     /**
      * The ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`
      */
-    readonly invokeArn?: pulumi.Input<string>;
+    invokeArn?: pulumi.Input<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    readonly routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
 }
 
 /**
@@ -178,21 +178,21 @@ export interface AliasArgs {
     /**
      * Description of the alias.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Lambda Function name or ARN.
      */
-    readonly functionName: pulumi.Input<string>;
+    functionName: pulumi.Input<string>;
     /**
      * Lambda function version for which you are creating the alias. Pattern: `(\$LATEST|[0-9]+)`.
      */
-    readonly functionVersion: pulumi.Input<string>;
+    functionVersion: pulumi.Input<string>;
     /**
      * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Lambda alias' route configuration settings. Fields documented below
      */
-    readonly routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
+    routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfig>;
 }

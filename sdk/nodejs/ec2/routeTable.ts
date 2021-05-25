@@ -178,31 +178,31 @@ export interface RouteTableState {
     /**
      * The ARN of the route table.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the route table.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * A list of virtual gateways for propagation.
      */
-    readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
+    propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -212,21 +212,21 @@ export interface RouteTableArgs {
     /**
      * A list of virtual gateways for propagation.
      */
-    readonly propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
+    propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of route objects. Their keys are documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
+    routes?: pulumi.Input<pulumi.Input<inputs.ec2.RouteTableRoute>[]>;
     /**
      * A map of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

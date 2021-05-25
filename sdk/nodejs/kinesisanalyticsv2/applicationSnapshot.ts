@@ -117,19 +117,19 @@ export interface ApplicationSnapshotState {
     /**
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
-    readonly applicationName?: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The current application version ID when the snapshot was created.
      */
-    readonly applicationVersionId?: pulumi.Input<number>;
+    applicationVersionId?: pulumi.Input<number>;
     /**
      * The timestamp of the application snapshot.
      */
-    readonly snapshotCreationTimestamp?: pulumi.Input<string>;
+    snapshotCreationTimestamp?: pulumi.Input<string>;
     /**
      * The name of the application snapshot.
      */
-    readonly snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string>;
 }
 
 /**
@@ -139,9 +139,9 @@ export interface ApplicationSnapshotArgs {
     /**
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
-    readonly applicationName: pulumi.Input<string>;
+    applicationName: pulumi.Input<string>;
     /**
      * The name of the application snapshot.
      */
-    readonly snapshotName: pulumi.Input<string>;
+    snapshotName: pulumi.Input<string>;
 }

@@ -166,47 +166,47 @@ export interface LocationFsxWindowsState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The time that the FSx for Windows location was created.
      */
-    readonly creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string>;
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    readonly fsxFilesystemArn?: pulumi.Input<string>;
+    fsxFilesystemArn?: pulumi.Input<string>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */
-    readonly securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the FSx for Windows location that was described.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -216,33 +216,33 @@ export interface LocationFsxWindowsArgs {
     /**
      * The name of the Windows domain that the FSx for Windows server belongs to.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the FSx for Windows file system.
      */
-    readonly fsxFilesystemArn: pulumi.Input<string>;
+    fsxFilesystemArn: pulumi.Input<string>;
     /**
      * The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
      */
-    readonly securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Subdirectory to perform actions as source or destination.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

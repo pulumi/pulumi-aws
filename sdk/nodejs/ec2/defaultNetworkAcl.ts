@@ -224,39 +224,39 @@ export interface DefaultNetworkAclState {
     /**
      * ARN of the Default Network ACL
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
-    readonly defaultNetworkAclId?: pulumi.Input<string>;
+    defaultNetworkAclId?: pulumi.Input<string>;
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
     /**
      * ID of the AWS account that owns the Default Network ACL
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the associated VPC
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -266,25 +266,25 @@ export interface DefaultNetworkAclArgs {
     /**
      * Network ACL ID to manage. This attribute is exported from `aws.ec2.Vpc`, or manually found via the AWS Console.
      */
-    readonly defaultNetworkAclId: pulumi.Input<string>;
+    defaultNetworkAclId: pulumi.Input<string>;
     /**
      * Configuration block for an egress rule. Detailed below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclEgress>[]>;
     /**
      * Configuration block for an ingress rule. Detailed below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes below on managing Subnets in the Default Network ACL
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

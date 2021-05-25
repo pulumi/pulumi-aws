@@ -178,59 +178,59 @@ export interface ImageState {
     /**
      * Amazon Resource Name (ARN) of the image.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Date the image was created.
      */
-    readonly dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
-    readonly distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string>;
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
-    readonly enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
      */
-    readonly imageRecipeArn?: pulumi.Input<string>;
+    imageRecipeArn?: pulumi.Input<string>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    readonly imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
-    readonly infrastructureConfigurationArn?: pulumi.Input<string>;
+    infrastructureConfigurationArn?: pulumi.Input<string>;
     /**
      * Name of the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Operating System version of the image.
      */
-    readonly osVersion?: pulumi.Input<string>;
+    osVersion?: pulumi.Input<string>;
     /**
      * List of objects with resources created by the image.
      */
-    readonly outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[]>;
+    outputResources?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageOutputResource>[]>;
     /**
      * Platform of the image.
      */
-    readonly platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the Image Builder Image. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the image.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -240,29 +240,29 @@ export interface ImageArgs {
     /**
      * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
      */
-    readonly distributionConfigurationArn?: pulumi.Input<string>;
+    distributionConfigurationArn?: pulumi.Input<string>;
     /**
      * Whether additional information about the image being created is collected. Defaults to `true`.
      */
-    readonly enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
+    enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Recipe.
      */
-    readonly imageRecipeArn: pulumi.Input<string>;
+    imageRecipeArn: pulumi.Input<string>;
     /**
      * Configuration block with image tests configuration. Detailed below.
      */
-    readonly imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
+    imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
      * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
      */
-    readonly infrastructureConfigurationArn: pulumi.Input<string>;
+    infrastructureConfigurationArn: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the Image Builder Image. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

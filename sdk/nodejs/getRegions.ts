@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.getRegions({ async: true }));
+ * const current = pulumi.output(aws.getRegions());
  * ```
  *
  * All the regions regardless of the availability
@@ -27,7 +27,7 @@ import * as utilities from "./utilities";
  *
  * const current = pulumi.output(aws.getRegions({
  *     allRegions: true,
- * }, { async: true }));
+ * }));
  * ```
  *
  * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
@@ -42,7 +42,7 @@ import * as utilities from "./utilities";
  *         name: "opt-in-status",
  *         values: ["not-opted-in"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionsResult> {
@@ -67,11 +67,11 @@ export interface GetRegionsArgs {
     /**
      * If true the source will query all regions regardless of availability.
      */
-    readonly allRegions?: boolean;
+    allRegions?: boolean;
     /**
      * Configuration block(s) to use as filters. Detailed below.
      */
-    readonly filters?: inputs.GetRegionsFilter[];
+    filters?: inputs.GetRegionsFilter[];
 }
 
 /**

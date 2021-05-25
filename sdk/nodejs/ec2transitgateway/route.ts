@@ -130,19 +130,19 @@ export interface RouteState {
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      */
-    readonly blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean>;
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
 /**
@@ -152,17 +152,17 @@ export interface RouteArgs {
     /**
      * Indicates whether to drop traffic that matches this route (default to `false`).
      */
-    readonly blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean>;
     /**
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
-    readonly destinationCidrBlock: pulumi.Input<string>;
+    destinationCidrBlock: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId: pulumi.Input<string>;
+    transitGatewayRouteTableId: pulumi.Input<string>;
 }

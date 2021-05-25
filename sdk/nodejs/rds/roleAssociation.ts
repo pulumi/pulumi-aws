@@ -119,15 +119,15 @@ export interface RoleAssociationState {
     /**
      * DB Instance Identifier to associate with the IAM Role.
      */
-    readonly dbInstanceIdentifier?: pulumi.Input<string>;
+    dbInstanceIdentifier?: pulumi.Input<string>;
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
-    readonly featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }
 
 /**
@@ -137,13 +137,13 @@ export interface RoleAssociationArgs {
     /**
      * DB Instance Identifier to associate with the IAM Role.
      */
-    readonly dbInstanceIdentifier: pulumi.Input<string>;
+    dbInstanceIdentifier: pulumi.Input<string>;
     /**
      * Name of the feature for association. This can be found in the AWS documentation relevant to the integration or a full list is available in the `SupportedFeatureNames` list returned by [AWS CLI rds describe-db-engine-versions](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-engine-versions.html).
      */
-    readonly featureName: pulumi.Input<string>;
+    featureName: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
 }

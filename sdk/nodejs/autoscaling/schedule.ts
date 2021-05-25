@@ -164,43 +164,43 @@ export interface ScheduleState {
     /**
      * The ARN assigned by AWS to the autoscaling schedule.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
      */
-    readonly autoscalingGroupName?: pulumi.Input<string>;
+    autoscalingGroupName?: pulumi.Input<string>;
     /**
      * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
      */
-    readonly desiredCapacity?: pulumi.Input<number>;
+    desiredCapacity?: pulumi.Input<number>;
     /**
      * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the maximum size at the scheduled time.
      */
-    readonly maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number>;
     /**
      * The minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the minimum size at the scheduled time.
      */
-    readonly minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number>;
     /**
      * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      */
-    readonly recurrence?: pulumi.Input<string>;
+    recurrence?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
      */
-    readonly scheduledActionName?: pulumi.Input<string>;
+    scheduledActionName?: pulumi.Input<string>;
     /**
      * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
 }
 
 /**
@@ -210,37 +210,37 @@ export interface ScheduleArgs {
     /**
      * The name or Amazon Resource Name (ARN) of the Auto Scaling group.
      */
-    readonly autoscalingGroupName: pulumi.Input<string>;
+    autoscalingGroupName: pulumi.Input<string>;
     /**
      * The number of EC2 instances that should be running in the group. Default 0.  Set to -1 if you don't want to change the desired capacity at the scheduled time.
      */
-    readonly desiredCapacity?: pulumi.Input<number>;
+    desiredCapacity?: pulumi.Input<number>;
     /**
      * The time for this action to end, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    readonly endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
     /**
      * The maximum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the maximum size at the scheduled time.
      */
-    readonly maxSize?: pulumi.Input<number>;
+    maxSize?: pulumi.Input<number>;
     /**
      * The minimum size for the Auto Scaling group. Default 0.
      * Set to -1 if you don't want to change the minimum size at the scheduled time.
      */
-    readonly minSize?: pulumi.Input<number>;
+    minSize?: pulumi.Input<number>;
     /**
      * The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
      */
-    readonly recurrence?: pulumi.Input<string>;
+    recurrence?: pulumi.Input<string>;
     /**
      * The name of this scaling action.
      */
-    readonly scheduledActionName: pulumi.Input<string>;
+    scheduledActionName: pulumi.Input<string>;
     /**
      * The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
-    readonly startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
 }

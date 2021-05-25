@@ -113,11 +113,11 @@ export interface InvitationAccepterState {
     /**
      * The AWS account ID for the account that sent the invitation.
      */
-    readonly administratorAccountId?: pulumi.Input<string>;
+    administratorAccountId?: pulumi.Input<string>;
     /**
      * The unique identifier for the invitation.
      */
-    readonly invitationId?: pulumi.Input<string>;
+    invitationId?: pulumi.Input<string>;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface InvitationAccepterArgs {
     /**
      * The AWS account ID for the account that sent the invitation.
      */
-    readonly administratorAccountId: pulumi.Input<string>;
+    administratorAccountId: pulumi.Input<string>;
 }

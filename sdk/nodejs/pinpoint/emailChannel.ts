@@ -172,31 +172,31 @@ export interface EmailChannelState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      */
-    readonly configurationSet?: pulumi.Input<string>;
+    configurationSet?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The email address used to send emails from.
      */
-    readonly fromAddress?: pulumi.Input<string>;
+    fromAddress?: pulumi.Input<string>;
     /**
      * The ARN of an identity verified with SES.
      */
-    readonly identity?: pulumi.Input<string>;
+    identity?: pulumi.Input<string>;
     /**
      * Messages per second that can be sent.
      */
-    readonly messagesPerSecond?: pulumi.Input<number>;
+    messagesPerSecond?: pulumi.Input<number>;
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }
 
 /**
@@ -206,25 +206,25 @@ export interface EmailChannelArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      */
-    readonly configurationSet?: pulumi.Input<string>;
+    configurationSet?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The email address used to send emails from.
      */
-    readonly fromAddress: pulumi.Input<string>;
+    fromAddress: pulumi.Input<string>;
     /**
      * The ARN of an identity verified with SES.
      */
-    readonly identity: pulumi.Input<string>;
+    identity: pulumi.Input<string>;
     /**
      * The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }

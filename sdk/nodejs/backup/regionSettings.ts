@@ -103,7 +103,7 @@ export interface RegionSettingsState {
     /**
      * A map of services along with the opt-in preferences for the Region.
      */
-    readonly resourceTypeOptInPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    resourceTypeOptInPreference?: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface RegionSettingsArgs {
     /**
      * A map of services along with the opt-in preferences for the Region.
      */
-    readonly resourceTypeOptInPreference: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
+    resourceTypeOptInPreference: pulumi.Input<{[key: string]: pulumi.Input<boolean>}>;
 }

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * const byQuotaCode = pulumi.output(aws.servicequotas.getServiceQuota({
  *     quotaCode: "L-F678F1CE",
  *     serviceCode: "vpc",
- * }, { async: true }));
+ * }));
  * const byQuotaName = pulumi.output(aws.servicequotas.getServiceQuota({
  *     quotaName: "VPCs per Region",
  *     serviceCode: "vpc",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceQuotaResult> {
@@ -46,15 +46,15 @@ export interface GetServiceQuotaArgs {
     /**
      * Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    readonly quotaCode?: string;
+    quotaCode?: string;
     /**
      * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    readonly quotaName?: string;
+    quotaName?: string;
     /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    readonly serviceCode: string;
+    serviceCode: string;
 }
 
 /**

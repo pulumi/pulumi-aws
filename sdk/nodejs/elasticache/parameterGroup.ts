@@ -125,19 +125,19 @@ export interface ParameterGroupState {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The family of the ElastiCache parameter group.
      */
-    readonly family?: pulumi.Input<string>;
+    family?: pulumi.Input<string>;
     /**
      * The name of the ElastiCache parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
 }
 
 /**
@@ -147,17 +147,17 @@ export interface ParameterGroupArgs {
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The family of the ElastiCache parameter group.
      */
-    readonly family: pulumi.Input<string>;
+    family: pulumi.Input<string>;
     /**
      * The name of the ElastiCache parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of ElastiCache parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
 }

@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         name: "tag:Name",
  *         values: ["yakdriver"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
@@ -79,43 +79,43 @@ export interface GetSubnetArgs {
     /**
      * Availability zone where the subnet must reside.
      */
-    readonly availabilityZone?: string;
+    availabilityZone?: string;
     /**
      * ID of the Availability Zone for the subnet.
      */
-    readonly availabilityZoneId?: string;
+    availabilityZoneId?: string;
     /**
      * CIDR block of the desired subnet.
      */
-    readonly cidrBlock?: string;
+    cidrBlock?: string;
     /**
      * Whether the desired subnet must be the default subnet for its associated availability zone.
      */
-    readonly defaultForAz?: boolean;
+    defaultForAz?: boolean;
     /**
      * Configuration block. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetSubnetFilter[];
+    filters?: inputs.ec2.GetSubnetFilter[];
     /**
      * ID of the specific subnet to retrieve.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * IPv6 CIDR block of the desired subnet.
      */
-    readonly ipv6CidrBlock?: string;
+    ipv6CidrBlock?: string;
     /**
      * State that the desired subnet must have.
      */
-    readonly state?: string;
+    state?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired subnet.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * ID of the VPC that the desired subnet belongs to.
      */
-    readonly vpcId?: string;
+    vpcId?: string;
 }
 
 /**

@@ -180,39 +180,39 @@ export interface ServiceState {
     /**
      * The ARN of the service.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the namespace to use for DNS configuration.
      */
-    readonly namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -222,33 +222,33 @@ export interface ServiceArgs {
     /**
      * The description of the service.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
-    readonly dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
-    readonly healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
+    healthCheckConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckConfig>;
     /**
      * A complex type that contains settings for ECS managed health checks.
      */
-    readonly healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
+    healthCheckCustomConfig?: pulumi.Input<inputs.servicediscovery.ServiceHealthCheckCustomConfig>;
     /**
      * The name of the service.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the namespace to use for DNS configuration.
      */
-    readonly namespaceId?: pulumi.Input<string>;
+    namespaceId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the service. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -163,35 +163,35 @@ export interface ConnectionState {
     /**
      * The ARN of the Glue Connection.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
-    readonly connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string>;
     /**
      * Description of the connection.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    readonly matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
 }
 
 /**
@@ -201,29 +201,29 @@ export interface ConnectionArgs {
     /**
      * The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    readonly connectionProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectionProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
-    readonly connectionType?: pulumi.Input<string>;
+    connectionType?: pulumi.Input<string>;
     /**
      * Description of the connection.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A list of criteria that can be used in selecting this connection.
      */
-    readonly matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
+    matchCriterias?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
      */
-    readonly physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
+    physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirements>;
 }

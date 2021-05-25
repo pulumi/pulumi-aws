@@ -226,47 +226,47 @@ export interface StateMachineState {
     /**
      * The ARN of the state machine.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The date the state machine was created.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
-    readonly definition?: pulumi.Input<string>;
+    definition?: pulumi.Input<string>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    readonly tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -276,33 +276,33 @@ export interface StateMachineArgs {
     /**
      * The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
      */
-    readonly definition: pulumi.Input<string>;
+    definition: pulumi.Input<string>;
     /**
      * Defines what execution history events are logged and where they are logged. The `loggingConfiguration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.sfn.StateMachineLoggingConfiguration>;
     /**
      * The name of the state machine. To enable logging with CloudWatch Logs, the name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Selects whether AWS X-Ray tracing is enabled.
      */
-    readonly tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
+    tracingConfiguration?: pulumi.Input<inputs.sfn.StateMachineTracingConfiguration>;
     /**
      * Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

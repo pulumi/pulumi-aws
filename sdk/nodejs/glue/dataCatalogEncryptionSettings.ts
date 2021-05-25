@@ -108,11 +108,11 @@ export interface DataCatalogEncryptionSettingsState {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    readonly dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    dataCatalogEncryptionSettings?: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface DataCatalogEncryptionSettingsArgs {
     /**
      * The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * The security configuration to set. see Data Catalog Encryption Settings.
      */
-    readonly dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
+    dataCatalogEncryptionSettings: pulumi.Input<inputs.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettings>;
 }

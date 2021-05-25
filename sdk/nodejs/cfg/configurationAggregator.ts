@@ -157,27 +157,27 @@ export interface ConfigurationAggregatorState {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    readonly accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
+    accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The ARN of the aggregator
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the configuration aggregator.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The organization to aggregate config data from as documented below.
      */
-    readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
+    organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -187,21 +187,21 @@ export interface ConfigurationAggregatorArgs {
     /**
      * The account(s) to aggregate config data from as documented below.
      */
-    readonly accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
+    accountAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorAccountAggregationSource>;
     /**
      * The name of the configuration aggregator.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The organization to aggregate config data from as documented below.
      */
-    readonly organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
+    organizationAggregationSource?: pulumi.Input<inputs.cfg.ConfigurationAggregatorOrganizationAggregationSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

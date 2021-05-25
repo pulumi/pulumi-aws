@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.glue.getDataCatalogEncryptionSettings({
  *     id: "123456789123",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCatalogEncryptionSettingsResult> {
@@ -39,7 +39,7 @@ export interface GetDataCatalogEncryptionSettingsArgs {
     /**
      * The ID of the Data Catalog. This is typically the AWS account ID.
      */
-    readonly catalogId: string;
+    catalogId: string;
 }
 
 /**

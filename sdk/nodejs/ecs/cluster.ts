@@ -125,25 +125,25 @@ export interface ClusterState {
     /**
      * ARN that identifies the cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
-    readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
-    readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
      * Name of the setting to manage. Valid values: `containerInsights`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -153,19 +153,19 @@ export interface ClusterArgs {
     /**
      * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
-    readonly capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
-    readonly defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
+    defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
      * Name of the setting to manage. Valid values: `containerInsights`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
      */
-    readonly settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    settings?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterSetting>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

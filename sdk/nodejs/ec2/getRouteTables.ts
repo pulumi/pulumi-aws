@@ -31,16 +31,16 @@ export interface GetRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetRouteTablesFilter[];
+    filters?: inputs.ec2.GetRouteTablesFilter[];
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * The VPC ID that you want to filter from.
      */
-    readonly vpcId?: string;
+    vpcId?: string;
 }
 
 /**

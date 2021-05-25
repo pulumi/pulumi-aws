@@ -57,15 +57,15 @@ export interface GetDocumentArgs {
     /**
      * Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
      */
-    readonly documentFormat?: string;
+    documentFormat?: string;
     /**
      * The document version for which you want information.
      */
-    readonly documentVersion?: string;
+    documentVersion?: string;
     /**
      * The name of the Systems Manager document.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

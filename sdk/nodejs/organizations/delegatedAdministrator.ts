@@ -146,39 +146,39 @@ export interface DelegatedAdministratorState {
     /**
      * The account ID number of the member account in the organization to register as a delegated administrator.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the delegated administrator's account.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The date when the account was made a delegated administrator.
      */
-    readonly delegationEnabledDate?: pulumi.Input<string>;
+    delegationEnabledDate?: pulumi.Input<string>;
     /**
      * The email address that is associated with the delegated administrator's AWS account.
      */
-    readonly email?: pulumi.Input<string>;
+    email?: pulumi.Input<string>;
     /**
      * The method by which the delegated administrator's account joined the organization.
      */
-    readonly joinedMethod?: pulumi.Input<string>;
+    joinedMethod?: pulumi.Input<string>;
     /**
      * The date when the delegated administrator's account became a part of the organization.
      */
-    readonly joinedTimestamp?: pulumi.Input<string>;
+    joinedTimestamp?: pulumi.Input<string>;
     /**
      * The friendly name of the delegated administrator's account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      */
-    readonly servicePrincipal?: pulumi.Input<string>;
+    servicePrincipal?: pulumi.Input<string>;
     /**
      * The status of the delegated administrator's account in the organization.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -188,9 +188,9 @@ export interface DelegatedAdministratorArgs {
     /**
      * The account ID number of the member account in the organization to register as a delegated administrator.
      */
-    readonly accountId: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
     /**
      * The service principal of the AWS service for which you want to make the member account a delegated administrator.
      */
-    readonly servicePrincipal: pulumi.Input<string>;
+    servicePrincipal: pulumi.Input<string>;
 }

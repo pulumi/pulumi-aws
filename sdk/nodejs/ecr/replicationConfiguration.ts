@@ -105,11 +105,11 @@ export interface ReplicationConfigurationState {
     /**
      * The account ID of the destination registry to replicate to.
      */
-    readonly registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string>;
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    readonly replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface ReplicationConfigurationArgs {
     /**
      * Replication configuration for a registry. See Replication Configuration.
      */
-    readonly replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.ecr.ReplicationConfigurationReplicationConfiguration>;
 }

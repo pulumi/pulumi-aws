@@ -42,15 +42,15 @@ export interface GetLocalDiskArgs {
     /**
      * The device node of the local disk to retrieve. For example, `/dev/sdb`.
      */
-    readonly diskNode?: string;
+    diskNode?: string;
     /**
      * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
      */
-    readonly diskPath?: string;
+    diskPath?: string;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn: string;
+    gatewayArn: string;
 }
 
 /**

@@ -52,12 +52,12 @@ export interface GetLoadBalancerArgs {
     /**
      * The full ARN of the load balancer.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * The unique name of the load balancer.
      */
-    readonly name?: string;
-    readonly tags?: {[key: string]: string};
+    name?: string;
+    tags?: {[key: string]: string};
 }
 
 /**

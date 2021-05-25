@@ -159,49 +159,49 @@ export interface TransitGatewayState {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
      */
-    readonly amazonSideAsn?: pulumi.Input<number>;
+    amazonSideAsn?: pulumi.Input<number>;
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<ARN>;
     /**
      * Identifier of the default association route table
      */
-    readonly associationDefaultRouteTableId?: pulumi.Input<string>;
+    associationDefaultRouteTableId?: pulumi.Input<string>;
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    readonly autoAcceptSharedAttachments?: pulumi.Input<string>;
+    autoAcceptSharedAttachments?: pulumi.Input<string>;
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly defaultRouteTableAssociation?: pulumi.Input<string>;
+    defaultRouteTableAssociation?: pulumi.Input<string>;
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly defaultRouteTablePropagation?: pulumi.Input<string>;
+    defaultRouteTablePropagation?: pulumi.Input<string>;
     /**
      * Description of the EC2 Transit Gateway.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly dnsSupport?: pulumi.Input<string>;
+    dnsSupport?: pulumi.Input<string>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * Identifier of the default propagation route table
      */
-    readonly propagationDefaultRouteTableId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    propagationDefaultRouteTableId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly vpnEcmpSupport?: pulumi.Input<string>;
+    vpnEcmpSupport?: pulumi.Input<string>;
 }
 
 /**
@@ -211,31 +211,31 @@ export interface TransitGatewayArgs {
     /**
      * Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
      */
-    readonly amazonSideAsn?: pulumi.Input<number>;
+    amazonSideAsn?: pulumi.Input<number>;
     /**
      * Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
      */
-    readonly autoAcceptSharedAttachments?: pulumi.Input<string>;
+    autoAcceptSharedAttachments?: pulumi.Input<string>;
     /**
      * Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly defaultRouteTableAssociation?: pulumi.Input<string>;
+    defaultRouteTableAssociation?: pulumi.Input<string>;
     /**
      * Whether resource attachments automatically propagate routes to the default propagation route table. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly defaultRouteTablePropagation?: pulumi.Input<string>;
+    defaultRouteTablePropagation?: pulumi.Input<string>;
     /**
      * Description of the EC2 Transit Gateway.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly dnsSupport?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    dnsSupport?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
-    readonly vpnEcmpSupport?: pulumi.Input<string>;
+    vpnEcmpSupport?: pulumi.Input<string>;
 }

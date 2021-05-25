@@ -160,44 +160,44 @@ export interface ProxyEndpointState {
     /**
      * The Amazon Resource Name (ARN) for the proxy endpoint.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    readonly dbProxyEndpointName?: pulumi.Input<string>;
+    dbProxyEndpointName?: pulumi.Input<string>;
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      */
-    readonly dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
      */
-    readonly isDefault?: pulumi.Input<boolean>;
+    isDefault?: pulumi.Input<boolean>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
-    readonly targetRole?: pulumi.Input<string>;
+    targetRole?: pulumi.Input<string>;
     /**
      * The VPC ID of the DB proxy endpoint.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    readonly vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -207,26 +207,26 @@ export interface ProxyEndpointArgs {
     /**
      * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    readonly dbProxyEndpointName: pulumi.Input<string>;
+    dbProxyEndpointName: pulumi.Input<string>;
     /**
      * The name of the DB proxy associated with the DB proxy endpoint that you create.
      */
-    readonly dbProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
-    readonly targetRole?: pulumi.Input<string>;
+    targetRole?: pulumi.Input<string>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    readonly vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

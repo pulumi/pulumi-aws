@@ -115,19 +115,19 @@ export interface MethodSettingsState {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
-    readonly methodPath?: pulumi.Input<string>;
+    methodPath?: pulumi.Input<string>;
     /**
      * The ID of the REST API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * The settings block, see below.
      */
-    readonly settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
+    settings?: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
     /**
      * The name of the stage
      */
-    readonly stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string>;
 }
 
 /**
@@ -137,17 +137,17 @@ export interface MethodSettingsArgs {
     /**
      * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
-    readonly methodPath: pulumi.Input<string>;
+    methodPath: pulumi.Input<string>;
     /**
      * The ID of the REST API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * The settings block, see below.
      */
-    readonly settings: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
+    settings: pulumi.Input<inputs.apigateway.MethodSettingsSettings>;
     /**
      * The name of the stage
      */
-    readonly stageName: pulumi.Input<string>;
+    stageName: pulumi.Input<string>;
 }

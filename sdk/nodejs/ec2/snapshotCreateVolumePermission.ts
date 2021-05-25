@@ -101,11 +101,11 @@ export interface SnapshotCreateVolumePermissionState {
     /**
      * An AWS Account ID to add create volume permissions
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * A snapshot ID
      */
-    readonly snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string>;
 }
 
 /**
@@ -115,9 +115,9 @@ export interface SnapshotCreateVolumePermissionArgs {
     /**
      * An AWS Account ID to add create volume permissions
      */
-    readonly accountId: pulumi.Input<string>;
+    accountId: pulumi.Input<string>;
     /**
      * A snapshot ID
      */
-    readonly snapshotId: pulumi.Input<string>;
+    snapshotId: pulumi.Input<string>;
 }

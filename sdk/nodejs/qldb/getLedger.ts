@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.qldb.getLedger({
  *     name: "an_example_ledger",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Promise<GetLedgerResult> {
@@ -39,7 +39,7 @@ export interface GetLedgerArgs {
     /**
      * The friendly name of the ledger to match.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

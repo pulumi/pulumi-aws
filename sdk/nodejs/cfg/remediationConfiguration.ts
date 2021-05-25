@@ -164,32 +164,32 @@ export interface RemediationConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the Config Remediation Configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the AWS Config rule
      */
-    readonly configRuleName?: pulumi.Input<string>;
+    configRuleName?: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
      * parameter. Each parameter block supports fields documented below.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
     /**
      * The type of a resource
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * Target ID is the name of the public document
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
     /**
      * The type of the target. Target executes remediation. For example, SSM document
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
     /**
      * Version of the target. For example, version of the SSM document
      */
-    readonly targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string>;
 }
 
 /**
@@ -199,26 +199,26 @@ export interface RemediationConfigurationArgs {
     /**
      * The name of the AWS Config rule
      */
-    readonly configRuleName: pulumi.Input<string>;
+    configRuleName: pulumi.Input<string>;
     /**
      * Can be specified multiple times for each
      * parameter. Each parameter block supports fields documented below.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
     /**
      * The type of a resource
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * Target ID is the name of the public document
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
     /**
      * The type of the target. Target executes remediation. For example, SSM document
      */
-    readonly targetType: pulumi.Input<string>;
+    targetType: pulumi.Input<string>;
     /**
      * Version of the target. For example, version of the SSM document
      */
-    readonly targetVersion?: pulumi.Input<string>;
+    targetVersion?: pulumi.Input<string>;
 }

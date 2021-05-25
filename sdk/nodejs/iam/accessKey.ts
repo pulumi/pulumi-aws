@@ -166,35 +166,35 @@ export interface AccessKeyState {
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the access key was created.
      */
-    readonly createDate?: pulumi.Input<string>;
-    readonly encryptedSecret?: pulumi.Input<string>;
+    createDate?: pulumi.Input<string>;
+    encryptedSecret?: pulumi.Input<string>;
     /**
      * The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
      */
-    readonly keyFingerprint?: pulumi.Input<string>;
+    keyFingerprint?: pulumi.Input<string>;
     /**
      * Either a base-64 encoded PGP public key, or a
      * keybase username in the form `keybase:some_person_that_exists`, for use
      * in the `encryptedSecret` output attribute.
      */
-    readonly pgpKey?: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string>;
     /**
      * The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgpKey` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
      */
-    readonly secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string>;
     /**
      * The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
      */
-    readonly sesSmtpPasswordV4?: pulumi.Input<string>;
+    sesSmtpPasswordV4?: pulumi.Input<string>;
     /**
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The IAM user to associate with this access key.
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -206,14 +206,14 @@ export interface AccessKeyArgs {
      * keybase username in the form `keybase:some_person_that_exists`, for use
      * in the `encryptedSecret` output attribute.
      */
-    readonly pgpKey?: pulumi.Input<string>;
+    pgpKey?: pulumi.Input<string>;
     /**
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The IAM user to associate with this access key.
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

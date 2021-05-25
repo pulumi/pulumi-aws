@@ -196,23 +196,23 @@ export interface FunctionEventInvokeConfigState {
     /**
      * Configuration block with destination configuration. See below for details.
      */
-    readonly destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      */
-    readonly functionName?: pulumi.Input<string>;
+    functionName?: pulumi.Input<string>;
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      */
-    readonly maximumEventAgeInSeconds?: pulumi.Input<number>;
+    maximumEventAgeInSeconds?: pulumi.Input<number>;
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      */
-    readonly maximumRetryAttempts?: pulumi.Input<number>;
+    maximumRetryAttempts?: pulumi.Input<number>;
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
-    readonly qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string>;
 }
 
 /**
@@ -222,21 +222,21 @@ export interface FunctionEventInvokeConfigArgs {
     /**
      * Configuration block with destination configuration. See below for details.
      */
-    readonly destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
+    destinationConfig?: pulumi.Input<inputs.lambda.FunctionEventInvokeConfigDestinationConfig>;
     /**
      * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
      */
-    readonly functionName: pulumi.Input<string>;
+    functionName: pulumi.Input<string>;
     /**
      * Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
      */
-    readonly maximumEventAgeInSeconds?: pulumi.Input<number>;
+    maximumEventAgeInSeconds?: pulumi.Input<number>;
     /**
      * Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
      */
-    readonly maximumRetryAttempts?: pulumi.Input<number>;
+    maximumRetryAttempts?: pulumi.Input<number>;
     /**
      * Lambda Function published version, `$LATEST`, or Lambda Alias name.
      */
-    readonly qualifier?: pulumi.Input<string>;
+    qualifier?: pulumi.Input<string>;
 }

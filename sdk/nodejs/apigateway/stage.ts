@@ -208,70 +208,70 @@ export interface StageState {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    readonly cacheClusterEnabled?: pulumi.Input<boolean>;
+    cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    readonly cacheClusterSize?: pulumi.Input<string>;
+    cacheClusterSize?: pulumi.Input<string>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    readonly clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string>;
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment?: pulumi.Input<string | Deployment>;
+    deployment?: pulumi.Input<string | Deployment>;
     /**
      * The description of the stage
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The version of the associated API documentation
      */
-    readonly documentationVersion?: pulumi.Input<string>;
+    documentationVersion?: pulumi.Input<string>;
     /**
      * The execution ARN to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
      * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
-    readonly executionArn?: pulumi.Input<string>;
+    executionArn?: pulumi.Input<string>;
     /**
      * The URL to invoke the API pointing to the stage,
      * e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
      */
-    readonly invokeUrl?: pulumi.Input<string>;
+    invokeUrl?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * The name of the stage
      */
-    readonly stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
+    xrayTracingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -281,53 +281,53 @@ export interface StageArgs {
     /**
      * Enables access logs for the API stage. Detailed below.
      */
-    readonly accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
+    accessLogSettings?: pulumi.Input<inputs.apigateway.StageAccessLogSettings>;
     /**
      * Specifies whether a cache cluster is enabled for the stage
      */
-    readonly cacheClusterEnabled?: pulumi.Input<boolean>;
+    cacheClusterEnabled?: pulumi.Input<boolean>;
     /**
      * The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
      */
-    readonly cacheClusterSize?: pulumi.Input<string>;
+    cacheClusterSize?: pulumi.Input<string>;
     /**
      * The identifier of a client certificate for the stage.
      */
-    readonly clientCertificateId?: pulumi.Input<string>;
+    clientCertificateId?: pulumi.Input<string>;
     /**
      * The ID of the deployment that the stage points to
      */
-    readonly deployment: pulumi.Input<string | Deployment>;
+    deployment: pulumi.Input<string | Deployment>;
     /**
      * The description of the stage
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The version of the associated API documentation
      */
-    readonly documentationVersion?: pulumi.Input<string>;
+    documentationVersion?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * The name of the stage
      */
-    readonly stageName: pulumi.Input<string>;
+    stageName: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map that defines the stage variables
      */
-    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether active tracing with X-ray is enabled. Defaults to `false`.
      */
-    readonly xrayTracingEnabled?: pulumi.Input<boolean>;
+    xrayTracingEnabled?: pulumi.Input<boolean>;
 }

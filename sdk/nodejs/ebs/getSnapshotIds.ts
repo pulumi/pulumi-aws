@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     owners: ["self"],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSnapshotIds(args?: GetSnapshotIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotIdsResult> {
@@ -55,15 +55,15 @@ export interface GetSnapshotIdsArgs {
      * several valid keys, for a full reference, check out
      * [describe-volumes in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.ebs.GetSnapshotIdsFilter[];
+    filters?: inputs.ebs.GetSnapshotIdsFilter[];
     /**
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
-    readonly owners?: string[];
+    owners?: string[];
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
-    readonly restorableByUserIds?: string[];
+    restorableByUserIds?: string[];
 }
 
 /**

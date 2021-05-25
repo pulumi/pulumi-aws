@@ -142,32 +142,32 @@ export interface CustomerGatewayState {
     /**
      * The ARN of the customer gateway.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn?: pulumi.Input<string>;
+    bgpAsn?: pulumi.Input<string>;
     /**
      * A name for the customer gateway device.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -177,26 +177,26 @@ export interface CustomerGatewayArgs {
     /**
      * The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
      */
-    readonly bgpAsn: pulumi.Input<string>;
+    bgpAsn: pulumi.Input<string>;
     /**
      * A name for the customer gateway device.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The IP address of the gateway's Internet-routable external interface.
      */
-    readonly ipAddress: pulumi.Input<string>;
+    ipAddress: pulumi.Input<string>;
     /**
      * Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of customer gateway. The only type AWS
      * supports at this time is "ipsec.1".
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

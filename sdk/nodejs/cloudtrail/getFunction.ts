@@ -29,11 +29,11 @@ export interface GetFunctionArgs {
     /**
      * Name of the CloudFront function.
      */
-    readonly name: string;
+    name: string;
     /**
      * The function’s stage, either `DEVELOPMENT` or `LIVE`.
      */
-    readonly stage: string;
+    stage: string;
 }
 
 /**

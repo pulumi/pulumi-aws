@@ -43,12 +43,12 @@ export interface GetFunctionArgs {
     /**
      * Name of the lambda function.
      */
-    readonly functionName: string;
+    functionName: string;
     /**
      * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
      */
-    readonly qualifier?: string;
-    readonly tags?: {[key: string]: string};
+    qualifier?: string;
+    tags?: {[key: string]: string};
 }
 
 /**

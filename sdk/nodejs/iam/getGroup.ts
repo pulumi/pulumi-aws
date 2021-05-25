@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.iam.getGroup({
  *     groupName: "an_example_group_name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -41,7 +41,7 @@ export interface GetGroupArgs {
     /**
      * The friendly IAM group name to match.
      */
-    readonly groupName: string;
+    groupName: string;
 }
 
 /**

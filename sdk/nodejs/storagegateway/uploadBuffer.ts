@@ -129,15 +129,15 @@ export interface UploadBufferState {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    readonly diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string>;
 }
 
 /**
@@ -147,13 +147,13 @@ export interface UploadBufferArgs {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string>;
     /**
      * Local disk path. For example, `/dev/nvme1n1`.
      */
-    readonly diskPath?: pulumi.Input<string>;
+    diskPath?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn: pulumi.Input<string>;
+    gatewayArn: pulumi.Input<string>;
 }

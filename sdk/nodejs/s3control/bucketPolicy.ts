@@ -118,11 +118,11 @@ export interface BucketPolicyState {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * JSON string of the resource policy.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -132,9 +132,9 @@ export interface BucketPolicyArgs {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * JSON string of the resource policy.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

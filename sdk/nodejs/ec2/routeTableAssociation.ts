@@ -124,15 +124,15 @@ export interface RouteTableAssociationState {
     /**
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
      */
-    readonly routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string>;
     /**
      * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface RouteTableAssociationArgs {
     /**
      * The gateway ID to create an association. Conflicts with `subnetId`.
      */
-    readonly gatewayId?: pulumi.Input<string>;
+    gatewayId?: pulumi.Input<string>;
     /**
      * The ID of the routing table to associate with.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
     /**
      * The subnet ID to create an association. Conflicts with `gatewayId`.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }

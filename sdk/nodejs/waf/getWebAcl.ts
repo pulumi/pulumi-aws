@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.waf.getWebAcl({
  *     name: "tfWAFWebACL",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getWebAcl(args: GetWebAclArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAclResult> {
@@ -39,7 +39,7 @@ export interface GetWebAclArgs {
     /**
      * The name of the WAF Web ACL.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

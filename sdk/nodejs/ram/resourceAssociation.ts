@@ -106,11 +106,11 @@ export interface ResourceAssociationState {
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    readonly resourceShareArn?: pulumi.Input<string>;
+    resourceShareArn?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface ResourceAssociationArgs {
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the RAM Resource Share.
      */
-    readonly resourceShareArn: pulumi.Input<string>;
+    resourceShareArn: pulumi.Input<string>;
 }

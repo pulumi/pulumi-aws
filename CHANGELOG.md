@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to v3.42.0 of the AWS Terraform Provider
+* Upgrade to v3.2.0 of the Pulumi Terraform Bridge
 
 ---
 

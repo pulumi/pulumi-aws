@@ -41,7 +41,7 @@ export interface GetApplicationArgs {
     /**
      * The name of the application
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

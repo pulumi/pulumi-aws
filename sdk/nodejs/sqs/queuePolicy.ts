@@ -126,11 +126,11 @@ export interface QueuePolicyState {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    readonly queueUrl?: pulumi.Input<string>;
+    queueUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -140,9 +140,9 @@ export interface QueuePolicyArgs {
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | PolicyDocument>;
     /**
      * The URL of the SQS Queue to which to attach the policy
      */
-    readonly queueUrl: pulumi.Input<string>;
+    queueUrl: pulumi.Input<string>;
 }

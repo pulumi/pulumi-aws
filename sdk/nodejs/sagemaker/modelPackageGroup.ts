@@ -119,23 +119,23 @@ export interface ModelPackageGroupState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Model Package Group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A description for the model group.
      */
-    readonly modelPackageGroupDescription?: pulumi.Input<string>;
+    modelPackageGroupDescription?: pulumi.Input<string>;
     /**
      * The name of the model group.
      */
-    readonly modelPackageGroupName?: pulumi.Input<string>;
+    modelPackageGroupName?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -145,17 +145,17 @@ export interface ModelPackageGroupArgs {
     /**
      * A description for the model group.
      */
-    readonly modelPackageGroupDescription?: pulumi.Input<string>;
+    modelPackageGroupDescription?: pulumi.Input<string>;
     /**
      * The name of the model group.
      */
-    readonly modelPackageGroupName: pulumi.Input<string>;
+    modelPackageGroupName: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

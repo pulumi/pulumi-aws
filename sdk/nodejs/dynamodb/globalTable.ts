@@ -150,15 +150,15 @@ export interface GlobalTableState {
     /**
      * The ARN of the DynamoDB Global Table
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
+    replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
 }
 
 /**
@@ -168,9 +168,9 @@ export interface GlobalTableArgs {
     /**
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
-    readonly replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
+    replicas: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
 }

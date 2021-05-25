@@ -122,19 +122,19 @@ export interface ApiMappingState {
     /**
      * The API identifier.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
      */
-    readonly apiMappingKey?: pulumi.Input<string>;
+    apiMappingKey?: pulumi.Input<string>;
     /**
      * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
-    readonly stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string>;
 }
 
 /**
@@ -144,17 +144,17 @@ export interface ApiMappingArgs {
     /**
      * The API identifier.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * The [API mapping key](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-mapping-template-reference.html).
      */
-    readonly apiMappingKey?: pulumi.Input<string>;
+    apiMappingKey?: pulumi.Input<string>;
     /**
      * The domain name. Use the `aws.apigatewayv2.DomainName` resource to configure a domain name.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * The API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
      */
-    readonly stage: pulumi.Input<string>;
+    stage: pulumi.Input<string>;
 }

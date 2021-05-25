@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const sfnActivity = pulumi.output(aws.sfn.getActivity({
  *     name: "my-activity",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getActivity(args?: GetActivityArgs, opts?: pulumi.InvokeOptions): Promise<GetActivityResult> {
@@ -41,11 +41,11 @@ export interface GetActivityArgs {
     /**
      * The Amazon Resource Name (ARN) that identifies the activity.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * The name that identifies the activity.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

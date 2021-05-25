@@ -105,15 +105,15 @@ export class SizeConstraintSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SizeConstraintSet resources.
  */
 export interface SizeConstraintSetState {
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name or description of the Size Constraint Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }
 
 /**
@@ -123,9 +123,9 @@ export interface SizeConstraintSetArgs {
     /**
      * The name or description of the Size Constraint Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the parts of web requests that you want to inspect the size of.
      */
-    readonly sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
+    sizeConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.SizeConstraintSetSizeConstraint>[]>;
 }

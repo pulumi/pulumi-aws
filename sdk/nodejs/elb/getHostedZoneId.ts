@@ -50,7 +50,7 @@ export interface GetHostedZoneIdArgs {
      * Name of the region whose AWS ELB HostedZoneId is desired.
      * Defaults to the region from the AWS provider configuration.
      */
-    readonly region?: string;
+    region?: string;
 }
 
 /**

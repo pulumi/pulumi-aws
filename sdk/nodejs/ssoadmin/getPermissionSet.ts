@@ -31,19 +31,19 @@ export interface GetPermissionSetArgs {
     /**
      * The Amazon Resource Name (ARN) of the permission set.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
      */
-    readonly instanceArn: string;
+    instanceArn: string;
     /**
      * The name of the SSO Permission Set.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

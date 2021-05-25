@@ -336,90 +336,90 @@ export interface DomainNameState {
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The certificate issued for the domain name
      * being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
      * `regionalCertificateName`.
      */
-    readonly certificateBody?: pulumi.Input<string>;
+    certificateBody?: pulumi.Input<string>;
     /**
      * The certificate for the CA that issued the
      * certificate, along with any intermediate CA certificates required to
      * create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
      * `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string>;
     /**
      * The unique name to use when registering this
      * certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
      * `regionalCertificateName`. Required if `certificateArn` is not set.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The private key associated with the
      * domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificatePrivateKey?: pulumi.Input<string>;
+    certificatePrivateKey?: pulumi.Input<string>;
     /**
      * The upload date associated with the domain certificate.
      */
-    readonly certificateUploadDate?: pulumi.Input<string>;
+    certificateUploadDate?: pulumi.Input<string>;
     /**
      * The hostname created by Cloudfront to represent
      * the distribution that implements this domain name mapping.
      */
-    readonly cloudfrontDomainName?: pulumi.Input<string>;
+    cloudfrontDomainName?: pulumi.Input<string>;
     /**
      * For convenience, the hosted zone ID (`Z2FDTNDATAQYW2`)
      * that can be used to create a Route53 alias record for the distribution.
      */
-    readonly cloudfrontZoneId?: pulumi.Input<string>;
+    cloudfrontZoneId?: pulumi.Input<string>;
     /**
      * The fully-qualified domain name to register
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
     /**
      * The mutual TLS authentication configuration for the domain name. Defined below.
      */
-    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
-    readonly regionalCertificateArn?: pulumi.Input<string>;
+    regionalCertificateArn?: pulumi.Input<string>;
     /**
      * The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
      * `certificatePrivateKey`.
      */
-    readonly regionalCertificateName?: pulumi.Input<string>;
+    regionalCertificateName?: pulumi.Input<string>;
     /**
      * The hostname for the custom domain's regional endpoint.
      */
-    readonly regionalDomainName?: pulumi.Input<string>;
+    regionalDomainName?: pulumi.Input<string>;
     /**
      * The hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
      */
-    readonly regionalZoneId?: pulumi.Input<string>;
+    regionalZoneId?: pulumi.Input<string>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
-    readonly securityPolicy?: pulumi.Input<string>;
+    securityPolicy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -429,62 +429,62 @@ export interface DomainNameArgs {
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when an edge-optimized domain name is desired. Conflicts with `certificateName`, `certificateBody`, `certificateChain`, `certificatePrivateKey`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The certificate issued for the domain name
      * being registered, in PEM format. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and
      * `regionalCertificateName`.
      */
-    readonly certificateBody?: pulumi.Input<string>;
+    certificateBody?: pulumi.Input<string>;
     /**
      * The certificate for the CA that issued the
      * certificate, along with any intermediate CA certificates required to
      * create an unbroken chain to a certificate trusted by the intended API clients. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`,
      * `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string>;
     /**
      * The unique name to use when registering this
      * certificate as an IAM server certificate. Conflicts with `certificateArn`, `regionalCertificateArn`, and
      * `regionalCertificateName`. Required if `certificateArn` is not set.
      */
-    readonly certificateName?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The private key associated with the
      * domain certificate given in `certificateBody`. Only valid for `EDGE` endpoint configuration type. Conflicts with `certificateArn`, `regionalCertificateArn`, and `regionalCertificateName`.
      */
-    readonly certificatePrivateKey?: pulumi.Input<string>;
+    certificatePrivateKey?: pulumi.Input<string>;
     /**
      * The fully-qualified domain name to register
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * Configuration block defining API endpoint information including type. Defined below.
      */
-    readonly endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
+    endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfiguration>;
     /**
      * The mutual TLS authentication configuration for the domain name. Defined below.
      */
-    readonly mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
+    mutualTlsAuthentication?: pulumi.Input<inputs.apigateway.DomainNameMutualTlsAuthentication>;
     /**
      * The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
-    readonly regionalCertificateArn?: pulumi.Input<string>;
+    regionalCertificateArn?: pulumi.Input<string>;
     /**
      * The user-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and
      * `certificatePrivateKey`.
      */
-    readonly regionalCertificateName?: pulumi.Input<string>;
+    regionalCertificateName?: pulumi.Input<string>;
     /**
      * The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2`. Must be configured to perform drift detection.
      */
-    readonly securityPolicy?: pulumi.Input<string>;
+    securityPolicy?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

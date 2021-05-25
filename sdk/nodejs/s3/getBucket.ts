@@ -69,7 +69,7 @@ export interface GetBucketArgs {
     /**
      * The name of the bucket
      */
-    readonly bucket: string;
+    bucket: string;
 }
 
 /**

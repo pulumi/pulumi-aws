@@ -133,11 +133,11 @@ export interface EncryptionConfigState {
     /**
      * An AWS KMS customer master key (CMK) ARN.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -147,9 +147,9 @@ export interface EncryptionConfigArgs {
     /**
      * An AWS KMS customer master key (CMK) ARN.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

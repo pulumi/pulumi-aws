@@ -114,19 +114,19 @@ export interface ApiKeyState {
     /**
      * The ID of the associated AppSync API
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * The API key description. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    readonly expires?: pulumi.Input<string>;
+    expires?: pulumi.Input<string>;
     /**
      * The API key
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
 }
 
 /**
@@ -136,13 +136,13 @@ export interface ApiKeyArgs {
     /**
      * The ID of the associated AppSync API
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * The API key description. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
-    readonly expires?: pulumi.Input<string>;
+    expires?: pulumi.Input<string>;
 }

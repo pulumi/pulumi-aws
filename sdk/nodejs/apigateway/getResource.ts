@@ -45,11 +45,11 @@ export interface GetResourceArgs {
     /**
      * The full path of the resource.  If no path is found, an error will be returned.
      */
-    readonly path: string;
+    path: string;
     /**
      * The REST API id that owns the resource. If no REST API is found, an error will be returned.
      */
-    readonly restApiId: string;
+    restApiId: string;
 }
 
 /**

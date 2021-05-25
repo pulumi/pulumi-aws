@@ -90,11 +90,11 @@ export interface ScramSecretAssociationState {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    readonly clusterArn?: pulumi.Input<string>;
+    clusterArn?: pulumi.Input<string>;
     /**
      * List of AWS Secrets Manager secret ARNs.
      */
-    readonly secretArnLists?: pulumi.Input<pulumi.Input<string>[]>;
+    secretArnLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -104,9 +104,9 @@ export interface ScramSecretAssociationArgs {
     /**
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
-    readonly clusterArn: pulumi.Input<string>;
+    clusterArn: pulumi.Input<string>;
     /**
      * List of AWS Secrets Manager secret ARNs.
      */
-    readonly secretArnLists: pulumi.Input<pulumi.Input<string>[]>;
+    secretArnLists: pulumi.Input<pulumi.Input<string>[]>;
 }

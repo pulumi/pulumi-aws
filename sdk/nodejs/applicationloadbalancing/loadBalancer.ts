@@ -301,95 +301,95 @@ export interface LoadBalancerState {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    readonly accessLogs?: pulumi.Input<inputs.applicationloadbalancing.LoadBalancerAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.applicationloadbalancing.LoadBalancerAccessLogs>;
     /**
      * The ARN of the load balancer (matches `id`).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ARN suffix for use with CloudWatch Metrics.
      */
-    readonly arnSuffix?: pulumi.Input<string>;
+    arnSuffix?: pulumi.Input<string>;
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
      */
-    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * The DNS name of the load balancer.
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
-    readonly dropInvalidHeaderFields?: pulumi.Input<boolean>;
+    dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
-    readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
+    enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
-    readonly enableDeletionProtection?: pulumi.Input<boolean>;
+    enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    readonly enableHttp2?: pulumi.Input<boolean>;
+    enableHttp2?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    readonly idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number>;
     /**
      * If true, the LB will be internal.
      */
-    readonly internal?: pulumi.Input<boolean>;
+    internal?: pulumi.Input<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<IpAddressType>;
     /**
      * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * this provider will autogenerate a name beginning with `tf-lb`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.LoadBalancerSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.LoadBalancerSubnetMapping>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly vpcId?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    vpcId?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
      * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
-    readonly zoneId?: pulumi.Input<string>;
+    zoneId?: pulumi.Input<string>;
 }
 
 /**
@@ -399,75 +399,75 @@ export interface LoadBalancerArgs {
     /**
      * An Access Logs block. Access Logs documented below.
      */
-    readonly accessLogs?: pulumi.Input<inputs.applicationloadbalancing.LoadBalancerAccessLogs>;
+    accessLogs?: pulumi.Input<inputs.applicationloadbalancing.LoadBalancerAccessLogs>;
     /**
      * The ID of the customer owned ipv4 pool to use for this load balancer.
      */
-    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
-    readonly dropInvalidHeaderFields?: pulumi.Input<boolean>;
+    dropInvalidHeaderFields?: pulumi.Input<boolean>;
     /**
      * If true, cross-zone load balancing of the load balancer will be enabled.
      * This is a `network` load balancer feature. Defaults to `false`.
      */
-    readonly enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
+    enableCrossZoneLoadBalancing?: pulumi.Input<boolean>;
     /**
      * If true, deletion of the load balancer will be disabled via
      * the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
      */
-    readonly enableDeletionProtection?: pulumi.Input<boolean>;
+    enableDeletionProtection?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
-    readonly enableHttp2?: pulumi.Input<boolean>;
+    enableHttp2?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
-    readonly idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number>;
     /**
      * If true, the LB will be internal.
      */
-    readonly internal?: pulumi.Input<boolean>;
+    internal?: pulumi.Input<boolean>;
     /**
      * The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
      */
-    readonly ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<IpAddressType>;
     /**
      * The type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    readonly loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<LoadBalancerType>;
     /**
      * The name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters,
      * must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified,
      * this provider will autogenerate a name beginning with `tf-lb`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A subnet mapping block as documented below.
      */
-    readonly subnetMappings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.LoadBalancerSubnetMapping>[]>;
+    subnetMappings?: pulumi.Input<pulumi.Input<inputs.applicationloadbalancing.LoadBalancerSubnetMapping>[]>;
     /**
      * A list of subnet IDs to attach to the LB. Subnets
      * cannot be updated for Load Balancers of type `network`. Changing this value
      * for load balancers of type `network` will force a recreation of the resource.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<string>[]>;
+    subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

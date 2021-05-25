@@ -108,11 +108,11 @@ export interface VpcDhcpOptionsAssociationState {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    readonly dhcpOptionsId?: pulumi.Input<string>;
+    dhcpOptionsId?: pulumi.Input<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface VpcDhcpOptionsAssociationArgs {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      */
-    readonly dhcpOptionsId: pulumi.Input<string>;
+    dhcpOptionsId: pulumi.Input<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

@@ -129,27 +129,27 @@ export interface CertificateState {
     /**
      * The Amazon Resource Name (ARN) for the certificate.
      */
-    readonly certificateArn?: pulumi.Input<string>;
+    certificateArn?: pulumi.Input<string>;
     /**
      * The certificate identifier.
      */
-    readonly certificateId?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string>;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string>;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
-    readonly certificateWallet?: pulumi.Input<string>;
+    certificateWallet?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -159,21 +159,21 @@ export interface CertificateArgs {
     /**
      * The certificate identifier.
      */
-    readonly certificateId: pulumi.Input<string>;
+    certificateId: pulumi.Input<string>;
     /**
      * The contents of the .pem X.509 certificate file for the certificate. Either `certificatePem` or `certificateWallet` must be set.
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string>;
     /**
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
-    readonly certificateWallet?: pulumi.Input<string>;
+    certificateWallet?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.wafregional.getRule({
  *     name: "tfWAFRegionalRule",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
@@ -39,7 +39,7 @@ export interface GetRuleArgs {
     /**
      * The name of the WAF Regional rule.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

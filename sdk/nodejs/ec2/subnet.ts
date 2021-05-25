@@ -211,68 +211,68 @@ export interface SubnetState {
     /**
      * The ARN of the subnet.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specify true to indicate
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     /**
      * The AZ for the subnet.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The AZ ID of the subnet.
      */
-    readonly availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string>;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      */
-    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    readonly ipv6CidrBlockAssociationId?: pulumi.Input<string>;
+    ipv6CidrBlockAssociationId?: pulumi.Input<string>;
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      */
-    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    readonly outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the subnet.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -284,52 +284,52 @@ export interface SubnetArgs {
      * that network interfaces created in the specified subnet should be
      * assigned an IPv6 address. Default is `false`
      */
-    readonly assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
+    assignIpv6AddressOnCreation?: pulumi.Input<boolean>;
     /**
      * The AZ for the subnet.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The AZ ID of the subnet.
      */
-    readonly availabilityZoneId?: pulumi.Input<string>;
+    availabilityZoneId?: pulumi.Input<string>;
     /**
      * The CIDR block for the subnet.
      */
-    readonly cidrBlock: pulumi.Input<string>;
+    cidrBlock: pulumi.Input<string>;
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
      */
-    readonly customerOwnedIpv4Pool?: pulumi.Input<string>;
+    customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
      * The IPv6 network range for the subnet,
      * in CIDR notation. The subnet size must use a /64 prefix length.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      */
-    readonly mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
+    mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * Specify true to indicate
      * that instances launched into the subnet should be assigned
      * a public IP address. Default is `false`.
      */
-    readonly mapPublicIpOnLaunch?: pulumi.Input<boolean>;
+    mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    readonly outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

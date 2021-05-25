@@ -134,22 +134,22 @@ export interface AppCookieStickinessPolicyState {
     /**
      * The application cookie whose lifetime the ELB's cookie should follow.
      */
-    readonly cookieName?: pulumi.Input<string>;
+    cookieName?: pulumi.Input<string>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    readonly lbPort?: pulumi.Input<number>;
+    lbPort?: pulumi.Input<number>;
     /**
      * The name of load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string>;
     /**
      * The name of the stickiness policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -159,20 +159,20 @@ export interface AppCookieStickinessPolicyArgs {
     /**
      * The application cookie whose lifetime the ELB's cookie should follow.
      */
-    readonly cookieName: pulumi.Input<string>;
+    cookieName: pulumi.Input<string>;
     /**
      * The load balancer port to which the policy
      * should be applied. This must be an active listener on the load
      * balancer.
      */
-    readonly lbPort: pulumi.Input<number>;
+    lbPort: pulumi.Input<number>;
     /**
      * The name of load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer: pulumi.Input<string>;
+    loadBalancer: pulumi.Input<string>;
     /**
      * The name of the stickiness policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

@@ -72,31 +72,31 @@ export interface GetPolicyDocumentArgs {
     /**
      * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
      */
-    readonly overrideJson?: string;
+    overrideJson?: string;
     /**
      * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `sourceJson` and `sourcePolicyDocuments` arguments.  Non-overriding statements will be added to the exported document.
      */
-    readonly overridePolicyDocuments?: string[];
+    overridePolicyDocuments?: string[];
     /**
      * ID for the policy document.
      */
-    readonly policyId?: string;
+    policyId?: string;
     /**
      * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
      */
-    readonly sourceJson?: string;
+    sourceJson?: string;
     /**
      * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` or `sourceJson` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
      */
-    readonly sourcePolicyDocuments?: string[];
+    sourcePolicyDocuments?: string[];
     /**
      * Configuration block for a policy statement. Detailed below.
      */
-    readonly statements?: inputs.iam.GetPolicyDocumentStatement[];
+    statements?: inputs.iam.GetPolicyDocumentStatement[];
     /**
      * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
      */
-    readonly version?: string;
+    version?: string;
 }
 
 /**

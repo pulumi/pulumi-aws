@@ -259,51 +259,51 @@ export interface GraphQLApiState {
     /**
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      */
-    readonly additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * The ARN
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
-    readonly authenticationType?: pulumi.Input<string>;
+    authenticationType?: pulumi.Input<string>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
      * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
-    readonly schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
-    readonly uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
-    readonly xrayEnabled?: pulumi.Input<boolean>;
+    xrayEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -313,41 +313,41 @@ export interface GraphQLApiArgs {
     /**
      * One or more additional authentication providers for the GraphqlApi. Defined below.
      */
-    readonly additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
+    additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
      * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
      */
-    readonly authenticationType: pulumi.Input<string>;
+    authenticationType: pulumi.Input<string>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
-    readonly logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
+    logConfig?: pulumi.Input<inputs.appsync.GraphQLApiLogConfig>;
     /**
      * A user-supplied name for the GraphqlApi.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Nested argument containing OpenID Connect configuration. Defined below.
      */
-    readonly openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
+    openidConnectConfig?: pulumi.Input<inputs.appsync.GraphQLApiOpenidConnectConfig>;
     /**
      * The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
      */
-    readonly schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Amazon Cognito User Pool configuration. Defined below.
      */
-    readonly userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
+    userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiUserPoolConfig>;
     /**
      * Whether tracing with X-ray is enabled. Defaults to false.
      */
-    readonly xrayEnabled?: pulumi.Input<boolean>;
+    xrayEnabled?: pulumi.Input<boolean>;
 }

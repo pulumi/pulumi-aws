@@ -166,49 +166,49 @@ export interface VolumeState {
     /**
      * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The AZ where the EBS volume will exist.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * If true, the disk will be encrypted.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
-    readonly iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
      */
-    readonly multiAttachEnabled?: pulumi.Input<boolean>;
+    multiAttachEnabled?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    readonly outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
-    readonly size?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    readonly snapshotId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    snapshotId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -218,43 +218,43 @@ export interface VolumeArgs {
     /**
      * The AZ where the EBS volume will exist.
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    availabilityZone: pulumi.Input<string>;
     /**
      * If true, the disk will be encrypted.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
-    readonly iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
      */
-    readonly multiAttachEnabled?: pulumi.Input<boolean>;
+    multiAttachEnabled?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the Outpost.
      */
-    readonly outpostArn?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * The size of the drive in GiBs.
      */
-    readonly size?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
     /**
      * A snapshot to base the EBS volume off of.
      */
-    readonly snapshotId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    snapshotId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
-    readonly throughput?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
     /**
      * The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

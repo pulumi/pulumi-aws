@@ -267,64 +267,64 @@ export interface MLTransformState {
     /**
      * Amazon Resource Name (ARN) of Glue ML Transform.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the ML Transform.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    readonly glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    readonly inputRecordTables?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
+    inputRecordTables?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
     /**
      * The number of labels available for this transform.
      */
-    readonly labelCount?: pulumi.Input<number>;
+    labelCount?: pulumi.Input<number>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    readonly maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number>;
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      */
-    readonly numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number>;
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    readonly parameters?: pulumi.Input<inputs.glue.MLTransformParameters>;
+    parameters?: pulumi.Input<inputs.glue.MLTransformParameters>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The object that represents the schema that this transform accepts. see Schema.
      */
-    readonly schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[]>;
+    schemas?: pulumi.Input<pulumi.Input<inputs.glue.MLTransformSchema>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      */
-    readonly workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string>;
 }
 
 /**
@@ -334,50 +334,50 @@ export interface MLTransformArgs {
     /**
      * Description of the ML Transform.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    readonly glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string>;
     /**
      * A list of AWS Glue table definitions used by the transform. see Input Record Tables.
      */
-    readonly inputRecordTables: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
+    inputRecordTables: pulumi.Input<pulumi.Input<inputs.glue.MLTransformInputRecordTable>[]>;
     /**
      * The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `maxCapacity` is a mutually exclusive option with `numberOfWorkers` and `workerType`.
      */
-    readonly maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this ML Transform if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number>;
     /**
      * The name you assign to this ML Transform. It must be unique in your account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The number of workers of a defined `workerType` that are allocated when an ML Transform runs. Required with `workerType`.
      */
-    readonly numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number>;
     /**
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
-    readonly parameters: pulumi.Input<inputs.glue.MLTransformParameters>;
+    parameters: pulumi.Input<inputs.glue.MLTransformParameters>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `numberOfWorkers`.
      */
-    readonly workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string>;
 }

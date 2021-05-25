@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.ec2.getInstanceType({
  *     instanceType: "t2.micro",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getInstanceType(args: GetInstanceTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeResult> {
@@ -50,11 +50,11 @@ export interface GetInstanceTypeArgs {
     /**
      * The default number of cores for the instance type.
      */
-    readonly defaultCores?: number;
+    defaultCores?: number;
     /**
      * The  default  number of threads per core for the instance type.
      */
-    readonly defaultThreadsPerCore?: number;
+    defaultThreadsPerCore?: number;
     /**
      * Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
@@ -62,7 +62,7 @@ export interface GetInstanceTypeArgs {
      * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
      * * `fpgas.#.name` - The name of the FPGA accelerator.
      */
-    readonly fpgas?: inputs.ec2.GetInstanceTypeFpga[];
+    fpgas?: inputs.ec2.GetInstanceTypeFpga[];
     /**
      * Describes the GPU accelerators for the instance type.
      * * `gpus.#.count` - The number of GPUs for the instance type.
@@ -70,7 +70,7 @@ export interface GetInstanceTypeArgs {
      * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
      * * `gpus.#.name` - The name of the GPU accelerator.
      */
-    readonly gpuses?: inputs.ec2.GetInstanceTypeGpus[];
+    gpuses?: inputs.ec2.GetInstanceTypeGpus[];
     /**
      * Indicates the hypervisor used for the instance type.
      * * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
@@ -78,35 +78,35 @@ export interface GetInstanceTypeArgs {
      * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
      * * `inference_accelerators.#.name` - The name of the Inference accelerator.
      */
-    readonly hypervisor?: string;
-    readonly inferenceAccelerators?: inputs.ec2.GetInstanceTypeInferenceAccelerator[];
+    hypervisor?: string;
+    inferenceAccelerators?: inputs.ec2.GetInstanceTypeInferenceAccelerator[];
     /**
      * Describes the disks for the instance type.
      * * `instance_disks.#.count` - The number of disks with this configuration.
      * * `instance_disks.#.size` - The size of the disk in GB.
      * * `instance_disks.#.type` - The type of disk.
      */
-    readonly instanceDisks?: inputs.ec2.GetInstanceTypeInstanceDisk[];
+    instanceDisks?: inputs.ec2.GetInstanceTypeInstanceDisk[];
     /**
      * Instance
      */
-    readonly instanceType: string;
+    instanceType: string;
     /**
      * The maximum number of IPv6 addresses per network interface.
      */
-    readonly maximumIpv6AddressesPerInterface?: number;
+    maximumIpv6AddressesPerInterface?: number;
     /**
      * The total memory of all FPGA accelerators for the instance type (in MiB).
      */
-    readonly totalFpgaMemory?: number;
+    totalFpgaMemory?: number;
     /**
      * The total size of the memory for the GPU accelerators for the instance type (in MiB).
      */
-    readonly totalGpuMemory?: number;
+    totalGpuMemory?: number;
     /**
      * The total size of the instance disks, in GB.
      */
-    readonly totalInstanceStorage?: number;
+    totalInstanceStorage?: number;
 }
 
 /**

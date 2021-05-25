@@ -212,67 +212,67 @@ export interface QueueState {
     /**
      * The ARN of the SQS queue
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
      */
-    readonly contentBasedDeduplication?: pulumi.Input<boolean>;
+    contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
-    readonly delaySeconds?: pulumi.Input<number>;
+    delaySeconds?: pulumi.Input<number>;
     /**
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      */
-    readonly fifoQueue?: pulumi.Input<boolean>;
+    fifoQueue?: pulumi.Input<boolean>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
-    readonly kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
+    kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      */
-    readonly kmsMasterKeyId?: pulumi.Input<string>;
+    kmsMasterKeyId?: pulumi.Input<string>;
     /**
      * The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
      */
-    readonly maxMessageSize?: pulumi.Input<number>;
+    maxMessageSize?: pulumi.Input<number>;
     /**
      * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
-    readonly messageRetentionSeconds?: pulumi.Input<number>;
+    messageRetentionSeconds?: pulumi.Input<number>;
     /**
      * The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
-    readonly receiveWaitTimeSeconds?: pulumi.Input<number>;
+    receiveWaitTimeSeconds?: pulumi.Input<number>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
-    readonly redrivePolicy?: pulumi.Input<string>;
+    redrivePolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the queue. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
-    readonly visibilityTimeoutSeconds?: pulumi.Input<number>;
+    visibilityTimeoutSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -282,61 +282,61 @@ export interface QueueArgs {
     /**
      * Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
      */
-    readonly contentBasedDeduplication?: pulumi.Input<boolean>;
+    contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
-    readonly delaySeconds?: pulumi.Input<number>;
+    delaySeconds?: pulumi.Input<number>;
     /**
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      */
-    readonly fifoQueue?: pulumi.Input<boolean>;
+    fifoQueue?: pulumi.Input<boolean>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
-    readonly kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
+    kmsDataKeyReusePeriodSeconds?: pulumi.Input<number>;
     /**
      * The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
      */
-    readonly kmsMasterKeyId?: pulumi.Input<string>;
+    kmsMasterKeyId?: pulumi.Input<string>;
     /**
      * The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
      */
-    readonly maxMessageSize?: pulumi.Input<number>;
+    maxMessageSize?: pulumi.Input<number>;
     /**
      * The number of seconds Amazon SQS retains a message. Integer representing seconds, from 60 (1 minute) to 1209600 (14 days). The default for this attribute is 345600 (4 days).
      */
-    readonly messageRetentionSeconds?: pulumi.Input<number>;
+    messageRetentionSeconds?: pulumi.Input<number>;
     /**
      * The name of the queue. Queue names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 80 characters long. For a FIFO (first-in-first-out) queue, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The JSON policy for the SQS queue.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
      */
-    readonly receiveWaitTimeSeconds?: pulumi.Input<number>;
+    receiveWaitTimeSeconds?: pulumi.Input<number>;
     /**
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
-    readonly redrivePolicy?: pulumi.Input<string>;
+    redrivePolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the queue. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
-    readonly visibilityTimeoutSeconds?: pulumi.Input<number>;
+    visibilityTimeoutSeconds?: pulumi.Input<number>;
 }

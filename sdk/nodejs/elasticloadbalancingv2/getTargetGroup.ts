@@ -54,12 +54,12 @@ export interface GetTargetGroupArgs {
     /**
      * The full ARN of the target group.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * The unique name of the target group.
      */
-    readonly name?: string;
-    readonly tags?: {[key: string]: string};
+    name?: string;
+    tags?: {[key: string]: string};
 }
 
 /**

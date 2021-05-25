@@ -51,19 +51,19 @@ export interface GetServerCertificateArgs {
     /**
      * sort results by expiration date. returns the certificate with expiration date in furthest in the future.
      */
-    readonly latest?: boolean;
+    latest?: boolean;
     /**
      * exact name of the cert to lookup
      */
-    readonly name?: string;
+    name?: string;
     /**
      * prefix of cert to filter by
      */
-    readonly namePrefix?: string;
+    namePrefix?: string;
     /**
      * prefix of path to filter by
      */
-    readonly pathPrefix?: string;
+    pathPrefix?: string;
 }
 
 /**

@@ -97,11 +97,11 @@ export interface WebAclAssociationState {
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
      */
-    readonly webAclArn?: pulumi.Input<string>;
+    webAclArn?: pulumi.Input<string>;
 }
 
 /**
@@ -111,9 +111,9 @@ export interface WebAclAssociationArgs {
     /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer or an Amazon API Gateway stage.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Web ACL that you want to associate with the resource.
      */
-    readonly webAclArn: pulumi.Input<string>;
+    webAclArn: pulumi.Input<string>;
 }

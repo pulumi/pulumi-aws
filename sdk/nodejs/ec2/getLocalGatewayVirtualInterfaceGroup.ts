@@ -43,19 +43,19 @@ export interface GetLocalGatewayVirtualInterfaceGroupArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilter[];
+    filters?: inputs.ec2.GetLocalGatewayVirtualInterfaceGroupFilter[];
     /**
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Identifier of EC2 Local Gateway.
      */
-    readonly localGatewayId?: string;
+    localGatewayId?: string;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

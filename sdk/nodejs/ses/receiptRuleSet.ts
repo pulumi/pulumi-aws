@@ -100,11 +100,11 @@ export interface ReceiptRuleSetState {
     /**
      * SES receipt rule set ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Name of the rule set.
      */
-    readonly ruleSetName?: pulumi.Input<string>;
+    ruleSetName?: pulumi.Input<string>;
 }
 
 /**
@@ -114,5 +114,5 @@ export interface ReceiptRuleSetArgs {
     /**
      * Name of the rule set.
      */
-    readonly ruleSetName: pulumi.Input<string>;
+    ruleSetName: pulumi.Input<string>;
 }

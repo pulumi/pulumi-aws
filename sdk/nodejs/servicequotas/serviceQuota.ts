@@ -150,37 +150,37 @@ export interface ServiceQuotaState {
     /**
      * Whether the service quota can be increased.
      */
-    readonly adjustable?: pulumi.Input<boolean>;
+    adjustable?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the service quota.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Default value of the service quota.
      */
-    readonly defaultValue?: pulumi.Input<number>;
+    defaultValue?: pulumi.Input<number>;
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    readonly quotaCode?: pulumi.Input<string>;
+    quotaCode?: pulumi.Input<string>;
     /**
      * Name of the quota.
      */
-    readonly quotaName?: pulumi.Input<string>;
-    readonly requestId?: pulumi.Input<string>;
-    readonly requestStatus?: pulumi.Input<string>;
+    quotaName?: pulumi.Input<string>;
+    requestId?: pulumi.Input<string>;
+    requestStatus?: pulumi.Input<string>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    readonly serviceCode?: pulumi.Input<string>;
+    serviceCode?: pulumi.Input<string>;
     /**
      * Name of the service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */
-    readonly value?: pulumi.Input<number>;
+    value?: pulumi.Input<number>;
 }
 
 /**
@@ -190,13 +190,13 @@ export interface ServiceQuotaArgs {
     /**
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
-    readonly quotaCode: pulumi.Input<string>;
+    quotaCode: pulumi.Input<string>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    readonly serviceCode: pulumi.Input<string>;
+    serviceCode: pulumi.Input<string>;
     /**
      * Float specifying the desired value for the service quota. If the desired value is higher than the current value, a quota increase request is submitted. When a known request is submitted and pending, the value reflects the desired value of the pending request.
      */
-    readonly value: pulumi.Input<number>;
+    value: pulumi.Input<number>;
 }

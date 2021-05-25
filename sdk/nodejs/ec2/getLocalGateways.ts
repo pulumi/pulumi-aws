@@ -46,12 +46,12 @@ export interface GetLocalGatewaysArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetLocalGatewaysFilter[];
+    filters?: inputs.ec2.GetLocalGatewaysFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

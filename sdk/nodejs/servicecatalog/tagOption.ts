@@ -114,16 +114,16 @@ export interface TagOptionState {
     /**
      * Whether tag option is active. Default is `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * Tag option key.
      */
-    readonly key?: pulumi.Input<string>;
-    readonly owner?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Tag option value.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface TagOptionArgs {
     /**
      * Whether tag option is active. Default is `true`.
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * Tag option key.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * Tag option value.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

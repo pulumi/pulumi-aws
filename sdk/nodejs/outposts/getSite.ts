@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.outposts.getSite({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSite(args?: GetSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteResult> {
@@ -41,11 +41,11 @@ export interface GetSiteArgs {
     /**
      * Identifier of the Site.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Name of the Site.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

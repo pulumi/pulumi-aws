@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const bar = pulumi.output(aws.ec2.getNetworkInterface({
  *     id: "eni-01234567",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getNetworkInterface(args?: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
@@ -42,15 +42,15 @@ export interface GetNetworkInterfaceArgs {
     /**
      * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
      */
-    readonly filters?: inputs.ec2.GetNetworkInterfaceFilter[];
+    filters?: inputs.ec2.GetNetworkInterfaceFilter[];
     /**
      * The identifier for the network interface.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Any tags assigned to the network interface.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -176,52 +176,52 @@ export interface SchemaState {
     /**
      * Amazon Resource Name (ARN) of the schema.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
-    readonly compatibility?: pulumi.Input<string>;
+    compatibility?: pulumi.Input<string>;
     /**
      * The data format of the schema definition. Currently only `AVRO` is supported.
      */
-    readonly dataFormat?: pulumi.Input<string>;
+    dataFormat?: pulumi.Input<string>;
     /**
      * A description of the schema.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The latest version of the schema associated with the returned schema definition.
      */
-    readonly latestSchemaVersion?: pulumi.Input<number>;
+    latestSchemaVersion?: pulumi.Input<number>;
     /**
      * The next version of the schema associated with the returned schema definition.
      */
-    readonly nextSchemaVersion?: pulumi.Input<number>;
+    nextSchemaVersion?: pulumi.Input<number>;
     /**
      * The ARN of the Glue Registry to create the schema in.
      */
-    readonly registryArn?: pulumi.Input<string>;
+    registryArn?: pulumi.Input<string>;
     /**
      * The name of the Glue Registry.
      */
-    readonly registryName?: pulumi.Input<string>;
+    registryName?: pulumi.Input<string>;
     /**
      * The version number of the checkpoint (the last time the compatibility mode was changed).
      */
-    readonly schemaCheckpoint?: pulumi.Input<number>;
+    schemaCheckpoint?: pulumi.Input<number>;
     /**
      * The schema definition using the `dataFormat` setting for `schemaName`.
      */
-    readonly schemaDefinition?: pulumi.Input<string>;
+    schemaDefinition?: pulumi.Input<string>;
     /**
      * The Name of the schema.
      */
-    readonly schemaName?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -231,30 +231,30 @@ export interface SchemaArgs {
     /**
      * The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
      */
-    readonly compatibility: pulumi.Input<string>;
+    compatibility: pulumi.Input<string>;
     /**
      * The data format of the schema definition. Currently only `AVRO` is supported.
      */
-    readonly dataFormat: pulumi.Input<string>;
+    dataFormat: pulumi.Input<string>;
     /**
      * A description of the schema.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ARN of the Glue Registry to create the schema in.
      */
-    readonly registryArn?: pulumi.Input<string>;
+    registryArn?: pulumi.Input<string>;
     /**
      * The schema definition using the `dataFormat` setting for `schemaName`.
      */
-    readonly schemaDefinition: pulumi.Input<string>;
+    schemaDefinition: pulumi.Input<string>;
     /**
      * The Name of the schema.
      */
-    readonly schemaName: pulumi.Input<string>;
+    schemaName: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

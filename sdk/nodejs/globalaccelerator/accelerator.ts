@@ -146,39 +146,39 @@ export interface AcceleratorState {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
+    attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
     /**
      * The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
      * * `hostedZoneId` --  The Global Accelerator Route 53 zone ID that can be used to
      * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
      * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
-    readonly hostedZoneId?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
+    hostedZoneId?: pulumi.Input<string>;
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string>;
     /**
      * IP address set associated with the accelerator.
      */
-    readonly ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorIpSet>[]>;
+    ipSets?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.AcceleratorIpSet>[]>;
     /**
      * The name of the accelerator.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -188,25 +188,25 @@ export interface AcceleratorArgs {
     /**
      * The attributes of the accelerator. Fields documented below.
      */
-    readonly attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
+    attributes?: pulumi.Input<inputs.globalaccelerator.AcceleratorAttributes>;
     /**
      * Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The value for the address type. Defaults to `IPV4`. Valid values: `IPV4`.
      */
-    readonly ipAddressType?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string>;
     /**
      * The name of the accelerator.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

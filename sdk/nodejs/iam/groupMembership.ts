@@ -115,15 +115,15 @@ export interface GroupMembershipState {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    readonly group?: pulumi.Input<string>;
+    group?: pulumi.Input<string>;
     /**
      * The name to identify the Group Membership
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    readonly users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface GroupMembershipArgs {
     /**
      * The IAM Group name to attach the list of `users` to
      */
-    readonly group: pulumi.Input<string>;
+    group: pulumi.Input<string>;
     /**
      * The name to identify the Group Membership
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of IAM User names to associate with the Group
      */
-    readonly users: pulumi.Input<pulumi.Input<string>[]>;
+    users: pulumi.Input<pulumi.Input<string>[]>;
 }

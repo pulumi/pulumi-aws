@@ -137,31 +137,31 @@ export interface BuildState {
     /**
      * Gamelift Build ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Name of the build
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string>;
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    readonly storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
+    storageLocation?: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -171,25 +171,25 @@ export interface BuildArgs {
     /**
      * Name of the build
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Operating system that the game server binaries are built to run on. e.g. `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
      */
-    readonly operatingSystem: pulumi.Input<string>;
+    operatingSystem: pulumi.Input<string>;
     /**
      * Information indicating where your game build files are stored. See below.
      */
-    readonly storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
+    storageLocation: pulumi.Input<inputs.gamelift.BuildStorageLocation>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version that is associated with this build.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

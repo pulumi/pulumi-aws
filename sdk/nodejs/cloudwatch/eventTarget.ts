@@ -313,67 +313,67 @@ export interface EventTargetState {
     /**
      * The Amazon Resource Name (ARN) of the target.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
+    batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
+    ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
      * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    readonly httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
+    httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
-    readonly input?: pulumi.Input<string>;
+    input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
-    readonly inputPath?: pulumi.Input<string>;
+    inputPath?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    readonly inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
+    inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    readonly kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
+    retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
      */
-    readonly rule?: pulumi.Input<string>;
+    rule?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    readonly runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    readonly sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
+    sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
 }
 
 /**
@@ -383,65 +383,65 @@ export interface EventTargetArgs {
     /**
      * The Amazon Resource Name (ARN) of the target.
      */
-    readonly arn: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
      */
-    readonly batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
+    batchTarget?: pulumi.Input<inputs.cloudwatch.EventTargetBatchTarget>;
     /**
      * Parameters used when you are providing a dead letter config. Documented below. A maximum of 1 are allowed.
      */
-    readonly deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
+    deadLetterConfig?: pulumi.Input<inputs.cloudwatch.EventTargetDeadLetterConfig>;
     /**
      * Parameters used when you are using the rule to invoke Amazon ECS Task. Documented below. A maximum of 1 are allowed.
      */
-    readonly ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
+    ecsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetEcsTarget>;
     /**
      * The event bus to associate with the rule. If you omit this, the `default` event bus is used.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke an API Gateway REST endpoint. Documented below. A maximum of 1 is allowed.
      */
-    readonly httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
+    httpTarget?: pulumi.Input<inputs.cloudwatch.EventTargetHttpTarget>;
     /**
      * Valid JSON text passed to the target. Conflicts with `inputPath` and `inputTransformer`.
      */
-    readonly input?: pulumi.Input<string>;
+    input?: pulumi.Input<string>;
     /**
      * The value of the [JSONPath](http://goessner.net/articles/JsonPath/) that is used for extracting part of the matched event when passing it to the target. Conflicts with `input` and `inputTransformer`.
      */
-    readonly inputPath?: pulumi.Input<string>;
+    inputPath?: pulumi.Input<string>;
     /**
      * Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `inputPath`.
      */
-    readonly inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
+    inputTransformer?: pulumi.Input<inputs.cloudwatch.EventTargetInputTransformer>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
-    readonly kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
-    readonly retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
+    retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The name of the rule you want to add targets to.
      */
-    readonly rule: pulumi.Input<string>;
+    rule: pulumi.Input<string>;
     /**
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
-    readonly runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
-    readonly sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
+    sqsTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSqsTarget>;
     /**
      * The unique target assignment ID.  If missing, will generate a random, unique id.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
 }

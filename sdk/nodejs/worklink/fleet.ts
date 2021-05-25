@@ -176,47 +176,47 @@ export interface FleetState {
     /**
      * The ARN of the created WorkLink Fleet.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
-    readonly auditStreamArn?: pulumi.Input<string>;
+    auditStreamArn?: pulumi.Input<string>;
     /**
      * The identifier used by users to sign in to the Amazon WorkLink app.
      */
-    readonly companyCode?: pulumi.Input<string>;
+    companyCode?: pulumi.Input<string>;
     /**
      * The time that the fleet was created.
      */
-    readonly createdTime?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
-    readonly deviceCaCertificate?: pulumi.Input<string>;
+    deviceCaCertificate?: pulumi.Input<string>;
     /**
      * The name of the fleet.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
+    identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
     /**
      * The time that the fleet was last updated.
      */
-    readonly lastUpdatedTime?: pulumi.Input<string>;
+    lastUpdatedTime?: pulumi.Input<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<inputs.worklink.FleetNetwork>;
+    network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
-    readonly optimizeForEndUserLocation?: pulumi.Input<boolean>;
+    optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }
 
 /**
@@ -226,29 +226,29 @@ export interface FleetArgs {
     /**
      * The ARN of the Amazon Kinesis data stream that receives the audit events. Kinesis data stream name must begin with `"AmazonWorkLink-"`.
      */
-    readonly auditStreamArn?: pulumi.Input<string>;
+    auditStreamArn?: pulumi.Input<string>;
     /**
      * The certificate chain, including intermediate certificates and the root certificate authority certificate used to issue device certificates.
      */
-    readonly deviceCaCertificate?: pulumi.Input<string>;
+    deviceCaCertificate?: pulumi.Input<string>;
     /**
      * The name of the fleet.
      */
-    readonly displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string>;
     /**
      * Provide this to allow manage the identity provider configuration for the fleet. Fields documented below.
      */
-    readonly identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
+    identityProvider?: pulumi.Input<inputs.worklink.FleetIdentityProvider>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Provide this to allow manage the company network configuration for the fleet. Fields documented below.
      */
-    readonly network?: pulumi.Input<inputs.worklink.FleetNetwork>;
+    network?: pulumi.Input<inputs.worklink.FleetNetwork>;
     /**
      * The option to optimize for better performance by routing traffic through the closest AWS Region to users, which may be outside of your home Region. Defaults to `true`.
      */
-    readonly optimizeForEndUserLocation?: pulumi.Input<boolean>;
+    optimizeForEndUserLocation?: pulumi.Input<boolean>;
 }

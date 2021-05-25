@@ -73,16 +73,16 @@ export interface GetSubnetIdsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetSubnetIdsFilter[];
+    filters?: inputs.ec2.GetSubnetIdsFilter[];
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired subnets.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * The VPC ID that you want to filter from.
      */
-    readonly vpcId: string;
+    vpcId: string;
 }
 
 /**

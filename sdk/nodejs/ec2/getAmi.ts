@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     mostRecent: true,
  *     nameRegex: "^myami-\\d{3}",
  *     owners: ["self"],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
@@ -63,18 +63,18 @@ export interface GetAmiArgs {
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
      */
-    readonly executableUsers?: string[];
+    executableUsers?: string[];
     /**
      * One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
      * [describe-images in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.ec2.GetAmiFilter[];
+    filters?: inputs.ec2.GetAmiFilter[];
     /**
      * If more than one result is returned, use the most
      * recent AMI.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * A regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
@@ -82,17 +82,17 @@ export interface GetAmiArgs {
      * impact if the result is large. It is recommended to combine this with other
      * options to narrow down the list AWS returns.
      */
-    readonly nameRegex?: string;
+    nameRegex?: string;
     /**
      * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
      */
-    readonly owners: string[];
+    owners: string[];
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.
      * * `tags.#.value` - The value of the tag.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

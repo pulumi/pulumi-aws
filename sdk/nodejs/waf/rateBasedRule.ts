@@ -156,35 +156,35 @@ export interface RateBasedRuleState {
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    readonly metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
     /**
      * Valid value is IP.
      */
-    readonly rateKey?: pulumi.Input<string>;
+    rateKey?: pulumi.Input<string>;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
-    readonly rateLimit?: pulumi.Input<number>;
+    rateLimit?: pulumi.Input<number>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -194,29 +194,29 @@ export interface RateBasedRuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule.
      */
-    readonly metricName: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RateBasedRulePredicate>[]>;
     /**
      * Valid value is IP.
      */
-    readonly rateKey: pulumi.Input<string>;
+    rateKey: pulumi.Input<string>;
     /**
      * The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
      */
-    readonly rateLimit: pulumi.Input<number>;
+    rateLimit: pulumi.Input<number>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const myCluster = pulumi.output(aws.elasticache.getCluster({
  *     clusterId: "my-cluster-id",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -40,11 +40,11 @@ export interface GetClusterArgs {
     /**
      * Group identifier.
      */
-    readonly clusterId: string;
+    clusterId: string;
     /**
      * The tags assigned to the resource
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

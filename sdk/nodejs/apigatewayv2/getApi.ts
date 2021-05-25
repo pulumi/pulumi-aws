@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.apigatewayv2.getApi({
  *     apiId: "aabbccddee",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
@@ -40,11 +40,11 @@ export interface GetApiArgs {
     /**
      * The API identifier.
      */
-    readonly apiId: string;
+    apiId: string;
     /**
      * A map of resource tags.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

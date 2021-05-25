@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.apigatewayv2.getApis({
  *     protocolType: "HTTP",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getApis(args?: GetApisArgs, opts?: pulumi.InvokeOptions): Promise<GetApisResult> {
@@ -42,16 +42,16 @@ export interface GetApisArgs {
     /**
      * The API name.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * The API protocol.
      */
-    readonly protocolType?: string;
+    protocolType?: string;
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired APIs.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

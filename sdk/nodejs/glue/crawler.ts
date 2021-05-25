@@ -310,157 +310,157 @@ export interface CrawlerState {
     /**
      * The ARN of the crawler
      */
-    readonly arn?: pulumi.Input<string>;
-    readonly catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
+    arn?: pulumi.Input<string>;
+    catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    classifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
-    readonly configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string>;
     /**
      * The name of the Glue database to be synchronized.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Description of the crawler.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested JBDC target arguments. See JDBC Target below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    readonly lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
     /**
      * List nested MongoDB target arguments. See MongoDB Target below.
      */
-    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
+    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    readonly recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    readonly role?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
     /**
      * List nested Amazon S3 target arguments. See S3 Target below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
+    s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    readonly schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string>;
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    readonly schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
+    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string>;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    readonly tablePrefix?: pulumi.Input<string>;
+    tablePrefix?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
  * The set of arguments for constructing a Crawler resource.
  */
 export interface CrawlerArgs {
-    readonly catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
+    catalogTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerCatalogTarget>[]>;
     /**
      * List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
      */
-    readonly classifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    classifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
      */
-    readonly configuration?: pulumi.Input<string>;
+    configuration?: pulumi.Input<string>;
     /**
      * The name of the Glue database to be synchronized.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * Description of the crawler.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of nested DynamoDB target arguments. See Dynamodb Target below.
      */
-    readonly dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
+    dynamodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerDynamodbTarget>[]>;
     /**
      * List of nested JBDC target arguments. See JDBC Target below.
      */
-    readonly jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
+    jdbcTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerJdbcTarget>[]>;
     /**
      * Specifies data lineage configuration settings for the crawler. See Lineage Configuration below.
      */
-    readonly lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
+    lineageConfiguration?: pulumi.Input<inputs.glue.CrawlerLineageConfiguration>;
     /**
      * List nested MongoDB target arguments. See MongoDB Target below.
      */
-    readonly mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
+    mongodbTargets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerMongodbTarget>[]>;
     /**
      * Name of the crawler.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
-    readonly recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
-    readonly role: pulumi.Input<string>;
+    role: pulumi.Input<string>;
     /**
      * List nested Amazon S3 target arguments. See S3 Target below.
      */
-    readonly s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
+    s3Targets?: pulumi.Input<pulumi.Input<inputs.glue.CrawlerS3Target>[]>;
     /**
      * A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
      */
-    readonly schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string>;
     /**
      * Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
      */
-    readonly schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
+    schemaChangePolicy?: pulumi.Input<inputs.glue.CrawlerSchemaChangePolicy>;
     /**
      * The name of Security Configuration to be used by the crawler
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string>;
     /**
      * The table prefix used for catalog tables that are created.
      */
-    readonly tablePrefix?: pulumi.Input<string>;
+    tablePrefix?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -125,15 +125,15 @@ export interface BucketMetricState {
     /**
      * The name of the bucket to put metric configuration.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -143,13 +143,13 @@ export interface BucketMetricArgs {
     /**
      * The name of the bucket to put metric configuration.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
      */
-    readonly filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
+    filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
      * Unique identifier of the metrics configuration for the bucket.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

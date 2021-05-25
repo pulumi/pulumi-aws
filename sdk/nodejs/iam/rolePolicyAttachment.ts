@@ -141,11 +141,11 @@ export interface RolePolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<ARN>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    readonly role?: pulumi.Input<string | Role>;
+    role?: pulumi.Input<string | Role>;
 }
 
 /**
@@ -155,9 +155,9 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<ARN>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
-    readonly role: pulumi.Input<string | Role>;
+    role: pulumi.Input<string | Role>;
 }

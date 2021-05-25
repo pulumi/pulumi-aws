@@ -132,15 +132,15 @@ export interface AttachmentState {
     /**
      * The ARN of an ALB Target Group.
      */
-    readonly albTargetGroupArn?: pulumi.Input<string>;
+    albTargetGroupArn?: pulumi.Input<string>;
     /**
      * Name of ASG to associate with the ELB.
      */
-    readonly autoscalingGroupName?: pulumi.Input<string>;
+    autoscalingGroupName?: pulumi.Input<string>;
     /**
      * The name of the ELB.
      */
-    readonly elb?: pulumi.Input<string>;
+    elb?: pulumi.Input<string>;
 }
 
 /**
@@ -150,13 +150,13 @@ export interface AttachmentArgs {
     /**
      * The ARN of an ALB Target Group.
      */
-    readonly albTargetGroupArn?: pulumi.Input<string>;
+    albTargetGroupArn?: pulumi.Input<string>;
     /**
      * Name of ASG to associate with the ELB.
      */
-    readonly autoscalingGroupName: pulumi.Input<string>;
+    autoscalingGroupName: pulumi.Input<string>;
     /**
      * The name of the ELB.
      */
-    readonly elb?: pulumi.Input<string>;
+    elb?: pulumi.Input<string>;
 }

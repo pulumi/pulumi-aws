@@ -168,27 +168,27 @@ export interface WebhookState {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
      */
-    readonly branchFilter?: pulumi.Input<string>;
+    branchFilter?: pulumi.Input<string>;
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    readonly filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
      * The CodeBuild endpoint where webhook events are sent.
      */
-    readonly payloadUrl?: pulumi.Input<string>;
+    payloadUrl?: pulumi.Input<string>;
     /**
      * The name of the build project.
      */
-    readonly projectName?: pulumi.Input<string>;
+    projectName?: pulumi.Input<string>;
     /**
      * The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
      */
-    readonly secret?: pulumi.Input<string>;
+    secret?: pulumi.Input<string>;
     /**
      * The URL to the webhook.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -198,13 +198,13 @@ export interface WebhookArgs {
     /**
      * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
      */
-    readonly branchFilter?: pulumi.Input<string>;
+    branchFilter?: pulumi.Input<string>;
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
-    readonly filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
+    filterGroups?: pulumi.Input<pulumi.Input<inputs.codebuild.WebhookFilterGroup>[]>;
     /**
      * The name of the build project.
      */
-    readonly projectName: pulumi.Input<string>;
+    projectName: pulumi.Input<string>;
 }

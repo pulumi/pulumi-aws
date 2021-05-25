@@ -30,15 +30,15 @@ export interface GetUserArgs {
     /**
      * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
      */
-    readonly filters: inputs.identitystore.GetUserFilter[];
+    filters: inputs.identitystore.GetUserFilter[];
     /**
      * The Identity Store ID associated with the Single Sign-On Instance.
      */
-    readonly identityStoreId: string;
+    identityStoreId: string;
     /**
      * The identifier for a user in the Identity Store.
      */
-    readonly userId?: string;
+    userId?: string;
 }
 
 /**

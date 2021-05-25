@@ -165,28 +165,28 @@ export interface MaintenanceWindowTargetState {
     /**
      * The description of the maintenance window target.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the maintenance window target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
-    readonly ownerInformation?: pulumi.Input<string>;
+    ownerInformation?: pulumi.Input<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
-    readonly windowId?: pulumi.Input<string>;
+    windowId?: pulumi.Input<string>;
 }
 
 /**
@@ -196,26 +196,26 @@ export interface MaintenanceWindowTargetArgs {
     /**
      * The description of the maintenance window target.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the maintenance window target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
      */
-    readonly ownerInformation?: pulumi.Input<string>;
+    ownerInformation?: pulumi.Input<string>;
     /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      */
-    readonly resourceType: pulumi.Input<string>;
+    resourceType: pulumi.Input<string>;
     /**
      * The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
      * (https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html)
      */
-    readonly targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
+    targets: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTargetTarget>[]>;
     /**
      * The Id of the maintenance window to register the target with.
      */
-    readonly windowId: pulumi.Input<string>;
+    windowId: pulumi.Input<string>;
 }

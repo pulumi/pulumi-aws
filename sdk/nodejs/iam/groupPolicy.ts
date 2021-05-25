@@ -128,21 +128,21 @@ export interface GroupPolicyState {
     /**
      * The IAM group to attach to the policy.
      */
-    readonly group?: pulumi.Input<string>;
+    group?: pulumi.Input<string>;
     /**
      * The name of the policy. If omitted, this provider will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -152,19 +152,19 @@ export interface GroupPolicyArgs {
     /**
      * The IAM group to attach to the policy.
      */
-    readonly group: pulumi.Input<string>;
+    group: pulumi.Input<string>;
     /**
      * The name of the policy. If omitted, this provider will
      * assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | PolicyDocument>;
 }

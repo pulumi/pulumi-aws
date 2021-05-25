@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.directconnect.getGateway({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getGateway(args: GetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayResult> {
@@ -39,7 +39,7 @@ export interface GetGatewayArgs {
     /**
      * The name of the gateway to retrieve.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

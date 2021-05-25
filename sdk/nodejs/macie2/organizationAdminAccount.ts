@@ -95,7 +95,7 @@ export interface OrganizationAdminAccountState {
     /**
      * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
-    readonly adminAccountId?: pulumi.Input<string>;
+    adminAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface OrganizationAdminAccountArgs {
     /**
      * The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.
      */
-    readonly adminAccountId: pulumi.Input<string>;
+    adminAccountId: pulumi.Input<string>;
 }

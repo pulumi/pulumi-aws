@@ -136,31 +136,31 @@ export interface BucketState {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Name of the bucket.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * Identifier of the Outpost to contain this bucket.
      */
-    readonly outpostId?: pulumi.Input<string>;
+    outpostId?: pulumi.Input<string>;
     /**
      * Boolean whether Public Access Block is enabled.
      */
-    readonly publicAccessBlockEnabled?: pulumi.Input<boolean>;
+    publicAccessBlockEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -170,17 +170,17 @@ export interface BucketArgs {
     /**
      * Name of the bucket.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * Identifier of the Outpost to contain this bucket.
      */
-    readonly outpostId: pulumi.Input<string>;
+    outpostId: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

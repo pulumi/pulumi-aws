@@ -17,33 +17,6 @@ __all__ = [
 
 @pulumi.output_type
 class AssumeRole(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "durationSeconds":
-            suggest = "duration_seconds"
-        elif key == "externalId":
-            suggest = "external_id"
-        elif key == "policyArns":
-            suggest = "policy_arns"
-        elif key == "roleArn":
-            suggest = "role_arn"
-        elif key == "sessionName":
-            suggest = "session_name"
-        elif key == "transitiveTagKeys":
-            suggest = "transitive_tag_keys"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AssumeRole. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AssumeRole.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AssumeRole.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
@@ -126,23 +99,6 @@ class DefaultTags(dict):
 
 @pulumi.output_type
 class Endpoints(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lambda":
-            suggest = "lambda_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in Endpoints. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        Endpoints.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        Endpoints.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
                  acm: Optional[str] = None,
@@ -1388,23 +1344,6 @@ class Endpoints(dict):
 
 @pulumi.output_type
 class IgnoreTags(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyPrefixes":
-            suggest = "key_prefixes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IgnoreTags. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        IgnoreTags.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        IgnoreTags.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):

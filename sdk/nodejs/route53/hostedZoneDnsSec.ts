@@ -134,11 +134,11 @@ export interface HostedZoneDnsSecState {
     /**
      * Identifier of the Route 53 Hosted Zone.
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string>;
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      */
-    readonly signingStatus?: pulumi.Input<string>;
+    signingStatus?: pulumi.Input<string>;
 }
 
 /**
@@ -148,9 +148,9 @@ export interface HostedZoneDnsSecArgs {
     /**
      * Identifier of the Route 53 Hosted Zone.
      */
-    readonly hostedZoneId: pulumi.Input<string>;
+    hostedZoneId: pulumi.Input<string>;
     /**
      * Hosted Zone signing status. Valid values: `SIGNING`, `NOT_SIGNING`. Defaults to `SIGNING`.
      */
-    readonly signingStatus?: pulumi.Input<string>;
+    signingStatus?: pulumi.Input<string>;
 }

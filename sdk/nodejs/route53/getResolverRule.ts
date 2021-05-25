@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.route53.getResolverRule({
  *     domainName: "subdomain.example.com",
  *     ruleType: "SYSTEM",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getResolverRule(args?: GetResolverRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRuleResult> {
@@ -48,27 +48,27 @@ export interface GetResolverRuleArgs {
     /**
      * The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
      */
-    readonly domainName?: string;
+    domainName?: string;
     /**
      * The friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
      */
-    readonly resolverEndpointId?: string;
+    resolverEndpointId?: string;
     /**
      * The ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
      */
-    readonly resolverRuleId?: string;
+    resolverRuleId?: string;
     /**
      * The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
      */
-    readonly ruleType?: string;
+    ruleType?: string;
     /**
      * A map of tags assigned to the resolver rule.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

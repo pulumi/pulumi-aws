@@ -247,47 +247,47 @@ export interface MaintenanceWindowTaskState {
     /**
      * The description of the maintenance window task.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    readonly maxConcurrency?: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    readonly maxErrors?: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string>;
     /**
      * The name of the maintenance window task.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    readonly serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
-    readonly taskArn?: pulumi.Input<string>;
+    taskArn?: pulumi.Input<string>;
     /**
      * Configuration block with parameters for task execution.
      */
-    readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
-    readonly taskType?: pulumi.Input<string>;
+    taskType?: pulumi.Input<string>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    readonly windowId?: pulumi.Input<string>;
+    windowId?: pulumi.Input<string>;
 }
 
 /**
@@ -297,45 +297,45 @@ export interface MaintenanceWindowTaskArgs {
     /**
      * The description of the maintenance window task.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    readonly maxConcurrency: pulumi.Input<string>;
+    maxConcurrency: pulumi.Input<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    readonly maxErrors: pulumi.Input<string>;
+    maxErrors: pulumi.Input<string>;
     /**
      * The name of the maintenance window task.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
      */
-    readonly serviceRoleArn?: pulumi.Input<string>;
+    serviceRoleArn?: pulumi.Input<string>;
     /**
      * The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.ssm.MaintenanceWindowTaskTarget>[]>;
     /**
      * The ARN of the task to execute.
      */
-    readonly taskArn: pulumi.Input<string>;
+    taskArn: pulumi.Input<string>;
     /**
      * Configuration block with parameters for task execution.
      */
-    readonly taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
+    taskInvocationParameters?: pulumi.Input<inputs.ssm.MaintenanceWindowTaskTaskInvocationParameters>;
     /**
      * The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
      */
-    readonly taskType: pulumi.Input<string>;
+    taskType: pulumi.Input<string>;
     /**
      * The Id of the maintenance window to register the task with.
      */
-    readonly windowId: pulumi.Input<string>;
+    windowId: pulumi.Input<string>;
 }

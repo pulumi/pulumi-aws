@@ -117,19 +117,19 @@ export interface ServiceActionState {
     /**
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Self-service action definition configuration block. Detailed below.
      */
-    readonly definition?: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
+    definition?: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
     /**
      * Self-service action description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Self-service action name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -139,17 +139,17 @@ export interface ServiceActionArgs {
     /**
      * Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Self-service action definition configuration block. Detailed below.
      */
-    readonly definition: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
+    definition: pulumi.Input<inputs.servicecatalog.ServiceActionDefinition>;
     /**
      * Self-service action description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Self-service action name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

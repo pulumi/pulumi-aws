@@ -133,27 +133,27 @@ export interface CustomDomainAssociationState {
     /**
      * A set of certificate CNAME records used for this domain name. See Certificate Validation Records below for more details.
      */
-    readonly certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[]>;
+    certificateValidationRecords?: pulumi.Input<pulumi.Input<inputs.apprunner.CustomDomainAssociationCertificateValidationRecord>[]>;
     /**
      * The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
      */
-    readonly dnsTarget?: pulumi.Input<string>;
+    dnsTarget?: pulumi.Input<string>;
     /**
      * The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      */
-    readonly enableWwwSubdomain?: pulumi.Input<boolean>;
+    enableWwwSubdomain?: pulumi.Input<boolean>;
     /**
      * The ARN of the App Runner service.
      */
-    readonly serviceArn?: pulumi.Input<string>;
+    serviceArn?: pulumi.Input<string>;
     /**
      * The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -163,13 +163,13 @@ export interface CustomDomainAssociationArgs {
     /**
      * The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      */
-    readonly enableWwwSubdomain?: pulumi.Input<boolean>;
+    enableWwwSubdomain?: pulumi.Input<boolean>;
     /**
      * The ARN of the App Runner service.
      */
-    readonly serviceArn: pulumi.Input<string>;
+    serviceArn: pulumi.Input<string>;
 }

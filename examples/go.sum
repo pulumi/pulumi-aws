@@ -741,6 +741,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.0.0-rc.1 h1:Wqtq1v+Q3Jpx8cxDh24iEWvsZ6y6672ma
 github.com/pulumi/pulumi/pkg/v3 v3.0.0-rc.1/go.mod h1:Ollz7eH01VTWzhhzwJ7jp01nS1wD4CEgpZltrwymrfs=
 github.com/pulumi/pulumi/pkg/v3 v3.0.0 h1:Wj920eXTkNydNXHX7YQESO2vSuW33X+n1BS4Uywstzs=
 github.com/pulumi/pulumi/pkg/v3 v3.0.0/go.mod h1:XsgC0PpPdjzZAj9YyEMvtU0ei542zOGxS7M1EzFmH84=
+github.com/pulumi/pulumi/pkg/v3 v3.3.1 h1:FYgTooCZMQsb964WBeiaMAUNOdoEn0t2qpSPaLRh5Wk=
+github.com/pulumi/pulumi/pkg/v3 v3.3.1/go.mod h1:C6QWinR1SmQDpxBE8AiQEunU1tj9Yy01hw3lFMw7VPc=
 github.com/pulumi/pulumi/sdk v1.14.1 h1:FnUPMgO2AgqvKzSBOy3F2X4nJ8n/SaXCOP2eYSNkAxk=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1 h1:fNp+69Udcsft3ME+5lKt2IFT3imFAN6D98WiuiAIq/Q=
 github.com/pulumi/pulumi/sdk/v2 v2.2.1/go.mod h1:QNbWpL4gvf3X0lUFT7TXA2Jo1ff/Ti2l97AyFGYwvW4=
@@ -758,6 +760,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.0.0-rc.1 h1:RJcy2x1UJOsWJOUzDO7yC98yEd5w9lR4s
 github.com/pulumi/pulumi/sdk/v3 v3.0.0-rc.1/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
 github.com/pulumi/pulumi/sdk/v3 v3.0.0 h1:zkragE05t1Rco/ymfqMU4UXdEmKMmOH0SXhUKQxujxQ=
 github.com/pulumi/pulumi/sdk/v3 v3.0.0/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
+github.com/pulumi/pulumi/sdk/v3 v3.3.1 h1:E64NheQ5X2fz3DcQsZ7lDV7js51GNFPnXiXWfPCACnE=
+github.com/pulumi/pulumi/sdk/v3 v3.3.1/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

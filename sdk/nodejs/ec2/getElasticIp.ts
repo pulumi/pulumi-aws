@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const byAllocationId = pulumi.output(aws.ec2.getElasticIp({
  *     id: "eipalloc-12345678",
- * }, { async: true }));
+ * }));
  * ```
  * ### Search By Filters (EC2-Classic or VPC)
  *
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         name: "tag:Name",
  *         values: ["exampleNameTagValue"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  * ### Search By Public IP (EC2-Classic or VPC)
  *
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * const byPublicIp = pulumi.output(aws.ec2.getElasticIp({
  *     publicIp: "1.2.3.4",
- * }, { async: true }));
+ * }));
  * ```
  * ### Search By Tags (EC2-Classic or VPC)
  *
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "exampleNameTagValue",
  *     },
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOptions): Promise<GetElasticIpResult> {
@@ -79,19 +79,19 @@ export interface GetElasticIpArgs {
     /**
      * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
      */
-    readonly filters?: inputs.ec2.GetElasticIpFilter[];
+    filters?: inputs.ec2.GetElasticIpFilter[];
     /**
      * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The public IP of the specific EIP to retrieve.
      */
-    readonly publicIp?: string;
+    publicIp?: string;
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

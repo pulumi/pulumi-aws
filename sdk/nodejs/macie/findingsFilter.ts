@@ -151,33 +151,33 @@ export interface FindingsFilterState {
     /**
      * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Findings Filter.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The criteria to use to filter findings.
      */
-    readonly findingCriteria?: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
-    readonly name?: pulumi.Input<string>;
+    findingCriteria?: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -187,27 +187,27 @@ export interface FindingsFilterArgs {
     /**
      * The action to perform on findings that meet the filter criteria (`findingCriteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
      */
-    readonly action: pulumi.Input<string>;
+    action: pulumi.Input<string>;
     /**
      * A custom description of the filter. The description can contain as many as 512 characters.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The criteria to use to filter findings.
      */
-    readonly findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
-    readonly name?: pulumi.Input<string>;
+    findingCriteria: pulumi.Input<inputs.macie.FindingsFilterFindingCriteria>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.
      */
-    readonly position?: pulumi.Input<number>;
+    position?: pulumi.Input<number>;
     /**
      * A map of key-value pairs that specifies the tags to associate with the filter.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -322,43 +322,43 @@ export interface RuleGroupState {
     /**
      * The Amazon Resource Name (ARN) that identifies the rule group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      */
-    readonly capacity?: pulumi.Input<number>;
+    capacity?: pulumi.Input<number>;
     /**
      * A friendly description of the rule group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name of the rule group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    readonly ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */
-    readonly rules?: pulumi.Input<string>;
+    rules?: pulumi.Input<string>;
     /**
      * A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * A string token used when updating the rule group.
      */
-    readonly updateToken?: pulumi.Input<string>;
+    updateToken?: pulumi.Input<string>;
 }
 
 /**
@@ -368,33 +368,33 @@ export interface RuleGroupArgs {
     /**
      * The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
      */
-    readonly capacity: pulumi.Input<number>;
+    capacity: pulumi.Input<number>;
     /**
      * A friendly description of the rule group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name of the rule group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
      */
-    readonly ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
+    ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroup>;
     /**
      * The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `ruleGroup` is specified.
      */
-    readonly rules?: pulumi.Input<string>;
+    rules?: pulumi.Input<string>;
     /**
      * A map of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

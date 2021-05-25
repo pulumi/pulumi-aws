@@ -163,27 +163,27 @@ export interface StackSetInstanceState {
     /**
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
      */
-    readonly parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
-    readonly region?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
-    readonly retainStack?: pulumi.Input<boolean>;
+    retainStack?: pulumi.Input<boolean>;
     /**
      * Stack identifier
      */
-    readonly stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string>;
     /**
      * Name of the StackSet.
      */
-    readonly stackSetName?: pulumi.Input<string>;
+    stackSetName?: pulumi.Input<string>;
 }
 
 /**
@@ -193,21 +193,21 @@ export interface StackSetInstanceArgs {
     /**
      * Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * Key-value map of input parameters to override from the StackSet for this Instance.
      */
-    readonly parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
      */
-    readonly region?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
      */
-    readonly retainStack?: pulumi.Input<boolean>;
+    retainStack?: pulumi.Input<boolean>;
     /**
      * Name of the StackSet.
      */
-    readonly stackSetName: pulumi.Input<string>;
+    stackSetName: pulumi.Input<string>;
 }

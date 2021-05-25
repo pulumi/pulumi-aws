@@ -185,61 +185,61 @@ export interface NetworkInterfaceState {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**
      * A description for the network interface.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
      */
-    readonly interfaceType?: pulumi.Input<string>;
+    interfaceType?: pulumi.Input<string>;
     /**
      * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
-    readonly ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
      */
-    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The MAC address of the network interface.
      */
-    readonly macAddress?: pulumi.Input<string>;
-    readonly outpostArn?: pulumi.Input<string>;
+    macAddress?: pulumi.Input<string>;
+    outpostArn?: pulumi.Input<string>;
     /**
      * The private DNS name of the network interface (IPv4).
      */
-    readonly privateDnsName?: pulumi.Input<string>;
-    readonly privateIp?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string>;
     /**
      * List of private IPs to assign to the ENI.
      */
-    readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
-    readonly privateIpsCount?: pulumi.Input<number>;
+    privateIpsCount?: pulumi.Input<number>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    readonly sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -249,50 +249,50 @@ export interface NetworkInterfaceArgs {
     /**
      * Block to define the attachment of the ENI. Documented below.
      */
-    readonly attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
+    attachments?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInterfaceAttachment>[]>;
     /**
      * A description for the network interface.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
      */
-    readonly interfaceType?: pulumi.Input<string>;
+    interfaceType?: pulumi.Input<string>;
     /**
      * The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
      */
-    readonly ipv6AddressCount?: pulumi.Input<number>;
+    ipv6AddressCount?: pulumi.Input<number>;
     /**
      * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
      */
-    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly privateIp?: pulumi.Input<string>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIp?: pulumi.Input<string>;
     /**
      * List of private IPs to assign to the ENI.
      */
-    readonly privateIps?: pulumi.Input<pulumi.Input<string>[]>;
+    privateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
      */
-    readonly privateIpsCount?: pulumi.Input<number>;
+    privateIpsCount?: pulumi.Input<number>;
     /**
      * List of security group IDs to assign to the ENI.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable source destination checking for the ENI. Default true.
      */
-    readonly sourceDestCheck?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean>;
     /**
      * Subnet ID to create the ENI in.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -209,19 +209,19 @@ export interface InsightState {
     /**
      * ARN of the insight.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    readonly filters?: pulumi.Input<inputs.securityhub.InsightFilters>;
+    filters?: pulumi.Input<inputs.securityhub.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
-    readonly groupByAttribute?: pulumi.Input<string>;
+    groupByAttribute?: pulumi.Input<string>;
     /**
      * The name of the custom insight.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -231,13 +231,13 @@ export interface InsightArgs {
     /**
      * A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
      */
-    readonly filters: pulumi.Input<inputs.securityhub.InsightFilters>;
+    filters: pulumi.Input<inputs.securityhub.InsightFilters>;
     /**
      * The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
-    readonly groupByAttribute: pulumi.Input<string>;
+    groupByAttribute: pulumi.Input<string>;
     /**
      * The name of the custom insight.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

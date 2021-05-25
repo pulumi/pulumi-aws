@@ -133,39 +133,39 @@ export interface PermissionSetState {
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The description of the Permission Set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    readonly instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string>;
     /**
      * The name of the Permission Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */
-    readonly relayState?: pulumi.Input<string>;
+    relayState?: pulumi.Input<string>;
     /**
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      */
-    readonly sessionDuration?: pulumi.Input<string>;
+    sessionDuration?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,29 +175,29 @@ export interface PermissionSetArgs {
     /**
      * The description of the Permission Set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    readonly instanceArn: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The name of the Permission Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The relay state URL used to redirect users within the application during the federation authentication process.
      */
-    readonly relayState?: pulumi.Input<string>;
+    relayState?: pulumi.Input<string>;
     /**
      * The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
      */
-    readonly sessionDuration?: pulumi.Input<string>;
+    sessionDuration?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

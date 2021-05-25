@@ -39,34 +39,34 @@ export interface GetVpcArgs {
     /**
      * The cidr block of the desired VPC.
      */
-    readonly cidrBlock?: string;
+    cidrBlock?: string;
     /**
      * Boolean constraint on whether the desired VPC is
      * the default VPC for the region.
      */
-    readonly default?: boolean;
+    default?: boolean;
     /**
      * The DHCP options id of the desired VPC.
      */
-    readonly dhcpOptionsId?: string;
+    dhcpOptionsId?: string;
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcFilter[];
+    filters?: inputs.ec2.GetVpcFilter[];
     /**
      * The id of the specific VPC to retrieve.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The current state of the desired VPC.
      * Can be either `"pending"` or `"available"`.
      */
-    readonly state?: string;
+    state?: string;
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired VPC.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -111,11 +111,11 @@ export interface XssMatchSetState {
     /**
      * The name of the set
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }
 
 /**
@@ -125,9 +125,9 @@ export interface XssMatchSetArgs {
     /**
      * The name of the set
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parts of web requests that you want to inspect for cross-site scripting attacks.
      */
-    readonly xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
+    xssMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.XssMatchSetXssMatchTuple>[]>;
 }

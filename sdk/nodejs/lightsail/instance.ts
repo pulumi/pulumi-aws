@@ -250,61 +250,61 @@ export interface InstanceState {
     /**
      * The ARN of the Lightsail instance (matches `id`).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Availability Zone in which to create your
      * instance (see list below)
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      */
-    readonly blueprintId?: pulumi.Input<string>;
+    blueprintId?: pulumi.Input<string>;
     /**
      * The bundle of specification information (see list below)
      */
-    readonly bundleId?: pulumi.Input<string>;
-    readonly cpuCount?: pulumi.Input<number>;
+    bundleId?: pulumi.Input<string>;
+    cpuCount?: pulumi.Input<number>;
     /**
      * The timestamp when the instance was created.
      */
-    readonly createdAt?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     /**
      * (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
      *
      * @deprecated use `ipv6_addresses` attribute instead
      */
-    readonly ipv6Address?: pulumi.Input<string>;
+    ipv6Address?: pulumi.Input<string>;
     /**
      * List of IPv6 addresses for the Lightsail instance.
      */
-    readonly ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly isStaticIp?: pulumi.Input<boolean>;
+    ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    isStaticIp?: pulumi.Input<boolean>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      */
-    readonly keyPairName?: pulumi.Input<string>;
+    keyPairName?: pulumi.Input<string>;
     /**
      * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly privateIpAddress?: pulumi.Input<string>;
-    readonly publicIpAddress?: pulumi.Input<string>;
-    readonly ramSize?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    privateIpAddress?: pulumi.Input<string>;
+    publicIpAddress?: pulumi.Input<string>;
+    ramSize?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */
-    readonly userData?: pulumi.Input<string>;
-    readonly username?: pulumi.Input<string>;
+    userData?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -315,34 +315,34 @@ export interface InstanceArgs {
      * The Availability Zone in which to create your
      * instance (see list below)
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    availabilityZone: pulumi.Input<string>;
     /**
      * The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
      */
-    readonly blueprintId: pulumi.Input<string>;
+    blueprintId: pulumi.Input<string>;
     /**
      * The bundle of specification information (see list below)
      */
-    readonly bundleId: pulumi.Input<string>;
+    bundleId: pulumi.Input<string>;
     /**
      * The name of your key pair. Created in the
      * Lightsail console (cannot use `aws.ec2.KeyPair` at this time)
      */
-    readonly keyPairName?: pulumi.Input<string>;
+    keyPairName?: pulumi.Input<string>;
     /**
      * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */
-    readonly userData?: pulumi.Input<string>;
+    userData?: pulumi.Input<string>;
 }

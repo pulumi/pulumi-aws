@@ -139,28 +139,28 @@ export interface EfsLocationState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    readonly ec2Config?: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
+    ec2Config?: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    readonly efsFileSystemArn?: pulumi.Input<ARN>;
+    efsFileSystemArn?: pulumi.Input<ARN>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    uri?: pulumi.Input<string>;
 }
 
 /**
@@ -170,21 +170,21 @@ export interface EfsLocationArgs {
     /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
-    readonly ec2Config: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
+    ec2Config: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    readonly efsFileSystemArn: pulumi.Input<ARN>;
+    efsFileSystemArn: pulumi.Input<ARN>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

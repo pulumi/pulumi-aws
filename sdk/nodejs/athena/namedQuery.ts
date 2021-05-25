@@ -140,23 +140,23 @@ export interface NamedQueryState {
     /**
      * The database to which the query belongs.
      */
-    readonly database?: pulumi.Input<string>;
+    database?: pulumi.Input<string>;
     /**
      * A brief explanation of the query. Maximum length of 1024.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The plain language name for the query. Maximum length of 128.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    readonly query?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
     /**
      * The workgroup to which the query belongs. Defaults to `primary`
      */
-    readonly workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string>;
 }
 
 /**
@@ -166,21 +166,21 @@ export interface NamedQueryArgs {
     /**
      * The database to which the query belongs.
      */
-    readonly database: pulumi.Input<string>;
+    database: pulumi.Input<string>;
     /**
      * A brief explanation of the query. Maximum length of 1024.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The plain language name for the query. Maximum length of 128.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
-    readonly query: pulumi.Input<string>;
+    query: pulumi.Input<string>;
     /**
      * The workgroup to which the query belongs. Defaults to `primary`
      */
-    readonly workgroup?: pulumi.Input<string>;
+    workgroup?: pulumi.Input<string>;
 }

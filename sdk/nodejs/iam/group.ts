@@ -109,19 +109,19 @@ export interface GroupState {
     /**
      * The ARN assigned by AWS for this group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Path in which to create the group.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
 }
 
 /**
@@ -131,9 +131,9 @@ export interface GroupArgs {
     /**
      * The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Path in which to create the group.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
 }

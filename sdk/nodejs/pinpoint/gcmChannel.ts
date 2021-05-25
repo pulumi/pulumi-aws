@@ -111,15 +111,15 @@ export interface GcmChannelState {
     /**
      * Platform credential API key from Google.
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -129,13 +129,13 @@ export interface GcmChannelArgs {
     /**
      * Platform credential API key from Google.
      */
-    readonly apiKey: pulumi.Input<string>;
+    apiKey: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
 }

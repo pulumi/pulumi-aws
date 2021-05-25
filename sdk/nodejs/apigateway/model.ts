@@ -130,23 +130,23 @@ export interface ModelState {
     /**
      * The content type of the model
      */
-    readonly contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string>;
     /**
      * The description of the model
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the model
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * The schema of the model in a JSON form
      */
-    readonly schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
 }
 
 /**
@@ -156,21 +156,21 @@ export interface ModelArgs {
     /**
      * The content type of the model
      */
-    readonly contentType: pulumi.Input<string>;
+    contentType: pulumi.Input<string>;
     /**
      * The description of the model
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the model
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the associated REST API
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * The schema of the model in a JSON form
      */
-    readonly schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string>;
 }

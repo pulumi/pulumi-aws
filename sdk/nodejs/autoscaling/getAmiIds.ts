@@ -30,7 +30,7 @@ export interface GetAmiIdsArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    readonly filters?: inputs.autoscaling.GetAmiIdsFilter[];
+    filters?: inputs.autoscaling.GetAmiIdsFilter[];
 }
 
 /**

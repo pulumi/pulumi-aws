@@ -105,12 +105,12 @@ export interface TriggerState {
     /**
      * System-generated unique identifier.
      */
-    readonly configurationId?: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName?: pulumi.Input<string>;
-    readonly triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
+    repositoryName?: pulumi.Input<string>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }
 
 /**
@@ -120,6 +120,6 @@ export interface TriggerArgs {
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: pulumi.Input<string>;
-    readonly triggers: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
+    repositoryName: pulumi.Input<string>;
+    triggers: pulumi.Input<pulumi.Input<inputs.codecommit.TriggerTrigger>[]>;
 }

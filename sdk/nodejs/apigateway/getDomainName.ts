@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.apigateway.getDomainName({
  *     domainName: "api.example.com",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainNameResult> {
@@ -40,11 +40,11 @@ export interface GetDomainNameArgs {
     /**
      * The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
      */
-    readonly domainName: string;
+    domainName: string;
     /**
      * Key-value map of tags for the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

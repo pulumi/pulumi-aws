@@ -148,35 +148,35 @@ export interface DistributionConfigurationState {
     /**
      * (Required) Amazon Resource Name (ARN) of the distribution configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Date the distribution configuration was created.
      */
-    readonly dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string>;
     /**
      * Date the distribution configuration was updated.
      */
-    readonly dateUpdated?: pulumi.Input<string>;
+    dateUpdated?: pulumi.Input<string>;
     /**
      * Description to apply to the distributed AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      */
-    readonly distributions?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
+    distributions?: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**
      * Name to apply to the distributed AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,21 +186,21 @@ export interface DistributionConfigurationArgs {
     /**
      * Description to apply to the distributed AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * One or more configuration blocks with distribution settings. Detailed below.
      */
-    readonly distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
+    distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistribution>[]>;
     /**
      * Name to apply to the distributed AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the distribution configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

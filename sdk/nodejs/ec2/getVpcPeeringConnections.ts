@@ -48,12 +48,12 @@ export interface GetVpcPeeringConnectionsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
+    filters?: inputs.ec2.GetVpcPeeringConnectionsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired VPC Peering Connection.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

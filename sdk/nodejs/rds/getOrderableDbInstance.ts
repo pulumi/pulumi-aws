@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         "db.t3.small",
  *     ],
  *     storageType: "standard",
- * }, { async: true }));
+ * }));
  * ```
  *
  * Valid parameter combinations can also be found with `preferredEngineVersions` and/or `preferredInstanceClasses`.
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         "db.t3.medium",
  *         "db.t3.large",
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
@@ -85,71 +85,71 @@ export interface GetOrderableDbInstanceArgs {
     /**
      * Availability zone group.
      */
-    readonly availabilityZoneGroup?: string;
+    availabilityZoneGroup?: string;
     /**
      * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
      */
-    readonly engine: string;
+    engine: string;
     /**
      * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
      */
-    readonly engineVersion?: string;
+    engineVersion?: string;
     /**
      * DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
      */
-    readonly instanceClass?: string;
+    instanceClass?: string;
     /**
      * License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
      */
-    readonly licenseModel?: string;
+    licenseModel?: string;
     /**
      * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    readonly preferredEngineVersions?: string[];
+    preferredEngineVersions?: string[];
     /**
      * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    readonly preferredInstanceClasses?: string[];
+    preferredInstanceClasses?: string[];
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      */
-    readonly storageType?: string;
+    storageType?: string;
     /**
      * Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
      */
-    readonly supportsEnhancedMonitoring?: boolean;
+    supportsEnhancedMonitoring?: boolean;
     /**
      * Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
      */
-    readonly supportsGlobalDatabases?: boolean;
+    supportsGlobalDatabases?: boolean;
     /**
      * Enable this to ensure a DB instance supports IAM database authentication.
      */
-    readonly supportsIamDatabaseAuthentication?: boolean;
+    supportsIamDatabaseAuthentication?: boolean;
     /**
      * Enable this to ensure a DB instance supports provisioned IOPS.
      */
-    readonly supportsIops?: boolean;
+    supportsIops?: boolean;
     /**
      * Enable this to ensure a DB instance supports Kerberos Authentication.
      */
-    readonly supportsKerberosAuthentication?: boolean;
+    supportsKerberosAuthentication?: boolean;
     /**
      * Enable this to ensure a DB instance supports Performance Insights.
      */
-    readonly supportsPerformanceInsights?: boolean;
+    supportsPerformanceInsights?: boolean;
     /**
      * Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
      */
-    readonly supportsStorageAutoscaling?: boolean;
+    supportsStorageAutoscaling?: boolean;
     /**
      * Enable this to ensure a DB instance supports encrypted storage.
      */
-    readonly supportsStorageEncryption?: boolean;
+    supportsStorageEncryption?: boolean;
     /**
      * Boolean that indicates whether to show only VPC or non-VPC offerings.
      */
-    readonly vpc?: boolean;
+    vpc?: boolean;
 }
 
 /**

@@ -203,44 +203,44 @@ export interface PresetState {
     /**
      * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Audio parameters object (documented below).
      */
-    readonly audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    readonly audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    readonly container?: pulumi.Input<string>;
+    container?: pulumi.Input<string>;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    readonly thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
-    readonly type?: pulumi.Input<string>;
+    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
+    type?: pulumi.Input<string>;
     /**
      * Video parameters object (documented below)
      */
-    readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
      */
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }
 
 /**
@@ -250,38 +250,38 @@ export interface PresetArgs {
     /**
      * Audio parameters object (documented below).
      */
-    readonly audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
+    audio?: pulumi.Input<inputs.elastictranscoder.PresetAudio>;
     /**
      * Codec options for the audio parameters (documented below)
      */
-    readonly audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
+    audioCodecOptions?: pulumi.Input<inputs.elastictranscoder.PresetAudioCodecOptions>;
     /**
      * The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
      */
-    readonly container: pulumi.Input<string>;
+    container: pulumi.Input<string>;
     /**
      * A description of the preset (maximum 255 characters)
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the preset. (maximum 40 characters)
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
-    readonly thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
-    readonly type?: pulumi.Input<string>;
+    thumbnails?: pulumi.Input<inputs.elastictranscoder.PresetThumbnails>;
+    type?: pulumi.Input<string>;
     /**
      * Video parameters object (documented below)
      */
-    readonly video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
+    video?: pulumi.Input<inputs.elastictranscoder.PresetVideo>;
     /**
      * Codec options for the video parameters
      */
-    readonly videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    videoCodecOptions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Watermark parameters for the video parameters (documented below)
      */
-    readonly videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
+    videoWatermarks?: pulumi.Input<pulumi.Input<inputs.elastictranscoder.PresetVideoWatermark>[]>;
 }

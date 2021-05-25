@@ -285,67 +285,67 @@ export interface DirectoryState {
     /**
      * The directory alias.
      */
-    readonly alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string>;
     /**
      * The user name for the service account.
      */
-    readonly customerUserName?: pulumi.Input<string>;
+    customerUserName?: pulumi.Input<string>;
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
-    readonly directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string>;
     /**
      * The name of the directory.
      */
-    readonly directoryName?: pulumi.Input<string>;
+    directoryName?: pulumi.Input<string>;
     /**
      * The directory type.
      */
-    readonly directoryType?: pulumi.Input<string>;
+    directoryType?: pulumi.Input<string>;
     /**
      * The IP addresses of the DNS servers for the directory.
      */
-    readonly dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
      */
-    readonly iamRoleId?: pulumi.Input<string>;
+    iamRoleId?: pulumi.Input<string>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    readonly ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
-    readonly registrationCode?: pulumi.Input<string>;
+    registrationCode?: pulumi.Input<string>;
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    readonly selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    readonly workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
     /**
      * The identifier of the security group that is assigned to new WorkSpaces.
      */
-    readonly workspaceSecurityGroupId?: pulumi.Input<string>;
+    workspaceSecurityGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -355,33 +355,33 @@ export interface DirectoryArgs {
     /**
      * The directory identifier for registration in WorkSpaces service.
      */
-    readonly directoryId: pulumi.Input<string>;
+    directoryId: pulumi.Input<string>;
     /**
      * The identifiers of the IP access control groups associated with the directory.
      */
-    readonly ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Permissions to enable or disable self-service capabilities. Defined below.
      */
-    readonly selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
+    selfServicePermissions?: pulumi.Input<inputs.workspaces.DirectorySelfServicePermissions>;
     /**
      * The identifiers of the subnets where the directory resides.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
-    readonly workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
+    workspaceAccessProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceAccessProperties>;
     /**
      * Default properties that are used for creating WorkSpaces. Defined below.
      */
-    readonly workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
+    workspaceCreationProperties?: pulumi.Input<inputs.workspaces.DirectoryWorkspaceCreationProperties>;
 }

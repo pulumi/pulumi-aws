@@ -157,33 +157,33 @@ export interface ApplicationVersionState {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    readonly application?: pulumi.Input<string | Application>;
+    application?: pulumi.Input<string | Application>;
     /**
      * ARN assigned by AWS for this Elastic Beanstalk Application.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    readonly bucket?: pulumi.Input<string | Bucket>;
+    bucket?: pulumi.Input<string | Bucket>;
     /**
      * Short description of the Application Version.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
-    readonly forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * S3 object that is the Application Version source bundle.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * Unique name for the this Application Version.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -193,27 +193,27 @@ export interface ApplicationVersionArgs {
     /**
      * Name of the Beanstalk Application the version is associated with.
      */
-    readonly application: pulumi.Input<string | Application>;
+    application: pulumi.Input<string | Application>;
     /**
      * S3 bucket that contains the Application Version source bundle.
      */
-    readonly bucket: pulumi.Input<string | Bucket>;
+    bucket: pulumi.Input<string | Bucket>;
     /**
      * Short description of the Application Version.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
      */
-    readonly forceDelete?: pulumi.Input<boolean>;
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * S3 object that is the Application Version source bundle.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * Unique name for the this Application Version.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -100,11 +100,11 @@ export interface ProjectState {
     /**
      * The Amazon Resource Name of this project
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the project
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -114,5 +114,5 @@ export interface ProjectArgs {
     /**
      * The name of the project
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

@@ -139,23 +139,23 @@ export interface SourceCredentialState {
     /**
      * The ARN of Source Credential.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
      */
-    readonly authType?: pulumi.Input<string>;
+    authType?: pulumi.Input<string>;
     /**
      * The source provider used for this project.
      */
-    readonly serverType?: pulumi.Input<string>;
+    serverType?: pulumi.Input<string>;
     /**
      * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
      */
-    readonly token?: pulumi.Input<string>;
+    token?: pulumi.Input<string>;
     /**
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }
 
 /**
@@ -165,17 +165,17 @@ export interface SourceCredentialArgs {
     /**
      * The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket repository. An OAUTH connection is not supported by the API.
      */
-    readonly authType: pulumi.Input<string>;
+    authType: pulumi.Input<string>;
     /**
      * The source provider used for this project.
      */
-    readonly serverType: pulumi.Input<string>;
+    serverType: pulumi.Input<string>;
     /**
      * For `GitHub` or `GitHub Enterprise`, this is the personal access token. For `Bitbucket`, this is the app password.
      */
-    readonly token: pulumi.Input<string>;
+    token: pulumi.Input<string>;
     /**
      * The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for other types of source providers or connections.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }

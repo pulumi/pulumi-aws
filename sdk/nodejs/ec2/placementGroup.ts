@@ -126,27 +126,27 @@ export interface PlacementGroupState {
     /**
      * Amazon Resource Name (ARN) of the placement group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the placement group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the placement group.
      */
-    readonly placementGroupId?: pulumi.Input<string>;
+    placementGroupId?: pulumi.Input<string>;
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
-    readonly strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy>;
+    strategy?: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface PlacementGroupArgs {
     /**
      * The name of the placement group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */
-    readonly strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
+    strategy: pulumi.Input<string | enums.ec2.PlacementStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -42,12 +42,12 @@ export interface GetTransitGatewayRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
+    filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

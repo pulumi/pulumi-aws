@@ -106,11 +106,11 @@ export interface DomainIdentityVerificationState {
     /**
      * The ARN of the domain identity.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The domain name of the SES domain identity to verify.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
 }
 
 /**
@@ -120,5 +120,5 @@ export interface DomainIdentityVerificationArgs {
     /**
      * The domain name of the SES domain identity to verify.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
 }

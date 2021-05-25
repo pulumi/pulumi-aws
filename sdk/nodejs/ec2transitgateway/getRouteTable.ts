@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *             values: ["tgw-12345678"],
  *         },
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  * ### By Identifier
  *
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.ec2transitgateway.getRouteTable({
  *     id: "tgw-rtb-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRouteTable(args?: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
@@ -62,15 +62,15 @@ export interface GetRouteTableArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetRouteTableFilter[];
+    filters?: inputs.ec2transitgateway.GetRouteTableFilter[];
     /**
      * Identifier of the EC2 Transit Gateway Route Table.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Route Table
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

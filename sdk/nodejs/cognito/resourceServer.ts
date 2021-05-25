@@ -138,20 +138,20 @@ export interface ResourceServerState {
     /**
      * An identifier for the resource server.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * A name for the resource server.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of all scopes configured for this resource server in the format identifier/scope_name.
      */
-    readonly scopeIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    scopeIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Authorization Scope.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
-    readonly userPoolId?: pulumi.Input<string>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    userPoolId?: pulumi.Input<string>;
 }
 
 /**
@@ -161,14 +161,14 @@ export interface ResourceServerArgs {
     /**
      * An identifier for the resource server.
      */
-    readonly identifier: pulumi.Input<string>;
+    identifier: pulumi.Input<string>;
     /**
      * A name for the resource server.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of Authorization Scope.
      */
-    readonly scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
-    readonly userPoolId: pulumi.Input<string>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.cognito.ResourceServerScope>[]>;
+    userPoolId: pulumi.Input<string>;
 }

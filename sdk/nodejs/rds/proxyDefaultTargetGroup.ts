@@ -141,19 +141,19 @@ export interface ProxyDefaultTargetGroupState {
     /**
      * The Amazon Resource Name (ARN) representing the target group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    readonly connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */
-    readonly dbProxyName?: pulumi.Input<string>;
+    dbProxyName?: pulumi.Input<string>;
     /**
      * The name of the default target group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -163,9 +163,9 @@ export interface ProxyDefaultTargetGroupArgs {
     /**
      * The settings that determine the size and behavior of the connection pool for the target group.
      */
-    readonly connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
+    connectionPoolConfig?: pulumi.Input<inputs.rds.ProxyDefaultTargetGroupConnectionPoolConfig>;
     /**
      * Name of the RDS DB Proxy.
      */
-    readonly dbProxyName: pulumi.Input<string>;
+    dbProxyName: pulumi.Input<string>;
 }

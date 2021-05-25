@@ -106,11 +106,11 @@ export interface ByteMatchSetState {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the ByteMatchSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface ByteMatchSetArgs {
     /**
      * Settings for the ByteMatchSet, such as the bytes (typically a string that corresponds with ASCII characters) that you want AWS WAF to search for in web requests. ByteMatchTuple documented below.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.wafregional.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the ByteMatchSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

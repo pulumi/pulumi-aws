@@ -106,16 +106,16 @@ export class RegistryPolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegistryPolicy resources.
  */
 export interface RegistryPolicyState {
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The registry ID where the registry was created.
      */
-    readonly registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a RegistryPolicy resource.
  */
 export interface RegistryPolicyArgs {
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

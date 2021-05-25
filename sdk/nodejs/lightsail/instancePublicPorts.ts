@@ -110,11 +110,11 @@ export interface InstancePublicPortsState {
     /**
      * Name of the Lightsail Instance.
      */
-    readonly instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
-    readonly portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }
 
 /**
@@ -124,9 +124,9 @@ export interface InstancePublicPortsArgs {
     /**
      * Name of the Lightsail Instance.
      */
-    readonly instanceName: pulumi.Input<string>;
+    instanceName: pulumi.Input<string>;
     /**
      * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. Detailed below.
      */
-    readonly portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const service = pulumi.output(aws.ecr.getRepository({
  *     name: "ecr-repository",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
@@ -41,15 +41,15 @@ export interface GetRepositoryArgs {
     /**
      * The name of the ECR Repository.
      */
-    readonly name: string;
+    name: string;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: string;
+    registryId?: string;
     /**
      * A map of tags assigned to the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

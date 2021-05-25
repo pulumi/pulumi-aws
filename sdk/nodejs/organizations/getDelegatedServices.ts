@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.organizations.getDelegatedServices({
  *     accountId: "AWS ACCOUNT ID",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedServicesResult> {
@@ -39,7 +39,7 @@ export interface GetDelegatedServicesArgs {
     /**
      * The account ID number of a delegated administrator account in the organization.
      */
-    readonly accountId: string;
+    accountId: string;
 }
 
 /**

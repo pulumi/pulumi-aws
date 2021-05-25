@@ -316,19 +316,19 @@ export interface BucketNotificationState {
     /**
      * The name of the bucket to put notification configuration.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }
 
 /**
@@ -338,17 +338,17 @@ export interface BucketNotificationArgs {
     /**
      * The name of the bucket to put notification configuration.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * Used to configure notifications to a Lambda Function (documented below).
      */
-    readonly lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
+    lambdaFunctions?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationLambdaFunction>[]>;
     /**
      * The notification configuration to SQS Queue (documented below).
      */
-    readonly queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
      * The notification configuration to SNS Topic (documented below).
      */
-    readonly topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
+    topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
 }

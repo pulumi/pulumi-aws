@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * const custome = pulumi.output(aws.ec2.getVpcEndpointService({
  *     serviceName: "com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8",
- * }, { async: true }));
+ * }));
  * ```
  * ### Filter
  *
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *         name: "service-name",
  *         values: ["some-service"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVpcEndpointService(args?: GetVpcEndpointServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcEndpointServiceResult> {
@@ -77,23 +77,23 @@ export interface GetVpcEndpointServiceArgs {
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
+    filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
     /**
      * The common name of an AWS service (e.g. `s3`).
      */
-    readonly service?: string;
+    service?: string;
     /**
      * The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
-    readonly serviceName?: string;
+    serviceName?: string;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    readonly serviceType?: string;
+    serviceType?: string;
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

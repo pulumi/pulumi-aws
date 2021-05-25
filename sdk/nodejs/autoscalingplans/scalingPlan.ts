@@ -112,19 +112,19 @@ export interface ScalingPlanState {
     /**
      * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
-    readonly applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
+    applicationSource?: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
      * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
-    readonly scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
+    scalingInstructions?: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
     /**
      * The version number of the scaling plan. This value is always 1.
      */
-    readonly scalingPlanVersion?: pulumi.Input<number>;
+    scalingPlanVersion?: pulumi.Input<number>;
 }
 
 /**
@@ -134,13 +134,13 @@ export interface ScalingPlanArgs {
     /**
      * A CloudFormation stack or set of tags. You can create one scaling plan per application source.
      */
-    readonly applicationSource: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
+    applicationSource: pulumi.Input<inputs.autoscalingplans.ScalingPlanApplicationSource>;
     /**
      * The name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
      */
-    readonly scalingInstructions: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
+    scalingInstructions: pulumi.Input<pulumi.Input<inputs.autoscalingplans.ScalingPlanScalingInstruction>[]>;
 }

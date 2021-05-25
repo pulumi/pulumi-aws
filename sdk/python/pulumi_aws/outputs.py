@@ -28,33 +28,6 @@ __all__ = [
 
 @pulumi.output_type
 class ProviderAssumeRole(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "durationSeconds":
-            suggest = "duration_seconds"
-        elif key == "externalId":
-            suggest = "external_id"
-        elif key == "policyArns":
-            suggest = "policy_arns"
-        elif key == "roleArn":
-            suggest = "role_arn"
-        elif key == "sessionName":
-            suggest = "session_name"
-        elif key == "transitiveTagKeys":
-            suggest = "transitive_tag_keys"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderAssumeRole. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderAssumeRole.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderAssumeRole.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  duration_seconds: Optional[int] = None,
                  external_id: Optional[str] = None,
@@ -137,23 +110,6 @@ class ProviderDefaultTags(dict):
 
 @pulumi.output_type
 class ProviderEndpoint(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "lambda":
-            suggest = "lambda_"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderEndpoint. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderEndpoint.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderEndpoint.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
                  acm: Optional[str] = None,
@@ -1399,23 +1355,6 @@ class ProviderEndpoint(dict):
 
 @pulumi.output_type
 class ProviderIgnoreTags(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyPrefixes":
-            suggest = "key_prefixes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ProviderIgnoreTags. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ProviderIgnoreTags.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ProviderIgnoreTags.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  key_prefixes: Optional[Sequence[str]] = None,
                  keys: Optional[Sequence[str]] = None):

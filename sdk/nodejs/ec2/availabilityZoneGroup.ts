@@ -106,11 +106,11 @@ export interface AvailabilityZoneGroupState {
     /**
      * Name of the Availability Zone Group.
      */
-    readonly groupName?: pulumi.Input<string>;
+    groupName?: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
-    readonly optInStatus?: pulumi.Input<string>;
+    optInStatus?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface AvailabilityZoneGroupArgs {
     /**
      * Name of the Availability Zone Group.
      */
-    readonly groupName: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
      */
-    readonly optInStatus: pulumi.Input<string>;
+    optInStatus: pulumi.Input<string>;
 }

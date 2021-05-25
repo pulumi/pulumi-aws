@@ -133,27 +133,27 @@ export interface SshKeyState {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    readonly encoding?: pulumi.Input<string>;
+    encoding?: pulumi.Input<string>;
     /**
      * The MD5 message digest of the SSH public key.
      */
-    readonly fingerprint?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    readonly publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The unique identifier for the SSH public key.
      */
-    readonly sshPublicKeyId?: pulumi.Input<string>;
+    sshPublicKeyId?: pulumi.Input<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -163,17 +163,17 @@ export interface SshKeyArgs {
     /**
      * Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
      */
-    readonly encoding: pulumi.Input<string>;
+    encoding: pulumi.Input<string>;
     /**
      * The SSH public key. The public key must be encoded in ssh-rsa format or PEM format.
      */
-    readonly publicKey: pulumi.Input<string>;
+    publicKey: pulumi.Input<string>;
     /**
      * The status to assign to the SSH public key. Active means the key can be used for authentication with an AWS CodeCommit repository. Inactive means the key cannot be used. Default is `active`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * The name of the IAM user to associate the SSH public key with.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

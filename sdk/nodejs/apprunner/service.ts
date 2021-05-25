@@ -211,51 +211,51 @@ export interface ServiceState {
     /**
      * ARN of the App Runner service.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      */
-    readonly autoScalingConfigurationArn?: pulumi.Input<string>;
+    autoScalingConfigurationArn?: pulumi.Input<string>;
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
      */
-    readonly encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration>;
     /**
      * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      */
-    readonly healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration>;
+    healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration>;
     /**
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      */
-    readonly instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
-    readonly serviceId?: pulumi.Input<string>;
+    serviceId?: pulumi.Input<string>;
     /**
      * Name of the service.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
      */
-    readonly serviceUrl?: pulumi.Input<string>;
+    serviceUrl?: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      */
-    readonly sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
+    sourceConfiguration?: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
      * The current state of the App Runner service.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -265,33 +265,33 @@ export interface ServiceArgs {
     /**
      * ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
      */
-    readonly autoScalingConfigurationArn?: pulumi.Input<string>;
+    autoScalingConfigurationArn?: pulumi.Input<string>;
     /**
      * An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
      */
-    readonly encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.apprunner.ServiceEncryptionConfiguration>;
     /**
      * Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
      */
-    readonly healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration>;
+    healthCheckConfiguration?: pulumi.Input<inputs.apprunner.ServiceHealthCheckConfiguration>;
     /**
      * The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
      */
-    readonly instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
+    instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
      * Name of the service.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
      */
-    readonly sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
+    sourceConfiguration: pulumi.Input<inputs.apprunner.ServiceSourceConfiguration>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

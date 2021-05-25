@@ -122,19 +122,19 @@ export interface AdmChannelState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientId?: pulumi.Input<string>;
+    clientId?: pulumi.Input<string>;
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -144,17 +144,17 @@ export interface AdmChannelArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientId: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
     /**
      * Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
      */
-    readonly clientSecret: pulumi.Input<string>;
+    clientSecret: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
 }

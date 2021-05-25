@@ -106,11 +106,11 @@ export interface CacheState {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId?: pulumi.Input<string>;
+    diskId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface CacheArgs {
     /**
      * Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
      */
-    readonly diskId: pulumi.Input<string>;
+    diskId: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the gateway.
      */
-    readonly gatewayArn: pulumi.Input<string>;
+    gatewayArn: pulumi.Input<string>;
 }

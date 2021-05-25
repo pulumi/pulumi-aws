@@ -170,44 +170,44 @@ export interface LocationSmbState {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    readonly agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the Windows domain the SMB server belongs to.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    readonly mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
-    readonly serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    uri?: pulumi.Input<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -217,37 +217,37 @@ export interface LocationSmbArgs {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    readonly agentArns: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Windows domain the SMB server belongs to.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * Configuration block containing mount options used by DataSync to access the SMB Server. Can be `AUTOMATIC`, `SMB2`, or `SMB3`.
      */
-    readonly mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
+    mountOptions?: pulumi.Input<inputs.datasync.LocationSmbMountOptions>;
     /**
      * The password of the user who can mount the share and has file permissions in the SMB.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * Specifies the IP address or DNS name of the SMB server. The DataSync Agent(s) use this to mount the SMB share.
      */
-    readonly serverHostname: pulumi.Input<string>;
+    serverHostname: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    readonly subdirectory: pulumi.Input<string>;
+    subdirectory: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

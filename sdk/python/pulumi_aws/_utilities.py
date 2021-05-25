@@ -3,8 +3,14 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+import json
 import os
+import sys
+import importlib.util
 import pkg_resources
+
+import pulumi
+import pulumi.runtime
 
 from semver import VersionInfo as SemverVersion
 from parver import Version as PEP440Version
@@ -115,3 +121,90 @@ def get_resource_args_opts(resource_args_type, resource_options_type, *args, **k
         opts = kwargs.get("opts")
 
     return resource_args, opts
+
+
+# Temporary: just use pulumi._utils.lazy_import once everyone upgrades.
+def lazy_import(fullname):
+
+    import pulumi._utils as u
+    f = getattr(u, 'lazy_import', None)
+    if f is None:
+        f = _lazy_import_temp
+
+    return f(fullname)
+
+
+# Copied from pulumi._utils.lazy_import, see comments there.
+def _lazy_import_temp(fullname):
+    m = sys.modules.get(fullname, None)
+    if m is not None:
+        return m
+
+    spec = importlib.util.find_spec(fullname)
+
+    m = sys.modules.get(fullname, None)
+    if m is not None:
+        return m
+
+    loader = importlib.util.LazyLoader(spec.loader)
+    spec.loader = loader
+    module = importlib.util.module_from_spec(spec)
+
+    m = sys.modules.get(fullname, None)
+    if m is not None:
+        return m
+
+    sys.modules[fullname] = module
+    loader.exec_module(module)
+    return module
+
+
+class Package(pulumi.runtime.ResourcePackage):
+    _version = get_semver_version()
+
+    def __init__(self, pkg_info):
+        super().__init__()
+        self.pkg_info = pkg_info
+
+    def version(self):
+        return Package._version
+
+    def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+        if typ != self.pkg_info['token']:
+            raise Exception(f"unknown provider type {typ}")
+        Provider = getattr(lazy_import(self.pkg_info['fqn']), self.pkg_info['class'])
+        return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+class Module(pulumi.runtime.ResourceModule):
+    _version = get_semver_version()
+
+    def __init__(self, mod_info):
+        super().__init__()
+        self.mod_info = mod_info
+
+    def version(self):
+        return Module._version
+
+    def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+        class_name = self.mod_info['classes'].get(typ, None)
+
+        if class_name is None:
+            raise Exception(f"unknown resource type {typ}")
+
+        TheClass = getattr(lazy_import(self.mod_info['fqn']), class_name)
+        return TheClass(name, pulumi.ResourceOptions(urn=urn))
+
+
+def register(resource_modules, resource_packages):
+    resource_modules = json.loads(resource_modules)
+    resource_packages = json.loads(resource_packages)
+
+    for pkg_info in resource_packages:
+        pulumi.runtime.register_resource_package(pkg_info['pkg'], Package(pkg_info))
+
+    for mod_info in resource_modules:
+        pulumi.runtime.register_resource_module(
+            mod_info['pkg'],
+            mod_info['mod'],
+            Module(mod_info))

@@ -111,15 +111,15 @@ export interface StaticIpAttachmentState {
     /**
      * The name of the Lightsail instance to attach the IP to
      */
-    readonly instanceName?: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string>;
     /**
      * The allocated static IP address
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The name of the allocated static IP
      */
-    readonly staticIpName?: pulumi.Input<string>;
+    staticIpName?: pulumi.Input<string>;
 }
 
 /**
@@ -129,9 +129,9 @@ export interface StaticIpAttachmentArgs {
     /**
      * The name of the Lightsail instance to attach the IP to
      */
-    readonly instanceName: pulumi.Input<string>;
+    instanceName: pulumi.Input<string>;
     /**
      * The name of the allocated static IP
      */
-    readonly staticIpName: pulumi.Input<string>;
+    staticIpName: pulumi.Input<string>;
 }

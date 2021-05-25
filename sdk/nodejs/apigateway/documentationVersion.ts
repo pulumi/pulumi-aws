@@ -121,15 +121,15 @@ export interface DocumentationVersionState {
     /**
      * The description of the API documentation version.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string>;
     /**
      * The version identifier of the API documentation snapshot.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -139,13 +139,13 @@ export interface DocumentationVersionArgs {
     /**
      * The description of the API documentation version.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the associated Rest API
      */
-    readonly restApiId: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
     /**
      * The version identifier of the API documentation snapshot.
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

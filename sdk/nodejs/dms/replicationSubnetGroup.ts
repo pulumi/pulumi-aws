@@ -136,31 +136,31 @@ export class ReplicationSubnetGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationSubnetGroup resources.
  */
 export interface ReplicationSubnetGroupState {
-    readonly replicationSubnetGroupArn?: pulumi.Input<string>;
+    replicationSubnetGroupArn?: pulumi.Input<string>;
     /**
      * The description for the subnet group.
      */
-    readonly replicationSubnetGroupDescription?: pulumi.Input<string>;
+    replicationSubnetGroupDescription?: pulumi.Input<string>;
     /**
      * The name for the replication subnet group. This value is stored as a lowercase string.
      */
-    readonly replicationSubnetGroupId?: pulumi.Input<string>;
+    replicationSubnetGroupId?: pulumi.Input<string>;
     /**
      * A list of the EC2 subnet IDs for the subnet group.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC the subnet group is in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -170,21 +170,21 @@ export interface ReplicationSubnetGroupArgs {
     /**
      * The description for the subnet group.
      */
-    readonly replicationSubnetGroupDescription: pulumi.Input<string>;
+    replicationSubnetGroupDescription: pulumi.Input<string>;
     /**
      * The name for the replication subnet group. This value is stored as a lowercase string.
      */
-    readonly replicationSubnetGroupId: pulumi.Input<string>;
+    replicationSubnetGroupId: pulumi.Input<string>;
     /**
      * A list of the EC2 subnet IDs for the subnet group.
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

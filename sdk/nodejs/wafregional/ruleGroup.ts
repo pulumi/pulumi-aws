@@ -133,27 +133,27 @@ export interface RuleGroupState {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
+    activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
     /**
      * The ARN of the WAF Regional Rule Group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    readonly metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * A friendly name of the rule group
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -163,21 +163,21 @@ export interface RuleGroupArgs {
     /**
      * A list of activated rules, see below
      */
-    readonly activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
+    activatedRules?: pulumi.Input<pulumi.Input<inputs.wafregional.RuleGroupActivatedRule>[]>;
     /**
      * A friendly name for the metrics from the rule group
      */
-    readonly metricName: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
     /**
      * A friendly name of the rule group
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

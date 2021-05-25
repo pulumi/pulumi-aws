@@ -124,15 +124,15 @@ export interface IdentityPolicyState {
     /**
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      */
-    readonly identity?: pulumi.Input<string>;
+    identity?: pulumi.Input<string>;
     /**
      * Name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * JSON string of the policy.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface IdentityPolicyArgs {
     /**
      * Name or Amazon Resource Name (ARN) of the SES Identity.
      */
-    readonly identity: pulumi.Input<string>;
+    identity: pulumi.Input<string>;
     /**
      * Name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * JSON string of the policy.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

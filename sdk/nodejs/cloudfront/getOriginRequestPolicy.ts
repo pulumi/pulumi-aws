@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.cloudfront.getOriginRequestPolicy({
  *     name: "example-policy",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOriginRequestPolicy(args?: GetOriginRequestPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginRequestPolicyResult> {
@@ -41,11 +41,11 @@ export interface GetOriginRequestPolicyArgs {
     /**
      * The identifier for the origin request policy.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Unique name to identify the origin request policy.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

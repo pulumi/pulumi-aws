@@ -182,49 +182,49 @@ export interface EndpointState {
     /**
      * The ARN of the Client VPN endpoint.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
+    authenticationOptions?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
-    readonly clientCidrBlock?: pulumi.Input<string>;
+    clientCidrBlock?: pulumi.Input<string>;
     /**
      * Information about the client connection logging options.
      */
-    readonly connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * Name of the repository.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The DNS name to be used by clients when establishing their VPN session.
      */
-    readonly dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the ACM server certificate.
      */
-    readonly serverCertificateArn?: pulumi.Input<string>;
+    serverCertificateArn?: pulumi.Input<string>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
-    readonly splitTunnel?: pulumi.Input<boolean>;
+    splitTunnel?: pulumi.Input<boolean>;
     /**
      * The current state of the Client VPN endpoint.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    readonly transportProtocol?: pulumi.Input<string>;
+    transportProtocol?: pulumi.Input<string>;
 }
 
 /**
@@ -234,35 +234,35 @@ export interface EndpointArgs {
     /**
      * Information about the authentication method to be used to authenticate clients.
      */
-    readonly authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
+    authenticationOptions: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.EndpointAuthenticationOption>[]>;
     /**
      * The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
      */
-    readonly clientCidrBlock: pulumi.Input<string>;
+    clientCidrBlock: pulumi.Input<string>;
     /**
      * Information about the client connection logging options.
      */
-    readonly connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
+    connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
      * Name of the repository.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
      */
-    readonly dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the ACM server certificate.
      */
-    readonly serverCertificateArn: pulumi.Input<string>;
+    serverCertificateArn: pulumi.Input<string>;
     /**
      * Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
      */
-    readonly splitTunnel?: pulumi.Input<boolean>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    splitTunnel?: pulumi.Input<boolean>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The transport protocol to be used by the VPN session. Default value is `udp`.
      */
-    readonly transportProtocol?: pulumi.Input<string>;
+    transportProtocol?: pulumi.Input<string>;
 }

@@ -43,15 +43,15 @@ export interface GetLayerVersionArgs {
     /**
      * Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
      */
-    readonly compatibleRuntime?: string;
+    compatibleRuntime?: string;
     /**
      * Name of the lambda layer.
      */
-    readonly layerName: string;
+    layerName: string;
     /**
      * Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
      */
-    readonly version?: number;
+    version?: number;
 }
 
 /**

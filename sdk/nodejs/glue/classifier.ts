@@ -167,23 +167,23 @@ export interface ClassifierState {
     /**
      * A classifier for Csv content. Defined below.
      */
-    readonly csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
+    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    readonly grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
+    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
     /**
      * A classifier for JSON content. Defined below.
      */
-    readonly jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
+    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
     /**
      * The name of the classifier.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A classifier for XML content. Defined below.
      */
-    readonly xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
 }
 
 /**
@@ -193,21 +193,21 @@ export interface ClassifierArgs {
     /**
      * A classifier for Csv content. Defined below.
      */
-    readonly csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
+    csvClassifier?: pulumi.Input<inputs.glue.ClassifierCsvClassifier>;
     /**
      * A classifier that uses grok patterns. Defined below.
      */
-    readonly grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
+    grokClassifier?: pulumi.Input<inputs.glue.ClassifierGrokClassifier>;
     /**
      * A classifier for JSON content. Defined below.
      */
-    readonly jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
+    jsonClassifier?: pulumi.Input<inputs.glue.ClassifierJsonClassifier>;
     /**
      * The name of the classifier.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A classifier for XML content. Defined below.
      */
-    readonly xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
+    xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
 }

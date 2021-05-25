@@ -282,95 +282,95 @@ export class Document extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Document resources.
  */
 export interface DocumentState {
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
      */
-    readonly attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
     /**
      * The JSON or YAML content of the document.
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * The date the document was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The default version of the document.
      */
-    readonly defaultVersion?: pulumi.Input<string>;
+    defaultVersion?: pulumi.Input<string>;
     /**
      * The description of the document.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
      */
-    readonly documentFormat?: pulumi.Input<string>;
+    documentFormat?: pulumi.Input<string>;
     /**
      * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
-    readonly documentType?: pulumi.Input<string>;
+    documentType?: pulumi.Input<string>;
     /**
      * The document version.
      */
-    readonly documentVersion?: pulumi.Input<string>;
+    documentVersion?: pulumi.Input<string>;
     /**
      * The sha1 or sha256 of the document content
      */
-    readonly hash?: pulumi.Input<string>;
+    hash?: pulumi.Input<string>;
     /**
      * "Sha1" "Sha256". The hashing algorithm used when hashing the content.
      */
-    readonly hashType?: pulumi.Input<string>;
+    hashType?: pulumi.Input<string>;
     /**
      * The latest version of the document.
      */
-    readonly latestVersion?: pulumi.Input<string>;
+    latestVersion?: pulumi.Input<string>;
     /**
      * The name of the document.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The AWS user account of the person who created the document.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * The parameters that are available to this document.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentParameter>[]>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of OS platforms compatible with this SSM document, either "Windows" or "Linux".
      */
-    readonly platformTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    platformTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The schema version of the document.
      */
-    readonly schemaVersion?: pulumi.Input<string>;
+    schemaVersion?: pulumi.Input<string>;
     /**
      * "Creating", "Active" or "Deleting". The current status of the document.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
     /**
      * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
      */
-    readonly versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string>;
 }
 
 /**
@@ -380,41 +380,41 @@ export interface DocumentArgs {
     /**
      * One or more configuration blocks describing attachments sources to a version of a document. Defined below.
      */
-    readonly attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
+    attachmentsSources?: pulumi.Input<pulumi.Input<inputs.ssm.DocumentAttachmentsSource>[]>;
     /**
      * The JSON or YAML content of the document.
      */
-    readonly content: pulumi.Input<string>;
+    content: pulumi.Input<string>;
     /**
      * The format of the document. Valid document types include: `JSON` and `YAML`
      */
-    readonly documentFormat?: pulumi.Input<string>;
+    documentFormat?: pulumi.Input<string>;
     /**
      * The type of the document. Valid document types include: `Automation`, `Command`, `Package`, `Policy`, and `Session`
      */
-    readonly documentType: pulumi.Input<string>;
+    documentType: pulumi.Input<string>;
     /**
      * The name of the document.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Additional Permissions to attach to the document. See Permissions below for details.
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target type which defines the kinds of resources the document can run on. For example, /AWS::EC2::Instance. For a list of valid resource types, see AWS Resource Types Reference (http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
     /**
      * A field specifying the version of the artifact you are creating with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and cannot be changed for an existing document version.
      */
-    readonly versionName?: pulumi.Input<string>;
+    versionName?: pulumi.Input<string>;
 }

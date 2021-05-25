@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const existingCsc = pulumi.output(aws.lambda.getCodeSigningConfig({
  *     arn: `arn:aws:lambda:${var_aws_region}:${var_aws_account}:code-signing-config:csc-0f6c334abcdea4d8b`,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
@@ -41,7 +41,7 @@ export interface GetCodeSigningConfigArgs {
     /**
      * The Amazon Resource Name (ARN) of the code signing configuration.
      */
-    readonly arn: string;
+    arn: string;
 }
 
 /**

@@ -160,48 +160,48 @@ export interface EndpointGroupState {
     /**
      * The Amazon Resource Name (ARN) of the endpoint group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    readonly endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
-    readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number>;
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
-    readonly healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    readonly listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
-    readonly thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number>;
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      */
-    readonly trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number>;
 }
 
 /**
@@ -211,42 +211,42 @@ export interface EndpointGroupArgs {
     /**
      * The list of endpoint objects. Fields documented below.
      */
-    readonly endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
+    endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupEndpointConfiguration>[]>;
     /**
      * The name of the AWS Region where the endpoint group is located.
      */
-    readonly endpointGroupRegion?: pulumi.Input<string>;
+    endpointGroupRegion?: pulumi.Input<string>;
     /**
      * The time—10 seconds or 30 seconds—between each health check for an endpoint. The default value is 30.
      */
-    readonly healthCheckIntervalSeconds?: pulumi.Input<number>;
+    healthCheckIntervalSeconds?: pulumi.Input<number>;
     /**
      * If the protocol is HTTP/S, then this specifies the path that is the destination for health check targets. The default value is slash (`/`). the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly healthCheckPath?: pulumi.Input<string>;
+    healthCheckPath?: pulumi.Input<string>;
     /**
      * The port that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default port is the listener port that this endpoint group is associated with. If listener port is a list of ports, Global Accelerator uses the first port in the list.
      * the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly healthCheckPort?: pulumi.Input<number>;
+    healthCheckPort?: pulumi.Input<number>;
     /**
      * The protocol that AWS Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default value is TCP.
      */
-    readonly healthCheckProtocol?: pulumi.Input<string>;
+    healthCheckProtocol?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the listener.
      */
-    readonly listenerArn: pulumi.Input<string>;
+    listenerArn: pulumi.Input<string>;
     /**
      * Override specific listener ports used to route traffic to endpoints that are part of this endpoint group. Fields documented below.
      */
-    readonly portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
+    portOverrides?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.EndpointGroupPortOverride>[]>;
     /**
      * The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy. The default value is 3.
      */
-    readonly thresholdCount?: pulumi.Input<number>;
+    thresholdCount?: pulumi.Input<number>;
     /**
      * The percentage of traffic to send to an AWS Region. Additional traffic is distributed to other endpoint groups for this listener. The default value is 100.
      */
-    readonly trafficDialPercentage?: pulumi.Input<number>;
+    trafficDialPercentage?: pulumi.Input<number>;
 }

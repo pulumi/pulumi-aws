@@ -42,11 +42,11 @@ export interface GetContainerDefinitionArgs {
     /**
      * The name of the container definition
      */
-    readonly containerName: string;
+    containerName: string;
     /**
      * The ARN of the task definition which contains the container
      */
-    readonly taskDefinition: string;
+    taskDefinition: string;
 }
 
 /**

@@ -90,7 +90,7 @@ export interface MemberAccountAssociationState {
     /**
      * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
      */
-    readonly memberAccountId?: pulumi.Input<string>;
+    memberAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -100,5 +100,5 @@ export interface MemberAccountAssociationArgs {
     /**
      * The ID of the AWS account that you want to associate with Amazon Macie as a member account.
      */
-    readonly memberAccountId: pulumi.Input<string>;
+    memberAccountId: pulumi.Input<string>;
 }

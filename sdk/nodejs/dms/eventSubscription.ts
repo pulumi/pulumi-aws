@@ -155,39 +155,39 @@ export interface EventSubscriptionState {
     /**
      * Amazon Resource Name (ARN) of the DMS Event Subscription.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Whether the event subscription should be enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
      */
-    readonly eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
+    eventCategories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of event subscription.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * SNS topic arn to send events on.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
     /**
      * Ids of sources to listen to.
      */
-    readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    readonly sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
     /**
      * Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -197,33 +197,33 @@ export interface EventSubscriptionArgs {
     /**
      * Whether the event subscription should be enabled.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
      */
-    readonly eventCategories: pulumi.Input<pulumi.Input<string>[]>;
+    eventCategories: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of event subscription.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * SNS topic arn to send events on.
      */
-    readonly snsTopicArn: pulumi.Input<string>;
+    snsTopicArn: pulumi.Input<string>;
     /**
      * Ids of sources to listen to.
      */
-    readonly sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of source for events. Valid values: `replication-instance` or `replication-task`
      */
-    readonly sourceType?: pulumi.Input<string>;
+    sourceType?: pulumi.Input<string>;
     /**
      * Map of resource tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

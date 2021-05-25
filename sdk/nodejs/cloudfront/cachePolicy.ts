@@ -143,31 +143,31 @@ export interface CachePolicyState {
     /**
      * A comment to describe the cache policy.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * The current version of the cache policy.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly maxTtl?: pulumi.Input<number>;
+    maxTtl?: pulumi.Input<number>;
     /**
      * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly minTtl?: pulumi.Input<number>;
+    minTtl?: pulumi.Input<number>;
     /**
      * A unique name to identify the cache policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    readonly parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
+    parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 }
 
 /**
@@ -177,29 +177,29 @@ export interface CachePolicyArgs {
     /**
      * A comment to describe the cache policy.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly defaultTtl?: pulumi.Input<number>;
+    defaultTtl?: pulumi.Input<number>;
     /**
      * The current version of the cache policy.
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly maxTtl?: pulumi.Input<number>;
+    maxTtl?: pulumi.Input<number>;
     /**
      * The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
-    readonly minTtl?: pulumi.Input<number>;
+    minTtl?: pulumi.Input<number>;
     /**
      * A unique name to identify the cache policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    readonly parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
+    parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 }

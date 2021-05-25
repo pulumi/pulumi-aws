@@ -28,7 +28,7 @@ export interface GetSecretsArgs {
     /**
      * One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
      */
-    readonly secrets: inputs.kms.GetSecretsSecret[];
+    secrets: inputs.kms.GetSecretsSecret[];
 }
 
 /**

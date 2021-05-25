@@ -516,106 +516,106 @@ export interface BucketState {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    readonly accelerationStatus?: pulumi.Input<string>;
+    accelerationStatus?: pulumi.Input<string>;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string | enums.s3.CannedAcl>;
+    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
      */
-    readonly bucketDomainName?: pulumi.Input<string>;
+    bucketDomainName?: pulumi.Input<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
      */
-    readonly bucketPrefix?: pulumi.Input<string>;
+    bucketPrefix?: pulumi.Input<string>;
     /**
      * The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
      */
-    readonly bucketRegionalDomainName?: pulumi.Input<string>;
+    bucketRegionalDomainName?: pulumi.Input<string>;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      */
-    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string>;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
-    readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The AWS region this bucket resides in.
      */
-    readonly region?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    requestPayer?: pulumi.Input<string>;
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * A mapping of tags to assign to the bucket.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    readonly versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
+    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<inputs.s3.BucketWebsite>;
+    website?: pulumi.Input<inputs.s3.BucketWebsite>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
-    readonly websiteDomain?: pulumi.Input<string>;
+    websiteDomain?: pulumi.Input<string>;
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
-    readonly websiteEndpoint?: pulumi.Input<string>;
+    websiteEndpoint?: pulumi.Input<string>;
 }
 
 /**
@@ -625,92 +625,92 @@ export interface BucketArgs {
     /**
      * Sets the accelerate configuration of an existing bucket. Can be `Enabled` or `Suspended`.
      */
-    readonly accelerationStatus?: pulumi.Input<string>;
+    accelerationStatus?: pulumi.Input<string>;
     /**
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`.
      */
-    readonly acl?: pulumi.Input<string | enums.s3.CannedAcl>;
+    acl?: pulumi.Input<string | enums.s3.CannedAcl>;
     /**
      * The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
      */
-    readonly bucketPrefix?: pulumi.Input<string>;
+    bucketPrefix?: pulumi.Input<string>;
     /**
      * A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
      */
-    readonly corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
+    corsRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketCorsRule>[]>;
     /**
      * A boolean that indicates all objects (including any [locked objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html)) should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl) (documented below). Conflicts with `acl`.
      */
-    readonly grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
+    grants?: pulumi.Input<pulumi.Input<inputs.s3.BucketGrant>[]>;
     /**
      * The [Route 53 Hosted Zone ID](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_website_region_endpoints) for this bucket's region.
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string>;
     /**
      * A configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) (documented below).
      */
-    readonly lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
+    lifecycleRules?: pulumi.Input<pulumi.Input<inputs.s3.BucketLifecycleRule>[]>;
     /**
      * A settings of [bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) (documented below).
      */
-    readonly loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
+    loggings?: pulumi.Input<pulumi.Input<inputs.s3.BucketLogging>[]>;
     /**
      * A configuration of [S3 object locking](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html) (documented below)
      */
-    readonly objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
+    objectLockConfiguration?: pulumi.Input<inputs.s3.BucketObjectLockConfiguration>;
     /**
      * A valid [bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) JSON document. Note that if the policy document is not specific enough (but still valid), the provider may view the policy as constantly changing in a `pulumi up / preview / update`. In this case, please make sure you use the verbose/specific version of the policy.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * A configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) (documented below).
      */
-    readonly replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
+    replicationConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfiguration>;
     /**
      * Specifies who should bear the cost of Amazon S3 data transfer.
      * Can be either `BucketOwner` or `Requester`. By default, the owner of the S3 bucket would incur
      * the costs of any data transfer. See [Requester Pays Buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html)
      * developer guide for more information.
      */
-    readonly requestPayer?: pulumi.Input<string>;
+    requestPayer?: pulumi.Input<string>;
     /**
      * A configuration of [server-side encryption configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html) (documented below)
      */
-    readonly serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
+    serverSideEncryptionConfiguration?: pulumi.Input<inputs.s3.BucketServerSideEncryptionConfiguration>;
     /**
      * A mapping of tags to assign to the bucket.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A state of [versioning](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html) (documented below)
      */
-    readonly versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
+    versioning?: pulumi.Input<inputs.s3.BucketVersioning>;
     /**
      * A website object (documented below).
      */
-    readonly website?: pulumi.Input<inputs.s3.BucketWebsite>;
+    website?: pulumi.Input<inputs.s3.BucketWebsite>;
     /**
      * The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
      */
-    readonly websiteDomain?: pulumi.Input<string>;
+    websiteDomain?: pulumi.Input<string>;
     /**
      * The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
      */
-    readonly websiteEndpoint?: pulumi.Input<string>;
+    websiteEndpoint?: pulumi.Input<string>;
 }

@@ -128,11 +128,11 @@ export interface BucketLifecycleConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
 }
 
 /**
@@ -142,9 +142,9 @@ export interface BucketLifecycleConfigurationArgs {
     /**
      * Amazon Resource Name (ARN) of the bucket.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
 }

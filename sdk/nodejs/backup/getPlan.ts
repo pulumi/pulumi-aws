@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.backup.getPlan({
  *     planId: "tf_example_backup_plan_id",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
@@ -40,11 +40,11 @@ export interface GetPlanArgs {
     /**
      * The backup plan ID.
      */
-    readonly planId: string;
+    planId: string;
     /**
      * Metadata that you can assign to help organize the plans you create.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

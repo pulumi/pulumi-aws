@@ -152,36 +152,36 @@ export interface S3LocationState {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    readonly agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
      */
-    readonly s3BucketArn?: pulumi.Input<ARN>;
+    s3BucketArn?: pulumi.Input<ARN>;
     /**
      * Configuration block containing information for connecting to S3.
      */
-    readonly s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    s3Config?: pulumi.Input<inputs.datasync.S3LocationS3Config>;
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    readonly s3StorageClass?: pulumi.Input<string>;
+    s3StorageClass?: pulumi.Input<string>;
     /**
      * Prefix to perform actions as source or destination.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    uri?: pulumi.Input<string>;
 }
 
 /**
@@ -191,29 +191,29 @@ export interface S3LocationArgs {
     /**
      * A list of DataSync Agent ARNs with which this location will be associated.
      */
-    readonly agentArns?: pulumi.Input<pulumi.Input<string>[]>;
+    agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the S3 Bucket.
      */
-    readonly s3BucketArn: pulumi.Input<ARN>;
+    s3BucketArn: pulumi.Input<ARN>;
     /**
      * Configuration block containing information for connecting to S3.
      */
-    readonly s3Config: pulumi.Input<inputs.datasync.S3LocationS3Config>;
+    s3Config: pulumi.Input<inputs.datasync.S3LocationS3Config>;
     /**
      * The Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
      */
-    readonly s3StorageClass?: pulumi.Input<string>;
+    s3StorageClass?: pulumi.Input<string>;
     /**
      * Prefix to perform actions as source or destination.
      */
-    readonly subdirectory: pulumi.Input<string>;
+    subdirectory: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

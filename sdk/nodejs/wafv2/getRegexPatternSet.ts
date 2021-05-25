@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.wafv2.getRegexPatternSet({
  *     name: "some-regex-pattern-set",
  *     scope: "REGIONAL",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.InvokeOptions): Promise<GetRegexPatternSetResult> {
@@ -41,11 +41,11 @@ export interface GetRegexPatternSetArgs {
     /**
      * The name of the WAFv2 Regex Pattern Set.
      */
-    readonly name: string;
+    name: string;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    readonly scope: string;
+    scope: string;
 }
 
 /**

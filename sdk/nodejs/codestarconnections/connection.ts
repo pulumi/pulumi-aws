@@ -157,31 +157,31 @@ export interface ConnectionState {
     /**
      * The codestar connection ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
      */
-    readonly connectionStatus?: pulumi.Input<string>;
+    connectionStatus?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
-    readonly hostArn?: pulumi.Input<string>;
+    hostArn?: pulumi.Input<string>;
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
-    readonly providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string>;
     /**
      * Map of key-value resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -191,21 +191,21 @@ export interface ConnectionArgs {
     /**
      * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
      */
-    readonly hostArn?: pulumi.Input<string>;
+    hostArn?: pulumi.Input<string>;
     /**
      * The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub` or `GitHubEnterpriseServer`. Changing `providerType` will create a new resource. Conflicts with `hostArn`
      */
-    readonly providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string>;
     /**
      * Map of key-value resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

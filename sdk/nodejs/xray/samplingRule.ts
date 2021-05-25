@@ -218,63 +218,63 @@ export interface SamplingRuleState {
     /**
      * The ARN of the sampling rule.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Matches attributes derived from the request.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The percentage of matching requests to instrument, after the reservoir is exhausted.
      */
-    readonly fixedRate?: pulumi.Input<number>;
+    fixedRate?: pulumi.Input<number>;
     /**
      * Matches the hostname from a request URL.
      */
-    readonly host?: pulumi.Input<string>;
+    host?: pulumi.Input<string>;
     /**
      * Matches the HTTP method of a request.
      */
-    readonly httpMethod?: pulumi.Input<string>;
+    httpMethod?: pulumi.Input<string>;
     /**
      * The priority of the sampling rule.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
-    readonly reservoirSize?: pulumi.Input<number>;
+    reservoirSize?: pulumi.Input<number>;
     /**
      * Matches the ARN of the AWS resource on which the service runs.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
     /**
      * The name of the sampling rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Matches the `name` that the service uses to identify itself in segments.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Matches the `origin` that the service uses to identify its type in segments.
      */
-    readonly serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */
-    readonly urlPath?: pulumi.Input<string>;
+    urlPath?: pulumi.Input<string>;
     /**
      * The version of the sampling rule format (`1` )
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -284,57 +284,57 @@ export interface SamplingRuleArgs {
     /**
      * Matches attributes derived from the request.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The percentage of matching requests to instrument, after the reservoir is exhausted.
      */
-    readonly fixedRate: pulumi.Input<number>;
+    fixedRate: pulumi.Input<number>;
     /**
      * Matches the hostname from a request URL.
      */
-    readonly host: pulumi.Input<string>;
+    host: pulumi.Input<string>;
     /**
      * Matches the HTTP method of a request.
      */
-    readonly httpMethod: pulumi.Input<string>;
+    httpMethod: pulumi.Input<string>;
     /**
      * The priority of the sampling rule.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
      */
-    readonly reservoirSize: pulumi.Input<number>;
+    reservoirSize: pulumi.Input<number>;
     /**
      * Matches the ARN of the AWS resource on which the service runs.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
     /**
      * The name of the sampling rule.
      */
-    readonly ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Matches the `name` that the service uses to identify itself in segments.
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * Matches the `origin` that the service uses to identify its type in segments.
      */
-    readonly serviceType: pulumi.Input<string>;
+    serviceType: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Matches the path from a request URL.
      */
-    readonly urlPath: pulumi.Input<string>;
+    urlPath: pulumi.Input<string>;
     /**
      * The version of the sampling rule format (`1` )
      */
-    readonly version: pulumi.Input<number>;
+    version: pulumi.Input<number>;
 }

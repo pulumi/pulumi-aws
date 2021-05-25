@@ -144,23 +144,23 @@ export interface UserGroupState {
     /**
      * The description of the user group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the user group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The precedence of the user group.
      */
-    readonly precedence?: pulumi.Input<number>;
+    precedence?: pulumi.Input<number>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The user pool ID.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string>;
 }
 
 /**
@@ -170,21 +170,21 @@ export interface UserGroupArgs {
     /**
      * The description of the user group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the user group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The precedence of the user group.
      */
-    readonly precedence?: pulumi.Input<number>;
+    precedence?: pulumi.Input<number>;
     /**
      * The ARN of the IAM role to be associated with the user group.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The user pool ID.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
 }

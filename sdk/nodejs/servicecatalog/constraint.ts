@@ -151,32 +151,32 @@ export interface ConstraintState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Description of the constraint.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Owner of the constraint.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      */
-    readonly parameters?: pulumi.Input<string>;
+    parameters?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string>;
     /**
      * Product identifier.
      */
-    readonly productId?: pulumi.Input<string>;
-    readonly status?: pulumi.Input<string>;
+    productId?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -186,25 +186,25 @@ export interface ConstraintArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Description of the constraint.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
      */
-    readonly parameters: pulumi.Input<string>;
+    parameters: pulumi.Input<string>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId: pulumi.Input<string>;
+    portfolioId: pulumi.Input<string>;
     /**
      * Product identifier.
      */
-    readonly productId: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
     /**
      * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

@@ -40,11 +40,11 @@ export interface GetDirectoryArgs {
     /**
      * The ID of the directory.
      */
-    readonly directoryId: string;
+    directoryId: string;
     /**
      * A map of tags assigned to the directory/connector.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

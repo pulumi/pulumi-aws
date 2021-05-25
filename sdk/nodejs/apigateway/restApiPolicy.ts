@@ -126,11 +126,11 @@ export interface RestApiPolicyState {
     /**
      * JSON formatted policy document that controls access to the API Gateway.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The ID of the REST API.
      */
-    readonly restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string>;
 }
 
 /**
@@ -140,9 +140,9 @@ export interface RestApiPolicyArgs {
     /**
      * JSON formatted policy document that controls access to the API Gateway.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
     /**
      * The ID of the REST API.
      */
-    readonly restApiId: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
 }

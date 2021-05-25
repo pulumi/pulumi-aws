@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const testData = test.id.apply(id => aws.ec2.getDedicatedHost({
  *     hostId: id,
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
@@ -46,8 +46,8 @@ export interface GetDedicatedHostArgs {
     /**
      * The host ID.
      */
-    readonly hostId: string;
-    readonly tags?: {[key: string]: string};
+    hostId: string;
+    tags?: {[key: string]: string};
 }
 
 /**

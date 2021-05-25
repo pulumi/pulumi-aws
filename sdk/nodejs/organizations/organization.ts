@@ -152,43 +152,43 @@ export interface OrganizationState {
     /**
      * List of organization accounts including the master account. For a list excluding the master account, see the `nonMasterAccounts` attribute. All elements have these attributes:
      */
-    readonly accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[]>;
+    accounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationAccount>[]>;
     /**
      * ARN of the root
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
-    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g. `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      */
-    readonly enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    readonly featureSet?: pulumi.Input<string>;
+    featureSet?: pulumi.Input<string>;
     /**
      * ARN of the master account
      */
-    readonly masterAccountArn?: pulumi.Input<string>;
+    masterAccountArn?: pulumi.Input<string>;
     /**
      * Email address of the master account
      */
-    readonly masterAccountEmail?: pulumi.Input<string>;
+    masterAccountEmail?: pulumi.Input<string>;
     /**
      * Identifier of the master account
      */
-    readonly masterAccountId?: pulumi.Input<string>;
+    masterAccountId?: pulumi.Input<string>;
     /**
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
-    readonly nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[]>;
+    nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[]>;
     /**
      * List of organization roots. All elements have these attributes:
      */
-    readonly roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[]>;
+    roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[]>;
 }
 
 /**
@@ -198,13 +198,13 @@ export interface OrganizationArgs {
     /**
      * List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
      */
-    readonly awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    awsServiceAccessPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of Organizations policy types to enable in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g. `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `SERVICE_CONTROL_POLICY`, and `TAG_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
      */
-    readonly enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledPolicyTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specify "ALL" (default) or "CONSOLIDATED_BILLING".
      */
-    readonly featureSet?: pulumi.Input<string>;
+    featureSet?: pulumi.Input<string>;
 }
