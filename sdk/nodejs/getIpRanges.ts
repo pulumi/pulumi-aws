@@ -60,7 +60,7 @@ export interface GetIpRangesArgs {
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
      * (e.g. `eu-central-1`)
      */
-    readonly regions?: string[];
+    regions?: string[];
     /**
      * Filter IP ranges by services. Valid items are `amazon`
      * (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
@@ -68,11 +68,11 @@ export interface GetIpRangesArgs {
      * `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
      * [`service` attribute][2] documentation for other possible values.
      */
-    readonly services: string[];
+    services: string[];
     /**
      * Custom URL for source JSON file. Syntax must match [AWS IP Address Ranges documentation](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html). Defaults to `https://ip-ranges.amazonaws.com/ip-ranges.json`.
      */
-    readonly url?: string;
+    url?: string;
 }
 
 /**

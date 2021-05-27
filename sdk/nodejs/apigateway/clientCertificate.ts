@@ -127,31 +127,31 @@ export interface ClientCertificateState {
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The date when the client certificate was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The description of the client certificate.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The date when the client certificate will expire.
      */
-    readonly expirationDate?: pulumi.Input<string>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The PEM-encoded public key of the client certificate.
      */
-    readonly pemEncodedCertificate?: pulumi.Input<string>;
+    pemEncodedCertificate?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -161,13 +161,13 @@ export interface ClientCertificateArgs {
     /**
      * The description of the client certificate.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

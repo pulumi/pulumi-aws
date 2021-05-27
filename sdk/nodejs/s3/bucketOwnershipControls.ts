@@ -108,11 +108,11 @@ export interface BucketOwnershipControlsState {
     /**
      * The name of the bucket that you want to associate this access point with.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
-    readonly rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
+    rule?: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface BucketOwnershipControlsArgs {
     /**
      * The name of the bucket that you want to associate this access point with.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * Configuration block(s) with Ownership Controls rules. Detailed below.
      */
-    readonly rule: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
+    rule: pulumi.Input<inputs.s3.BucketOwnershipControlsRule>;
 }

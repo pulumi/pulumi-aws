@@ -128,17 +128,17 @@ export interface CapacityProviderState {
     /**
      * ARN that identifies the capacity provider.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
-    readonly autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * Name of the capacity provider.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -148,11 +148,11 @@ export interface CapacityProviderArgs {
     /**
      * Configuration block for the provider for the ECS auto scaling group. Detailed below.
      */
-    readonly autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
      * Name of the capacity provider.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -142,11 +142,11 @@ export interface RecorderStatusState {
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the recorder
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -156,9 +156,9 @@ export interface RecorderStatusArgs {
     /**
      * Whether the configuration recorder should be enabled or disabled.
      */
-    readonly isEnabled: pulumi.Input<boolean>;
+    isEnabled: pulumi.Input<boolean>;
     /**
      * The name of the recorder
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

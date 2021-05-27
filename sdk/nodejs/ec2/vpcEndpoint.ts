@@ -263,80 +263,80 @@ export interface VpcEndpointState {
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
-    readonly autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean>;
     /**
      * The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
+    cidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
-    readonly dnsEntries?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointDnsEntry>[]>;
+    dnsEntries?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointDnsEntry>[]>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
-    readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
+    networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the AWS account that owns the VPC endpoint.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
      */
-    readonly prefixListId?: pulumi.Input<string>;
+    prefixListId?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
      * Defaults to `false`.
      */
-    readonly privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
-    readonly requesterManaged?: pulumi.Input<boolean>;
+    requesterManaged?: pulumi.Input<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
-    readonly routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+    routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The state of the VPC endpoint.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
      */
-    readonly vpcEndpointType?: pulumi.Input<string>;
+    vpcEndpointType?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -346,46 +346,46 @@ export interface VpcEndpointArgs {
     /**
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
-    readonly autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean>;
     /**
      * A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
      * Defaults to `false`.
      */
-    readonly privateDnsEnabled?: pulumi.Input<boolean>;
+    privateDnsEnabled?: pulumi.Input<boolean>;
     /**
      * One or more route table IDs. Applicable for endpoints of type `Gateway`.
      */
-    readonly routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
+    routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of one or more security groups to associate with the network interface. Required for endpoints of type `Interface`.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
-    readonly serviceName: pulumi.Input<string>;
+    serviceName: pulumi.Input<string>;
     /**
      * The ID of one or more subnets in which to create a network interface for the endpoint. Applicable for endpoints of type `GatewayLoadBalancer` and `Interface`.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC endpoint type, `Gateway`, `GatewayLoadBalancer`, or `Interface`. Defaults to `Gateway`.
      */
-    readonly vpcEndpointType?: pulumi.Input<string>;
+    vpcEndpointType?: pulumi.Input<string>;
     /**
      * The ID of the VPC in which the endpoint will be used.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

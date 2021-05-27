@@ -152,43 +152,43 @@ export interface ClusterState {
      * * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
      * * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
      */
-    readonly clusterCertificates?: pulumi.Input<pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificate>[]>;
+    clusterCertificates?: pulumi.Input<pulumi.Input<inputs.cloudhsmv2.ClusterClusterCertificate>[]>;
     /**
      * The id of the CloudHSM cluster.
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * The state of the CloudHSM cluster.
      */
-    readonly clusterState?: pulumi.Input<string>;
+    clusterState?: pulumi.Input<string>;
     /**
      * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
-    readonly hsmType?: pulumi.Input<string>;
+    hsmType?: pulumi.Input<string>;
     /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
-    readonly securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string>;
     /**
      * The id of Cloud HSM v2 cluster backup to be restored.
      */
-    readonly sourceBackupIdentifier?: pulumi.Input<string>;
+    sourceBackupIdentifier?: pulumi.Input<string>;
     /**
      * The IDs of subnets in which cluster will operate.
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The id of the VPC that the CloudHSM cluster resides in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -198,21 +198,21 @@ export interface ClusterArgs {
     /**
      * The type of HSM module in the cluster. Currently, only `hsm1.medium` is supported.
      */
-    readonly hsmType: pulumi.Input<string>;
+    hsmType: pulumi.Input<string>;
     /**
      * The id of Cloud HSM v2 cluster backup to be restored.
      */
-    readonly sourceBackupIdentifier?: pulumi.Input<string>;
+    sourceBackupIdentifier?: pulumi.Input<string>;
     /**
      * The IDs of subnets in which cluster will operate.
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

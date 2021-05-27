@@ -39,7 +39,7 @@ export interface GetOutpostInstanceTypesArgs {
     /**
      * Outpost Amazon Resource Name (ARN).
      */
-    readonly arn: string;
+    arn: string;
 }
 
 /**

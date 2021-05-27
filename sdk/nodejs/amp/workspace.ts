@@ -105,15 +105,15 @@ export interface WorkspaceState {
     /**
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
-    readonly alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the workspace.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Prometheus endpoint available for this workspace.
      */
-    readonly prometheusEndpoint?: pulumi.Input<string>;
+    prometheusEndpoint?: pulumi.Input<string>;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface WorkspaceArgs {
     /**
      * The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
      */
-    readonly alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string>;
 }

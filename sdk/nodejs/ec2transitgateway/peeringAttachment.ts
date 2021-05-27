@@ -144,21 +144,21 @@ export interface PeeringAttachmentState {
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
      */
-    readonly peerAccountId?: pulumi.Input<string>;
+    peerAccountId?: pulumi.Input<string>;
     /**
      * Region of EC2 Transit Gateway to peer with.
      */
-    readonly peerRegion?: pulumi.Input<string>;
+    peerRegion?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      */
-    readonly peerTransitGatewayId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    peerTransitGatewayId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -168,19 +168,19 @@ export interface PeeringAttachmentArgs {
     /**
      * Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
      */
-    readonly peerAccountId?: pulumi.Input<string>;
+    peerAccountId?: pulumi.Input<string>;
     /**
      * Region of EC2 Transit Gateway to peer with.
      */
-    readonly peerRegion: pulumi.Input<string>;
+    peerRegion: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway to peer with.
      */
-    readonly peerTransitGatewayId: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    peerTransitGatewayId: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId: pulumi.Input<string>;
+    transitGatewayId: pulumi.Input<string>;
 }

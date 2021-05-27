@@ -119,19 +119,19 @@ export interface CiphertextState {
     /**
      * Base64 encoded ciphertext
      */
-    readonly ciphertextBlob?: pulumi.Input<string>;
+    ciphertextBlob?: pulumi.Input<string>;
     /**
      * An optional mapping that makes up the encryption context.
      */
-    readonly context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Globally unique key ID for the customer master key.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    readonly plaintext?: pulumi.Input<string>;
+    plaintext?: pulumi.Input<string>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface CiphertextArgs {
     /**
      * An optional mapping that makes up the encryption context.
      */
-    readonly context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    context?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Globally unique key ID for the customer master key.
      */
-    readonly keyId: pulumi.Input<string>;
+    keyId: pulumi.Input<string>;
     /**
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
-    readonly plaintext: pulumi.Input<string>;
+    plaintext: pulumi.Input<string>;
 }

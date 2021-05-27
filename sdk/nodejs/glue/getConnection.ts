@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.glue.getConnection({
  *     id: "123456789123:connection",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
@@ -40,7 +40,7 @@ export interface GetConnectionArgs {
      * A concatenation of the catalog ID and connection name. For example, if your account ID is
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
-    readonly id: string;
+    id: string;
 }
 
 /**

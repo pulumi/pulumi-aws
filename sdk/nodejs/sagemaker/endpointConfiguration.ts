@@ -141,31 +141,31 @@ export interface EndpointConfigurationState {
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
      */
-    readonly dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
+    dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
-    readonly kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Fields are documented below.
      */
-    readonly productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
+    productionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,25 +175,25 @@ export interface EndpointConfigurationArgs {
     /**
      * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
      */
-    readonly dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
+    dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationDataCaptureConfig>;
     /**
      * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
      */
-    readonly kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Fields are documented below.
      */
-    readonly productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
+    productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigurationProductionVariant>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

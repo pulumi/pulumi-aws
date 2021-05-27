@@ -110,11 +110,11 @@ export interface ByteMatchSetState {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -126,9 +126,9 @@ export interface ByteMatchSetArgs {
      * with ASCII characters) that you want to search for in web requests,
      * the location in requests that you want to search, and other settings.
      */
-    readonly byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
+    byteMatchTuples?: pulumi.Input<pulumi.Input<inputs.waf.ByteMatchSetByteMatchTuple>[]>;
     /**
      * The name or description of the Byte Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

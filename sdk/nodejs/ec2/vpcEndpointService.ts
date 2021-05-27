@@ -199,63 +199,63 @@ export interface VpcEndpointServiceState {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    readonly acceptanceRequired?: pulumi.Input<boolean>;
+    acceptanceRequired?: pulumi.Input<boolean>;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    readonly allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) of the VPC endpoint service.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Availability Zones in which the service is available.
      */
-    readonly availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The DNS names for the service.
      */
-    readonly baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
+    baseEndpointDnsNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
-    readonly gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether or not the service manages its VPC endpoints - `true` or `false`.
      */
-    readonly managesVpcEndpoints?: pulumi.Input<boolean>;
+    managesVpcEndpoints?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
-    readonly networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The private DNS name for the service.
      */
-    readonly privateDnsName?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string>;
     /**
      * List of objects containing information about the endpoint service private DNS name configuration.
      */
-    readonly privateDnsNameConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration>[]>;
+    privateDnsNameConfigurations?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration>[]>;
     /**
      * The service name.
      */
-    readonly serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The service type, `Gateway` or `Interface`.
      */
-    readonly serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string>;
     /**
      * Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -265,29 +265,29 @@ export interface VpcEndpointServiceArgs {
     /**
      * Whether or not VPC endpoint connection requests to the service must be accepted by the service owner - `true` or `false`.
      */
-    readonly acceptanceRequired: pulumi.Input<boolean>;
+    acceptanceRequired: pulumi.Input<boolean>;
     /**
      * The ARNs of one or more principals allowed to discover the endpoint service.
      */
-    readonly allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrincipals?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
      */
-    readonly gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    gatewayLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
      */
-    readonly networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    networkLoadBalancerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The private DNS name for the service.
      */
-    readonly privateDnsName?: pulumi.Input<string>;
+    privateDnsName?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

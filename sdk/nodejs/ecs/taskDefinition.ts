@@ -347,75 +347,75 @@ export interface TaskDefinitionState {
     /**
      * Full ARN of the Task Definition (including both `family` and `revision`).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
-    readonly containerDefinitions?: pulumi.Input<string>;
+    containerDefinitions?: pulumi.Input<string>;
     /**
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    readonly cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
-    readonly executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
      */
-    readonly family?: pulumi.Input<string>;
+    family?: pulumi.Input<string>;
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      */
-    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
-    readonly ipcMode?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string>;
     /**
      * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    readonly memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string>;
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
-    readonly networkMode?: pulumi.Input<string>;
+    networkMode?: pulumi.Input<string>;
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      */
-    readonly pidMode?: pulumi.Input<string>;
+    pidMode?: pulumi.Input<string>;
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    readonly proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
-    readonly requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Revision of the task in a particular family.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    readonly taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }
 
 /**
@@ -425,65 +425,65 @@ export interface TaskDefinitionArgs {
     /**
      * A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
      */
-    readonly containerDefinitions: pulumi.Input<string>;
+    containerDefinitions: pulumi.Input<string>;
     /**
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    readonly cpu?: pulumi.Input<string>;
+    cpu?: pulumi.Input<string>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
-    readonly executionRoleArn?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     /**
      * A unique name for your task definition.
      */
-    readonly family: pulumi.Input<string>;
+    family: pulumi.Input<string>;
     /**
      * Configuration block(s) with Inference Accelerators settings. Detailed below.
      */
-    readonly inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
-    readonly ipcMode?: pulumi.Input<string>;
+    ipcMode?: pulumi.Input<string>;
     /**
      * Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
-    readonly memory?: pulumi.Input<string>;
+    memory?: pulumi.Input<string>;
     /**
      * Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
      */
-    readonly networkMode?: pulumi.Input<string>;
+    networkMode?: pulumi.Input<string>;
     /**
      * Process namespace to use for the containers in the task. The valid values are `host` and `task`.
      */
-    readonly pidMode?: pulumi.Input<string>;
+    pidMode?: pulumi.Input<string>;
     /**
      * Configuration block for rules that are taken into consideration during task placement. Maximum number of `placementConstraints` is `10`. Detailed below.
      */
-    readonly placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
+    placementConstraints?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionPlacementConstraint>[]>;
     /**
      * Configuration block for the App Mesh proxy. Detailed below.
      */
-    readonly proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
-    readonly requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
-    readonly taskRoleArn?: pulumi.Input<string>;
+    taskRoleArn?: pulumi.Input<string>;
     /**
      * Configuration block for volumes that containers in your task may use. Detailed below.
      */
-    readonly volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }

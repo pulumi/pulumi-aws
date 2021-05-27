@@ -111,24 +111,24 @@ export interface RepositoryState {
     /**
      * Full ARN of the repository.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    readonly catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */
-    readonly repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string>;
     /**
      * The URI of the repository.
      */
-    readonly repositoryUri?: pulumi.Input<string>;
+    repositoryUri?: pulumi.Input<string>;
 }
 
 /**
@@ -138,10 +138,10 @@ export interface RepositoryArgs {
     /**
      * Catalog data configuration for the repository. See below for schema.
      */
-    readonly catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    catalogData?: pulumi.Input<inputs.ecrpublic.RepositoryCatalogData>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the repository.
      */
-    readonly repositoryName: pulumi.Input<string>;
+    repositoryName: pulumi.Input<string>;
 }

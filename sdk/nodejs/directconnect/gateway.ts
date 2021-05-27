@@ -106,15 +106,15 @@ export interface GatewayState {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    readonly amazonSideAsn?: pulumi.Input<string>;
+    amazonSideAsn?: pulumi.Input<string>;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * AWS Account ID of the gateway.
      */
-    readonly ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -124,9 +124,9 @@ export interface GatewayArgs {
     /**
      * The ASN to be configured on the Amazon side of the connection. The ASN must be in the private range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294.
      */
-    readonly amazonSideAsn: pulumi.Input<string>;
+    amazonSideAsn: pulumi.Input<string>;
     /**
      * The name of the connection.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

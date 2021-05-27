@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     locationType: "availability-zone-id",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceTypeOfferingsResult> {
@@ -54,11 +54,11 @@ export interface GetInstanceTypeOfferingsArgs {
     /**
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetInstanceTypeOfferingsFilter[];
+    filters?: inputs.ec2.GetInstanceTypeOfferingsFilter[];
     /**
      * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
      */
-    readonly locationType?: string;
+    locationType?: string;
 }
 
 /**

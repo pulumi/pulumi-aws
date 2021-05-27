@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.sqs.getQueue({
  *     name: "queue",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
@@ -42,11 +42,11 @@ export interface GetQueueArgs {
     /**
      * The name of the queue to match.
      */
-    readonly name: string;
+    name: string;
     /**
      * A map of tags for the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

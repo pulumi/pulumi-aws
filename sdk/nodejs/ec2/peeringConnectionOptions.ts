@@ -201,17 +201,17 @@ export interface PeeringConnectionOptionsState {
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    readonly accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    readonly requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    readonly vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string>;
 }
 
 /**
@@ -223,15 +223,15 @@ export interface PeeringConnectionOptionsArgs {
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that accepts
      * the peering connection (a maximum of one).
      */
-    readonly accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsAccepter>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
-    readonly requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
+    requester?: pulumi.Input<inputs.ec2.PeeringConnectionOptionsRequester>;
     /**
      * The ID of the requester VPC peering connection.
      */
-    readonly vpcPeeringConnectionId: pulumi.Input<string>;
+    vpcPeeringConnectionId: pulumi.Input<string>;
 }

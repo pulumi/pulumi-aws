@@ -168,31 +168,31 @@ export interface FirewallPolicyState {
     /**
      * The Amazon Resource Name (ARN) that identifies the firewall policy.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A friendly description of the firewall policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    readonly firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    firewallPolicy?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A string token used when updating a firewall policy.
      */
-    readonly updateToken?: pulumi.Input<string>;
+    updateToken?: pulumi.Input<string>;
 }
 
 /**
@@ -202,21 +202,21 @@ export interface FirewallPolicyArgs {
     /**
      * A friendly description of the firewall policy.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
      */
-    readonly firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
+    firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicy>;
     /**
      * A friendly name of the firewall policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

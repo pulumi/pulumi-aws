@@ -175,23 +175,23 @@ export interface SelectionState {
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
-    readonly iamRoleArn?: pulumi.Input<string>;
+    iamRoleArn?: pulumi.Input<string>;
     /**
      * The display name of a resource selection document.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The backup plan ID to be associated with the selection of resources.
      */
-    readonly planId?: pulumi.Input<string>;
+    planId?: pulumi.Input<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      */
-    readonly resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    readonly selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
+    selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }
 
 /**
@@ -201,21 +201,21 @@ export interface SelectionArgs {
     /**
      * The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
      */
-    readonly iamRoleArn: pulumi.Input<string>;
+    iamRoleArn: pulumi.Input<string>;
     /**
      * The display name of a resource selection document.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The backup plan ID to be associated with the selection of resources.
      */
-    readonly planId: pulumi.Input<string>;
+    planId: pulumi.Input<string>;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      */
-    readonly resources?: pulumi.Input<pulumi.Input<string>[]>;
+    resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tag-based conditions used to specify a set of resources to assign to a backup plan.
      */
-    readonly selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
+    selectionTags?: pulumi.Input<pulumi.Input<inputs.backup.SelectionSelectionTag>[]>;
 }

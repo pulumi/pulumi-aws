@@ -107,19 +107,19 @@ export interface DatabaseState {
     /**
      * Name of s3 bucket to save the results of the query execution.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the database to create.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -129,17 +129,17 @@ export interface DatabaseArgs {
     /**
      * Name of s3 bucket to save the results of the query execution.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * The encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. An `encryptionConfiguration` block is documented below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration>;
     /**
      * A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the database to create.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

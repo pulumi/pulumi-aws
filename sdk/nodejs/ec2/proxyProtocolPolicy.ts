@@ -119,12 +119,12 @@ export interface ProxyProtocolPolicyState {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    readonly instancePorts?: pulumi.Input<pulumi.Input<string>[]>;
+    instancePorts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer?: pulumi.Input<string>;
+    loadBalancer?: pulumi.Input<string>;
 }
 
 /**
@@ -135,10 +135,10 @@ export interface ProxyProtocolPolicyArgs {
      * List of instance ports to which the policy
      * should be applied. This can be specified if the protocol is SSL or TCP.
      */
-    readonly instancePorts: pulumi.Input<pulumi.Input<string>[]>;
+    instancePorts: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The load balancer to which the policy
      * should be attached.
      */
-    readonly loadBalancer: pulumi.Input<string>;
+    loadBalancer: pulumi.Input<string>;
 }

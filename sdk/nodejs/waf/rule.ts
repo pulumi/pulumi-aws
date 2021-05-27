@@ -136,27 +136,27 @@ export interface RuleState {
     /**
      * The ARN of the WAF rule.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    readonly metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -166,21 +166,21 @@ export interface RuleArgs {
     /**
      * The name or description for the Amazon CloudWatch metric of this rule. The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
      */
-    readonly metricName: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
     /**
      * The name or description of the rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The objects to include in a rule (documented below).
      */
-    readonly predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
+    predicates?: pulumi.Input<pulumi.Input<inputs.waf.RulePredicate>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

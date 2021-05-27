@@ -145,24 +145,24 @@ export interface TableState {
     /**
      * The ARN that uniquely identifies this table.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the Timestream database.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    readonly retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
+    retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
     /**
      * The name of the Timestream table.
      */
-    readonly tableName?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tableName?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -172,18 +172,18 @@ export interface TableArgs {
     /**
      * The name of the Timestream database.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
-    readonly retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
+    retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
     /**
      * The name of the Timestream table.
      */
-    readonly tableName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tableName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

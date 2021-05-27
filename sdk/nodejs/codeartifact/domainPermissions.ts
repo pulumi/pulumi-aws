@@ -138,23 +138,23 @@ export interface DomainPermissionsState {
     /**
      * The name of the domain on which to set the resource policy.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    readonly policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    readonly policyRevision?: pulumi.Input<string>;
+    policyRevision?: pulumi.Input<string>;
     /**
      * The ARN of the resource associated with the resource policy.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
 }
 
 /**
@@ -164,17 +164,17 @@ export interface DomainPermissionsArgs {
     /**
      * The name of the domain on which to set the resource policy.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string>;
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    readonly policyDocument: pulumi.Input<string>;
+    policyDocument: pulumi.Input<string>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
-    readonly policyRevision?: pulumi.Input<string>;
+    policyRevision?: pulumi.Input<string>;
 }

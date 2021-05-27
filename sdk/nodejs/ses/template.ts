@@ -118,23 +118,23 @@ export interface TemplateState {
     /**
      * The ARN of the SES template
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly html?: pulumi.Input<string>;
+    html?: pulumi.Input<string>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The subject line of the email.
      */
-    readonly subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly text?: pulumi.Input<string>;
+    text?: pulumi.Input<string>;
 }
 
 /**
@@ -144,17 +144,17 @@ export interface TemplateArgs {
     /**
      * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly html?: pulumi.Input<string>;
+    html?: pulumi.Input<string>;
     /**
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The subject line of the email.
      */
-    readonly subject?: pulumi.Input<string>;
+    subject?: pulumi.Input<string>;
     /**
      * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
-    readonly text?: pulumi.Input<string>;
+    text?: pulumi.Input<string>;
 }

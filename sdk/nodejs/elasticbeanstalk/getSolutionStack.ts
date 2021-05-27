@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const multiDocker = pulumi.output(aws.elasticbeanstalk.getSolutionStack({
  *     mostRecent: true,
  *     nameRegex: "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.InvokeOptions): Promise<GetSolutionStackResult> {
@@ -42,13 +42,13 @@ export interface GetSolutionStackArgs {
      * If more than one result is returned, use the most
      * recent solution stack.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * A regex string to apply to the solution stack list returned
      * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
      * AWS documentation for reference solution stack names.
      */
-    readonly nameRegex: string;
+    nameRegex: string;
 }
 
 /**

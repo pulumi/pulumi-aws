@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const testData = test.id.apply(id => aws.ec2.getDedicatedHost({
  *     hostId: id,
- * }, { async: true }));
+ * }));
  * ```
  *
  * ## Import
@@ -128,24 +128,24 @@ export interface DedicatedHostState {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    readonly autoPlacement?: pulumi.Input<string>;
+    autoPlacement?: pulumi.Input<string>;
     /**
      * The AZ to start the host in.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    readonly hostRecovery?: pulumi.Input<string>;
+    hostRecovery?: pulumi.Input<string>;
     /**
      * Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instanceType`.
      */
-    readonly instanceFamily?: pulumi.Input<string>;
+    instanceFamily?: pulumi.Input<string>;
     /**
      * Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instanceFamily`.
      */
-    readonly instanceType?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceType?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -155,22 +155,22 @@ export interface DedicatedHostArgs {
     /**
      * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
      */
-    readonly autoPlacement?: pulumi.Input<string>;
+    autoPlacement?: pulumi.Input<string>;
     /**
      * The AZ to start the host in.
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    availabilityZone: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
      */
-    readonly hostRecovery?: pulumi.Input<string>;
+    hostRecovery?: pulumi.Input<string>;
     /**
      * Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instanceType`.
      */
-    readonly instanceFamily?: pulumi.Input<string>;
+    instanceFamily?: pulumi.Input<string>;
     /**
      * Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instanceFamily`.
      */
-    readonly instanceType?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceType?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

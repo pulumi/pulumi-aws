@@ -109,11 +109,11 @@ export interface VpnConnectionRouteState {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    readonly destinationCidrBlock?: pulumi.Input<string>;
+    destinationCidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the VPN connection.
      */
-    readonly vpnConnectionId?: pulumi.Input<string>;
+    vpnConnectionId?: pulumi.Input<string>;
 }
 
 /**
@@ -123,9 +123,9 @@ export interface VpnConnectionRouteArgs {
     /**
      * The CIDR block associated with the local subnet of the customer network.
      */
-    readonly destinationCidrBlock: pulumi.Input<string>;
+    destinationCidrBlock: pulumi.Input<string>;
     /**
      * The ID of the VPN connection.
      */
-    readonly vpnConnectionId: pulumi.Input<string>;
+    vpnConnectionId: pulumi.Input<string>;
 }

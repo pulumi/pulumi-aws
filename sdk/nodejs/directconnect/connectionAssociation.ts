@@ -104,11 +104,11 @@ export interface ConnectionAssociationState {
     /**
      * The ID of the connection.
      */
-    readonly connectionId?: pulumi.Input<string>;
+    connectionId?: pulumi.Input<string>;
     /**
      * The ID of the LAG with which to associate the connection.
      */
-    readonly lagId?: pulumi.Input<string>;
+    lagId?: pulumi.Input<string>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface ConnectionAssociationArgs {
     /**
      * The ID of the connection.
      */
-    readonly connectionId: pulumi.Input<string>;
+    connectionId: pulumi.Input<string>;
     /**
      * The ID of the LAG with which to associate the connection.
      */
-    readonly lagId: pulumi.Input<string>;
+    lagId: pulumi.Input<string>;
 }

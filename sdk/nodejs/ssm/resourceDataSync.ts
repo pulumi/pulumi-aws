@@ -135,11 +135,11 @@ export interface ResourceDataSyncState {
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
+    s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
 }
 
 /**
@@ -149,9 +149,9 @@ export interface ResourceDataSyncArgs {
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Amazon S3 configuration details for the sync.
      */
-    readonly s3Destination: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
+    s3Destination: pulumi.Input<inputs.ssm.ResourceDataSyncS3Destination>;
 }

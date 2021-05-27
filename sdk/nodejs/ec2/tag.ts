@@ -127,15 +127,15 @@ export interface TagState {
     /**
      * The tag name.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * The ID of the EC2 resource to manage the tag for.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The value of the tag.
      */
-    readonly value?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }
 
 /**
@@ -145,13 +145,13 @@ export interface TagArgs {
     /**
      * The tag name.
      */
-    readonly key: pulumi.Input<string>;
+    key: pulumi.Input<string>;
     /**
      * The ID of the EC2 resource to manage the tag for.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
     /**
      * The value of the tag.
      */
-    readonly value: pulumi.Input<string>;
+    value: pulumi.Input<string>;
 }

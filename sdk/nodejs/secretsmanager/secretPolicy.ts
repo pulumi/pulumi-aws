@@ -126,15 +126,15 @@ export interface SecretPolicyState {
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
-    readonly blockPublicPolicy?: pulumi.Input<boolean>;
+    blockPublicPolicy?: pulumi.Input<boolean>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Secret ARN.
      */
-    readonly secretArn?: pulumi.Input<string>;
+    secretArn?: pulumi.Input<string>;
 }
 
 /**
@@ -144,13 +144,13 @@ export interface SecretPolicyArgs {
     /**
      * Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
      */
-    readonly blockPublicPolicy?: pulumi.Input<boolean>;
+    blockPublicPolicy?: pulumi.Input<boolean>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
     /**
      * Secret ARN.
      */
-    readonly secretArn: pulumi.Input<string>;
+    secretArn: pulumi.Input<string>;
 }

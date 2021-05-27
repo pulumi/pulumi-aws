@@ -117,19 +117,19 @@ export interface ProductPortfolioAssociationState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string>;
     /**
      * Product identifier.
      */
-    readonly productId?: pulumi.Input<string>;
+    productId?: pulumi.Input<string>;
     /**
      * Identifier of the source portfolio.
      */
-    readonly sourcePortfolioId?: pulumi.Input<string>;
+    sourcePortfolioId?: pulumi.Input<string>;
 }
 
 /**
@@ -139,17 +139,17 @@ export interface ProductPortfolioAssociationArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId: pulumi.Input<string>;
+    portfolioId: pulumi.Input<string>;
     /**
      * Product identifier.
      */
-    readonly productId: pulumi.Input<string>;
+    productId: pulumi.Input<string>;
     /**
      * Identifier of the source portfolio.
      */
-    readonly sourcePortfolioId?: pulumi.Input<string>;
+    sourcePortfolioId?: pulumi.Input<string>;
 }

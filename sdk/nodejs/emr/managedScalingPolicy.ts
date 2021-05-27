@@ -121,11 +121,11 @@ export interface ManagedScalingPolicyState {
     /**
      * The id of the EMR cluster
      */
-    readonly clusterId?: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    readonly computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
 }
 
 /**
@@ -135,9 +135,9 @@ export interface ManagedScalingPolicyArgs {
     /**
      * The id of the EMR cluster
      */
-    readonly clusterId: pulumi.Input<string>;
+    clusterId: pulumi.Input<string>;
     /**
      * Configuration block with compute limit settings. Described below.
      */
-    readonly computeLimits: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    computeLimits: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
 }

@@ -44,19 +44,19 @@ export interface GetRepositoryEndpointArgs {
     /**
      * The name of the domain that contains the repository.
      */
-    readonly domain: string;
+    domain: string;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: string;
+    domainOwner?: string;
     /**
      * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
      */
-    readonly format: string;
+    format: string;
     /**
      * The name of the repository.
      */
-    readonly repository: string;
+    repository: string;
 }
 
 /**

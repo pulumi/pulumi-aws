@@ -135,15 +135,15 @@ export interface VaultPolicyState {
     /**
      * The ARN of the vault.
      */
-    readonly backupVaultArn?: pulumi.Input<string>;
+    backupVaultArn?: pulumi.Input<string>;
     /**
      * Name of the backup vault to add policy for.
      */
-    readonly backupVaultName?: pulumi.Input<string>;
+    backupVaultName?: pulumi.Input<string>;
     /**
      * The backup vault access policy document in JSON format.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -153,9 +153,9 @@ export interface VaultPolicyArgs {
     /**
      * Name of the backup vault to add policy for.
      */
-    readonly backupVaultName: pulumi.Input<string>;
+    backupVaultName: pulumi.Input<string>;
     /**
      * The backup vault access policy document in JSON format.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

@@ -158,35 +158,35 @@ export interface ThreatIntelSetState {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    readonly activate?: pulumi.Input<boolean>;
+    activate?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format?: pulumi.Input<string>;
+    format?: pulumi.Input<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    readonly location?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -196,29 +196,29 @@ export interface ThreatIntelSetArgs {
     /**
      * Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
      */
-    readonly activate: pulumi.Input<boolean>;
+    activate: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId: pulumi.Input<string>;
+    detectorId: pulumi.Input<string>;
     /**
      * The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
      */
-    readonly format: pulumi.Input<string>;
+    format: pulumi.Input<string>;
     /**
      * The URI of the file that contains the ThreatIntelSet.
      */
-    readonly location: pulumi.Input<string>;
+    location: pulumi.Input<string>;
     /**
      * The friendly name to identify the ThreatIntelSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

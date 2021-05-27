@@ -168,43 +168,43 @@ export interface LicenseConfigurationState {
     /**
      * The license configuration ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the license configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    readonly licenseCount?: pulumi.Input<number>;
+    licenseCount?: pulumi.Input<number>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    readonly licenseCountHardLimit?: pulumi.Input<boolean>;
+    licenseCountHardLimit?: pulumi.Input<boolean>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    readonly licenseCountingType?: pulumi.Input<string>;
+    licenseCountingType?: pulumi.Input<string>;
     /**
      * Array of configured License Manager rules.
      */
-    readonly licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
+    licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the license configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Account ID of the owner of the license configuration.
      */
-    readonly ownerAccountId?: pulumi.Input<string>;
+    ownerAccountId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -214,33 +214,33 @@ export interface LicenseConfigurationArgs {
     /**
      * Description of the license configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Number of licenses managed by the license configuration.
      */
-    readonly licenseCount?: pulumi.Input<number>;
+    licenseCount?: pulumi.Input<number>;
     /**
      * Sets the number of available licenses as a hard limit.
      */
-    readonly licenseCountHardLimit?: pulumi.Input<boolean>;
+    licenseCountHardLimit?: pulumi.Input<boolean>;
     /**
      * Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
      */
-    readonly licenseCountingType: pulumi.Input<string>;
+    licenseCountingType: pulumi.Input<string>;
     /**
      * Array of configured License Manager rules.
      */
-    readonly licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
+    licenseRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the license configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

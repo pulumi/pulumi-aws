@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const serviceImage = pulumi.output(aws.ecr.getImage({
  *     imageTag: "latest",
  *     repositoryName: "my/service",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
@@ -43,19 +43,19 @@ export interface GetImageArgs {
     /**
      * The sha256 digest of the image manifest. At least one of `imageDigest` or `imageTag` must be specified.
      */
-    readonly imageDigest?: string;
+    imageDigest?: string;
     /**
      * The tag associated with this image. At least one of `imageDigest` or `imageTag` must be specified.
      */
-    readonly imageTag?: string;
+    imageTag?: string;
     /**
      * The ID of the Registry where the repository resides.
      */
-    readonly registryId?: string;
+    registryId?: string;
     /**
      * The name of the ECR Repository.
      */
-    readonly repositoryName: string;
+    repositoryName: string;
 }
 
 /**

@@ -136,24 +136,24 @@ export interface DatabaseState {
     /**
      * The ARN that uniquely identifies this database.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
      */
-    readonly databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The total number of tables found within the Timestream database.
      */
-    readonly tableCount?: pulumi.Input<number>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tableCount?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -163,14 +163,14 @@ export interface DatabaseArgs {
     /**
      * The name of the Timestream database. Minimum length of 3. Maximum length of 64.
      */
-    readonly databaseName: pulumi.Input<string>;
+    databaseName: pulumi.Input<string>;
     /**
      * The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    kmsKeyId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

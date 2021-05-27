@@ -279,87 +279,87 @@ export interface NodeGroupState {
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly amiType?: pulumi.Input<string>;
+    amiType?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the EKS Node Group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly capacityType?: pulumi.Input<string>;
+    capacityType?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly diskSize?: pulumi.Input<number>;
+    diskSize?: pulumi.Input<number>;
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      */
-    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    forceUpdateVersion?: pulumi.Input<boolean>;
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
-    readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block with Launch Template settings. Detailed below.
      */
-    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
-    readonly nodeGroupName?: pulumi.Input<string>;
+    nodeGroupName?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
-    readonly nodeGroupNamePrefix?: pulumi.Input<string>;
+    nodeGroupNamePrefix?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
-    readonly nodeRoleArn?: pulumi.Input<string>;
+    nodeRoleArn?: pulumi.Input<string>;
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
-    readonly releaseVersion?: pulumi.Input<string>;
+    releaseVersion?: pulumi.Input<string>;
     /**
      * Configuration block with remote access settings. Detailed below.
      */
-    readonly remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
+    remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**
      * List of objects containing information about underlying resources.
      */
-    readonly resources?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupResource>[]>;
+    resources?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupResource>[]>;
     /**
      * Configuration block with scaling settings. Detailed below.
      */
-    readonly scalingConfig?: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
+    scalingConfig?: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
     /**
      * Status of the EKS Node Group.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -369,73 +369,73 @@ export interface NodeGroupArgs {
     /**
      * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly amiType?: pulumi.Input<string>;
+    amiType?: pulumi.Input<string>;
     /**
      * Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly capacityType?: pulumi.Input<string>;
+    capacityType?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Disk size in GiB for worker nodes. Defaults to `20`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly diskSize?: pulumi.Input<number>;
+    diskSize?: pulumi.Input<number>;
     /**
      * Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
      */
-    readonly forceUpdateVersion?: pulumi.Input<boolean>;
+    forceUpdateVersion?: pulumi.Input<boolean>;
     /**
      * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
      */
-    readonly instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
      */
-    readonly labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block with Launch Template settings. Detailed below.
      */
-    readonly launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
+    launchTemplate?: pulumi.Input<inputs.eks.NodeGroupLaunchTemplate>;
     /**
      * Name of the EKS Node Group. If omitted, this provider will assign a random, unique name. Conflicts with `nodeGroupNamePrefix`.
      */
-    readonly nodeGroupName?: pulumi.Input<string>;
+    nodeGroupName?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `nodeGroupName`.
      */
-    readonly nodeGroupNamePrefix?: pulumi.Input<string>;
+    nodeGroupNamePrefix?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
-    readonly nodeRoleArn: pulumi.Input<string>;
+    nodeRoleArn: pulumi.Input<string>;
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
-    readonly releaseVersion?: pulumi.Input<string>;
+    releaseVersion?: pulumi.Input<string>;
     /**
      * Configuration block with remote access settings. Detailed below.
      */
-    readonly remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
+    remoteAccess?: pulumi.Input<inputs.eks.NodeGroupRemoteAccess>;
     /**
      * Configuration block with scaling settings. Detailed below.
      */
-    readonly scalingConfig: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
+    scalingConfig: pulumi.Input<inputs.eks.NodeGroupScalingConfig>;
     /**
      * Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
-    readonly subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

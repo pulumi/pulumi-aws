@@ -141,15 +141,15 @@ export interface RepositoryPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
 }
 
 /**
@@ -159,9 +159,9 @@ export interface RepositoryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

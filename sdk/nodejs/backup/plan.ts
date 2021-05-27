@@ -141,31 +141,31 @@ export interface PlanState {
     /**
      * An object that specifies backup options for each resource type.
      */
-    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
     /**
      * The ARN of the backup plan.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The display name of a backup plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -175,21 +175,21 @@ export interface PlanArgs {
     /**
      * An object that specifies backup options for each resource type.
      */
-    readonly advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
+    advancedBackupSettings?: pulumi.Input<pulumi.Input<inputs.backup.PlanAdvancedBackupSetting>[]>;
     /**
      * The display name of a backup plan.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A rule object that specifies a scheduled task that is used to back up a selection of resources.
      */
-    readonly rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
+    rules: pulumi.Input<pulumi.Input<inputs.backup.PlanRule>[]>;
     /**
      * Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -113,11 +113,11 @@ export interface DomainPolicyState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the domain.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
 }
 
 /**
@@ -127,9 +127,9 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    readonly accessPolicies: pulumi.Input<string | PolicyDocument>;
+    accessPolicies: pulumi.Input<string | PolicyDocument>;
     /**
      * Name of the domain.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

@@ -104,11 +104,11 @@ export interface VpcEndpointRouteTableAssociationState {
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    readonly routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    readonly vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface VpcEndpointRouteTableAssociationArgs {
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
     /**
      * Identifier of the VPC Endpoint with which the EC2 Route Table will be associated.
      */
-    readonly vpcEndpointId: pulumi.Input<string>;
+    vpcEndpointId: pulumi.Input<string>;
 }

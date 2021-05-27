@@ -96,7 +96,7 @@ export interface GlobalSettingsState {
     /**
      * A list of resources along with the opt-in preferences for the account.
      */
-    readonly globalSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    globalSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -106,5 +106,5 @@ export interface GlobalSettingsArgs {
     /**
      * A list of resources along with the opt-in preferences for the account.
      */
-    readonly globalSettings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    globalSettings: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

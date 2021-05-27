@@ -51,7 +51,7 @@ export interface GetEventCategoriesArgs {
     /**
      * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      */
-    readonly sourceType?: string;
+    sourceType?: string;
 }
 
 /**

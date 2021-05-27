@@ -218,80 +218,80 @@ export interface VpcState {
     /**
      * Amazon Resource Name (ARN) of VPC
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Requests an Amazon-provided IPv6 CIDR
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
-    readonly assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
+    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
      * The CIDR block for the VPC.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL created by default on VPC creation
      */
-    readonly defaultNetworkAclId?: pulumi.Input<string>;
+    defaultNetworkAclId?: pulumi.Input<string>;
     /**
      * The ID of the route table created by default on VPC creation
      */
-    readonly defaultRouteTableId?: pulumi.Input<string>;
+    defaultRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the security group created by default on VPC creation
      */
-    readonly defaultSecurityGroupId?: pulumi.Input<string>;
-    readonly dhcpOptionsId?: pulumi.Input<string>;
+    defaultSecurityGroupId?: pulumi.Input<string>;
+    dhcpOptionsId?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
-    readonly enableClassiclink?: pulumi.Input<boolean>;
+    enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
      */
-    readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
+    enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: pulumi.Input<boolean>;
+    enableDnsHostnames?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: pulumi.Input<boolean>;
+    enableDnsSupport?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which
      * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
-    readonly instanceTenancy?: pulumi.Input<string>;
+    instanceTenancy?: pulumi.Input<string>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
-    readonly ipv6AssociationId?: pulumi.Input<string>;
+    ipv6AssociationId?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
      * `aws.ec2.MainRouteTableAssociation`.
      */
-    readonly mainRouteTableId?: pulumi.Input<string>;
+    mainRouteTableId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the VPC.
      */
-    readonly ownerId?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -303,41 +303,41 @@ export interface VpcArgs {
      * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
      * the size of the CIDR block. Default is `false`.
      */
-    readonly assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
+    assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
      * The CIDR block for the VPC.
      */
-    readonly cidrBlock: pulumi.Input<string>;
+    cidrBlock: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
      * See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
      */
-    readonly enableClassiclink?: pulumi.Input<boolean>;
+    enableClassiclink?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable ClassicLink DNS Support for the VPC.
      * Only valid in regions and accounts that support EC2 Classic.
      */
-    readonly enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
+    enableClassiclinkDnsSupport?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
      */
-    readonly enableDnsHostnames?: pulumi.Input<boolean>;
+    enableDnsHostnames?: pulumi.Input<boolean>;
     /**
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
-    readonly enableDnsSupport?: pulumi.Input<boolean>;
+    enableDnsSupport?: pulumi.Input<boolean>;
     /**
      * A tenancy option for instances launched into the VPC. Default is `default`, which
      * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
-    readonly instanceTenancy?: pulumi.Input<string>;
+    instanceTenancy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

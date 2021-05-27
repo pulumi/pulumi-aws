@@ -113,17 +113,17 @@ export interface TrafficMirrorFilterState {
     /**
      * The ARN of the traffic mirror filter.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A description of the filter.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
-    readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    networkServices?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -133,11 +133,11 @@ export interface TrafficMirrorFilterArgs {
     /**
      * A description of the filter.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
-    readonly networkServices?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    networkServices?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

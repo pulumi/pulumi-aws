@@ -135,31 +135,31 @@ export interface ParameterGroupState {
     /**
      * The Neptune parameter group Amazon Resource Name (ARN).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The family of the Neptune parameter group.
      */
-    readonly family?: pulumi.Input<string>;
+    family?: pulumi.Input<string>;
     /**
      * The name of the Neptune parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of Neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -169,25 +169,25 @@ export interface ParameterGroupArgs {
     /**
      * The description of the Neptune parameter group. Defaults to "Managed by Pulumi".
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The family of the Neptune parameter group.
      */
-    readonly family: pulumi.Input<string>;
+    family: pulumi.Input<string>;
     /**
      * The name of the Neptune parameter.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A list of Neptune parameters to apply.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.neptune.ParameterGroupParameter>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

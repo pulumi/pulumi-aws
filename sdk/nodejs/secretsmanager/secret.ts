@@ -182,57 +182,57 @@ export interface SecretState {
     /**
      * Amazon Resource Name (ARN) of the secret.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A description of the secret.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
-    readonly recoveryWindowInDays?: pulumi.Input<number>;
+    recoveryWindowInDays?: pulumi.Input<number>;
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    readonly rotationEnabled?: pulumi.Input<boolean>;
+    rotationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    readonly rotationLambdaArn?: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
+    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -242,45 +242,45 @@ export interface SecretArgs {
     /**
      * A description of the secret.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the ARN or Id of the AWS KMS customer master key (CMK) to be used to encrypt the secret values in the versions stored in this secret. If you don't specify this value, then Secrets Manager defaults to using the AWS account's default CMK (the one named `aws/secretsmanager`). If the default KMS CMK with that name doesn't yet exist, then AWS Secrets Manager creates it for you automatically the first time.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies the friendly name of the new secret. The secret name can consist of uppercase letters, lowercase letters, digits, and any of the following characters: `/_+=.@-` Conflicts with `namePrefix`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Specifies the number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
      */
-    readonly recoveryWindowInDays?: pulumi.Input<number>;
+    recoveryWindowInDays?: pulumi.Input<number>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    readonly rotationLambdaArn?: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below. Use the `aws.secretsmanager.SecretRotation` resource to manage this configuration instead. As of version 2.67.0, removal of this configuration will no longer remove rotation due to supporting the new resource. Either import the new resource and remove the configuration or manually remove rotation.
      *
      * @deprecated Use the aws_secretsmanager_secret_rotation resource instead
      */
-    readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
+    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRules>;
     /**
      * Specifies a key-value map of user-defined tags that are attached to the secret. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

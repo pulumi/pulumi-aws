@@ -141,31 +141,31 @@ export interface GameSessionQueueState {
     /**
      * Game Session Queue ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    readonly destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    destinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the session queue.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    readonly timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number>;
 }
 
 /**
@@ -175,25 +175,25 @@ export interface GameSessionQueueArgs {
     /**
      * List of fleet/alias ARNs used by session queue for placing game sessions.
      */
-    readonly destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    destinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the session queue.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
-    readonly playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
+    playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicy>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum time a game session request can remain in the queue.
      */
-    readonly timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number>;
 }

@@ -116,19 +116,19 @@ export interface RdsDbInstanceState {
     /**
      * A db password
      */
-    readonly dbPassword?: pulumi.Input<string>;
+    dbPassword?: pulumi.Input<string>;
     /**
      * A db username
      */
-    readonly dbUser?: pulumi.Input<string>;
+    dbUser?: pulumi.Input<string>;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    readonly rdsDbInstanceArn?: pulumi.Input<string>;
+    rdsDbInstanceArn?: pulumi.Input<string>;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    readonly stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string>;
 }
 
 /**
@@ -138,17 +138,17 @@ export interface RdsDbInstanceArgs {
     /**
      * A db password
      */
-    readonly dbPassword: pulumi.Input<string>;
+    dbPassword: pulumi.Input<string>;
     /**
      * A db username
      */
-    readonly dbUser: pulumi.Input<string>;
+    dbUser: pulumi.Input<string>;
     /**
      * The db instance to register for this stack. Changing this will force a new resource.
      */
-    readonly rdsDbInstanceArn: pulumi.Input<string>;
+    rdsDbInstanceArn: pulumi.Input<string>;
     /**
      * The stack to register a db instance for. Changing this will force a new resource.
      */
-    readonly stackId: pulumi.Input<string>;
+    stackId: pulumi.Input<string>;
 }

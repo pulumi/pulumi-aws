@@ -70,12 +70,12 @@ export interface GetNetworkInterfacesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetNetworkInterfacesFilter[];
+    filters?: inputs.ec2.GetNetworkInterfacesFilter[];
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired network interfaces.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

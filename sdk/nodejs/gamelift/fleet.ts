@@ -189,64 +189,64 @@ export interface FleetState {
     /**
      * Fleet ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    readonly buildId?: pulumi.Input<string>;
+    buildId?: pulumi.Input<string>;
     /**
      * Human-readable description of the fleet.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
-    readonly ec2InstanceType?: pulumi.Input<string>;
+    ec2InstanceType?: pulumi.Input<string>;
     /**
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      */
-    readonly fleetType?: pulumi.Input<string>;
+    fleetType?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      */
-    readonly instanceRoleArn?: pulumi.Input<string>;
-    readonly logPaths?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceRoleArn?: pulumi.Input<string>;
+    logPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    readonly metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the fleet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
      */
-    readonly newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * Operating system of the fleet's computing resources.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -256,53 +256,53 @@ export interface FleetArgs {
     /**
      * ID of the Gamelift Build to be deployed on the fleet.
      */
-    readonly buildId: pulumi.Input<string>;
+    buildId: pulumi.Input<string>;
     /**
      * Human-readable description of the fleet.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
      */
-    readonly ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
+    ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
     /**
      * Name of an EC2 instance type. e.g. `t2.micro`
      */
-    readonly ec2InstanceType: pulumi.Input<string>;
+    ec2InstanceType: pulumi.Input<string>;
     /**
      * Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
      */
-    readonly fleetType?: pulumi.Input<string>;
+    fleetType?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that instances in the fleet can assume.
      */
-    readonly instanceRoleArn?: pulumi.Input<string>;
+    instanceRoleArn?: pulumi.Input<string>;
     /**
      * List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
      */
-    readonly metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    metricGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the fleet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
      */
-    readonly newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
-    readonly resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
+    resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
     /**
      * Instructions for launching server processes on each instance in the fleet. See below.
      */
-    readonly runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
+    runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

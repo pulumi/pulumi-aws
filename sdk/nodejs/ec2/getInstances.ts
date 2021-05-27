@@ -66,16 +66,16 @@ export interface GetInstancesArgs {
      * several valid keys, for a full reference, check out
      * [describe-instances in the AWS CLI reference][1].
      */
-    readonly filters?: inputs.ec2.GetInstancesFilter[];
+    filters?: inputs.ec2.GetInstancesFilter[];
     /**
      * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
      */
-    readonly instanceStateNames?: string[];
+    instanceStateNames?: string[];
     /**
      * A map of tags, each pair of which must
      * exactly match a pair on desired instances.
      */
-    readonly instanceTags?: {[key: string]: string};
+    instanceTags?: {[key: string]: string};
 }
 
 /**

@@ -147,32 +147,32 @@ export interface RegexPatternSetState {
     /**
      * The Amazon Resource Name (ARN) that identifies the cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A friendly description of the regular expression pattern set.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly lockToken?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    lockToken?: pulumi.Input<string>;
     /**
      * A friendly name of the regular expression pattern set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
-    readonly regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
+    regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    readonly scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string>;
     /**
      * An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -182,25 +182,25 @@ export interface RegexPatternSetArgs {
     /**
      * A friendly description of the regular expression pattern set.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A friendly name of the regular expression pattern set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details.
      */
-    readonly regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
+    regularExpressions?: pulumi.Input<pulumi.Input<inputs.wafv2.RegexPatternSetRegularExpression>[]>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
-    readonly scope: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * An array of key:value pairs to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

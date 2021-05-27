@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.outposts.getOutpost({
  *     name: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostResult> {
@@ -43,19 +43,19 @@ export interface GetOutpostArgs {
     /**
      * Amazon Resource Name (ARN).
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * Identifier of the Outpost.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Name of the Outpost.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * AWS Account identifier of the Outpost owner.
      */
-    readonly ownerId?: string;
+    ownerId?: string;
 }
 
 /**

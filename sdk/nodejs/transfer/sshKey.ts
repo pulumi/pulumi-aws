@@ -158,15 +158,15 @@ export interface SshKeyState {
     /**
      * The public key portion of an SSH key pair.
      */
-    readonly body?: pulumi.Input<string>;
+    body?: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    readonly serverId?: pulumi.Input<string>;
+    serverId?: pulumi.Input<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }
 
 /**
@@ -176,13 +176,13 @@ export interface SshKeyArgs {
     /**
      * The public key portion of an SSH key pair.
      */
-    readonly body: pulumi.Input<string>;
+    body: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
-    readonly serverId: pulumi.Input<string>;
+    serverId: pulumi.Input<string>;
     /**
      * The name of the user account that is assigned to one or more servers.
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
 }

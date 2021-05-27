@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources({ async: true }));
+ * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources());
  * ```
  * ### Filter By Tag Key and Value
  *
@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *             "tag-value-2",
  *         ],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  * ### Filter By Resource Type
  *
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.resourcegroupstaggingapi.getResources({
  *     resourceTypeFilters: ["ec2:instance"],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcesResult> {
@@ -69,23 +69,23 @@ export interface GetResourcesArgs {
     /**
      * Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
      */
-    readonly excludeCompliantResources?: boolean;
+    excludeCompliantResources?: boolean;
     /**
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
-    readonly includeComplianceDetails?: boolean;
+    includeComplianceDetails?: boolean;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      */
-    readonly resourceArnLists?: string[];
+    resourceArnLists?: string[];
     /**
      * The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
      */
-    readonly resourceTypeFilters?: string[];
+    resourceTypeFilters?: string[];
     /**
      * Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
      */
-    readonly tagFilters?: inputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
+    tagFilters?: inputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
 }
 
 /**

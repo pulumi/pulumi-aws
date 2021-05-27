@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.iam.getRole({
  *     name: "an_example_role_name",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRole(args: GetRoleArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleResult> {
@@ -42,11 +42,11 @@ export interface GetRoleArgs {
     /**
      * The friendly IAM role name to match.
      */
-    readonly name: string;
+    name: string;
     /**
      * The tags attached to the role.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

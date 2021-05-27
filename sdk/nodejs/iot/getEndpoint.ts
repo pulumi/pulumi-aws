@@ -29,7 +29,7 @@ export interface GetEndpointArgs {
     /**
      * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
      */
-    readonly endpointType?: string;
+    endpointType?: string;
 }
 
 /**

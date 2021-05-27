@@ -252,51 +252,51 @@ export interface ComputeEnvironmentState {
     /**
      * The Amazon Resource Name (ARN) of the compute environment.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
      */
-    readonly computeEnvironmentName?: pulumi.Input<string>;
+    computeEnvironmentName?: pulumi.Input<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
      */
-    readonly computeEnvironmentNamePrefix?: pulumi.Input<string>;
+    computeEnvironmentNamePrefix?: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
+    computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
      */
-    readonly ecsClusterArn?: pulumi.Input<string>;
+    ecsClusterArn?: pulumi.Input<string>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The current status of the compute environment (for example, CREATING or VALID).
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A short, human-readable string to provide additional details about the current status of the compute environment.
      */
-    readonly statusReason?: pulumi.Input<string>;
+    statusReason?: pulumi.Input<string>;
     /**
      * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -306,33 +306,33 @@ export interface ComputeEnvironmentArgs {
     /**
      * The name for your compute environment. Up to 128 letters (uppercase and lowercase), numbers, and underscores are allowed. If omitted, this provider will assign a random, unique name.
      */
-    readonly computeEnvironmentName?: pulumi.Input<string>;
+    computeEnvironmentName?: pulumi.Input<string>;
     /**
      * Creates a unique compute environment name beginning with the specified prefix. Conflicts with `computeEnvironmentName`.
      */
-    readonly computeEnvironmentNamePrefix?: pulumi.Input<string>;
+    computeEnvironmentNamePrefix?: pulumi.Input<string>;
     /**
      * Details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. See details below.
      */
-    readonly computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
+    computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResources>;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      */
-    readonly serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string>;
     /**
      * The state of the compute environment. If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues. Valid items are `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

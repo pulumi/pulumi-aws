@@ -502,253 +502,253 @@ export interface VpnConnectionState {
     /**
      * Amazon Resource Name (ARN) of the VPN Connection.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
-    readonly customerGatewayConfiguration?: pulumi.Input<string>;
+    customerGatewayConfiguration?: pulumi.Input<string>;
     /**
      * The ID of the customer gateway.
      */
-    readonly customerGatewayId?: pulumi.Input<string>;
+    customerGatewayId?: pulumi.Input<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      */
-    readonly enableAcceleration?: pulumi.Input<boolean>;
+    enableAcceleration?: pulumi.Input<boolean>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly localIpv4NetworkCidr?: pulumi.Input<string>;
+    localIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly localIpv6NetworkCidr?: pulumi.Input<string>;
+    localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
-    readonly remoteIpv4NetworkCidr?: pulumi.Input<string>;
+    remoteIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly remoteIpv6NetworkCidr?: pulumi.Input<string>;
-    readonly routes?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionRoute>[]>;
+    remoteIpv6NetworkCidr?: pulumi.Input<string>;
+    routes?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionRoute>[]>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    readonly staticRoutesOnly?: pulumi.Input<boolean>;
+    staticRoutesOnly?: pulumi.Input<boolean>;
     /**
      * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string>;
     /**
      * The public IP address of the first VPN tunnel.
      */
-    readonly tunnel1Address?: pulumi.Input<string>;
+    tunnel1Address?: pulumi.Input<string>;
     /**
      * The bgp asn number of the first VPN tunnel.
      */
-    readonly tunnel1BgpAsn?: pulumi.Input<string>;
+    tunnel1BgpAsn?: pulumi.Input<string>;
     /**
      * The bgp holdtime of the first VPN tunnel.
      */
-    readonly tunnel1BgpHoldtime?: pulumi.Input<number>;
+    tunnel1BgpHoldtime?: pulumi.Input<number>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (Customer Gateway Side).
      */
-    readonly tunnel1CgwInsideAddress?: pulumi.Input<string>;
+    tunnel1CgwInsideAddress?: pulumi.Input<string>;
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    readonly tunnel1DpdTimeoutAction?: pulumi.Input<string>;
+    tunnel1DpdTimeoutAction?: pulumi.Input<string>;
     /**
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      */
-    readonly tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
+    tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    readonly tunnel1IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    readonly tunnel1InsideCidr?: pulumi.Input<string>;
+    tunnel1InsideCidr?: pulumi.Input<string>;
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    readonly tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
+    tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel1Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel1Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    readonly tunnel1Phase1LifetimeSeconds?: pulumi.Input<number>;
+    tunnel1Phase1LifetimeSeconds?: pulumi.Input<number>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel1Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel1Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel1Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel1Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    readonly tunnel1Phase2LifetimeSeconds?: pulumi.Input<number>;
+    tunnel1Phase2LifetimeSeconds?: pulumi.Input<number>;
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    readonly tunnel1PresharedKey?: pulumi.Input<string>;
+    tunnel1PresharedKey?: pulumi.Input<string>;
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    readonly tunnel1RekeyFuzzPercentage?: pulumi.Input<number>;
+    tunnel1RekeyFuzzPercentage?: pulumi.Input<number>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      */
-    readonly tunnel1RekeyMarginTimeSeconds?: pulumi.Input<number>;
+    tunnel1RekeyMarginTimeSeconds?: pulumi.Input<number>;
     /**
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      */
-    readonly tunnel1ReplayWindowSize?: pulumi.Input<number>;
+    tunnel1ReplayWindowSize?: pulumi.Input<number>;
     /**
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    readonly tunnel1StartupAction?: pulumi.Input<string>;
+    tunnel1StartupAction?: pulumi.Input<string>;
     /**
      * The RFC 6890 link-local address of the first VPN tunnel (VPN Gateway Side).
      */
-    readonly tunnel1VgwInsideAddress?: pulumi.Input<string>;
+    tunnel1VgwInsideAddress?: pulumi.Input<string>;
     /**
      * The public IP address of the second VPN tunnel.
      */
-    readonly tunnel2Address?: pulumi.Input<string>;
+    tunnel2Address?: pulumi.Input<string>;
     /**
      * The bgp asn number of the second VPN tunnel.
      */
-    readonly tunnel2BgpAsn?: pulumi.Input<string>;
+    tunnel2BgpAsn?: pulumi.Input<string>;
     /**
      * The bgp holdtime of the second VPN tunnel.
      */
-    readonly tunnel2BgpHoldtime?: pulumi.Input<number>;
+    tunnel2BgpHoldtime?: pulumi.Input<number>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (Customer Gateway Side).
      */
-    readonly tunnel2CgwInsideAddress?: pulumi.Input<string>;
+    tunnel2CgwInsideAddress?: pulumi.Input<string>;
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    readonly tunnel2DpdTimeoutAction?: pulumi.Input<string>;
+    tunnel2DpdTimeoutAction?: pulumi.Input<string>;
     /**
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
-    readonly tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
+    tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    readonly tunnel2IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    readonly tunnel2InsideCidr?: pulumi.Input<string>;
+    tunnel2InsideCidr?: pulumi.Input<string>;
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    readonly tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
+    tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel2Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel2Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    readonly tunnel2Phase1LifetimeSeconds?: pulumi.Input<number>;
+    tunnel2Phase1LifetimeSeconds?: pulumi.Input<number>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel2Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel2Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel2Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel2Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    readonly tunnel2Phase2LifetimeSeconds?: pulumi.Input<number>;
+    tunnel2Phase2LifetimeSeconds?: pulumi.Input<number>;
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    readonly tunnel2PresharedKey?: pulumi.Input<string>;
+    tunnel2PresharedKey?: pulumi.Input<string>;
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    readonly tunnel2RekeyFuzzPercentage?: pulumi.Input<number>;
+    tunnel2RekeyFuzzPercentage?: pulumi.Input<number>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      */
-    readonly tunnel2RekeyMarginTimeSeconds?: pulumi.Input<number>;
+    tunnel2RekeyMarginTimeSeconds?: pulumi.Input<number>;
     /**
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      */
-    readonly tunnel2ReplayWindowSize?: pulumi.Input<number>;
+    tunnel2ReplayWindowSize?: pulumi.Input<number>;
     /**
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    readonly tunnel2StartupAction?: pulumi.Input<string>;
+    tunnel2StartupAction?: pulumi.Input<string>;
     /**
      * The RFC 6890 link-local address of the second VPN tunnel (VPN Gateway Side).
      */
-    readonly tunnel2VgwInsideAddress?: pulumi.Input<string>;
+    tunnel2VgwInsideAddress?: pulumi.Input<string>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
-    readonly tunnelInsideIpVersion?: pulumi.Input<string>;
+    tunnelInsideIpVersion?: pulumi.Input<string>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
-    readonly type?: pulumi.Input<string>;
-    readonly vgwTelemetries?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVgwTelemetry>[]>;
+    type?: pulumi.Input<string>;
+    vgwTelemetries?: pulumi.Input<pulumi.Input<inputs.ec2.VpnConnectionVgwTelemetry>[]>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -758,197 +758,197 @@ export interface VpnConnectionArgs {
     /**
      * The ID of the customer gateway.
      */
-    readonly customerGatewayId: pulumi.Input<string>;
+    customerGatewayId: pulumi.Input<string>;
     /**
      * Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
      */
-    readonly enableAcceleration?: pulumi.Input<boolean>;
+    enableAcceleration?: pulumi.Input<boolean>;
     /**
      * The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly localIpv4NetworkCidr?: pulumi.Input<string>;
+    localIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly localIpv6NetworkCidr?: pulumi.Input<string>;
+    localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
-    readonly remoteIpv4NetworkCidr?: pulumi.Input<string>;
+    remoteIpv4NetworkCidr?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
      */
-    readonly remoteIpv6NetworkCidr?: pulumi.Input<string>;
+    remoteIpv6NetworkCidr?: pulumi.Input<string>;
     /**
      * Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
      */
-    readonly staticRoutesOnly?: pulumi.Input<boolean>;
+    staticRoutesOnly?: pulumi.Input<boolean>;
     /**
      * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string>;
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    readonly tunnel1DpdTimeoutAction?: pulumi.Input<string>;
+    tunnel1DpdTimeoutAction?: pulumi.Input<string>;
     /**
      * The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
      */
-    readonly tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
+    tunnel1DpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    readonly tunnel1IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    readonly tunnel1InsideCidr?: pulumi.Input<string>;
+    tunnel1InsideCidr?: pulumi.Input<string>;
     /**
      * The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    readonly tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
+    tunnel1InsideIpv6Cidr?: pulumi.Input<string>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel1Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel1Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    readonly tunnel1Phase1LifetimeSeconds?: pulumi.Input<number>;
+    tunnel1Phase1LifetimeSeconds?: pulumi.Input<number>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel1Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel1Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel1Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of one or more integrity algorithms that are permitted for the first VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel1Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel1Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    readonly tunnel1Phase2LifetimeSeconds?: pulumi.Input<number>;
+    tunnel1Phase2LifetimeSeconds?: pulumi.Input<number>;
     /**
      * The preshared key of the first VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    readonly tunnel1PresharedKey?: pulumi.Input<string>;
+    tunnel1PresharedKey?: pulumi.Input<string>;
     /**
      * The percentage of the rekey window for the first VPN tunnel (determined by `tunnel1RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    readonly tunnel1RekeyFuzzPercentage?: pulumi.Input<number>;
+    tunnel1RekeyFuzzPercentage?: pulumi.Input<number>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the first VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel1RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel1Phase2LifetimeSeconds`.
      */
-    readonly tunnel1RekeyMarginTimeSeconds?: pulumi.Input<number>;
+    tunnel1RekeyMarginTimeSeconds?: pulumi.Input<number>;
     /**
      * The number of packets in an IKE replay window for the first VPN tunnel. Valid value is between `64` and `2048`.
      */
-    readonly tunnel1ReplayWindowSize?: pulumi.Input<number>;
+    tunnel1ReplayWindowSize?: pulumi.Input<number>;
     /**
      * The action to take when the establishing the tunnel for the first VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    readonly tunnel1StartupAction?: pulumi.Input<string>;
+    tunnel1StartupAction?: pulumi.Input<string>;
     /**
      * The action to take after DPD timeout occurs for the second VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
-    readonly tunnel2DpdTimeoutAction?: pulumi.Input<string>;
+    tunnel2DpdTimeoutAction?: pulumi.Input<string>;
     /**
      * The number of seconds after which a DPD timeout occurs for the second VPN tunnel. Valid value is equal or higher than `30`.
      */
-    readonly tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
+    tunnel2DpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * The IKE versions that are permitted for the second VPN tunnel. Valid values are `ikev1 | ikev2`.
      */
-    readonly tunnel2IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2IkeVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
      */
-    readonly tunnel2InsideCidr?: pulumi.Input<string>;
+    tunnel2InsideCidr?: pulumi.Input<string>;
     /**
      * The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
      */
-    readonly tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
+    tunnel2InsideIpv6Cidr?: pulumi.Input<string>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel2Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase1EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel2Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase1IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
      */
-    readonly tunnel2Phase1LifetimeSeconds?: pulumi.Input<number>;
+    tunnel2Phase1LifetimeSeconds?: pulumi.Input<number>;
     /**
      * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `2 | 5 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
      */
-    readonly tunnel2Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
+    tunnel2Phase2DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
      */
-    readonly tunnel2Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase2EncryptionAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of one or more integrity algorithms that are permitted for the second VPN tunnel for phase 2 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
      */
-    readonly tunnel2Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
+    tunnel2Phase2IntegrityAlgorithms?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The lifetime for phase 2 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `3600`.
      */
-    readonly tunnel2Phase2LifetimeSeconds?: pulumi.Input<number>;
+    tunnel2Phase2LifetimeSeconds?: pulumi.Input<number>;
     /**
      * The preshared key of the second VPN tunnel. The preshared key must be between 8 and 64 characters in length and cannot start with zero(0). Allowed characters are alphanumeric characters, periods(.) and underscores(_).
      */
-    readonly tunnel2PresharedKey?: pulumi.Input<string>;
+    tunnel2PresharedKey?: pulumi.Input<string>;
     /**
      * The percentage of the rekey window for the second VPN tunnel (determined by `tunnel2RekeyMarginTimeSeconds`) during which the rekey time is randomly selected. Valid value is between `0` and `100`.
      */
-    readonly tunnel2RekeyFuzzPercentage?: pulumi.Input<number>;
+    tunnel2RekeyFuzzPercentage?: pulumi.Input<number>;
     /**
      * The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the second VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `tunnel2RekeyFuzzPercentage`. Valid value is between `60` and half of `tunnel2Phase2LifetimeSeconds`.
      */
-    readonly tunnel2RekeyMarginTimeSeconds?: pulumi.Input<number>;
+    tunnel2RekeyMarginTimeSeconds?: pulumi.Input<number>;
     /**
      * The number of packets in an IKE replay window for the second VPN tunnel. Valid value is between `64` and `2048`.
      */
-    readonly tunnel2ReplayWindowSize?: pulumi.Input<number>;
+    tunnel2ReplayWindowSize?: pulumi.Input<number>;
     /**
      * The action to take when the establishing the tunnel for the second VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify start for AWS to initiate the IKE negotiation. Valid values are `add | start`.
      */
-    readonly tunnel2StartupAction?: pulumi.Input<string>;
+    tunnel2StartupAction?: pulumi.Input<string>;
     /**
      * Indicate whether the VPN tunnels process IPv4 or IPv6 traffic. Valid values are `ipv4 | ipv6`. `ipv6` Supports only EC2 Transit Gateway.
      */
-    readonly tunnelInsideIpVersion?: pulumi.Input<string>;
+    tunnelInsideIpVersion?: pulumi.Input<string>;
     /**
      * The type of VPN connection. The only type AWS supports at this time is "ipsec.1".
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * The ID of the Virtual Private Gateway.
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
 }

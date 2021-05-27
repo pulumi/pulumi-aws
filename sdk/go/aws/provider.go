@@ -16,6 +16,17 @@ import (
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
+
+	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
+	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+	Profile pulumi.StringPtrOutput `pulumi:"profile"`
+	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
+	// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
+	// session token. A session token is only required if you are using temporary security credentials.
+	Token pulumi.StringPtrOutput `pulumi:"token"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.

@@ -108,19 +108,19 @@ export interface ThingTypeState {
     /**
      * The ARN of the created AWS IoT Thing Type.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    readonly deprecated?: pulumi.Input<boolean>;
+    deprecated?: pulumi.Input<boolean>;
     /**
      * The name of the thing type.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * , Configuration block that can contain the following properties of the thing type:
      */
-    readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface ThingTypeArgs {
     /**
      * Whether the thing type is deprecated. If true, no new things could be associated with this type.
      */
-    readonly deprecated?: pulumi.Input<boolean>;
+    deprecated?: pulumi.Input<boolean>;
     /**
      * The name of the thing type.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * , Configuration block that can contain the following properties of the thing type:
      */
-    readonly properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
 }

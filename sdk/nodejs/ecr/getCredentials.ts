@@ -22,7 +22,7 @@ export function getCredentials(args: GetCredentialsArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCredentials.
  */
 export interface GetCredentialsArgs {
-    readonly registryId: string;
+    registryId: string;
 }
 
 /**

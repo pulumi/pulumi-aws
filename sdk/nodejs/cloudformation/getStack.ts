@@ -49,11 +49,11 @@ export interface GetStackArgs {
     /**
      * The name of the stack
      */
-    readonly name: string;
+    name: string;
     /**
      * A map of tags associated with this stack.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

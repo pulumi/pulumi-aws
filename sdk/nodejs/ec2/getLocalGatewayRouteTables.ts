@@ -30,12 +30,12 @@ export interface GetLocalGatewayRouteTablesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
+    filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

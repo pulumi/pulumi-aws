@@ -41,15 +41,15 @@ export interface GetAuthorizationTokenArgs {
     /**
      * The name of the domain that is in scope for the generated authorization token.
      */
-    readonly domain: string;
+    domain: string;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: string;
+    domainOwner?: string;
     /**
      * The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
-    readonly durationSeconds?: number;
+    durationSeconds?: number;
 }
 
 /**

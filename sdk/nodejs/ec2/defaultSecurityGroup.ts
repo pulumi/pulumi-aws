@@ -190,40 +190,40 @@ export interface DefaultSecurityGroupState {
     /**
      * ARN of the security group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of this rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
     /**
      * Name of the security group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner ID.
      */
-    readonly ownerId?: pulumi.Input<string>;
-    readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
+    ownerId?: pulumi.Input<string>;
+    revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -233,22 +233,22 @@ export interface DefaultSecurityGroupArgs {
     /**
      * Configuration block. Detailed below.
      */
-    readonly egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
+    egress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupEgress>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
-    readonly revokeRulesOnDelete?: pulumi.Input<boolean>;
+    ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultSecurityGroupIngress>[]>;
+    revokeRulesOnDelete?: pulumi.Input<boolean>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VPC ID. **Note that changing the `vpcId` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }

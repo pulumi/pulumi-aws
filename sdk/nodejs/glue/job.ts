@@ -240,76 +240,76 @@ export interface JobState {
     /**
      * Amazon Resource Name (ARN) of Glue Job
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The command of the job. Defined below.
      */
-    readonly command?: pulumi.Input<inputs.glue.JobCommand>;
+    command?: pulumi.Input<inputs.glue.JobCommand>;
     /**
      * The list of connections used for this job.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<string>[]>;
+    connections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    readonly glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
-    readonly maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number>;
     /**
      * The name you assign to this job. It must be unique in your account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Non-overridable arguments for this job, specified as name-value pairs.
      */
-    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */
-    readonly notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
+    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
-    readonly numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number>;
     /**
      * The ARN of the IAM role associated with this job.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The name of the Security Configuration to be associated with the job.
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
      */
-    readonly workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string>;
 }
 
 /**
@@ -319,70 +319,70 @@ export interface JobArgs {
     /**
      * The command of the job. Defined below.
      */
-    readonly command: pulumi.Input<inputs.glue.JobCommand>;
+    command: pulumi.Input<inputs.glue.JobCommand>;
     /**
      * The list of connections used for this job.
      */
-    readonly connections?: pulumi.Input<pulumi.Input<string>[]>;
+    connections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The map of default arguments for this job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes. For information about how to specify and consume your own Job arguments, see the [Calling AWS Glue APIs in Python](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html) topic in the developer guide. For information about the key-value pairs that AWS Glue consumes to set up your job, see the [Special Parameters Used by AWS Glue](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html) topic in the developer guide.
      */
-    readonly defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    defaultArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of the job.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Execution property of the job. Defined below.
      */
-    readonly executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
+    executionProperty?: pulumi.Input<inputs.glue.JobExecutionProperty>;
     /**
      * The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
      */
-    readonly glueVersion?: pulumi.Input<string>;
+    glueVersion?: pulumi.Input<string>;
     /**
      * The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `numberOfWorkers` and `workerType` arguments instead with `glueVersion` `2.0` and above.
      */
-    readonly maxCapacity?: pulumi.Input<number>;
+    maxCapacity?: pulumi.Input<number>;
     /**
      * The maximum number of times to retry this job if it fails.
      */
-    readonly maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number>;
     /**
      * The name you assign to this job. It must be unique in your account.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Non-overridable arguments for this job, specified as name-value pairs.
      */
-    readonly nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    nonOverridableArguments?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Notification property of the job. Defined below.
      */
-    readonly notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
+    notificationProperty?: pulumi.Input<inputs.glue.JobNotificationProperty>;
     /**
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
-    readonly numberOfWorkers?: pulumi.Input<number>;
+    numberOfWorkers?: pulumi.Input<number>;
     /**
      * The ARN of the IAM role associated with this job.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * The name of the Security Configuration to be associated with the job.
      */
-    readonly securityConfiguration?: pulumi.Input<string>;
+    securityConfiguration?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
     /**
      * The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
      */
-    readonly workerType?: pulumi.Input<string>;
+    workerType?: pulumi.Input<string>;
 }

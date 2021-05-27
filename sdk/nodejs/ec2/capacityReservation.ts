@@ -179,53 +179,53 @@ export interface CapacityReservationState {
     /**
      * The ARN of the Capacity Reservation.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    readonly endDateType?: pulumi.Input<string>;
+    endDateType?: pulumi.Input<string>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    readonly ephemeralStorage?: pulumi.Input<boolean>;
+    ephemeralStorage?: pulumi.Input<boolean>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    readonly instanceCount?: pulumi.Input<number>;
+    instanceCount?: pulumi.Input<number>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    readonly instanceMatchCriteria?: pulumi.Input<string>;
+    instanceMatchCriteria?: pulumi.Input<string>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    readonly instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform>;
+    instancePlatform?: pulumi.Input<string | enums.ec2.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    readonly instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
+    instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
-    readonly ownerId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    ownerId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
 }
 
 /**
@@ -235,43 +235,43 @@ export interface CapacityReservationArgs {
     /**
      * The Availability Zone in which to create the Capacity Reservation.
      */
-    readonly availabilityZone: pulumi.Input<string>;
+    availabilityZone: pulumi.Input<string>;
     /**
      * Indicates whether the Capacity Reservation supports EBS-optimized instances.
      */
-    readonly ebsOptimized?: pulumi.Input<boolean>;
+    ebsOptimized?: pulumi.Input<boolean>;
     /**
      * The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
      */
-    readonly endDateType?: pulumi.Input<string>;
+    endDateType?: pulumi.Input<string>;
     /**
      * Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
      */
-    readonly ephemeralStorage?: pulumi.Input<boolean>;
+    ephemeralStorage?: pulumi.Input<boolean>;
     /**
      * The number of instances for which to reserve capacity.
      */
-    readonly instanceCount: pulumi.Input<number>;
+    instanceCount: pulumi.Input<number>;
     /**
      * Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
      */
-    readonly instanceMatchCriteria?: pulumi.Input<string>;
+    instanceMatchCriteria?: pulumi.Input<string>;
     /**
      * The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
      */
-    readonly instancePlatform: pulumi.Input<string | enums.ec2.InstancePlatform>;
+    instancePlatform: pulumi.Input<string | enums.ec2.InstancePlatform>;
     /**
      * The instance type for which to reserve capacity.
      */
-    readonly instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
      */
-    readonly tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
+    tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
 }

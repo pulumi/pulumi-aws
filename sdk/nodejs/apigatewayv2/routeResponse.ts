@@ -128,23 +128,23 @@ export interface RouteResponseState {
     /**
      * The API identifier.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
-    readonly modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string>;
     /**
      * The response models for the route response.
      */
-    readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identifier of the `aws.apigatewayv2.Route`.
      */
-    readonly routeId?: pulumi.Input<string>;
+    routeId?: pulumi.Input<string>;
     /**
      * The route response key.
      */
-    readonly routeResponseKey?: pulumi.Input<string>;
+    routeResponseKey?: pulumi.Input<string>;
 }
 
 /**
@@ -154,21 +154,21 @@ export interface RouteResponseArgs {
     /**
      * The API identifier.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
      */
-    readonly modelSelectionExpression?: pulumi.Input<string>;
+    modelSelectionExpression?: pulumi.Input<string>;
     /**
      * The response models for the route response.
      */
-    readonly responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The identifier of the `aws.apigatewayv2.Route`.
      */
-    readonly routeId: pulumi.Input<string>;
+    routeId: pulumi.Input<string>;
     /**
      * The route response key.
      */
-    readonly routeResponseKey: pulumi.Input<string>;
+    routeResponseKey: pulumi.Input<string>;
 }

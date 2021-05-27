@@ -102,7 +102,7 @@ export interface StandardsSubscriptionState {
     /**
      * The ARN of a standard - see below.
      */
-    readonly standardsArn?: pulumi.Input<string>;
+    standardsArn?: pulumi.Input<string>;
 }
 
 /**
@@ -112,5 +112,5 @@ export interface StandardsSubscriptionArgs {
     /**
      * The ARN of a standard - see below.
      */
-    readonly standardsArn: pulumi.Input<string>;
+    standardsArn: pulumi.Input<string>;
 }

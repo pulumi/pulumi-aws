@@ -113,15 +113,15 @@ export interface GeoMatchSetState {
     /**
      * Amazon Resource Name (ARN)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      */
-    readonly geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.waf.GeoMatchSetGeoMatchConstraint>[]>;
+    geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.waf.GeoMatchSetGeoMatchConstraint>[]>;
     /**
      * The name or description of the GeoMatchSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -131,9 +131,9 @@ export interface GeoMatchSetArgs {
     /**
      * The GeoMatchConstraint objects which contain the country that you want AWS WAF to search for.
      */
-    readonly geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.waf.GeoMatchSetGeoMatchConstraint>[]>;
+    geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.waf.GeoMatchSetGeoMatchConstraint>[]>;
     /**
      * The name or description of the GeoMatchSet.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

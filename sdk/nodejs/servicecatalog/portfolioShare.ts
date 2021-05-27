@@ -147,31 +147,31 @@ export interface PortfolioShareState {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
      */
-    readonly accepted?: pulumi.Input<boolean>;
+    accepted?: pulumi.Input<boolean>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId?: pulumi.Input<string>;
+    portfolioId?: pulumi.Input<string>;
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
-    readonly principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
-    readonly shareTagOptions?: pulumi.Input<boolean>;
+    shareTagOptions?: pulumi.Input<boolean>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      */
-    readonly waitForAcceptance?: pulumi.Input<boolean>;
+    waitForAcceptance?: pulumi.Input<boolean>;
 }
 
 /**
@@ -181,25 +181,25 @@ export interface PortfolioShareArgs {
     /**
      * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
      */
-    readonly acceptLanguage?: pulumi.Input<string>;
+    acceptLanguage?: pulumi.Input<string>;
     /**
      * Portfolio identifier.
      */
-    readonly portfolioId: pulumi.Input<string>;
+    portfolioId: pulumi.Input<string>;
     /**
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * Whether to enable sharing of `aws.servicecatalog.TagOption` resources when creating the portfolio share.
      */
-    readonly shareTagOptions?: pulumi.Input<boolean>;
+    shareTagOptions?: pulumi.Input<boolean>;
     /**
      * Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
     /**
      * Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
      */
-    readonly waitForAcceptance?: pulumi.Input<boolean>;
+    waitForAcceptance?: pulumi.Input<boolean>;
 }

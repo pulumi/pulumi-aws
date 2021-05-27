@@ -30,15 +30,15 @@ export interface GetOutpostInstanceTypeArgs {
     /**
      * Outpost Amazon Resource Name (ARN).
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Desired instance type. Conflicts with `preferredInstanceTypes`.
      */
-    readonly instanceType?: string;
+    instanceType?: string;
     /**
      * Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
      */
-    readonly preferredInstanceTypes?: string[];
+    preferredInstanceTypes?: string[];
 }
 
 /**

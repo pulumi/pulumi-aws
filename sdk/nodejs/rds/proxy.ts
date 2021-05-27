@@ -192,55 +192,55 @@ export interface ProxyState {
     /**
      * The Amazon Resource Name (ARN) for the proxy.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    readonly auths?: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
+    auths?: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
-    readonly debugLogging?: pulumi.Input<boolean>;
+    debugLogging?: pulumi.Input<boolean>;
     /**
      * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
      */
-    readonly engineFamily?: pulumi.Input<string>;
+    engineFamily?: pulumi.Input<string>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      */
-    readonly idleClientTimeout?: pulumi.Input<number>;
+    idleClientTimeout?: pulumi.Input<number>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
      */
-    readonly requireTls?: pulumi.Input<boolean>;
+    requireTls?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    readonly vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -250,45 +250,45 @@ export interface ProxyArgs {
     /**
      * Configuration block(s) with authorization mechanisms to connect to the associated instances or clusters. Described below.
      */
-    readonly auths: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
+    auths: pulumi.Input<pulumi.Input<inputs.rds.ProxyAuth>[]>;
     /**
      * Whether the proxy includes detailed information about SQL statements in its logs. This information helps you to debug issues involving SQL behavior or the performance and scalability of the proxy connections. The debug information includes the text of SQL statements that you submit through the proxy. Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive information that appears in the logs.
      */
-    readonly debugLogging?: pulumi.Input<boolean>;
+    debugLogging?: pulumi.Input<boolean>;
     /**
      * The kinds of databases that the proxy can connect to. This value determines which database network protocol the proxy recognizes when it interprets network traffic to and from the database. The engine family applies to MySQL and PostgreSQL for both RDS and Aurora. Valid values are `MYSQL` and `POSTGRESQL`.
      */
-    readonly engineFamily: pulumi.Input<string>;
+    engineFamily: pulumi.Input<string>;
     /**
      * The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it. You can set this value higher or lower than the connection timeout limit for the associated database.
      */
-    readonly idleClientTimeout?: pulumi.Input<number>;
+    idleClientTimeout?: pulumi.Input<number>;
     /**
      * The identifier for the proxy. This name must be unique for all proxies owned by your AWS account in the specified AWS Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy. By enabling this setting, you can enforce encrypted TLS connections to the proxy.
      */
-    readonly requireTls?: pulumi.Input<boolean>;
+    requireTls?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * One or more VPC security group IDs to associate with the new proxy.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * One or more VPC subnet IDs to associate with the new proxy.
      */
-    readonly vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     ownerId: "Route 53 Resolver",
  *     ruleType: "RECURSIVE",
  *     shareStatus: "NOT_SHARED",
- * }, { async: true }));
+ * }));
  * ```
  *
  * ```typescript
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.route53.getResolverRules({
  *     ruleType: "FORWARD",
  *     shareStatus: "SHARED_WITH_ME",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverRulesResult> {
@@ -57,19 +57,19 @@ export interface GetResolverRulesArgs {
     /**
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
-    readonly ownerId?: string;
+    ownerId?: string;
     /**
      * The ID of the outbound resolver endpoint for the desired resolver rules.
      */
-    readonly resolverEndpointId?: string;
+    resolverEndpointId?: string;
     /**
      * The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
      */
-    readonly ruleType?: string;
+    ruleType?: string;
     /**
      * Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
      */
-    readonly shareStatus?: string;
+    shareStatus?: string;
 }
 
 /**

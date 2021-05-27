@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const s3 = pulumi.output(aws.kms.getAlias({
  *     name: "alias/aws/s3",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
@@ -41,7 +41,7 @@ export interface GetAliasArgs {
     /**
      * The display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

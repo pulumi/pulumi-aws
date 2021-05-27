@@ -143,31 +143,31 @@ export interface AssessmentTemplateState {
     /**
      * The template assessment ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The duration of the inspector run.
      */
-    readonly duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number>;
     /**
      * The name of the assessment template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The rules to be used during the run.
      */
-    readonly rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
+    rulesPackageArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */
-    readonly targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string>;
 }
 
 /**
@@ -177,25 +177,25 @@ export interface AssessmentTemplateArgs {
     /**
      * The duration of the inspector run.
      */
-    readonly duration: pulumi.Input<number>;
+    duration: pulumi.Input<number>;
     /**
      * The name of the assessment template.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The rules to be used during the run.
      */
-    readonly rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
+    rulesPackageArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The assessment target ARN to attach the template to.
      */
-    readonly targetArn: pulumi.Input<string>;
+    targetArn: pulumi.Input<string>;
 }

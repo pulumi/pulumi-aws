@@ -117,19 +117,19 @@ export interface StreamConsumerState {
     /**
      * Amazon Resource Name (ARN) of the stream consumer.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
      */
-    readonly creationTimestamp?: pulumi.Input<string>;
+    creationTimestamp?: pulumi.Input<string>;
     /**
      * Name of the stream consumer.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */
-    readonly streamArn?: pulumi.Input<string>;
+    streamArn?: pulumi.Input<string>;
 }
 
 /**
@@ -139,9 +139,9 @@ export interface StreamConsumerArgs {
     /**
      * Name of the stream consumer.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */
-    readonly streamArn: pulumi.Input<string>;
+    streamArn: pulumi.Input<string>;
 }

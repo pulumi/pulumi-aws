@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.acmpca.getCertificateAuthority({
  *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateAuthorityResult> {
@@ -41,7 +41,7 @@ export interface GetCertificateAuthorityArgs {
     /**
      * Amazon Resource Name (ARN) of the certificate authority.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Nested attribute containing revocation configuration.
      * * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
@@ -50,11 +50,11 @@ export interface GetCertificateAuthorityArgs {
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
      */
-    readonly revocationConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
+    revocationConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -42,11 +42,11 @@ export interface GetServiceArgs {
     /**
      * The arn of the ECS Cluster
      */
-    readonly clusterArn: string;
+    clusterArn: string;
     /**
      * The name of the ECS Service
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

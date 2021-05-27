@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const orderFlowersBot = pulumi.output(aws.lex.getBot({
  *     name: "OrderFlowers",
  *     version: "$LATEST",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
@@ -41,11 +41,11 @@ export interface GetBotArgs {
     /**
      * The name of the bot. The name is case sensitive.
      */
-    readonly name: string;
+    name: string;
     /**
      * The version or alias of the bot.
      */
-    readonly version?: string;
+    version?: string;
 }
 
 /**

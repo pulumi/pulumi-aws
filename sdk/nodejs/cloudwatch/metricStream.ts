@@ -259,52 +259,52 @@ export interface MetricStreamState {
     /**
      * ARN of the metric stream.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was created.
      */
-    readonly creationDate?: pulumi.Input<string>;
+    creationDate?: pulumi.Input<string>;
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
      */
-    readonly excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
-    readonly firehoseArn?: pulumi.Input<string>;
+    firehoseArn?: pulumi.Input<string>;
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
      */
-    readonly includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the metric stream was last updated.
      */
-    readonly lastUpdateDate?: pulumi.Input<string>;
-    readonly name?: pulumi.Input<string>;
+    lastUpdateDate?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      */
-    readonly outputFormat?: pulumi.Input<string>;
+    outputFormat?: pulumi.Input<string>;
     /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * State of the metric stream. Possible values are `running` and `stopped`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -314,34 +314,34 @@ export interface MetricStreamArgs {
     /**
      * List of exclusive metric filters. If you specify this parameter, the stream sends metrics from all metric namespaces except for the namespaces that you specify here. Conflicts with `includeFilter`.
      */
-    readonly excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
+    excludeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamExcludeFilter>[]>;
     /**
      * ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
      */
-    readonly firehoseArn: pulumi.Input<string>;
+    firehoseArn: pulumi.Input<string>;
     /**
      * List of inclusive metric filters. If you specify this parameter, the stream sends only the metrics from the metric namespaces that you specify here. Conflicts with `excludeFilter`.
      */
-    readonly includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
-    readonly name?: pulumi.Input<string>;
+    includeFilters?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamIncludeFilter>[]>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      */
-    readonly outputFormat: pulumi.Input<string>;
+    outputFormat: pulumi.Input<string>;
     /**
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

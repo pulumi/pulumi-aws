@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const tableName = pulumi.output(aws.dynamodb.getTable({
  *     name: "tableName",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
@@ -41,9 +41,9 @@ export interface GetTableArgs {
     /**
      * The name of the DynamoDB table.
      */
-    readonly name: string;
-    readonly serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
-    readonly tags?: {[key: string]: string};
+    name: string;
+    serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
+    tags?: {[key: string]: string};
 }
 
 /**

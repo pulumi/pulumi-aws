@@ -44,15 +44,15 @@ export interface GetStreamConsumerArgs {
     /**
      * Amazon Resource Name (ARN) of the stream consumer.
      */
-    readonly arn?: string;
+    arn?: string;
     /**
      * Name of the stream consumer.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      */
-    readonly streamArn: string;
+    streamArn: string;
 }
 
 /**

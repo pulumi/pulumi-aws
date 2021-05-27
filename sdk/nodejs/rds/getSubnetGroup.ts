@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const database = pulumi.output(aws.rds.getSubnetGroup({
  *     name: "my-test-database-subnet-group",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetGroupResult> {
@@ -39,7 +39,7 @@ export interface GetSubnetGroupArgs {
     /**
      * The name of the RDS database subnet group.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

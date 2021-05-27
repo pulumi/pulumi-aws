@@ -33,7 +33,7 @@ export interface GetClusterAuthArgs {
     /**
      * The name of the cluster
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

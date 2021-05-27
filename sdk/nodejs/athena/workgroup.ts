@@ -142,35 +142,35 @@ export interface WorkgroupState {
     /**
      * Amazon Resource Name (ARN) of the workgroup
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */
-    readonly configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
+    configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
     /**
      * Description of the workgroup.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the workgroup.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -180,29 +180,29 @@ export interface WorkgroupArgs {
     /**
      * Configuration block with various settings for the workgroup. Documented below.
      */
-    readonly configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
+    configuration?: pulumi.Input<inputs.athena.WorkgroupConfiguration>;
     /**
      * Description of the workgroup.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
-    readonly forceDestroy?: pulumi.Input<boolean>;
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the workgroup.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * State of the workgroup. Valid values are `DISABLED` or `ENABLED`. Defaults to `ENABLED`.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the workgroup. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

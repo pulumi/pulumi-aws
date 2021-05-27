@@ -100,12 +100,12 @@ export interface DelegationSetState {
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
-    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    readonly referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string>;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface DelegationSetArgs {
      * This is a reference name used in Caller Reference
      * (helpful for identifying single delegation set amongst others)
      */
-    readonly referenceName?: pulumi.Input<string>;
+    referenceName?: pulumi.Input<string>;
 }

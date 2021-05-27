@@ -168,19 +168,19 @@ export interface WebAclLoggingConfigurationState {
     /**
      * The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
      */
-    readonly logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
+    logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
      */
-    readonly loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
     /**
      * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    readonly redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
 }
 
 /**
@@ -190,17 +190,17 @@ export interface WebAclLoggingConfigurationArgs {
     /**
      * The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL. Currently, only 1 ARN is supported.
      */
-    readonly logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
+    logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A configuration block that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation. See Logging Filter below for more details.
      */
-    readonly loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
+    loggingFilter?: pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationLoggingFilter>;
     /**
      * The parts of the request that you want to keep out of the logs. Up to 100 `redactedFields` blocks are supported. See Redacted Fields below for more details.
      */
-    readonly redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
+    redactedFields?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclLoggingConfigurationRedactedField>[]>;
     /**
      * The Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
 }

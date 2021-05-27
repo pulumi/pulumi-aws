@@ -119,19 +119,19 @@ export interface ActionTargetState {
     /**
      * Amazon Resource Name (ARN) of the Security Hub custom action target.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the custom action target.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID for the custom action target.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * The description for the custom action target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface ActionTargetArgs {
     /**
      * The name of the custom action target.
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * The ID for the custom action target.
      */
-    readonly identifier: pulumi.Input<string>;
+    identifier: pulumi.Input<string>;
     /**
      * The description for the custom action target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

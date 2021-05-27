@@ -128,11 +128,11 @@ export interface FileSystemPolicyState {
     /**
      * The ID of the EFS file system.
      */
-    readonly fileSystemId?: pulumi.Input<string>;
+    fileSystemId?: pulumi.Input<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -142,9 +142,9 @@ export interface FileSystemPolicyArgs {
     /**
      * The ID of the EFS file system.
      */
-    readonly fileSystemId: pulumi.Input<string>;
+    fileSystemId: pulumi.Input<string>;
     /**
      * The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

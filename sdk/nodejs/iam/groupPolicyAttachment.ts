@@ -114,11 +114,11 @@ export interface GroupPolicyAttachmentState {
     /**
      * The group the policy should be applied to
      */
-    readonly group?: pulumi.Input<string | Group>;
+    group?: pulumi.Input<string | Group>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<ARN>;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface GroupPolicyAttachmentArgs {
     /**
      * The group the policy should be applied to
      */
-    readonly group: pulumi.Input<string | Group>;
+    group: pulumi.Input<string | Group>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<ARN>;
 }

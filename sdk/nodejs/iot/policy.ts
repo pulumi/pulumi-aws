@@ -117,19 +117,19 @@ export interface PolicyState {
     /**
      * The ARN assigned by AWS to this policy.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The default version of this policy.
      */
-    readonly defaultVersionId?: pulumi.Input<string>;
+    defaultVersionId?: pulumi.Input<string>;
     /**
      * The name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -139,9 +139,9 @@ export interface PolicyArgs {
     /**
      * The name of the policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The policy document. This is a JSON formatted string. Use the [IoT Developer Guide](http://docs.aws.amazon.com/iot/latest/developerguide/iot-policies.html) for more information on IoT Policies.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

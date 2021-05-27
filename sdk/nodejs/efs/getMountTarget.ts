@@ -44,15 +44,15 @@ export interface GetMountTargetArgs {
     /**
      * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
      */
-    readonly accessPointId?: string;
+    accessPointId?: string;
     /**
      * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
      */
-    readonly fileSystemId?: string;
+    fileSystemId?: string;
     /**
      * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
      */
-    readonly mountTargetId?: string;
+    mountTargetId?: string;
 }
 
 /**

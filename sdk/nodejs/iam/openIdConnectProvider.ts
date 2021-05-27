@@ -132,27 +132,27 @@ export interface OpenIdConnectProviderState {
     /**
      * The ARN assigned by AWS for this provider.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */
-    readonly clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
+    clientIdLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of resource tags for the IAM OIDC provider. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
-    readonly thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
+    thumbprintLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The URL of the identity provider. Corresponds to the _iss_ claim.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -162,21 +162,21 @@ export interface OpenIdConnectProviderArgs {
     /**
      * A list of client IDs (also known as audiences). When a mobile or web app registers with an OpenID Connect provider, they establish a value that identifies the application. (This is the value that's sent as the clientId parameter on OAuth requests.)
      */
-    readonly clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
+    clientIdLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Map of resource tags for the IAM OIDC provider. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s).
      */
-    readonly thumbprintLists: pulumi.Input<pulumi.Input<string>[]>;
+    thumbprintLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The URL of the identity provider. Corresponds to the _iss_ claim.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

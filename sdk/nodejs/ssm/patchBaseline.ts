@@ -323,59 +323,59 @@ export interface PatchBaselineState {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
+    approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    readonly approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
+    approvedPatchesComplianceLevel?: pulumi.Input<string>;
     /**
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      */
-    readonly approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
     /**
      * The ARN of the patch baseline.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the patch baseline.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
+    globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
      * The name specified to identify the patch source.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string>;
     /**
      * A list of rejected patches.
      */
-    readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      */
-    readonly rejectedPatchesAction?: pulumi.Input<string>;
+    rejectedPatchesAction?: pulumi.Input<string>;
     /**
      * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
      */
-    readonly sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -385,53 +385,53 @@ export interface PatchBaselineArgs {
     /**
      * A set of rules used to include patches in the baseline. up to 10 approval rules can be specified. Each approvalRule block requires the fields documented below.
      */
-    readonly approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
+    approvalRules?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineApprovalRule>[]>;
     /**
      * A list of explicitly approved patches for the baseline.
      */
-    readonly approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    approvedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. Valid compliance levels include the following: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`, `INFORMATIONAL`, `UNSPECIFIED`. The default value is `UNSPECIFIED`.
      */
-    readonly approvedPatchesComplianceLevel?: pulumi.Input<string>;
+    approvedPatchesComplianceLevel?: pulumi.Input<string>;
     /**
      * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. Applies to Linux instances only.
      */
-    readonly approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
+    approvedPatchesEnableNonSecurity?: pulumi.Input<boolean>;
     /**
      * The description of the patch baseline.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A set of global filters used to exclude patches from the baseline. Up to 4 global filters can be specified using Key/Value pairs. Valid Keys are `PRODUCT | CLASSIFICATION | MSRC_SEVERITY | PATCH_ID`.
      */
-    readonly globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
+    globalFilters?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineGlobalFilter>[]>;
     /**
      * The name specified to identify the patch source.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Defines the operating system the patch baseline applies to. Supported operating systems include `WINDOWS`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `SUSE`, `UBUNTU`, `CENTOS`, and `REDHAT_ENTERPRISE_LINUX`. The Default value is `WINDOWS`.
      */
-    readonly operatingSystem?: pulumi.Input<string>;
+    operatingSystem?: pulumi.Input<string>;
     /**
      * A list of rejected patches.
      */
-    readonly rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
+    rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The action for Patch Manager to take on patches included in the `rejectedPatches` list. Allow values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
      */
-    readonly rejectedPatchesAction?: pulumi.Input<string>;
+    rejectedPatchesAction?: pulumi.Input<string>;
     /**
      * Configuration block(s) with alternate sources for patches. Applies to Linux instances only. Documented below.
      */
-    readonly sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.ssm.PatchBaselineSource>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

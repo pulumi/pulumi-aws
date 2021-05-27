@@ -105,15 +105,15 @@ export interface AssessmentTargetState {
     /**
      * The target assessment ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the assessment target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    readonly resourceGroupArn?: pulumi.Input<string>;
+    resourceGroupArn?: pulumi.Input<string>;
 }
 
 /**
@@ -123,9 +123,9 @@ export interface AssessmentTargetArgs {
     /**
      * The name of the assessment target.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      */
-    readonly resourceGroupArn?: pulumi.Input<string>;
+    resourceGroupArn?: pulumi.Input<string>;
 }

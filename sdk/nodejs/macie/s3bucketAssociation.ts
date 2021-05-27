@@ -113,19 +113,19 @@ export interface S3BucketAssociationState {
     /**
      * The name of the S3 bucket that you want to associate with Amazon Macie.
      */
-    readonly bucketName?: pulumi.Input<string>;
+    bucketName?: pulumi.Input<string>;
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    readonly classificationType?: pulumi.Input<inputs.macie.S3BucketAssociationClassificationType>;
+    classificationType?: pulumi.Input<inputs.macie.S3BucketAssociationClassificationType>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
-    readonly memberAccountId?: pulumi.Input<string>;
+    memberAccountId?: pulumi.Input<string>;
     /**
      * Object key prefix identifying one or more S3 objects to which the association applies.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
 }
 
 /**
@@ -135,17 +135,17 @@ export interface S3BucketAssociationArgs {
     /**
      * The name of the S3 bucket that you want to associate with Amazon Macie.
      */
-    readonly bucketName: pulumi.Input<string>;
+    bucketName: pulumi.Input<string>;
     /**
      * The configuration of how Amazon Macie classifies the S3 objects.
      */
-    readonly classificationType?: pulumi.Input<inputs.macie.S3BucketAssociationClassificationType>;
+    classificationType?: pulumi.Input<inputs.macie.S3BucketAssociationClassificationType>;
     /**
      * The ID of the Amazon Macie member account whose S3 resources you want to associate with Macie. If `memberAccountId` isn't specified, the action associates specified S3 resources with Macie for the current master account.
      */
-    readonly memberAccountId?: pulumi.Input<string>;
+    memberAccountId?: pulumi.Input<string>;
     /**
      * Object key prefix identifying one or more S3 objects to which the association applies.
      */
-    readonly prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string>;
 }

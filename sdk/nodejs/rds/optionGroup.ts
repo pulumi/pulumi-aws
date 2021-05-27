@@ -174,39 +174,39 @@ export interface OptionGroupState {
     /**
      * The ARN of the db option group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    readonly engineName?: pulumi.Input<string>;
+    engineName?: pulumi.Input<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    readonly majorEngineVersion?: pulumi.Input<string>;
+    majorEngineVersion?: pulumi.Input<string>;
     /**
      * The Name of the setting.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The description of the option group. Defaults to "Managed by Pulumi".
      */
-    readonly optionGroupDescription?: pulumi.Input<string>;
+    optionGroupDescription?: pulumi.Input<string>;
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -216,33 +216,33 @@ export interface OptionGroupArgs {
     /**
      * Specifies the name of the engine that this option group should be associated with.
      */
-    readonly engineName: pulumi.Input<string>;
+    engineName: pulumi.Input<string>;
     /**
      * Specifies the major version of the engine that this option group should be associated with.
      */
-    readonly majorEngineVersion: pulumi.Input<string>;
+    majorEngineVersion: pulumi.Input<string>;
     /**
      * The Name of the setting.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The description of the option group. Defaults to "Managed by Pulumi".
      */
-    readonly optionGroupDescription?: pulumi.Input<string>;
+    optionGroupDescription?: pulumi.Input<string>;
     /**
      * A list of Options to apply.
      */
-    readonly options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

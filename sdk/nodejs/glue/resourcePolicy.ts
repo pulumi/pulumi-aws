@@ -105,7 +105,7 @@ export interface ResourcePolicyState {
     /**
      * The policy to be applied to the aws glue data catalog.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface ResourcePolicyArgs {
     /**
      * The policy to be applied to the aws glue data catalog.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

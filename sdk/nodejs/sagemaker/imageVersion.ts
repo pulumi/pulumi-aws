@@ -125,21 +125,21 @@ export interface ImageVersionState {
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      * * `imageArn`- The Amazon Resource Name (ARN) of the image the version is based on.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The registry path of the container image on which this image version is based.
      */
-    readonly baseImage?: pulumi.Input<string>;
+    baseImage?: pulumi.Input<string>;
     /**
      * The registry path of the container image that contains this image version.
      */
-    readonly containerImage?: pulumi.Input<string>;
-    readonly imageArn?: pulumi.Input<string>;
+    containerImage?: pulumi.Input<string>;
+    imageArn?: pulumi.Input<string>;
     /**
      * The name of the image. Must be unique to your account.
      */
-    readonly imageName?: pulumi.Input<string>;
-    readonly version?: pulumi.Input<number>;
+    imageName?: pulumi.Input<string>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -149,9 +149,9 @@ export interface ImageVersionArgs {
     /**
      * The registry path of the container image on which this image version is based.
      */
-    readonly baseImage: pulumi.Input<string>;
+    baseImage: pulumi.Input<string>;
     /**
      * The name of the image. Must be unique to your account.
      */
-    readonly imageName: pulumi.Input<string>;
+    imageName: pulumi.Input<string>;
 }

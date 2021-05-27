@@ -113,15 +113,15 @@ export interface ParameterGroupState {
     /**
      * A description of the parameter group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the parameter group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
 }
 
 /**
@@ -131,13 +131,13 @@ export interface ParameterGroupArgs {
     /**
      * A description of the parameter group.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the parameter group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The parameters of the parameter group.
      */
-    readonly parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
 }

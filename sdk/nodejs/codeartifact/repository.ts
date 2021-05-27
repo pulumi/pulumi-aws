@@ -194,43 +194,43 @@ export interface RepositoryState {
     /**
      * The account number of the AWS account that manages the repository.
      */
-    readonly administratorAccount?: pulumi.Input<string>;
+    administratorAccount?: pulumi.Input<string>;
     /**
      * The ARN of the repository.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the repository.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The domain that contains the created repository.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    readonly externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    readonly upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
 }
 
 /**
@@ -240,33 +240,33 @@ export interface RepositoryArgs {
     /**
      * The description of the repository.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The domain that contains the created repository.
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
     /**
      * The account number of the AWS account that owns the domain.
      */
-    readonly domainOwner?: pulumi.Input<string>;
+    domainOwner?: pulumi.Input<string>;
     /**
      * An array of external connections associated with the repository. Only one external connection can be set per repository. see External Connections.
      */
-    readonly externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
+    externalConnections?: pulumi.Input<inputs.codeartifact.RepositoryExternalConnections>;
     /**
      * The name of the repository to create.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of upstream repositories to associate with the repository. The order of the upstream repositories in the list determines their priority order when AWS CodeArtifact looks for a requested package version. see Upstream
      */
-    readonly upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
+    upstreams?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryUpstream>[]>;
 }

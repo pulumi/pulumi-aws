@@ -137,23 +137,23 @@ export interface DataLakeSettingsState {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    readonly admins?: pulumi.Input<pulumi.Input<string>[]>;
+    admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    readonly createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    readonly createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
-    readonly trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -163,21 +163,21 @@ export interface DataLakeSettingsArgs {
     /**
      * Set of ARNs of AWS Lake Formation principals (IAM users or roles).
      */
-    readonly admins?: pulumi.Input<pulumi.Input<string>[]>;
+    admins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Identifier for the Data Catalog. By default, the account ID.
      */
-    readonly catalogId?: pulumi.Input<string>;
+    catalogId?: pulumi.Input<string>;
     /**
      * Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
      */
-    readonly createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
+    createDatabaseDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermission>[]>;
     /**
      * Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
      */
-    readonly createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
+    createTableDefaultPermissions?: pulumi.Input<pulumi.Input<inputs.lakeformation.DataLakeSettingsCreateTableDefaultPermission>[]>;
     /**
      * List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
      */
-    readonly trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
+    trustedResourceOwners?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.cloudfront.getCachePolicy({
  *     name: "example-policy",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCachePolicy(args?: GetCachePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCachePolicyResult> {
@@ -41,11 +41,11 @@ export interface GetCachePolicyArgs {
     /**
      * The identifier for the cache policy.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * A unique name to identify the cache policy.
      */
-    readonly name?: string;
+    name?: string;
 }
 
 /**

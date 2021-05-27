@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const example = pulumi.output(aws.acmpca.getCertificate({
  *     arn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
  *     certificateAuthorityArn: "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -41,11 +41,11 @@ export interface GetCertificateArgs {
     /**
      * Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Amazon Resource Name (ARN) of the certificate authority.
      */
-    readonly certificateAuthorityArn: string;
+    certificateAuthorityArn: string;
 }
 
 /**

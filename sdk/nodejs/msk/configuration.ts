@@ -130,27 +130,27 @@ export interface ConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    readonly kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    kafkaVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Latest revision of the configuration.
      */
-    readonly latestRevision?: pulumi.Input<number>;
+    latestRevision?: pulumi.Input<number>;
     /**
      * Name of the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
-    readonly serverProperties?: pulumi.Input<string>;
+    serverProperties?: pulumi.Input<string>;
 }
 
 /**
@@ -160,17 +160,17 @@ export interface ConfigurationArgs {
     /**
      * Description of the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of Apache Kafka versions which can use this configuration.
      */
-    readonly kafkaVersions: pulumi.Input<pulumi.Input<string>[]>;
+    kafkaVersions: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
      */
-    readonly serverProperties: pulumi.Input<string>;
+    serverProperties: pulumi.Input<string>;
 }

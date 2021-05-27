@@ -204,67 +204,67 @@ export interface InfrastructureConfigurationState {
     /**
      * Amazon Resource Name (ARN) of the configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Date when the configuration was created.
      */
-    readonly dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string>;
     /**
      * Date when the configuration was updated.
      */
-    readonly dateUpdated?: pulumi.Input<string>;
+    dateUpdated?: pulumi.Input<string>;
     /**
      * Description for the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of IAM Instance Profile.
      */
-    readonly instanceProfileName?: pulumi.Input<string>;
+    instanceProfileName?: pulumi.Input<string>;
     /**
      * Set of EC2 Instance Types.
      */
-    readonly instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of EC2 Key Pair.
      */
-    readonly keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string>;
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    readonly logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
-    readonly resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set of EC2 Security Group identifiers.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
     /**
      * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
-    readonly terminateInstanceOnFailure?: pulumi.Input<boolean>;
+    terminateInstanceOnFailure?: pulumi.Input<boolean>;
 }
 
 /**
@@ -274,53 +274,53 @@ export interface InfrastructureConfigurationArgs {
     /**
      * Description for the configuration.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of IAM Instance Profile.
      */
-    readonly instanceProfileName: pulumi.Input<string>;
+    instanceProfileName: pulumi.Input<string>;
     /**
      * Set of EC2 Instance Types.
      */
-    readonly instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of EC2 Key Pair.
      */
-    readonly keyPair?: pulumi.Input<string>;
+    keyPair?: pulumi.Input<string>;
     /**
      * Configuration block with logging settings. Detailed below.
      */
-    readonly logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
+    logging?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationLogging>;
     /**
      * Name for the configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
-    readonly resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Set of EC2 Security Group identifiers.
      */
-    readonly securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of SNS Topic.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
     /**
      * EC2 Subnet identifier. Also requires `securityGroupIds` argument.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
      */
-    readonly terminateInstanceOnFailure?: pulumi.Input<boolean>;
+    terminateInstanceOnFailure?: pulumi.Input<boolean>;
 }

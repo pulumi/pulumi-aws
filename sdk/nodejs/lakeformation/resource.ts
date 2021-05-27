@@ -101,15 +101,15 @@ export interface ResourceState {
     /**
      * Amazon Resource Name (ARN) of the resource, an S3 path.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * (Optional) The date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly lastModified?: pulumi.Input<string>;
+    lastModified?: pulumi.Input<string>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }
 
 /**
@@ -119,9 +119,9 @@ export interface ResourceArgs {
     /**
      * Amazon Resource Name (ARN) of the resource, an S3 path.
      */
-    readonly arn: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
     /**
      * Role that has read/write access to the resource. If not provided, the Lake Formation service-linked role must exist and is used.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }

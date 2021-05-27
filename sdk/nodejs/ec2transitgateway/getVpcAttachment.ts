@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         name: "vpc-id",
  *         values: ["vpc-12345678"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  * ### By Identifier
  *
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.ec2transitgateway.getVpcAttachment({
  *     id: "tgw-attach-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVpcAttachment(args?: GetVpcAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcAttachmentResult> {
@@ -56,15 +56,15 @@ export interface GetVpcAttachmentArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetVpcAttachmentFilter[];
+    filters?: inputs.ec2transitgateway.GetVpcAttachmentFilter[];
     /**
      * Identifier of the EC2 Transit Gateway VPC Attachment.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

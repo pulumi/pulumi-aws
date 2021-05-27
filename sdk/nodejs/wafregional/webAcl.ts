@@ -209,35 +209,35 @@ export interface WebAclState {
     /**
      * Amazon Resource Name (ARN) of the WAF Regional WebACL.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    readonly defaultAction?: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
+    defaultAction?: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    readonly metricName?: pulumi.Input<string>;
+    metricName?: pulumi.Input<string>;
     /**
      * The name or description of the web ACL.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -247,29 +247,29 @@ export interface WebAclArgs {
     /**
      * The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
      */
-    readonly defaultAction: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
+    defaultAction: pulumi.Input<inputs.wafregional.WebAclDefaultAction>;
     /**
      * Configuration block to enable WAF logging. Detailed below.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.wafregional.WebAclLoggingConfiguration>;
     /**
      * The name or description for the Amazon CloudWatch metric of this web ACL.
      */
-    readonly metricName: pulumi.Input<string>;
+    metricName: pulumi.Input<string>;
     /**
      * The name or description of the web ACL.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Set of configuration blocks containing rules for the web ACL. Detailed below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.wafregional.WebAclRule>[]>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

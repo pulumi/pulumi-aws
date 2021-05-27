@@ -147,19 +147,19 @@ export interface TargetGroupAttachmentState {
     /**
      * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The port on which targets receive traffic.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The ARN of the target group with which to register targets
      */
-    readonly targetGroupArn?: pulumi.Input<string>;
+    targetGroupArn?: pulumi.Input<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
 }
 
 /**
@@ -169,17 +169,17 @@ export interface TargetGroupAttachmentArgs {
     /**
      * The Availability Zone where the IP address of the target is to be registered. If the private ip address is outside of the VPC scope, this value must be set to 'all'.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The port on which targets receive traffic.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * The ARN of the target group with which to register targets
      */
-    readonly targetGroupArn: pulumi.Input<string>;
+    targetGroupArn: pulumi.Input<string>;
     /**
      * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
 }

@@ -185,55 +185,55 @@ export interface ImageRecipeState {
     /**
      * (Required) Amazon Resource Name (ARN) of the image recipe.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block(s) with block device mappings for the the image recipe. Detailed below.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    readonly components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
+    components?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
     /**
      * Date the image recipe was created.
      */
-    readonly dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string>;
     /**
      * Description of the image recipe.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the image recipe.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner of the image recipe.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Platform of the image recipe.
      */
-    readonly parentImage?: pulumi.Input<string>;
+    parentImage?: pulumi.Input<string>;
     /**
      * Platform of the image recipe.
      */
-    readonly platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the image recipe.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    readonly workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string>;
 }
 
 /**
@@ -243,37 +243,37 @@ export interface ImageRecipeArgs {
     /**
      * Configuration block(s) with block device mappings for the the image recipe. Detailed below.
      */
-    readonly blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
+    blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeBlockDeviceMapping>[]>;
     /**
      * Ordered configuration block(s) with components for the image recipe. Detailed below.
      */
-    readonly components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
+    components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponent>[]>;
     /**
      * Description of the image recipe.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the image recipe.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Platform of the image recipe.
      */
-    readonly parentImage: pulumi.Input<string>;
+    parentImage: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the image recipe.
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
     /**
      * The working directory to be used during build and test workflows.
      */
-    readonly workingDirectory?: pulumi.Input<string>;
+    workingDirectory?: pulumi.Input<string>;
 }

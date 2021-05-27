@@ -156,23 +156,23 @@ export interface DeliveryChannelState {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    readonly s3BucketName?: pulumi.Input<string>;
+    s3BucketName?: pulumi.Input<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    readonly s3KeyPrefix?: pulumi.Input<string>;
+    s3KeyPrefix?: pulumi.Input<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
+    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
 }
 
 /**
@@ -182,21 +182,21 @@ export interface DeliveryChannelArgs {
     /**
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
-    readonly s3BucketName: pulumi.Input<string>;
+    s3BucketName: pulumi.Input<string>;
     /**
      * The prefix for the specified S3 bucket.
      */
-    readonly s3KeyPrefix?: pulumi.Input<string>;
+    s3KeyPrefix?: pulumi.Input<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
-    readonly snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
+    snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
     /**
      * The ARN of the SNS topic that AWS Config delivers notifications to.
      */
-    readonly snsTopicArn?: pulumi.Input<string>;
+    snsTopicArn?: pulumi.Input<string>;
 }

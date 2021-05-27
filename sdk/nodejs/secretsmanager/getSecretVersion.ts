@@ -55,15 +55,15 @@ export interface GetSecretVersionArgs {
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
      */
-    readonly secretId: string;
+    secretId: string;
     /**
      * Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
      */
-    readonly versionId?: string;
+    versionId?: string;
     /**
      * Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
      */
-    readonly versionStage?: string;
+    versionStage?: string;
 }
 
 /**

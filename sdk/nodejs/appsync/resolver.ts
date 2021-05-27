@@ -226,43 +226,43 @@ export interface ResolverState {
     /**
      * The API ID for the GraphQL API.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * The ARN
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The CachingConfig.
      */
-    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
      * The DataSource name.
      */
-    readonly dataSource?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
     /**
      * The field name from the schema defined in the GraphQL API.
      */
-    readonly field?: pulumi.Input<string>;
+    field?: pulumi.Input<string>;
     /**
      * The resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The PipelineConfig.
      */
-    readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
      * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly requestTemplate?: pulumi.Input<string>;
+    requestTemplate?: pulumi.Input<string>;
     /**
      * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly responseTemplate?: pulumi.Input<string>;
+    responseTemplate?: pulumi.Input<string>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -272,37 +272,37 @@ export interface ResolverArgs {
     /**
      * The API ID for the GraphQL API.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * The CachingConfig.
      */
-    readonly cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
+    cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfig>;
     /**
      * The DataSource name.
      */
-    readonly dataSource?: pulumi.Input<string>;
+    dataSource?: pulumi.Input<string>;
     /**
      * The field name from the schema defined in the GraphQL API.
      */
-    readonly field: pulumi.Input<string>;
+    field: pulumi.Input<string>;
     /**
      * The resolver type. Valid values are `UNIT` and `PIPELINE`.
      */
-    readonly kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
     /**
      * The PipelineConfig.
      */
-    readonly pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
+    pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfig>;
     /**
      * The request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly requestTemplate?: pulumi.Input<string>;
+    requestTemplate?: pulumi.Input<string>;
     /**
      * The response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
      */
-    readonly responseTemplate?: pulumi.Input<string>;
+    responseTemplate?: pulumi.Input<string>;
     /**
      * The type name from the schema defined in the GraphQL API.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

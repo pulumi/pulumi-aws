@@ -148,43 +148,43 @@ export interface KeyState {
     /**
      * The Amazon Resource Name (ARN) of the key.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
-    readonly customerMasterKeySpec?: pulumi.Input<string>;
+    customerMasterKeySpec?: pulumi.Input<string>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    readonly deletionWindowInDays?: pulumi.Input<number>;
+    deletionWindowInDays?: pulumi.Input<number>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
      */
-    readonly enableKeyRotation?: pulumi.Input<boolean>;
+    enableKeyRotation?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * The globally unique identifier for the key.
      */
-    readonly keyId?: pulumi.Input<string>;
+    keyId?: pulumi.Input<string>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
-    readonly keyUsage?: pulumi.Input<string>;
+    keyUsage?: pulumi.Input<string>;
     /**
      * A valid policy JSON document.
      */
-    readonly policy?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    policy?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -195,32 +195,32 @@ export interface KeyArgs {
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
-    readonly customerMasterKeySpec?: pulumi.Input<string>;
+    customerMasterKeySpec?: pulumi.Input<string>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
      */
-    readonly deletionWindowInDays?: pulumi.Input<number>;
+    deletionWindowInDays?: pulumi.Input<number>;
     /**
      * The description of the key as viewed in AWS console.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies whether [key rotation](http://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) is enabled. Defaults to false.
      */
-    readonly enableKeyRotation?: pulumi.Input<boolean>;
+    enableKeyRotation?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key is enabled. Defaults to true.
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
      * Defaults to `ENCRYPT_DECRYPT`.
      */
-    readonly keyUsage?: pulumi.Input<string>;
+    keyUsage?: pulumi.Input<string>;
     /**
      * A valid policy JSON document.
      */
-    readonly policy?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    policy?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

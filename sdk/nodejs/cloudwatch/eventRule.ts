@@ -179,47 +179,47 @@ export interface EventRuleState {
     /**
      * The Amazon Resource Name (ARN) of the rule.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
      */
-    readonly eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string>;
     /**
      * Whether the rule should be enabled (defaults to `true`).
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
      */
-    readonly scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -229,41 +229,41 @@ export interface EventRuleArgs {
     /**
      * The description of the rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The event bus to associate with this rule. If you omit this, the `default` event bus is used.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * The event pattern described a JSON object. At least one of `scheduleExpression` or `eventPattern` is required. See full documentation of [Events and Event Patterns in EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) for details.
      */
-    readonly eventPattern?: pulumi.Input<string>;
+    eventPattern?: pulumi.Input<string>;
     /**
      * Whether the rule should be enabled (defaults to `true`).
      */
-    readonly isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the rule. If omitted, this provider will assign a random, unique name. Conflicts with `namePrefix`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The scheduling expression. For example, `cron(0 20 * * ? *)` or `rate(5 minutes)`. At least one of `scheduleExpression` or `eventPattern` is required. Can only be used on the default event bus.
      */
-    readonly scheduleExpression?: pulumi.Input<string>;
+    scheduleExpression?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

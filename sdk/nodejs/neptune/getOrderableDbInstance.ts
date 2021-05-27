@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *         "db.r4.large",
  *         "db.t3.medium",
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableDbInstanceResult> {
@@ -50,27 +50,27 @@ export interface GetOrderableDbInstanceArgs {
     /**
      * DB engine. (Default: `neptune`)
      */
-    readonly engine?: string;
+    engine?: string;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
      */
-    readonly engineVersion?: string;
+    engineVersion?: string;
     /**
      * DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
      */
-    readonly instanceClass?: string;
+    instanceClass?: string;
     /**
      * License model. (Default: `amazon-license`)
      */
-    readonly licenseModel?: string;
+    licenseModel?: string;
     /**
      * Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    readonly preferredInstanceClasses?: string[];
+    preferredInstanceClasses?: string[];
     /**
      * Enable to show only VPC offerings.
      */
-    readonly vpc?: boolean;
+    vpc?: boolean;
 }
 
 /**

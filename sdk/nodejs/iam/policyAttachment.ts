@@ -154,23 +154,23 @@ export interface PolicyAttachmentState {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }
 
 /**
@@ -180,21 +180,21 @@ export interface PolicyAttachmentArgs {
     /**
      * The group(s) the policy should be applied to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
+    groups?: pulumi.Input<pulumi.Input<string | Group>[]>;
     /**
      * The name of the attachment. This cannot be an empty string.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<ARN>;
     /**
      * The role(s) the policy should be applied to
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
+    roles?: pulumi.Input<pulumi.Input<string | Role>[]>;
     /**
      * The user(s) the policy should be applied to
      */
-    readonly users?: pulumi.Input<pulumi.Input<string | User>[]>;
+    users?: pulumi.Input<pulumi.Input<string | User>[]>;
 }

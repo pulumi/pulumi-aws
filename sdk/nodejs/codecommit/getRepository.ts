@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.codecommit.getRepository({
  *     repositoryName: "MyTestRepository",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
@@ -39,7 +39,7 @@ export interface GetRepositoryArgs {
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: string;
+    repositoryName: string;
 }
 
 /**

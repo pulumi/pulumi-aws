@@ -143,39 +143,39 @@ export interface RepositoryState {
     /**
      * The ARN of the repository
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The URL to use for cloning the repository over HTTPS.
      */
-    readonly cloneUrlHttp?: pulumi.Input<string>;
+    cloneUrlHttp?: pulumi.Input<string>;
     /**
      * The URL to use for cloning the repository over SSH.
      */
-    readonly cloneUrlSsh?: pulumi.Input<string>;
+    cloneUrlSsh?: pulumi.Input<string>;
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ID of the repository
      */
-    readonly repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName?: pulumi.Input<string>;
+    repositoryName?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -185,21 +185,21 @@ export interface RepositoryArgs {
     /**
      * The default branch of the repository. The branch specified here needs to exist.
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * The description of the repository. This needs to be less than 1000 characters
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name for the repository. This needs to be less than 100 characters.
      */
-    readonly repositoryName: pulumi.Input<string>;
+    repositoryName: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

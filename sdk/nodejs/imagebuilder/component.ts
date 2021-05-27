@@ -192,67 +192,67 @@ export interface ComponentState {
     /**
      * (Required) Amazon Resource Name (ARN) of the component.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Change description of the component.
      */
-    readonly changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string>;
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly data?: pulumi.Input<string>;
+    data?: pulumi.Input<string>;
     /**
      * Date the component was created.
      */
-    readonly dateCreated?: pulumi.Input<string>;
+    dateCreated?: pulumi.Input<string>;
     /**
      * Description of the component.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Encryption status of the component.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Name of the component.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner of the component.
      */
-    readonly owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
     /**
      * Platform of the component.
      */
-    readonly platform?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */
-    readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the component.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * Version of the component.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -262,45 +262,45 @@ export interface ComponentArgs {
     /**
      * Change description of the component.
      */
-    readonly changeDescription?: pulumi.Input<string>;
+    changeDescription?: pulumi.Input<string>;
     /**
      * Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
      */
-    readonly data?: pulumi.Input<string>;
+    data?: pulumi.Input<string>;
     /**
      * Description of the component.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * Name of the component.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Platform of the component.
      */
-    readonly platform: pulumi.Input<string>;
+    platform: pulumi.Input<string>;
     /**
      * Set of Operating Systems (OS) supported by the component.
      */
-    readonly supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedOsVersions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      */
-    readonly uri?: pulumi.Input<string>;
+    uri?: pulumi.Input<string>;
     /**
      * Version of the component.
      */
-    readonly version: pulumi.Input<string>;
+    version: pulumi.Input<string>;
 }

@@ -107,11 +107,11 @@ export interface GeoMatchSetState {
     /**
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
-    readonly geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[]>;
+    geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[]>;
     /**
      * The name or description of the Geo Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -121,9 +121,9 @@ export interface GeoMatchSetArgs {
     /**
      * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
-    readonly geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[]>;
+    geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[]>;
     /**
      * The name or description of the Geo Match Set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

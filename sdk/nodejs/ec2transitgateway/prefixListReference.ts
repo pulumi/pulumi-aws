@@ -133,20 +133,20 @@ export interface PrefixListReferenceState {
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      */
-    readonly blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean>;
     /**
      * Identifier of EC2 Prefix List.
      */
-    readonly prefixListId?: pulumi.Input<string>;
-    readonly prefixListOwnerId?: pulumi.Input<string>;
+    prefixListId?: pulumi.Input<string>;
+    prefixListOwnerId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface PrefixListReferenceArgs {
     /**
      * Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
      */
-    readonly blackhole?: pulumi.Input<boolean>;
+    blackhole?: pulumi.Input<boolean>;
     /**
      * Identifier of EC2 Prefix List.
      */
-    readonly prefixListId: pulumi.Input<string>;
+    prefixListId: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId: pulumi.Input<string>;
+    transitGatewayRouteTableId: pulumi.Input<string>;
 }

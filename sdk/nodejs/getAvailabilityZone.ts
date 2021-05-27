@@ -43,23 +43,23 @@ export interface GetAvailabilityZoneArgs {
     /**
      * Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
      */
-    readonly allAvailabilityZones?: boolean;
+    allAvailabilityZones?: boolean;
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    readonly filters?: inputs.GetAvailabilityZoneFilter[];
+    filters?: inputs.GetAvailabilityZoneFilter[];
     /**
      * The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
      */
-    readonly name?: string;
+    name?: string;
     /**
      * A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
-    readonly state?: string;
+    state?: string;
     /**
      * The zone ID of the availability zone to select.
      */
-    readonly zoneId?: string;
+    zoneId?: string;
 }
 
 /**

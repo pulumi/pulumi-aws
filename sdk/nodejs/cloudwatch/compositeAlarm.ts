@@ -159,43 +159,43 @@ export interface CompositeAlarmState {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
-    readonly actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description for the composite alarm.
      */
-    readonly alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string>;
     /**
      * The name for the composite alarm. This name must be unique within the region.
      */
-    readonly alarmName?: pulumi.Input<string>;
+    alarmName?: pulumi.Input<string>;
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      */
-    readonly alarmRule?: pulumi.Input<string>;
+    alarmRule?: pulumi.Input<string>;
     /**
      * The ARN of the composite alarm.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -205,37 +205,37 @@ export interface CompositeAlarmArgs {
     /**
      * Indicates whether actions should be executed during any changes to the alarm state of the composite alarm. Defaults to `true`.
      */
-    readonly actionsEnabled?: pulumi.Input<boolean>;
+    actionsEnabled?: pulumi.Input<boolean>;
     /**
      * The set of actions to execute when this alarm transitions to the `ALARM` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
+    alarmActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description for the composite alarm.
      */
-    readonly alarmDescription?: pulumi.Input<string>;
+    alarmDescription?: pulumi.Input<string>;
     /**
      * The name for the composite alarm. This name must be unique within the region.
      */
-    readonly alarmName: pulumi.Input<string>;
+    alarmName: pulumi.Input<string>;
     /**
      * An expression that specifies which other alarms are to be evaluated to determine this composite alarm's state. For syntax, see [Creating a Composite Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Composite_Alarm.html). The maximum length is 10240 characters.
      */
-    readonly alarmRule: pulumi.Input<string>;
+    alarmRule: pulumi.Input<string>;
     /**
      * The set of actions to execute when this alarm transitions to the `INSUFFICIENT_DATA` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
+    insufficientDataActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The set of actions to execute when this alarm transitions to an `OK` state from any other state. Each action is specified as an ARN. Up to 5 actions are allowed.
      */
-    readonly okActions?: pulumi.Input<pulumi.Input<string>[]>;
+    okActions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to associate with the alarm. Up to 50 tags are allowed. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

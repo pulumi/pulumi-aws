@@ -128,23 +128,23 @@ export interface AuthorizationRuleState {
     /**
      * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    readonly accessGroupId?: pulumi.Input<string>;
+    accessGroupId?: pulumi.Input<string>;
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    readonly authorizeAllGroups?: pulumi.Input<boolean>;
+    authorizeAllGroups?: pulumi.Input<boolean>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId?: pulumi.Input<string>;
+    clientVpnEndpointId?: pulumi.Input<string>;
     /**
      * A brief description of the authorization rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
-    readonly targetNetworkCidr?: pulumi.Input<string>;
+    targetNetworkCidr?: pulumi.Input<string>;
 }
 
 /**
@@ -154,21 +154,21 @@ export interface AuthorizationRuleArgs {
     /**
      * The ID of the group to which the authorization rule grants access. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    readonly accessGroupId?: pulumi.Input<string>;
+    accessGroupId?: pulumi.Input<string>;
     /**
      * Indicates whether the authorization rule grants access to all clients. One of `accessGroupId` or `authorizeAllGroups` must be set.
      */
-    readonly authorizeAllGroups?: pulumi.Input<boolean>;
+    authorizeAllGroups?: pulumi.Input<boolean>;
     /**
      * The ID of the Client VPN endpoint.
      */
-    readonly clientVpnEndpointId: pulumi.Input<string>;
+    clientVpnEndpointId: pulumi.Input<string>;
     /**
      * A brief description of the authorization rule.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
      */
-    readonly targetNetworkCidr: pulumi.Input<string>;
+    targetNetworkCidr: pulumi.Input<string>;
 }

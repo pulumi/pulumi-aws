@@ -59,11 +59,11 @@ export interface GetClusterArgs {
     /**
      * The cluster identifier
      */
-    readonly clusterIdentifier: string;
+    clusterIdentifier: string;
     /**
      * The tags associated to the cluster
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

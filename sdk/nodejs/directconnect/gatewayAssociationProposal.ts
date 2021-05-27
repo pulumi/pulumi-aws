@@ -132,27 +132,27 @@ export interface GatewayAssociationProposalState {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    readonly allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    readonly associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    readonly associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    readonly associatedGatewayType?: pulumi.Input<string>;
+    associatedGatewayType?: pulumi.Input<string>;
     /**
      * Direct Connect Gateway identifier.
      */
-    readonly dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string>;
     /**
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
-    readonly dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    dxGatewayOwnerAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -162,17 +162,17 @@ export interface GatewayAssociationProposalArgs {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    readonly allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      */
-    readonly associatedGatewayId: pulumi.Input<string>;
+    associatedGatewayId: pulumi.Input<string>;
     /**
      * Direct Connect Gateway identifier.
      */
-    readonly dxGatewayId: pulumi.Input<string>;
+    dxGatewayId: pulumi.Input<string>;
     /**
      * AWS Account identifier of the Direct Connect Gateway's owner.
      */
-    readonly dxGatewayOwnerAccountId: pulumi.Input<string>;
+    dxGatewayOwnerAccountId: pulumi.Input<string>;
 }

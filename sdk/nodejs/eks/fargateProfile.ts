@@ -169,33 +169,33 @@ export interface FargateProfileState {
     /**
      * Amazon Resource Name (ARN) of the EKS Fargate Profile.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Name of the EKS Fargate Profile.
      */
-    readonly fargateProfileName?: pulumi.Input<string>;
+    fargateProfileName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
-    readonly podExecutionRoleArn?: pulumi.Input<string>;
+    podExecutionRoleArn?: pulumi.Input<string>;
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
-    readonly selectors?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
+    selectors?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
     /**
      * Status of the EKS Fargate Profile.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -205,23 +205,23 @@ export interface FargateProfileArgs {
     /**
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
-    readonly clusterName: pulumi.Input<string>;
+    clusterName: pulumi.Input<string>;
     /**
      * Name of the EKS Fargate Profile.
      */
-    readonly fargateProfileName?: pulumi.Input<string>;
+    fargateProfileName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
-    readonly podExecutionRoleArn: pulumi.Input<string>;
+    podExecutionRoleArn: pulumi.Input<string>;
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
-    readonly selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
     /**
      * Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
      */
-    readonly subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

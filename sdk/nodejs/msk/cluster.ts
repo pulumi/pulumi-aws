@@ -297,76 +297,76 @@ export interface ClusterState {
     /**
      * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    readonly bootstrapBrokers?: pulumi.Input<string>;
+    bootstrapBrokers?: pulumi.Input<string>;
     /**
      * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `clientAuthentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    readonly bootstrapBrokersSaslScram?: pulumi.Input<string>;
+    bootstrapBrokersSaslScram?: pulumi.Input<string>;
     /**
      * A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `clientBroker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    readonly bootstrapBrokersTls?: pulumi.Input<string>;
+    bootstrapBrokersTls?: pulumi.Input<string>;
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    readonly brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
+    brokerNodeGroupInfo?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    readonly clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
     /**
      * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
-    readonly currentVersion?: pulumi.Input<string>;
+    currentVersion?: pulumi.Input<string>;
     /**
      * Configuration block for specifying encryption. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
-    readonly enhancedMonitoring?: pulumi.Input<string>;
+    enhancedMonitoring?: pulumi.Input<string>;
     /**
      * Specify the desired Kafka software version.
      */
-    readonly kafkaVersion?: pulumi.Input<string>;
+    kafkaVersion?: pulumi.Input<string>;
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      */
-    readonly loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
-    readonly numberOfBrokerNodes?: pulumi.Input<number>;
+    numberOfBrokerNodes?: pulumi.Input<number>;
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
-    readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
-    readonly zookeeperConnectString?: pulumi.Input<string>;
+    zookeeperConnectString?: pulumi.Input<string>;
 }
 
 /**
@@ -376,49 +376,49 @@ export interface ClusterArgs {
     /**
      * Configuration block for the broker nodes of the Kafka cluster.
      */
-    readonly brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
+    brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
      * Configuration block for specifying a client authentication. See below.
      */
-    readonly clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
+    clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthentication>;
     /**
      * Name of the MSK cluster.
      */
-    readonly clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
      */
-    readonly configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
+    configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
     /**
      * Configuration block for specifying encryption. See below.
      */
-    readonly encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
+    encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfo>;
     /**
      * Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
      */
-    readonly enhancedMonitoring?: pulumi.Input<string>;
+    enhancedMonitoring?: pulumi.Input<string>;
     /**
      * Specify the desired Kafka software version.
      */
-    readonly kafkaVersion: pulumi.Input<string>;
+    kafkaVersion: pulumi.Input<string>;
     /**
      * Configuration block for streaming broker logs to Cloudwatch/S3/Kinesis Firehose. See below.
      */
-    readonly loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
+    loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfo>;
     /**
      * The desired total number of broker nodes in the kafka cluster.  It must be a multiple of the number of specified client subnets.
      */
-    readonly numberOfBrokerNodes: pulumi.Input<number>;
+    numberOfBrokerNodes: pulumi.Input<number>;
     /**
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
-    readonly openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -116,31 +116,31 @@ export interface RouteTableState {
     /**
      * EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Boolean whether this is the default association route table for the EC2 Transit Gateway.
      */
-    readonly defaultAssociationRouteTable?: pulumi.Input<boolean>;
+    defaultAssociationRouteTable?: pulumi.Input<boolean>;
     /**
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
-    readonly defaultPropagationRouteTable?: pulumi.Input<boolean>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    defaultPropagationRouteTable?: pulumi.Input<boolean>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: pulumi.Input<string>;
+    transitGatewayId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
-    readonly transitGatewayId: pulumi.Input<string>;
+    transitGatewayId: pulumi.Input<string>;
 }

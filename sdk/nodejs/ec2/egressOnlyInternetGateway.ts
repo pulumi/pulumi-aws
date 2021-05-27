@@ -107,22 +107,22 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
  */
 export interface EgressOnlyInternetGatewayState {
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a EgressOnlyInternetGateway resource.
  */
 export interface EgressOnlyInternetGatewayArgs {
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

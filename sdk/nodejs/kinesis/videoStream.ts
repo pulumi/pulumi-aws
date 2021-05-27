@@ -149,38 +149,38 @@ export interface VideoStreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A time stamp that indicates when the stream was created.
      */
-    readonly creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string>;
     /**
      * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
-    readonly dataRetentionInHours?: pulumi.Input<number>;
+    dataRetentionInHours?: pulumi.Input<number>;
     /**
      * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
-    readonly mediaType?: pulumi.Input<string>;
+    mediaType?: pulumi.Input<string>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the stream.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -190,24 +190,24 @@ export interface VideoStreamArgs {
     /**
      * The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. The default value is `0`, indicating that the stream does not persist data.
      */
-    readonly dataRetentionInHours?: pulumi.Input<number>;
+    dataRetentionInHours?: pulumi.Input<number>;
     /**
      * The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
      */
-    readonly mediaType?: pulumi.Input<string>;
+    mediaType?: pulumi.Input<string>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -114,23 +114,23 @@ export interface PermissionState {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    readonly allowSsh?: pulumi.Input<boolean>;
+    allowSsh?: pulumi.Input<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    readonly allowSudo?: pulumi.Input<boolean>;
+    allowSudo?: pulumi.Input<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
-    readonly level?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
     /**
      * The stack to set the permissions for
      */
-    readonly stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    readonly userArn?: pulumi.Input<string>;
+    userArn?: pulumi.Input<string>;
 }
 
 /**
@@ -140,21 +140,21 @@ export interface PermissionArgs {
     /**
      * Whether the user is allowed to use SSH to communicate with the instance
      */
-    readonly allowSsh?: pulumi.Input<boolean>;
+    allowSsh?: pulumi.Input<boolean>;
     /**
      * Whether the user is allowed to use sudo to elevate privileges
      */
-    readonly allowSudo?: pulumi.Input<boolean>;
+    allowSudo?: pulumi.Input<boolean>;
     /**
      * The users permission level. Mus be one of `deny`, `show`, `deploy`, `manage`, `iamOnly`
      */
-    readonly level?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
     /**
      * The stack to set the permissions for
      */
-    readonly stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string>;
     /**
      * The user's IAM ARN to set permissions for
      */
-    readonly userArn: pulumi.Input<string>;
+    userArn: pulumi.Input<string>;
 }

@@ -141,15 +141,15 @@ export interface LoadBalancerBackendServerPolicyState {
     /**
      * The instance port to apply the policy to.
      */
-    readonly instancePort?: pulumi.Input<number>;
+    instancePort?: pulumi.Input<number>;
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -159,13 +159,13 @@ export interface LoadBalancerBackendServerPolicyArgs {
     /**
      * The instance port to apply the policy to.
      */
-    readonly instancePort: pulumi.Input<number>;
+    instancePort: pulumi.Input<number>;
     /**
      * The load balancer to attach the policy to.
      */
-    readonly loadBalancerName: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * List of Policy Names to apply to the backend server.
      */
-    readonly policyNames?: pulumi.Input<pulumi.Input<string>[]>;
+    policyNames?: pulumi.Input<pulumi.Input<string>[]>;
 }

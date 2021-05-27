@@ -100,11 +100,11 @@ export interface VpnGatewayRoutePropagationState {
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
-    readonly routeTableId?: pulumi.Input<string>;
+    routeTableId?: pulumi.Input<string>;
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -114,9 +114,9 @@ export interface VpnGatewayRoutePropagationArgs {
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
-    readonly routeTableId: pulumi.Input<string>;
+    routeTableId: pulumi.Input<string>;
     /**
      * The id of the `aws.ec2.VpnGateway` to propagate routes from.
      */
-    readonly vpnGatewayId: pulumi.Input<string>;
+    vpnGatewayId: pulumi.Input<string>;
 }

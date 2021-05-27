@@ -54,12 +54,12 @@ export interface GetEbsVolumesArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ebs.GetEbsVolumesFilter[];
+    filters?: inputs.ebs.GetEbsVolumesFilter[];
     /**
      * A map of tags, each pair of which must exactly match
      * a pair on the desired volumes.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

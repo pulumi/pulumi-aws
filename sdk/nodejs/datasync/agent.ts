@@ -147,43 +147,43 @@ export interface AgentState {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      */
-    readonly activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the DataSync Agent.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Name of the DataSync Agent.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
-    readonly privateLinkEndpoint?: pulumi.Input<string>;
+    privateLinkEndpoint?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
-    readonly securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
-    readonly subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      */
-    readonly vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
 }
 
 /**
@@ -193,37 +193,37 @@ export interface AgentArgs {
     /**
      * DataSync Agent activation key during resource creation. Conflicts with `ipAddress`. If an `ipAddress` is provided instead, the provider will retrieve the `activationKey` as part of the resource creation.
      */
-    readonly activationKey?: pulumi.Input<string>;
+    activationKey?: pulumi.Input<string>;
     /**
      * DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activationKey`. DataSync Agent must be accessible on port 80 from where the provider is running.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Name of the DataSync Agent.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
-    readonly privateLinkEndpoint?: pulumi.Input<string>;
+    privateLinkEndpoint?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
-    readonly securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
-    readonly subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
+    subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      */
-    readonly vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
 }

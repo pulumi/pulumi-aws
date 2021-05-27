@@ -110,11 +110,11 @@ export interface SecurityConfigurationState {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration?: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    encryptionConfiguration?: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -124,9 +124,9 @@ export interface SecurityConfigurationArgs {
     /**
      * Configuration block containing encryption configuration. Detailed below.
      */
-    readonly encryptionConfiguration: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
+    encryptionConfiguration: pulumi.Input<inputs.glue.SecurityConfigurationEncryptionConfiguration>;
     /**
      * Name of the security configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

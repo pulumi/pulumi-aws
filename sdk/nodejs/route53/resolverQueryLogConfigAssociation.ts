@@ -104,11 +104,11 @@ export interface ResolverQueryLogConfigAssociationState {
     /**
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      */
-    readonly resolverQueryLogConfigId?: pulumi.Input<string>;
+    resolverQueryLogConfigId?: pulumi.Input<string>;
     /**
      * The ID of a VPC that you want this query logging configuration to log queries for.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface ResolverQueryLogConfigAssociationArgs {
     /**
      * The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
      */
-    readonly resolverQueryLogConfigId: pulumi.Input<string>;
+    resolverQueryLogConfigId: pulumi.Input<string>;
     /**
      * The ID of a VPC that you want this query logging configuration to log queries for.
      */
-    readonly resourceId: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
 }

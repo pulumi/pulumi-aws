@@ -53,31 +53,31 @@ export interface GetBucketObjectsArgs {
     /**
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
-    readonly bucket: string;
+    bucket: string;
     /**
      * A character used to group keys (Default: none)
      */
-    readonly delimiter?: string;
+    delimiter?: string;
     /**
      * Encodes keys using this method (Default: none; besides none, only "url" can be used)
      */
-    readonly encodingType?: string;
+    encodingType?: string;
     /**
      * Boolean specifying whether to populate the owner list (Default: false)
      */
-    readonly fetchOwner?: boolean;
+    fetchOwner?: boolean;
     /**
      * Maximum object keys to return (Default: 1000)
      */
-    readonly maxKeys?: number;
+    maxKeys?: number;
     /**
      * Limits results to object keys with this prefix (Default: none)
      */
-    readonly prefix?: string;
+    prefix?: string;
     /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      */
-    readonly startAfter?: string;
+    startAfter?: string;
 }
 
 /**

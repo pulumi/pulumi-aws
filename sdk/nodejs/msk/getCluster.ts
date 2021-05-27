@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.msk.getCluster({
  *     clusterName: "example",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
@@ -40,11 +40,11 @@ export interface GetClusterArgs {
     /**
      * Name of the cluster.
      */
-    readonly clusterName: string;
+    clusterName: string;
     /**
      * Map of key-value pairs assigned to the cluster.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -180,23 +180,23 @@ export interface DeploymentConfigState {
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    readonly computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string>;
     /**
      * The AWS Assigned deployment config id
      */
-    readonly deploymentConfigId?: pulumi.Input<string>;
+    deploymentConfigId?: pulumi.Input<string>;
     /**
      * The name of the deployment config.
      */
-    readonly deploymentConfigName?: pulumi.Input<string>;
+    deploymentConfigName?: pulumi.Input<string>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    readonly trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
 }
 
 /**
@@ -206,17 +206,17 @@ export interface DeploymentConfigArgs {
     /**
      * The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
      */
-    readonly computePlatform?: pulumi.Input<string>;
+    computePlatform?: pulumi.Input<string>;
     /**
      * The name of the deployment config.
      */
-    readonly deploymentConfigName: pulumi.Input<string>;
+    deploymentConfigName: pulumi.Input<string>;
     /**
      * A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
      */
-    readonly minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
+    minimumHealthyHosts?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHosts>;
     /**
      * A trafficRoutingConfig block. Traffic Routing Config is documented below.
      */
-    readonly trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
+    trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfig>;
 }

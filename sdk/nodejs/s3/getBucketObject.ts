@@ -78,20 +78,20 @@ export interface GetBucketObjectArgs {
     /**
      * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      */
-    readonly bucket: string;
+    bucket: string;
     /**
      * The full path to the object inside the bucket
      */
-    readonly key: string;
-    readonly range?: string;
+    key: string;
+    range?: string;
     /**
      * A map of tags assigned to the object.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * Specific version ID of the object returned (defaults to latest version)
      */
-    readonly versionId?: string;
+    versionId?: string;
 }
 
 /**

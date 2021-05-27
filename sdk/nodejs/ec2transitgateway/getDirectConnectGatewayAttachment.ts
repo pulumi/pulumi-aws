@@ -45,19 +45,19 @@ export interface GetDirectConnectGatewayAttachmentArgs {
     /**
      * Identifier of the Direct Connect Gateway.
      */
-    readonly dxGatewayId?: string;
+    dxGatewayId?: string;
     /**
      * Configuration block(s) for filtering. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
+    filters?: inputs.ec2transitgateway.GetDirectConnectGatewayAttachmentFilter[];
     /**
      * A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * Identifier of the EC2 Transit Gateway.
      */
-    readonly transitGatewayId?: string;
+    transitGatewayId?: string;
 }
 
 /**

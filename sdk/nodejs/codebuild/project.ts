@@ -404,95 +404,95 @@ export interface ProjectState {
     /**
      * ARN of the CodeBuild project.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    artifacts?: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
-    readonly badgeEnabled?: pulumi.Input<boolean>;
+    badgeEnabled?: pulumi.Input<boolean>;
     /**
      * URL of the build badge when `badgeEnabled` is enabled.
      */
-    readonly badgeUrl?: pulumi.Input<string>;
+    badgeUrl?: pulumi.Input<string>;
     /**
      * Defines the batch build options for the project.
      */
-    readonly buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      */
-    readonly buildTimeout?: pulumi.Input<number>;
+    buildTimeout?: pulumi.Input<number>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      */
-    readonly concurrentBuildLimit?: pulumi.Input<number>;
+    concurrentBuildLimit?: pulumi.Input<number>;
     /**
      * Short description of the project.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
      */
-    readonly encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    environment?: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
      * A set of file system locations to to mount inside the build. File system locations are documented below.
      */
-    readonly fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
      * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */
-    readonly queuedTimeout?: pulumi.Input<number>;
+    queuedTimeout?: pulumi.Input<number>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
      * Specifies the service role ARN for the batch build project.
      */
-    readonly serviceRole?: pulumi.Input<string>;
+    serviceRole?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly source?: pulumi.Input<inputs.codebuild.ProjectSource>;
+    source?: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
-    readonly sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
 }
 
 /**
@@ -502,85 +502,85 @@ export interface ProjectArgs {
     /**
      * Configuration block. Detailed below.
      */
-    readonly artifacts: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
+    artifacts: pulumi.Input<inputs.codebuild.ProjectArtifacts>;
     /**
      * Generates a publicly-accessible URL for the projects build badge. Available as `badgeUrl` attribute when enabled.
      */
-    readonly badgeEnabled?: pulumi.Input<boolean>;
+    badgeEnabled?: pulumi.Input<boolean>;
     /**
      * Defines the batch build options for the project.
      */
-    readonly buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
+    buildBatchConfig?: pulumi.Input<inputs.codebuild.ProjectBuildBatchConfig>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.
      */
-    readonly buildTimeout?: pulumi.Input<number>;
+    buildTimeout?: pulumi.Input<number>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
+    cache?: pulumi.Input<inputs.codebuild.ProjectCache>;
     /**
      * Specify a maximum number of concurrent builds for the project. The value specified must be greater than 0 and less than the account concurrent running builds limit.
      */
-    readonly concurrentBuildLimit?: pulumi.Input<number>;
+    concurrentBuildLimit?: pulumi.Input<number>;
     /**
      * Short description of the project.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting the build project's build output artifacts.
      */
-    readonly encryptionKey?: pulumi.Input<string>;
+    encryptionKey?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
+    environment: pulumi.Input<inputs.codebuild.ProjectEnvironment>;
     /**
      * A set of file system locations to to mount inside the build. File system locations are documented below.
      */
-    readonly fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
+    fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectFileSystemLocation>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
+    logsConfig?: pulumi.Input<inputs.codebuild.ProjectLogsConfig>;
     /**
      * Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it times out. The default is 8 hours.
      */
-    readonly queuedTimeout?: pulumi.Input<number>;
+    queuedTimeout?: pulumi.Input<number>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
+    secondaryArtifacts?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondaryArtifact>[]>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
+    secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[]>;
     /**
      * Specifies the service role ARN for the batch build project.
      */
-    readonly serviceRole: pulumi.Input<string>;
+    serviceRole: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly source: pulumi.Input<inputs.codebuild.ProjectSource>;
+    source: pulumi.Input<inputs.codebuild.ProjectSource>;
     /**
      * Version of the build input to be built for this project. If not specified, the latest version is used.
      */
-    readonly sourceVersion?: pulumi.Input<string>;
+    sourceVersion?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
+    vpcConfig?: pulumi.Input<inputs.codebuild.ProjectVpcConfig>;
 }

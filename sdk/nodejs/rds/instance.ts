@@ -575,64 +575,64 @@ export interface InstanceState {
     /**
      * The hostname of the RDS instance. See also `endpoint` and `port`.
      */
-    readonly address?: pulumi.Input<string>;
+    address?: pulumi.Input<string>;
     /**
      * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
-    readonly allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number>;
     /**
      * Indicates that major version
      * upgrades are allowed. Changing this parameter does not result in an outage and
      * the change is asynchronously applied as soon as possible.
      */
-    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
-    readonly applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean>;
     /**
      * The ARN of the RDS instance.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Indicates that minor engine upgrades
      * will be applied automatically to the DB instance during the maintenance window.
      * Defaults to true.
      */
-    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The AZ for the RDS instance.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
      * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
      */
-    readonly backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
      * not overlap with `maintenanceWindow`.
      */
-    readonly backupWindow?: pulumi.Input<string>;
+    backupWindow?: pulumi.Input<string>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
-    readonly caCertIdentifier?: pulumi.Input<string>;
+    caCertIdentifier?: pulumi.Input<string>;
     /**
      * The character set name to use for DB
      * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
      * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
-    readonly characterSetName?: pulumi.Input<string>;
+    characterSetName?: pulumi.Input<string>;
     /**
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
-    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -642,31 +642,31 @@ export interface InstanceState {
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
      * for additional read replica contraints.
      */
-    readonly dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      */
-    readonly deleteAutomatedBackups?: pulumi.Input<boolean>;
+    deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    readonly deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean>;
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service.
      */
-    readonly domainIamRoleName?: pulumi.Input<string>;
+    domainIamRoleName?: pulumi.Input<string>;
     /**
      * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
      */
-    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The connection endpoint in `address:port` format.
      */
-    readonly endpoint?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -675,7 +675,7 @@ export interface InstanceState {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
@@ -683,57 +683,57 @@ export interface InstanceState {
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      */
-    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * The canonical hosted zone ID of the DB instance (to be used
      * in a Route 53 Alias record).
      */
-    readonly hostedZoneId?: pulumi.Input<string>;
+    hostedZoneId?: pulumi.Input<string>;
     /**
      * Specifies whether or
      * mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the RDS instance,
      * if omitted, this provider will assign a random, unique identifier.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass?: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
      */
-    readonly iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
      */
-    readonly latestRestorableTime?: pulumi.Input<string>;
+    latestRestorableTime?: pulumi.Input<string>;
     /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
      */
-    readonly licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -741,18 +741,18 @@ export interface InstanceState {
      * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
      * for more information.
      */
-    readonly maintenanceWindow?: pulumi.Input<string>;
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
-    readonly maxAllocatedStorage?: pulumi.Input<number>;
+    maxAllocatedStorage?: pulumi.Input<number>;
     /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable
      * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
      * Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    readonly monitoringInterval?: pulumi.Input<number>;
+    monitoringInterval?: pulumi.Input<number>;
     /**
      * The ARN for the IAM role that permits RDS
      * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
@@ -760,52 +760,52 @@ export interface InstanceState {
      * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    readonly monitoringRoleArn?: pulumi.Input<string>;
+    monitoringRoleArn?: pulumi.Input<string>;
     /**
      * Specifies if the RDS instance is multi-AZ
      */
-    readonly multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the DB option group to associate.
      */
-    readonly optionGroupName?: pulumi.Input<string>;
+    optionGroupName?: pulumi.Input<string>;
     /**
      * Name of the DB parameter group to
      * associate.
      */
-    readonly parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      */
-    readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
      * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      */
-    readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
      * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
-    readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The port on which the DB accepts connections.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly
      * accessible. Default is `false`.
      */
-    readonly publiclyAccessible?: pulumi.Input<boolean>;
-    readonly replicas?: pulumi.Input<pulumi.Input<string>[]>;
+    publiclyAccessible?: pulumi.Input<boolean>;
+    replicas?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
@@ -817,25 +817,25 @@ export interface InstanceState {
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
-    readonly replicateSourceDb?: pulumi.Input<string>;
+    replicateSourceDb?: pulumi.Input<string>;
     /**
      * The RDS Resource ID of this instance.
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
+    restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    readonly s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
+    s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -843,38 +843,38 @@ export interface InstanceState {
      * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      */
-    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this
      * database from a snapshot. This correlates to the snapshot ID you'd find in the
      * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
-    readonly snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string>;
     /**
      * The RDS instance status.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
      * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      */
-    readonly storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean>;
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | enums.rds.StorageType>;
+    storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -882,17 +882,17 @@ export interface InstanceState {
      * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
      * for more information.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
     /**
      * List of VPC security groups to
      * associate.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -902,56 +902,56 @@ export interface InstanceArgs {
     /**
      * The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
      */
-    readonly allocatedStorage?: pulumi.Input<number>;
+    allocatedStorage?: pulumi.Input<number>;
     /**
      * Indicates that major version
      * upgrades are allowed. Changing this parameter does not result in an outage and
      * the change is asynchronously applied as soon as possible.
      */
-    readonly allowMajorVersionUpgrade?: pulumi.Input<boolean>;
+    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any database modifications
      * are applied immediately, or during the next maintenance window. Default is
      * `false`. See [Amazon RDS Documentation for more
      * information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
-    readonly applyImmediately?: pulumi.Input<boolean>;
+    applyImmediately?: pulumi.Input<boolean>;
     /**
      * Indicates that minor engine upgrades
      * will be applied automatically to the DB instance during the maintenance window.
      * Defaults to true.
      */
-    readonly autoMinorVersionUpgrade?: pulumi.Input<boolean>;
+    autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * The AZ for the RDS instance.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * The days to retain backups for. Must be
      * between `0` and `35`. Must be greater than `0` if the database is used as a source for a Read Replica. [See Read Replica][1].
      */
-    readonly backupRetentionPeriod?: pulumi.Input<number>;
+    backupRetentionPeriod?: pulumi.Input<number>;
     /**
      * The daily time range (in UTC) during which
      * automated backups are created if they are enabled. Example: "09:46-10:16". Must
      * not overlap with `maintenanceWindow`.
      */
-    readonly backupWindow?: pulumi.Input<string>;
+    backupWindow?: pulumi.Input<string>;
     /**
      * The identifier of the CA certificate for the DB instance.
      */
-    readonly caCertIdentifier?: pulumi.Input<string>;
+    caCertIdentifier?: pulumi.Input<string>;
     /**
      * The character set name to use for DB
      * encoding in Oracle and Microsoft SQL instances (collation). This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
      * or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
      */
-    readonly characterSetName?: pulumi.Input<string>;
+    characterSetName?: pulumi.Input<string>;
     /**
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
-    readonly copyTagsToSnapshot?: pulumi.Input<boolean>;
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -961,27 +961,27 @@ export interface InstanceArgs {
      * action CreateDBInstanceReadReplica](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html)
      * for additional read replica contraints.
      */
-    readonly dbSubnetGroupName?: pulumi.Input<string>;
+    dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * Specifies whether to remove automated backups immediately after the DB instance is deleted. Default is `true`.
      */
-    readonly deleteAutomatedBackups?: pulumi.Input<boolean>;
+    deleteAutomatedBackups?: pulumi.Input<boolean>;
     /**
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
-    readonly deletionProtection?: pulumi.Input<boolean>;
+    deletionProtection?: pulumi.Input<boolean>;
     /**
      * The ID of the Directory Service Active Directory domain to create the instance in.
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * The name of the IAM role to be used when making API calls to the Directory Service.
      */
-    readonly domainIamRoleName?: pulumi.Input<string>;
+    domainIamRoleName?: pulumi.Input<string>;
     /**
      * Set of log types to enable for exporting to CloudWatch logs. If omitted, no logs will be exported. Valid values (depending on `engine`). MySQL and MariaDB: `audit`, `error`, `general`, `slowquery`. PostgreSQL: `postgresql`, `upgrade`. MSSQL: `agent` , `error`. Oracle: `alert`, `audit`, `listener`, `trace`.
      */
-    readonly enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) The database engine to use.  For supported values, see the Engine parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
@@ -990,7 +990,7 @@ export interface InstanceArgs {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    readonly engine?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
@@ -998,48 +998,48 @@ export interface InstanceArgs {
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
-    readonly engineVersion?: pulumi.Input<string>;
+    engineVersion?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
      * set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
      */
-    readonly finalSnapshotIdentifier?: pulumi.Input<string>;
+    finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether or
      * mappings of AWS Identity and Access Management (IAM) accounts to database
      * accounts is enabled.
      */
-    readonly iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
+    iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the RDS instance,
      * if omitted, this provider will assign a random, unique identifier.
      */
-    readonly identifier?: pulumi.Input<string>;
+    identifier?: pulumi.Input<string>;
     /**
      * Creates a unique
      * identifier beginning with the specified prefix. Conflicts with `identifier`.
      */
-    readonly identifierPrefix?: pulumi.Input<string>;
+    identifierPrefix?: pulumi.Input<string>;
     /**
      * The instance type of the RDS instance.
      */
-    readonly instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
+    instanceClass: pulumi.Input<string | enums.rds.InstanceType>;
     /**
      * The amount of provisioned IOPS. Setting this implies a
      * storageType of "io1".
      */
-    readonly iops?: pulumi.Input<number>;
+    iops?: pulumi.Input<number>;
     /**
      * The ARN for the KMS encryption key. If creating an
      * encrypted replica, set this to the destination KMS ARN.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * (Optional, but required for some DB engines, i.e. Oracle
      * SE1) License model information for this DB instance.
      */
-    readonly licenseModel?: pulumi.Input<string>;
+    licenseModel?: pulumi.Input<string>;
     /**
      * The window to perform maintenance in.
      * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -1047,18 +1047,18 @@ export interface InstanceArgs {
      * docs](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow)
      * for more information.
      */
-    readonly maintenanceWindow?: pulumi.Input<string>;
+    maintenanceWindow?: pulumi.Input<string>;
     /**
      * When configured, the upper limit to which Amazon RDS can automatically scale the storage of the DB instance. Configuring this will automatically ignore differences to `allocatedStorage`. Must be greater than or equal to `allocatedStorage` or `0` to disable Storage Autoscaling.
      */
-    readonly maxAllocatedStorage?: pulumi.Input<number>;
+    maxAllocatedStorage?: pulumi.Input<number>;
     /**
      * The interval, in seconds, between points
      * when Enhanced Monitoring metrics are collected for the DB instance. To disable
      * collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid
      * Values: 0, 1, 5, 10, 15, 30, 60.
      */
-    readonly monitoringInterval?: pulumi.Input<number>;
+    monitoringInterval?: pulumi.Input<number>;
     /**
      * The ARN for the IAM role that permits RDS
      * to send enhanced monitoring metrics to CloudWatch Logs. You can find more
@@ -1066,51 +1066,51 @@ export interface InstanceArgs {
      * Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
      * what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
      */
-    readonly monitoringRoleArn?: pulumi.Input<string>;
+    monitoringRoleArn?: pulumi.Input<string>;
     /**
      * Specifies if the RDS instance is multi-AZ
      */
-    readonly multiAz?: pulumi.Input<boolean>;
+    multiAz?: pulumi.Input<boolean>;
     /**
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the DB option group to associate.
      */
-    readonly optionGroupName?: pulumi.Input<string>;
+    optionGroupName?: pulumi.Input<string>;
     /**
      * Name of the DB parameter group to
      * associate.
      */
-    readonly parameterGroupName?: pulumi.Input<string>;
+    parameterGroupName?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Password for the master DB user. Note that this may show up in
      * logs, and it will be stored in the state file.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Specifies whether Performance Insights are enabled. Defaults to false.
      */
-    readonly performanceInsightsEnabled?: pulumi.Input<boolean>;
+    performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
      * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true. Once KMS key is set, it can never be changed.
      */
-    readonly performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
      * The amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
      */
-    readonly performanceInsightsRetentionPeriod?: pulumi.Input<number>;
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The port on which the DB accepts connections.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Bool to control if instance is publicly
      * accessible. Default is `false`.
      */
-    readonly publiclyAccessible?: pulumi.Input<boolean>;
+    publiclyAccessible?: pulumi.Input<boolean>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the
@@ -1122,21 +1122,21 @@ export interface InstanceArgs {
      * PostgreSQL and MySQL Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html)
      * for more information on using Replication.
      */
-    readonly replicateSourceDb?: pulumi.Input<string>;
+    replicateSourceDb?: pulumi.Input<string>;
     /**
      * A configuration block for restoring a DB instance to an arbitrary point in time. Requires the `identifier` argument to be set with the name of the new DB instance to be created. See Restore To Point In Time below for details.
      */
-    readonly restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
+    restoreToPointInTime?: pulumi.Input<inputs.rds.InstanceRestoreToPointInTime>;
     /**
      * Restore from a Percona Xtrabackup in S3.  See [Importing Data into an Amazon RDS MySQL DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html)
      */
-    readonly s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
+    s3Import?: pulumi.Input<inputs.rds.InstanceS3Import>;
     /**
      * List of DB Security Groups to
      * associate. Only used for [DB Instances on the _EC2-Classic_
      * Platform](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html#USER_VPC.FindDefaultVPC).
      */
-    readonly securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Determines whether a final DB snapshot is
      * created before the DB instance is deleted. If true is specified, no DBSnapshot
@@ -1144,34 +1144,34 @@ export interface InstanceArgs {
      * instance is deleted, using the value from `finalSnapshotIdentifier`. Default
      * is `false`.
      */
-    readonly skipFinalSnapshot?: pulumi.Input<boolean>;
+    skipFinalSnapshot?: pulumi.Input<boolean>;
     /**
      * Specifies whether or not to create this
      * database from a snapshot. This correlates to the snapshot ID you'd find in the
      * RDS console, e.g: rds:production-2015-06-26-06-05.
      */
-    readonly snapshotIdentifier?: pulumi.Input<string>;
+    snapshotIdentifier?: pulumi.Input<string>;
     /**
      * Specifies whether the DB instance is
      * encrypted. Note that if you are creating a cross-region read replica this field
      * is ignored and you should instead declare `kmsKeyId` with a valid ARN. The
      * default is `false` if not specified.
      */
-    readonly storageEncrypted?: pulumi.Input<boolean>;
+    storageEncrypted?: pulumi.Input<boolean>;
     /**
      * One of "standard" (magnetic), "gp2" (general
      * purpose SSD), or "io1" (provisioned IOPS SSD). The default is "io1" if `iops` is
      * specified, "gp2" if not.
      */
-    readonly storageType?: pulumi.Input<string | enums.rds.StorageType>;
+    storageType?: pulumi.Input<string | enums.rds.StorageType>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Time zone of the DB instance. `timezone` is currently
      * only supported by Microsoft SQL Server. The `timezone` can only be set on
@@ -1179,15 +1179,15 @@ export interface InstanceArgs {
      * Guide](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)
      * for more information.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
     /**
      * (Required unless a `snapshotIdentifier` or `replicateSourceDb`
      * is provided) Username for the master DB user.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
     /**
      * List of VPC security groups to
      * associate.
      */
-    readonly vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

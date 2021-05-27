@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const test = pulumi.output(aws.servicediscovery.getDnsNamespace({
  *     name: "example.service.local",
  *     type: "DNS_PRIVATE",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetDnsNamespaceResult> {
@@ -41,11 +41,11 @@ export interface GetDnsNamespaceArgs {
     /**
      * The name of the namespace.
      */
-    readonly name: string;
+    name: string;
     /**
      * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      */
-    readonly type: string;
+    type: string;
 }
 
 /**

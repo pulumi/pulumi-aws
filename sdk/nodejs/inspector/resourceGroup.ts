@@ -95,11 +95,11 @@ export interface ResourceGroupState {
     /**
      * The resource group ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface ResourceGroupArgs {
     /**
      * Key-value map of tags that are used to select the EC2 instances to be included in an `Amazon Inspector assessment target` resource.
      */
-    readonly tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -189,42 +189,42 @@ export interface GatewayAssociationState {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    readonly allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    readonly associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    readonly associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
     /**
      * The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
      */
-    readonly associatedGatewayType?: pulumi.Input<string>;
+    associatedGatewayType?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway association.
      */
-    readonly dxGatewayAssociationId?: pulumi.Input<string>;
+    dxGatewayAssociationId?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway.
      */
-    readonly dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the Direct Connect gateway.
      */
-    readonly dxGatewayOwnerAccountId?: pulumi.Input<string>;
+    dxGatewayOwnerAccountId?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      */
-    readonly proposalId?: pulumi.Input<string>;
+    proposalId?: pulumi.Input<string>;
     /**
      * @deprecated use 'associated_gateway_id' argument instead
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
 }
 
 /**
@@ -234,28 +234,28 @@ export interface GatewayAssociationArgs {
     /**
      * VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
      */
-    readonly allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for single account Direct Connect gateway associations.
      */
-    readonly associatedGatewayId?: pulumi.Input<string>;
+    associatedGatewayId?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the VGW or transit gateway with which to associate the Direct Connect gateway.
      * Used for cross-account Direct Connect gateway associations.
      */
-    readonly associatedGatewayOwnerAccountId?: pulumi.Input<string>;
+    associatedGatewayOwnerAccountId?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway.
      */
-    readonly dxGatewayId: pulumi.Input<string>;
+    dxGatewayId: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway association proposal.
      * Used for cross-account Direct Connect gateway associations.
      */
-    readonly proposalId?: pulumi.Input<string>;
+    proposalId?: pulumi.Input<string>;
     /**
      * @deprecated use 'associated_gateway_id' argument instead
      */
-    readonly vpnGatewayId?: pulumi.Input<string>;
+    vpnGatewayId?: pulumi.Input<string>;
 }

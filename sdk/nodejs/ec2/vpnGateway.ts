@@ -124,27 +124,27 @@ export interface VpnGatewayState {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
-    readonly amazonSideAsn?: pulumi.Input<string>;
+    amazonSideAsn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the VPN Gateway.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Availability Zone for the virtual private gateway.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -154,21 +154,21 @@ export interface VpnGatewayArgs {
     /**
      * The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
      */
-    readonly amazonSideAsn?: pulumi.Input<string>;
+    amazonSideAsn?: pulumi.Input<string>;
     /**
      * The Availability Zone for the virtual private gateway.
      */
-    readonly availabilityZone?: pulumi.Input<string>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }

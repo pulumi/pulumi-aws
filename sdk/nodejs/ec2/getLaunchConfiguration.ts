@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const ubuntu = pulumi.output(aws.ec2.getLaunchConfiguration({
  *     name: "test-launch-config",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchConfigurationResult> {
@@ -39,7 +39,7 @@ export interface GetLaunchConfigurationArgs {
     /**
      * The name of the launch configuration.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

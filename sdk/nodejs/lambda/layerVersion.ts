@@ -203,67 +203,67 @@ export interface LayerVersionState {
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
-    readonly compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The date this resource was created.
      */
-    readonly createdDate?: pulumi.Input<string>;
+    createdDate?: pulumi.Input<string>;
     /**
      * Description of what your Lambda Layer does.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Lambda Layer without version.
      */
-    readonly layerArn?: pulumi.Input<string>;
+    layerArn?: pulumi.Input<string>;
     /**
      * A unique name for your Lambda Layer
      */
-    readonly layerName?: pulumi.Input<string>;
+    layerName?: pulumi.Input<string>;
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
-    readonly licenseInfo?: pulumi.Input<string>;
+    licenseInfo?: pulumi.Input<string>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    readonly s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string>;
     /**
      * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string>;
     /**
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of a signing job.
      */
-    readonly signingJobArn?: pulumi.Input<string>;
+    signingJobArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for a signing profile version.
      */
-    readonly signingProfileVersionArn?: pulumi.Input<string>;
+    signingProfileVersionArn?: pulumi.Input<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
-    readonly sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string>;
     /**
      * The size in bytes of the function .zip file.
      */
-    readonly sourceCodeSize?: pulumi.Input<number>;
+    sourceCodeSize?: pulumi.Input<number>;
     /**
      * This Lamba Layer version.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -273,37 +273,37 @@ export interface LayerVersionArgs {
     /**
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
-    readonly code?: pulumi.Input<pulumi.asset.Archive>;
+    code?: pulumi.Input<pulumi.asset.Archive>;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
-    readonly compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
+    compatibleRuntimes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of what your Lambda Layer does.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A unique name for your Lambda Layer
      */
-    readonly layerName: pulumi.Input<string>;
+    layerName: pulumi.Input<string>;
     /**
      * License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
      */
-    readonly licenseInfo?: pulumi.Input<string>;
+    licenseInfo?: pulumi.Input<string>;
     /**
      * The S3 bucket location containing the function's deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
      */
-    readonly s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string>;
     /**
      * The S3 key of an object containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3Key?: pulumi.Input<string>;
+    s3Key?: pulumi.Input<string>;
     /**
      * The object version containing the function's deployment package. Conflicts with `filename`.
      */
-    readonly s3ObjectVersion?: pulumi.Input<string>;
+    s3ObjectVersion?: pulumi.Input<string>;
     /**
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3Key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
      */
-    readonly sourceCodeHash?: pulumi.Input<string>;
+    sourceCodeHash?: pulumi.Input<string>;
 }

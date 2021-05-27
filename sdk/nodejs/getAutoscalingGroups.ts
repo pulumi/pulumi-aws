@@ -32,7 +32,7 @@ export interface GetAutoscalingGroupsArgs {
     /**
      * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
-    readonly filters?: inputs.GetAutoscalingGroupsFilter[];
+    filters?: inputs.GetAutoscalingGroupsFilter[];
 }
 
 /**

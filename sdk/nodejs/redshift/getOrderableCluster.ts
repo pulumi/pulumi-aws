@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         "dc2.large",
  *         "ds2.xlarge",
  *     ],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOrderableClusterResult> {
@@ -47,19 +47,19 @@ export interface GetOrderableClusterArgs {
     /**
      * Reshift Cluster type. e.g. `multi-node` or `single-node`
      */
-    readonly clusterType?: string;
+    clusterType?: string;
     /**
      * Redshift Cluster version. e.g. `1.0`
      */
-    readonly clusterVersion?: string;
+    clusterVersion?: string;
     /**
      * Redshift Cluster node type. e.g. `dc2.8xlarge`
      */
-    readonly nodeType?: string;
+    nodeType?: string;
     /**
      * Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
-    readonly preferredNodeTypes?: string[];
+    preferredNodeTypes?: string[];
 }
 
 /**

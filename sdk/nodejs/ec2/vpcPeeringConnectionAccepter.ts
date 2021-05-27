@@ -201,49 +201,49 @@ export interface VpcPeeringConnectionAccepterState {
     /**
      * The status of the VPC Peering Connection request.
      */
-    readonly acceptStatus?: pulumi.Input<string>;
+    acceptStatus?: pulumi.Input<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    readonly autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean>;
     /**
      * The AWS account ID of the owner of the requester VPC.
      */
-    readonly peerOwnerId?: pulumi.Input<string>;
+    peerOwnerId?: pulumi.Input<string>;
     /**
      * The region of the accepter VPC.
      */
-    readonly peerRegion?: pulumi.Input<string>;
+    peerRegion?: pulumi.Input<string>;
     /**
      * The ID of the requester VPC.
      */
-    readonly peerVpcId?: pulumi.Input<string>;
+    peerVpcId?: pulumi.Input<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the accepter VPC.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
     /**
      * The VPC Peering Connection ID to manage.
      */
-    readonly vpcPeeringConnectionId?: pulumi.Input<string>;
+    vpcPeeringConnectionId?: pulumi.Input<string>;
 }
 
 /**
@@ -254,26 +254,26 @@ export interface VpcPeeringConnectionAccepterArgs {
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
      */
-    readonly accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
+    accepter?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterAccepter>;
     /**
      * Whether or not to accept the peering request. Defaults to `false`.
      */
-    readonly autoAccept?: pulumi.Input<boolean>;
+    autoAccept?: pulumi.Input<boolean>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
-    readonly requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
+    requester?: pulumi.Input<inputs.ec2.VpcPeeringConnectionAccepterRequester>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC Peering Connection ID to manage.
      */
-    readonly vpcPeeringConnectionId: pulumi.Input<string>;
+    vpcPeeringConnectionId: pulumi.Input<string>;
 }

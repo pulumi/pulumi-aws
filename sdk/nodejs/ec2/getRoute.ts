@@ -64,55 +64,55 @@ export interface GetRouteArgs {
     /**
      * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
      */
-    readonly carrierGatewayId?: string;
+    carrierGatewayId?: string;
     /**
      * CIDR block of the Route belonging to the Route Table.
      */
-    readonly destinationCidrBlock?: string;
+    destinationCidrBlock?: string;
     /**
      * IPv6 CIDR block of the Route belonging to the Route Table.
      */
-    readonly destinationIpv6CidrBlock?: string;
+    destinationIpv6CidrBlock?: string;
     /**
      * The ID of a managed prefix list destination of the Route belonging to the Route Table.
      */
-    readonly destinationPrefixListId?: string;
+    destinationPrefixListId?: string;
     /**
      * Egress Only Gateway ID of the Route belonging to the Route Table.
      */
-    readonly egressOnlyGatewayId?: string;
+    egressOnlyGatewayId?: string;
     /**
      * Gateway ID of the Route belonging to the Route Table.
      */
-    readonly gatewayId?: string;
+    gatewayId?: string;
     /**
      * Instance ID of the Route belonging to the Route Table.
      */
-    readonly instanceId?: string;
+    instanceId?: string;
     /**
      * Local Gateway ID of the Route belonging to the Route Table.
      */
-    readonly localGatewayId?: string;
+    localGatewayId?: string;
     /**
      * NAT Gateway ID of the Route belonging to the Route Table.
      */
-    readonly natGatewayId?: string;
+    natGatewayId?: string;
     /**
      * Network Interface ID of the Route belonging to the Route Table.
      */
-    readonly networkInterfaceId?: string;
+    networkInterfaceId?: string;
     /**
      * The ID of the specific Route Table containing the Route entry.
      */
-    readonly routeTableId: string;
+    routeTableId: string;
     /**
      * EC2 Transit Gateway ID of the Route belonging to the Route Table.
      */
-    readonly transitGatewayId?: string;
+    transitGatewayId?: string;
     /**
      * VPC Peering Connection ID of the Route belonging to the Route Table.
      */
-    readonly vpcPeeringConnectionId?: string;
+    vpcPeeringConnectionId?: string;
 }
 
 /**

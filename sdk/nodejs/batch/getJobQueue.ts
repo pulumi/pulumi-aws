@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const test_queue = pulumi.output(aws.batch.getJobQueue({
  *     name: "tf-test-batch-job-queue",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getJobQueue(args: GetJobQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetJobQueueResult> {
@@ -41,11 +41,11 @@ export interface GetJobQueueArgs {
     /**
      * The name of the job queue.
      */
-    readonly name: string;
+    name: string;
     /**
      * Key-value map of resource tags
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

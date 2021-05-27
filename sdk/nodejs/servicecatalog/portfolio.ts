@@ -122,28 +122,28 @@ export class Portfolio extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Portfolio resources.
  */
 export interface PortfolioState {
-    readonly arn?: pulumi.Input<string>;
-    readonly createdTime?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
+    createdTime?: pulumi.Input<string>;
     /**
      * Description of the portfolio
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the portfolio.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName?: pulumi.Input<string>;
+    providerName?: pulumi.Input<string>;
     /**
      * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -153,21 +153,21 @@ export interface PortfolioArgs {
     /**
      * Description of the portfolio
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the portfolio.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the person or organization who owns the portfolio.
      */
-    readonly providerName: pulumi.Input<string>;
+    providerName: pulumi.Input<string>;
     /**
      * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

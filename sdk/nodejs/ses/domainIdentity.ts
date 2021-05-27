@@ -117,11 +117,11 @@ export interface DomainIdentityState {
     /**
      * The ARN of the domain identity.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The domain name to assign to SES
      */
-    readonly domain?: pulumi.Input<string>;
+    domain?: pulumi.Input<string>;
     /**
      * A code which when added to the domain as a TXT record
      * will signal to SES that the owner of the domain has authorised SES to act on
@@ -131,7 +131,7 @@ export interface DomainIdentityState {
      * more about verifying domains in Amazon SES in the [AWS SES
      * docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
-    readonly verificationToken?: pulumi.Input<string>;
+    verificationToken?: pulumi.Input<string>;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface DomainIdentityArgs {
     /**
      * The domain name to assign to SES
      */
-    readonly domain: pulumi.Input<string>;
+    domain: pulumi.Input<string>;
 }

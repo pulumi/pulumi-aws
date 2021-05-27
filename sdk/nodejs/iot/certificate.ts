@@ -133,15 +133,15 @@ export interface CertificateState {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    readonly active?: pulumi.Input<boolean>;
+    active?: pulumi.Input<boolean>;
     /**
      * The ARN of the created certificate.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The certificate data, in PEM format.
      */
-    readonly certificatePem?: pulumi.Input<string>;
+    certificatePem?: pulumi.Input<string>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -149,15 +149,15 @@ export interface CertificateState {
      * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
      * for more information on generating keys and a certificate.
      */
-    readonly csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string>;
     /**
      * When no CSR is provided, the private key.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * When no CSR is provided, the public key.
      */
-    readonly publicKey?: pulumi.Input<string>;
+    publicKey?: pulumi.Input<string>;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface CertificateArgs {
     /**
      * Boolean flag to indicate if the certificate should be active
      */
-    readonly active: pulumi.Input<boolean>;
+    active: pulumi.Input<boolean>;
     /**
      * The certificate signing request. Review
      * [CreateCertificateFromCsr](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateCertificateFromCsr.html)
@@ -175,5 +175,5 @@ export interface CertificateArgs {
      * If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
      * for more information on generating keys and a certificate.
      */
-    readonly csr?: pulumi.Input<string>;
+    csr?: pulumi.Input<string>;
 }

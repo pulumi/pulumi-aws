@@ -147,23 +147,23 @@ export interface HostedTransitVirtualInterfaceAcceptorState {
     /**
      * The ARN of the virtual interface.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
-    readonly dxGatewayId?: pulumi.Input<string>;
+    dxGatewayId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
-    readonly virtualInterfaceId?: pulumi.Input<string>;
+    virtualInterfaceId?: pulumi.Input<string>;
 }
 
 /**
@@ -173,17 +173,17 @@ export interface HostedTransitVirtualInterfaceAcceptorArgs {
     /**
      * The ID of the Direct Connect gateway to which to connect the virtual interface.
      */
-    readonly dxGatewayId: pulumi.Input<string>;
+    dxGatewayId: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Direct Connect virtual interface to accept.
      */
-    readonly virtualInterfaceId: pulumi.Input<string>;
+    virtualInterfaceId: pulumi.Input<string>;
 }

@@ -233,53 +233,53 @@ export interface JobDefinitionState {
     /**
      * The Amazon Resource Name of the job definition.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      */
-    readonly containerProperties?: pulumi.Input<string>;
+    containerProperties?: pulumi.Input<string>;
     /**
      * Specifies the name of the job definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      */
-    readonly platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
-    readonly propagateTags?: pulumi.Input<boolean>;
+    propagateTags?: pulumi.Input<boolean>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
     /**
      * The revision of the job definition.
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
      * The type of job definition.  Must be `container`.
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -290,42 +290,42 @@ export interface JobDefinitionArgs {
      * A valid [container properties](http://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html)
      * provided as a single valid JSON document. This parameter is required if the `type` parameter is `container`.
      */
-    readonly containerProperties?: pulumi.Input<string>;
+    containerProperties?: pulumi.Input<string>;
     /**
      * Specifies the name of the job definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the parameter substitution placeholders to set in the job definition.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2`. To run the job on Fargate resources, specify `FARGATE`.
      */
-    readonly platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
+    platformCapabilities?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
-    readonly propagateTags?: pulumi.Input<boolean>;
+    propagateTags?: pulumi.Input<boolean>;
     /**
      * Specifies the retry strategy to use for failed jobs that are submitted with this job definition.
      * Maximum number of `retryStrategy` is `1`.  Defined below.
      */
-    readonly retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
+    retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the timeout for jobs so that if a job runs longer, AWS Batch terminates the job. Maximum number of `timeout` is `1`. Defined below.
      */
-    readonly timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeout>;
     /**
      * The type of job definition.  Must be `container`.
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

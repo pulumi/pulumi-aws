@@ -490,3 +490,43 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="accessKey")
+    def access_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        """
+        return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter
+    def profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        The profile for API operations. If not set, the default profile created with `aws configure` will be used.
+        """
+        return pulumi.get(self, "profile")
+
+    @property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @property
+    @pulumi.getter(name="sharedCredentialsFile")
+    def shared_credentials_file(self) -> pulumi.Output[Optional[str]]:
+        """
+        The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
+        """
+        return pulumi.get(self, "shared_credentials_file")
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Output[Optional[str]]:
+        """
+        session token. A session token is only required if you are using temporary security credentials.
+        """
+        return pulumi.get(self, "token")
+

@@ -47,21 +47,21 @@ export interface GetLocalGatewayArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetLocalGatewayFilter[];
+    filters?: inputs.ec2.GetLocalGatewayFilter[];
     /**
      * The id of the specific Local Gateway to retrieve.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * The current state of the desired Local Gateway.
      * Can be either `"pending"` or `"available"`.
      */
-    readonly state?: string;
+    state?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired Local Gateway.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

@@ -123,27 +123,27 @@ export interface ThingState {
     /**
      * The ARN of the thing.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The default client ID.
      */
-    readonly defaultClientId?: pulumi.Input<string>;
+    defaultClientId?: pulumi.Input<string>;
     /**
      * The name of the thing.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The thing type name.
      */
-    readonly thingTypeName?: pulumi.Input<string>;
+    thingTypeName?: pulumi.Input<string>;
     /**
      * The current version of the thing record in the registry.
      */
-    readonly version?: pulumi.Input<number>;
+    version?: pulumi.Input<number>;
 }
 
 /**
@@ -153,13 +153,13 @@ export interface ThingArgs {
     /**
      * Map of attributes of the thing.
      */
-    readonly attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the thing.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The thing type name.
      */
-    readonly thingTypeName?: pulumi.Input<string>;
+    thingTypeName?: pulumi.Input<string>;
 }

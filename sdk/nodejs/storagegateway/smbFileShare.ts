@@ -272,107 +272,107 @@ export interface SmbFileShareState {
     /**
      * The files and folders on this share will only be visible to users with read access. Default value is `false`.
      */
-    readonly accessBasedEnumeration?: pulumi.Input<boolean>;
+    accessBasedEnumeration?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the SMB File Share.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      */
-    readonly auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string>;
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
-    readonly authentication?: pulumi.Input<string>;
+    authentication?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */
-    readonly caseSensitivity?: pulumi.Input<string>;
+    caseSensitivity?: pulumi.Input<string>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
-    readonly defaultStorageClass?: pulumi.Input<string>;
+    defaultStorageClass?: pulumi.Input<string>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    readonly fileShareName?: pulumi.Input<string>;
+    fileShareName?: pulumi.Input<string>;
     /**
      * ID of the SMB File Share.
      */
-    readonly fileshareId?: pulumi.Input<string>;
+    fileshareId?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    readonly gatewayArn?: pulumi.Input<string>;
+    gatewayArn?: pulumi.Input<string>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    readonly guessMimeTypeEnabled?: pulumi.Input<boolean>;
+    guessMimeTypeEnabled?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly invalidUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    invalidUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    readonly kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    readonly locationArn?: pulumi.Input<string>;
+    locationArn?: pulumi.Input<string>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    readonly notificationPolicy?: pulumi.Input<string>;
+    notificationPolicy?: pulumi.Input<string>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
-    readonly objectAcl?: pulumi.Input<string>;
+    objectAcl?: pulumi.Input<string>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    readonly requesterPays?: pulumi.Input<boolean>;
+    requesterPays?: pulumi.Input<boolean>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    readonly smbAclEnabled?: pulumi.Input<boolean>;
+    smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -382,93 +382,93 @@ export interface SmbFileShareArgs {
     /**
      * The files and folders on this share will only be visible to users with read access. Default value is `false`.
      */
-    readonly accessBasedEnumeration?: pulumi.Input<boolean>;
+    accessBasedEnumeration?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    adminUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
      */
-    readonly auditDestinationArn?: pulumi.Input<string>;
+    auditDestinationArn?: pulumi.Input<string>;
     /**
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
-    readonly authentication?: pulumi.Input<string>;
+    authentication?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
-    readonly cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
+    cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
      * The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
      */
-    readonly caseSensitivity?: pulumi.Input<string>;
+    caseSensitivity?: pulumi.Input<string>;
     /**
      * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
      */
-    readonly defaultStorageClass?: pulumi.Input<string>;
+    defaultStorageClass?: pulumi.Input<string>;
     /**
      * The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
      */
-    readonly fileShareName?: pulumi.Input<string>;
+    fileShareName?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the file gateway.
      */
-    readonly gatewayArn: pulumi.Input<string>;
+    gatewayArn: pulumi.Input<string>;
     /**
      * Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
      */
-    readonly guessMimeTypeEnabled?: pulumi.Input<boolean>;
+    guessMimeTypeEnabled?: pulumi.Input<boolean>;
     /**
      * A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly invalidUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    invalidUserLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
      */
-    readonly kmsEncrypted?: pulumi.Input<boolean>;
+    kmsEncrypted?: pulumi.Input<boolean>;
     /**
      * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      */
-    readonly kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
     /**
      * The ARN of the backed storage used for storing file data.
      */
-    readonly locationArn: pulumi.Input<string>;
+    locationArn: pulumi.Input<string>;
     /**
      * The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
      */
-    readonly notificationPolicy?: pulumi.Input<string>;
+    notificationPolicy?: pulumi.Input<string>;
     /**
      * Access Control List permission for S3 bucket objects. Defaults to `private`.
      */
-    readonly objectAcl?: pulumi.Input<string>;
+    objectAcl?: pulumi.Input<string>;
     /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
-    readonly readOnly?: pulumi.Input<boolean>;
+    readOnly?: pulumi.Input<boolean>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
-    readonly requesterPays?: pulumi.Input<boolean>;
+    requesterPays?: pulumi.Input<boolean>;
     /**
      * The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
      */
-    readonly smbAclEnabled?: pulumi.Input<boolean>;
+    smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
-    readonly validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -48,20 +48,20 @@ export function getCoipPool(args?: GetCoipPoolArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getCoipPool.
  */
 export interface GetCoipPoolArgs {
-    readonly filters?: inputs.ec2.GetCoipPoolFilter[];
+    filters?: inputs.ec2.GetCoipPoolFilter[];
     /**
      * Local Gateway Route Table Id assigned to desired COIP Pool
      */
-    readonly localGatewayRouteTableId?: string;
+    localGatewayRouteTableId?: string;
     /**
      * The id of the specific COIP Pool to retrieve.
      */
-    readonly poolId?: string;
+    poolId?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired COIP Pool.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

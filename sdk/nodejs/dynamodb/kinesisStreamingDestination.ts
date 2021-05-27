@@ -113,12 +113,12 @@ export interface KinesisStreamingDestinationState {
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
-    readonly streamArn?: pulumi.Input<string>;
+    streamArn?: pulumi.Input<string>;
     /**
      * The name of the DynamoDB table. There
      * can only be one Kinesis streaming destination for a given DynamoDB table.
      */
-    readonly tableName?: pulumi.Input<string>;
+    tableName?: pulumi.Input<string>;
 }
 
 /**
@@ -128,10 +128,10 @@ export interface KinesisStreamingDestinationArgs {
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
-    readonly streamArn: pulumi.Input<string>;
+    streamArn: pulumi.Input<string>;
     /**
      * The name of the DynamoDB table. There
      * can only be one Kinesis streaming destination for a given DynamoDB table.
      */
-    readonly tableName: pulumi.Input<string>;
+    tableName: pulumi.Input<string>;
 }

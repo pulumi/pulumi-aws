@@ -41,11 +41,11 @@ export interface GetSelectionArgs {
     /**
      * The backup plan ID associated with the selection of resources.
      */
-    readonly planId: string;
+    planId: string;
     /**
      * The backup selection ID.
      */
-    readonly selectionId: string;
+    selectionId: string;
 }
 
 /**

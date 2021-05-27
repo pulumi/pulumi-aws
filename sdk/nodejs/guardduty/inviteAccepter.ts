@@ -123,11 +123,11 @@ export interface InviteAccepterState {
     /**
      * The detector ID of the member GuardDuty account.
      */
-    readonly detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
     /**
      * AWS account ID for primary account.
      */
-    readonly masterAccountId?: pulumi.Input<string>;
+    masterAccountId?: pulumi.Input<string>;
 }
 
 /**
@@ -137,9 +137,9 @@ export interface InviteAccepterArgs {
     /**
      * The detector ID of the member GuardDuty account.
      */
-    readonly detectorId: pulumi.Input<string>;
+    detectorId: pulumi.Input<string>;
     /**
      * AWS account ID for primary account.
      */
-    readonly masterAccountId: pulumi.Input<string>;
+    masterAccountId: pulumi.Input<string>;
 }

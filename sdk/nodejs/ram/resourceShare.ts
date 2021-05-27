@@ -118,23 +118,23 @@ export interface ResourceShareState {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
+    allowExternalPrincipals?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the resource share.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource share. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -144,17 +144,17 @@ export interface ResourceShareArgs {
     /**
      * Indicates whether principals outside your organization can be associated with a resource share.
      */
-    readonly allowExternalPrincipals?: pulumi.Input<boolean>;
+    allowExternalPrincipals?: pulumi.Input<boolean>;
     /**
      * The name of the resource share.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource share. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -147,15 +147,15 @@ export interface EventStreamState {
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    readonly destinationStreamArn?: pulumi.Input<string>;
+    destinationStreamArn?: pulumi.Input<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
 }
 
 /**
@@ -165,13 +165,13 @@ export interface EventStreamArgs {
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
-    readonly destinationStreamArn: pulumi.Input<string>;
+    destinationStreamArn: pulumi.Input<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
 }

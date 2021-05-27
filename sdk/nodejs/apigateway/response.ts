@@ -130,23 +130,23 @@ export interface ResponseState {
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the templates used to transform the response body.
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    readonly responseType?: pulumi.Input<string>;
+    responseType?: pulumi.Input<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    readonly restApiId?: pulumi.Input<string>;
+    restApiId?: pulumi.Input<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    readonly statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string>;
 }
 
 /**
@@ -156,21 +156,21 @@ export interface ResponseArgs {
     /**
      * A map specifying the parameters (paths, query strings and headers) of the Gateway Response.
      */
-    readonly responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map specifying the templates used to transform the response body.
      */
-    readonly responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    responseTemplates?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The response type of the associated GatewayResponse.
      */
-    readonly responseType: pulumi.Input<string>;
+    responseType: pulumi.Input<string>;
     /**
      * The string identifier of the associated REST API.
      */
-    readonly restApiId: pulumi.Input<string>;
+    restApiId: pulumi.Input<string>;
     /**
      * The HTTP status code of the Gateway Response.
      */
-    readonly statusCode?: pulumi.Input<string>;
+    statusCode?: pulumi.Input<string>;
 }

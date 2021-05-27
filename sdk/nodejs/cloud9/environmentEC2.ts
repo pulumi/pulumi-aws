@@ -178,43 +178,43 @@ export interface EnvironmentEC2State {
     /**
      * The ARN of the environment.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    readonly automaticStopTimeMinutes?: pulumi.Input<number>;
+    automaticStopTimeMinutes?: pulumi.Input<number>;
     /**
      * The description of the environment.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The type of instance to connect to the environment, e.g. `t2.micro`.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
     /**
      * The name of the environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    readonly ownerArn?: pulumi.Input<string>;
+    ownerArn?: pulumi.Input<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the environment (e.g. `ssh` or `ec2`)
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -224,33 +224,33 @@ export interface EnvironmentEC2Args {
     /**
      * The number of minutes until the running instance is shut down after the environment has last been used.
      */
-    readonly automaticStopTimeMinutes?: pulumi.Input<number>;
+    automaticStopTimeMinutes?: pulumi.Input<number>;
     /**
      * The description of the environment.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The type of instance to connect to the environment, e.g. `t2.micro`.
      */
-    readonly instanceType: pulumi.Input<string>;
+    instanceType: pulumi.Input<string>;
     /**
      * The name of the environment.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
      */
-    readonly ownerArn?: pulumi.Input<string>;
+    ownerArn?: pulumi.Input<string>;
     /**
      * The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

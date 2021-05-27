@@ -295,31 +295,31 @@ export interface ListenerRuleState {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
     /**
      * The Amazon Resource Name (ARN) of the target group.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    readonly conditions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleCondition>[]>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleCondition>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    readonly listenerArn?: pulumi.Input<string>;
+    listenerArn?: pulumi.Input<string>;
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -329,25 +329,25 @@ export interface ListenerRuleArgs {
     /**
      * An Action block. Action blocks are documented below.
      */
-    readonly actions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleAction>[]>;
     /**
      * A Condition block. Multiple condition blocks of different types can be set and all must be satisfied for the rule to match. Condition blocks are documented below.
      */
-    readonly conditions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleCondition>[]>;
+    conditions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerRuleCondition>[]>;
     /**
      * The ARN of the listener to which to attach the rule.
      */
-    readonly listenerArn: pulumi.Input<string>;
+    listenerArn: pulumi.Input<string>;
     /**
      * The priority for the rule between `1` and `50000`. Leaving it unset will automatically set the rule with next available priority after currently existing highest rule. A listener can't have multiple rules with the same priority.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

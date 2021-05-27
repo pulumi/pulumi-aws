@@ -120,11 +120,11 @@ export interface UserGroupMembershipState {
     /**
      * A list of IAM Groups to add the user to
      */
-    readonly groups?: pulumi.Input<pulumi.Input<string>[]>;
+    groups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the IAM User to add to groups
      */
-    readonly user?: pulumi.Input<string>;
+    user?: pulumi.Input<string>;
 }
 
 /**
@@ -134,9 +134,9 @@ export interface UserGroupMembershipArgs {
     /**
      * A list of IAM Groups to add the user to
      */
-    readonly groups: pulumi.Input<pulumi.Input<string>[]>;
+    groups: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the IAM User to add to groups
      */
-    readonly user: pulumi.Input<string>;
+    user: pulumi.Input<string>;
 }

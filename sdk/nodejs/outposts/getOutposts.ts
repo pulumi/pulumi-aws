@@ -43,19 +43,19 @@ export interface GetOutpostsArgs {
     /**
      * Availability Zone name.
      */
-    readonly availabilityZone?: string;
+    availabilityZone?: string;
     /**
      * Availability Zone identifier.
      */
-    readonly availabilityZoneId?: string;
+    availabilityZoneId?: string;
     /**
      * AWS Account identifier of the Outpost owner.
      */
-    readonly ownerId?: string;
+    ownerId?: string;
     /**
      * Site identifier.
      */
-    readonly siteId?: string;
+    siteId?: string;
 }
 
 /**

@@ -237,89 +237,89 @@ export interface AmiFromInstanceState {
     /**
      * Machine architecture for created instances. Defaults to "x8664".
      */
-    readonly architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string>;
     /**
      * The ARN of the AMI.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    readonly enaSupport?: pulumi.Input<boolean>;
+    enaSupport?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
-    readonly hypervisor?: pulumi.Input<string>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
+    hypervisor?: pulumi.Input<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    readonly imageLocation?: pulumi.Input<string>;
-    readonly imageOwnerAlias?: pulumi.Input<string>;
-    readonly imageType?: pulumi.Input<string>;
+    imageLocation?: pulumi.Input<string>;
+    imageOwnerAlias?: pulumi.Input<string>;
+    imageType?: pulumi.Input<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    readonly kernelId?: pulumi.Input<string>;
-    readonly manageEbsSnapshots?: pulumi.Input<boolean>;
+    kernelId?: pulumi.Input<string>;
+    manageEbsSnapshots?: pulumi.Input<boolean>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly ownerId?: pulumi.Input<string>;
-    readonly platform?: pulumi.Input<string>;
-    readonly platformDetails?: pulumi.Input<string>;
-    readonly public?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
+    platformDetails?: pulumi.Input<string>;
+    public?: pulumi.Input<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    readonly ramdiskId?: pulumi.Input<string>;
+    ramdiskId?: pulumi.Input<string>;
     /**
      * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    readonly rootDeviceName?: pulumi.Input<string>;
-    readonly rootSnapshotId?: pulumi.Input<string>;
+    rootDeviceName?: pulumi.Input<string>;
+    rootSnapshotId?: pulumi.Input<string>;
     /**
      * Boolean that overrides the behavior of stopping
      * the instance before snapshotting. This is risky since it may cause a snapshot of an
      * inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      */
-    readonly snapshotWithoutReboot?: pulumi.Input<boolean>;
+    snapshotWithoutReboot?: pulumi.Input<boolean>;
     /**
      * The id of the instance to use as the basis of the AMI.
      */
-    readonly sourceInstanceId?: pulumi.Input<string>;
+    sourceInstanceId?: pulumi.Input<string>;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    readonly sriovNetSupport?: pulumi.Input<string>;
+    sriovNetSupport?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly usageOperation?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    readonly virtualizationType?: pulumi.Input<string>;
+    virtualizationType?: pulumi.Input<string>;
 }
 
 /**
@@ -329,35 +329,35 @@ export interface AmiFromInstanceArgs {
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEbsBlockDevice>[]>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Boolean that overrides the behavior of stopping
      * the instance before snapshotting. This is risky since it may cause a snapshot of an
      * inconsistent filesystem state, but can be used to avoid downtime if the user otherwise
      * guarantees that no filesystem writes will be underway at the time of snapshot.
      */
-    readonly snapshotWithoutReboot?: pulumi.Input<boolean>;
+    snapshotWithoutReboot?: pulumi.Input<boolean>;
     /**
      * The id of the instance to use as the basis of the AMI.
      */
-    readonly sourceInstanceId: pulumi.Input<string>;
+    sourceInstanceId: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

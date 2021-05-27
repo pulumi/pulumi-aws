@@ -49,13 +49,13 @@ export interface GetBrokerArgs {
     /**
      * The unique id of the mq broker.
      */
-    readonly brokerId?: string;
+    brokerId?: string;
     /**
      * The unique name of the mq broker.
      */
-    readonly brokerName?: string;
-    readonly logs?: inputs.mq.GetBrokerLogs;
-    readonly tags?: {[key: string]: string};
+    brokerName?: string;
+    logs?: inputs.mq.GetBrokerLogs;
+    tags?: {[key: string]: string};
 }
 
 /**

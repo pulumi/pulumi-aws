@@ -480,59 +480,59 @@ export interface FirehoseDeliveryStreamState {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, and `httpEndpoint`.
      */
-    readonly destination?: pulumi.Input<string>;
-    readonly destinationId?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
+    destinationId?: pulumi.Input<string>;
     /**
      * Configuration options if elasticsearch is the destination. More details are given below.
      */
-    readonly elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
+    elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.
      */
-    readonly extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
+    extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
     /**
      * Configuration options if httpEndpoint is the destination. requires the user to also specify a `s3Configuration` block.  More details are given below.
      */
-    readonly httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
+    httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
     /**
      * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
      */
-    readonly kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
+    kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshiftConfiguration` requires the user to also specify a
      * `s3Configuration` block. More details are given below.
      */
-    readonly redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
+    redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
      * Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    readonly s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
+    s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
     /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
-    readonly serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
+    serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
      * Configuration options if splunk is the destination. More details are given below.
      */
-    readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }
 
 /**
@@ -542,57 +542,57 @@ export interface FirehoseDeliveryStreamArgs {
     /**
      * The Amazon Resource Name (ARN) specifying the Stream
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * This is the destination to where the data is delivered. The only options are `s3` (Deprecated, use `extendedS3` instead), `extendedS3`, `redshift`, `elasticsearch`, `splunk`, and `httpEndpoint`.
      */
-    readonly destination: pulumi.Input<string>;
-    readonly destinationId?: pulumi.Input<string>;
+    destination: pulumi.Input<string>;
+    destinationId?: pulumi.Input<string>;
     /**
      * Configuration options if elasticsearch is the destination. More details are given below.
      */
-    readonly elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
+    elasticsearchConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamElasticsearchConfiguration>;
     /**
      * Enhanced configuration options for the s3 destination. More details are given below.
      */
-    readonly extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
+    extendedS3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3Configuration>;
     /**
      * Configuration options if httpEndpoint is the destination. requires the user to also specify a `s3Configuration` block.  More details are given below.
      */
-    readonly httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
+    httpEndpointConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfiguration>;
     /**
      * Allows the ability to specify the kinesis stream that is used as the source of the firehose delivery stream.
      */
-    readonly kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
+    kinesisSourceConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamKinesisSourceConfiguration>;
     /**
      * A name to identify the stream. This is unique to the
      * AWS account and region the Stream is created in.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration options if redshift is the destination.
      * Using `redshiftConfiguration` requires the user to also specify a
      * `s3Configuration` block. More details are given below.
      */
-    readonly redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
+    redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
      * Required for non-S3 destinations. For S3 destination, use `extendedS3Configuration` instead. Configuration options for the s3 destination (or the intermediate bucket if the destination
      * is redshift). More details are given below.
      */
-    readonly s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
+    s3Configuration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3Configuration>;
     /**
      * Encrypt at rest options.
      * Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
-    readonly serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
+    serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
      * Configuration options if splunk is the destination. More details are given below.
      */
-    readonly splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
-    readonly versionId?: pulumi.Input<string>;
+    versionId?: pulumi.Input<string>;
 }

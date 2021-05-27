@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const main = pulumi.output(aws.cloudtrail.getServiceAccount({ async: true }));
+ * const main = pulumi.output(aws.cloudtrail.getServiceAccount());
  * const bucket = new aws.s3.Bucket("bucket", {
  *     forceDestroy: true,
  *     policy: pulumi.interpolate`{
@@ -67,7 +67,7 @@ export interface GetServiceAccountArgs {
      * Name of the region whose AWS CloudTrail account ID is desired.
      * Defaults to the region from the AWS provider configuration.
      */
-    readonly region?: string;
+    region?: string;
 }
 
 /**

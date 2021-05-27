@@ -116,19 +116,19 @@ export interface LogDestinationState {
     /**
      * The Amazon Resource Name (ARN) specifying the log destination.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A name for the log destination
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * The ARN of the target Amazon Kinesis stream resource for the destination
      */
-    readonly targetArn?: pulumi.Input<string>;
+    targetArn?: pulumi.Input<string>;
 }
 
 /**
@@ -138,13 +138,13 @@ export interface LogDestinationArgs {
     /**
      * A name for the log destination
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * The ARN of the target Amazon Kinesis stream resource for the destination
      */
-    readonly targetArn: pulumi.Input<string>;
+    targetArn: pulumi.Input<string>;
 }

@@ -116,19 +116,19 @@ export interface ReceiptFilterState {
     /**
      * The SES receipt filter ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    readonly cidr?: pulumi.Input<string>;
+    cidr?: pulumi.Input<string>;
     /**
      * The name of the filter
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Block or Allow
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
 }
 
 /**
@@ -138,13 +138,13 @@ export interface ReceiptFilterArgs {
     /**
      * The IP address or address range to filter, in CIDR notation
      */
-    readonly cidr: pulumi.Input<string>;
+    cidr: pulumi.Input<string>;
     /**
      * The name of the filter
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Block or Allow
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
 }

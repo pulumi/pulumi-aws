@@ -134,19 +134,19 @@ export interface ListenerState {
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      */
-    readonly acceleratorArn?: pulumi.Input<string>;
+    acceleratorArn?: pulumi.Input<string>;
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
-    readonly clientAffinity?: pulumi.Input<string>;
+    clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    readonly portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
+    portRanges?: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
 }
 
 /**
@@ -156,17 +156,17 @@ export interface ListenerArgs {
     /**
      * The Amazon Resource Name (ARN) of your accelerator.
      */
-    readonly acceleratorArn: pulumi.Input<string>;
+    acceleratorArn: pulumi.Input<string>;
     /**
      * Direct all requests from a user to the same endpoint. Valid values are `NONE`, `SOURCE_IP`. Default: `NONE`. If `NONE`, Global Accelerator uses the "five-tuple" properties of source IP address, source port, destination IP address, destination port, and protocol to select the hash value. If `SOURCE_IP`, Global Accelerator uses the "two-tuple" properties of source (client) IP address and destination IP address to select the hash value.
      */
-    readonly clientAffinity?: pulumi.Input<string>;
+    clientAffinity?: pulumi.Input<string>;
     /**
      * The list of port ranges for the connections from clients to the accelerator. Fields documented below.
      */
-    readonly portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
+    portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRange>[]>;
     /**
      * The protocol for the connections from clients to the accelerator. Valid values are `TCP`, `UDP`.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
 }

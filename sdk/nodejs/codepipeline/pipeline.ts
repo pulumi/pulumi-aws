@@ -252,31 +252,31 @@ export interface PipelineState {
     /**
      * The codepipeline ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    readonly artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
+    artifactStore?: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
      * The name of the pipeline.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * A stage block. Stages are documented below.
      */
-    readonly stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    stages?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -286,25 +286,25 @@ export interface PipelineArgs {
     /**
      * One or more artifactStore blocks. Artifact stores are documented below.
      */
-    readonly artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
+    artifactStore: pulumi.Input<inputs.codepipeline.PipelineArtifactStore>;
     /**
      * The name of the pipeline.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * A stage block. Stages are documented below.
      */
-    readonly stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
+    stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStage>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

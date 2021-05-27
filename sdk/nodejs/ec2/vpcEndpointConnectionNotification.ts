@@ -149,27 +149,27 @@ export interface VpcEndpointConnectionNotificationState {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
-    readonly connectionEvents?: pulumi.Input<pulumi.Input<string>[]>;
+    connectionEvents?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    readonly connectionNotificationArn?: pulumi.Input<string>;
+    connectionNotificationArn?: pulumi.Input<string>;
     /**
      * The type of notification.
      */
-    readonly notificationType?: pulumi.Input<string>;
+    notificationType?: pulumi.Input<string>;
     /**
      * The state of the notification.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    readonly vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    readonly vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string>;
 }
 
 /**
@@ -179,17 +179,17 @@ export interface VpcEndpointConnectionNotificationArgs {
     /**
      * One or more endpoint [events](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVpcEndpointConnectionNotification.html#API_CreateVpcEndpointConnectionNotification_RequestParameters) for which to receive notifications.
      */
-    readonly connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
+    connectionEvents: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of the SNS topic for the notifications.
      */
-    readonly connectionNotificationArn: pulumi.Input<string>;
+    connectionNotificationArn: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */
-    readonly vpcEndpointId?: pulumi.Input<string>;
+    vpcEndpointId?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint Service to receive notifications for.
      */
-    readonly vpcEndpointServiceId?: pulumi.Input<string>;
+    vpcEndpointServiceId?: pulumi.Input<string>;
 }

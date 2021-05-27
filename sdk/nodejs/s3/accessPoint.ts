@@ -171,44 +171,44 @@ export interface AccessPointState {
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the S3 Access Point.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * The DNS domain name of the S3 Access Point in the format _`name`_-_`accountId`_.s3-accesspoint._region_.amazonaws.com.
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
-    readonly hasPublicAccessPolicy?: pulumi.Input<boolean>;
+    hasPublicAccessPolicy?: pulumi.Input<boolean>;
     /**
      * The name you want to assign to this access point.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Indicates whether this access point allows access from the public Internet. Values are `VPC` (the access point doesn't allow access from the public Internet) and `Internet` (the access point allows access from the public Internet, subject to the access point and bucket access policies).
      */
-    readonly networkOrigin?: pulumi.Input<string>;
+    networkOrigin?: pulumi.Input<string>;
     /**
      * A valid JSON document that specifies the policy that you want to apply to this access point.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    readonly vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
 }
 
 /**
@@ -218,25 +218,25 @@ export interface AccessPointArgs {
     /**
      * The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
      */
-    readonly accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string>;
     /**
      * The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * The name you want to assign to this access point.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * A valid JSON document that specifies the policy that you want to apply to this access point.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
      */
-    readonly publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
+    publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfiguration>;
     /**
      * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
      */
-    readonly vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
+    vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfiguration>;
 }

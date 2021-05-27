@@ -149,11 +149,11 @@ export interface NetworkInterfaceSecurityGroupAttachmentState {
     /**
      * The ID of the network interface to attach to.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */
-    readonly securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string>;
 }
 
 /**
@@ -163,9 +163,9 @@ export interface NetworkInterfaceSecurityGroupAttachmentArgs {
     /**
      * The ID of the network interface to attach to.
      */
-    readonly networkInterfaceId: pulumi.Input<string>;
+    networkInterfaceId: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */
-    readonly securityGroupId: pulumi.Input<string>;
+    securityGroupId: pulumi.Input<string>;
 }

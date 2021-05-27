@@ -119,19 +119,19 @@ export interface DeploymentState {
     /**
      * The API identifier.
      */
-    readonly apiId?: pulumi.Input<string>;
+    apiId?: pulumi.Input<string>;
     /**
      * Whether the deployment was automatically released.
      */
-    readonly autoDeployed?: pulumi.Input<boolean>;
+    autoDeployed?: pulumi.Input<boolean>;
     /**
      * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
-    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -141,13 +141,13 @@ export interface DeploymentArgs {
     /**
      * The API identifier.
      */
-    readonly apiId: pulumi.Input<string>;
+    apiId: pulumi.Input<string>;
     /**
      * The description for the deployment resource. Must be less than or equal to 1024 characters in length.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A map of arbitrary keys and values that, when changed, will trigger a redeployment.
      */
-    readonly triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    triggers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

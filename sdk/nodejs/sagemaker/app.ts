@@ -150,35 +150,35 @@ export interface AppState {
     /**
      * The name of the app.
      */
-    readonly appName?: pulumi.Input<string>;
+    appName?: pulumi.Input<string>;
     /**
      * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
      */
-    readonly appType?: pulumi.Input<string>;
+    appType?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the app.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The domain ID.
      */
-    readonly domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
      */
-    readonly resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
+    resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user profile name.
      */
-    readonly userProfileName?: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string>;
 }
 
 /**
@@ -188,29 +188,29 @@ export interface AppArgs {
     /**
      * The name of the app.
      */
-    readonly appName: pulumi.Input<string>;
+    appName: pulumi.Input<string>;
     /**
      * The type of app. Valid values are `JupyterServer`, `KernelGateway` and `TensorBoard`.
      */
-    readonly appType: pulumi.Input<string>;
+    appType: pulumi.Input<string>;
     /**
      * The domain ID.
      */
-    readonly domainId: pulumi.Input<string>;
+    domainId: pulumi.Input<string>;
     /**
      * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
      */
-    readonly resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
+    resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user profile name.
      */
-    readonly userProfileName: pulumi.Input<string>;
+    userProfileName: pulumi.Input<string>;
 }

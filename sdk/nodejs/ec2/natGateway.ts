@@ -149,31 +149,31 @@ export interface NatGatewayState {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    readonly allocationId?: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string>;
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The private IP address of the NAT Gateway.
      */
-    readonly privateIp?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string>;
     /**
      * The public IP address of the NAT Gateway.
      */
-    readonly publicIp?: pulumi.Input<string>;
+    publicIp?: pulumi.Input<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -183,17 +183,17 @@ export interface NatGatewayArgs {
     /**
      * The Allocation ID of the Elastic IP address for the gateway.
      */
-    readonly allocationId: pulumi.Input<string>;
+    allocationId: pulumi.Input<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

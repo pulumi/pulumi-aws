@@ -259,103 +259,103 @@ export interface AmiCopyState {
     /**
      * Machine architecture for created instances. Defaults to "x8664".
      */
-    readonly architecture?: pulumi.Input<string>;
+    architecture?: pulumi.Input<string>;
     /**
      * The ARN of the AMI.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      */
-    readonly destinationOutpostArn?: pulumi.Input<string>;
+    destinationOutpostArn?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
     /**
      * Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
      */
-    readonly enaSupport?: pulumi.Input<boolean>;
+    enaSupport?: pulumi.Input<boolean>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
-    readonly hypervisor?: pulumi.Input<string>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
+    hypervisor?: pulumi.Input<string>;
     /**
      * Path to an S3 object containing an image manifest, e.g. created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
-    readonly imageLocation?: pulumi.Input<string>;
-    readonly imageOwnerAlias?: pulumi.Input<string>;
-    readonly imageType?: pulumi.Input<string>;
+    imageLocation?: pulumi.Input<string>;
+    imageOwnerAlias?: pulumi.Input<string>;
+    imageType?: pulumi.Input<string>;
     /**
      * The id of the kernel image (AKI) that will be used as the paravirtual
      * kernel in created instances.
      */
-    readonly kernelId?: pulumi.Input<string>;
+    kernelId?: pulumi.Input<string>;
     /**
      * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
-    readonly manageEbsSnapshots?: pulumi.Input<boolean>;
+    kmsKeyId?: pulumi.Input<string>;
+    manageEbsSnapshots?: pulumi.Input<boolean>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
-    readonly ownerId?: pulumi.Input<string>;
-    readonly platform?: pulumi.Input<string>;
-    readonly platformDetails?: pulumi.Input<string>;
-    readonly public?: pulumi.Input<boolean>;
+    name?: pulumi.Input<string>;
+    ownerId?: pulumi.Input<string>;
+    platform?: pulumi.Input<string>;
+    platformDetails?: pulumi.Input<string>;
+    public?: pulumi.Input<boolean>;
     /**
      * The id of an initrd image (ARI) that will be used when booting the
      * created instances.
      */
-    readonly ramdiskId?: pulumi.Input<string>;
+    ramdiskId?: pulumi.Input<string>;
     /**
      * The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
      */
-    readonly rootDeviceName?: pulumi.Input<string>;
-    readonly rootSnapshotId?: pulumi.Input<string>;
+    rootDeviceName?: pulumi.Input<string>;
+    rootSnapshotId?: pulumi.Input<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `sourceAmiRegion`.
      */
-    readonly sourceAmiId?: pulumi.Input<string>;
+    sourceAmiId?: pulumi.Input<string>;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    readonly sourceAmiRegion?: pulumi.Input<string>;
+    sourceAmiRegion?: pulumi.Input<string>;
     /**
      * When set to "simple" (the default), enables enhanced networking
      * for created instances. No other value is supported at this time.
      */
-    readonly sriovNetSupport?: pulumi.Input<string>;
+    sriovNetSupport?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly usageOperation?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
      * changes the set of further arguments that are required, as described below.
      */
-    readonly virtualizationType?: pulumi.Input<string>;
+    virtualizationType?: pulumi.Input<string>;
 }
 
 /**
@@ -365,49 +365,49 @@ export interface AmiCopyArgs {
     /**
      * A longer, human-readable description for the AMI.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The ARN of the Outpost to which to copy the AMI.
      * Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
      */
-    readonly destinationOutpostArn?: pulumi.Input<string>;
+    destinationOutpostArn?: pulumi.Input<string>;
     /**
      * Nested block describing an EBS block device that should be
      * attached to created instances. The structure of this block is described below.
      */
-    readonly ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
+    ebsBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEbsBlockDevice>[]>;
     /**
      * Boolean controlling whether the created EBS volumes will be encrypted. Can't be used with `snapshotId`.
      */
-    readonly encrypted?: pulumi.Input<boolean>;
+    encrypted?: pulumi.Input<boolean>;
     /**
      * Nested block describing an ephemeral block device that
      * should be attached to created instances. The structure of this block is described below.
      */
-    readonly ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
+    ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiCopyEphemeralBlockDevice>[]>;
     /**
      * The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when encrypting the snapshots of
      * an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
      * if this parameter is not specified, the default CMK for EBS is used
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * A region-unique name for the AMI.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the AMI to copy. This id must be valid in the region
      * given by `sourceAmiRegion`.
      */
-    readonly sourceAmiId: pulumi.Input<string>;
+    sourceAmiId: pulumi.Input<string>;
     /**
      * The region from which the AMI will be copied. This may be the
      * same as the AWS provider region in order to create a copy within the same region.
      */
-    readonly sourceAmiRegion: pulumi.Input<string>;
+    sourceAmiRegion: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

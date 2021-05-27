@@ -152,18 +152,18 @@ export interface VolumeAttachmentState {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      */
-    readonly deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      */
-    readonly forceDetach?: pulumi.Input<boolean>;
+    forceDetach?: pulumi.Input<boolean>;
     /**
      * ID of the Instance to attach to
      */
-    readonly instanceId?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -171,11 +171,11 @@ export interface VolumeAttachmentState {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    readonly skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * ID of the Volume to be attached
      */
-    readonly volumeId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string>;
 }
 
 /**
@@ -186,18 +186,18 @@ export interface VolumeAttachmentArgs {
      * The device name to expose to the instance (for
      * example, `/dev/sdh` or `xvdh`).  See [Device Naming on Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names) and [Device Naming on Windows Instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/device_naming.html#available-ec2-device-names) for more information.
      */
-    readonly deviceName: pulumi.Input<string>;
+    deviceName: pulumi.Input<string>;
     /**
      * Set to `true` if you want to force the
      * volume to detach. Useful if previous attempts failed, but use this option only
      * as a last resort, as this can result in **data loss**. See
      * [Detaching an Amazon EBS Volume from an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html) for more information.
      */
-    readonly forceDetach?: pulumi.Input<boolean>;
+    forceDetach?: pulumi.Input<boolean>;
     /**
      * ID of the Instance to attach to
      */
-    readonly instanceId: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -205,9 +205,9 @@ export interface VolumeAttachmentArgs {
      * useful when destroying an instance which has volumes created by some other
      * means attached.
      */
-    readonly skipDestroy?: pulumi.Input<boolean>;
+    skipDestroy?: pulumi.Input<boolean>;
     /**
      * ID of the Volume to be attached
      */
-    readonly volumeId: pulumi.Input<string>;
+    volumeId: pulumi.Input<string>;
 }

@@ -108,11 +108,11 @@ export interface VpcIpv4CidrBlockAssociationState {
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -122,9 +122,9 @@ export interface VpcIpv4CidrBlockAssociationArgs {
     /**
      * The additional IPv4 CIDR block to associate with the VPC.
      */
-    readonly cidrBlock: pulumi.Input<string>;
+    cidrBlock: pulumi.Input<string>;
     /**
      * The ID of the VPC to make the association with.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

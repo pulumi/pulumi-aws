@@ -110,15 +110,15 @@ export interface ResolverRuleAssociationState {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    readonly resolverRuleId?: pulumi.Input<string>;
+    resolverRuleId?: pulumi.Input<string>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    readonly vpcId?: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
 }
 
 /**
@@ -128,13 +128,13 @@ export interface ResolverRuleAssociationArgs {
     /**
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
-    readonly resolverRuleId: pulumi.Input<string>;
+    resolverRuleId: pulumi.Input<string>;
     /**
      * The ID of the VPC that you want to associate the resolver rule with.
      */
-    readonly vpcId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
 }

@@ -119,11 +119,11 @@ export interface LogDestinationPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly accessPolicy?: pulumi.Input<string>;
+    accessPolicy?: pulumi.Input<string>;
     /**
      * A name for the subscription filter
      */
-    readonly destinationName?: pulumi.Input<string>;
+    destinationName?: pulumi.Input<string>;
 }
 
 /**
@@ -133,9 +133,9 @@ export interface LogDestinationPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    readonly accessPolicy: pulumi.Input<string>;
+    accessPolicy: pulumi.Input<string>;
     /**
      * A name for the subscription filter
      */
-    readonly destinationName: pulumi.Input<string>;
+    destinationName: pulumi.Input<string>;
 }

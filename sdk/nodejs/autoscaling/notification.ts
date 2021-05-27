@@ -127,16 +127,16 @@ export interface NotificationState {
     /**
      * A list of AutoScaling Group Names
      */
-    readonly groupNames?: pulumi.Input<pulumi.Input<string>[]>;
+    groupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    readonly notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    notifications?: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */
-    readonly topicArn?: pulumi.Input<string>;
+    topicArn?: pulumi.Input<string>;
 }
 
 /**
@@ -146,14 +146,14 @@ export interface NotificationArgs {
     /**
      * A list of AutoScaling Group Names
      */
-    readonly groupNames: pulumi.Input<pulumi.Input<string>[]>;
+    groupNames: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      */
-    readonly notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
+    notifications: pulumi.Input<pulumi.Input<NotificationType>[]>;
     /**
      * The Topic ARN for notifications to be sent through
      */
-    readonly topicArn: pulumi.Input<string>;
+    topicArn: pulumi.Input<string>;
 }

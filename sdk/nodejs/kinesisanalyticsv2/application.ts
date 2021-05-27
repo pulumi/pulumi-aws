@@ -368,57 +368,57 @@ export interface ApplicationState {
     /**
      * The application's configuration
      */
-    readonly applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
     /**
      * The ARN of the application.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    readonly cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
     /**
      * The current timestamp when the application was created.
      */
-    readonly createTimestamp?: pulumi.Input<string>;
+    createTimestamp?: pulumi.Input<string>;
     /**
      * A summary description of the application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to force stop an unresponsive Flink-based application.
      */
-    readonly forceStop?: pulumi.Input<boolean>;
+    forceStop?: pulumi.Input<boolean>;
     /**
      * The current timestamp when the application was last updated.
      */
-    readonly lastUpdateTimestamp?: pulumi.Input<string>;
+    lastUpdateTimestamp?: pulumi.Input<string>;
     /**
      * The name of the application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
      */
-    readonly runtimeEnvironment?: pulumi.Input<string>;
+    runtimeEnvironment?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
-    readonly serviceExecutionRole?: pulumi.Input<string>;
+    serviceExecutionRole?: pulumi.Input<string>;
     /**
      * Whether to start or stop the application.
      */
-    readonly startApplication?: pulumi.Input<boolean>;
+    startApplication?: pulumi.Input<boolean>;
     /**
      * The status of the application.
      */
-    readonly status?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    status?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
-    readonly versionId?: pulumi.Input<number>;
+    versionId?: pulumi.Input<number>;
 }
 
 /**
@@ -428,35 +428,35 @@ export interface ApplicationArgs {
     /**
      * The application's configuration
      */
-    readonly applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
+    applicationConfiguration?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationApplicationConfiguration>;
     /**
      * A CloudWatch log stream to monitor application configuration errors.
      */
-    readonly cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
+    cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesisanalyticsv2.ApplicationCloudwatchLoggingOptions>;
     /**
      * A summary description of the application.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to force stop an unresponsive Flink-based application.
      */
-    readonly forceStop?: pulumi.Input<boolean>;
+    forceStop?: pulumi.Input<boolean>;
     /**
      * The name of the application.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
      */
-    readonly runtimeEnvironment: pulumi.Input<string>;
+    runtimeEnvironment: pulumi.Input<string>;
     /**
      * The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
      */
-    readonly serviceExecutionRole: pulumi.Input<string>;
+    serviceExecutionRole: pulumi.Input<string>;
     /**
      * Whether to start or stop the application.
      */
-    readonly startApplication?: pulumi.Input<boolean>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    startApplication?: pulumi.Input<boolean>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

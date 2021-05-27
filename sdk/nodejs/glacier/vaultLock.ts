@@ -150,19 +150,19 @@ export interface VaultLockState {
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
-    readonly completeLock?: pulumi.Input<boolean>;
+    completeLock?: pulumi.Input<boolean>;
     /**
      * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
      */
-    readonly ignoreDeletionError?: pulumi.Input<boolean>;
+    ignoreDeletionError?: pulumi.Input<boolean>;
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
-    readonly policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string>;
     /**
      * The name of the Glacier Vault.
      */
-    readonly vaultName?: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string>;
 }
 
 /**
@@ -172,17 +172,17 @@ export interface VaultLockArgs {
     /**
      * Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
      */
-    readonly completeLock: pulumi.Input<boolean>;
+    completeLock: pulumi.Input<boolean>;
     /**
      * Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `completeLock` being set to `true`.
      */
-    readonly ignoreDeletionError?: pulumi.Input<boolean>;
+    ignoreDeletionError?: pulumi.Input<boolean>;
     /**
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
-    readonly policy: pulumi.Input<string>;
+    policy: pulumi.Input<string>;
     /**
      * The name of the Glacier Vault.
      */
-    readonly vaultName: pulumi.Input<string>;
+    vaultName: pulumi.Input<string>;
 }

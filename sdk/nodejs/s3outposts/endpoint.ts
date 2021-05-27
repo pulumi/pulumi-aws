@@ -139,31 +139,31 @@ export interface EndpointState {
     /**
      * Amazon Resource Name (ARN) of the endpoint.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * VPC CIDR block of the endpoint.
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
      */
-    readonly creationTime?: pulumi.Input<string>;
+    creationTime?: pulumi.Input<string>;
     /**
      * Set of nested attributes for associated Elastic Network Interfaces (ENIs).
      */
-    readonly networkInterfaces?: pulumi.Input<pulumi.Input<inputs.s3outposts.EndpointNetworkInterface>[]>;
+    networkInterfaces?: pulumi.Input<pulumi.Input<inputs.s3outposts.EndpointNetworkInterface>[]>;
     /**
      * Identifier of the Outpost to contain this endpoint.
      */
-    readonly outpostId?: pulumi.Input<string>;
+    outpostId?: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Security Group.
      */
-    readonly securityGroupId?: pulumi.Input<string>;
+    securityGroupId?: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Subnet.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -173,13 +173,13 @@ export interface EndpointArgs {
     /**
      * Identifier of the Outpost to contain this endpoint.
      */
-    readonly outpostId: pulumi.Input<string>;
+    outpostId: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Security Group.
      */
-    readonly securityGroupId: pulumi.Input<string>;
+    securityGroupId: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Subnet.
      */
-    readonly subnetId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
 }

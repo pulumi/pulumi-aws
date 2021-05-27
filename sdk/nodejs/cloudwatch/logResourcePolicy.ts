@@ -143,11 +143,11 @@ export interface LogResourcePolicyState {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    readonly policyDocument?: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string>;
     /**
      * Name of the resource policy.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
 }
 
 /**
@@ -157,9 +157,9 @@ export interface LogResourcePolicyArgs {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    readonly policyDocument: pulumi.Input<string>;
+    policyDocument: pulumi.Input<string>;
     /**
      * Name of the resource policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    policyName: pulumi.Input<string>;
 }

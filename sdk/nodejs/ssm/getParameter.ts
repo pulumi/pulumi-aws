@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const foo = pulumi.output(aws.ssm.getParameter({
  *     name: "foo",
- * }, { async: true }));
+ * }));
  * ```
  *
  * > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
@@ -42,11 +42,11 @@ export interface GetParameterArgs {
     /**
      * The name of the parameter.
      */
-    readonly name: string;
+    name: string;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */
-    readonly withDecryption?: boolean;
+    withDecryption?: boolean;
 }
 
 /**

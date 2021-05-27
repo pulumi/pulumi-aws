@@ -99,7 +99,7 @@ export interface DefaultKmsKeyState {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      */
-    readonly keyArn?: pulumi.Input<string>;
+    keyArn?: pulumi.Input<string>;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface DefaultKmsKeyArgs {
     /**
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      */
-    readonly keyArn: pulumi.Input<string>;
+    keyArn: pulumi.Input<string>;
 }

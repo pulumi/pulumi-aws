@@ -221,71 +221,71 @@ export interface NotebookInstanceState {
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      */
-    readonly additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
      */
-    readonly defaultCodeRepository?: pulumi.Input<string>;
+    defaultCodeRepository?: pulumi.Input<string>;
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
-    readonly directInternetAccess?: pulumi.Input<string>;
+    directInternetAccess?: pulumi.Input<string>;
     /**
      * The name of ML compute instance type.
      */
-    readonly instanceType?: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      */
-    readonly lifecycleConfigName?: pulumi.Input<string>;
+    lifecycleConfigName?: pulumi.Input<string>;
     /**
      * The name of the notebook instance (must be unique).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
      */
-    readonly networkInterfaceId?: pulumi.Input<string>;
+    networkInterfaceId?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
-    readonly roleArn?: pulumi.Input<string>;
+    roleArn?: pulumi.Input<string>;
     /**
      * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
      */
-    readonly rootAccess?: pulumi.Input<string>;
+    rootAccess?: pulumi.Input<string>;
     /**
      * The associated security groups.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VPC subnet ID.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
      */
-    readonly volumeSize?: pulumi.Input<number>;
+    volumeSize?: pulumi.Input<number>;
 }
 
 /**
@@ -296,57 +296,57 @@ export interface NotebookInstanceArgs {
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      */
-    readonly additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalCodeRepositories?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
      */
-    readonly defaultCodeRepository?: pulumi.Input<string>;
+    defaultCodeRepository?: pulumi.Input<string>;
     /**
      * Set to `Disabled` to disable internet access to notebook. Requires `securityGroups` and `subnetId` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
      */
-    readonly directInternetAccess?: pulumi.Input<string>;
+    directInternetAccess?: pulumi.Input<string>;
     /**
      * The name of ML compute instance type.
      */
-    readonly instanceType: pulumi.Input<string>;
+    instanceType: pulumi.Input<string>;
     /**
      * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
      */
-    readonly kmsKeyId?: pulumi.Input<string>;
+    kmsKeyId?: pulumi.Input<string>;
     /**
      * The name of a lifecycle configuration to associate with the notebook instance.
      */
-    readonly lifecycleConfigName?: pulumi.Input<string>;
+    lifecycleConfigName?: pulumi.Input<string>;
     /**
      * The name of the notebook instance (must be unique).
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
-    readonly roleArn: pulumi.Input<string>;
+    roleArn: pulumi.Input<string>;
     /**
      * Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
      */
-    readonly rootAccess?: pulumi.Input<string>;
+    rootAccess?: pulumi.Input<string>;
     /**
      * The associated security groups.
      */
-    readonly securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VPC subnet ID.
      */
-    readonly subnetId?: pulumi.Input<string>;
+    subnetId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
      */
-    readonly volumeSize?: pulumi.Input<number>;
+    volumeSize?: pulumi.Input<number>;
 }

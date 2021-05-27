@@ -164,15 +164,15 @@ export interface LifecyclePolicyState {
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
      */
-    readonly policy?: pulumi.Input<string | LifecyclePolicyDocument>;
+    policy?: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * The registry ID where the repository was created.
      */
-    readonly registryId?: pulumi.Input<string>;
+    registryId?: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string>;
 }
 
 /**
@@ -182,9 +182,9 @@ export interface LifecyclePolicyArgs {
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs.
      */
-    readonly policy: pulumi.Input<string | LifecyclePolicyDocument>;
+    policy: pulumi.Input<string | LifecyclePolicyDocument>;
     /**
      * Name of the repository to apply the policy.
      */
-    readonly repository: pulumi.Input<string>;
+    repository: pulumi.Input<string>;
 }

@@ -142,23 +142,23 @@ export interface EventPermissionState {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
     /**
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
-    readonly principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */
-    readonly statementId?: pulumi.Input<string>;
+    statementId?: pulumi.Input<string>;
 }
 
 /**
@@ -168,21 +168,21 @@ export interface EventPermissionArgs {
     /**
      * The action that you are enabling the other account to perform. Defaults to `events:PutEvents`.
      */
-    readonly action?: pulumi.Input<string>;
+    action?: pulumi.Input<string>;
     /**
      * Configuration block to limit the event bus permissions you are granting to only accounts that fulfill the condition. Specified below.
      */
-    readonly condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
+    condition?: pulumi.Input<inputs.cloudwatch.EventPermissionCondition>;
     /**
      * The event bus to set the permissions on. If you omit this, the permissions are set on the `default` event bus.
      */
-    readonly eventBusName?: pulumi.Input<string>;
+    eventBusName?: pulumi.Input<string>;
     /**
      * The 12-digit AWS account ID that you are permitting to put events to your default event bus. Specify `*` to permit any account to put events to your default event bus, optionally limited by `condition`.
      */
-    readonly principal: pulumi.Input<string>;
+    principal: pulumi.Input<string>;
     /**
      * An identifier string for the external account that you are granting permissions to.
      */
-    readonly statementId: pulumi.Input<string>;
+    statementId: pulumi.Input<string>;
 }

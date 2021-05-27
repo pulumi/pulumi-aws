@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const all = pulumi.output(aws.outposts.getSites({ async: true }));
+ * const all = pulumi.output(aws.outposts.getSites());
  * ```
  */
 export function getSites(opts?: pulumi.InvokeOptions): Promise<GetSitesResult> {

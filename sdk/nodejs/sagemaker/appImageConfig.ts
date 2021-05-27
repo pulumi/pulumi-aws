@@ -129,15 +129,15 @@ export interface AppImageConfigState {
     /**
      * The name of the App Image Config.
      */
-    readonly appImageConfigName?: pulumi.Input<string>;
+    appImageConfigName?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    readonly kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
 }
 
 /**
@@ -147,9 +147,9 @@ export interface AppImageConfigArgs {
     /**
      * The name of the App Image Config.
      */
-    readonly appImageConfigName: pulumi.Input<string>;
+    appImageConfigName: pulumi.Input<string>;
     /**
      * The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
      */
-    readonly kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
+    kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfig>;
 }

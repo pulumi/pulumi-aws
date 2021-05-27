@@ -140,19 +140,19 @@ export interface BasePathMappingState {
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
-    readonly basePath?: pulumi.Input<string>;
+    basePath?: pulumi.Input<string>;
     /**
      * The already-registered domain name to connect the API to.
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * The id of the API to connect.
      */
-    readonly restApi?: pulumi.Input<string | RestApi>;
+    restApi?: pulumi.Input<string | RestApi>;
     /**
      * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
-    readonly stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string>;
 }
 
 /**
@@ -162,17 +162,17 @@ export interface BasePathMappingArgs {
     /**
      * Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
      */
-    readonly basePath?: pulumi.Input<string>;
+    basePath?: pulumi.Input<string>;
     /**
      * The already-registered domain name to connect the API to.
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
     /**
      * The id of the API to connect.
      */
-    readonly restApi: pulumi.Input<string | RestApi>;
+    restApi: pulumi.Input<string | RestApi>;
     /**
      * The name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
      */
-    readonly stageName?: pulumi.Input<string>;
+    stageName?: pulumi.Input<string>;
 }

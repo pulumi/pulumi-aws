@@ -16,16 +16,16 @@ import * as utilities from "../utilities";
  *
  * const byAlias = pulumi.output(aws.kms.getPublicKey({
  *     keyId: "alias/my-key",
- * }, { async: true }));
+ * }));
  * const byId = pulumi.output(aws.kms.getPublicKey({
  *     keyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- * }, { async: true }));
+ * }));
  * const byAliasArn = pulumi.output(aws.kms.getPublicKey({
  *     keyId: "arn:aws:kms:us-east-1:111122223333:alias/my-key",
- * }, { async: true }));
+ * }));
  * const byKeyArn = pulumi.output(aws.kms.getPublicKey({
  *     keyId: "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPublicKey(args: GetPublicKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicKeyResult> {
@@ -49,7 +49,7 @@ export interface GetPublicKeyArgs {
     /**
      * List of grant tokens
      */
-    readonly grantTokens?: string[];
+    grantTokens?: string[];
     /**
      * Key identifier which can be one of the following format:
      * * Key ID. E.g - `1234abcd-12ab-34cd-56ef-1234567890ab`
@@ -57,7 +57,7 @@ export interface GetPublicKeyArgs {
      * * Alias name. E.g. - `alias/my-key`
      * * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
-    readonly keyId: string;
+    keyId: string;
 }
 
 /**

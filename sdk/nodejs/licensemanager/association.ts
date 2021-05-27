@@ -119,11 +119,11 @@ export interface AssociationState {
     /**
      * ARN of the license configuration.
      */
-    readonly licenseConfigurationArn?: pulumi.Input<string>;
+    licenseConfigurationArn?: pulumi.Input<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */
-    readonly resourceArn?: pulumi.Input<string>;
+    resourceArn?: pulumi.Input<string>;
 }
 
 /**
@@ -133,9 +133,9 @@ export interface AssociationArgs {
     /**
      * ARN of the license configuration.
      */
-    readonly licenseConfigurationArn: pulumi.Input<string>;
+    licenseConfigurationArn: pulumi.Input<string>;
     /**
      * ARN of the resource associated with the license configuration.
      */
-    readonly resourceArn: pulumi.Input<string>;
+    resourceArn: pulumi.Input<string>;
 }

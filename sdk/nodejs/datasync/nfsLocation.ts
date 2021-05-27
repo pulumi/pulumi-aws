@@ -140,28 +140,28 @@ export interface NfsLocationState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    readonly onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    onPremConfig?: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
-    readonly serverHostname?: pulumi.Input<string>;
+    serverHostname?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    readonly subdirectory?: pulumi.Input<string>;
+    subdirectory?: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly uri?: pulumi.Input<string>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    uri?: pulumi.Input<string>;
 }
 
 /**
@@ -171,21 +171,21 @@ export interface NfsLocationArgs {
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
-    readonly onPremConfig: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
+    onPremConfig: pulumi.Input<inputs.datasync.NfsLocationOnPremConfig>;
     /**
      * Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
      */
-    readonly serverHostname: pulumi.Input<string>;
+    serverHostname: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
      */
-    readonly subdirectory: pulumi.Input<string>;
+    subdirectory: pulumi.Input<string>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -153,11 +153,11 @@ export interface LoggingConfigurationState {
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
-    readonly firewallArn?: pulumi.Input<string>;
+    firewallArn?: pulumi.Input<string>;
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    readonly loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    loggingConfiguration?: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
 }
 
 /**
@@ -167,9 +167,9 @@ export interface LoggingConfigurationArgs {
     /**
      * The Amazon Resource Name (ARN) of the Network Firewall firewall.
      */
-    readonly firewallArn: pulumi.Input<string>;
+    firewallArn: pulumi.Input<string>;
     /**
      * A configuration block describing how AWS Network Firewall performs logging for a firewall. See Logging Configuration below for details.
      */
-    readonly loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
+    loggingConfiguration: pulumi.Input<inputs.networkfirewall.LoggingConfigurationLoggingConfiguration>;
 }

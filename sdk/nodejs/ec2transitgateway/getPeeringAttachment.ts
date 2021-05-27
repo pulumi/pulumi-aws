@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         name: "transit-gateway-attachment-id",
  *         values: ["tgw-attach-12345678"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  * ### By Identifier
  *
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const attachment = pulumi.output(aws.ec2transitgateway.getPeeringAttachment({
  *     id: "tgw-attach-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getPeeringAttachment(args?: GetPeeringAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringAttachmentResult> {
@@ -56,16 +56,16 @@ export interface GetPeeringAttachmentArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetPeeringAttachmentFilter[];
+    filters?: inputs.ec2transitgateway.GetPeeringAttachmentFilter[];
     /**
      * Identifier of the EC2 Transit Gateway Peering Attachment.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

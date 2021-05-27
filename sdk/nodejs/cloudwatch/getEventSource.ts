@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const examplepartner = pulumi.output(aws.cloudwatch.getEventSource({
  *     namePrefix: "aws.partner/examplepartner.com",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventSourceResult> {
@@ -42,7 +42,7 @@ export interface GetEventSourceArgs {
     /**
      * Specifying this limits the results to only those partner event sources with names that start with the specified prefix
      */
-    readonly namePrefix?: string;
+    namePrefix?: string;
 }
 
 /**

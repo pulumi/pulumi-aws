@@ -30,12 +30,12 @@ export interface GetCoipPoolsArgs {
     /**
      * Custom filter block as described below.
      */
-    readonly filters?: inputs.ec2.GetCoipPoolsFilter[];
+    filters?: inputs.ec2.GetCoipPoolsFilter[];
     /**
      * A mapping of tags, each pair of which must exactly match
      * a pair on the desired aws_ec2_coip_pools.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

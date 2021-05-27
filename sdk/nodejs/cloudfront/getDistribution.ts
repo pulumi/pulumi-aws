@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.cloudfront.getDistribution({
  *     id: "EDFDVBD632BHDS5",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
@@ -40,8 +40,8 @@ export interface GetDistributionArgs {
     /**
      * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
      */
-    readonly id: string;
-    readonly tags?: {[key: string]: string};
+    id: string;
+    tags?: {[key: string]: string};
 }
 
 /**

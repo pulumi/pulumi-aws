@@ -138,27 +138,27 @@ export interface ConfgurationSetState {
     /**
      * SES configuration set ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Configuration block. Detailed below.
      */
-    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
      * The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a fresh start.
      */
-    readonly lastFreshStart?: pulumi.Input<string>;
+    lastFreshStart?: pulumi.Input<string>;
     /**
      * Name of the configuration set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
-    readonly reputationMetricsEnabled?: pulumi.Input<boolean>;
+    reputationMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
-    readonly sendingEnabled?: pulumi.Input<boolean>;
+    sendingEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -168,17 +168,17 @@ export interface ConfgurationSetArgs {
     /**
      * Configuration block. Detailed below.
      */
-    readonly deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
+    deliveryOptions?: pulumi.Input<inputs.ses.ConfgurationSetDeliveryOptions>;
     /**
      * Name of the configuration set.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
      */
-    readonly reputationMetricsEnabled?: pulumi.Input<boolean>;
+    reputationMetricsEnabled?: pulumi.Input<boolean>;
     /**
      * Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
      */
-    readonly sendingEnabled?: pulumi.Input<boolean>;
+    sendingEnabled?: pulumi.Input<boolean>;
 }

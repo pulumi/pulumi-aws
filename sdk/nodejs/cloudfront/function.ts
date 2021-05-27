@@ -148,35 +148,35 @@ export interface FunctionState {
     /**
      * Amazon Resource Name (ARN) identifying your CloudFront Function.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Source code of the function
      */
-    readonly code?: pulumi.Input<string>;
+    code?: pulumi.Input<string>;
     /**
      * Comment.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * ETag hash of the function
      */
-    readonly etag?: pulumi.Input<string>;
+    etag?: pulumi.Input<string>;
     /**
      * Unique name for your CloudFront Function.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      */
-    readonly publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
      */
-    readonly runtime?: pulumi.Input<string>;
+    runtime?: pulumi.Input<string>;
     /**
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
 }
 
 /**
@@ -186,21 +186,21 @@ export interface FunctionArgs {
     /**
      * Source code of the function
      */
-    readonly code: pulumi.Input<string>;
+    code: pulumi.Input<string>;
     /**
      * Comment.
      */
-    readonly comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
     /**
      * Unique name for your CloudFront Function.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
      */
-    readonly publish?: pulumi.Input<boolean>;
+    publish?: pulumi.Input<boolean>;
     /**
      * Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
      */
-    readonly runtime: pulumi.Input<string>;
+    runtime: pulumi.Input<string>;
 }

@@ -125,27 +125,27 @@ export interface AccountAssignmentState {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    readonly instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      */
-    readonly permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string>;
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      */
-    readonly principalId?: pulumi.Input<string>;
+    principalId?: pulumi.Input<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
-    readonly principalType?: pulumi.Input<string>;
+    principalType?: pulumi.Input<string>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
-    readonly targetId?: pulumi.Input<string>;
+    targetId?: pulumi.Input<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
 }
 
 /**
@@ -155,25 +155,25 @@ export interface AccountAssignmentArgs {
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
-    readonly instanceArn: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
      */
-    readonly permissionSetArn: pulumi.Input<string>;
+    permissionSetArn: pulumi.Input<string>;
     /**
      * An identifier for an object in SSO, such as a user or group. PrincipalIds are GUIDs (For example, `f81d4fae-7dec-11d0-a765-00a0c91e6bf6`).
      */
-    readonly principalId: pulumi.Input<string>;
+    principalId: pulumi.Input<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
-    readonly principalType: pulumi.Input<string>;
+    principalType: pulumi.Input<string>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
-    readonly targetId: pulumi.Input<string>;
+    targetId: pulumi.Input<string>;
     /**
      * The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
      */
-    readonly targetType?: pulumi.Input<string>;
+    targetType?: pulumi.Input<string>;
 }

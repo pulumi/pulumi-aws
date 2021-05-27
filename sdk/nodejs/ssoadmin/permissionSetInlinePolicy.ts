@@ -104,15 +104,15 @@ export interface PermissionSetInlinePolicyState {
     /**
      * The IAM inline policy to attach to a Permission Set.
      */
-    readonly inlinePolicy?: pulumi.Input<string>;
+    inlinePolicy?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    readonly instanceArn?: pulumi.Input<string>;
+    instanceArn?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    readonly permissionSetArn?: pulumi.Input<string>;
+    permissionSetArn?: pulumi.Input<string>;
 }
 
 /**
@@ -122,13 +122,13 @@ export interface PermissionSetInlinePolicyArgs {
     /**
      * The IAM inline policy to attach to a Permission Set.
      */
-    readonly inlinePolicy: pulumi.Input<string>;
+    inlinePolicy: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
      */
-    readonly instanceArn: pulumi.Input<string>;
+    instanceArn: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
-    readonly permissionSetArn: pulumi.Input<string>;
+    permissionSetArn: pulumi.Input<string>;
 }

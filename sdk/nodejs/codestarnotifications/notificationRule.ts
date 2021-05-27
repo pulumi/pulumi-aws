@@ -171,40 +171,40 @@ export interface NotificationRuleState {
     /**
      * The codestar notification rule ARN.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      */
-    readonly detailType?: pulumi.Input<string>;
+    detailType?: pulumi.Input<string>;
     /**
      * A list of event types associated with this notification rule.
      * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
      */
-    readonly eventTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    eventTypeIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of notification rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */
-    readonly resource?: pulumi.Input<string>;
+    resource?: pulumi.Input<string>;
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
 }
 
 /**
@@ -214,34 +214,34 @@ export interface NotificationRuleArgs {
     /**
      * The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
      */
-    readonly detailType: pulumi.Input<string>;
+    detailType: pulumi.Input<string>;
     /**
      * A list of event types associated with this notification rule.
      * For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
      */
-    readonly eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
+    eventTypeIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of notification rule.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */
-    readonly resource: pulumi.Input<string>;
+    resource: pulumi.Input<string>;
     /**
      * The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
      */
-    readonly targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
+    targets?: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTarget>[]>;
 }

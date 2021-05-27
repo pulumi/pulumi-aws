@@ -272,83 +272,83 @@ export interface UserPoolClientState {
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly accessTokenValidity?: pulumi.Input<number>;
+    accessTokenValidity?: pulumi.Input<number>;
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    readonly allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
-    readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Client secret of the user pool client.
      */
-    readonly clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * Default redirect URI. Must be in the list of callback URLs.
      */
-    readonly defaultRedirectUri?: pulumi.Input<string>;
+    defaultRedirectUri?: pulumi.Input<string>;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
-    readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should an application secret be generated.
      */
-    readonly generateSecret?: pulumi.Input<boolean>;
+    generateSecret?: pulumi.Input<boolean>;
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly idTokenValidity?: pulumi.Input<number>;
+    idTokenValidity?: pulumi.Input<number>;
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the application client.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
      */
-    readonly preventUserExistenceErrors?: pulumi.Input<string>;
+    preventUserExistenceErrors?: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can read from.
      */
-    readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Time limit in days refresh tokens are valid for.
      */
-    readonly refreshTokenValidity?: pulumi.Input<number>;
+    refreshTokenValidity?: pulumi.Input<number>;
     /**
      * List of provider names for the identity providers that are supported on this client.
      */
-    readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for units in which the validity times are represented in. Detailed below.
      */
-    readonly tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
      */
-    readonly userPoolId?: pulumi.Input<string>;
+    userPoolId?: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can write to.
      */
-    readonly writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -358,77 +358,77 @@ export interface UserPoolClientArgs {
     /**
      * Time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly accessTokenValidity?: pulumi.Input<number>;
+    accessTokenValidity?: pulumi.Input<number>;
     /**
      * List of allowed OAuth flows (code, implicit, client_credentials).
      */
-    readonly allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.
      */
-    readonly allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
+    allowedOauthFlowsUserPoolClient?: pulumi.Input<boolean>;
     /**
      * List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
      */
-    readonly allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
      */
-    readonly analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
+    analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration>;
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    readonly callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    callbackUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Default redirect URI. Must be in the list of callback URLs.
      */
-    readonly defaultRedirectUri?: pulumi.Input<string>;
+    defaultRedirectUri?: pulumi.Input<string>;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
-    readonly explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
+    explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Should an application secret be generated.
      */
-    readonly generateSecret?: pulumi.Input<boolean>;
+    generateSecret?: pulumi.Input<boolean>;
     /**
      * Time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in `tokenValidityUnits`.
      */
-    readonly idTokenValidity?: pulumi.Input<number>;
+    idTokenValidity?: pulumi.Input<number>;
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    readonly logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the application client.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY`, those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
      */
-    readonly preventUserExistenceErrors?: pulumi.Input<string>;
+    preventUserExistenceErrors?: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can read from.
      */
-    readonly readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Time limit in days refresh tokens are valid for.
      */
-    readonly refreshTokenValidity?: pulumi.Input<number>;
+    refreshTokenValidity?: pulumi.Input<number>;
     /**
      * List of provider names for the identity providers that are supported on this client.
      */
-    readonly supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configuration block for units in which the validity times are represented in. Detailed below.
      */
-    readonly tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
+    tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnits>;
     /**
      * User pool the client belongs to.
      */
-    readonly userPoolId: pulumi.Input<string>;
+    userPoolId: pulumi.Input<string>;
     /**
      * List of user pool attributes the application client can write to.
      */
-    readonly writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
+    writeAttributes?: pulumi.Input<pulumi.Input<string>[]>;
 }

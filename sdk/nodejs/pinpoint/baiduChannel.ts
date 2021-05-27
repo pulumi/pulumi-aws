@@ -121,19 +121,19 @@ export interface BaiduChannelState {
     /**
      * Platform credential API key from Baidu.
      */
-    readonly apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId?: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Platform credential Secret key from Baidu.
      */
-    readonly secretKey?: pulumi.Input<string>;
+    secretKey?: pulumi.Input<string>;
 }
 
 /**
@@ -143,17 +143,17 @@ export interface BaiduChannelArgs {
     /**
      * Platform credential API key from Baidu.
      */
-    readonly apiKey: pulumi.Input<string>;
+    apiKey: pulumi.Input<string>;
     /**
      * The application ID.
      */
-    readonly applicationId: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * Specifies whether to enable the channel. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Platform credential Secret key from Baidu.
      */
-    readonly secretKey: pulumi.Input<string>;
+    secretKey: pulumi.Input<string>;
 }

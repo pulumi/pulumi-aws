@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * const flowerTypes = pulumi.output(aws.lex.getSlotType({
  *     name: "FlowerTypes",
  *     version: "1",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
@@ -41,11 +41,11 @@ export interface GetSlotTypeArgs {
     /**
      * The name of the slot type. The name is case sensitive.
      */
-    readonly name: string;
+    name: string;
     /**
      * The version of the slot type.
      */
-    readonly version?: string;
+    version?: string;
 }
 
 /**

@@ -244,104 +244,104 @@ export interface HaproxyLayerState {
     /**
      * The Amazon Resource Name(ARN) of the layer.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: pulumi.Input<boolean>;
+    autoAssignElasticIps?: pulumi.Input<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: pulumi.Input<boolean>;
+    autoAssignPublicIps?: pulumi.Input<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: pulumi.Input<boolean>;
-    readonly customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    autoHealing?: pulumi.Input<boolean>;
+    customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: pulumi.Input<string>;
+    customInstanceProfileArn?: pulumi.Input<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: pulumi.Input<string>;
+    customJson?: pulumi.Input<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: pulumi.Input<boolean>;
+    drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: pulumi.Input<string>;
+    elasticLoadBalancer?: pulumi.Input<string>;
     /**
      * HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
      */
-    readonly healthcheckMethod?: pulumi.Input<string>;
+    healthcheckMethod?: pulumi.Input<string>;
     /**
      * URL path to use for instance healthchecks. Defaults to "/".
      */
-    readonly healthcheckUrl?: pulumi.Input<string>;
+    healthcheckUrl?: pulumi.Input<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: pulumi.Input<boolean>;
+    installUpdatesOnBoot?: pulumi.Input<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: pulumi.Input<number>;
+    instanceShutdownTimeout?: pulumi.Input<number>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId?: pulumi.Input<string>;
+    stackId?: pulumi.Input<string>;
     /**
      * Whether to enable HAProxy stats.
      */
-    readonly statsEnabled?: pulumi.Input<boolean>;
+    statsEnabled?: pulumi.Input<boolean>;
     /**
      * The password to use for HAProxy stats.
      */
-    readonly statsPassword?: pulumi.Input<string>;
+    statsPassword?: pulumi.Input<string>;
     /**
      * The HAProxy stats URL. Defaults to "/haproxy?stats".
      */
-    readonly statsUrl?: pulumi.Input<string>;
+    statsUrl?: pulumi.Input<string>;
     /**
      * The username for HAProxy stats. Defaults to "opsworks".
      */
-    readonly statsUser?: pulumi.Input<string>;
+    statsUser?: pulumi.Input<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: pulumi.Input<boolean>;
+    useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }
 
 /**
@@ -351,98 +351,98 @@ export interface HaproxyLayerArgs {
     /**
      * Whether to automatically assign an elastic IP address to the layer's instances.
      */
-    readonly autoAssignElasticIps?: pulumi.Input<boolean>;
+    autoAssignElasticIps?: pulumi.Input<boolean>;
     /**
      * For stacks belonging to a VPC, whether to automatically assign a public IP address to each of the layer's instances.
      */
-    readonly autoAssignPublicIps?: pulumi.Input<boolean>;
+    autoAssignPublicIps?: pulumi.Input<boolean>;
     /**
      * Whether to enable auto-healing for the layer.
      */
-    readonly autoHealing?: pulumi.Input<boolean>;
-    readonly customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    autoHealing?: pulumi.Input<boolean>;
+    customConfigureRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customDeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The ARN of an IAM profile that will be used for the layer's instances.
      */
-    readonly customInstanceProfileArn?: pulumi.Input<string>;
+    customInstanceProfileArn?: pulumi.Input<string>;
     /**
      * Custom JSON attributes to apply to the layer.
      */
-    readonly customJson?: pulumi.Input<string>;
+    customJson?: pulumi.Input<string>;
     /**
      * Ids for a set of security groups to apply to the layer's instances.
      */
-    readonly customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    customSetupRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customShutdownRecipes?: pulumi.Input<pulumi.Input<string>[]>;
+    customUndeployRecipes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether to enable Elastic Load Balancing connection draining.
      */
-    readonly drainElbOnShutdown?: pulumi.Input<boolean>;
+    drainElbOnShutdown?: pulumi.Input<boolean>;
     /**
      * `ebsVolume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
      */
-    readonly ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
+    ebsVolumes?: pulumi.Input<pulumi.Input<inputs.opsworks.HaproxyLayerEbsVolume>[]>;
     /**
      * Name of an Elastic Load Balancer to attach to this layer
      */
-    readonly elasticLoadBalancer?: pulumi.Input<string>;
+    elasticLoadBalancer?: pulumi.Input<string>;
     /**
      * HTTP method to use for instance healthchecks. Defaults to "OPTIONS".
      */
-    readonly healthcheckMethod?: pulumi.Input<string>;
+    healthcheckMethod?: pulumi.Input<string>;
     /**
      * URL path to use for instance healthchecks. Defaults to "/".
      */
-    readonly healthcheckUrl?: pulumi.Input<string>;
+    healthcheckUrl?: pulumi.Input<string>;
     /**
      * Whether to install OS and package updates on each instance when it boots.
      */
-    readonly installUpdatesOnBoot?: pulumi.Input<boolean>;
+    installUpdatesOnBoot?: pulumi.Input<boolean>;
     /**
      * The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
      */
-    readonly instanceShutdownTimeout?: pulumi.Input<number>;
+    instanceShutdownTimeout?: pulumi.Input<number>;
     /**
      * A human-readable name for the layer.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The id of the stack the layer will belong to.
      */
-    readonly stackId: pulumi.Input<string>;
+    stackId: pulumi.Input<string>;
     /**
      * Whether to enable HAProxy stats.
      */
-    readonly statsEnabled?: pulumi.Input<boolean>;
+    statsEnabled?: pulumi.Input<boolean>;
     /**
      * The password to use for HAProxy stats.
      */
-    readonly statsPassword: pulumi.Input<string>;
+    statsPassword: pulumi.Input<string>;
     /**
      * The HAProxy stats URL. Defaults to "/haproxy?stats".
      */
-    readonly statsUrl?: pulumi.Input<string>;
+    statsUrl?: pulumi.Input<string>;
     /**
      * The username for HAProxy stats. Defaults to "opsworks".
      */
-    readonly statsUser?: pulumi.Input<string>;
+    statsUser?: pulumi.Input<string>;
     /**
      * Names of a set of system packages to install on the layer's instances.
      */
-    readonly systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
+    systemPackages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to use EBS-optimized instances.
      */
-    readonly useEbsOptimizedInstances?: pulumi.Input<boolean>;
+    useEbsOptimizedInstances?: pulumi.Input<boolean>;
 }

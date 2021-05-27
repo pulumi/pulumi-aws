@@ -127,11 +127,11 @@ export interface PrincipalAssociationState {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
-    readonly principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    readonly resourceShareArn?: pulumi.Input<string>;
+    resourceShareArn?: pulumi.Input<string>;
 }
 
 /**
@@ -141,9 +141,9 @@ export interface PrincipalAssociationArgs {
     /**
      * The principal to associate with the resource share. Possible values are an AWS account ID, an AWS Organizations Organization ARN, or an AWS Organizations Organization Unit ARN.
      */
-    readonly principal: pulumi.Input<string>;
+    principal: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the resource share.
      */
-    readonly resourceShareArn: pulumi.Input<string>;
+    resourceShareArn: pulumi.Input<string>;
 }

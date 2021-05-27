@@ -104,11 +104,11 @@ export interface ThingPrincipalAttachmentState {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    readonly principal?: pulumi.Input<ARN>;
+    principal?: pulumi.Input<ARN>;
     /**
      * The name of the thing.
      */
-    readonly thing?: pulumi.Input<string>;
+    thing?: pulumi.Input<string>;
 }
 
 /**
@@ -118,9 +118,9 @@ export interface ThingPrincipalAttachmentArgs {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    readonly principal: pulumi.Input<ARN>;
+    principal: pulumi.Input<ARN>;
     /**
      * The name of the thing.
      */
-    readonly thing: pulumi.Input<string>;
+    thing: pulumi.Input<string>;
 }

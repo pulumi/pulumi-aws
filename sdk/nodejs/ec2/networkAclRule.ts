@@ -185,47 +185,47 @@ export interface NetworkAclRuleState {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    readonly egress?: pulumi.Input<boolean>;
+    egress?: pulumi.Input<boolean>;
     /**
      * The from port to match.
      */
-    readonly fromPort?: pulumi.Input<number>;
+    fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpCode?: pulumi.Input<string>;
+    icmpCode?: pulumi.Input<string>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpType?: pulumi.Input<string>;
+    icmpType?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL.
      */
-    readonly networkAclId?: pulumi.Input<string>;
+    networkAclId?: pulumi.Input<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    readonly protocol?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    readonly ruleAction?: pulumi.Input<string>;
+    ruleAction?: pulumi.Input<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    readonly ruleNumber?: pulumi.Input<number>;
+    ruleNumber?: pulumi.Input<number>;
     /**
      * The to port to match.
      */
-    readonly toPort?: pulumi.Input<number>;
+    toPort?: pulumi.Input<number>;
 }
 
 /**
@@ -235,45 +235,45 @@ export interface NetworkAclRuleArgs {
     /**
      * The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
      */
-    readonly cidrBlock?: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
      */
-    readonly egress?: pulumi.Input<boolean>;
+    egress?: pulumi.Input<boolean>;
     /**
      * The from port to match.
      */
-    readonly fromPort?: pulumi.Input<number>;
+    fromPort?: pulumi.Input<number>;
     /**
      * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpCode?: pulumi.Input<string>;
+    icmpCode?: pulumi.Input<string>;
     /**
      * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
      */
-    readonly icmpType?: pulumi.Input<string>;
+    icmpType?: pulumi.Input<string>;
     /**
      * The IPv6 CIDR block to allow or deny.
      */
-    readonly ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlock?: pulumi.Input<string>;
     /**
      * The ID of the network ACL.
      */
-    readonly networkAclId: pulumi.Input<string>;
+    networkAclId: pulumi.Input<string>;
     /**
      * The protocol. A value of -1 means all protocols.
      */
-    readonly protocol: pulumi.Input<string>;
+    protocol: pulumi.Input<string>;
     /**
      * Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
      */
-    readonly ruleAction: pulumi.Input<string>;
+    ruleAction: pulumi.Input<string>;
     /**
      * The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.
      */
-    readonly ruleNumber: pulumi.Input<number>;
+    ruleNumber: pulumi.Input<number>;
     /**
      * The to port to match.
      */
-    readonly toPort?: pulumi.Input<number>;
+    toPort?: pulumi.Input<number>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.servicequotas.getService({
  *     serviceName: "Amazon Virtual Private Cloud (Amazon VPC)",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
@@ -39,7 +39,7 @@ export interface GetServiceArgs {
     /**
      * Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
-    readonly serviceName: string;
+    serviceName: string;
 }
 
 /**

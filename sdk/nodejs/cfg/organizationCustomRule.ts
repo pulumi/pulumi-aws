@@ -182,51 +182,51 @@ export interface OrganizationCustomRuleState {
     /**
      * Amazon Resource Name (ARN) of the rule
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the rule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    readonly excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    readonly inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the rule Lambda Function
      */
-    readonly lambdaFunctionArn?: pulumi.Input<string>;
+    lambdaFunctionArn?: pulumi.Input<string>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    readonly maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    readonly resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string>;
     /**
      * List of types of AWS resources to evaluate
      */
-    readonly resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tag key of AWS resources to evaluate
      */
-    readonly tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    readonly tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
      */
-    readonly triggerTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    triggerTypes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -236,45 +236,45 @@ export interface OrganizationCustomRuleArgs {
     /**
      * Description of the rule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * List of AWS account identifiers to exclude from the rule
      */
-    readonly excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+    excludedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A string in JSON format that is passed to the AWS Config Rule Lambda Function
      */
-    readonly inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the rule Lambda Function
      */
-    readonly lambdaFunctionArn: pulumi.Input<string>;
+    lambdaFunctionArn: pulumi.Input<string>;
     /**
      * The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
      */
-    readonly maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
-    readonly resourceIdScope?: pulumi.Input<string>;
+    resourceIdScope?: pulumi.Input<string>;
     /**
      * List of types of AWS resources to evaluate
      */
-    readonly resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTypesScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Tag key of AWS resources to evaluate
      */
-    readonly tagKeyScope?: pulumi.Input<string>;
+    tagKeyScope?: pulumi.Input<string>;
     /**
      * Tag value of AWS resources to evaluate
      */
-    readonly tagValueScope?: pulumi.Input<string>;
+    tagValueScope?: pulumi.Input<string>;
     /**
      * List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
      */
-    readonly triggerTypes: pulumi.Input<pulumi.Input<string>[]>;
+    triggerTypes: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.backup.getVault({
  *     name: "example_backup_vault",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
@@ -40,11 +40,11 @@ export interface GetVaultArgs {
     /**
      * The name of the backup vault.
      */
-    readonly name: string;
+    name: string;
     /**
      * Metadata that you can assign to help organize the resources that you create.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

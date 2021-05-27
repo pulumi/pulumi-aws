@@ -176,19 +176,19 @@ export interface LoadBalancerPolicyState {
     /**
      * The load balancer on which the policy is defined.
      */
-    readonly loadBalancerName?: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
     /**
      * The name of the load balancer policy.
      */
-    readonly policyName?: pulumi.Input<string>;
+    policyName?: pulumi.Input<string>;
     /**
      * The policy type.
      */
-    readonly policyTypeName?: pulumi.Input<string>;
+    policyTypeName?: pulumi.Input<string>;
 }
 
 /**
@@ -198,17 +198,17 @@ export interface LoadBalancerPolicyArgs {
     /**
      * The load balancer on which the policy is defined.
      */
-    readonly loadBalancerName: pulumi.Input<string>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * Policy attribute to apply to the policy.
      */
-    readonly policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
+    policyAttributes?: pulumi.Input<pulumi.Input<inputs.elb.LoadBalancerPolicyPolicyAttribute>[]>;
     /**
      * The name of the load balancer policy.
      */
-    readonly policyName: pulumi.Input<string>;
+    policyName: pulumi.Input<string>;
     /**
      * The policy type.
      */
-    readonly policyTypeName: pulumi.Input<string>;
+    policyTypeName: pulumi.Input<string>;
 }

@@ -186,47 +186,47 @@ export interface ReportDefinitionState {
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
      */
-    readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of schema elements. Valid values are: RESOURCES.
      */
-    readonly additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
      */
-    readonly compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string>;
     /**
      * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
      */
-    readonly format?: pulumi.Input<string>;
+    format?: pulumi.Input<string>;
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
-    readonly refreshClosedReports?: pulumi.Input<boolean>;
+    refreshClosedReports?: pulumi.Input<boolean>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    readonly reportName?: pulumi.Input<string>;
+    reportName?: pulumi.Input<string>;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
      */
-    readonly reportVersioning?: pulumi.Input<string>;
+    reportVersioning?: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Bucket?: pulumi.Input<string>;
+    s3Bucket?: pulumi.Input<string>;
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    readonly s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Region?: pulumi.Input<string>;
+    s3Region?: pulumi.Input<string>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
      */
-    readonly timeUnit?: pulumi.Input<string>;
+    timeUnit?: pulumi.Input<string>;
 }
 
 /**
@@ -236,45 +236,45 @@ export interface ReportDefinitionArgs {
     /**
      * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
      */
-    readonly additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
+    additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of schema elements. Valid values are: RESOURCES.
      */
-    readonly additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
+    additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
      */
-    readonly compression: pulumi.Input<string>;
+    compression: pulumi.Input<string>;
     /**
      * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
      */
-    readonly format: pulumi.Input<string>;
+    format: pulumi.Input<string>;
     /**
      * Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
      */
-    readonly refreshClosedReports?: pulumi.Input<boolean>;
+    refreshClosedReports?: pulumi.Input<boolean>;
     /**
      * Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
      */
-    readonly reportName: pulumi.Input<string>;
+    reportName: pulumi.Input<string>;
     /**
      * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
      */
-    readonly reportVersioning?: pulumi.Input<string>;
+    reportVersioning?: pulumi.Input<string>;
     /**
      * Name of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Bucket: pulumi.Input<string>;
+    s3Bucket: pulumi.Input<string>;
     /**
      * Report path prefix. Limited to 256 characters.
      */
-    readonly s3Prefix?: pulumi.Input<string>;
+    s3Prefix?: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
-    readonly s3Region: pulumi.Input<string>;
+    s3Region: pulumi.Input<string>;
     /**
      * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
      */
-    readonly timeUnit: pulumi.Input<string>;
+    timeUnit: pulumi.Input<string>;
 }

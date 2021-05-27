@@ -170,23 +170,23 @@ export interface RealtimeLogConfigState {
     /**
      * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      */
-    readonly endpoint?: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
+    endpoint?: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
     /**
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */
-    readonly fields?: pulumi.Input<pulumi.Input<string>[]>;
+    fields?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique name to identify this real-time log configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */
-    readonly samplingRate?: pulumi.Input<number>;
+    samplingRate?: pulumi.Input<number>;
 }
 
 /**
@@ -196,17 +196,17 @@ export interface RealtimeLogConfigArgs {
     /**
      * The Amazon Kinesis data streams where real-time log data is sent.
      */
-    readonly endpoint: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
+    endpoint: pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndpoint>;
     /**
      * The fields that are included in each real-time log record. See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) for supported values.
      */
-    readonly fields: pulumi.Input<pulumi.Input<string>[]>;
+    fields: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The unique name to identify this real-time log configuration.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. An integer between `1` and `100`, inclusive.
      */
-    readonly samplingRate: pulumi.Input<number>;
+    samplingRate: pulumi.Input<number>;
 }

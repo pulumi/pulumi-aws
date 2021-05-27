@@ -174,43 +174,43 @@ export interface TaskState {
     /**
      * Amazon Resource Name (ARN) of the DataSync Task.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    readonly cloudwatchLogGroupArn?: pulumi.Input<ARN>;
+    cloudwatchLogGroupArn?: pulumi.Input<ARN>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    readonly destinationLocationArn?: pulumi.Input<ARN>;
+    destinationLocationArn?: pulumi.Input<ARN>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    readonly excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
     /**
      * Name of the DataSync Task.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.datasync.TaskOptions>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    readonly schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    readonly sourceLocationArn?: pulumi.Input<ARN>;
+    sourceLocationArn?: pulumi.Input<ARN>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -220,37 +220,37 @@ export interface TaskArgs {
     /**
      * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      */
-    readonly cloudwatchLogGroupArn?: pulumi.Input<ARN>;
+    cloudwatchLogGroupArn?: pulumi.Input<ARN>;
     /**
      * Amazon Resource Name (ARN) of destination DataSync Location.
      */
-    readonly destinationLocationArn: pulumi.Input<ARN>;
+    destinationLocationArn: pulumi.Input<ARN>;
     /**
      * Filter rules that determines which files to exclude from a task.
      */
-    readonly excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
+    excludes?: pulumi.Input<inputs.datasync.TaskExcludes>;
     /**
      * Name of the DataSync Task.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
      */
-    readonly options?: pulumi.Input<inputs.datasync.TaskOptions>;
+    options?: pulumi.Input<inputs.datasync.TaskOptions>;
     /**
      * Specifies a schedule used to periodically transfer files from a source to a destination location.
      */
-    readonly schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
+    schedule?: pulumi.Input<inputs.datasync.TaskSchedule>;
     /**
      * Amazon Resource Name (ARN) of source DataSync Location.
      */
-    readonly sourceLocationArn: pulumi.Input<ARN>;
+    sourceLocationArn: pulumi.Input<ARN>;
     /**
      * Key-value pairs of resource tags to assign to the DataSync Task. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

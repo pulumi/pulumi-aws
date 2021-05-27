@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const buildSigningJob = pulumi.output(aws.signer.getSigningJob({
  *     jobId: "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getSigningJob(args: GetSigningJobArgs, opts?: pulumi.InvokeOptions): Promise<GetSigningJobResult> {
@@ -39,7 +39,7 @@ export interface GetSigningJobArgs {
     /**
      * The ID of the signing job on output.
      */
-    readonly jobId: string;
+    jobId: string;
 }
 
 /**

@@ -133,27 +133,27 @@ export interface ConnectionState {
     /**
      * ARN of the connection.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Name of the connection.
      */
-    readonly connectionName?: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string>;
     /**
      * The source repository provider. Valid values: `GITHUB`.
      */
-    readonly providerType?: pulumi.Input<string>;
+    providerType?: pulumi.Input<string>;
     /**
      * The current state of the App Runner connection. When the state is `AVAILABLE`, you can use the connection to create an `aws.apprunner.Service` resource.
      */
-    readonly status?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -163,17 +163,17 @@ export interface ConnectionArgs {
     /**
      * Name of the connection.
      */
-    readonly connectionName: pulumi.Input<string>;
+    connectionName: pulumi.Input<string>;
     /**
      * The source repository provider. Valid values: `GITHUB`.
      */
-    readonly providerType: pulumi.Input<string>;
+    providerType: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

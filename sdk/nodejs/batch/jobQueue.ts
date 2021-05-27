@@ -145,35 +145,35 @@ export interface JobQueueState {
     /**
      * The Amazon Resource Name of the job queue.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
      * in the list will dictate the order. You can associate up to 3 compute environments
      * with a job queue.
      */
-    readonly computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
+    computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the job queue.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    readonly priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -186,26 +186,26 @@ export interface JobQueueArgs {
      * in the list will dictate the order. You can associate up to 3 compute environments
      * with a job queue.
      */
-    readonly computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
+    computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of the job queue.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of the job queue. Job queues with a higher priority
      * are evaluated first when associated with the same compute environment.
      */
-    readonly priority: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
      */
-    readonly state: pulumi.Input<string>;
+    state: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

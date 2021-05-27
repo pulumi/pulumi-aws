@@ -30,15 +30,15 @@ export interface GetGroupArgs {
     /**
      * Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
      */
-    readonly filters: inputs.identitystore.GetGroupFilter[];
+    filters: inputs.identitystore.GetGroupFilter[];
     /**
      * The identifier for a group in the Identity Store.
      */
-    readonly groupId?: string;
+    groupId?: string;
     /**
      * The Identity Store ID associated with the Single Sign-On Instance.
      */
-    readonly identityStoreId: string;
+    identityStoreId: string;
 }
 
 /**

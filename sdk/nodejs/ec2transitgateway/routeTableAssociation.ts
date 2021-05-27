@@ -116,19 +116,19 @@ export interface RouteTableAssociationState {
     /**
      * Identifier of the resource
      */
-    readonly resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
     /**
      * Type of the resource
      */
-    readonly resourceType?: pulumi.Input<string>;
+    resourceType?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId?: pulumi.Input<string>;
+    transitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId?: pulumi.Input<string>;
+    transitGatewayRouteTableId?: pulumi.Input<string>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface RouteTableAssociationArgs {
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */
-    readonly transitGatewayAttachmentId: pulumi.Input<string>;
+    transitGatewayAttachmentId: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
-    readonly transitGatewayRouteTableId: pulumi.Input<string>;
+    transitGatewayRouteTableId: pulumi.Input<string>;
 }

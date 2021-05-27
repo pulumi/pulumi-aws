@@ -106,11 +106,11 @@ export interface AttachmentState {
     /**
      * The name of the ELB.
      */
-    readonly elb?: pulumi.Input<string>;
+    elb?: pulumi.Input<string>;
     /**
      * Instance ID to place in the ELB pool.
      */
-    readonly instance?: pulumi.Input<string>;
+    instance?: pulumi.Input<string>;
 }
 
 /**
@@ -120,9 +120,9 @@ export interface AttachmentArgs {
     /**
      * The name of the ELB.
      */
-    readonly elb: pulumi.Input<string>;
+    elb: pulumi.Input<string>;
     /**
      * Instance ID to place in the ELB pool.
      */
-    readonly instance: pulumi.Input<string>;
+    instance: pulumi.Input<string>;
 }

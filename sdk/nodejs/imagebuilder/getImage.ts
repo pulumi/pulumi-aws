@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.imagebuilder.getImage({
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
@@ -41,11 +41,11 @@ export interface GetImageArgs {
     /**
      * Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
      */
-    readonly arn: string;
+    arn: string;
     /**
      * Key-value map of resource tags for the image.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

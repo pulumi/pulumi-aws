@@ -114,11 +114,11 @@ export interface UserPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<ARN>;
     /**
      * The user the policy should be applied to
      */
-    readonly user?: pulumi.Input<string | User>;
+    user?: pulumi.Input<string | User>;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    readonly policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<ARN>;
     /**
      * The user the policy should be applied to
      */
-    readonly user: pulumi.Input<string | User>;
+    user: pulumi.Input<string | User>;
 }

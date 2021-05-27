@@ -144,28 +144,28 @@ export interface WorkflowState {
     /**
      * Amazon Resource Name (ARN) of Glue Workflow
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    readonly defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
+    defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
     /**
      * Description of the workflow.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      */
-    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    maxConcurrentRuns?: pulumi.Input<number>;
     /**
      * The name you assign to this workflow.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -175,22 +175,22 @@ export interface WorkflowArgs {
     /**
      * A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
      */
-    readonly defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
+    defaultRunProperties?: pulumi.Input<{[key: string]: any}>;
     /**
      * Description of the workflow.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
      */
-    readonly maxConcurrentRuns?: pulumi.Input<number>;
+    maxConcurrentRuns?: pulumi.Input<number>;
     /**
      * The name you assign to this workflow.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

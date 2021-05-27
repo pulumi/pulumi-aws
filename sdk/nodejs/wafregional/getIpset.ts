@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.wafregional.getIpset({
  *     name: "tfWAFRegionalIPSet",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getIpset(args: GetIpsetArgs, opts?: pulumi.InvokeOptions): Promise<GetIpsetResult> {
@@ -39,7 +39,7 @@ export interface GetIpsetArgs {
     /**
      * The name of the WAF Regional IP set.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

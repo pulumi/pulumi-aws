@@ -101,19 +101,19 @@ export interface StaticIpState {
     /**
      * The ARN of the Lightsail static IP
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The allocated static IP address
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The name for the allocated static IP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The support code.
      */
-    readonly supportCode?: pulumi.Input<string>;
+    supportCode?: pulumi.Input<string>;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface StaticIpArgs {
     /**
      * The name for the allocated static IP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

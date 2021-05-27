@@ -145,15 +145,15 @@ export interface DashboardState {
     /**
      * The Amazon Resource Name (ARN) of the dashboard.
      */
-    readonly dashboardArn?: pulumi.Input<string>;
+    dashboardArn?: pulumi.Input<string>;
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    readonly dashboardBody?: pulumi.Input<string>;
+    dashboardBody?: pulumi.Input<string>;
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string>;
 }
 
 /**
@@ -163,9 +163,9 @@ export interface DashboardArgs {
     /**
      * The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
      */
-    readonly dashboardBody: pulumi.Input<string>;
+    dashboardBody: pulumi.Input<string>;
     /**
      * The name of the dashboard.
      */
-    readonly dashboardName: pulumi.Input<string>;
+    dashboardName: pulumi.Input<string>;
 }

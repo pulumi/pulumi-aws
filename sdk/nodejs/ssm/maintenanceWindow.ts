@@ -176,55 +176,55 @@ export interface MaintenanceWindowState {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    readonly allowUnassociatedTargets?: pulumi.Input<boolean>;
+    allowUnassociatedTargets?: pulumi.Input<boolean>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    readonly cutoff?: pulumi.Input<number>;
+    cutoff?: pulumi.Input<number>;
     /**
      * A description for the maintenance window.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    readonly duration?: pulumi.Input<number>;
+    duration?: pulumi.Input<number>;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * The name of the maintenance window.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    readonly schedule?: pulumi.Input<string>;
+    schedule?: pulumi.Input<string>;
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
      */
-    readonly scheduleOffset?: pulumi.Input<number>;
+    scheduleOffset?: pulumi.Input<number>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    readonly scheduleTimezone?: pulumi.Input<string>;
+    scheduleTimezone?: pulumi.Input<string>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    readonly startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -234,53 +234,53 @@ export interface MaintenanceWindowArgs {
     /**
      * Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.
      */
-    readonly allowUnassociatedTargets?: pulumi.Input<boolean>;
+    allowUnassociatedTargets?: pulumi.Input<boolean>;
     /**
      * The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.
      */
-    readonly cutoff: pulumi.Input<number>;
+    cutoff: pulumi.Input<number>;
     /**
      * A description for the maintenance window.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The duration of the Maintenance Window in hours.
      */
-    readonly duration: pulumi.Input<number>;
+    duration: pulumi.Input<number>;
     /**
      * Whether the maintenance window is enabled. Default: `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
      */
-    readonly endDate?: pulumi.Input<string>;
+    endDate?: pulumi.Input<string>;
     /**
      * The name of the maintenance window.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The schedule of the Maintenance Window in the form of a [cron](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-cron.html) or rate expression.
      */
-    readonly schedule: pulumi.Input<string>;
+    schedule: pulumi.Input<string>;
     /**
      * The number of days to wait after the date and time specified by a CRON expression before running the maintenance window.
      */
-    readonly scheduleOffset?: pulumi.Input<number>;
+    scheduleOffset?: pulumi.Input<number>;
     /**
      * Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
      */
-    readonly scheduleTimezone?: pulumi.Input<string>;
+    scheduleTimezone?: pulumi.Input<string>;
     /**
      * Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
      */
-    readonly startDate?: pulumi.Input<string>;
+    startDate?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

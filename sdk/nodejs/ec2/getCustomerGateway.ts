@@ -55,15 +55,15 @@ export interface GetCustomerGatewayArgs {
     /**
      * One or more [name-value pairs][dcg-filters] to filter by.
      */
-    readonly filters?: inputs.ec2.GetCustomerGatewayFilter[];
+    filters?: inputs.ec2.GetCustomerGatewayFilter[];
     /**
      * The ID of the gateway.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Map of key-value pairs assigned to the gateway.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

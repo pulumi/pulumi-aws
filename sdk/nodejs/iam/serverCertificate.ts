@@ -230,55 +230,55 @@ export interface ServerCertificateState {
     /**
      * The Amazon Resource Name (ARN) specifying the server certificate.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    readonly certificateBody?: pulumi.Input<string>;
+    certificateBody?: pulumi.Input<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    readonly certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) on which the certificate is set to expire.
      */
-    readonly expiration?: pulumi.Input<string>;
+    expiration?: pulumi.Input<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) when the server certificate was uploaded.
      */
-    readonly uploadDate?: pulumi.Input<string>;
+    uploadDate?: pulumi.Input<string>;
 }
 
 /**
@@ -289,40 +289,40 @@ export interface ServerCertificateArgs {
      * The contents of the public key certificate in
      * PEM-encoded format.
      */
-    readonly certificateBody: pulumi.Input<string>;
+    certificateBody: pulumi.Input<string>;
     /**
      * The contents of the certificate chain.
      * This is typically a concatenation of the PEM-encoded public key certificates
      * of the chain.
      */
-    readonly certificateChain?: pulumi.Input<string>;
+    certificateChain?: pulumi.Input<string>;
     /**
      * The name of the Server Certificate. Do not include the
      * path in this value. If omitted, this provider will assign a random, unique name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * The IAM path for the server certificate.  If it is not
      * included, it defaults to a slash (/). If this certificate is for use with
      * AWS CloudFront, the path must be in format `/cloudfront/your_path_here`.
      * See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more details on IAM Paths.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The contents of the private key in PEM-encoded format.
      */
-    readonly privateKey: pulumi.Input<string>;
+    privateKey: pulumi.Input<string>;
     /**
      * Map of resource tags for the server certificate. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

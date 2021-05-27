@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const test = pulumi.output(aws.efs.getAccessPoint({
  *     accessPointId: "fsap-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointResult> {
@@ -40,11 +40,11 @@ export interface GetAccessPointArgs {
     /**
      * The ID that identifies the file system.
      */
-    readonly accessPointId: string;
+    accessPointId: string;
     /**
      * Key-value mapping of resource tags.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

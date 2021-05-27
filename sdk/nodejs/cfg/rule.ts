@@ -215,43 +215,43 @@ export interface RuleState {
     /**
      * The ARN of the config rule
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Description of the rule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    readonly inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
      */
-    readonly maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of the config rule
      */
-    readonly ruleId?: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
      */
-    readonly source?: pulumi.Input<inputs.cfg.RuleSource>;
+    source?: pulumi.Input<inputs.cfg.RuleSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -261,33 +261,33 @@ export interface RuleArgs {
     /**
      * Description of the rule
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * A string in JSON format that is passed to the AWS Config rule Lambda function.
      */
-    readonly inputParameters?: pulumi.Input<string>;
+    inputParameters?: pulumi.Input<string>;
     /**
      * The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
      */
-    readonly maximumExecutionFrequency?: pulumi.Input<string>;
+    maximumExecutionFrequency?: pulumi.Input<string>;
     /**
      * The name of the rule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule as documented below.
      */
-    readonly scope?: pulumi.Input<inputs.cfg.RuleScope>;
+    scope?: pulumi.Input<inputs.cfg.RuleScope>;
     /**
      * Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
      */
-    readonly source: pulumi.Input<inputs.cfg.RuleSource>;
+    source: pulumi.Input<inputs.cfg.RuleSource>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

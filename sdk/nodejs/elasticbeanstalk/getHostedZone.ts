@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const current = pulumi.output(aws.elasticbeanstalk.getHostedZone({ async: true }));
+ * const current = pulumi.output(aws.elasticbeanstalk.getHostedZone());
  * ```
  */
 export function getHostedZone(args?: GetHostedZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetHostedZoneResult> {
@@ -38,7 +38,7 @@ export interface GetHostedZoneArgs {
     /**
      * The region you'd like the zone for. By default, fetches the current region.
      */
-    readonly region?: string;
+    region?: string;
 }
 
 /**

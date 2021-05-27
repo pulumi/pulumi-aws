@@ -107,19 +107,19 @@ export interface PublishingDestinationState {
     /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
-    readonly destinationArn?: pulumi.Input<string>;
+    destinationArn?: pulumi.Input<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
      */
-    readonly destinationType?: pulumi.Input<string>;
+    destinationType?: pulumi.Input<string>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
     /**
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
-    readonly kmsKeyArn?: pulumi.Input<string>;
+    kmsKeyArn?: pulumi.Input<string>;
 }
 
 /**
@@ -129,17 +129,17 @@ export interface PublishingDestinationArgs {
     /**
      * The bucket arn and prefix under which the findings get exported. Bucket-ARN is required, the prefix is optional and will be `AWSLogs/[Account-ID]/GuardDuty/[Region]/` if not provided
      */
-    readonly destinationArn: pulumi.Input<string>;
+    destinationArn: pulumi.Input<string>;
     /**
      * Currently there is only "S3" available as destination type which is also the default value
      */
-    readonly destinationType?: pulumi.Input<string>;
+    destinationType?: pulumi.Input<string>;
     /**
      * The detector ID of the GuardDuty.
      */
-    readonly detectorId: pulumi.Input<string>;
+    detectorId: pulumi.Input<string>;
     /**
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
-    readonly kmsKeyArn: pulumi.Input<string>;
+    kmsKeyArn: pulumi.Input<string>;
 }

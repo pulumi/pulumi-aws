@@ -107,11 +107,11 @@ export interface OrganizationConfigurationState {
     /**
      * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
-    readonly autoEnable?: pulumi.Input<boolean>;
+    autoEnable?: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty account.
      */
-    readonly detectorId?: pulumi.Input<string>;
+    detectorId?: pulumi.Input<string>;
 }
 
 /**
@@ -121,9 +121,9 @@ export interface OrganizationConfigurationArgs {
     /**
      * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
-    readonly autoEnable: pulumi.Input<boolean>;
+    autoEnable: pulumi.Input<boolean>;
     /**
      * The detector ID of the GuardDuty account.
      */
-    readonly detectorId: pulumi.Input<string>;
+    detectorId: pulumi.Input<string>;
 }

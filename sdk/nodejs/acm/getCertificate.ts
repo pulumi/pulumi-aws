@@ -20,18 +20,18 @@ import * as utilities from "../utilities";
  * const issued = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     statuses: ["ISSUED"],
- * }, { async: true }));
+ * }));
  * // Find a certificate issued by (not imported into) ACM
  * const amazonIssued = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     mostRecent: true,
  *     types: ["AMAZON_ISSUED"],
- * }, { async: true }));
+ * }));
  * // Find a RSA 4096 bit certificate
  * const rsa4096 = pulumi.output(aws.acm.getCertificate({
  *     domain: "tf.example.com",
  *     keyTypes: ["RSA_4096"],
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -59,29 +59,29 @@ export interface GetCertificateArgs {
     /**
      * The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
      */
-    readonly domain: string;
+    domain: string;
     /**
      * A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
      */
-    readonly keyTypes?: string[];
+    keyTypes?: string[];
     /**
      * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
      */
-    readonly mostRecent?: boolean;
+    mostRecent?: boolean;
     /**
      * A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
      */
-    readonly statuses?: string[];
+    statuses?: string[];
     /**
      * A mapping of tags for the resource.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
      */
-    readonly types?: string[];
+    types?: string[];
 }
 
 /**

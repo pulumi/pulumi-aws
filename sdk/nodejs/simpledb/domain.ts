@@ -89,7 +89,7 @@ export interface DomainState {
     /**
      * The name of the SimpleDB domain
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface DomainArgs {
     /**
      * The name of the SimpleDB domain
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }

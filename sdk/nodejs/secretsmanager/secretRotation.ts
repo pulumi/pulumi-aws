@@ -134,20 +134,20 @@ export interface SecretRotationState {
     /**
      * Specifies whether automatic rotation is enabled for this secret.
      */
-    readonly rotationEnabled?: pulumi.Input<boolean>;
+    rotationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret.
      */
-    readonly rotationLambdaArn?: pulumi.Input<string>;
+    rotationLambdaArn?: pulumi.Input<string>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    readonly rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
+    rotationRules?: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
-    readonly secretId?: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secretId?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -157,14 +157,14 @@ export interface SecretRotationArgs {
     /**
      * Specifies the ARN of the Lambda function that can rotate the secret.
      */
-    readonly rotationLambdaArn: pulumi.Input<string>;
+    rotationLambdaArn: pulumi.Input<string>;
     /**
      * A structure that defines the rotation configuration for this secret. Defined below.
      */
-    readonly rotationRules: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
+    rotationRules: pulumi.Input<inputs.secretsmanager.SecretRotationRotationRules>;
     /**
      * Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
      */
-    readonly secretId: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    secretId: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

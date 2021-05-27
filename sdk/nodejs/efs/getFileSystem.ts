@@ -44,12 +44,12 @@ export interface GetFileSystemArgs {
     /**
      * Restricts the list to the file system with this creation token.
      */
-    readonly creationToken?: string;
+    creationToken?: string;
     /**
      * The ID that identifies the file system (e.g. fs-ccfc0d65).
      */
-    readonly fileSystemId?: string;
-    readonly tags?: {[key: string]: string};
+    fileSystemId?: string;
+    tags?: {[key: string]: string};
 }
 
 /**

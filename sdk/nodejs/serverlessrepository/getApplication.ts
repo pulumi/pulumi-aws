@@ -45,11 +45,11 @@ export interface GetApplicationArgs {
     /**
      * The ARN of the application.
      */
-    readonly applicationId: string;
+    applicationId: string;
     /**
      * The requested version of the application. By default, retrieves the latest version.
      */
-    readonly semanticVersion?: string;
+    semanticVersion?: string;
 }
 
 /**

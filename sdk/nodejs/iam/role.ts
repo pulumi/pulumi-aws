@@ -316,63 +316,63 @@ export interface RoleState {
     /**
      * Amazon Resource Name (ARN) specifying the role.
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * Policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
     /**
      * Creation date of the IAM role.
      */
-    readonly createDate?: pulumi.Input<string>;
+    createDate?: pulumi.Input<string>;
     /**
      * Description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    readonly forceDetachPolicies?: pulumi.Input<boolean>;
+    forceDetachPolicies?: pulumi.Input<boolean>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
      */
-    readonly inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
      */
-    readonly managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    readonly maxSessionDuration?: pulumi.Input<number>;
+    maxSessionDuration?: pulumi.Input<number>;
     /**
      * Name of the role policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * ARN of the policy that is used to set the permissions boundary for the role.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    permissionsBoundary?: pulumi.Input<string>;
     /**
      * Key-value mapping of tags for the IAM role. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Stable and unique string identifying the role.
      */
-    readonly uniqueId?: pulumi.Input<string>;
+    uniqueId?: pulumi.Input<string>;
 }
 
 /**
@@ -382,49 +382,49 @@ export interface RoleArgs {
     /**
      * Policy that grants an entity permission to assume the role.
      */
-    readonly assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
     /**
      * Description of the role.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Whether to force detaching any policies the role has before destroying it. Defaults to `false`.
      */
-    readonly forceDetachPolicies?: pulumi.Input<boolean>;
+    forceDetachPolicies?: pulumi.Input<boolean>;
     /**
      * Configuration block defining an exclusive set of IAM inline policies associated with the IAM role. Defined below. If no blocks are configured, the provider will ignore any managing any inline policies in this resource. Configuring one empty block (i.e., `inlinePolicy {}`) will cause the provider to remove _all_ inline policies.
      */
-    readonly inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
+    inlinePolicies?: pulumi.Input<pulumi.Input<inputs.iam.RoleInlinePolicy>[]>;
     /**
      * Set of exclusive IAM managed policy ARNs to attach to the IAM role. If this attribute is not configured, the provider will ignore policy attachments to this resource. When configured, the provider will align the role's managed policy attachments with this set by attaching or detaching managed policies. Configuring an empty set (i.e., `managedPolicyArns = []`) will cause the provider to remove _all_ managed policy attachments.
      */
-    readonly managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
+    managedPolicyArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours.
      */
-    readonly maxSessionDuration?: pulumi.Input<number>;
+    maxSessionDuration?: pulumi.Input<number>;
     /**
      * Name of the role policy.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    readonly namePrefix?: pulumi.Input<string>;
+    namePrefix?: pulumi.Input<string>;
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * ARN of the policy that is used to set the permissions boundary for the role.
      */
-    readonly permissionsBoundary?: pulumi.Input<string>;
+    permissionsBoundary?: pulumi.Input<string>;
     /**
      * Key-value mapping of tags for the IAM role. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -148,39 +148,39 @@ export interface UserProfileState {
     /**
      * The user profile Amazon Resource Name (ARN).
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The ID of the associated Domain.
      */
-    readonly domainId?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
     /**
      * The ID of the user's profile in the Amazon Elastic File System (EFS) volume.
      */
-    readonly homeEfsFileSystemUid?: pulumi.Input<string>;
+    homeEfsFileSystemUid?: pulumi.Input<string>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    readonly singleSignOnUserIdentifier?: pulumi.Input<string>;
+    singleSignOnUserIdentifier?: pulumi.Input<string>;
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    readonly singleSignOnUserValue?: pulumi.Input<string>;
+    singleSignOnUserValue?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name for the User Profile.
      */
-    readonly userProfileName?: pulumi.Input<string>;
+    userProfileName?: pulumi.Input<string>;
     /**
      * The user settings. See User Settings below.
      */
-    readonly userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
 }
 
 /**
@@ -190,29 +190,29 @@ export interface UserProfileArgs {
     /**
      * The ID of the associated Domain.
      */
-    readonly domainId: pulumi.Input<string>;
+    domainId: pulumi.Input<string>;
     /**
      * A specifier for the type of value specified in `singleSignOnUserValue`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    readonly singleSignOnUserIdentifier?: pulumi.Input<string>;
+    singleSignOnUserIdentifier?: pulumi.Input<string>;
     /**
      * The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
      */
-    readonly singleSignOnUserValue?: pulumi.Input<string>;
+    singleSignOnUserValue?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name for the User Profile.
      */
-    readonly userProfileName: pulumi.Input<string>;
+    userProfileName: pulumi.Input<string>;
     /**
      * The user settings. See User Settings below.
      */
-    readonly userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
+    userSettings?: pulumi.Input<inputs.sagemaker.UserProfileUserSettings>;
 }

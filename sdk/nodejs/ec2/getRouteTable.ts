@@ -56,27 +56,27 @@ export interface GetRouteTableArgs {
     /**
      * Configuration block. Detailed below.
      */
-    readonly filters?: inputs.ec2.GetRouteTableFilter[];
+    filters?: inputs.ec2.GetRouteTableFilter[];
     /**
      * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
      */
-    readonly gatewayId?: string;
+    gatewayId?: string;
     /**
      * ID of the specific Route Table to retrieve.
      */
-    readonly routeTableId?: string;
+    routeTableId?: string;
     /**
      * ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
      */
-    readonly subnetId?: string;
+    subnetId?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Route Table.
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
     /**
      * ID of the VPC that the desired Route Table belongs to.
      */
-    readonly vpcId?: string;
+    vpcId?: string;
 }
 
 /**

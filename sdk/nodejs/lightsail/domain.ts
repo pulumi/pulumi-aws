@@ -98,11 +98,11 @@ export interface DomainState {
     /**
      * The ARN of the Lightsail domain
      */
-    readonly arn?: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
     /**
      * The name of the Lightsail domain to manage
      */
-    readonly domainName?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
 }
 
 /**
@@ -112,5 +112,5 @@ export interface DomainArgs {
     /**
      * The name of the Lightsail domain to manage
      */
-    readonly domainName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
 }

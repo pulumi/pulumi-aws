@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *         name: "options.amazon-side-asn",
  *         values: ["64512"],
  *     }],
- * }, { async: true }));
+ * }));
  * ```
  * ### By Identifier
  *
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * const example = pulumi.output(aws.ec2transitgateway.getTransitGateway({
  *     id: "tgw-12345678",
- * }, { async: true }));
+ * }));
  * ```
  */
 export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
@@ -56,15 +56,15 @@ export interface GetTransitGatewayArgs {
     /**
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
-    readonly filters?: inputs.ec2transitgateway.GetTransitGatewayFilter[];
+    filters?: inputs.ec2transitgateway.GetTransitGatewayFilter[];
     /**
      * Identifier of the EC2 Transit Gateway.
      */
-    readonly id?: string;
+    id?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway
      */
-    readonly tags?: {[key: string]: string};
+    tags?: {[key: string]: string};
 }
 
 /**

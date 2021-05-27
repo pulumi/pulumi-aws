@@ -126,11 +126,11 @@ export interface BucketPolicyState {
     /**
      * The name of the bucket to which to apply the policy.
      */
-    readonly bucket?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
     /**
      * The text of the policy. Note: Bucket policies are limited to 20 KB in size.
      */
-    readonly policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | PolicyDocument>;
 }
 
 /**
@@ -140,9 +140,9 @@ export interface BucketPolicyArgs {
     /**
      * The name of the bucket to which to apply the policy.
      */
-    readonly bucket: pulumi.Input<string>;
+    bucket: pulumi.Input<string>;
     /**
      * The text of the policy. Note: Bucket policies are limited to 20 KB in size.
      */
-    readonly policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | PolicyDocument>;
 }

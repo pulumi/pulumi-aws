@@ -187,51 +187,51 @@ export interface WorkspaceState {
     /**
      * The ID of the bundle for the WorkSpace.
      */
-    readonly bundleId?: pulumi.Input<string>;
+    bundleId?: pulumi.Input<string>;
     /**
      * The name of the WorkSpace, as seen by the operating system.
      */
-    readonly computerName?: pulumi.Input<string>;
+    computerName?: pulumi.Input<string>;
     /**
      * The ID of the directory for the WorkSpace.
      */
-    readonly directoryId?: pulumi.Input<string>;
+    directoryId?: pulumi.Input<string>;
     /**
      * The IP address of the WorkSpace.
      */
-    readonly ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
-    readonly rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The operational state of the WorkSpace.
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
-    readonly userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      */
-    readonly userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      */
-    readonly volumeEncryptionKey?: pulumi.Input<string>;
+    volumeEncryptionKey?: pulumi.Input<string>;
     /**
      * The WorkSpace properties.
      */
-    readonly workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspaceWorkspaceProperties>;
+    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspaceWorkspaceProperties>;
 }
 
 /**
@@ -241,37 +241,37 @@ export interface WorkspaceArgs {
     /**
      * The ID of the bundle for the WorkSpace.
      */
-    readonly bundleId: pulumi.Input<string>;
+    bundleId: pulumi.Input<string>;
     /**
      * The ID of the directory for the WorkSpace.
      */
-    readonly directoryId: pulumi.Input<string>;
+    directoryId: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
-    readonly rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
-    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    readonly tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
-    readonly userName: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the user volume is encrypted.
      */
-    readonly userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
+    userVolumeEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The symmetric AWS KMS customer master key (CMK) used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.
      */
-    readonly volumeEncryptionKey?: pulumi.Input<string>;
+    volumeEncryptionKey?: pulumi.Input<string>;
     /**
      * The WorkSpace properties.
      */
-    readonly workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspaceWorkspaceProperties>;
+    workspaceProperties?: pulumi.Input<inputs.workspaces.WorkspaceWorkspaceProperties>;
 }
