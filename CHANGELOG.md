@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.42.0 of the AWS Terraform Provider
-* Upgrade to v3.2.0 of the Pulumi Terraform Bridge
+_(none)_
 
 ---
+
+## 4.6.0 (2021-05-27)
+* Upgrade to v3.42.0 of the AWS Terraform Provider
+* Upgrade to v3.2.0 of the Pulumi Terraform Bridge
 
 ## 4.5.1 (2021-05-19)
 * Fix the ldflags that get pushed as part of the release process
