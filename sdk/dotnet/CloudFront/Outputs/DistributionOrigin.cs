@@ -14,6 +14,14 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionOrigin
     {
         /// <summary>
+        /// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+        /// </summary>
+        public readonly int? ConnectionAttempts;
+        /// <summary>
+        /// The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+        /// </summary>
+        public readonly int? ConnectionTimeout;
+        /// <summary>
         /// One or more sub-resources with `name` and
         /// `value` parameters that specify header data that will be sent to the origin
         /// (multiples allowed).
@@ -41,6 +49,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? OriginPath;
         /// <summary>
+        /// The CloudFront Origin Shield
+        /// configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        /// </summary>
+        public readonly Outputs.DistributionOriginOriginShield? OriginShield;
+        /// <summary>
         /// The CloudFront S3 origin
         /// configuration information. If a custom origin is required, use
         /// `custom_origin_config` instead.
@@ -49,6 +62,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
         [OutputConstructor]
         private DistributionOrigin(
+            int? connectionAttempts,
+
+            int? connectionTimeout,
+
             ImmutableArray<Outputs.DistributionOriginCustomHeader> customHeaders,
 
             Outputs.DistributionOriginCustomOriginConfig? customOriginConfig,
@@ -59,13 +76,18 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string? originPath,
 
+            Outputs.DistributionOriginOriginShield? originShield,
+
             Outputs.DistributionOriginS3OriginConfig? s3OriginConfig)
         {
+            ConnectionAttempts = connectionAttempts;
+            ConnectionTimeout = connectionTimeout;
             CustomHeaders = customHeaders;
             CustomOriginConfig = customOriginConfig;
             DomainName = domainName;
             OriginId = originId;
             OriginPath = originPath;
+            OriginShield = originShield;
             S3OriginConfig = s3OriginConfig;
         }
     }

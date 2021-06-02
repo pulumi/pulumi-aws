@@ -12,6 +12,12 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclDefaultActionBlockGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines a custom response for the web request. See Custom Response below for details.
+        /// </summary>
+        [Input("customResponse")]
+        public Input<Inputs.WebAclDefaultActionBlockCustomResponseGetArgs>? CustomResponse { get; set; }
+
         public WebAclDefaultActionBlockGetArgs()
         {
         }

@@ -8,7 +8,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetBrokerResult',
@@ -164,7 +163,7 @@ class GetBrokerResult:
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional['outputs.GetBrokerLogsResult']:
+    def logs(self) -> 'outputs.GetBrokerLogsResult':
         return pulumi.get(self, "logs")
 
     @property
@@ -235,7 +234,6 @@ class AwaitableGetBrokerResult(GetBrokerResult):
 
 def get_broker(broker_id: Optional[str] = None,
                broker_name: Optional[str] = None,
-               logs: Optional[pulumi.InputType['GetBrokerLogsArgs']] = None,
                tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerResult:
     """
@@ -265,7 +263,6 @@ def get_broker(broker_id: Optional[str] = None,
     __args__ = dict()
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
-    __args__['logs'] = logs
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()

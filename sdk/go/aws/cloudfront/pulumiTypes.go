@@ -3532,6 +3532,10 @@ func (o DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrayOutput) In
 }
 
 type DistributionOrigin struct {
+	// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+	ConnectionAttempts *int `pulumi:"connectionAttempts"`
+	// The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+	ConnectionTimeout *int `pulumi:"connectionTimeout"`
 	// One or more sub-resources with `name` and
 	// `value` parameters that specify header data that will be sent to the origin
 	// (multiples allowed).
@@ -3549,6 +3553,9 @@ type DistributionOrigin struct {
 	// request your content from a directory in your Amazon S3 bucket or your
 	// custom origin.
 	OriginPath *string `pulumi:"originPath"`
+	// The CloudFront Origin Shield
+	// configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+	OriginShield *DistributionOriginOriginShield `pulumi:"originShield"`
 	// The CloudFront S3 origin
 	// configuration information. If a custom origin is required, use
 	// `customOriginConfig` instead.
@@ -3567,6 +3574,10 @@ type DistributionOriginInput interface {
 }
 
 type DistributionOriginArgs struct {
+	// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+	ConnectionAttempts pulumi.IntPtrInput `pulumi:"connectionAttempts"`
+	// The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+	ConnectionTimeout pulumi.IntPtrInput `pulumi:"connectionTimeout"`
 	// One or more sub-resources with `name` and
 	// `value` parameters that specify header data that will be sent to the origin
 	// (multiples allowed).
@@ -3584,6 +3595,9 @@ type DistributionOriginArgs struct {
 	// request your content from a directory in your Amazon S3 bucket or your
 	// custom origin.
 	OriginPath pulumi.StringPtrInput `pulumi:"originPath"`
+	// The CloudFront Origin Shield
+	// configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+	OriginShield DistributionOriginOriginShieldPtrInput `pulumi:"originShield"`
 	// The CloudFront S3 origin
 	// configuration information. If a custom origin is required, use
 	// `customOriginConfig` instead.
@@ -3641,6 +3655,16 @@ func (o DistributionOriginOutput) ToDistributionOriginOutputWithContext(ctx cont
 	return o
 }
 
+// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+func (o DistributionOriginOutput) ConnectionAttempts() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *int { return v.ConnectionAttempts }).(pulumi.IntPtrOutput)
+}
+
+// The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+func (o DistributionOriginOutput) ConnectionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *int { return v.ConnectionTimeout }).(pulumi.IntPtrOutput)
+}
+
 // One or more sub-resources with `name` and
 // `value` parameters that specify header data that will be sent to the origin
 // (multiples allowed).
@@ -3671,6 +3695,12 @@ func (o DistributionOriginOutput) OriginId() pulumi.StringOutput {
 // custom origin.
 func (o DistributionOriginOutput) OriginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginPath }).(pulumi.StringPtrOutput)
+}
+
+// The CloudFront Origin Shield
+// configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+func (o DistributionOriginOutput) OriginShield() DistributionOriginOriginShieldPtrOutput {
+	return o.ApplyT(func(v DistributionOrigin) *DistributionOriginOriginShield { return v.OriginShield }).(DistributionOriginOriginShieldPtrOutput)
 }
 
 // The CloudFront S3 origin
@@ -4302,6 +4332,156 @@ func (o DistributionOriginGroupMemberArrayOutput) Index(i pulumi.IntInput) Distr
 	}).(DistributionOriginGroupMemberOutput)
 }
 
+type DistributionOriginOriginShield struct {
+	// A flag that specifies whether Origin Shield is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+	OriginShieldRegion string `pulumi:"originShieldRegion"`
+}
+
+// DistributionOriginOriginShieldInput is an input type that accepts DistributionOriginOriginShieldArgs and DistributionOriginOriginShieldOutput values.
+// You can construct a concrete instance of `DistributionOriginOriginShieldInput` via:
+//
+//          DistributionOriginOriginShieldArgs{...}
+type DistributionOriginOriginShieldInput interface {
+	pulumi.Input
+
+	ToDistributionOriginOriginShieldOutput() DistributionOriginOriginShieldOutput
+	ToDistributionOriginOriginShieldOutputWithContext(context.Context) DistributionOriginOriginShieldOutput
+}
+
+type DistributionOriginOriginShieldArgs struct {
+	// A flag that specifies whether Origin Shield is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+	OriginShieldRegion pulumi.StringInput `pulumi:"originShieldRegion"`
+}
+
+func (DistributionOriginOriginShieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (i DistributionOriginOriginShieldArgs) ToDistributionOriginOriginShieldOutput() DistributionOriginOriginShieldOutput {
+	return i.ToDistributionOriginOriginShieldOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginOriginShieldArgs) ToDistributionOriginOriginShieldOutputWithContext(ctx context.Context) DistributionOriginOriginShieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOriginShieldOutput)
+}
+
+func (i DistributionOriginOriginShieldArgs) ToDistributionOriginOriginShieldPtrOutput() DistributionOriginOriginShieldPtrOutput {
+	return i.ToDistributionOriginOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginOriginShieldArgs) ToDistributionOriginOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginOriginShieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOriginShieldOutput).ToDistributionOriginOriginShieldPtrOutputWithContext(ctx)
+}
+
+// DistributionOriginOriginShieldPtrInput is an input type that accepts DistributionOriginOriginShieldArgs, DistributionOriginOriginShieldPtr and DistributionOriginOriginShieldPtrOutput values.
+// You can construct a concrete instance of `DistributionOriginOriginShieldPtrInput` via:
+//
+//          DistributionOriginOriginShieldArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionOriginOriginShieldPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginOriginShieldPtrOutput() DistributionOriginOriginShieldPtrOutput
+	ToDistributionOriginOriginShieldPtrOutputWithContext(context.Context) DistributionOriginOriginShieldPtrOutput
+}
+
+type distributionOriginOriginShieldPtrType DistributionOriginOriginShieldArgs
+
+func DistributionOriginOriginShieldPtr(v *DistributionOriginOriginShieldArgs) DistributionOriginOriginShieldPtrInput {
+	return (*distributionOriginOriginShieldPtrType)(v)
+}
+
+func (*distributionOriginOriginShieldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (i *distributionOriginOriginShieldPtrType) ToDistributionOriginOriginShieldPtrOutput() DistributionOriginOriginShieldPtrOutput {
+	return i.ToDistributionOriginOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOriginOriginShieldPtrType) ToDistributionOriginOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginOriginShieldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOriginShieldPtrOutput)
+}
+
+type DistributionOriginOriginShieldOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginOriginShieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldOutput() DistributionOriginOriginShieldOutput {
+	return o
+}
+
+func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldOutputWithContext(ctx context.Context) DistributionOriginOriginShieldOutput {
+	return o
+}
+
+func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPtrOutput() DistributionOriginOriginShieldPtrOutput {
+	return o.ToDistributionOriginOriginShieldPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginOriginShieldPtrOutput {
+	return o.ApplyT(func(v DistributionOriginOriginShield) *DistributionOriginOriginShield {
+		return &v
+	}).(DistributionOriginOriginShieldPtrOutput)
+}
+
+// A flag that specifies whether Origin Shield is enabled.
+func (o DistributionOriginOriginShieldOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionOriginOriginShield) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+func (o DistributionOriginOriginShieldOutput) OriginShieldRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOriginOriginShield) string { return v.OriginShieldRegion }).(pulumi.StringOutput)
+}
+
+type DistributionOriginOriginShieldPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginOriginShieldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginOriginShield)(nil)).Elem()
+}
+
+func (o DistributionOriginOriginShieldPtrOutput) ToDistributionOriginOriginShieldPtrOutput() DistributionOriginOriginShieldPtrOutput {
+	return o
+}
+
+func (o DistributionOriginOriginShieldPtrOutput) ToDistributionOriginOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginOriginShieldPtrOutput {
+	return o
+}
+
+func (o DistributionOriginOriginShieldPtrOutput) Elem() DistributionOriginOriginShieldOutput {
+	return o.ApplyT(func(v *DistributionOriginOriginShield) DistributionOriginOriginShield { return *v }).(DistributionOriginOriginShieldOutput)
+}
+
+// A flag that specifies whether Origin Shield is enabled.
+func (o DistributionOriginOriginShieldPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginOriginShield) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+func (o DistributionOriginOriginShieldPtrOutput) OriginShieldRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginOriginShield) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OriginShieldRegion
+	}).(pulumi.StringPtrOutput)
+}
+
 type DistributionOriginS3OriginConfig struct {
 	// The [CloudFront origin access
 	// identity][5] to associate with the origin.
@@ -4730,8 +4910,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulum
 }
 
 type DistributionTrustedKeyGroup struct {
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
@@ -4749,8 +4928,7 @@ type DistributionTrustedKeyGroupInput interface {
 }
 
 type DistributionTrustedKeyGroupArgs struct {
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
@@ -4807,8 +4985,7 @@ func (o DistributionTrustedKeyGroupOutput) ToDistributionTrustedKeyGroupOutputWi
 	return o
 }
 
-// Whether the distribution is enabled to accept end
-// user requests for content.
+// A flag that specifies whether Origin Shield is enabled.
 func (o DistributionTrustedKeyGroupOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedKeyGroup) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4945,8 +5122,7 @@ func (o DistributionTrustedKeyGroupItemArrayOutput) Index(i pulumi.IntInput) Dis
 }
 
 type DistributionTrustedSigner struct {
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
@@ -4964,8 +5140,7 @@ type DistributionTrustedSignerInput interface {
 }
 
 type DistributionTrustedSignerArgs struct {
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
@@ -5022,8 +5197,7 @@ func (o DistributionTrustedSignerOutput) ToDistributionTrustedSignerOutputWithCo
 	return o
 }
 
-// Whether the distribution is enabled to accept end
-// user requests for content.
+// A flag that specifies whether Origin Shield is enabled.
 func (o DistributionTrustedSignerOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionTrustedSigner) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -7918,6 +8092,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOriginGroupFailoverCriteriaOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupMemberOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupMemberArrayOutput{})
+	pulumi.RegisterOutputType(DistributionOriginOriginShieldOutput{})
+	pulumi.RegisterOutputType(DistributionOriginOriginShieldPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginS3OriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionOriginS3OriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsOutput{})

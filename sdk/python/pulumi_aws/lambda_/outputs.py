@@ -16,6 +16,8 @@ __all__ = [
     'CodeSigningConfigPolicies',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingDestinationConfigOnFailure',
+    'EventSourceMappingSelfManagedEventSource',
+    'EventSourceMappingSourceAccessConfiguration',
     'FunctionDeadLetterConfig',
     'FunctionEnvironment',
     'FunctionEventInvokeConfigDestinationConfig',
@@ -209,6 +211,53 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
         The Amazon Resource Name (ARN) of the destination resource.
         """
         return pulumi.get(self, "destination_arn")
+
+
+@pulumi.output_type
+class EventSourceMappingSelfManagedEventSource(dict):
+    def __init__(__self__, *,
+                 endpoints: Mapping[str, str]):
+        """
+        :param Mapping[str, str] endpoints: A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+        """
+        pulumi.set(__self__, "endpoints", endpoints)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Mapping[str, str]:
+        """
+        A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+        """
+        return pulumi.get(self, "endpoints")
+
+
+@pulumi.output_type
+class EventSourceMappingSourceAccessConfiguration(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 uri: str):
+        """
+        :param str type: The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+        :param str uri: The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnet_id` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `security_group_id` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+        """
+        return pulumi.get(self, "uri")
 
 
 @pulumi.output_type

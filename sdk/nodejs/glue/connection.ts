@@ -92,7 +92,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    public readonly connectionProperties!: pulumi.Output<{[key: string]: string}>;
+    public readonly connectionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */
@@ -121,7 +121,7 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -137,9 +137,6 @@ export class Connection extends pulumi.CustomResource {
             inputs["physicalConnectionRequirements"] = state ? state.physicalConnectionRequirements : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            if ((!args || args.connectionProperties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'connectionProperties'");
-            }
             inputs["catalogId"] = args ? args.catalogId : undefined;
             inputs["connectionProperties"] = args ? args.connectionProperties : undefined;
             inputs["connectionType"] = args ? args.connectionType : undefined;
@@ -205,7 +202,7 @@ export interface ConnectionArgs {
     /**
      * A map of key-value pairs used as parameters for this connection.
      */
-    connectionProperties: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    connectionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
      */

@@ -102,7 +102,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly healthCheck!: pulumi.Output<outputs.lb.TargetGroupHealthCheck>;
     /**
-     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
+     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
     public readonly lambdaMultiValueHeadersEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface TargetGroupState {
      */
     healthCheck?: pulumi.Input<inputs.lb.TargetGroupHealthCheck>;
     /**
-     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
+     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**
@@ -320,7 +320,7 @@ export interface TargetGroupArgs {
      */
     healthCheck?: pulumi.Input<inputs.lb.TargetGroupHealthCheck>;
     /**
-     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`.
+     * Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
      */
     lambdaMultiValueHeadersEnabled?: pulumi.Input<boolean>;
     /**

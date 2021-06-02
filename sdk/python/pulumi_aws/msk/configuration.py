@@ -13,35 +13,24 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 @pulumi.input_type
 class ConfigurationArgs:
     def __init__(__self__, *,
-                 kafka_versions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  server_properties: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 kafka_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
         :param pulumi.Input[str] server_properties: Contents of the server.properties file. Supported properties are documented in the [MSK Developer Guide](https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html).
         :param pulumi.Input[str] description: Description of the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] kafka_versions: List of Apache Kafka versions which can use this configuration.
         :param pulumi.Input[str] name: Name of the configuration.
         """
-        pulumi.set(__self__, "kafka_versions", kafka_versions)
         pulumi.set(__self__, "server_properties", server_properties)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if kafka_versions is not None:
+            pulumi.set(__self__, "kafka_versions", kafka_versions)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="kafkaVersions")
-    def kafka_versions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of Apache Kafka versions which can use this configuration.
-        """
-        return pulumi.get(self, "kafka_versions")
-
-    @kafka_versions.setter
-    def kafka_versions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "kafka_versions", value)
 
     @property
     @pulumi.getter(name="serverProperties")
@@ -66,6 +55,18 @@ class ConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="kafkaVersions")
+    def kafka_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Apache Kafka versions which can use this configuration.
+        """
+        return pulumi.get(self, "kafka_versions")
+
+    @kafka_versions.setter
+    def kafka_versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "kafka_versions", value)
 
     @property
     @pulumi.getter
@@ -289,8 +290,6 @@ class Configuration(pulumi.CustomResource):
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
             __props__.__dict__["description"] = description
-            if kafka_versions is None and not opts.urn:
-                raise TypeError("Missing required property 'kafka_versions'")
             __props__.__dict__["kafka_versions"] = kafka_versions
             __props__.__dict__["name"] = name
             if server_properties is None and not opts.urn:
@@ -358,7 +357,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="kafkaVersions")
-    def kafka_versions(self) -> pulumi.Output[Sequence[str]]:
+    def kafka_versions(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of Apache Kafka versions which can use this configuration.
         """

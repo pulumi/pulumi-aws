@@ -39,10 +39,10 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Certificates can be imported using the `certificate_arn`, e.g.
+    /// Certificates can be imported using the `certificate_id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/certificate:Certificate test arn:aws:dms:us-west-2:123456789:cert:xxxxxxxxxx
+    ///  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/certificate:Certificate")]

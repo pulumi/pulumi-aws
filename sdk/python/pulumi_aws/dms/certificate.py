@@ -232,10 +232,10 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_arn`, e.g.
+        Certificates can be imported using the `certificate_id`, e.g.
 
         ```sh
-         $ pulumi import aws:dms/certificate:Certificate test arn:aws:dms:us-west-2:123456789:cert:xxxxxxxxxx
+         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,10 +272,10 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_arn`, e.g.
+        Certificates can be imported using the `certificate_id`, e.g.
 
         ```sh
-         $ pulumi import aws:dms/certificate:Certificate test arn:aws:dms:us-west-2:123456789:cert:xxxxxxxxxx
+         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
 
         :param str resource_name: The name of the resource.

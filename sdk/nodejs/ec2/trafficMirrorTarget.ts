@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Traffic mirror target.\
+ * Provides a Traffic mirror target.\
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
  *
  * ## Example Usage

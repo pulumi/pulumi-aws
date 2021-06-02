@@ -13,8 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class DistributionTrustedKeyGroupGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the distribution is enabled to accept end
-        /// user requests for content.
+        /// A flag that specifies whether Origin Shield is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

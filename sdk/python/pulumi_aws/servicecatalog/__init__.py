@@ -5,13 +5,17 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .budget_resource_application import *
 from .constraint import *
+from .get_constraint import *
 from .organizations_access import *
 from .portfolio import *
 from .portfolio_share import *
 from .product import *
 from .product_portfolio_association import *
+from .provisioning_artifact import *
 from .service_action import *
 from .tag_option import *
+from .tag_option_resource_association import *
 from ._inputs import *
 from . import outputs

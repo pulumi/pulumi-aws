@@ -10,6 +10,19 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'EventConnectionAuthParameters',
+    'EventConnectionAuthParametersApiKey',
+    'EventConnectionAuthParametersBasic',
+    'EventConnectionAuthParametersInvocationHttpParameters',
+    'EventConnectionAuthParametersInvocationHttpParametersBody',
+    'EventConnectionAuthParametersInvocationHttpParametersHeader',
+    'EventConnectionAuthParametersInvocationHttpParametersQueryString',
+    'EventConnectionAuthParametersOauth',
+    'EventConnectionAuthParametersOauthClientParameters',
+    'EventConnectionAuthParametersOauthOauthHttpParameters',
+    'EventConnectionAuthParametersOauthOauthHttpParametersBody',
+    'EventConnectionAuthParametersOauthOauthHttpParametersHeader',
+    'EventConnectionAuthParametersOauthOauthHttpParametersQueryString',
     'EventPermissionCondition',
     'EventTargetBatchTarget',
     'EventTargetDeadLetterConfig',
@@ -27,6 +40,741 @@ __all__ = [
     'MetricStreamExcludeFilter',
     'MetricStreamIncludeFilter',
 ]
+
+@pulumi.output_type
+class EventConnectionAuthParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiKey":
+            suggest = "api_key"
+        elif key == "invocationHttpParameters":
+            suggest = "invocation_http_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_key: Optional['outputs.EventConnectionAuthParametersApiKey'] = None,
+                 basic: Optional['outputs.EventConnectionAuthParametersBasic'] = None,
+                 invocation_http_parameters: Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters'] = None,
+                 oauth: Optional['outputs.EventConnectionAuthParametersOauth'] = None):
+        """
+        :param 'EventConnectionAuthParametersApiKeyArgs' api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        :param 'EventConnectionAuthParametersBasicArgs' basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        :param 'EventConnectionAuthParametersInvocationHttpParametersArgs' invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersOauthArgs' oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        """
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if basic is not None:
+            pulumi.set(__self__, "basic", basic)
+        if invocation_http_parameters is not None:
+            pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
+        if oauth is not None:
+            pulumi.set(__self__, "oauth", oauth)
+
+    @property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional['outputs.EventConnectionAuthParametersApiKey']:
+        """
+        Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        """
+        return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter
+    def basic(self) -> Optional['outputs.EventConnectionAuthParametersBasic']:
+        """
+        Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        """
+        return pulumi.get(self, "basic")
+
+    @property
+    @pulumi.getter(name="invocationHttpParameters")
+    def invocation_http_parameters(self) -> Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters']:
+        """
+        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        """
+        return pulumi.get(self, "invocation_http_parameters")
+
+    @property
+    @pulumi.getter
+    def oauth(self) -> Optional['outputs.EventConnectionAuthParametersOauth']:
+        """
+        Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        """
+        return pulumi.get(self, "oauth")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersApiKey(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: A password for the authorization. Created and stored in AWS Secrets Manager.
+        :param str username: A username for the authorization.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        A password for the authorization. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        A username for the authorization.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersInvocationHttpParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersInvocationHttpParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersInvocationHttpParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersInvocationHttpParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bodies: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']] = None,
+                 headers: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']] = None,
+                 query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']] = None):
+        """
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        if bodies is not None:
+            pulumi.set(__self__, "bodies", bodies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_strings is not None:
+            pulumi.set(__self__, "query_strings", query_strings)
+
+    @property
+    @pulumi.getter
+    def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersBody']]:
+        """
+        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "bodies")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']]:
+        """
+        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']]:
+        """
+        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "query_strings")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersInvocationHttpParametersBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersInvocationHttpParametersHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersInvocationHttpParametersQueryString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersQueryString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersInvocationHttpParametersQueryString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationEndpoint":
+            suggest = "authorization_endpoint"
+        elif key == "httpMethod":
+            suggest = "http_method"
+        elif key == "oauthHttpParameters":
+            suggest = "oauth_http_parameters"
+        elif key == "clientParameters":
+            suggest = "client_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauth.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_endpoint: str,
+                 http_method: str,
+                 oauth_http_parameters: 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters',
+                 client_parameters: Optional['outputs.EventConnectionAuthParametersOauthClientParameters'] = None):
+        """
+        :param str authorization_endpoint: A username for the authorization.
+        :param str http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
+        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersOauthClientParametersArgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "http_method", http_method)
+        pulumi.set(__self__, "oauth_http_parameters", oauth_http_parameters)
+        if client_parameters is not None:
+            pulumi.set(__self__, "client_parameters", client_parameters)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> str:
+        """
+        A username for the authorization.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> str:
+        """
+        A password for the authorization. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter(name="oauthHttpParameters")
+    def oauth_http_parameters(self) -> 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters':
+        """
+        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        """
+        return pulumi.get(self, "oauth_http_parameters")
+
+    @property
+    @pulumi.getter(name="clientParameters")
+    def client_parameters(self) -> Optional['outputs.EventConnectionAuthParametersOauthClientParameters']:
+        """
+        Contains the client parameters for OAuth authorization. Contains the following two parameters.
+        """
+        return pulumi.get(self, "client_parameters")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauthClientParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauthClientParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauthClientParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauthClientParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 client_secret: str):
+        """
+        :param str client_id: The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        :param str client_secret: The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> str:
+        """
+        The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStrings":
+            suggest = "query_strings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauthOauthHttpParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bodies: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']] = None,
+                 headers: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']] = None,
+                 query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']] = None):
+        """
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        if bodies is not None:
+            pulumi.set(__self__, "bodies", bodies)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if query_strings is not None:
+            pulumi.set(__self__, "query_strings", query_strings)
+
+    @property
+    @pulumi.getter
+    def bodies(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersBody']]:
+        """
+        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "bodies")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']]:
+        """
+        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']]:
+        """
+        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        """
+        return pulumi.get(self, "query_strings")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauthOauthHttpParametersBody. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersBody.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersBody.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauthOauthHttpParametersHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isValueSecret":
+            suggest = "is_value_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventConnectionAuthParametersOauthOauthHttpParametersQueryString. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersQueryString.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventConnectionAuthParametersOauthOauthHttpParametersQueryString.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_value_secret: Optional[bool] = None,
+                 key: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param bool is_value_secret: Specified whether the value is secret.
+        :param str key: Header Name.
+        :param str value: Header Value. Created and stored in AWS Secrets Manager.
+        """
+        if is_value_secret is not None:
+            pulumi.set(__self__, "is_value_secret", is_value_secret)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="isValueSecret")
+    def is_value_secret(self) -> Optional[bool]:
+        """
+        Specified whether the value is secret.
+        """
+        return pulumi.get(self, "is_value_secret")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        Header Name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Header Value. Created and stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class EventPermissionCondition(dict):

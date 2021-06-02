@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         private InputList<Inputs.TrailEventSelectorDataResourceGetArgs>? _dataResources;
 
         /// <summary>
-        /// Specifies logging data events. Fields documented below.
+        /// Configuration block for data events. See details below.
         /// </summary>
         public InputList<Inputs.TrailEventSelectorDataResourceGetArgs> DataResources
         {
@@ -25,13 +25,13 @@ namespace Pulumi.Aws.CloudTrail.Inputs
         }
 
         /// <summary>
-        /// Specify if you want your event selector to include management events for your trail.
+        /// Whether to include management events for your trail.
         /// </summary>
         [Input("includeManagementEvents")]
         public Input<bool>? IncludeManagementEvents { get; set; }
 
         /// <summary>
-        /// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+        /// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         /// </summary>
         [Input("readWriteType")]
         public Input<string>? ReadWriteType { get; set; }

@@ -8416,6 +8416,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
                  associate_carrier_ip_address: str,
                  description: str,
                  device_index: int,
+                 interface_type: str,
                  ipv4_address_count: int,
                  ipv4_addresses: Sequence[str],
                  ipv6_address_count: int,
@@ -8432,6 +8433,7 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
         pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "device_index", device_index)
+        pulumi.set(__self__, "interface_type", interface_type)
         pulumi.set(__self__, "ipv4_address_count", ipv4_address_count)
         pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
         pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
@@ -8462,6 +8464,11 @@ class GetLaunchTemplateNetworkInterfaceResult(dict):
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> int:
         return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> str:
+        return pulumi.get(self, "interface_type")
 
     @property
     @pulumi.getter(name="ipv4AddressCount")

@@ -143,6 +143,18 @@ export class Topic extends pulumi.CustomResource {
     /**
      * IAM role for failure feedback
      */
+    public readonly firehoseFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The IAM role permitted to receive success feedback for this topic
+     */
+    public readonly firehoseSuccessFeedbackRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Percentage of success to sample
+     */
+    public readonly firehoseSuccessFeedbackSampleRate!: pulumi.Output<number | undefined>;
+    /**
+     * IAM role for failure feedback
+     */
     public readonly httpFailureFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The IAM role permitted to receive success feedback for this topic
@@ -176,6 +188,10 @@ export class Topic extends pulumi.CustomResource {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
     public readonly namePrefix!: pulumi.Output<string>;
+    /**
+     * The AWS Account ID of the SNS topic owner
+     */
+    public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
      * The fully-formed AWS policy as JSON.
      */
@@ -222,6 +238,9 @@ export class Topic extends pulumi.CustomResource {
             inputs["deliveryPolicy"] = state ? state.deliveryPolicy : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fifoTopic"] = state ? state.fifoTopic : undefined;
+            inputs["firehoseFailureFeedbackRoleArn"] = state ? state.firehoseFailureFeedbackRoleArn : undefined;
+            inputs["firehoseSuccessFeedbackRoleArn"] = state ? state.firehoseSuccessFeedbackRoleArn : undefined;
+            inputs["firehoseSuccessFeedbackSampleRate"] = state ? state.firehoseSuccessFeedbackSampleRate : undefined;
             inputs["httpFailureFeedbackRoleArn"] = state ? state.httpFailureFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackRoleArn"] = state ? state.httpSuccessFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackSampleRate"] = state ? state.httpSuccessFeedbackSampleRate : undefined;
@@ -231,6 +250,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["lambdaSuccessFeedbackSampleRate"] = state ? state.lambdaSuccessFeedbackSampleRate : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namePrefix"] = state ? state.namePrefix : undefined;
+            inputs["owner"] = state ? state.owner : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["sqsFailureFeedbackRoleArn"] = state ? state.sqsFailureFeedbackRoleArn : undefined;
             inputs["sqsSuccessFeedbackRoleArn"] = state ? state.sqsSuccessFeedbackRoleArn : undefined;
@@ -246,6 +266,9 @@ export class Topic extends pulumi.CustomResource {
             inputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fifoTopic"] = args ? args.fifoTopic : undefined;
+            inputs["firehoseFailureFeedbackRoleArn"] = args ? args.firehoseFailureFeedbackRoleArn : undefined;
+            inputs["firehoseSuccessFeedbackRoleArn"] = args ? args.firehoseSuccessFeedbackRoleArn : undefined;
+            inputs["firehoseSuccessFeedbackSampleRate"] = args ? args.firehoseSuccessFeedbackSampleRate : undefined;
             inputs["httpFailureFeedbackRoleArn"] = args ? args.httpFailureFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackRoleArn"] = args ? args.httpSuccessFeedbackRoleArn : undefined;
             inputs["httpSuccessFeedbackSampleRate"] = args ? args.httpSuccessFeedbackSampleRate : undefined;
@@ -262,6 +285,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -309,6 +333,18 @@ export interface TopicState {
     /**
      * IAM role for failure feedback
      */
+    firehoseFailureFeedbackRoleArn?: pulumi.Input<string>;
+    /**
+     * The IAM role permitted to receive success feedback for this topic
+     */
+    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    /**
+     * Percentage of success to sample
+     */
+    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number>;
+    /**
+     * IAM role for failure feedback
+     */
     httpFailureFeedbackRoleArn?: pulumi.Input<string>;
     /**
      * The IAM role permitted to receive success feedback for this topic
@@ -342,6 +378,10 @@ export interface TopicState {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * The AWS Account ID of the SNS topic owner
+     */
+    owner?: pulumi.Input<string>;
     /**
      * The fully-formed AWS policy as JSON.
      */
@@ -400,6 +440,18 @@ export interface TopicArgs {
      * Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
      */
     fifoTopic?: pulumi.Input<boolean>;
+    /**
+     * IAM role for failure feedback
+     */
+    firehoseFailureFeedbackRoleArn?: pulumi.Input<string>;
+    /**
+     * The IAM role permitted to receive success feedback for this topic
+     */
+    firehoseSuccessFeedbackRoleArn?: pulumi.Input<string>;
+    /**
+     * Percentage of success to sample
+     */
+    firehoseSuccessFeedbackSampleRate?: pulumi.Input<number>;
     /**
      * IAM role for failure feedback
      */

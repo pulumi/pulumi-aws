@@ -16,7 +16,6 @@ __all__ = [
     'BrokerLogsArgs',
     'BrokerMaintenanceWindowStartTimeArgs',
     'BrokerUserArgs',
-    'GetBrokerLogsArgs',
 ]
 
 @pulumi.input_type
@@ -479,32 +478,5 @@ class BrokerUserArgs:
     @groups.setter
     def groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "groups", value)
-
-
-@pulumi.input_type
-class GetBrokerLogsArgs:
-    def __init__(__self__, *,
-                 audit: bool,
-                 general: bool):
-        pulumi.set(__self__, "audit", audit)
-        pulumi.set(__self__, "general", general)
-
-    @property
-    @pulumi.getter
-    def audit(self) -> bool:
-        return pulumi.get(self, "audit")
-
-    @audit.setter
-    def audit(self, value: bool):
-        pulumi.set(self, "audit", value)
-
-    @property
-    @pulumi.getter
-    def general(self) -> bool:
-        return pulumi.get(self, "general")
-
-    @general.setter
-    def general(self, value: bool):
-        pulumi.set(self, "general", value)
 
 

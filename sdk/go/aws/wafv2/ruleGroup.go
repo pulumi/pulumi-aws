@@ -82,7 +82,7 @@ type RuleGroup struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the rule group.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
@@ -141,7 +141,7 @@ type ruleGroupState struct {
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the rule group.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -163,7 +163,7 @@ type RuleGroupState struct {
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// A friendly name of the rule group.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -186,7 +186,7 @@ type ruleGroupArgs struct {
 	Capacity int `pulumi:"capacity"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
-	// A friendly name of the rule group.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -206,7 +206,7 @@ type RuleGroupArgs struct {
 	Capacity pulumi.IntInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
-	// A friendly name of the rule group.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput

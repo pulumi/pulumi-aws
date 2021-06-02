@@ -63,9 +63,6 @@ namespace Pulumi.Aws.Mq
         [Input("brokerName")]
         public string? BrokerName { get; set; }
 
-        [Input("logs")]
-        public Inputs.GetBrokerLogsArgs? Logs { get; set; }
-
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -100,7 +97,7 @@ namespace Pulumi.Aws.Mq
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetBrokerInstanceResult> Instances;
         public readonly ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> LdapServerMetadatas;
-        public readonly Outputs.GetBrokerLogsResult? Logs;
+        public readonly Outputs.GetBrokerLogsResult Logs;
         public readonly Outputs.GetBrokerMaintenanceWindowStartTimeResult MaintenanceWindowStartTime;
         public readonly bool PubliclyAccessible;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -139,7 +136,7 @@ namespace Pulumi.Aws.Mq
 
             ImmutableArray<Outputs.GetBrokerLdapServerMetadataResult> ldapServerMetadatas,
 
-            Outputs.GetBrokerLogsResult? logs,
+            Outputs.GetBrokerLogsResult logs,
 
             Outputs.GetBrokerMaintenanceWindowStartTimeResult maintenanceWindowStartTime,
 

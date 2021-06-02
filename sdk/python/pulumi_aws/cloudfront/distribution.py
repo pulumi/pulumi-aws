@@ -39,8 +39,7 @@ class DistributionArgs:
         The set of arguments for constructing a Distribution resource.
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: The default cache behavior for this distribution (maximum
                one).
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param pulumi.Input[bool] enabled: A flag that specifies whether Origin Shield is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginArgs']]] origins: One or more origins for this
                distribution (multiples allowed).
         :param pulumi.Input['DistributionRestrictionsArgs'] restrictions: The restriction
@@ -138,8 +137,7 @@ class DistributionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        A flag that specifies whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -438,8 +436,7 @@ class _DistributionState:
                return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: The DNS domain name of either the S3 bucket, or
                web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param pulumi.Input[bool] enabled: A flag that specifies whether Origin Shield is enabled.
         :param pulumi.Input[str] etag: The current version of the distribution's information. For example:
                `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: The CloudFront Route 53 zone ID that can be used to
@@ -659,8 +656,7 @@ class _DistributionState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        A flag that specifies whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -1190,8 +1186,7 @@ class Distribution(pulumi.CustomResource):
                one).
         :param pulumi.Input[str] default_root_object: The object that you want CloudFront to
                return (for example, index.html) when an end user requests the root URL.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param pulumi.Input[bool] enabled: A flag that specifies whether Origin Shield is enabled.
         :param pulumi.Input[str] http_version: The maximum HTTP version to support on the
                distribution. Allowed values are `http1.1` and `http2`. The default is
                `http2`.
@@ -1585,8 +1580,7 @@ class Distribution(pulumi.CustomResource):
                return (for example, index.html) when an end user requests the root URL.
         :param pulumi.Input[str] domain_name: The DNS domain name of either the S3 bucket, or
                web site of your custom origin.
-        :param pulumi.Input[bool] enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param pulumi.Input[bool] enabled: A flag that specifies whether Origin Shield is enabled.
         :param pulumi.Input[str] etag: The current version of the distribution's information. For example:
                `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] hosted_zone_id: The CloudFront Route 53 zone ID that can be used to
@@ -1749,8 +1743,7 @@ class Distribution(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        A flag that specifies whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 

@@ -7,11 +7,14 @@ import typing
 # Export this package's modules as members:
 from .composite_alarm import *
 from .dashboard import *
+from .event_api_destination import *
 from .event_archive import *
 from .event_bus import *
+from .event_connection import *
 from .event_permission import *
 from .event_rule import *
 from .event_target import *
+from .get_event_connection import *
 from .get_event_source import *
 from .get_log_group import *
 from .log_destination import *

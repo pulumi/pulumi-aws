@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Backup;
         public readonly string? Batch;
         public readonly string? Budgets;
+        public readonly string? Chime;
         public readonly string? Cloud9;
         public readonly string? Cloudformation;
         public readonly string? Cloudfront;
@@ -140,6 +141,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? S3control;
         public readonly string? S3outposts;
         public readonly string? Sagemaker;
+        public readonly string? Schemas;
         public readonly string? Sdb;
         public readonly string? Secretsmanager;
         public readonly string? Securityhub;
@@ -208,6 +210,8 @@ namespace Pulumi.Aws.Outputs
             string? batch,
 
             string? budgets,
+
+            string? chime,
 
             string? cloud9,
 
@@ -425,6 +429,8 @@ namespace Pulumi.Aws.Outputs
 
             string? sagemaker,
 
+            string? schemas,
+
             string? sdb,
 
             string? secretsmanager,
@@ -500,6 +506,7 @@ namespace Pulumi.Aws.Outputs
             Backup = backup;
             Batch = batch;
             Budgets = budgets;
+            Chime = chime;
             Cloud9 = cloud9;
             Cloudformation = cloudformation;
             Cloudfront = cloudfront;
@@ -608,6 +615,7 @@ namespace Pulumi.Aws.Outputs
             S3control = s3control;
             S3outposts = s3outposts;
             Sagemaker = sagemaker;
+            Schemas = schemas;
             Sdb = sdb;
             Secretsmanager = secretsmanager;
             Securityhub = securityhub;

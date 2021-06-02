@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> IamRole { get; private set; } = null!;
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Output("launchType")]
         public Output<string> LaunchType { get; private set; } = null!;
@@ -421,7 +421,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
@@ -616,7 +616,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? IamRole { get; set; }
 
         /// <summary>
-        /// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+        /// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }

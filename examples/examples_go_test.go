@@ -11,12 +11,10 @@ import (
 )
 
 func TestAccWebserverGo(t *testing.T) {
-	t.Skip("Chicken and egg wile creating this new major version")
-	skipIfShort(t)
 	test := integration.ProgramTestOptions{
 		Dir: filepath.Join(getCwd(t), "webserver-go"),
 		Dependencies: []string{
-			"github.com/pulumi/pulumi-aws/sdk/go/v3",
+			"github.com/pulumi/pulumi-aws/sdk/v3",
 		},
 		Config: map[string]string{"aws:region": getEnvRegion(t)},
 	}

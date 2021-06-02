@@ -114,6 +114,7 @@ export interface ProviderEndpoint {
     backup?: pulumi.Input<string>;
     batch?: pulumi.Input<string>;
     budgets?: pulumi.Input<string>;
+    chime?: pulumi.Input<string>;
     cloud9?: pulumi.Input<string>;
     cloudformation?: pulumi.Input<string>;
     cloudfront?: pulumi.Input<string>;
@@ -222,6 +223,7 @@ export interface ProviderEndpoint {
     s3control?: pulumi.Input<string>;
     s3outposts?: pulumi.Input<string>;
     sagemaker?: pulumi.Input<string>;
+    schemas?: pulumi.Input<string>;
     sdb?: pulumi.Input<string>;
     secretsmanager?: pulumi.Input<string>;
     securityhub?: pulumi.Input<string>;
@@ -950,6 +952,89 @@ export namespace alb {
          * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace amplify {
+    export interface AppAutoBranchCreationConfig {
+        /**
+         * The basic authorization credentials for the autocreated branch.
+         */
+        basicAuthCredentials?: pulumi.Input<string>;
+        /**
+         * The build specification (build spec) for the autocreated branch.
+         */
+        buildSpec?: pulumi.Input<string>;
+        /**
+         * Enables auto building for the autocreated branch.
+         */
+        enableAutoBuild?: pulumi.Input<boolean>;
+        /**
+         * Enables basic authorization for the autocreated branch.
+         */
+        enableBasicAuth?: pulumi.Input<boolean>;
+        /**
+         * Enables performance mode for the branch.
+         */
+        enablePerformanceMode?: pulumi.Input<boolean>;
+        /**
+         * Enables pull request previews for the autocreated branch.
+         */
+        enablePullRequestPreview?: pulumi.Input<boolean>;
+        /**
+         * The environment variables for the autocreated branch.
+         */
+        environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The framework for the autocreated branch.
+         */
+        framework?: pulumi.Input<string>;
+        /**
+         * The Amplify environment name for the pull request.
+         */
+        pullRequestEnvironmentName?: pulumi.Input<string>;
+        /**
+         * Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+         */
+        stage?: pulumi.Input<string>;
+    }
+
+    export interface AppCustomRule {
+        /**
+         * The condition for a URL rewrite or redirect rule, such as a country code.
+         */
+        condition?: pulumi.Input<string>;
+        /**
+         * The source pattern for a URL rewrite or redirect rule.
+         */
+        source: pulumi.Input<string>;
+        /**
+         * The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * The target pattern for a URL rewrite or redirect rule.
+         */
+        target: pulumi.Input<string>;
+    }
+
+    export interface AppProductionBranch {
+        /**
+         * The branch name for the production branch.
+         */
+        branchName?: pulumi.Input<string>;
+        /**
+         * The last deploy time of the production branch.
+         */
+        lastDeployTime?: pulumi.Input<string>;
+        /**
+         * The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * The thumbnail URL for the production branch.
+         */
+        thumbnailUrl?: pulumi.Input<string>;
     }
 }
 
@@ -5708,6 +5793,14 @@ export namespace cloudfront {
 
     export interface DistributionOrigin {
         /**
+         * The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+         */
+        connectionAttempts?: pulumi.Input<number>;
+        /**
+         * The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+         */
+        connectionTimeout?: pulumi.Input<number>;
+        /**
          * One or more sub-resources with `name` and
          * `value` parameters that specify header data that will be sent to the origin
          * (multiples allowed).
@@ -5734,6 +5827,11 @@ export namespace cloudfront {
          * custom origin.
          */
         originPath?: pulumi.Input<string>;
+        /**
+         * The CloudFront Origin Shield
+         * configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+         */
+        originShield?: pulumi.Input<inputs.cloudfront.DistributionOriginOriginShield>;
         /**
          * The CloudFront S3 origin
          * configuration information. If a custom origin is required, use
@@ -5806,6 +5904,17 @@ export namespace cloudfront {
         originId: pulumi.Input<string>;
     }
 
+    export interface DistributionOriginOriginShield {
+        /**
+         * A flag that specifies whether Origin Shield is enabled.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+         */
+        originShieldRegion: pulumi.Input<string>;
+    }
+
     export interface DistributionOriginS3OriginConfig {
         /**
          * The [CloudFront origin access
@@ -5835,8 +5944,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedKeyGroup {
         /**
-         * Whether the distribution is enabled to accept end
-         * user requests for content.
+         * A flag that specifies whether Origin Shield is enabled.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -5858,8 +5966,7 @@ export namespace cloudfront {
 
     export interface DistributionTrustedSigner {
         /**
-         * Whether the distribution is enabled to accept end
-         * user requests for content.
+         * A flag that specifies whether Origin Shield is enabled.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -5980,39 +6087,230 @@ export namespace cloudhsmv2 {
 export namespace cloudtrail {
     export interface TrailEventSelector {
         /**
-         * Specifies logging data events. Fields documented below.
+         * Configuration block for data events. See details below.
          */
         dataResources?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelectorDataResource>[]>;
         /**
-         * Specify if you want your event selector to include management events for your trail.
+         * Whether to include management events for your trail.
          */
         includeManagementEvents?: pulumi.Input<boolean>;
         /**
-         * Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+         * Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
          */
         readWriteType?: pulumi.Input<string>;
     }
 
     export interface TrailEventSelectorDataResource {
         /**
-         * The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
+         * Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
          */
         type: pulumi.Input<string>;
         /**
-         * A list of ARN for the specified S3 buckets and object prefixes..
+         * List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface TrailInsightSelector {
         /**
-         * The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+         * Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
          */
         insightType: pulumi.Input<string>;
     }
 }
 
 export namespace cloudwatch {
+    export interface EventConnectionAuthParameters {
+        /**
+         * Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+         */
+        apiKey?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersApiKey>;
+        /**
+         * Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+         */
+        basic?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersBasic>;
+        /**
+         * Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+         */
+        invocationHttpParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParameters>;
+        /**
+         * Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+         */
+        oauth?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauth>;
+    }
+
+    export interface EventConnectionAuthParametersApiKey {
+        /**
+         * Header Name.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersBasic {
+        /**
+         * A password for the authorization. Created and stored in AWS Secrets Manager.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * A username for the authorization.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersInvocationHttpParameters {
+        /**
+         * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        bodies?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersBody>[]>;
+        /**
+         * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersHeader>[]>;
+        /**
+         * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        queryStrings?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersInvocationHttpParametersQueryString>[]>;
+    }
+
+    export interface EventConnectionAuthParametersInvocationHttpParametersBody {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersInvocationHttpParametersHeader {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersInvocationHttpParametersQueryString {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersOauth {
+        /**
+         * A username for the authorization.
+         */
+        authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * Contains the client parameters for OAuth authorization. Contains the following two parameters.
+         */
+        clientParameters?: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthClientParameters>;
+        /**
+         * A password for the authorization. Created and stored in AWS Secrets Manager.
+         */
+        httpMethod: pulumi.Input<string>;
+        /**
+         * OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+         */
+        oauthHttpParameters: pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParameters>;
+    }
+
+    export interface EventConnectionAuthParametersOauthClientParameters {
+        /**
+         * The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+         */
+        clientSecret: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersOauthOauthHttpParameters {
+        /**
+         * Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        bodies?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersBody>[]>;
+        /**
+         * Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        headers?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersHeader>[]>;
+        /**
+         * Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+         */
+        queryStrings?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersQueryString>[]>;
+    }
+
+    export interface EventConnectionAuthParametersOauthOauthHttpParametersBody {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersOauthOauthHttpParametersHeader {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
+        /**
+         * Specified whether the value is secret.
+         */
+        isValueSecret?: pulumi.Input<boolean>;
+        /**
+         * Header Name.
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Header Value. Created and stored in AWS Secrets Manager.
+         */
+        value?: pulumi.Input<string>;
+    }
+
     export interface EventPermissionCondition {
         /**
          * Key for the condition. Valid values: `aws:PrincipalOrgID`.
@@ -10969,6 +11267,21 @@ export namespace eks {
          * Minimum number of worker nodes.
          */
         minSize: pulumi.Input<number>;
+    }
+
+    export interface NodeGroupTaint {
+        /**
+         * The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+         */
+        effect: pulumi.Input<string>;
+        /**
+         * The key of the taint. Maximum length of 63.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value of the taint. Maximum length of 63.
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -16739,6 +17052,24 @@ export namespace lambda {
         destinationArn: pulumi.Input<string>;
     }
 
+    export interface EventSourceMappingSelfManagedEventSource {
+        /**
+         * A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+         */
+        endpoints: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface EventSourceMappingSourceAccessConfiguration {
+        /**
+         * The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an aws.ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an aws.ec2.SecurityGroup resource's id attribute.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface FunctionDeadLetterConfig {
         /**
          * ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
@@ -18212,11 +18543,6 @@ export namespace mq {
         username: pulumi.Input<string>;
     }
 
-    export interface GetBrokerLogs {
-        audit?: boolean;
-        general?: boolean;
-    }
-
 }
 
 export namespace msk {
@@ -18255,6 +18581,10 @@ export namespace msk {
     }
 
     export interface ClusterClientAuthenticationSasl {
+        /**
+         * Enables IAM client authentication. Defaults to `false`.
+         */
+        iam?: pulumi.Input<boolean>;
         /**
          * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
          */
@@ -24179,26 +24509,96 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleAction {
         /**
-         * Instructs AWS WAF to allow the web request.
+         * Instructs AWS WAF to allow the web request. See Allow below for details.
          */
         allow?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllow>;
         /**
-         * Instructs AWS WAF to block the web request.
+         * Instructs AWS WAF to block the web request. See Block below for details.
          */
         block?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlock>;
         /**
-         * Instructs AWS WAF to count the web request and allow it.
+         * Instructs AWS WAF to count the web request and allow it. See Count below for details.
          */
         count?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCount>;
     }
 
     export interface RuleGroupRuleActionAllow {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionBlock {
+        /**
+         * Defines a custom response for the web request. See Custom Response below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponse>;
+    }
+
+    export interface RuleGroupRuleActionBlockCustomResponse {
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleActionCount {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandling>;
+    }
+
+    export interface RuleGroupRuleActionCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatement {
@@ -30982,19 +31382,67 @@ export namespace wafv2 {
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies that AWS WAF should allow requests by default.
+         * Specifies that AWS WAF should allow requests by default. See Allow below for details.
          */
         allow?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllow>;
         /**
-         * Specifies that AWS WAF should block requests by default.
+         * Specifies that AWS WAF should block requests by default. See Block below for details.
          */
         block?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlock>;
     }
 
     export interface WebAclDefaultActionAllow {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclDefaultActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WebAclDefaultActionBlock {
+        /**
+         * Defines a custom response for the web request. See Custom Response below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponse>;
+    }
+
+    export interface WebAclDefaultActionBlockCustomResponse {
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclDefaultActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclDefaultActionBlockCustomResponseResponseHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WebAclLoggingConfigurationLoggingFilter {
@@ -31145,26 +31593,96 @@ export namespace wafv2 {
 
     export interface WebAclRuleAction {
         /**
-         * Instructs AWS WAF to allow the web request. Configure as an empty block `{}`.
+         * Instructs AWS WAF to allow the web request. See Allow below for details.
          */
         allow?: pulumi.Input<inputs.wafv2.WebAclRuleActionAllow>;
         /**
-         * Instructs AWS WAF to block the web request. Configure as an empty block `{}`.
+         * Instructs AWS WAF to block the web request. See Block below for details.
          */
         block?: pulumi.Input<inputs.wafv2.WebAclRuleActionBlock>;
         /**
-         * Instructs AWS WAF to count the web request and allow it. Configure as an empty block `{}`.
+         * Instructs AWS WAF to count the web request and allow it. See Count below for details.
          */
         count?: pulumi.Input<inputs.wafv2.WebAclRuleActionCount>;
     }
 
     export interface WebAclRuleActionAllow {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionAllowCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionAllowCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionAllowCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionAllowCustomRequestHandlingInsertHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WebAclRuleActionBlock {
+        /**
+         * Defines a custom response for the web request. See Custom Response below for details.
+         */
+        customResponse?: pulumi.Input<inputs.wafv2.WebAclRuleActionBlockCustomResponse>;
+    }
+
+    export interface WebAclRuleActionBlockCustomResponse {
+        /**
+         * The HTTP status code to return to the client.
+         */
+        responseCode: pulumi.Input<number>;
+        /**
+         * The `responseHeader` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+         */
+        responseHeaders?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionBlockCustomResponseResponseHeader>[]>;
+    }
+
+    export interface WebAclRuleActionBlockCustomResponseResponseHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WebAclRuleActionCount {
+        /**
+         * Defines custom handling for the web request. See Custom Request Handling below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleActionCountCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleActionCountCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleActionCountCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleActionCountCustomRequestHandlingInsertHeader {
+        /**
+         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The value of the custom header.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {

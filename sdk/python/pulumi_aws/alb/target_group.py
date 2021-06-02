@@ -36,7 +36,7 @@ class TargetGroupArgs:
         The set of arguments for constructing a TargetGroup resource.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: Name of the Target Group.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -115,7 +115,7 @@ class TargetGroupArgs:
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
@@ -320,7 +320,7 @@ class _TargetGroupState:
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: Name of the Target Group.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -427,7 +427,7 @@ class _TargetGroupState:
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 
@@ -679,7 +679,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: Name of the Target Group.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -854,7 +854,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
-        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
         :param pulumi.Input[str] name: Name of the Target Group.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
@@ -931,7 +931,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter(name="lambdaMultiValueHeadersEnabled")
     def lambda_multi_value_headers_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         """
         return pulumi.get(self, "lambda_multi_value_headers_enabled")
 

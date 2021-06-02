@@ -55,8 +55,7 @@ type Distribution struct {
 	// The DNS domain name of either the S3 bucket, or
 	// web site of your custom origin.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The current version of the distribution's information. For example:
 	// `E2QWRUHAPOMQZL`.
@@ -198,8 +197,7 @@ type distributionState struct {
 	// The DNS domain name of either the S3 bucket, or
 	// web site of your custom origin.
 	DomainName *string `pulumi:"domainName"`
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// The current version of the distribution's information. For example:
 	// `E2QWRUHAPOMQZL`.
@@ -298,8 +296,7 @@ type DistributionState struct {
 	// The DNS domain name of either the S3 bucket, or
 	// web site of your custom origin.
 	DomainName pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolPtrInput
 	// The current version of the distribution's information. For example:
 	// `E2QWRUHAPOMQZL`.
@@ -394,8 +391,7 @@ type distributionArgs struct {
 	// The object that you want CloudFront to
 	// return (for example, index.html) when an end user requests the root URL.
 	DefaultRootObject *string `pulumi:"defaultRootObject"`
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// The maximum HTTP version to support on the
 	// distribution. Allowed values are `http1.1` and `http2`. The default is
@@ -465,8 +461,7 @@ type DistributionArgs struct {
 	// The object that you want CloudFront to
 	// return (for example, index.html) when an end user requests the root URL.
 	DefaultRootObject pulumi.StringPtrInput
-	// Whether the distribution is enabled to accept end
-	// user requests for content.
+	// A flag that specifies whether Origin Shield is enabled.
 	Enabled pulumi.BoolInput
 	// The maximum HTTP version to support on the
 	// distribution. Allowed values are `http1.1` and `http2`. The default is

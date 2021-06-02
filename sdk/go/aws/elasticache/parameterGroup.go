@@ -58,6 +58,8 @@ import (
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 
+	// The AWS ARN associated with the parameter group.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The family of the ElastiCache parameter group.
@@ -66,6 +68,10 @@ type ParameterGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewParameterGroup registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +109,8 @@ func GetParameterGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ParameterGroup resources.
 type parameterGroupState struct {
+	// The AWS ARN associated with the parameter group.
+	Arn *string `pulumi:"arn"`
 	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// The family of the ElastiCache parameter group.
@@ -111,9 +119,15 @@ type parameterGroupState struct {
 	Name *string `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ParameterGroupState struct {
+	// The AWS ARN associated with the parameter group.
+	Arn pulumi.StringPtrInput
 	// The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// The family of the ElastiCache parameter group.
@@ -122,6 +136,10 @@ type ParameterGroupState struct {
 	Name pulumi.StringPtrInput
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupState) ElementType() reflect.Type {
@@ -137,6 +155,10 @@ type parameterGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of ElastiCache parameters to apply.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a ParameterGroup resource.
@@ -149,6 +171,10 @@ type ParameterGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of ElastiCache parameters to apply.
 	Parameters ParameterGroupParameterArrayInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ParameterGroupArgs) ElementType() reflect.Type {

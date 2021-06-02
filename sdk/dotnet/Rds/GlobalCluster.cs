@@ -15,7 +15,77 @@ namespace Pulumi.Aws.Rds
     /// More information about Aurora global databases can be found in the [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database-creating).
     /// 
     /// ## Example Usage
-    /// ### New Global Cluster
+    /// ### New MySQL Global Cluster
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
+    ///         {
+    ///             GlobalClusterIdentifier = "global-test",
+    ///             Engine = "aurora",
+    ///             EngineVersion = "5.6.mysql_aurora.1.22.2",
+    ///             DatabaseName = "example_db",
+    ///         });
+    ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             ClusterIdentifier = "test-primary-cluster",
+    ///             MasterUsername = "username",
+    ///             MasterPassword = "somepass123",
+    ///             DatabaseName = "example_db",
+    ///             GlobalClusterIdentifier = example.Id,
+    ///             DbSubnetGroupName = "default",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Primary,
+    ///         });
+    ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             Identifier = "test-primary-cluster-instance",
+    ///             ClusterIdentifier = primaryCluster.Id,
+    ///             InstanceClass = "db.r4.large",
+    ///             DbSubnetGroupName = "default",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Primary,
+    ///         });
+    ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             ClusterIdentifier = "test-secondary-cluster",
+    ///             GlobalClusterIdentifier = example.Id,
+    ///             DbSubnetGroupName = "default",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Secondary,
+    ///         });
+    ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             Identifier = "test-secondary-cluster-instance",
+    ///             ClusterIdentifier = secondaryCluster.Id,
+    ///             InstanceClass = "db.r4.large",
+    ///             DbSubnetGroupName = "default",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Secondary,
+    ///             DependsOn = 
+    ///             {
+    ///                 primaryClusterInstance,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### New PostgreSQL Global Cluster
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -31,32 +101,49 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var secondary = new Aws.Provider("secondary", new Aws.ProviderArgs
     ///         {
-    ///             Region = "us-west-2",
+    ///             Region = "us-east-1",
     ///         });
     ///         var example = new Aws.Rds.GlobalCluster("example", new Aws.Rds.GlobalClusterArgs
     ///         {
-    ///             GlobalClusterIdentifier = "example",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             Provider = aws.Primary,
+    ///             GlobalClusterIdentifier = "global-test",
+    ///             Engine = "aurora-postgresql",
+    ///             EngineVersion = "11.9",
+    ///             DatabaseName = "example_db",
     ///         });
     ///         var primaryCluster = new Aws.Rds.Cluster("primaryCluster", new Aws.Rds.ClusterArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             ClusterIdentifier = "test-primary-cluster",
+    ///             MasterUsername = "username",
+    ///             MasterPassword = "somepass123",
+    ///             DatabaseName = "example_db",
     ///             GlobalClusterIdentifier = example.Id,
+    ///             DbSubnetGroupName = "default",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Primary,
     ///         });
     ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             Identifier = "test-primary-cluster-instance",
     ///             ClusterIdentifier = primaryCluster.Id,
+    ///             InstanceClass = "db.r4.large",
+    ///             DbSubnetGroupName = "default",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Primary,
     ///         });
     ///         var secondaryCluster = new Aws.Rds.Cluster("secondaryCluster", new Aws.Rds.ClusterArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             ClusterIdentifier = "test-secondary-cluster",
     ///             GlobalClusterIdentifier = example.Id,
+    ///             SkipFinalSnapshot = true,
+    ///             DbSubnetGroupName = "default",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Secondary,
@@ -67,7 +154,12 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
+    ///             Identifier = "test-secondary-cluster-instance",
     ///             ClusterIdentifier = secondaryCluster.Id,
+    ///             InstanceClass = "db.r4.large",
+    ///             DbSubnetGroupName = "default",
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Secondary,

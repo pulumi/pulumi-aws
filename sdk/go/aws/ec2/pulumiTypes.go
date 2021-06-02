@@ -18092,6 +18092,7 @@ type GetLaunchTemplateNetworkInterface struct {
 	// Description of the launch template.
 	Description        string   `pulumi:"description"`
 	DeviceIndex        int      `pulumi:"deviceIndex"`
+	InterfaceType      string   `pulumi:"interfaceType"`
 	Ipv4AddressCount   int      `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses      []string `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   int      `pulumi:"ipv6AddressCount"`
@@ -18120,6 +18121,7 @@ type GetLaunchTemplateNetworkInterfaceArgs struct {
 	// Description of the launch template.
 	Description        pulumi.StringInput      `pulumi:"description"`
 	DeviceIndex        pulumi.IntInput         `pulumi:"deviceIndex"`
+	InterfaceType      pulumi.StringInput      `pulumi:"interfaceType"`
 	Ipv4AddressCount   pulumi.IntInput         `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses      pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   pulumi.IntInput         `pulumi:"ipv6AddressCount"`
@@ -18200,6 +18202,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringOutp
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) string { return v.InterfaceType }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) Ipv4AddressCount() pulumi.IntOutput {

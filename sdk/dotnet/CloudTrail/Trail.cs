@@ -12,9 +12,9 @@ namespace Pulumi.Aws.CloudTrail
     /// <summary>
     /// Provides a CloudTrail resource.
     /// 
-    /// &gt; *NOTE:* For a multi-region trail, this resource must be in the home region of the trail.
+    /// &gt; **Tip:** For a multi-region trail, this resource must be in the home region of the trail.
     /// 
-    /// &gt; *NOTE:* For an organization trail, this resource must be in the master account of the organization.
+    /// &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
     /// 
     /// ## Example Usage
     /// ### Basic
@@ -288,117 +288,109 @@ namespace Pulumi.Aws.CloudTrail
     public partial class Trail : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the trail.
+        /// ARN of the trail.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
+        /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Output("cloudWatchLogsGroupArn")]
         public Output<string?> CloudWatchLogsGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the role for the CloudWatch Logs
-        /// endpoint to assume to write to a user’s log group.
+        /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         /// </summary>
         [Output("cloudWatchLogsRoleArn")]
         public Output<string?> CloudWatchLogsRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether log file integrity validation is enabled.
-        /// Defaults to `false`.
+        /// Whether log file integrity validation is enabled. Defaults to `false`.
         /// </summary>
         [Output("enableLogFileValidation")]
         public Output<bool?> EnableLogFileValidation { get; private set; } = null!;
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `true`.
-        /// Setting this to `false` will pause logging.
+        /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
         /// </summary>
         [Output("enableLogging")]
         public Output<bool?> EnableLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+        /// Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
         [Output("eventSelectors")]
         public Output<ImmutableArray<Outputs.TrailEventSelector>> EventSelectors { get; private set; } = null!;
 
         /// <summary>
-        /// The region in which the trail was created.
+        /// Region in which the trail was created.
         /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the trail is publishing events
-        /// from global services such as IAM to the log files. Defaults to `true`.
+        /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         /// </summary>
         [Output("includeGlobalServiceEvents")]
         public Output<bool?> IncludeGlobalServiceEvents { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// Configuration block for identifying unusual operational activity. See details below.
         /// </summary>
         [Output("insightSelectors")]
         public Output<ImmutableArray<Outputs.TrailInsightSelector>> InsightSelectors { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the trail is created in the current
-        /// region or in all regions. Defaults to `false`.
+        /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
         /// </summary>
         [Output("isMultiRegionTrail")]
         public Output<bool?> IsMultiRegionTrail { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         /// </summary>
         [Output("isOrganizationTrail")]
         public Output<bool?> IsOrganizationTrail { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+        /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the trail.
+        /// Name of the trail.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the S3 bucket designated for publishing log files.
+        /// Name of the S3 bucket designated for publishing log files.
         /// </summary>
         [Output("s3BucketName")]
         public Output<string> S3BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the S3 key prefix that follows
-        /// the name of the bucket you have designated for log file delivery.
+        /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         /// </summary>
         [Output("s3KeyPrefix")]
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Amazon SNS topic
-        /// defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery.
         /// </summary>
         [Output("snsTopicName")]
         public Output<string?> SnsTopicName { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the trail. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -450,29 +442,25 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class TrailArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
+        /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Input("cloudWatchLogsGroupArn")]
         public Input<string>? CloudWatchLogsGroupArn { get; set; }
 
         /// <summary>
-        /// Specifies the role for the CloudWatch Logs
-        /// endpoint to assume to write to a user’s log group.
+        /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         /// </summary>
         [Input("cloudWatchLogsRoleArn")]
         public Input<string>? CloudWatchLogsRoleArn { get; set; }
 
         /// <summary>
-        /// Specifies whether log file integrity validation is enabled.
-        /// Defaults to `false`.
+        /// Whether log file integrity validation is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableLogFileValidation")]
         public Input<bool>? EnableLogFileValidation { get; set; }
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `true`.
-        /// Setting this to `false` will pause logging.
+        /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
         /// </summary>
         [Input("enableLogging")]
         public Input<bool>? EnableLogging { get; set; }
@@ -481,7 +469,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailEventSelectorArgs>? _eventSelectors;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+        /// Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
         public InputList<Inputs.TrailEventSelectorArgs> EventSelectors
         {
@@ -490,8 +478,7 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// Specifies whether the trail is publishing events
-        /// from global services such as IAM to the log files. Defaults to `true`.
+        /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         /// </summary>
         [Input("includeGlobalServiceEvents")]
         public Input<bool>? IncludeGlobalServiceEvents { get; set; }
@@ -500,7 +487,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailInsightSelectorArgs>? _insightSelectors;
 
         /// <summary>
-        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// Configuration block for identifying unusual operational activity. See details below.
         /// </summary>
         public InputList<Inputs.TrailInsightSelectorArgs> InsightSelectors
         {
@@ -509,46 +496,43 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// Specifies whether the trail is created in the current
-        /// region or in all regions. Defaults to `false`.
+        /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
         /// </summary>
         [Input("isMultiRegionTrail")]
         public Input<bool>? IsMultiRegionTrail { get; set; }
 
         /// <summary>
-        /// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         /// </summary>
         [Input("isOrganizationTrail")]
         public Input<bool>? IsOrganizationTrail { get; set; }
 
         /// <summary>
-        /// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+        /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the trail.
+        /// Name of the trail.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the S3 bucket designated for publishing log files.
+        /// Name of the S3 bucket designated for publishing log files.
         /// </summary>
         [Input("s3BucketName", required: true)]
         public Input<string> S3BucketName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the S3 key prefix that follows
-        /// the name of the bucket you have designated for log file delivery.
+        /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Amazon SNS topic
-        /// defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery.
         /// </summary>
         [Input("snsTopicName")]
         public Input<string>? SnsTopicName { get; set; }
@@ -557,7 +541,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the trail. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -569,7 +553,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -585,35 +569,31 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class TrailState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the trail.
+        /// ARN of the trail.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies a log group name using an Amazon Resource Name (ARN),
-        /// that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
+        /// Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
         /// </summary>
         [Input("cloudWatchLogsGroupArn")]
         public Input<string>? CloudWatchLogsGroupArn { get; set; }
 
         /// <summary>
-        /// Specifies the role for the CloudWatch Logs
-        /// endpoint to assume to write to a user’s log group.
+        /// Role for the CloudWatch Logs endpoint to assume to write to a user’s log group.
         /// </summary>
         [Input("cloudWatchLogsRoleArn")]
         public Input<string>? CloudWatchLogsRoleArn { get; set; }
 
         /// <summary>
-        /// Specifies whether log file integrity validation is enabled.
-        /// Defaults to `false`.
+        /// Whether log file integrity validation is enabled. Defaults to `false`.
         /// </summary>
         [Input("enableLogFileValidation")]
         public Input<bool>? EnableLogFileValidation { get; set; }
 
         /// <summary>
-        /// Enables logging for the trail. Defaults to `true`.
-        /// Setting this to `false` will pause logging.
+        /// Enables logging for the trail. Defaults to `true`. Setting this to `false` will pause logging.
         /// </summary>
         [Input("enableLogging")]
         public Input<bool>? EnableLogging { get; set; }
@@ -622,7 +602,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailEventSelectorGetArgs>? _eventSelectors;
 
         /// <summary>
-        /// Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+        /// Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
         /// </summary>
         public InputList<Inputs.TrailEventSelectorGetArgs> EventSelectors
         {
@@ -631,14 +611,13 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// The region in which the trail was created.
+        /// Region in which the trail was created.
         /// </summary>
         [Input("homeRegion")]
         public Input<string>? HomeRegion { get; set; }
 
         /// <summary>
-        /// Specifies whether the trail is publishing events
-        /// from global services such as IAM to the log files. Defaults to `true`.
+        /// Whether the trail is publishing events from global services such as IAM to the log files. Defaults to `true`.
         /// </summary>
         [Input("includeGlobalServiceEvents")]
         public Input<bool>? IncludeGlobalServiceEvents { get; set; }
@@ -647,7 +626,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputList<Inputs.TrailInsightSelectorGetArgs>? _insightSelectors;
 
         /// <summary>
-        /// Specifies an insight selector for identifying unusual operational activity. Fields documented below.
+        /// Configuration block for identifying unusual operational activity. See details below.
         /// </summary>
         public InputList<Inputs.TrailInsightSelectorGetArgs> InsightSelectors
         {
@@ -656,46 +635,43 @@ namespace Pulumi.Aws.CloudTrail
         }
 
         /// <summary>
-        /// Specifies whether the trail is created in the current
-        /// region or in all regions. Defaults to `false`.
+        /// Whether the trail is created in the current region or in all regions. Defaults to `false`.
         /// </summary>
         [Input("isMultiRegionTrail")]
         public Input<bool>? IsMultiRegionTrail { get; set; }
 
         /// <summary>
-        /// Specifies whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
+        /// Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         /// </summary>
         [Input("isOrganizationTrail")]
         public Input<bool>? IsOrganizationTrail { get; set; }
 
         /// <summary>
-        /// Specifies the KMS key ARN to use to encrypt the logs delivered by CloudTrail.
+        /// KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies the name of the trail.
+        /// Name of the trail.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the name of the S3 bucket designated for publishing log files.
+        /// Name of the S3 bucket designated for publishing log files.
         /// </summary>
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
         /// <summary>
-        /// Specifies the S3 key prefix that follows
-        /// the name of the bucket you have designated for log file delivery.
+        /// S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Amazon SNS topic
-        /// defined for notification of log file delivery.
+        /// Name of the Amazon SNS topic defined for notification of log file delivery.
         /// </summary>
         [Input("snsTopicName")]
         public Input<string>? SnsTopicName { get; set; }
@@ -704,7 +680,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the trail. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the trail. If configured with provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -716,7 +692,7 @@ namespace Pulumi.Aws.CloudTrail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {

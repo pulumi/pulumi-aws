@@ -1789,6 +1789,121 @@ func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type NodeGroupTaint struct {
+	// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+	Effect string `pulumi:"effect"`
+	// The key of the taint. Maximum length of 63.
+	Key string `pulumi:"key"`
+	// The value of the taint. Maximum length of 63.
+	Value *string `pulumi:"value"`
+}
+
+// NodeGroupTaintInput is an input type that accepts NodeGroupTaintArgs and NodeGroupTaintOutput values.
+// You can construct a concrete instance of `NodeGroupTaintInput` via:
+//
+//          NodeGroupTaintArgs{...}
+type NodeGroupTaintInput interface {
+	pulumi.Input
+
+	ToNodeGroupTaintOutput() NodeGroupTaintOutput
+	ToNodeGroupTaintOutputWithContext(context.Context) NodeGroupTaintOutput
+}
+
+type NodeGroupTaintArgs struct {
+	// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+	Effect pulumi.StringInput `pulumi:"effect"`
+	// The key of the taint. Maximum length of 63.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the taint. Maximum length of 63.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (NodeGroupTaintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupTaint)(nil)).Elem()
+}
+
+func (i NodeGroupTaintArgs) ToNodeGroupTaintOutput() NodeGroupTaintOutput {
+	return i.ToNodeGroupTaintOutputWithContext(context.Background())
+}
+
+func (i NodeGroupTaintArgs) ToNodeGroupTaintOutputWithContext(ctx context.Context) NodeGroupTaintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupTaintOutput)
+}
+
+// NodeGroupTaintArrayInput is an input type that accepts NodeGroupTaintArray and NodeGroupTaintArrayOutput values.
+// You can construct a concrete instance of `NodeGroupTaintArrayInput` via:
+//
+//          NodeGroupTaintArray{ NodeGroupTaintArgs{...} }
+type NodeGroupTaintArrayInput interface {
+	pulumi.Input
+
+	ToNodeGroupTaintArrayOutput() NodeGroupTaintArrayOutput
+	ToNodeGroupTaintArrayOutputWithContext(context.Context) NodeGroupTaintArrayOutput
+}
+
+type NodeGroupTaintArray []NodeGroupTaintInput
+
+func (NodeGroupTaintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeGroupTaint)(nil)).Elem()
+}
+
+func (i NodeGroupTaintArray) ToNodeGroupTaintArrayOutput() NodeGroupTaintArrayOutput {
+	return i.ToNodeGroupTaintArrayOutputWithContext(context.Background())
+}
+
+func (i NodeGroupTaintArray) ToNodeGroupTaintArrayOutputWithContext(ctx context.Context) NodeGroupTaintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupTaintArrayOutput)
+}
+
+type NodeGroupTaintOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupTaintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupTaint)(nil)).Elem()
+}
+
+func (o NodeGroupTaintOutput) ToNodeGroupTaintOutput() NodeGroupTaintOutput {
+	return o
+}
+
+func (o NodeGroupTaintOutput) ToNodeGroupTaintOutputWithContext(ctx context.Context) NodeGroupTaintOutput {
+	return o
+}
+
+// The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+func (o NodeGroupTaintOutput) Effect() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupTaint) string { return v.Effect }).(pulumi.StringOutput)
+}
+
+// The key of the taint. Maximum length of 63.
+func (o NodeGroupTaintOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v NodeGroupTaint) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the taint. Maximum length of 63.
+func (o NodeGroupTaintOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodeGroupTaint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type NodeGroupTaintArrayOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupTaintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NodeGroupTaint)(nil)).Elem()
+}
+
+func (o NodeGroupTaintArrayOutput) ToNodeGroupTaintArrayOutput() NodeGroupTaintArrayOutput {
+	return o
+}
+
+func (o NodeGroupTaintArrayOutput) ToNodeGroupTaintArrayOutputWithContext(ctx context.Context) NodeGroupTaintArrayOutput {
+	return o
+}
+
+func (o NodeGroupTaintArrayOutput) Index(i pulumi.IntInput) NodeGroupTaintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodeGroupTaint {
+		return vs[0].([]NodeGroupTaint)[vs[1].(int)]
+	}).(NodeGroupTaintOutput)
+}
+
 type GetClusterCertificateAuthority struct {
 	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data string `pulumi:"data"`
@@ -2265,6 +2380,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupResourceAutoscalingGroupArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupScalingConfigOutput{})
 	pulumi.RegisterOutputType(NodeGroupScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(NodeGroupTaintOutput{})
+	pulumi.RegisterOutputType(NodeGroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})

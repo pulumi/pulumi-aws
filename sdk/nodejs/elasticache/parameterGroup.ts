@@ -68,6 +68,10 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The AWS ARN associated with the parameter group.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
      */
     public readonly description!: pulumi.Output<string>;
@@ -83,6 +87,14 @@ export class ParameterGroup extends pulumi.CustomResource {
      * A list of ElastiCache parameters to apply.
      */
     public readonly parameters!: pulumi.Output<outputs.elasticache.ParameterGroupParameter[] | undefined>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -97,10 +109,13 @@ export class ParameterGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ParameterGroupState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["family"] = state ? state.family : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ParameterGroupArgs | undefined;
             if ((!args || args.family === undefined) && !opts.urn) {
@@ -110,6 +125,9 @@ export class ParameterGroup extends pulumi.CustomResource {
             inputs["family"] = args ? args.family : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -122,6 +140,10 @@ export class ParameterGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ParameterGroup resources.
  */
 export interface ParameterGroupState {
+    /**
+     * The AWS ARN associated with the parameter group.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The description of the ElastiCache parameter group. Defaults to "Managed by Pulumi".
      */
@@ -138,6 +160,14 @@ export interface ParameterGroupState {
      * A list of ElastiCache parameters to apply.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -160,4 +190,12 @@ export interface ParameterGroupArgs {
      * A list of ElastiCache parameters to apply.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.elasticache.ParameterGroupParameter>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

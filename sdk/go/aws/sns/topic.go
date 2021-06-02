@@ -135,6 +135,12 @@ type Topic struct {
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
+	FirehoseFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"firehoseFailureFeedbackRoleArn"`
+	// The IAM role permitted to receive success feedback for this topic
+	FirehoseSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"firehoseSuccessFeedbackRoleArn"`
+	// Percentage of success to sample
+	FirehoseSuccessFeedbackSampleRate pulumi.IntPtrOutput `pulumi:"firehoseSuccessFeedbackSampleRate"`
+	// IAM role for failure feedback
 	HttpFailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"httpFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
 	HttpSuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"httpSuccessFeedbackRoleArn"`
@@ -152,6 +158,8 @@ type Topic struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// The AWS Account ID of the SNS topic owner
+	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// IAM role for failure feedback
@@ -212,6 +220,12 @@ type topicState struct {
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// IAM role for failure feedback
+	FirehoseFailureFeedbackRoleArn *string `pulumi:"firehoseFailureFeedbackRoleArn"`
+	// The IAM role permitted to receive success feedback for this topic
+	FirehoseSuccessFeedbackRoleArn *string `pulumi:"firehoseSuccessFeedbackRoleArn"`
+	// Percentage of success to sample
+	FirehoseSuccessFeedbackSampleRate *int `pulumi:"firehoseSuccessFeedbackSampleRate"`
+	// IAM role for failure feedback
 	HttpFailureFeedbackRoleArn *string `pulumi:"httpFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
 	HttpSuccessFeedbackRoleArn *string `pulumi:"httpSuccessFeedbackRoleArn"`
@@ -229,6 +243,8 @@ type topicState struct {
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix *string `pulumi:"namePrefix"`
+	// The AWS Account ID of the SNS topic owner
+	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy *string `pulumi:"policy"`
 	// IAM role for failure feedback
@@ -261,6 +277,12 @@ type TopicState struct {
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
 	FifoTopic pulumi.BoolPtrInput
 	// IAM role for failure feedback
+	FirehoseFailureFeedbackRoleArn pulumi.StringPtrInput
+	// The IAM role permitted to receive success feedback for this topic
+	FirehoseSuccessFeedbackRoleArn pulumi.StringPtrInput
+	// Percentage of success to sample
+	FirehoseSuccessFeedbackSampleRate pulumi.IntPtrInput
+	// IAM role for failure feedback
 	HttpFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic
 	HttpSuccessFeedbackRoleArn pulumi.StringPtrInput
@@ -278,6 +300,8 @@ type TopicState struct {
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`
 	NamePrefix pulumi.StringPtrInput
+	// The AWS Account ID of the SNS topic owner
+	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringPtrInput
 	// IAM role for failure feedback
@@ -311,6 +335,12 @@ type topicArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
 	FifoTopic *bool `pulumi:"fifoTopic"`
+	// IAM role for failure feedback
+	FirehoseFailureFeedbackRoleArn *string `pulumi:"firehoseFailureFeedbackRoleArn"`
+	// The IAM role permitted to receive success feedback for this topic
+	FirehoseSuccessFeedbackRoleArn *string `pulumi:"firehoseSuccessFeedbackRoleArn"`
+	// Percentage of success to sample
+	FirehoseSuccessFeedbackSampleRate *int `pulumi:"firehoseSuccessFeedbackSampleRate"`
 	// IAM role for failure feedback
 	HttpFailureFeedbackRoleArn *string `pulumi:"httpFailureFeedbackRoleArn"`
 	// The IAM role permitted to receive success feedback for this topic
@@ -359,6 +389,12 @@ type TopicArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
 	FifoTopic pulumi.BoolPtrInput
+	// IAM role for failure feedback
+	FirehoseFailureFeedbackRoleArn pulumi.StringPtrInput
+	// The IAM role permitted to receive success feedback for this topic
+	FirehoseSuccessFeedbackRoleArn pulumi.StringPtrInput
+	// Percentage of success to sample
+	FirehoseSuccessFeedbackSampleRate pulumi.IntPtrInput
 	// IAM role for failure feedback
 	HttpFailureFeedbackRoleArn pulumi.StringPtrInput
 	// The IAM role permitted to receive success feedback for this topic

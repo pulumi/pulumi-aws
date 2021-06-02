@@ -3,9 +3,9 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws"
-	"github.com/pulumi/pulumi-aws/sdk/v3/go/aws/ec2"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func main() {
@@ -42,7 +42,7 @@ func main() {
 
 		server, err := ec2.NewInstance(ctx, "web-server-www", &ec2.InstanceArgs{
 			InstanceType:        ec2.InstanceType_T2_Micro,
-			VpcSecurityGroupIds: pulumi.StringArray{group.Arn},
+			VpcSecurityGroupIds: pulumi.StringArray{group.ID()},
 			Ami:                 pulumi.String(ami.Id),
 		})
 		if err != nil {

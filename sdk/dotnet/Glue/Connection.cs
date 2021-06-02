@@ -98,7 +98,7 @@ namespace Pulumi.Aws.Glue
         /// A map of key-value pairs used as parameters for this connection.
         /// </summary>
         [Output("connectionProperties")]
-        public Output<ImmutableDictionary<string, string>> ConnectionProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> ConnectionProperties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Glue
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
+        public Connection(string name, ConnectionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:glue/connection:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Glue
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
 
-        [Input("connectionProperties", required: true)]
+        [Input("connectionProperties")]
         private InputMap<string>? _connectionProperties;
 
         /// <summary>

@@ -69,6 +69,8 @@ type CapacityReservation struct {
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
@@ -138,6 +140,8 @@ type capacityReservationState struct {
 	InstancePlatform *string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
 	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId *string           `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -167,6 +171,8 @@ type CapacityReservationState struct {
 	InstancePlatform pulumi.StringPtrInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Capacity Reservation.
 	OwnerId pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
@@ -197,9 +203,11 @@ type capacityReservationArgs struct {
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform string `pulumi:"instancePlatform"`
 	// The instance type for which to reserve capacity.
-	InstanceType string            `pulumi:"instanceType"`
-	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
+	InstanceType string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutpostArn *string           `pulumi:"outpostArn"`
+	Tags       map[string]string `pulumi:"tags"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -224,8 +232,10 @@ type CapacityReservationArgs struct {
 	InstancePlatform pulumi.StringInput
 	// The instance type for which to reserve capacity.
 	InstanceType pulumi.StringInput
-	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
+	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+	OutpostArn pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }

@@ -72,9 +72,6 @@ func NewConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.KafkaVersions == nil {
-		return nil, errors.New("invalid value for required argument 'KafkaVersions'")
-	}
 	if args.ServerProperties == nil {
 		return nil, errors.New("invalid value for required argument 'ServerProperties'")
 	}
