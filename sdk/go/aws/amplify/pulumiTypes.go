@@ -560,6 +560,130 @@ func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBr
 	}).(AppProductionBranchOutput)
 }
 
+type DomainAssociationSubDomain struct {
+	// The branch name setting for the subdomain.
+	BranchName string `pulumi:"branchName"`
+	// The DNS record for the subdomain.
+	DnsRecord *string `pulumi:"dnsRecord"`
+	// The prefix setting for the subdomain.
+	Prefix string `pulumi:"prefix"`
+	// The verified status of the subdomain.
+	Verified *bool `pulumi:"verified"`
+}
+
+// DomainAssociationSubDomainInput is an input type that accepts DomainAssociationSubDomainArgs and DomainAssociationSubDomainOutput values.
+// You can construct a concrete instance of `DomainAssociationSubDomainInput` via:
+//
+//          DomainAssociationSubDomainArgs{...}
+type DomainAssociationSubDomainInput interface {
+	pulumi.Input
+
+	ToDomainAssociationSubDomainOutput() DomainAssociationSubDomainOutput
+	ToDomainAssociationSubDomainOutputWithContext(context.Context) DomainAssociationSubDomainOutput
+}
+
+type DomainAssociationSubDomainArgs struct {
+	// The branch name setting for the subdomain.
+	BranchName pulumi.StringInput `pulumi:"branchName"`
+	// The DNS record for the subdomain.
+	DnsRecord pulumi.StringPtrInput `pulumi:"dnsRecord"`
+	// The prefix setting for the subdomain.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// The verified status of the subdomain.
+	Verified pulumi.BoolPtrInput `pulumi:"verified"`
+}
+
+func (DomainAssociationSubDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAssociationSubDomain)(nil)).Elem()
+}
+
+func (i DomainAssociationSubDomainArgs) ToDomainAssociationSubDomainOutput() DomainAssociationSubDomainOutput {
+	return i.ToDomainAssociationSubDomainOutputWithContext(context.Background())
+}
+
+func (i DomainAssociationSubDomainArgs) ToDomainAssociationSubDomainOutputWithContext(ctx context.Context) DomainAssociationSubDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationSubDomainOutput)
+}
+
+// DomainAssociationSubDomainArrayInput is an input type that accepts DomainAssociationSubDomainArray and DomainAssociationSubDomainArrayOutput values.
+// You can construct a concrete instance of `DomainAssociationSubDomainArrayInput` via:
+//
+//          DomainAssociationSubDomainArray{ DomainAssociationSubDomainArgs{...} }
+type DomainAssociationSubDomainArrayInput interface {
+	pulumi.Input
+
+	ToDomainAssociationSubDomainArrayOutput() DomainAssociationSubDomainArrayOutput
+	ToDomainAssociationSubDomainArrayOutputWithContext(context.Context) DomainAssociationSubDomainArrayOutput
+}
+
+type DomainAssociationSubDomainArray []DomainAssociationSubDomainInput
+
+func (DomainAssociationSubDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAssociationSubDomain)(nil)).Elem()
+}
+
+func (i DomainAssociationSubDomainArray) ToDomainAssociationSubDomainArrayOutput() DomainAssociationSubDomainArrayOutput {
+	return i.ToDomainAssociationSubDomainArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAssociationSubDomainArray) ToDomainAssociationSubDomainArrayOutputWithContext(ctx context.Context) DomainAssociationSubDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationSubDomainArrayOutput)
+}
+
+type DomainAssociationSubDomainOutput struct{ *pulumi.OutputState }
+
+func (DomainAssociationSubDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAssociationSubDomain)(nil)).Elem()
+}
+
+func (o DomainAssociationSubDomainOutput) ToDomainAssociationSubDomainOutput() DomainAssociationSubDomainOutput {
+	return o
+}
+
+func (o DomainAssociationSubDomainOutput) ToDomainAssociationSubDomainOutputWithContext(ctx context.Context) DomainAssociationSubDomainOutput {
+	return o
+}
+
+// The branch name setting for the subdomain.
+func (o DomainAssociationSubDomainOutput) BranchName() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAssociationSubDomain) string { return v.BranchName }).(pulumi.StringOutput)
+}
+
+// The DNS record for the subdomain.
+func (o DomainAssociationSubDomainOutput) DnsRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAssociationSubDomain) *string { return v.DnsRecord }).(pulumi.StringPtrOutput)
+}
+
+// The prefix setting for the subdomain.
+func (o DomainAssociationSubDomainOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAssociationSubDomain) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// The verified status of the subdomain.
+func (o DomainAssociationSubDomainOutput) Verified() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAssociationSubDomain) *bool { return v.Verified }).(pulumi.BoolPtrOutput)
+}
+
+type DomainAssociationSubDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAssociationSubDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAssociationSubDomain)(nil)).Elem()
+}
+
+func (o DomainAssociationSubDomainArrayOutput) ToDomainAssociationSubDomainArrayOutput() DomainAssociationSubDomainArrayOutput {
+	return o
+}
+
+func (o DomainAssociationSubDomainArrayOutput) ToDomainAssociationSubDomainArrayOutputWithContext(ctx context.Context) DomainAssociationSubDomainArrayOutput {
+	return o
+}
+
+func (o DomainAssociationSubDomainArrayOutput) Index(i pulumi.IntInput) DomainAssociationSubDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAssociationSubDomain {
+		return vs[0].([]DomainAssociationSubDomain)[vs[1].(int)]
+	}).(DomainAssociationSubDomainOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigPtrOutput{})
@@ -567,4 +691,6 @@ func init() {
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchArrayOutput{})
+	pulumi.RegisterOutputType(DomainAssociationSubDomainOutput{})
+	pulumi.RegisterOutputType(DomainAssociationSubDomainArrayOutput{})
 }

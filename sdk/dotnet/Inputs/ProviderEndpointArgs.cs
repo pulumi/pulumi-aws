@@ -291,6 +291,9 @@ namespace Pulumi.Aws.Inputs
         [Input("lightsail")]
         public Input<string>? Lightsail { get; set; }
 
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         [Input("macie")]
         public Input<string>? Macie { get; set; }
 

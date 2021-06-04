@@ -193,6 +193,7 @@ class Endpoints(dict):
                  lexmodels: Optional[str] = None,
                  licensemanager: Optional[str] = None,
                  lightsail: Optional[str] = None,
+                 location: Optional[str] = None,
                  macie: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedblockchain: Optional[str] = None,
@@ -443,6 +444,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
             pulumi.set(__self__, "lightsail", lightsail)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
         if macie2 is not None:
@@ -1036,6 +1039,11 @@ class Endpoints(dict):
     @pulumi.getter
     def lightsail(self) -> Optional[str]:
         return pulumi.get(self, "lightsail")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

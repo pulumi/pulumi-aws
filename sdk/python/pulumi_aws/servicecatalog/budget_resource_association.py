@@ -8,15 +8,15 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BudgetResourceApplicationArgs', 'BudgetResourceApplication']
+__all__ = ['BudgetResourceAssociationArgs', 'BudgetResourceAssociation']
 
 @pulumi.input_type
-class BudgetResourceApplicationArgs:
+class BudgetResourceAssociationArgs:
     def __init__(__self__, *,
                  budget_name: pulumi.Input[str],
                  resource_id: pulumi.Input[str]):
         """
-        The set of arguments for constructing a BudgetResourceApplication resource.
+        The set of arguments for constructing a BudgetResourceAssociation resource.
         :param pulumi.Input[str] budget_name: Budget name.
         :param pulumi.Input[str] resource_id: Resource identifier.
         """
@@ -49,12 +49,12 @@ class BudgetResourceApplicationArgs:
 
 
 @pulumi.input_type
-class _BudgetResourceApplicationState:
+class _BudgetResourceAssociationState:
     def __init__(__self__, *,
                  budget_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
-        Input properties used for looking up and filtering BudgetResourceApplication resources.
+        Input properties used for looking up and filtering BudgetResourceAssociation resources.
         :param pulumi.Input[str] budget_name: Budget name.
         :param pulumi.Input[str] resource_id: Resource identifier.
         """
@@ -88,7 +88,7 @@ class _BudgetResourceApplicationState:
         pulumi.set(self, "resource_id", value)
 
 
-class BudgetResourceApplication(pulumi.CustomResource):
+class BudgetResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -108,7 +108,7 @@ class BudgetResourceApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.BudgetResourceApplication("example",
+        example = aws.servicecatalog.BudgetResourceAssociation("example",
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
@@ -118,7 +118,7 @@ class BudgetResourceApplication(pulumi.CustomResource):
         `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.
 
         ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -130,7 +130,7 @@ class BudgetResourceApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BudgetResourceApplicationArgs,
+                 args: BudgetResourceAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Budget Resource Association.
@@ -144,7 +144,7 @@ class BudgetResourceApplication(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.servicecatalog.BudgetResourceApplication("example",
+        example = aws.servicecatalog.BudgetResourceAssociation("example",
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
@@ -154,16 +154,16 @@ class BudgetResourceApplication(pulumi.CustomResource):
         `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.
 
         ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
-        :param BudgetResourceApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param BudgetResourceAssociationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BudgetResourceApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BudgetResourceAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class BudgetResourceApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BudgetResourceApplicationArgs.__new__(BudgetResourceApplicationArgs)
+            __props__ = BudgetResourceAssociationArgs.__new__(BudgetResourceAssociationArgs)
 
             if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")
@@ -192,8 +192,8 @@ class BudgetResourceApplication(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
-        super(BudgetResourceApplication, __self__).__init__(
-            'aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication',
+        super(BudgetResourceAssociation, __self__).__init__(
+            'aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation',
             resource_name,
             __props__,
             opts)
@@ -203,9 +203,9 @@ class BudgetResourceApplication(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             budget_name: Optional[pulumi.Input[str]] = None,
-            resource_id: Optional[pulumi.Input[str]] = None) -> 'BudgetResourceApplication':
+            resource_id: Optional[pulumi.Input[str]] = None) -> 'BudgetResourceAssociation':
         """
-        Get an existing BudgetResourceApplication resource's state with the given name, id, and optional extra
+        Get an existing BudgetResourceAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -216,11 +216,11 @@ class BudgetResourceApplication(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = _BudgetResourceApplicationState.__new__(_BudgetResourceApplicationState)
+        __props__ = _BudgetResourceAssociationState.__new__(_BudgetResourceAssociationState)
 
         __props__.__dict__["budget_name"] = budget_name
         __props__.__dict__["resource_id"] = resource_id
-        return BudgetResourceApplication(resource_name, opts=opts, __props__=__props__)
+        return BudgetResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="budgetName")

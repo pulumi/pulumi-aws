@@ -25,7 +25,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     public MyStack()
     ///     {
-    ///         var example = new Aws.ServiceCatalog.BudgetResourceApplication("example", new Aws.ServiceCatalog.BudgetResourceApplicationArgs
+    ///         var example = new Aws.ServiceCatalog.BudgetResourceAssociation("example", new Aws.ServiceCatalog.BudgetResourceAssociationArgs
     ///         {
     ///             BudgetName = "budget-pjtvyakdlyo3m",
     ///             ResourceId = "prod-dnigbtea24ste",
@@ -40,11 +40,11 @@ namespace Pulumi.Aws.ServiceCatalog
     /// `aws_servicecatalog_budget_resource_association` can be imported using the budget name and resource ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+    ///  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
     /// ```
     /// </summary>
-    [AwsResourceType("aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication")]
-    public partial class BudgetResourceApplication : Pulumi.CustomResource
+    [AwsResourceType("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation")]
+    public partial class BudgetResourceAssociation : Pulumi.CustomResource
     {
         /// <summary>
         /// Budget name.
@@ -60,19 +60,19 @@ namespace Pulumi.Aws.ServiceCatalog
 
 
         /// <summary>
-        /// Create a BudgetResourceApplication resource with the given unique name, arguments, and options.
+        /// Create a BudgetResourceAssociation resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public BudgetResourceApplication(string name, BudgetResourceApplicationArgs args, CustomResourceOptions? options = null)
-            : base("aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication", name, args ?? new BudgetResourceApplicationArgs(), MakeResourceOptions(options, ""))
+        public BudgetResourceAssociation(string name, BudgetResourceAssociationArgs args, CustomResourceOptions? options = null)
+            : base("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, args ?? new BudgetResourceAssociationArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private BudgetResourceApplication(string name, Input<string> id, BudgetResourceApplicationState? state = null, CustomResourceOptions? options = null)
-            : base("aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication", name, state, MakeResourceOptions(options, id))
+        private BudgetResourceAssociation(string name, Input<string> id, BudgetResourceAssociationState? state = null, CustomResourceOptions? options = null)
+            : base("aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation", name, state, MakeResourceOptions(options, id))
         {
         }
 
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.ServiceCatalog
             return merged;
         }
         /// <summary>
-        /// Get an existing BudgetResourceApplication resource's state with the given name, ID, and optional extra
+        /// Get an existing BudgetResourceAssociation resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
@@ -96,13 +96,13 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="state">Any extra arguments used during the lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static BudgetResourceApplication Get(string name, Input<string> id, BudgetResourceApplicationState? state = null, CustomResourceOptions? options = null)
+        public static BudgetResourceAssociation Get(string name, Input<string> id, BudgetResourceAssociationState? state = null, CustomResourceOptions? options = null)
         {
-            return new BudgetResourceApplication(name, id, state, options);
+            return new BudgetResourceAssociation(name, id, state, options);
         }
     }
 
-    public sealed class BudgetResourceApplicationArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Budget name.
@@ -116,12 +116,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
 
-        public BudgetResourceApplicationArgs()
+        public BudgetResourceAssociationArgs()
         {
         }
     }
 
-    public sealed class BudgetResourceApplicationState : Pulumi.ResourceArgs
+    public sealed class BudgetResourceAssociationState : Pulumi.ResourceArgs
     {
         /// <summary>
         /// Budget name.
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
-        public BudgetResourceApplicationState()
+        public BudgetResourceAssociationState()
         {
         }
     }

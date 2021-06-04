@@ -7,5 +7,8 @@ import typing
 # Export this package's modules as members:
 from .app import *
 from .backend_environment import *
+from .branch import *
+from .domain_association import *
+from .webhook import *
 from ._inputs import *
 from . import outputs

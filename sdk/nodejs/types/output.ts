@@ -212,6 +212,7 @@ export interface ProviderEndpoint {
     lexmodels?: string;
     licensemanager?: string;
     lightsail?: string;
+    location?: string;
     macie?: string;
     macie2?: string;
     managedblockchain?: string;
@@ -405,6 +406,10 @@ export namespace acmpca {
          * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
          */
         s3BucketName?: string;
+        /**
+         * Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+         */
+        s3ObjectAcl: string;
     }
 
     export interface CertificateValidity {
@@ -1163,6 +1168,25 @@ export namespace amplify {
          * The thumbnail URL for the production branch.
          */
         thumbnailUrl: string;
+    }
+
+    export interface DomainAssociationSubDomain {
+        /**
+         * The branch name setting for the subdomain.
+         */
+        branchName: string;
+        /**
+         * The DNS record for the subdomain.
+         */
+        dnsRecord: string;
+        /**
+         * The prefix setting for the subdomain.
+         */
+        prefix: string;
+        /**
+         * The verified status of the subdomain.
+         */
+        verified: boolean;
     }
 }
 
@@ -6844,9 +6868,13 @@ export namespace cloudwatch {
 
     export interface LogMetricFilterMetricTransformation {
         /**
-         * The value to emit when a filter pattern does not match a log event.
+         * The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
          */
         defaultValue?: string;
+        /**
+         * Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+         */
+        dimensions?: {[key: string]: string};
         /**
          * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
          */
@@ -6982,7 +7010,7 @@ export namespace codebuild {
          */
         path?: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: string;
     }
@@ -7027,7 +7055,7 @@ export namespace codebuild {
          */
         modes?: string[];
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type?: string;
     }
@@ -7062,7 +7090,7 @@ export namespace codebuild {
          */
         registryCredential?: outputs.codebuild.ProjectEnvironmentRegistryCredential;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: string;
     }
@@ -7073,7 +7101,7 @@ export namespace codebuild {
          */
         name: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type?: string;
         /**
@@ -7191,7 +7219,7 @@ export namespace codebuild {
          */
         path?: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: string;
     }
@@ -7208,7 +7236,7 @@ export namespace codebuild {
          */
         buildStatusConfig?: outputs.codebuild.ProjectSecondarySourceBuildStatusConfig;
         /**
-         * Build specification to use for this build project's related builds.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: string;
         /**
@@ -7228,7 +7256,7 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: boolean;
         /**
@@ -7236,7 +7264,7 @@ export namespace codebuild {
          */
         sourceIdentifier: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: string;
     }
@@ -7249,7 +7277,7 @@ export namespace codebuild {
          */
         resource?: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
@@ -7286,7 +7314,7 @@ export namespace codebuild {
          */
         buildStatusConfig?: outputs.codebuild.ProjectSourceBuildStatusConfig;
         /**
-         * Build specification to use for this build project's related builds.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: string;
         /**
@@ -7306,11 +7334,11 @@ export namespace codebuild {
          */
         location?: string;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: boolean;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: string;
     }
@@ -7323,7 +7351,7 @@ export namespace codebuild {
          */
         resource?: string;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
@@ -8359,6 +8387,7 @@ export namespace config {
         lexmodels?: string;
         licensemanager?: string;
         lightsail?: string;
+        location?: string;
         macie?: string;
         macie2?: string;
         managedblockchain?: string;
@@ -9822,6 +9851,10 @@ export namespace ec2 {
          */
         snapshotId: string;
         /**
+         * The Throughput of the volume.
+         */
+        throughput: boolean;
+        /**
          * The Size of the volume.
          */
         volumeSize: number;
@@ -9870,6 +9903,10 @@ export namespace ec2 {
          * The provisioned IOPs of the volume.
          */
         iops: number;
+        /**
+         * The Throughput of the volume.
+         */
+        throughput: boolean;
         /**
          * The Size of the volume.
          */
@@ -10690,6 +10727,7 @@ export namespace ec2 {
         iops: number;
         noDevice?: boolean;
         snapshotId: string;
+        throughput: number;
         volumeSize: number;
         volumeType: string;
     }
@@ -10718,6 +10756,7 @@ export namespace ec2 {
         deleteOnTermination?: boolean;
         encrypted: boolean;
         iops: number;
+        throughput: number;
         volumeSize: number;
         volumeType: string;
     }

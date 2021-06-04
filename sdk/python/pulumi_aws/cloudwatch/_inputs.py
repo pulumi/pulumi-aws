@@ -1257,18 +1257,22 @@ class LogMetricFilterMetricTransformationArgs:
                  name: pulumi.Input[str],
                  namespace: pulumi.Input[str],
                  value: pulumi.Input[str],
-                 default_value: Optional[pulumi.Input[str]] = None):
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
         :param pulumi.Input[str] namespace: The destination namespace of the CloudWatch metric.
         :param pulumi.Input[str] value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        :param pulumi.Input[str] default_value: The value to emit when a filter pattern does not match a log event.
+        :param pulumi.Input[str] default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "value", value)
         if default_value is not None:
             pulumi.set(__self__, "default_value", default_value)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
@@ -1310,13 +1314,25 @@ class LogMetricFilterMetricTransformationArgs:
     @pulumi.getter(name="defaultValue")
     def default_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value to emit when a filter pattern does not match a log event.
+        The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
         """
         return pulumi.get(self, "default_value")
 
     @default_value.setter
     def default_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "dimensions", value)
 
 
 @pulumi.input_type

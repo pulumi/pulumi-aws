@@ -12,6 +12,7 @@ __all__ = [
     'AppAutoBranchCreationConfigArgs',
     'AppCustomRuleArgs',
     'AppProductionBranchArgs',
+    'DomainAssociationSubDomainArgs',
 ]
 
 @pulumi.input_type
@@ -319,5 +320,74 @@ class AppProductionBranchArgs:
     @thumbnail_url.setter
     def thumbnail_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "thumbnail_url", value)
+
+
+@pulumi.input_type
+class DomainAssociationSubDomainArgs:
+    def __init__(__self__, *,
+                 branch_name: pulumi.Input[str],
+                 prefix: pulumi.Input[str],
+                 dns_record: Optional[pulumi.Input[str]] = None,
+                 verified: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] branch_name: The branch name setting for the subdomain.
+        :param pulumi.Input[str] prefix: The prefix setting for the subdomain.
+        :param pulumi.Input[str] dns_record: The DNS record for the subdomain.
+        :param pulumi.Input[bool] verified: The verified status of the subdomain.
+        """
+        pulumi.set(__self__, "branch_name", branch_name)
+        pulumi.set(__self__, "prefix", prefix)
+        if dns_record is not None:
+            pulumi.set(__self__, "dns_record", dns_record)
+        if verified is not None:
+            pulumi.set(__self__, "verified", verified)
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> pulumi.Input[str]:
+        """
+        The branch name setting for the subdomain.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @branch_name.setter
+    def branch_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "branch_name", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[str]:
+        """
+        The prefix setting for the subdomain.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[str]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter(name="dnsRecord")
+    def dns_record(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS record for the subdomain.
+        """
+        return pulumi.get(self, "dns_record")
+
+    @dns_record.setter
+    def dns_record(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_record", value)
+
+    @property
+    @pulumi.getter
+    def verified(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The verified status of the subdomain.
+        """
+        return pulumi.get(self, "verified")
+
+    @verified.setter
+    def verified(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verified", value)
 
 

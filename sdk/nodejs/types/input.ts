@@ -188,6 +188,7 @@ export interface ProviderEndpoint {
     lexmodels?: pulumi.Input<string>;
     licensemanager?: pulumi.Input<string>;
     lightsail?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     macie?: pulumi.Input<string>;
     macie2?: pulumi.Input<string>;
     managedblockchain?: pulumi.Input<string>;
@@ -381,6 +382,10 @@ export namespace acmpca {
          * Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
          */
         s3BucketName?: pulumi.Input<string>;
+        /**
+         * Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+         */
+        s3ObjectAcl?: pulumi.Input<string>;
     }
 
     export interface CertificateValidity {
@@ -1035,6 +1040,25 @@ export namespace amplify {
          * The thumbnail URL for the production branch.
          */
         thumbnailUrl?: pulumi.Input<string>;
+    }
+
+    export interface DomainAssociationSubDomain {
+        /**
+         * The branch name setting for the subdomain.
+         */
+        branchName: pulumi.Input<string>;
+        /**
+         * The DNS record for the subdomain.
+         */
+        dnsRecord?: pulumi.Input<string>;
+        /**
+         * The prefix setting for the subdomain.
+         */
+        prefix: pulumi.Input<string>;
+        /**
+         * The verified status of the subdomain.
+         */
+        verified?: pulumi.Input<boolean>;
     }
 }
 
@@ -6461,9 +6485,13 @@ export namespace cloudwatch {
 
     export interface LogMetricFilterMetricTransformation {
         /**
-         * The value to emit when a filter pattern does not match a log event.
+         * The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
          */
         defaultValue?: pulumi.Input<string>;
+        /**
+         * Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+         */
+        dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
          * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
          */
@@ -6599,7 +6627,7 @@ export namespace codebuild {
          */
         path?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: pulumi.Input<string>;
     }
@@ -6644,7 +6672,7 @@ export namespace codebuild {
          */
         modes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type?: pulumi.Input<string>;
     }
@@ -6679,7 +6707,7 @@ export namespace codebuild {
          */
         registryCredential?: pulumi.Input<inputs.codebuild.ProjectEnvironmentRegistryCredential>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: pulumi.Input<string>;
     }
@@ -6690,7 +6718,7 @@ export namespace codebuild {
          */
         name: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type?: pulumi.Input<string>;
         /**
@@ -6808,7 +6836,7 @@ export namespace codebuild {
          */
         path?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: pulumi.Input<string>;
     }
@@ -6825,7 +6853,7 @@ export namespace codebuild {
          */
         buildStatusConfig?: pulumi.Input<inputs.codebuild.ProjectSecondarySourceBuildStatusConfig>;
         /**
-         * Build specification to use for this build project's related builds.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: pulumi.Input<string>;
         /**
@@ -6845,7 +6873,7 @@ export namespace codebuild {
          */
         location?: pulumi.Input<string>;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: pulumi.Input<boolean>;
         /**
@@ -6853,7 +6881,7 @@ export namespace codebuild {
          */
         sourceIdentifier: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: pulumi.Input<string>;
     }
@@ -6866,7 +6894,7 @@ export namespace codebuild {
          */
         resource?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
@@ -6903,7 +6931,7 @@ export namespace codebuild {
          */
         buildStatusConfig?: pulumi.Input<inputs.codebuild.ProjectSourceBuildStatusConfig>;
         /**
-         * Build specification to use for this build project's related builds.
+         * Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
          */
         buildspec?: pulumi.Input<string>;
         /**
@@ -6923,11 +6951,11 @@ export namespace codebuild {
          */
         location?: pulumi.Input<string>;
         /**
-         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+         * Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
          */
         reportBuildStatus?: pulumi.Input<boolean>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          */
         type: pulumi.Input<string>;
     }
@@ -6940,7 +6968,7 @@ export namespace codebuild {
          */
         resource?: pulumi.Input<string>;
         /**
-         * Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+         * Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
          *
          * @deprecated Use the aws_codebuild_source_credential resource instead
          */
@@ -9526,6 +9554,7 @@ export namespace ec2 {
         iops?: pulumi.Input<number>;
         noDevice?: pulumi.Input<boolean>;
         snapshotId?: pulumi.Input<string>;
+        throughput?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
     }
@@ -9554,6 +9583,7 @@ export namespace ec2 {
         deleteOnTermination?: pulumi.Input<boolean>;
         encrypted?: pulumi.Input<boolean>;
         iops?: pulumi.Input<number>;
+        throughput?: pulumi.Input<number>;
         volumeSize?: pulumi.Input<number>;
         volumeType?: pulumi.Input<string>;
     }

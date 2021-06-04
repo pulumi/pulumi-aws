@@ -461,6 +461,7 @@ type ProviderEndpoint struct {
 	Lexmodels                *string `pulumi:"lexmodels"`
 	Licensemanager           *string `pulumi:"licensemanager"`
 	Lightsail                *string `pulumi:"lightsail"`
+	Location                 *string `pulumi:"location"`
 	Macie                    *string `pulumi:"macie"`
 	Macie2                   *string `pulumi:"macie2"`
 	Managedblockchain        *string `pulumi:"managedblockchain"`
@@ -632,6 +633,7 @@ type ProviderEndpointArgs struct {
 	Lexmodels                pulumi.StringPtrInput `pulumi:"lexmodels"`
 	Licensemanager           pulumi.StringPtrInput `pulumi:"licensemanager"`
 	Lightsail                pulumi.StringPtrInput `pulumi:"lightsail"`
+	Location                 pulumi.StringPtrInput `pulumi:"location"`
 	Macie                    pulumi.StringPtrInput `pulumi:"macie"`
 	Macie2                   pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedblockchain        pulumi.StringPtrInput `pulumi:"managedblockchain"`
@@ -1119,6 +1121,10 @@ func (o ProviderEndpointOutput) Licensemanager() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Lightsail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lightsail }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Macie() pulumi.StringPtrOutput {

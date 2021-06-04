@@ -212,6 +212,7 @@ namespace Pulumi.Aws
                 public string? Lexmodels { get; set; } = null!;
                 public string? Licensemanager { get; set; } = null!;
                 public string? Lightsail { get; set; } = null!;
+                public string? Location { get; set; } = null!;
                 public string? Macie { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
                 public string? Managedblockchain { get; set; } = null!;

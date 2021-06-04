@@ -2131,11 +2131,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_servicecatalog_service_action": {Tok: awsResource(servicecatalogMod, "ServiceAction")},
 			"aws_servicecatalog_budget_resource_association": {
-				Tok: awsResource(servicecatalogMod, "BudgetResourceApplication"),
+				Tok: awsResource(servicecatalogMod, "BudgetResourceAssociation"),
 			},
 			"aws_servicecatalog_provisioning_artifact": {Tok: awsResource(servicecatalogMod, "ProvisioningArtifact")},
 			"aws_servicecatalog_tag_option_resource_association": {
 				Tok: awsResource(servicecatalogMod, "TagOptionResourceAssociation"),
+			},
+			"aws_servicecatalog_principal_portfolio_association": {
+				Tok: awsResource(servicecatalogMod, "PrincipalPortfolioAssociation"),
 			},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
@@ -2623,6 +2626,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Amplify
 			"aws_amplify_app":                 {Tok: awsResource(amplifyMod, "App")},
 			"aws_amplify_backend_environment": {Tok: awsResource(amplifyMod, "BackendEnvironment")},
+			"aws_amplify_branch":              {Tok: awsResource(amplifyMod, "Branch")},
+			"aws_amplify_domain_association":  {Tok: awsResource(amplifyMod, "DomainAssociation")},
+			"aws_amplify_webhook":             {Tok: awsResource(amplifyMod, "Webhook")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},

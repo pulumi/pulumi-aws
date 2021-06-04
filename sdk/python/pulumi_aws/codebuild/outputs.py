@@ -73,7 +73,7 @@ class ProjectArtifacts(dict):
                  packaging: Optional[str] = None,
                  path: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param str artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param str location: Location of the source code from git or s3.
@@ -105,7 +105,7 @@ class ProjectArtifacts(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -308,7 +308,7 @@ class ProjectCache(dict):
         """
         :param str location: Location of the source code from git or s3.
         :param Sequence[str] modes: Specifies settings that AWS CodeBuild uses to store and reuse build dependencies. Valid values:  `LOCAL_SOURCE_CACHE`, `LOCAL_DOCKER_LAYER_CACHE`, `LOCAL_CUSTOM_CACHE`.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -337,7 +337,7 @@ class ProjectCache(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -381,7 +381,7 @@ class ProjectEnvironment(dict):
         """
         :param str compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
         :param str image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
         :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
         :param str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -422,7 +422,7 @@ class ProjectEnvironment(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -476,7 +476,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
         """
         :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
         :param str value: Environment variable's value.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -503,7 +503,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -849,7 +849,7 @@ class ProjectSecondaryArtifact(dict):
                  path: Optional[str] = None):
         """
         :param str artifact_identifier: Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param bool encryption_disabled: Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
         :param str location: Location of the source code from git or s3.
         :param str name: Name of the project. If `type` is set to `S3`, this is the name of the output artifact object
@@ -887,7 +887,7 @@ class ProjectSecondaryArtifact(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -990,15 +990,15 @@ class ProjectSecondarySource(dict):
                  report_build_status: Optional[bool] = None):
         """
         :param str source_identifier: Source identifier. Source data will be put inside a folder named as this parameter inside AWS CodeBuild source directory
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param 'ProjectSecondarySourceAuthArgs' auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param 'ProjectSecondarySourceBuildStatusConfigArgs' build_status_config: Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
-        :param str buildspec: Build specification to use for this build project's related builds.
+        :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param 'ProjectSecondarySourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
         :param bool insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param str location: Location of the source code from git or s3.
-        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         pulumi.set(__self__, "source_identifier", source_identifier)
         pulumi.set(__self__, "type", type)
@@ -1031,7 +1031,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -1055,7 +1055,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter
     def buildspec(self) -> Optional[str]:
         """
-        Build specification to use for this build project's related builds.
+        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         """
         return pulumi.get(self, "buildspec")
 
@@ -1095,7 +1095,7 @@ class ProjectSecondarySource(dict):
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[bool]:
         """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         return pulumi.get(self, "report_build_status")
 
@@ -1106,7 +1106,7 @@ class ProjectSecondarySourceAuth(dict):
                  type: str,
                  resource: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param str resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         pulumi.set(__self__, "type", type)
@@ -1117,7 +1117,7 @@ class ProjectSecondarySourceAuth(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -1251,15 +1251,15 @@ class ProjectSource(dict):
                  location: Optional[str] = None,
                  report_build_status: Optional[bool] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param 'ProjectSourceAuthArgs' auth: Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
         :param 'ProjectSourceBuildStatusConfigArgs' build_status_config: Contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`.
-        :param str buildspec: Build specification to use for this build project's related builds.
+        :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
         :param 'ProjectSourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
         :param bool insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param str location: Location of the source code from git or s3.
-        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         pulumi.set(__self__, "type", type)
         if auth is not None:
@@ -1283,7 +1283,7 @@ class ProjectSource(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 
@@ -1307,7 +1307,7 @@ class ProjectSource(dict):
     @pulumi.getter
     def buildspec(self) -> Optional[str]:
         """
-        Build specification to use for this build project's related builds.
+        Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         """
         return pulumi.get(self, "buildspec")
 
@@ -1347,7 +1347,7 @@ class ProjectSource(dict):
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[bool]:
         """
-        Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         """
         return pulumi.get(self, "report_build_status")
 
@@ -1358,7 +1358,7 @@ class ProjectSourceAuth(dict):
                  type: str,
                  resource: Optional[str] = None):
         """
-        :param str type: Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         :param str resource: Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
         """
         pulumi.set(__self__, "type", type)
@@ -1369,7 +1369,7 @@ class ProjectSourceAuth(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `codebuild.SourceCredential` resource instead.
+        Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         """
         return pulumi.get(self, "type")
 

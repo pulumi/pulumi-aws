@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication":
-		r = &BudgetResourceApplication{}
+	case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
+		r = &BudgetResourceAssociation{}
 	case "aws:servicecatalog/constraint:Constraint":
 		r = &Constraint{}
 	case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Portfolio{}
 	case "aws:servicecatalog/portfolioShare:PortfolioShare":
 		r = &PortfolioShare{}
+	case "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation":
+		r = &PrincipalPortfolioAssociation{}
 	case "aws:servicecatalog/product:Product":
 		r = &Product{}
 	case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
@@ -58,7 +60,7 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
-		"servicecatalog/budgetResourceApplication",
+		"servicecatalog/budgetResourceAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -79,6 +81,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/portfolioShare",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/principalPortfolioAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

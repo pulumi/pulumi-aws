@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectSecondarySourceBuildStatusConfigArgs>? BuildStatusConfig { get; set; }
 
         /// <summary>
-        /// Build specification to use for this build project's related builds.
+        /// Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         /// </summary>
         [Input("buildspec")]
         public Input<string>? Buildspec { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
+        /// Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
         /// </summary>
         [Input("reportBuildStatus")]
         public Input<bool>? ReportBuildStatus { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<string> SourceIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Authorization type to use. The only valid value is `OAUTH`. This data type is deprecated and is no longer accurate or used. Use the `aws.codebuild.SourceCredential` resource instead.
+        /// Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -431,6 +431,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "amplify/branch",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/branch:Branch": "Branch"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/domainAssociation",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/domainAssociation:DomainAssociation": "DomainAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/webhook",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/webhook:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apigateway/account",
   "fqn": "pulumi_aws.apigateway",
   "classes": {
@@ -5503,10 +5527,10 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "servicecatalog/budgetResourceApplication",
+  "mod": "servicecatalog/budgetResourceAssociation",
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
-   "aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication": "BudgetResourceApplication"
+   "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation": "BudgetResourceAssociation"
   }
  },
  {
@@ -5539,6 +5563,14 @@ _utilities.register(
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
    "aws:servicecatalog/portfolioShare:PortfolioShare": "PortfolioShare"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/principalPortfolioAssociation",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation": "PrincipalPortfolioAssociation"
   }
  },
  {

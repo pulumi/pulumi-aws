@@ -3621,8 +3621,10 @@ func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 }
 
 type LogMetricFilterMetricTransformation struct {
-	// The value to emit when a filter pattern does not match a log event.
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue *string `pulumi:"defaultValue"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions map[string]string `pulumi:"dimensions"`
 	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 	Name string `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
@@ -3643,8 +3645,10 @@ type LogMetricFilterMetricTransformationInput interface {
 }
 
 type LogMetricFilterMetricTransformationArgs struct {
-	// The value to emit when a filter pattern does not match a log event.
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
 	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 	Name pulumi.StringInput `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
@@ -3730,9 +3734,14 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
 
-// The value to emit when a filter pattern does not match a log event.
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+func (o LogMetricFilterMetricTransformationOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LogMetricFilterMetricTransformation) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
 // The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
@@ -3768,7 +3777,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetr
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation { return *v }).(LogMetricFilterMetricTransformationOutput)
 }
 
-// The value to emit when a filter pattern does not match a log event.
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -3776,6 +3785,16 @@ func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.Stri
 		}
 		return v.DefaultValue
 	}).(pulumi.StringPtrOutput)
+}
+
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(pulumi.StringMapOutput)
 }
 
 // The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)

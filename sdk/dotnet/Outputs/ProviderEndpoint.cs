@@ -106,6 +106,7 @@ namespace Pulumi.Aws.Outputs
         public readonly string? Lexmodels;
         public readonly string? Licensemanager;
         public readonly string? Lightsail;
+        public readonly string? Location;
         public readonly string? Macie;
         public readonly string? Macie2;
         public readonly string? Managedblockchain;
@@ -359,6 +360,8 @@ namespace Pulumi.Aws.Outputs
 
             string? lightsail,
 
+            string? location,
+
             string? macie,
 
             string? macie2,
@@ -580,6 +583,7 @@ namespace Pulumi.Aws.Outputs
             Lexmodels = lexmodels;
             Licensemanager = licensemanager;
             Lightsail = lightsail;
+            Location = location;
             Macie = macie;
             Macie2 = macie2;
             Managedblockchain = managedblockchain;

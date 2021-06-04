@@ -238,6 +238,7 @@ class ProviderEndpointArgs:
                  lexmodels: Optional[pulumi.Input[str]] = None,
                  licensemanager: Optional[pulumi.Input[str]] = None,
                  lightsail: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  macie: Optional[pulumi.Input[str]] = None,
                  macie2: Optional[pulumi.Input[str]] = None,
                  managedblockchain: Optional[pulumi.Input[str]] = None,
@@ -488,6 +489,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
             pulumi.set(__self__, "lightsail", lightsail)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
         if macie2 is not None:
@@ -1453,6 +1456,15 @@ class ProviderEndpointArgs:
     @lightsail.setter
     def lightsail(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "lightsail", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter

@@ -2509,6 +2509,7 @@ class LaunchConfigurationEbsBlockDeviceArgs:
                  iops: Optional[pulumi.Input[int]] = None,
                  no_device: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_name", device_name)
@@ -2522,6 +2523,8 @@ class LaunchConfigurationEbsBlockDeviceArgs:
             pulumi.set(__self__, "no_device", no_device)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -2580,6 +2583,15 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @snapshot_id.setter
     def snapshot_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
     @property
     @pulumi.getter(name="volumeSize")
@@ -2688,6 +2700,7 @@ class LaunchConfigurationRootBlockDeviceArgs:
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volume_size: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         if delete_on_termination is not None:
@@ -2696,6 +2709,8 @@ class LaunchConfigurationRootBlockDeviceArgs:
             pulumi.set(__self__, "encrypted", encrypted)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
         if volume_type is not None:
@@ -2727,6 +2742,15 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
     @property
     @pulumi.getter(name="volumeSize")

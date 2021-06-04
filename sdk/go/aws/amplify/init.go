@@ -25,6 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &App{}
 	case "aws:amplify/backendEnvironment:BackendEnvironment":
 		r = &BackendEnvironment{}
+	case "aws:amplify/branch:Branch":
+		r = &Branch{}
+	case "aws:amplify/domainAssociation:DomainAssociation":
+		r = &DomainAssociation{}
+	case "aws:amplify/webhook:Webhook":
+		r = &Webhook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +52,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amplify/backendEnvironment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amplify/branch",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amplify/domainAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amplify/webhook",
 		&module{version},
 	)
 }

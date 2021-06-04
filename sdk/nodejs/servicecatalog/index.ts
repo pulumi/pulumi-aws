@@ -5,12 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./budgetResourceApplication";
+export * from "./budgetResourceAssociation";
 export * from "./constraint";
 export * from "./getConstraint";
 export * from "./organizationsAccess";
 export * from "./portfolio";
 export * from "./portfolioShare";
+export * from "./principalPortfolioAssociation";
 export * from "./product";
 export * from "./productPortfolioAssociation";
 export * from "./provisioningArtifact";
@@ -19,11 +20,12 @@ export * from "./tagOption";
 export * from "./tagOptionResourceAssociation";
 
 // Import resources to register:
-import { BudgetResourceApplication } from "./budgetResourceApplication";
+import { BudgetResourceAssociation } from "./budgetResourceAssociation";
 import { Constraint } from "./constraint";
 import { OrganizationsAccess } from "./organizationsAccess";
 import { Portfolio } from "./portfolio";
 import { PortfolioShare } from "./portfolioShare";
+import { PrincipalPortfolioAssociation } from "./principalPortfolioAssociation";
 import { Product } from "./product";
 import { ProductPortfolioAssociation } from "./productPortfolioAssociation";
 import { ProvisioningArtifact } from "./provisioningArtifact";
@@ -35,8 +37,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws:servicecatalog/budgetResourceApplication:BudgetResourceApplication":
-                return new BudgetResourceApplication(name, <any>undefined, { urn })
+            case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
+                return new BudgetResourceAssociation(name, <any>undefined, { urn })
             case "aws:servicecatalog/constraint:Constraint":
                 return new Constraint(name, <any>undefined, { urn })
             case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
@@ -45,6 +47,8 @@ const _module = {
                 return new Portfolio(name, <any>undefined, { urn })
             case "aws:servicecatalog/portfolioShare:PortfolioShare":
                 return new PortfolioShare(name, <any>undefined, { urn })
+            case "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation":
+                return new PrincipalPortfolioAssociation(name, <any>undefined, { urn })
             case "aws:servicecatalog/product:Product":
                 return new Product(name, <any>undefined, { urn })
             case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
@@ -62,11 +66,12 @@ const _module = {
         }
     },
 };
-pulumi.runtime.registerResourceModule("aws", "servicecatalog/budgetResourceApplication", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/budgetResourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/constraint", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/organizationsAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolio", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolioShare", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/principalPortfolioAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/product", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/productPortfolioAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/provisioningArtifact", _module)
