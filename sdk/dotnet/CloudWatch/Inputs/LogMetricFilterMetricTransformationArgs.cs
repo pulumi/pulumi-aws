@@ -13,10 +13,22 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class LogMetricFilterMetricTransformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The value to emit when a filter pattern does not match a log event.
+        /// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
         /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
+
+        [Input("dimensions")]
+        private InputMap<string>? _dimensions;
+
+        /// <summary>
+        /// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        /// </summary>
+        public InputMap<string> Dimensions
+        {
+            get => _dimensions ?? (_dimensions = new InputMap<string>());
+            set => _dimensions = value;
+        }
 
         /// <summary>
         /// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)

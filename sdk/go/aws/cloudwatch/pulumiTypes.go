@@ -10,6 +10,1884 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type EventConnectionAuthParameters struct {
+	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+	ApiKey *EventConnectionAuthParametersApiKey `pulumi:"apiKey"`
+	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+	Basic *EventConnectionAuthParametersBasic `pulumi:"basic"`
+	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	InvocationHttpParameters *EventConnectionAuthParametersInvocationHttpParameters `pulumi:"invocationHttpParameters"`
+	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+	Oauth *EventConnectionAuthParametersOauth `pulumi:"oauth"`
+}
+
+// EventConnectionAuthParametersInput is an input type that accepts EventConnectionAuthParametersArgs and EventConnectionAuthParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInput` via:
+//
+//          EventConnectionAuthParametersArgs{...}
+type EventConnectionAuthParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOutput() EventConnectionAuthParametersOutput
+	ToEventConnectionAuthParametersOutputWithContext(context.Context) EventConnectionAuthParametersOutput
+}
+
+type EventConnectionAuthParametersArgs struct {
+	// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+	ApiKey EventConnectionAuthParametersApiKeyPtrInput `pulumi:"apiKey"`
+	// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+	Basic EventConnectionAuthParametersBasicPtrInput `pulumi:"basic"`
+	// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	InvocationHttpParameters EventConnectionAuthParametersInvocationHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
+	// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+	Oauth EventConnectionAuthParametersOauthPtrInput `pulumi:"oauth"`
+}
+
+func (EventConnectionAuthParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersOutput() EventConnectionAuthParametersOutput {
+	return i.ToEventConnectionAuthParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOutput)
+}
+
+func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOutput).ToEventConnectionAuthParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersPtrInput is an input type that accepts EventConnectionAuthParametersArgs, EventConnectionAuthParametersPtr and EventConnectionAuthParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersPtrInput` via:
+//
+//          EventConnectionAuthParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput
+	ToEventConnectionAuthParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersPtrOutput
+}
+
+type eventConnectionAuthParametersPtrType EventConnectionAuthParametersArgs
+
+func EventConnectionAuthParametersPtr(v *EventConnectionAuthParametersArgs) EventConnectionAuthParametersPtrInput {
+	return (*eventConnectionAuthParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersPtrType) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersPtrType) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersOutput() EventConnectionAuthParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParameters {
+		return &v
+	}).(EventConnectionAuthParametersPtrOutput)
+}
+
+// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+func (o EventConnectionAuthParametersOutput) ApiKey() EventConnectionAuthParametersApiKeyPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersApiKey { return v.ApiKey }).(EventConnectionAuthParametersApiKeyPtrOutput)
+}
+
+// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+func (o EventConnectionAuthParametersOutput) Basic() EventConnectionAuthParametersBasicPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersBasic { return v.Basic }).(EventConnectionAuthParametersBasicPtrOutput)
+}
+
+// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+func (o EventConnectionAuthParametersOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
+		return v.InvocationHttpParameters
+	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
+}
+
+// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+func (o EventConnectionAuthParametersOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersOauth { return v.Oauth }).(EventConnectionAuthParametersOauthPtrOutput)
+}
+
+type EventConnectionAuthParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersPtrOutput) Elem() EventConnectionAuthParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) EventConnectionAuthParameters { return *v }).(EventConnectionAuthParametersOutput)
+}
+
+// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+func (o EventConnectionAuthParametersPtrOutput) ApiKey() EventConnectionAuthParametersApiKeyPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersApiKey {
+		if v == nil {
+			return nil
+		}
+		return v.ApiKey
+	}).(EventConnectionAuthParametersApiKeyPtrOutput)
+}
+
+// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
+func (o EventConnectionAuthParametersPtrOutput) Basic() EventConnectionAuthParametersBasicPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersBasic {
+		if v == nil {
+			return nil
+		}
+		return v.Basic
+	}).(EventConnectionAuthParametersBasicPtrOutput)
+}
+
+// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+func (o EventConnectionAuthParametersPtrOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationHttpParameters
+	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
+}
+
+// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
+func (o EventConnectionAuthParametersPtrOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersOauth {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth
+	}).(EventConnectionAuthParametersOauthPtrOutput)
+}
+
+type EventConnectionAuthParametersApiKey struct {
+	// Header Name.
+	Key string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersApiKeyInput is an input type that accepts EventConnectionAuthParametersApiKeyArgs and EventConnectionAuthParametersApiKeyOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersApiKeyInput` via:
+//
+//          EventConnectionAuthParametersApiKeyArgs{...}
+type EventConnectionAuthParametersApiKeyInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersApiKeyOutput() EventConnectionAuthParametersApiKeyOutput
+	ToEventConnectionAuthParametersApiKeyOutputWithContext(context.Context) EventConnectionAuthParametersApiKeyOutput
+}
+
+type EventConnectionAuthParametersApiKeyArgs struct {
+	// Header Name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersApiKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersApiKey)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParametersApiKeyOutput() EventConnectionAuthParametersApiKeyOutput {
+	return i.ToEventConnectionAuthParametersApiKeyOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParametersApiKeyOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersApiKeyOutput)
+}
+
+func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput {
+	return i.ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersApiKeyArgs) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersApiKeyOutput).ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersApiKeyPtrInput is an input type that accepts EventConnectionAuthParametersApiKeyArgs, EventConnectionAuthParametersApiKeyPtr and EventConnectionAuthParametersApiKeyPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersApiKeyPtrInput` via:
+//
+//          EventConnectionAuthParametersApiKeyArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersApiKeyPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput
+	ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(context.Context) EventConnectionAuthParametersApiKeyPtrOutput
+}
+
+type eventConnectionAuthParametersApiKeyPtrType EventConnectionAuthParametersApiKeyArgs
+
+func EventConnectionAuthParametersApiKeyPtr(v *EventConnectionAuthParametersApiKeyArgs) EventConnectionAuthParametersApiKeyPtrInput {
+	return (*eventConnectionAuthParametersApiKeyPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersApiKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersApiKey)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersApiKeyPtrType) ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput {
+	return i.ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersApiKeyPtrType) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersApiKeyPtrOutput)
+}
+
+type EventConnectionAuthParametersApiKeyOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersApiKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersApiKey)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParametersApiKeyOutput() EventConnectionAuthParametersApiKeyOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParametersApiKeyOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput {
+	return o.ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) *EventConnectionAuthParametersApiKey {
+		return &v
+	}).(EventConnectionAuthParametersApiKeyPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersApiKeyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersApiKeyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventConnectionAuthParametersApiKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersApiKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersApiKey)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersApiKeyPtrOutput) ToEventConnectionAuthParametersApiKeyPtrOutput() EventConnectionAuthParametersApiKeyPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersApiKeyPtrOutput) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersApiKeyPtrOutput) Elem() EventConnectionAuthParametersApiKeyOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) EventConnectionAuthParametersApiKey { return *v }).(EventConnectionAuthParametersApiKeyOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersApiKeyPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersApiKeyPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersBasic struct {
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	Password string `pulumi:"password"`
+	// A username for the authorization.
+	Username string `pulumi:"username"`
+}
+
+// EventConnectionAuthParametersBasicInput is an input type that accepts EventConnectionAuthParametersBasicArgs and EventConnectionAuthParametersBasicOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersBasicInput` via:
+//
+//          EventConnectionAuthParametersBasicArgs{...}
+type EventConnectionAuthParametersBasicInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersBasicOutput() EventConnectionAuthParametersBasicOutput
+	ToEventConnectionAuthParametersBasicOutputWithContext(context.Context) EventConnectionAuthParametersBasicOutput
+}
+
+type EventConnectionAuthParametersBasicArgs struct {
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	Password pulumi.StringInput `pulumi:"password"`
+	// A username for the authorization.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (EventConnectionAuthParametersBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersBasic)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersBasicOutput() EventConnectionAuthParametersBasicOutput {
+	return i.ToEventConnectionAuthParametersBasicOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersBasicOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersBasicOutput)
+}
+
+func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput {
+	return i.ToEventConnectionAuthParametersBasicPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersBasicArgs) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersBasicOutput).ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersBasicPtrInput is an input type that accepts EventConnectionAuthParametersBasicArgs, EventConnectionAuthParametersBasicPtr and EventConnectionAuthParametersBasicPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersBasicPtrInput` via:
+//
+//          EventConnectionAuthParametersBasicArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersBasicPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput
+	ToEventConnectionAuthParametersBasicPtrOutputWithContext(context.Context) EventConnectionAuthParametersBasicPtrOutput
+}
+
+type eventConnectionAuthParametersBasicPtrType EventConnectionAuthParametersBasicArgs
+
+func EventConnectionAuthParametersBasicPtr(v *EventConnectionAuthParametersBasicArgs) EventConnectionAuthParametersBasicPtrInput {
+	return (*eventConnectionAuthParametersBasicPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersBasic)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersBasicPtrType) ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput {
+	return i.ToEventConnectionAuthParametersBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersBasicPtrType) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersBasicPtrOutput)
+}
+
+type EventConnectionAuthParametersBasicOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersBasic)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParametersBasicOutput() EventConnectionAuthParametersBasicOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParametersBasicOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput {
+	return o.ToEventConnectionAuthParametersBasicPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersBasic) *EventConnectionAuthParametersBasic {
+		return &v
+	}).(EventConnectionAuthParametersBasicPtrOutput)
+}
+
+// A password for the authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// A username for the authorization.
+func (o EventConnectionAuthParametersBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type EventConnectionAuthParametersBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersBasic)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersBasicPtrOutput) ToEventConnectionAuthParametersBasicPtrOutput() EventConnectionAuthParametersBasicPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersBasicPtrOutput) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersBasicPtrOutput) Elem() EventConnectionAuthParametersBasicOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) EventConnectionAuthParametersBasic { return *v }).(EventConnectionAuthParametersBasicOutput)
+}
+
+// A password for the authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// A username for the authorization.
+func (o EventConnectionAuthParametersBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParameters struct {
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies []EventConnectionAuthParametersInvocationHttpParametersBody `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers []EventConnectionAuthParametersInvocationHttpParametersHeader `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	QueryStrings []EventConnectionAuthParametersInvocationHttpParametersQueryString `pulumi:"queryStrings"`
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersArgs and EventConnectionAuthParametersInvocationHttpParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersArgs{...}
+type EventConnectionAuthParametersInvocationHttpParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersOutput() EventConnectionAuthParametersInvocationHttpParametersOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersArgs struct {
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	QueryStrings EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
+}
+
+func (EventConnectionAuthParametersInvocationHttpParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnectionAuthParametersInvocationHttpParametersOutput() EventConnectionAuthParametersInvocationHttpParametersOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnectionAuthParametersInvocationHttpParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersOutput)
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersArgs) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersOutput).ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersPtrInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersArgs, EventConnectionAuthParametersInvocationHttpParametersPtr and EventConnectionAuthParametersInvocationHttpParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersPtrInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersInvocationHttpParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput
+}
+
+type eventConnectionAuthParametersInvocationHttpParametersPtrType EventConnectionAuthParametersInvocationHttpParametersArgs
+
+func EventConnectionAuthParametersInvocationHttpParametersPtr(v *EventConnectionAuthParametersInvocationHttpParametersArgs) EventConnectionAuthParametersInvocationHttpParametersPtrInput {
+	return (*eventConnectionAuthParametersInvocationHttpParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersInvocationHttpParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersInvocationHttpParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersInvocationHttpParametersPtrType) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersInvocationHttpParametersPtrType) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConnectionAuthParametersInvocationHttpParametersOutput() EventConnectionAuthParametersInvocationHttpParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConnectionAuthParametersInvocationHttpParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) *EventConnectionAuthParametersInvocationHttpParameters {
+		return &v
+	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
+}
+
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
+		return v.Bodies
+	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
+}
+
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
+		return v.Headers
+	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
+}
+
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
+		return v.QueryStrings
+	}).(EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersInvocationHttpParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutput() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Elem() EventConnectionAuthParametersInvocationHttpParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) EventConnectionAuthParametersInvocationHttpParameters {
+		return *v
+	}).(EventConnectionAuthParametersInvocationHttpParametersOutput)
+}
+
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersBody {
+		if v == nil {
+			return nil
+		}
+		return v.Bodies
+	}).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
+}
+
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Headers() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
+}
+
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) []EventConnectionAuthParametersInvocationHttpParametersQueryString {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersBody struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArgs and EventConnectionAuthParametersInvocationHttpParametersBodyOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersBodyInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...}
+type EventConnectionAuthParametersInvocationHttpParametersBodyInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersBodyOutput() EventConnectionAuthParametersInvocationHttpParametersBodyOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersBodyArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersBody)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ToEventConnectionAuthParametersInvocationHttpParametersBodyOutput() EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArgs) ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersBodyOutput)
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersBodyArray and EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersBodyArray{ EventConnectionAuthParametersInvocationHttpParametersBodyArgs{...} }
+type EventConnectionAuthParametersInvocationHttpParametersBodyArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersBodyArray []EventConnectionAuthParametersInvocationHttpParametersBodyInput
+
+func (EventConnectionAuthParametersInvocationHttpParametersBodyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersBody)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArray) ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersBodyArray) ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersBodyOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersBody)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyOutput() EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersBody)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput() EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersBodyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersInvocationHttpParametersBody {
+		return vs[0].([]EventConnectionAuthParametersInvocationHttpParametersBody)[vs[1].(int)]
+	}).(EventConnectionAuthParametersInvocationHttpParametersBodyOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersHeader struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArgs and EventConnectionAuthParametersInvocationHttpParametersHeaderOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersHeaderInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...}
+type EventConnectionAuthParametersInvocationHttpParametersHeaderInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersHeaderArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersHeader)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArgs) ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersHeaderOutput)
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersHeaderArray and EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersHeaderArray{ EventConnectionAuthParametersInvocationHttpParametersHeaderArgs{...} }
+type EventConnectionAuthParametersInvocationHttpParametersHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersHeaderArray []EventConnectionAuthParametersInvocationHttpParametersHeaderInput
+
+func (EventConnectionAuthParametersInvocationHttpParametersHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersHeader)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArray) ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersHeaderArray) ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersHeaderOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersHeader)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersHeader)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput() EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersInvocationHttpParametersHeader {
+		return vs[0].([]EventConnectionAuthParametersInvocationHttpParametersHeader)[vs[1].(int)]
+	}).(EventConnectionAuthParametersInvocationHttpParametersHeaderOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersQueryString struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs and EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersQueryStringInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...}
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersQueryString)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput)
+}
+
+// EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersInvocationHttpParametersQueryStringArray and EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput` via:
+//
+//          EventConnectionAuthParametersInvocationHttpParametersQueryStringArray{ EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs{...} }
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput
+	ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringArray []EventConnectionAuthParametersInvocationHttpParametersQueryStringInput
+
+func (EventConnectionAuthParametersInvocationHttpParametersQueryStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersQueryString)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArray) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return i.ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersInvocationHttpParametersQueryStringArray) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersInvocationHttpParametersQueryString)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersInvocationHttpParametersQueryString)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersInvocationHttpParametersQueryString {
+		return vs[0].([]EventConnectionAuthParametersInvocationHttpParametersQueryString)[vs[1].(int)]
+	}).(EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput)
+}
+
+type EventConnectionAuthParametersOauth struct {
+	// A username for the authorization.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+	ClientParameters *EventConnectionAuthParametersOauthClientParameters `pulumi:"clientParameters"`
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	HttpMethod string `pulumi:"httpMethod"`
+	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParameters `pulumi:"oauthHttpParameters"`
+}
+
+// EventConnectionAuthParametersOauthInput is an input type that accepts EventConnectionAuthParametersOauthArgs and EventConnectionAuthParametersOauthOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthInput` via:
+//
+//          EventConnectionAuthParametersOauthArgs{...}
+type EventConnectionAuthParametersOauthInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOutput() EventConnectionAuthParametersOauthOutput
+	ToEventConnectionAuthParametersOauthOutputWithContext(context.Context) EventConnectionAuthParametersOauthOutput
+}
+
+type EventConnectionAuthParametersOauthArgs struct {
+	// A username for the authorization.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+	ClientParameters EventConnectionAuthParametersOauthClientParametersPtrInput `pulumi:"clientParameters"`
+	// A password for the authorization. Created and stored in AWS Secrets Manager.
+	HttpMethod pulumi.StringInput `pulumi:"httpMethod"`
+	// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+	OauthHttpParameters EventConnectionAuthParametersOauthOauthHttpParametersInput `pulumi:"oauthHttpParameters"`
+}
+
+func (EventConnectionAuthParametersOauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauth)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersOauthOutput() EventConnectionAuthParametersOauthOutput {
+	return i.ToEventConnectionAuthParametersOauthOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersOauthOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOutput)
+}
+
+func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthArgs) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOutput).ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersOauthPtrInput is an input type that accepts EventConnectionAuthParametersOauthArgs, EventConnectionAuthParametersOauthPtr and EventConnectionAuthParametersOauthPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthPtrInput` via:
+//
+//          EventConnectionAuthParametersOauthArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersOauthPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput
+	ToEventConnectionAuthParametersOauthPtrOutputWithContext(context.Context) EventConnectionAuthParametersOauthPtrOutput
+}
+
+type eventConnectionAuthParametersOauthPtrType EventConnectionAuthParametersOauthArgs
+
+func EventConnectionAuthParametersOauthPtr(v *EventConnectionAuthParametersOauthArgs) EventConnectionAuthParametersOauthPtrInput {
+	return (*eventConnectionAuthParametersOauthPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersOauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauth)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersOauthPtrType) ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersOauthPtrType) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauth)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParametersOauthOutput() EventConnectionAuthParametersOauthOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParametersOauthOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput {
+	return o.ToEventConnectionAuthParametersOauthPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauth {
+		return &v
+	}).(EventConnectionAuthParametersOauthPtrOutput)
+}
+
+// A username for the authorization.
+func (o EventConnectionAuthParametersOauthOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+}
+
+// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+func (o EventConnectionAuthParametersOauthOutput) ClientParameters() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthClientParameters {
+		return v.ClientParameters
+	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
+}
+
+// A password for the authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthOutput) HttpMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.HttpMethod }).(pulumi.StringOutput)
+}
+
+// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+func (o EventConnectionAuthParametersOauthOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauthOauthHttpParameters {
+		return v.OauthHttpParameters
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
+}
+
+type EventConnectionAuthParametersOauthPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauth)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthPtrOutput) ToEventConnectionAuthParametersOauthPtrOutput() EventConnectionAuthParametersOauthPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthPtrOutput) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthPtrOutput) Elem() EventConnectionAuthParametersOauthOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauth { return *v }).(EventConnectionAuthParametersOauthOutput)
+}
+
+// A username for the authorization.
+func (o EventConnectionAuthParametersOauthPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains the client parameters for OAuth authorization. Contains the following two parameters.
+func (o EventConnectionAuthParametersOauthPtrOutput) ClientParameters() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthClientParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ClientParameters
+	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
+}
+
+// A password for the authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthPtrOutput) HttpMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HttpMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+func (o EventConnectionAuthParametersOauthPtrOutput) OauthHttpParameters() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauthOauthHttpParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthHttpParameters
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthClientParameters struct {
+	// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientId string `pulumi:"clientId"`
+	// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientSecret string `pulumi:"clientSecret"`
+}
+
+// EventConnectionAuthParametersOauthClientParametersInput is an input type that accepts EventConnectionAuthParametersOauthClientParametersArgs and EventConnectionAuthParametersOauthClientParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthClientParametersInput` via:
+//
+//          EventConnectionAuthParametersOauthClientParametersArgs{...}
+type EventConnectionAuthParametersOauthClientParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthClientParametersOutput() EventConnectionAuthParametersOauthClientParametersOutput
+	ToEventConnectionAuthParametersOauthClientParametersOutputWithContext(context.Context) EventConnectionAuthParametersOauthClientParametersOutput
+}
+
+type EventConnectionAuthParametersOauthClientParametersArgs struct {
+	// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+}
+
+func (EventConnectionAuthParametersOauthClientParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthClientParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectionAuthParametersOauthClientParametersOutput() EventConnectionAuthParametersOauthClientParametersOutput {
+	return i.ToEventConnectionAuthParametersOauthClientParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectionAuthParametersOauthClientParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthClientParametersOutput)
+}
+
+func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthClientParametersArgs) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthClientParametersOutput).ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersOauthClientParametersPtrInput is an input type that accepts EventConnectionAuthParametersOauthClientParametersArgs, EventConnectionAuthParametersOauthClientParametersPtr and EventConnectionAuthParametersOauthClientParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthClientParametersPtrInput` via:
+//
+//          EventConnectionAuthParametersOauthClientParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersOauthClientParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput
+	ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput
+}
+
+type eventConnectionAuthParametersOauthClientParametersPtrType EventConnectionAuthParametersOauthClientParametersArgs
+
+func EventConnectionAuthParametersOauthClientParametersPtr(v *EventConnectionAuthParametersOauthClientParametersArgs) EventConnectionAuthParametersOauthClientParametersPtrInput {
+	return (*eventConnectionAuthParametersOauthClientParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersOauthClientParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauthClientParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersOauthClientParametersPtrType) ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersOauthClientParametersPtrType) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthClientParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthClientParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthClientParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnectionAuthParametersOauthClientParametersOutput() EventConnectionAuthParametersOauthClientParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnectionAuthParametersOauthClientParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) *EventConnectionAuthParametersOauthClientParameters {
+		return &v
+	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
+}
+
+// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthClientParametersOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+type EventConnectionAuthParametersOauthClientParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthClientParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauthClientParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutput() EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) Elem() EventConnectionAuthParametersOauthClientParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) EventConnectionAuthParametersOauthClientParameters {
+		return *v
+	}).(EventConnectionAuthParametersOauthClientParametersOutput)
+}
+
+// The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParameters struct {
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies []EventConnectionAuthParametersOauthOauthHttpParametersBody `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers []EventConnectionAuthParametersOauthOauthHttpParametersHeader `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	QueryStrings []EventConnectionAuthParametersOauthOauthHttpParametersQueryString `pulumi:"queryStrings"`
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersArgs and EventConnectionAuthParametersOauthOauthHttpParametersOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
+type EventConnectionAuthParametersOauthOauthHttpParametersInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersOutput() EventConnectionAuthParametersOauthOauthHttpParametersOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersArgs struct {
+	// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Bodies EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput `pulumi:"bodies"`
+	// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	Headers EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput `pulumi:"headers"`
+	// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+	QueryStrings EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput `pulumi:"queryStrings"`
+}
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParameters)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersOutput() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersOutput).ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx)
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersPtrInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersArgs, EventConnectionAuthParametersOauthOauthHttpParametersPtr and EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersPtrInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type EventConnectionAuthParametersOauthOauthHttpParametersPtrInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput
+}
+
+type eventConnectionAuthParametersOauthOauthHttpParametersPtrType EventConnectionAuthParametersOauthOauthHttpParametersArgs
+
+func EventConnectionAuthParametersOauthOauthHttpParametersPtr(v *EventConnectionAuthParametersOauthOauthHttpParametersArgs) EventConnectionAuthParametersOauthOauthHttpParametersPtrInput {
+	return (*eventConnectionAuthParametersOauthOauthHttpParametersPtrType)(v)
+}
+
+func (*eventConnectionAuthParametersOauthOauthHttpParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauthOauthHttpParameters)(nil)).Elem()
+}
+
+func (i *eventConnectionAuthParametersOauthOauthHttpParametersPtrType) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *eventConnectionAuthParametersOauthOauthHttpParametersPtrType) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersOutput() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return o.ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(context.Background())
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) *EventConnectionAuthParametersOauthOauthHttpParameters {
+		return &v
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
+}
+
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
+		return v.Bodies
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
+}
+
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
+		return v.Headers
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
+}
+
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
+		return v.QueryStrings
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventConnectionAuthParametersOauthOauthHttpParameters)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutput() EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Elem() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) EventConnectionAuthParametersOauthOauthHttpParameters {
+		return *v
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
+}
+
+// Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Bodies() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersBody {
+		if v == nil {
+			return nil
+		}
+		return v.Bodies
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
+}
+
+// Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Headers() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
+}
+
+// Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) QueryStrings() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) []EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersBody struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersBodyInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs and EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersBodyInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...}
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersBody)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput)
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersBodyArray and EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersBodyArray{ EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs{...} }
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyArray []EventConnectionAuthParametersOauthOauthHttpParametersBodyInput
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersBodyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersBody)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArray) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersBodyArray) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersBody)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersBody) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersBody)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersOauthOauthHttpParametersBody {
+		return vs[0].([]EventConnectionAuthParametersOauthOauthHttpParametersBody)[vs[1].(int)]
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersHeader struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs and EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...}
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersHeader)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput)
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray and EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray{ EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs{...} }
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray []EventConnectionAuthParametersOauthOauthHttpParametersHeaderInput
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersHeader)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersHeaderArray) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersHeader)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersHeader)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersOauthOauthHttpParametersHeader {
+		return vs[0].([]EventConnectionAuthParametersOauthOauthHttpParametersHeader)[vs[1].(int)]
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryString struct {
+	// Specified whether the value is secret.
+	IsValueSecret *bool `pulumi:"isValueSecret"`
+	// Header Name.
+	Key *string `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value *string `pulumi:"value"`
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...}
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs struct {
+	// Specified whether the value is secret.
+	IsValueSecret pulumi.BoolPtrInput `pulumi:"isValueSecret"`
+	// Header Name.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Header Value. Created and stored in AWS Secrets Manager.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryString)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput)
+}
+
+// EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput is an input type that accepts EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray and EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput values.
+// You can construct a concrete instance of `EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput` via:
+//
+//          EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray{ EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs{...} }
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayInput interface {
+	pulumi.Input
+
+	ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput
+	ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray []EventConnectionAuthParametersOauthOauthHttpParametersQueryStringInput
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString)(nil)).Elem()
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return i.ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(context.Background())
+}
+
+func (i EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArray) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventConnectionAuthParametersOauthOauthHttpParametersQueryString)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
+	return o
+}
+
+// Specified whether the value is secret.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) IsValueSecret() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *bool { return v.IsValueSecret }).(pulumi.BoolPtrOutput)
+}
+
+// Header Name.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Header Value. Created and stored in AWS Secrets Manager.
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParametersQueryString) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput struct{ *pulumi.OutputState }
+
+func (EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventConnectionAuthParametersOauthOauthHttpParametersQueryString)(nil)).Elem()
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput() EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput {
+	return o
+}
+
+func (o EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput) Index(i pulumi.IntInput) EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventConnectionAuthParametersOauthOauthHttpParametersQueryString {
+		return vs[0].([]EventConnectionAuthParametersOauthOauthHttpParametersQueryString)[vs[1].(int)]
+	}).(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput)
+}
+
 type EventPermissionCondition struct {
 	// Key for the condition. Valid values: `aws:PrincipalOrgID`.
 	Key string `pulumi:"key"`
@@ -1743,8 +3621,10 @@ func (o EventTargetSqsTargetPtrOutput) MessageGroupId() pulumi.StringPtrOutput {
 }
 
 type LogMetricFilterMetricTransformation struct {
-	// The value to emit when a filter pattern does not match a log event.
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue *string `pulumi:"defaultValue"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions map[string]string `pulumi:"dimensions"`
 	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 	Name string `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
@@ -1765,8 +3645,10 @@ type LogMetricFilterMetricTransformationInput interface {
 }
 
 type LogMetricFilterMetricTransformationArgs struct {
-	// The value to emit when a filter pattern does not match a log event.
+	// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
 	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
 	Name pulumi.StringInput `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
@@ -1852,9 +3734,14 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
 
-// The value to emit when a filter pattern does not match a log event.
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+func (o LogMetricFilterMetricTransformationOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LogMetricFilterMetricTransformation) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
 // The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
@@ -1890,7 +3777,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetr
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation { return *v }).(LogMetricFilterMetricTransformationOutput)
 }
 
-// The value to emit when a filter pattern does not match a log event.
+// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
 func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {
@@ -1898,6 +3785,16 @@ func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.Stri
 		}
 		return v.DefaultValue
 	}).(pulumi.StringPtrOutput)
+}
+
+// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
+func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(pulumi.StringMapOutput)
 }
 
 // The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
@@ -2496,6 +4393,32 @@ func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 }
 
 func init() {
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersBasicOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersBasicPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersBodyOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersBodyArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersHeaderOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersHeaderArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersQueryStringOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthClientParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthClientParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersBodyOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersBodyArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersHeaderOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrayOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringOutput{})
+	pulumi.RegisterOutputType(EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrayOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionOutput{})
 	pulumi.RegisterOutputType(EventPermissionConditionPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetBatchTargetOutput{})

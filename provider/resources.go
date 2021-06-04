@@ -45,6 +45,7 @@ const (
 	acmpcaMod                   = "Acmpca"                   // AWS Private Certificate Authority
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
+	amplifyMod                  = "Amplify"                  // Amplify
 	appsyncMod                  = "AppSync"                  // AppSync
 	appmeshMod                  = "AppMesh"                  // AppMesh
 	apigatewayMod               = "ApiGateway"               // API Gateway
@@ -144,6 +145,7 @@ const (
 	resourcegroupsTaggingApiMod = "ResourceGroupsTaggingApi" // Resource Groups Tagging Api
 	route53Mod                  = "Route53"                  // Route 53 (DNS)
 	sagemakerMod                = "Sagemaker"                // Sagemaker
+	schemasMod                  = "Schemas"                  // Schemas
 	securityhubMod              = "SecurityHub"              // SecurityHub
 	serverlessRepositoryMod     = "ServerlessRepository"     // ServerlessRepository
 	sesMod                      = "Ses"                      // Simple Email Service (SES)
@@ -782,8 +784,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_cloudwatch_query_definition": {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
-			"aws_cloudwatch_metric_stream":    {Tok: awsResource(cloudwatchMod, "MetricStream")},
+			"aws_cloudwatch_query_definition":      {Tok: awsResource(cloudwatchMod, "QueryDefinition")},
+			"aws_cloudwatch_metric_stream":         {Tok: awsResource(cloudwatchMod, "MetricStream")},
+			"aws_cloudwatch_event_api_destination": {Tok: awsResource(cloudwatchMod, "EventApiDestination")},
+			"aws_cloudwatch_event_connection":      {Tok: awsResource(cloudwatchMod, "EventConnection")},
 			// CodeBuild
 			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
@@ -2106,6 +2110,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
+			// Schemas
+			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
+			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
+			"aws_schemas_schema":     {Tok: awsResource(schemasMod, "Schema")},
 			// Secrets Manager
 			"aws_secretsmanager_secret":          {Tok: awsResource(secretsmanagerMod, "Secret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsResource(secretsmanagerMod, "SecretVersion")},
@@ -2122,6 +2130,16 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(servicecatalogMod, "ProductPortfolioAssociation"),
 			},
 			"aws_servicecatalog_service_action": {Tok: awsResource(servicecatalogMod, "ServiceAction")},
+			"aws_servicecatalog_budget_resource_association": {
+				Tok: awsResource(servicecatalogMod, "BudgetResourceAssociation"),
+			},
+			"aws_servicecatalog_provisioning_artifact": {Tok: awsResource(servicecatalogMod, "ProvisioningArtifact")},
+			"aws_servicecatalog_tag_option_resource_association": {
+				Tok: awsResource(servicecatalogMod, "TagOptionResourceAssociation"),
+			},
+			"aws_servicecatalog_principal_portfolio_association": {
+				Tok: awsResource(servicecatalogMod, "PrincipalPortfolioAssociation"),
+			},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -2604,6 +2622,13 @@ func Provider() tfbridge.ProviderInfo {
 
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace": {Tok: awsResource(ampMod, "Workspace")},
+
+			// Amplify
+			"aws_amplify_app":                 {Tok: awsResource(amplifyMod, "App")},
+			"aws_amplify_backend_environment": {Tok: awsResource(amplifyMod, "BackendEnvironment")},
+			"aws_amplify_branch":              {Tok: awsResource(amplifyMod, "Branch")},
+			"aws_amplify_domain_association":  {Tok: awsResource(amplifyMod, "DomainAssociation")},
+			"aws_amplify_webhook":             {Tok: awsResource(amplifyMod, "Webhook")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3625,6 +3650,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_partition":               {Tok: awsDataSource(awsMod, "getPartition")},
 			"aws_region":                  {Tok: awsDataSource(awsMod, "getRegion")},
 			"aws_regions":                 {Tok: awsDataSource(awsMod, "getRegions")},
+			"aws_default_tags":            {Tok: awsDataSource(awsMod, "getDefaultTags")},
 			// AWS Certificate Manager
 			"aws_acm_certificate": {Tok: awsDataSource(acmMod, "getCertificate")},
 			// AWS Private Certificate Authority
@@ -3658,8 +3684,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudtrail_service_account": {Tok: awsDataSource(cloudtrailMod, "getServiceAccount")},
 			"aws_cloudfront_function":        {Tok: awsDataSource(cloudtrailMod, "getFunction")},
 			// CloudWatch
-			"aws_cloudwatch_log_group":    {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
-			"aws_cloudwatch_event_source": {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
+			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
+			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
 			// CodeCommit
 			"aws_codecommit_repository": {Tok: awsDataSource(codecommitMod, "getRepository")},
 			// Cognito
@@ -3852,6 +3879,16 @@ func Provider() tfbridge.ProviderInfo {
 					"maintenance_window_start_time": {
 						MaxItemsOne: boolRef(true),
 					},
+					"logs": {
+						MaxItemsOne: boolRef(true),
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"audit": {
+									Type: "boolean",
+								},
+							},
+						},
+					},
 				},
 			},
 			// IAM
@@ -4008,6 +4045,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_serverlessapplicationrepository_application": {
 				Tok: awsDataSource(serverlessRepositoryMod, "getApplication"),
 			},
+			// servicecatalog
+			"aws_servicecatalog_constraint": {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
 
 			// LakeFormation
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},

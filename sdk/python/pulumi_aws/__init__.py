@@ -15,6 +15,7 @@ from .get_availability_zones import *
 from .get_billing_service_account import *
 from .get_caller_identity import *
 from .get_canonical_user_id import *
+from .get_default_tags import *
 from .get_elastic_ip import *
 from .get_ip_ranges import *
 from .get_partition import *
@@ -32,6 +33,7 @@ if typing.TYPE_CHECKING:
     import pulumi_aws.acmpca as acmpca
     import pulumi_aws.alb as alb
     import pulumi_aws.amp as amp
+    import pulumi_aws.amplify as amplify
     import pulumi_aws.apigateway as apigateway
     import pulumi_aws.apigatewayv2 as apigatewayv2
     import pulumi_aws.appautoscaling as appautoscaling
@@ -137,6 +139,7 @@ if typing.TYPE_CHECKING:
     import pulumi_aws.s3control as s3control
     import pulumi_aws.s3outposts as s3outposts
     import pulumi_aws.sagemaker as sagemaker
+    import pulumi_aws.schemas as schemas
     import pulumi_aws.secretsmanager as secretsmanager
     import pulumi_aws.securityhub as securityhub
     import pulumi_aws.serverlessrepository as serverlessrepository
@@ -169,6 +172,7 @@ else:
     acmpca = _utilities.lazy_import('pulumi_aws.acmpca')
     alb = _utilities.lazy_import('pulumi_aws.alb')
     amp = _utilities.lazy_import('pulumi_aws.amp')
+    amplify = _utilities.lazy_import('pulumi_aws.amplify')
     apigateway = _utilities.lazy_import('pulumi_aws.apigateway')
     apigatewayv2 = _utilities.lazy_import('pulumi_aws.apigatewayv2')
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
@@ -274,6 +278,7 @@ else:
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
     sagemaker = _utilities.lazy_import('pulumi_aws.sagemaker')
+    schemas = _utilities.lazy_import('pulumi_aws.schemas')
     secretsmanager = _utilities.lazy_import('pulumi_aws.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws.securityhub')
     serverlessrepository = _utilities.lazy_import('pulumi_aws.serverlessrepository')
@@ -406,6 +411,46 @@ _utilities.register(
   "fqn": "pulumi_aws.amp",
   "classes": {
    "aws:amp/workspace:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/app",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/app:App": "App"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/backendEnvironment",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/backendEnvironment:BackendEnvironment": "BackendEnvironment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/branch",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/branch:Branch": "Branch"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/domainAssociation",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/domainAssociation:DomainAssociation": "DomainAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amplify/webhook",
+  "fqn": "pulumi_aws.amplify",
+  "classes": {
+   "aws:amplify/webhook:Webhook": "Webhook"
   }
  },
  {
@@ -1290,6 +1335,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/eventApiDestination",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/eventApiDestination:EventApiDestination": "EventApiDestination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/eventArchive",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -1302,6 +1355,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/eventBus:EventBus": "EventBus"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/eventConnection",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/eventConnection:EventConnection": "EventConnection"
   }
  },
  {
@@ -5338,6 +5399,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "schemas/discoverer",
+  "fqn": "pulumi_aws.schemas",
+  "classes": {
+   "aws:schemas/discoverer:Discoverer": "Discoverer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "schemas/registry",
+  "fqn": "pulumi_aws.schemas",
+  "classes": {
+   "aws:schemas/registry:Registry": "Registry"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "schemas/schema",
+  "fqn": "pulumi_aws.schemas",
+  "classes": {
+   "aws:schemas/schema:Schema": "Schema"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "secretsmanager/secret",
   "fqn": "pulumi_aws.secretsmanager",
   "classes": {
@@ -5442,6 +5527,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicecatalog/budgetResourceAssociation",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation": "BudgetResourceAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "servicecatalog/constraint",
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
@@ -5474,6 +5567,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicecatalog/principalPortfolioAssociation",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation": "PrincipalPortfolioAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "servicecatalog/product",
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
@@ -5490,6 +5591,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicecatalog/provisioningArtifact",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact": "ProvisioningArtifact"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "servicecatalog/serviceAction",
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
@@ -5502,6 +5611,14 @@ _utilities.register(
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
    "aws:servicecatalog/tagOption:TagOption": "TagOption"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/tagOptionResourceAssociation",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation": "TagOptionResourceAssociation"
   }
  },
  {

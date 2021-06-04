@@ -8,12 +8,15 @@ import * as utilities from "../utilities";
 export * from "./cloudwatchMixins";
 export * from "./compositeAlarm";
 export * from "./dashboard";
+export * from "./eventApiDestination";
 export * from "./eventArchive";
 export * from "./eventBus";
+export * from "./eventConnection";
 export * from "./eventPermission";
 export * from "./eventRule";
 export * from "./eventRuleMixins";
 export * from "./eventTarget";
+export * from "./getEventConnection";
 export * from "./getEventSource";
 export * from "./getLogGroup";
 export * from "./logDestination";
@@ -31,8 +34,10 @@ export * from "./queryDefinition";
 // Import resources to register:
 import { CompositeAlarm } from "./compositeAlarm";
 import { Dashboard } from "./dashboard";
+import { EventApiDestination } from "./eventApiDestination";
 import { EventArchive } from "./eventArchive";
 import { EventBus } from "./eventBus";
+import { EventConnection } from "./eventConnection";
 import { EventPermission } from "./eventPermission";
 import { EventRule } from "./eventRule";
 import { EventTarget } from "./eventTarget";
@@ -55,10 +60,14 @@ const _module = {
                 return new CompositeAlarm(name, <any>undefined, { urn })
             case "aws:cloudwatch/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "aws:cloudwatch/eventApiDestination:EventApiDestination":
+                return new EventApiDestination(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventArchive:EventArchive":
                 return new EventArchive(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventBus:EventBus":
                 return new EventBus(name, <any>undefined, { urn })
+            case "aws:cloudwatch/eventConnection:EventConnection":
+                return new EventConnection(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventPermission:EventPermission":
                 return new EventPermission(name, <any>undefined, { urn })
             case "aws:cloudwatch/eventRule:EventRule":
@@ -92,8 +101,10 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/compositeAlarm", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/dashboard", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventApiDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventArchive", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventBus", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/eventTarget", _module)

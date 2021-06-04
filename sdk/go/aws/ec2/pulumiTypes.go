@@ -4416,6 +4416,7 @@ type LaunchConfigurationEbsBlockDevice struct {
 	Iops                *int    `pulumi:"iops"`
 	NoDevice            *bool   `pulumi:"noDevice"`
 	SnapshotId          *string `pulumi:"snapshotId"`
+	Throughput          *int    `pulumi:"throughput"`
 	VolumeSize          *int    `pulumi:"volumeSize"`
 	VolumeType          *string `pulumi:"volumeType"`
 }
@@ -4438,6 +4439,7 @@ type LaunchConfigurationEbsBlockDeviceArgs struct {
 	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
 	NoDevice            pulumi.BoolPtrInput   `pulumi:"noDevice"`
 	SnapshotId          pulumi.StringPtrInput `pulumi:"snapshotId"`
+	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -4515,6 +4517,10 @@ func (o LaunchConfigurationEbsBlockDeviceOutput) NoDevice() pulumi.BoolPtrOutput
 
 func (o LaunchConfigurationEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o LaunchConfigurationEbsBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationEbsBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
 func (o LaunchConfigurationEbsBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
@@ -4818,6 +4824,7 @@ type LaunchConfigurationRootBlockDevice struct {
 	DeleteOnTermination *bool   `pulumi:"deleteOnTermination"`
 	Encrypted           *bool   `pulumi:"encrypted"`
 	Iops                *int    `pulumi:"iops"`
+	Throughput          *int    `pulumi:"throughput"`
 	VolumeSize          *int    `pulumi:"volumeSize"`
 	VolumeType          *string `pulumi:"volumeType"`
 }
@@ -4837,6 +4844,7 @@ type LaunchConfigurationRootBlockDeviceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput   `pulumi:"deleteOnTermination"`
 	Encrypted           pulumi.BoolPtrInput   `pulumi:"encrypted"`
 	Iops                pulumi.IntPtrInput    `pulumi:"iops"`
+	Throughput          pulumi.IntPtrInput    `pulumi:"throughput"`
 	VolumeSize          pulumi.IntPtrInput    `pulumi:"volumeSize"`
 	VolumeType          pulumi.StringPtrInput `pulumi:"volumeType"`
 }
@@ -4929,6 +4937,10 @@ func (o LaunchConfigurationRootBlockDeviceOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
+func (o LaunchConfigurationRootBlockDeviceOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
 func (o LaunchConfigurationRootBlockDeviceOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
@@ -4979,6 +4991,15 @@ func (o LaunchConfigurationRootBlockDevicePtrOutput) Iops() pulumi.IntPtrOutput 
 			return nil
 		}
 		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchConfigurationRootBlockDevicePtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -16313,6 +16334,8 @@ type GetLaunchConfigurationEbsBlockDevice struct {
 	NoDevice bool `pulumi:"noDevice"`
 	// The Snapshot ID of the mount.
 	SnapshotId string `pulumi:"snapshotId"`
+	// The Throughput of the volume.
+	Throughput bool `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -16343,6 +16366,8 @@ type GetLaunchConfigurationEbsBlockDeviceArgs struct {
 	NoDevice pulumi.BoolInput `pulumi:"noDevice"`
 	// The Snapshot ID of the mount.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
+	// The Throughput of the volume.
+	Throughput pulumi.BoolInput `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -16428,6 +16453,11 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) NoDevice() pulumi.BoolOutput
 // The Snapshot ID of the mount.
 func (o GetLaunchConfigurationEbsBlockDeviceOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+// The Throughput of the volume.
+func (o GetLaunchConfigurationEbsBlockDeviceOutput) Throughput() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.Throughput }).(pulumi.BoolOutput)
 }
 
 // The Size of the volume.
@@ -16688,6 +16718,8 @@ type GetLaunchConfigurationRootBlockDevice struct {
 	Encrypted bool `pulumi:"encrypted"`
 	// The provisioned IOPs of the volume.
 	Iops int `pulumi:"iops"`
+	// The Throughput of the volume.
+	Throughput bool `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -16712,6 +16744,8 @@ type GetLaunchConfigurationRootBlockDeviceArgs struct {
 	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
 	// The provisioned IOPs of the volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
+	// The Throughput of the volume.
+	Throughput pulumi.BoolInput `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -16782,6 +16816,11 @@ func (o GetLaunchConfigurationRootBlockDeviceOutput) Encrypted() pulumi.BoolOutp
 // The provisioned IOPs of the volume.
 func (o GetLaunchConfigurationRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// The Throughput of the volume.
+func (o GetLaunchConfigurationRootBlockDeviceOutput) Throughput() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) bool { return v.Throughput }).(pulumi.BoolOutput)
 }
 
 // The Size of the volume.
@@ -18092,6 +18131,7 @@ type GetLaunchTemplateNetworkInterface struct {
 	// Description of the launch template.
 	Description        string   `pulumi:"description"`
 	DeviceIndex        int      `pulumi:"deviceIndex"`
+	InterfaceType      string   `pulumi:"interfaceType"`
 	Ipv4AddressCount   int      `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses      []string `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   int      `pulumi:"ipv6AddressCount"`
@@ -18120,6 +18160,7 @@ type GetLaunchTemplateNetworkInterfaceArgs struct {
 	// Description of the launch template.
 	Description        pulumi.StringInput      `pulumi:"description"`
 	DeviceIndex        pulumi.IntInput         `pulumi:"deviceIndex"`
+	InterfaceType      pulumi.StringInput      `pulumi:"interfaceType"`
 	Ipv4AddressCount   pulumi.IntInput         `pulumi:"ipv4AddressCount"`
 	Ipv4Addresses      pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   pulumi.IntInput         `pulumi:"ipv6AddressCount"`
@@ -18200,6 +18241,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringOutp
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) string { return v.InterfaceType }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) Ipv4AddressCount() pulumi.IntOutput {

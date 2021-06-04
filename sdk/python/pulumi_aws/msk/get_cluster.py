@@ -19,13 +19,16 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, cluster_name=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
             raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
         pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_sasl_iam and not isinstance(bootstrap_brokers_sasl_iam, str):
+            raise TypeError("Expected argument 'bootstrap_brokers_sasl_iam' to be a str")
+        pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
         if bootstrap_brokers_sasl_scram and not isinstance(bootstrap_brokers_sasl_scram, str):
             raise TypeError("Expected argument 'bootstrap_brokers_sasl_scram' to be a str")
         pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
@@ -63,15 +66,23 @@ class GetClusterResult:
     @pulumi.getter(name="bootstrapBrokers")
     def bootstrap_brokers(self) -> str:
         """
-        A comma separated list of one or more hostname:port pairs of Kafka brokers suitable to boostrap connectivity to the Kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslIam")
+    def bootstrap_brokers_sasl_iam(self) -> str:
+        """
+        One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> str:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
@@ -79,7 +90,7 @@ class GetClusterResult:
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> str:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
 
@@ -137,6 +148,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         return GetClusterResult(
             arn=self.arn,
             bootstrap_brokers=self.bootstrap_brokers,
+            bootstrap_brokers_sasl_iam=self.bootstrap_brokers_sasl_iam,
             bootstrap_brokers_sasl_scram=self.bootstrap_brokers_sasl_scram,
             bootstrap_brokers_tls=self.bootstrap_brokers_tls,
             cluster_name=self.cluster_name,
@@ -178,6 +190,7 @@ def get_cluster(cluster_name: Optional[str] = None,
     return AwaitableGetClusterResult(
         arn=__ret__.arn,
         bootstrap_brokers=__ret__.bootstrap_brokers,
+        bootstrap_brokers_sasl_iam=__ret__.bootstrap_brokers_sasl_iam,
         bootstrap_brokers_sasl_scram=__ret__.bootstrap_brokers_sasl_scram,
         bootstrap_brokers_tls=__ret__.bootstrap_brokers_tls,
         cluster_name=__ret__.cluster_name,

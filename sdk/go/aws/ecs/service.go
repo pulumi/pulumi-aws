@@ -170,7 +170,7 @@ type Service struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
-	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringOutput `pulumi:"launchType"`
 	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayOutput `pulumi:"loadBalancers"`
@@ -252,7 +252,7 @@ type serviceState struct {
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole *string `pulumi:"iamRole"`
-	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Configuration block for load balancers. Detailed below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
@@ -306,7 +306,7 @@ type ServiceState struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringPtrInput
-	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
 	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayInput
@@ -364,7 +364,7 @@ type serviceArgs struct {
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole *string `pulumi:"iamRole"`
-	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType *string `pulumi:"launchType"`
 	// Configuration block for load balancers. Detailed below.
 	LoadBalancers []ServiceLoadBalancer `pulumi:"loadBalancers"`
@@ -419,7 +419,7 @@ type ServiceArgs struct {
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
 	// ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
 	IamRole pulumi.StringPtrInput
-	// Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+	// Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
 	LaunchType pulumi.StringPtrInput
 	// Configuration block for load balancers. Detailed below.
 	LoadBalancers ServiceLoadBalancerArrayInput

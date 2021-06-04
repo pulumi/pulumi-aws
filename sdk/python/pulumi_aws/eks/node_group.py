@@ -32,6 +32,7 @@ class NodeGroupArgs:
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
@@ -50,8 +51,9 @@ class NodeGroupArgs:
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -84,6 +86,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -271,7 +275,7 @@ class NodeGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -290,6 +294,18 @@ class NodeGroupArgs:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        """
+        return pulumi.get(self, "taints")
+
+    @taints.setter
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+        pulumi.set(self, "taints", value)
 
     @property
     @pulumi.getter
@@ -327,6 +343,7 @@ class _NodeGroupState:
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
@@ -348,8 +365,9 @@ class _NodeGroupState:
         :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         if ami_type is not None:
@@ -392,6 +410,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -615,7 +635,7 @@ class _NodeGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -634,6 +654,18 @@ class _NodeGroupState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        """
+        return pulumi.get(self, "taints")
+
+    @taints.setter
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+        pulumi.set(self, "taints", value)
 
     @property
     @pulumi.getter
@@ -670,6 +702,7 @@ class NodeGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -762,8 +795,9 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']] remote_access: Configuration block with remote access settings. Detailed below.
         :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         ...
@@ -877,6 +911,7 @@ class NodeGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -915,6 +950,7 @@ class NodeGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
+            __props__.__dict__["taints"] = taints
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["resources"] = None
@@ -949,6 +985,7 @@ class NodeGroup(pulumi.CustomResource):
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'NodeGroup':
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
@@ -975,8 +1012,9 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']] scaling_config: Configuration block with scaling settings. Detailed below.
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
         :param pulumi.Input[str] version: EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `ec2.LaunchTemplate` resource or data source is recommended for this argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1003,6 +1041,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["taints"] = taints
         __props__.__dict__["version"] = version
         return NodeGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -1154,7 +1193,7 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1165,6 +1204,14 @@ class NodeGroup(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def taints(self) -> pulumi.Output[Optional[Sequence['outputs.NodeGroupTaint']]]:
+        """
+        The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        """
+        return pulumi.get(self, "taints")
 
     @property
     @pulumi.getter

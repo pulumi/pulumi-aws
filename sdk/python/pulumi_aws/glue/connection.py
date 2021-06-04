@@ -15,8 +15,8 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 connection_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  catalog_id: Optional[pulumi.Input[str]] = None,
+                 connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -24,17 +24,18 @@ class ConnectionArgs:
                  physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connection_properties: A map of key-value pairs used as parameters for this connection.
         :param pulumi.Input[str] connection_type: The type of the connection. Supported are: `JDBC`, `MONGODB`, `KAFKA`, and `NETWORK`. Defaults to `JBDC`.
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
-        pulumi.set(__self__, "connection_properties", connection_properties)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
         if connection_type is not None:
             pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
@@ -47,18 +48,6 @@ class ConnectionArgs:
             pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
 
     @property
-    @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
-        """
-        A map of key-value pairs used as parameters for this connection.
-        """
-        return pulumi.get(self, "connection_properties")
-
-    @connection_properties.setter
-    def connection_properties(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
-        pulumi.set(self, "connection_properties", value)
-
-    @property
     @pulumi.getter(name="catalogId")
     def catalog_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -69,6 +58,18 @@ class ConnectionArgs:
     @catalog_id.setter
     def catalog_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "catalog_id", value)
+
+    @property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of key-value pairs used as parameters for this connection.
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @connection_properties.setter
+    def connection_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "connection_properties", value)
 
     @property
     @pulumi.getter(name="connectionType")
@@ -339,7 +340,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: Optional[ConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Connection resource.
@@ -421,8 +422,6 @@ class Connection(pulumi.CustomResource):
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
-            if connection_properties is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_properties'")
             __props__.__dict__["connection_properties"] = connection_properties
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
@@ -496,7 +495,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionProperties")
-    def connection_properties(self) -> pulumi.Output[Mapping[str, str]]:
+    def connection_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of key-value pairs used as parameters for this connection.
         """

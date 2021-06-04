@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the AWS account that owns the Capacity Reservation.
         /// </summary>
         [Output("ownerId")]
@@ -223,6 +229,12 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -311,6 +323,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceType")]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The ID of the AWS account that owns the Capacity Reservation.

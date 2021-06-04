@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation":
+		r = &BudgetResourceAssociation{}
 	case "aws:servicecatalog/constraint:Constraint":
 		r = &Constraint{}
 	case "aws:servicecatalog/organizationsAccess:OrganizationsAccess":
@@ -29,14 +31,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Portfolio{}
 	case "aws:servicecatalog/portfolioShare:PortfolioShare":
 		r = &PortfolioShare{}
+	case "aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation":
+		r = &PrincipalPortfolioAssociation{}
 	case "aws:servicecatalog/product:Product":
 		r = &Product{}
 	case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
 		r = &ProductPortfolioAssociation{}
+	case "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact":
+		r = &ProvisioningArtifact{}
 	case "aws:servicecatalog/serviceAction:ServiceAction":
 		r = &ServiceAction{}
 	case "aws:servicecatalog/tagOption:TagOption":
 		r = &TagOption{}
+	case "aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation":
+		r = &TagOptionResourceAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -50,6 +58,11 @@ func init() {
 	if err != nil {
 		fmt.Println("failed to determine package version. defaulting to v1: %v", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/budgetResourceAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/constraint",
@@ -72,6 +85,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"servicecatalog/principalPortfolioAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"servicecatalog/product",
 		&module{version},
 	)
@@ -82,12 +100,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"servicecatalog/provisioningArtifact",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"servicecatalog/serviceAction",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/tagOption",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/tagOptionResourceAssociation",
 		&module{version},
 	)
 }

@@ -25,10 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CompositeAlarm{}
 	case "aws:cloudwatch/dashboard:Dashboard":
 		r = &Dashboard{}
+	case "aws:cloudwatch/eventApiDestination:EventApiDestination":
+		r = &EventApiDestination{}
 	case "aws:cloudwatch/eventArchive:EventArchive":
 		r = &EventArchive{}
 	case "aws:cloudwatch/eventBus:EventBus":
 		r = &EventBus{}
+	case "aws:cloudwatch/eventConnection:EventConnection":
+		r = &EventConnection{}
 	case "aws:cloudwatch/eventPermission:EventPermission":
 		r = &EventPermission{}
 	case "aws:cloudwatch/eventRule:EventRule":
@@ -80,12 +84,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"cloudwatch/eventApiDestination",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"cloudwatch/eventArchive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudwatch/eventBus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudwatch/eventConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

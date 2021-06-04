@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Msk
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("kafkaVersions", required: true)]
+        [Input("kafkaVersions")]
         private InputList<string>? _kafkaVersions;
 
         /// <summary>

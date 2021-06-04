@@ -293,7 +293,7 @@ export class RuleGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * A friendly name of the rule group.
+     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -387,7 +387,7 @@ export interface RuleGroupState {
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group.
+     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -425,7 +425,7 @@ export interface RuleGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A friendly name of the rule group.
+     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
      */
     name?: pulumi.Input<string>;
     /**

@@ -694,6 +694,8 @@ type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	ExpirationInDays int `pulumi:"expirationInDays"`
 	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 	S3BucketName *string `pulumi:"s3BucketName"`
+	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+	S3ObjectAcl *string `pulumi:"s3ObjectAcl"`
 }
 
 // CertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationCrlConfigurationArgs and CertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
@@ -716,6 +718,8 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
 	// Name of the S3 bucket that contains the CRL. If you do not provide a value for the `customCname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+	S3ObjectAcl pulumi.StringPtrInput `pulumi:"s3ObjectAcl"`
 }
 
 func (CertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ElementType() reflect.Type {
@@ -815,6 +819,11 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3Buc
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
+// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3ObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.S3ObjectAcl }).(pulumi.StringPtrOutput)
+}
+
 type CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) ElementType() reflect.Type {
@@ -872,6 +881,16 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3
 			return nil
 		}
 		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3ObjectAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectAcl
 	}).(pulumi.StringPtrOutput)
 }
 

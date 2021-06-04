@@ -50,8 +50,14 @@ type Project struct {
 
 	// The Amazon Resource Name of this project
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes pulumi.IntPtrOutput `pulumi:"defaultJobTimeoutMinutes"`
 	// The name of the project
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -85,15 +91,27 @@ func GetProject(ctx *pulumi.Context,
 type projectState struct {
 	// The Amazon Resource Name of this project
 	Arn *string `pulumi:"arn"`
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
 	// The name of the project
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ProjectState struct {
 	// The Amazon Resource Name of this project
 	Arn pulumi.StringPtrInput
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes pulumi.IntPtrInput
 	// The name of the project
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProjectState) ElementType() reflect.Type {
@@ -101,14 +119,26 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
 	// The name of the project
 	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
+	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
+	DefaultJobTimeoutMinutes pulumi.IntPtrInput
 	// The name of the project
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string Description;
         public readonly int DeviceIndex;
+        public readonly string InterfaceType;
         public readonly int Ipv4AddressCount;
         public readonly ImmutableArray<string> Ipv4Addresses;
         public readonly int Ipv6AddressCount;
@@ -41,6 +42,8 @@ namespace Pulumi.Aws.Ec2.Outputs
             string description,
 
             int deviceIndex,
+
+            string interfaceType,
 
             int ipv4AddressCount,
 
@@ -63,6 +66,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            InterfaceType = interfaceType;
             Ipv4AddressCount = ipv4AddressCount;
             Ipv4Addresses = ipv4Addresses;
             Ipv6AddressCount = ipv6AddressCount;

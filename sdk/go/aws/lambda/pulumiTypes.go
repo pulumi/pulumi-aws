@@ -669,6 +669,243 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventSourceMappingSelfManagedEventSource struct {
+	// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+	Endpoints map[string]string `pulumi:"endpoints"`
+}
+
+// EventSourceMappingSelfManagedEventSourceInput is an input type that accepts EventSourceMappingSelfManagedEventSourceArgs and EventSourceMappingSelfManagedEventSourceOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedEventSourceInput` via:
+//
+//          EventSourceMappingSelfManagedEventSourceArgs{...}
+type EventSourceMappingSelfManagedEventSourceInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput
+	ToEventSourceMappingSelfManagedEventSourceOutputWithContext(context.Context) EventSourceMappingSelfManagedEventSourceOutput
+}
+
+type EventSourceMappingSelfManagedEventSourceArgs struct {
+	// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+	Endpoints pulumi.StringMapInput `pulumi:"endpoints"`
+}
+
+func (EventSourceMappingSelfManagedEventSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourceOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourceOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourceOutput)
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSelfManagedEventSourceArgs) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourceOutput).ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingSelfManagedEventSourcePtrInput is an input type that accepts EventSourceMappingSelfManagedEventSourceArgs, EventSourceMappingSelfManagedEventSourcePtr and EventSourceMappingSelfManagedEventSourcePtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingSelfManagedEventSourcePtrInput` via:
+//
+//          EventSourceMappingSelfManagedEventSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type EventSourceMappingSelfManagedEventSourcePtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput
+	ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput
+}
+
+type eventSourceMappingSelfManagedEventSourcePtrType EventSourceMappingSelfManagedEventSourceArgs
+
+func EventSourceMappingSelfManagedEventSourcePtr(v *EventSourceMappingSelfManagedEventSourceArgs) EventSourceMappingSelfManagedEventSourcePtrInput {
+	return (*eventSourceMappingSelfManagedEventSourcePtrType)(v)
+}
+
+func (*eventSourceMappingSelfManagedEventSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return i.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingSelfManagedEventSourcePtrType) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+type EventSourceMappingSelfManagedEventSourceOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourceOutput() EventSourceMappingSelfManagedEventSourceOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourceOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourceOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) *EventSourceMappingSelfManagedEventSource {
+		return &v
+	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
+}
+
+// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+func (o EventSourceMappingSelfManagedEventSourceOutput) Endpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) map[string]string { return v.Endpoints }).(pulumi.StringMapOutput)
+}
+
+type EventSourceMappingSelfManagedEventSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSelfManagedEventSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingSelfManagedEventSource)(nil)).Elem()
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutput() EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
+	return o
+}
+
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMappingSelfManagedEventSourceOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) EventSourceMappingSelfManagedEventSource { return *v }).(EventSourceMappingSelfManagedEventSourceOutput)
+}
+
+// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Endpoints
+	}).(pulumi.StringMapOutput)
+}
+
+type EventSourceMappingSourceAccessConfiguration struct {
+	// The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+	Type string `pulumi:"type"`
+	// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+	Uri string `pulumi:"uri"`
+}
+
+// EventSourceMappingSourceAccessConfigurationInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArgs and EventSourceMappingSourceAccessConfigurationOutput values.
+// You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationInput` via:
+//
+//          EventSourceMappingSourceAccessConfigurationArgs{...}
+type EventSourceMappingSourceAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput
+	ToEventSourceMappingSourceAccessConfigurationOutputWithContext(context.Context) EventSourceMappingSourceAccessConfigurationOutput
+}
+
+type EventSourceMappingSourceAccessConfigurationArgs struct {
+	// The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (EventSourceMappingSourceAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArgs) ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput {
+	return i.ToEventSourceMappingSourceAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArgs) ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationOutput)
+}
+
+// EventSourceMappingSourceAccessConfigurationArrayInput is an input type that accepts EventSourceMappingSourceAccessConfigurationArray and EventSourceMappingSourceAccessConfigurationArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingSourceAccessConfigurationArrayInput` via:
+//
+//          EventSourceMappingSourceAccessConfigurationArray{ EventSourceMappingSourceAccessConfigurationArgs{...} }
+type EventSourceMappingSourceAccessConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput
+	ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput
+}
+
+type EventSourceMappingSourceAccessConfigurationArray []EventSourceMappingSourceAccessConfigurationInput
+
+func (EventSourceMappingSourceAccessConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return i.ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingSourceAccessConfigurationArray) ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingSourceAccessConfigurationArrayOutput)
+}
+
+type EventSourceMappingSourceAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSourceAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingSourceAccessConfigurationOutput() EventSourceMappingSourceAccessConfigurationOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingSourceAccessConfigurationOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationOutput {
+	return o
+}
+
+// The type of this configuration.  For Self Managed Kafka you will need to supply blocks for type `VPC_SUBNET` and `VPC_SECURITY_GROUP`.
+func (o EventSourceMappingSourceAccessConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+func (o EventSourceMappingSourceAccessConfigurationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type EventSourceMappingSourceAccessConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingSourceAccessConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingSourceAccessConfiguration)(nil)).Elem()
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMappingSourceAccessConfigurationArrayOutput() EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) ToEventSourceMappingSourceAccessConfigurationArrayOutputWithContext(ctx context.Context) EventSourceMappingSourceAccessConfigurationArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.IntInput) EventSourceMappingSourceAccessConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingSourceAccessConfiguration {
+		return vs[0].([]EventSourceMappingSourceAccessConfiguration)[vs[1].(int)]
+	}).(EventSourceMappingSourceAccessConfigurationOutput)
+}
+
 type FunctionDeadLetterConfig struct {
 	// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
 	TargetArn string `pulumi:"targetArn"`
@@ -2484,6 +2721,10 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(FunctionDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvironmentOutput{})

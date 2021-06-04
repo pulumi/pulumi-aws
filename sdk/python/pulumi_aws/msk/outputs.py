@@ -150,12 +150,24 @@ class ClusterClientAuthentication(dict):
 @pulumi.output_type
 class ClusterClientAuthenticationSasl(dict):
     def __init__(__self__, *,
+                 iam: Optional[bool] = None,
                  scram: Optional[bool] = None):
         """
+        :param bool iam: Enables IAM client authentication. Defaults to `false`.
         :param bool scram: Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
         """
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
         if scram is not None:
             pulumi.set(__self__, "scram", scram)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[bool]:
+        """
+        Enables IAM client authentication. Defaults to `false`.
+        """
+        return pulumi.get(self, "iam")
 
     @property
     @pulumi.getter

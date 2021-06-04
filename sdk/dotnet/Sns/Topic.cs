@@ -171,6 +171,24 @@ namespace Pulumi.Aws.Sns
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
+        [Output("firehoseFailureFeedbackRoleArn")]
+        public Output<string?> FirehoseFailureFeedbackRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Output("firehoseSuccessFeedbackRoleArn")]
+        public Output<string?> FirehoseSuccessFeedbackRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Output("firehoseSuccessFeedbackSampleRate")]
+        public Output<int?> FirehoseSuccessFeedbackSampleRate { get; private set; } = null!;
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
         [Output("httpFailureFeedbackRoleArn")]
         public Output<string?> HttpFailureFeedbackRoleArn { get; private set; } = null!;
 
@@ -223,6 +241,12 @@ namespace Pulumi.Aws.Sns
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Account ID of the SNS topic owner
+        /// </summary>
+        [Output("owner")]
+        public Output<string> Owner { get; private set; } = null!;
+
+        /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Output("policy")]
@@ -247,7 +271,7 @@ namespace Pulumi.Aws.Sns
         public Output<int?> SqsSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -349,6 +373,24 @@ namespace Pulumi.Aws.Sns
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
+        [Input("firehoseFailureFeedbackRoleArn")]
+        public Input<string>? FirehoseFailureFeedbackRoleArn { get; set; }
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("firehoseSuccessFeedbackRoleArn")]
+        public Input<string>? FirehoseSuccessFeedbackRoleArn { get; set; }
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("firehoseSuccessFeedbackSampleRate")]
+        public Input<int>? FirehoseSuccessFeedbackSampleRate { get; set; }
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
         [Input("httpFailureFeedbackRoleArn")]
         public Input<string>? HttpFailureFeedbackRoleArn { get; set; }
 
@@ -428,7 +470,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -506,6 +548,24 @@ namespace Pulumi.Aws.Sns
         /// <summary>
         /// IAM role for failure feedback
         /// </summary>
+        [Input("firehoseFailureFeedbackRoleArn")]
+        public Input<string>? FirehoseFailureFeedbackRoleArn { get; set; }
+
+        /// <summary>
+        /// The IAM role permitted to receive success feedback for this topic
+        /// </summary>
+        [Input("firehoseSuccessFeedbackRoleArn")]
+        public Input<string>? FirehoseSuccessFeedbackRoleArn { get; set; }
+
+        /// <summary>
+        /// Percentage of success to sample
+        /// </summary>
+        [Input("firehoseSuccessFeedbackSampleRate")]
+        public Input<int>? FirehoseSuccessFeedbackSampleRate { get; set; }
+
+        /// <summary>
+        /// IAM role for failure feedback
+        /// </summary>
         [Input("httpFailureFeedbackRoleArn")]
         public Input<string>? HttpFailureFeedbackRoleArn { get; set; }
 
@@ -558,6 +618,12 @@ namespace Pulumi.Aws.Sns
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// The AWS Account ID of the SNS topic owner
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
+        /// <summary>
         /// The fully-formed AWS policy as JSON.
         /// </summary>
         [Input("policy")]
@@ -585,7 +651,7 @@ namespace Pulumi.Aws.Sns
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<Outputs.TargetGroupHealthCheck> HealthCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
         [Output("lambdaMultiValueHeadersEnabled")]
         public Output<bool?> LambdaMultiValueHeadersEnabled { get; private set; } = null!;
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<Inputs.TargetGroupHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<Inputs.TargetGroupHealthCheckGetArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`.
+        /// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         /// </summary>
         [Input("lambdaMultiValueHeadersEnabled")]
         public Input<bool>? LambdaMultiValueHeadersEnabled { get; set; }

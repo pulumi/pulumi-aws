@@ -13,9 +13,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class RuleGroupRuleActionCount
     {
+        /// <summary>
+        /// Defines custom handling for the web request. See Custom Request Handling below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleActionCountCustomRequestHandling? CustomRequestHandling;
+
         [OutputConstructor]
-        private RuleGroupRuleActionCount()
+        private RuleGroupRuleActionCount(Outputs.RuleGroupRuleActionCountCustomRequestHandling? customRequestHandling)
         {
+            CustomRequestHandling = customRequestHandling;
         }
     }
 }

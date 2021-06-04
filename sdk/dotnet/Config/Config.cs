@@ -138,6 +138,7 @@ namespace Pulumi.Aws
                 public string? Backup { get; set; } = null!;
                 public string? Batch { get; set; } = null!;
                 public string? Budgets { get; set; } = null!;
+                public string? Chime { get; set; } = null!;
                 public string? Cloud9 { get; set; } = null!;
                 public string? Cloudformation { get; set; } = null!;
                 public string? Cloudfront { get; set; } = null!;
@@ -211,6 +212,7 @@ namespace Pulumi.Aws
                 public string? Lexmodels { get; set; } = null!;
                 public string? Licensemanager { get; set; } = null!;
                 public string? Lightsail { get; set; } = null!;
+                public string? Location { get; set; } = null!;
                 public string? Macie { get; set; } = null!;
                 public string? Macie2 { get; set; } = null!;
                 public string? Managedblockchain { get; set; } = null!;
@@ -246,6 +248,7 @@ namespace Pulumi.Aws
                 public string? S3control { get; set; } = null!;
                 public string? S3outposts { get; set; } = null!;
                 public string? Sagemaker { get; set; } = null!;
+                public string? Schemas { get; set; } = null!;
                 public string? Sdb { get; set; } = null!;
                 public string? Secretsmanager { get; set; } = null!;
                 public string? Securityhub { get; set; } = null!;

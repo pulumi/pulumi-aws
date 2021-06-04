@@ -69,6 +69,9 @@ namespace Pulumi.Aws.Inputs
         [Input("budgets")]
         public Input<string>? Budgets { get; set; }
 
+        [Input("chime")]
+        public Input<string>? Chime { get; set; }
+
         [Input("cloud9")]
         public Input<string>? Cloud9 { get; set; }
 
@@ -288,6 +291,9 @@ namespace Pulumi.Aws.Inputs
         [Input("lightsail")]
         public Input<string>? Lightsail { get; set; }
 
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
         [Input("macie")]
         public Input<string>? Macie { get; set; }
 
@@ -392,6 +398,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
+
+        [Input("schemas")]
+        public Input<string>? Schemas { get; set; }
 
         [Input("sdb")]
         public Input<string>? Sdb { get; set; }

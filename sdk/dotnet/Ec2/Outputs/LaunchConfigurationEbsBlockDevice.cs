@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly int? Iops;
         public readonly bool? NoDevice;
         public readonly string? SnapshotId;
+        public readonly int? Throughput;
         public readonly int? VolumeSize;
         public readonly string? VolumeType;
 
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? snapshotId,
 
+            int? throughput,
+
             int? volumeSize,
 
             string? volumeType)
@@ -46,6 +49,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Iops = iops;
             NoDevice = noDevice;
             SnapshotId = snapshotId;
+            Throughput = throughput;
             VolumeSize = volumeSize;
             VolumeType = volumeType;
         }

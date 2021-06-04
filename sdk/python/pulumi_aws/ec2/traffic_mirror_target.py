@@ -214,7 +214,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an Traffic mirror target.\
+        Provides a Traffic mirror target.\
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 
         ## Example Usage
@@ -254,7 +254,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
                  args: Optional[TrafficMirrorTargetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Traffic mirror target.\
+        Provides a Traffic mirror target.\
         Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
 
         ## Example Usage

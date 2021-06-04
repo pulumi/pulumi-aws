@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,12 +72,9 @@ type Connection struct {
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectionArgs{}
 	}
 
-	if args.ConnectionProperties == nil {
-		return nil, errors.New("invalid value for required argument 'ConnectionProperties'")
-	}
 	var resource Connection
 	err := ctx.RegisterResource("aws:glue/connection:Connection", name, args, &resource, opts...)
 	if err != nil {

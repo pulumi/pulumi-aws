@@ -14,15 +14,15 @@ namespace Pulumi.Aws.CloudTrail.Outputs
     public sealed class TrailEventSelector
     {
         /// <summary>
-        /// Specifies logging data events. Fields documented below.
+        /// Configuration block for data events. See details below.
         /// </summary>
         public readonly ImmutableArray<Outputs.TrailEventSelectorDataResource> DataResources;
         /// <summary>
-        /// Specify if you want your event selector to include management events for your trail.
+        /// Whether to include management events for your trail.
         /// </summary>
         public readonly bool? IncludeManagementEvents;
         /// <summary>
-        /// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+        /// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         /// </summary>
         public readonly string? ReadWriteType;
 

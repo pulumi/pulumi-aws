@@ -214,6 +214,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bootstrap_brokers: Optional[pulumi.Input[str]] = None,
+                 bootstrap_brokers_sasl_iam: Optional[pulumi.Input[str]] = None,
                  bootstrap_brokers_sasl_scram: Optional[pulumi.Input[str]] = None,
                  bootstrap_brokers_tls: Optional[pulumi.Input[str]] = None,
                  broker_node_group_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoArgs']] = None,
@@ -233,9 +234,10 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        :param pulumi.Input[str] bootstrap_brokers: A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[str] bootstrap_brokers_sasl_scram: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[str] bootstrap_brokers_tls: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoArgs'] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
         :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
@@ -256,6 +258,8 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if bootstrap_brokers is not None:
             pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
+        if bootstrap_brokers_sasl_iam is not None:
+            pulumi.set(__self__, "bootstrap_brokers_sasl_iam", bootstrap_brokers_sasl_iam)
         if bootstrap_brokers_sasl_scram is not None:
             pulumi.set(__self__, "bootstrap_brokers_sasl_scram", bootstrap_brokers_sasl_scram)
         if bootstrap_brokers_tls is not None:
@@ -305,7 +309,7 @@ class _ClusterState:
     @pulumi.getter(name="bootstrapBrokers")
     def bootstrap_brokers(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers")
 
@@ -314,10 +318,22 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_brokers", value)
 
     @property
+    @pulumi.getter(name="bootstrapBrokersSaslIam")
+    def bootstrap_brokers_sasl_iam(self) -> Optional[pulumi.Input[str]]:
+        """
+        One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam")
+
+    @bootstrap_brokers_sasl_iam.setter
+    def bootstrap_brokers_sasl_iam(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bootstrap_brokers_sasl_iam", value)
+
+    @property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
@@ -329,7 +345,7 @@ class _ClusterState:
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
 
@@ -821,6 +837,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["bootstrap_brokers"] = None
+            __props__.__dict__["bootstrap_brokers_sasl_iam"] = None
             __props__.__dict__["bootstrap_brokers_sasl_scram"] = None
             __props__.__dict__["bootstrap_brokers_tls"] = None
             __props__.__dict__["current_version"] = None
@@ -837,6 +854,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers: Optional[pulumi.Input[str]] = None,
+            bootstrap_brokers_sasl_iam: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers_sasl_scram: Optional[pulumi.Input[str]] = None,
             bootstrap_brokers_tls: Optional[pulumi.Input[str]] = None,
             broker_node_group_info: Optional[pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']]] = None,
@@ -861,9 +879,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        :param pulumi.Input[str] bootstrap_brokers: A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[str] bootstrap_brokers_sasl_scram: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
-        :param pulumi.Input[str] bootstrap_brokers_tls: A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers: Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_sasl_iam: One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_sasl_scram: One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        :param pulumi.Input[str] bootstrap_brokers_tls: One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         :param pulumi.Input[pulumi.InputType['ClusterBrokerNodeGroupInfoArgs']] broker_node_group_info: Configuration block for the broker nodes of the Kafka cluster.
         :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
@@ -886,6 +905,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bootstrap_brokers"] = bootstrap_brokers
+        __props__.__dict__["bootstrap_brokers_sasl_iam"] = bootstrap_brokers_sasl_iam
         __props__.__dict__["bootstrap_brokers_sasl_scram"] = bootstrap_brokers_sasl_scram
         __props__.__dict__["bootstrap_brokers_tls"] = bootstrap_brokers_tls
         __props__.__dict__["broker_node_group_info"] = broker_node_group_info
@@ -916,15 +936,23 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokers")
     def bootstrap_brokers(self) -> pulumi.Output[str]:
         """
-        A comma separated list of one or more hostname:port pairs of kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers")
+
+    @property
+    @pulumi.getter(name="bootstrapBrokersSaslIam")
+    def bootstrap_brokers_sasl_iam(self) -> pulumi.Output[str]:
+        """
+        One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        """
+        return pulumi.get(self, "bootstrap_brokers_sasl_iam")
 
     @property
     @pulumi.getter(name="bootstrapBrokersSaslScram")
     def bootstrap_brokers_sasl_scram(self) -> pulumi.Output[str]:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity using SASL/SCRAM to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication` is set to `sasl`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9096`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_sasl_scram")
 
@@ -932,7 +960,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="bootstrapBrokersTls")
     def bootstrap_brokers_tls(self) -> pulumi.Output[str]:
         """
-        A comma separated list of one or more DNS names (or IPs) and TLS port pairs kafka brokers suitable to boostrap connectivity to the kafka cluster. Only contains value if `client_broker` encryption in transit is set to `TLS_PLAINTEXT` or `TLS`. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9094`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         """
         return pulumi.get(self, "bootstrap_brokers_tls")
 

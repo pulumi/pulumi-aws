@@ -11,6 +11,7 @@ env:
   PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TRAVIS_OS_NAME: linux
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
 jobs:
   build_sdk:
     name: build_sdk

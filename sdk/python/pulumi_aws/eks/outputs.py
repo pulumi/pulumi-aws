@@ -23,6 +23,7 @@ __all__ = [
     'NodeGroupResource',
     'NodeGroupResourceAutoscalingGroup',
     'NodeGroupScalingConfig',
+    'NodeGroupTaint',
     'GetClusterCertificateAuthorityResult',
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
@@ -556,6 +557,47 @@ class NodeGroupScalingConfig(dict):
         Minimum number of worker nodes.
         """
         return pulumi.get(self, "min_size")
+
+
+@pulumi.output_type
+class NodeGroupTaint(dict):
+    def __init__(__self__, *,
+                 effect: str,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        :param str effect: The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+        :param str key: The key of the taint. Maximum length of 63.
+        :param str value: The value of the taint. Maximum length of 63.
+        """
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def effect(self) -> str:
+        """
+        The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+        """
+        return pulumi.get(self, "effect")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key of the taint. Maximum length of 63.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the taint. Maximum length of 63.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

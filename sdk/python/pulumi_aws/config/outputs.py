@@ -119,6 +119,7 @@ class Endpoints(dict):
                  backup: Optional[str] = None,
                  batch: Optional[str] = None,
                  budgets: Optional[str] = None,
+                 chime: Optional[str] = None,
                  cloud9: Optional[str] = None,
                  cloudformation: Optional[str] = None,
                  cloudfront: Optional[str] = None,
@@ -192,6 +193,7 @@ class Endpoints(dict):
                  lexmodels: Optional[str] = None,
                  licensemanager: Optional[str] = None,
                  lightsail: Optional[str] = None,
+                 location: Optional[str] = None,
                  macie: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedblockchain: Optional[str] = None,
@@ -227,6 +229,7 @@ class Endpoints(dict):
                  s3control: Optional[str] = None,
                  s3outposts: Optional[str] = None,
                  sagemaker: Optional[str] = None,
+                 schemas: Optional[str] = None,
                  sdb: Optional[str] = None,
                  secretsmanager: Optional[str] = None,
                  securityhub: Optional[str] = None,
@@ -293,6 +296,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "batch", batch)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
+        if chime is not None:
+            pulumi.set(__self__, "chime", chime)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
         if cloudformation is not None:
@@ -439,6 +444,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
             pulumi.set(__self__, "lightsail", lightsail)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
         if macie2 is not None:
@@ -509,6 +516,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3outposts", s3outposts)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
+        if schemas is not None:
+            pulumi.set(__self__, "schemas", schemas)
         if sdb is not None:
             pulumi.set(__self__, "sdb", sdb)
         if secretsmanager is not None:
@@ -660,6 +669,11 @@ class Endpoints(dict):
     @pulumi.getter
     def budgets(self) -> Optional[str]:
         return pulumi.get(self, "budgets")
+
+    @property
+    @pulumi.getter
+    def chime(self) -> Optional[str]:
+        return pulumi.get(self, "chime")
 
     @property
     @pulumi.getter
@@ -1028,6 +1042,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[str]:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def macie(self) -> Optional[str]:
         return pulumi.get(self, "macie")
 
@@ -1200,6 +1219,11 @@ class Endpoints(dict):
     @pulumi.getter
     def sagemaker(self) -> Optional[str]:
         return pulumi.get(self, "sagemaker")
+
+    @property
+    @pulumi.getter
+    def schemas(self) -> Optional[str]:
+        return pulumi.get(self, "schemas")
 
     @property
     @pulumi.getter

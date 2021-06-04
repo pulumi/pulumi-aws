@@ -13,9 +13,15 @@ namespace Pulumi.Aws.WafV2.Outputs
     [OutputType]
     public sealed class WebAclRuleActionBlock
     {
+        /// <summary>
+        /// Defines a custom response for the web request. See Custom Response below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleActionBlockCustomResponse? CustomResponse;
+
         [OutputConstructor]
-        private WebAclRuleActionBlock()
+        private WebAclRuleActionBlock(Outputs.WebAclRuleActionBlockCustomResponse? customResponse)
         {
+            CustomResponse = customResponse;
         }
     }
 }

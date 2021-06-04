@@ -35,6 +35,7 @@ __all__ = [
     'DistributionOriginGroup',
     'DistributionOriginGroupFailoverCriteria',
     'DistributionOriginGroupMember',
+    'DistributionOriginOriginShield',
     'DistributionOriginS3OriginConfig',
     'DistributionRestrictions',
     'DistributionRestrictionsGeoRestriction',
@@ -1642,12 +1643,18 @@ class DistributionOrigin(dict):
             suggest = "domain_name"
         elif key == "originId":
             suggest = "origin_id"
+        elif key == "connectionAttempts":
+            suggest = "connection_attempts"
+        elif key == "connectionTimeout":
+            suggest = "connection_timeout"
         elif key == "customHeaders":
             suggest = "custom_headers"
         elif key == "customOriginConfig":
             suggest = "custom_origin_config"
         elif key == "originPath":
             suggest = "origin_path"
+        elif key == "originShield":
+            suggest = "origin_shield"
         elif key == "s3OriginConfig":
             suggest = "s3_origin_config"
 
@@ -1665,14 +1672,19 @@ class DistributionOrigin(dict):
     def __init__(__self__, *,
                  domain_name: str,
                  origin_id: str,
+                 connection_attempts: Optional[int] = None,
+                 connection_timeout: Optional[int] = None,
                  custom_headers: Optional[Sequence['outputs.DistributionOriginCustomHeader']] = None,
                  custom_origin_config: Optional['outputs.DistributionOriginCustomOriginConfig'] = None,
                  origin_path: Optional[str] = None,
+                 origin_shield: Optional['outputs.DistributionOriginOriginShield'] = None,
                  s3_origin_config: Optional['outputs.DistributionOriginS3OriginConfig'] = None):
         """
         :param str domain_name: The DNS domain name of either the S3 bucket, or
                web site of your custom origin.
         :param str origin_id: The unique identifier of the member origin
+        :param int connection_attempts: The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+        :param int connection_timeout: The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
         :param Sequence['DistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and
                `value` parameters that specify header data that will be sent to the origin
                (multiples allowed).
@@ -1682,18 +1694,26 @@ class DistributionOrigin(dict):
         :param str origin_path: An optional element that causes CloudFront to
                request your content from a directory in your Amazon S3 bucket or your
                custom origin.
+        :param 'DistributionOriginOriginShieldArgs' origin_shield: The CloudFront Origin Shield
+               configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: The CloudFront S3 origin
                configuration information. If a custom origin is required, use
                `custom_origin_config` instead.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "origin_id", origin_id)
+        if connection_attempts is not None:
+            pulumi.set(__self__, "connection_attempts", connection_attempts)
+        if connection_timeout is not None:
+            pulumi.set(__self__, "connection_timeout", connection_timeout)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if custom_origin_config is not None:
             pulumi.set(__self__, "custom_origin_config", custom_origin_config)
         if origin_path is not None:
             pulumi.set(__self__, "origin_path", origin_path)
+        if origin_shield is not None:
+            pulumi.set(__self__, "origin_shield", origin_shield)
         if s3_origin_config is not None:
             pulumi.set(__self__, "s3_origin_config", s3_origin_config)
 
@@ -1713,6 +1733,22 @@ class DistributionOrigin(dict):
         The unique identifier of the member origin
         """
         return pulumi.get(self, "origin_id")
+
+    @property
+    @pulumi.getter(name="connectionAttempts")
+    def connection_attempts(self) -> Optional[int]:
+        """
+        The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+        """
+        return pulumi.get(self, "connection_attempts")
+
+    @property
+    @pulumi.getter(name="connectionTimeout")
+    def connection_timeout(self) -> Optional[int]:
+        """
+        The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+        """
+        return pulumi.get(self, "connection_timeout")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -1743,6 +1779,15 @@ class DistributionOrigin(dict):
         custom origin.
         """
         return pulumi.get(self, "origin_path")
+
+    @property
+    @pulumi.getter(name="originShield")
+    def origin_shield(self) -> Optional['outputs.DistributionOriginOriginShield']:
+        """
+        The CloudFront Origin Shield
+        configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        """
+        return pulumi.get(self, "origin_shield")
 
     @property
     @pulumi.getter(name="s3OriginConfig")
@@ -2012,6 +2057,52 @@ class DistributionOriginGroupMember(dict):
 
 
 @pulumi.output_type
+class DistributionOriginOriginShield(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "originShieldRegion":
+            suggest = "origin_shield_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginOriginShield. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginOriginShield.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginOriginShield.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 origin_shield_region: str):
+        """
+        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
+        :param str origin_shield_region: The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "origin_shield_region", origin_shield_region)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        A flag that specifies whether Origin Shield is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="originShieldRegion")
+    def origin_shield_region(self) -> str:
+        """
+        The AWS Region for Origin Shield. To specify a region, use the region code, not the region name. For example, specify the US East (Ohio) region as us-east-2.
+        """
+        return pulumi.get(self, "origin_shield_region")
+
+
+@pulumi.output_type
 class DistributionOriginS3OriginConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2138,8 +2229,7 @@ class DistributionTrustedKeyGroup(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
         """
-        :param bool enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
         :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2151,8 +2241,7 @@ class DistributionTrustedKeyGroup(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        A flag that specifies whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -2221,8 +2310,7 @@ class DistributionTrustedSigner(dict):
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
         """
-        :param bool enabled: Whether the distribution is enabled to accept end
-               user requests for content.
+        :param bool enabled: A flag that specifies whether Origin Shield is enabled.
         :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
@@ -2234,8 +2322,7 @@ class DistributionTrustedSigner(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Whether the distribution is enabled to accept end
-        user requests for content.
+        A flag that specifies whether Origin Shield is enabled.
         """
         return pulumi.get(self, "enabled")
 

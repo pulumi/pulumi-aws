@@ -43,9 +43,9 @@ class TrailEventSelector(dict):
                  include_management_events: Optional[bool] = None,
                  read_write_type: Optional[str] = None):
         """
-        :param Sequence['TrailEventSelectorDataResourceArgs'] data_resources: Specifies logging data events. Fields documented below.
-        :param bool include_management_events: Specify if you want your event selector to include management events for your trail.
-        :param str read_write_type: Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+        :param Sequence['TrailEventSelectorDataResourceArgs'] data_resources: Configuration block for data events. See details below.
+        :param bool include_management_events: Whether to include management events for your trail.
+        :param str read_write_type: Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         """
         if data_resources is not None:
             pulumi.set(__self__, "data_resources", data_resources)
@@ -58,7 +58,7 @@ class TrailEventSelector(dict):
     @pulumi.getter(name="dataResources")
     def data_resources(self) -> Optional[Sequence['outputs.TrailEventSelectorDataResource']]:
         """
-        Specifies logging data events. Fields documented below.
+        Configuration block for data events. See details below.
         """
         return pulumi.get(self, "data_resources")
 
@@ -66,7 +66,7 @@ class TrailEventSelector(dict):
     @pulumi.getter(name="includeManagementEvents")
     def include_management_events(self) -> Optional[bool]:
         """
-        Specify if you want your event selector to include management events for your trail.
+        Whether to include management events for your trail.
         """
         return pulumi.get(self, "include_management_events")
 
@@ -74,7 +74,7 @@ class TrailEventSelector(dict):
     @pulumi.getter(name="readWriteType")
     def read_write_type(self) -> Optional[str]:
         """
-        Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+        Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         """
         return pulumi.get(self, "read_write_type")
 
@@ -85,8 +85,8 @@ class TrailEventSelectorDataResource(dict):
                  type: str,
                  values: Sequence[str]):
         """
-        :param str type: The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
-        :param Sequence[str] values: A list of ARN for the specified S3 buckets and object prefixes..
+        :param str type: Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
+        :param Sequence[str] values: List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "values", values)
@@ -95,7 +95,7 @@ class TrailEventSelectorDataResource(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
+        Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
         """
         return pulumi.get(self, "type")
 
@@ -103,7 +103,7 @@ class TrailEventSelectorDataResource(dict):
     @pulumi.getter
     def values(self) -> Sequence[str]:
         """
-        A list of ARN for the specified S3 buckets and object prefixes..
+        List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
         """
         return pulumi.get(self, "values")
 
@@ -130,7 +130,7 @@ class TrailInsightSelector(dict):
     def __init__(__self__, *,
                  insight_type: str):
         """
-        :param str insight_type: The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        :param str insight_type: Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
         """
         pulumi.set(__self__, "insight_type", insight_type)
 
@@ -138,7 +138,7 @@ class TrailInsightSelector(dict):
     @pulumi.getter(name="insightType")
     def insight_type(self) -> str:
         """
-        The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+        Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
         """
         return pulumi.get(self, "insight_type")
 

@@ -37,7 +37,6 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
-        "logs": args.logs,
         "tags": args.tags,
     }, opts);
 }
@@ -54,7 +53,6 @@ export interface GetBrokerArgs {
      * The unique name of the mq broker.
      */
     brokerName?: string;
-    logs?: inputs.mq.GetBrokerLogs;
     tags?: {[key: string]: string};
 }
 
@@ -79,7 +77,7 @@ export interface GetBrokerResult {
     readonly id: string;
     readonly instances: outputs.mq.GetBrokerInstance[];
     readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
-    readonly logs?: outputs.mq.GetBrokerLogs;
+    readonly logs: outputs.mq.GetBrokerLogs;
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
     readonly publiclyAccessible: boolean;
     readonly securityGroups: string[];

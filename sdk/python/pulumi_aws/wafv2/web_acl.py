@@ -29,7 +29,7 @@ class WebAclArgs:
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: A friendly name of the WebACL.
+        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -100,7 +100,7 @@ class WebAclArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name of the WebACL.
+        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         """
         return pulumi.get(self, "name")
 
@@ -165,7 +165,7 @@ class _WebAclState:
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) currently being used by this web ACL.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: A friendly name of the WebACL.
+        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -256,7 +256,7 @@ class _WebAclState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name of the WebACL.
+        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         """
         return pulumi.get(self, "name")
 
@@ -561,7 +561,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: A friendly name of the WebACL.
+        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -876,7 +876,7 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) currently being used by this web ACL.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: A friendly name of the WebACL.
+        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -941,7 +941,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A friendly name of the WebACL.
+        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
         """
         return pulumi.get(self, "name")
 

@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        [Input("throughput")]
+        public Input<int>? Throughput { get; set; }
+
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 

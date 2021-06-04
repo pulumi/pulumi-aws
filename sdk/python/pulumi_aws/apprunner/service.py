@@ -374,7 +374,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration={
-                    "connectionArn": aws_apprunner_connection["example"]["arn"],
+                    "connection_arn": aws_apprunner_connection["example"]["arn"],
                 },
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
@@ -458,7 +458,7 @@ class Service(pulumi.CustomResource):
             service_name="example",
             source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
                 authentication_configuration={
-                    "connectionArn": aws_apprunner_connection["example"]["arn"],
+                    "connection_arn": aws_apprunner_connection["example"]["arn"],
                 },
                 code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
                     code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(

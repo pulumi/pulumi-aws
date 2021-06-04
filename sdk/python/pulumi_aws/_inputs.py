@@ -164,6 +164,7 @@ class ProviderEndpointArgs:
                  backup: Optional[pulumi.Input[str]] = None,
                  batch: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
+                 chime: Optional[pulumi.Input[str]] = None,
                  cloud9: Optional[pulumi.Input[str]] = None,
                  cloudformation: Optional[pulumi.Input[str]] = None,
                  cloudfront: Optional[pulumi.Input[str]] = None,
@@ -237,6 +238,7 @@ class ProviderEndpointArgs:
                  lexmodels: Optional[pulumi.Input[str]] = None,
                  licensemanager: Optional[pulumi.Input[str]] = None,
                  lightsail: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  macie: Optional[pulumi.Input[str]] = None,
                  macie2: Optional[pulumi.Input[str]] = None,
                  managedblockchain: Optional[pulumi.Input[str]] = None,
@@ -272,6 +274,7 @@ class ProviderEndpointArgs:
                  s3control: Optional[pulumi.Input[str]] = None,
                  s3outposts: Optional[pulumi.Input[str]] = None,
                  sagemaker: Optional[pulumi.Input[str]] = None,
+                 schemas: Optional[pulumi.Input[str]] = None,
                  sdb: Optional[pulumi.Input[str]] = None,
                  secretsmanager: Optional[pulumi.Input[str]] = None,
                  securityhub: Optional[pulumi.Input[str]] = None,
@@ -338,6 +341,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "batch", batch)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
+        if chime is not None:
+            pulumi.set(__self__, "chime", chime)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
         if cloudformation is not None:
@@ -484,6 +489,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
             pulumi.set(__self__, "lightsail", lightsail)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
         if macie2 is not None:
@@ -554,6 +561,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "s3outposts", s3outposts)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
+        if schemas is not None:
+            pulumi.set(__self__, "schemas", schemas)
         if sdb is not None:
             pulumi.set(__self__, "sdb", sdb)
         if secretsmanager is not None:
@@ -781,6 +790,15 @@ class ProviderEndpointArgs:
     @budgets.setter
     def budgets(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "budgets", value)
+
+    @property
+    @pulumi.getter
+    def chime(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "chime")
+
+    @chime.setter
+    def chime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "chime", value)
 
     @property
     @pulumi.getter
@@ -1441,6 +1459,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def macie(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "macie")
 
@@ -1753,6 +1780,15 @@ class ProviderEndpointArgs:
     @sagemaker.setter
     def sagemaker(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker", value)
+
+    @property
+    @pulumi.getter
+    def schemas(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "schemas")
+
+    @schemas.setter
+    def schemas(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schemas", value)
 
     @property
     @pulumi.getter

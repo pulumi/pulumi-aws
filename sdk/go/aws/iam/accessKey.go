@@ -108,7 +108,7 @@ type AccessKey struct {
 	SesSmtpPasswordV4 pulumi.StringOutput `pulumi:"sesSmtpPasswordV4"`
 	// The access key status to apply. Defaults to `Active`.
 	// Valid values are `Active` and `Inactive`.
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status pulumi.StringPtrOutput `pulumi:"status"`
 	// The IAM user to associate with this access key.
 	User pulumi.StringOutput `pulumi:"user"`
 }

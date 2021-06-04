@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Acmpca.Inputs
         [Input("s3BucketName")]
         public Input<string>? S3BucketName { get; set; }
 
+        /// <summary>
+        /// Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
+        /// </summary>
+        [Input("s3ObjectAcl")]
+        public Input<string>? S3ObjectAcl { get; set; }
+
         public CertificateAuthorityRevocationConfigurationCrlConfigurationGetArgs()
         {
         }

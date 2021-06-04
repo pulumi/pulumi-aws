@@ -12,6 +12,18 @@ namespace Pulumi.Aws.CloudFront.Inputs
 
     public sealed class DistributionOriginArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
+        /// </summary>
+        [Input("connectionAttempts")]
+        public Input<int>? ConnectionAttempts { get; set; }
+
+        /// <summary>
+        /// The number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
+        /// </summary>
+        [Input("connectionTimeout")]
+        public Input<int>? ConnectionTimeout { get; set; }
+
         [Input("customHeaders")]
         private InputList<Inputs.DistributionOriginCustomHeaderArgs>? _customHeaders;
 
@@ -54,6 +66,13 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// </summary>
         [Input("originPath")]
         public Input<string>? OriginPath { get; set; }
+
+        /// <summary>
+        /// The CloudFront Origin Shield
+        /// configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        /// </summary>
+        [Input("originShield")]
+        public Input<Inputs.DistributionOriginOriginShieldArgs>? OriginShield { get; set; }
 
         /// <summary>
         /// The CloudFront S3 origin

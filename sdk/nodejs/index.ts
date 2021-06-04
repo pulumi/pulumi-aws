@@ -16,6 +16,7 @@ export * from "./getAvailabilityZones";
 export * from "./getBillingServiceAccount";
 export * from "./getCallerIdentity";
 export * from "./getCanonicalUserId";
+export * from "./getDefaultTags";
 export * from "./getElasticIp";
 export * from "./getIpRanges";
 export * from "./getPartition";
@@ -36,6 +37,7 @@ import * as acm from "./acm";
 import * as acmpca from "./acmpca";
 import * as alb from "./alb";
 import * as amp from "./amp";
+import * as amplify from "./amplify";
 import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
@@ -141,6 +143,7 @@ import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
+import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
 import * as serverless from "./serverless";
@@ -176,6 +179,7 @@ export {
     acmpca,
     alb,
     amp,
+    amplify,
     apigateway,
     apigatewayv2,
     appautoscaling,
@@ -281,6 +285,7 @@ export {
     s3control,
     s3outposts,
     sagemaker,
+    schemas,
     secretsmanager,
     securityhub,
     serverless,

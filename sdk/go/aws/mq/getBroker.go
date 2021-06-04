@@ -64,7 +64,6 @@ type LookupBrokerArgs struct {
 	BrokerId *string `pulumi:"brokerId"`
 	// The unique name of the mq broker.
 	BrokerName *string           `pulumi:"brokerName"`
-	Logs       *GetBrokerLogs    `pulumi:"logs"`
 	Tags       map[string]string `pulumi:"tags"`
 }
 
@@ -85,7 +84,7 @@ type LookupBrokerResult struct {
 	Id                         string                              `pulumi:"id"`
 	Instances                  []GetBrokerInstance                 `pulumi:"instances"`
 	LdapServerMetadatas        []GetBrokerLdapServerMetadata       `pulumi:"ldapServerMetadatas"`
-	Logs                       *GetBrokerLogs                      `pulumi:"logs"`
+	Logs                       GetBrokerLogs                       `pulumi:"logs"`
 	MaintenanceWindowStartTime GetBrokerMaintenanceWindowStartTime `pulumi:"maintenanceWindowStartTime"`
 	PubliclyAccessible         bool                                `pulumi:"publiclyAccessible"`
 	SecurityGroups             []string                            `pulumi:"securityGroups"`

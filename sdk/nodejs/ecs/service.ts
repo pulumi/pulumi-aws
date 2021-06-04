@@ -162,7 +162,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly iamRole!: pulumi.Output<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      */
     public readonly launchType!: pulumi.Output<string>;
     /**
@@ -343,7 +343,7 @@ export interface ServiceState {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      */
     launchType?: pulumi.Input<string>;
     /**
@@ -450,7 +450,7 @@ export interface ServiceArgs {
      */
     iamRole?: pulumi.Input<string>;
     /**
-     * Launch type on which to run your service. The valid values are `EC2` and `FARGATE`. Defaults to `EC2`.
+     * Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
      */
     launchType?: pulumi.Input<string>;
     /**

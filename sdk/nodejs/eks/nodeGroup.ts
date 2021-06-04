@@ -183,13 +183,17 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     */
+    public readonly taints!: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -228,6 +232,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["taints"] = state ? state.taints : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
@@ -260,6 +265,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["taints"] = args ? args.taints : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
@@ -349,13 +355,17 @@ export interface NodeGroupState {
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     */
+    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -427,13 +437,17 @@ export interface NodeGroupArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+     */
+    taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */

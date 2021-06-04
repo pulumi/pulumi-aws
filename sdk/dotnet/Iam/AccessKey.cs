@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Iam
         /// Valid values are `Active` and `Inactive`.
         /// </summary>
         [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The IAM user to associate with this access key.

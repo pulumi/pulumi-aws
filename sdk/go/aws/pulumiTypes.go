@@ -387,6 +387,7 @@ type ProviderEndpoint struct {
 	Backup                   *string `pulumi:"backup"`
 	Batch                    *string `pulumi:"batch"`
 	Budgets                  *string `pulumi:"budgets"`
+	Chime                    *string `pulumi:"chime"`
 	Cloud9                   *string `pulumi:"cloud9"`
 	Cloudformation           *string `pulumi:"cloudformation"`
 	Cloudfront               *string `pulumi:"cloudfront"`
@@ -460,6 +461,7 @@ type ProviderEndpoint struct {
 	Lexmodels                *string `pulumi:"lexmodels"`
 	Licensemanager           *string `pulumi:"licensemanager"`
 	Lightsail                *string `pulumi:"lightsail"`
+	Location                 *string `pulumi:"location"`
 	Macie                    *string `pulumi:"macie"`
 	Macie2                   *string `pulumi:"macie2"`
 	Managedblockchain        *string `pulumi:"managedblockchain"`
@@ -495,6 +497,7 @@ type ProviderEndpoint struct {
 	S3control                *string `pulumi:"s3control"`
 	S3outposts               *string `pulumi:"s3outposts"`
 	Sagemaker                *string `pulumi:"sagemaker"`
+	Schemas                  *string `pulumi:"schemas"`
 	Sdb                      *string `pulumi:"sdb"`
 	Secretsmanager           *string `pulumi:"secretsmanager"`
 	Securityhub              *string `pulumi:"securityhub"`
@@ -556,6 +559,7 @@ type ProviderEndpointArgs struct {
 	Backup                   pulumi.StringPtrInput `pulumi:"backup"`
 	Batch                    pulumi.StringPtrInput `pulumi:"batch"`
 	Budgets                  pulumi.StringPtrInput `pulumi:"budgets"`
+	Chime                    pulumi.StringPtrInput `pulumi:"chime"`
 	Cloud9                   pulumi.StringPtrInput `pulumi:"cloud9"`
 	Cloudformation           pulumi.StringPtrInput `pulumi:"cloudformation"`
 	Cloudfront               pulumi.StringPtrInput `pulumi:"cloudfront"`
@@ -629,6 +633,7 @@ type ProviderEndpointArgs struct {
 	Lexmodels                pulumi.StringPtrInput `pulumi:"lexmodels"`
 	Licensemanager           pulumi.StringPtrInput `pulumi:"licensemanager"`
 	Lightsail                pulumi.StringPtrInput `pulumi:"lightsail"`
+	Location                 pulumi.StringPtrInput `pulumi:"location"`
 	Macie                    pulumi.StringPtrInput `pulumi:"macie"`
 	Macie2                   pulumi.StringPtrInput `pulumi:"macie2"`
 	Managedblockchain        pulumi.StringPtrInput `pulumi:"managedblockchain"`
@@ -664,6 +669,7 @@ type ProviderEndpointArgs struct {
 	S3control                pulumi.StringPtrInput `pulumi:"s3control"`
 	S3outposts               pulumi.StringPtrInput `pulumi:"s3outposts"`
 	Sagemaker                pulumi.StringPtrInput `pulumi:"sagemaker"`
+	Schemas                  pulumi.StringPtrInput `pulumi:"schemas"`
 	Sdb                      pulumi.StringPtrInput `pulumi:"sdb"`
 	Secretsmanager           pulumi.StringPtrInput `pulumi:"secretsmanager"`
 	Securityhub              pulumi.StringPtrInput `pulumi:"securityhub"`
@@ -819,6 +825,10 @@ func (o ProviderEndpointOutput) Batch() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Budgets() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Budgets }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Chime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Chime }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Cloud9() pulumi.StringPtrOutput {
@@ -1113,6 +1123,10 @@ func (o ProviderEndpointOutput) Lightsail() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lightsail }).(pulumi.StringPtrOutput)
 }
 
+func (o ProviderEndpointOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o ProviderEndpointOutput) Macie() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Macie }).(pulumi.StringPtrOutput)
 }
@@ -1251,6 +1265,10 @@ func (o ProviderEndpointOutput) S3outposts() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Sagemaker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Sagemaker }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Schemas() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Schemas }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Sdb() pulumi.StringPtrOutput {

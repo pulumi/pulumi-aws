@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -253,6 +253,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// </summary>
+        [Output("taints")]
+        public Output<ImmutableArray<Outputs.NodeGroupTaint>> Taints { get; private set; } = null!;
 
         /// <summary>
         /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
@@ -418,7 +424,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -436,6 +442,18 @@ namespace Pulumi.Aws.Eks
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("taints")]
+        private InputList<Inputs.NodeGroupTaintArgs>? _taints;
+
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// </summary>
+        public InputList<Inputs.NodeGroupTaintArgs> Taints
+        {
+            get => _taints ?? (_taints = new InputList<Inputs.NodeGroupTaintArgs>());
+            set => _taints = value;
         }
 
         /// <summary>
@@ -587,7 +605,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -605,6 +623,18 @@ namespace Pulumi.Aws.Eks
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("taints")]
+        private InputList<Inputs.NodeGroupTaintGetArgs>? _taints;
+
+        /// <summary>
+        /// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
+        /// </summary>
+        public InputList<Inputs.NodeGroupTaintGetArgs> Taints
+        {
+            get => _taints ?? (_taints = new InputList<Inputs.NodeGroupTaintGetArgs>());
+            set => _taints = value;
         }
 
         /// <summary>

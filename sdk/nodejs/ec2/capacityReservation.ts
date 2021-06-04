@@ -99,6 +99,10 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
             inputs["instancePlatform"] = state ? state.instancePlatform : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
+            inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -159,6 +164,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
             inputs["instancePlatform"] = args ? args.instancePlatform : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
+            inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tenancy"] = args ? args.tenancy : undefined;
@@ -217,6 +223,10 @@ export interface CapacityReservationState {
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     */
+    outpostArn?: pulumi.Input<string>;
+    /**
      * The ID of the AWS account that owns the Capacity Reservation.
      */
     ownerId?: pulumi.Input<string>;
@@ -268,6 +278,10 @@ export interface CapacityReservationArgs {
      * The instance type for which to reserve capacity.
      */
     instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
+    /**
+     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     */
+    outpostArn?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

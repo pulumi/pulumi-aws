@@ -20,6 +20,9 @@ class TopicArgs:
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
+                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
@@ -44,6 +47,9 @@ class TopicArgs:
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
+        :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
+        :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] http_success_feedback_sample_rate: Percentage of success to sample
@@ -57,7 +63,7 @@ class TopicArgs:
         :param pulumi.Input[str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if application_failure_feedback_role_arn is not None:
@@ -74,6 +80,12 @@ class TopicArgs:
             pulumi.set(__self__, "display_name", display_name)
         if fifo_topic is not None:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
+        if firehose_failure_feedback_role_arn is not None:
+            pulumi.set(__self__, "firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
+        if firehose_success_feedback_role_arn is not None:
+            pulumi.set(__self__, "firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
+        if firehose_success_feedback_sample_rate is not None:
+            pulumi.set(__self__, "firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
         if http_failure_feedback_role_arn is not None:
             pulumi.set(__self__, "http_failure_feedback_role_arn", http_failure_feedback_role_arn)
         if http_success_feedback_role_arn is not None:
@@ -188,6 +200,42 @@ class TopicArgs:
     @fifo_topic.setter
     def fifo_topic(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fifo_topic", value)
+
+    @property
+    @pulumi.getter(name="firehoseFailureFeedbackRoleArn")
+    def firehose_failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM role for failure feedback
+        """
+        return pulumi.get(self, "firehose_failure_feedback_role_arn")
+
+    @firehose_failure_feedback_role_arn.setter
+    def firehose_failure_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firehose_failure_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackRoleArn")
+    def firehose_success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role permitted to receive success feedback for this topic
+        """
+        return pulumi.get(self, "firehose_success_feedback_role_arn")
+
+    @firehose_success_feedback_role_arn.setter
+    def firehose_success_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firehose_success_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackSampleRate")
+    def firehose_success_feedback_sample_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Percentage of success to sample
+        """
+        return pulumi.get(self, "firehose_success_feedback_sample_rate")
+
+    @firehose_success_feedback_sample_rate.setter
+    def firehose_success_feedback_sample_rate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "firehose_success_feedback_sample_rate", value)
 
     @property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
@@ -349,7 +397,7 @@ class TopicArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -381,6 +429,9 @@ class _TopicState:
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
+                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
@@ -390,6 +441,7 @@ class _TopicState:
                  lambda_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
@@ -406,6 +458,9 @@ class _TopicState:
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
+        :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
+        :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] http_success_feedback_sample_rate: Percentage of success to sample
@@ -415,11 +470,12 @@ class _TopicState:
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
+        :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         :param pulumi.Input[str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if application_failure_feedback_role_arn is not None:
@@ -438,6 +494,12 @@ class _TopicState:
             pulumi.set(__self__, "display_name", display_name)
         if fifo_topic is not None:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
+        if firehose_failure_feedback_role_arn is not None:
+            pulumi.set(__self__, "firehose_failure_feedback_role_arn", firehose_failure_feedback_role_arn)
+        if firehose_success_feedback_role_arn is not None:
+            pulumi.set(__self__, "firehose_success_feedback_role_arn", firehose_success_feedback_role_arn)
+        if firehose_success_feedback_sample_rate is not None:
+            pulumi.set(__self__, "firehose_success_feedback_sample_rate", firehose_success_feedback_sample_rate)
         if http_failure_feedback_role_arn is not None:
             pulumi.set(__self__, "http_failure_feedback_role_arn", http_failure_feedback_role_arn)
         if http_success_feedback_role_arn is not None:
@@ -456,6 +518,8 @@ class _TopicState:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if sqs_failure_feedback_role_arn is not None:
@@ -566,6 +630,42 @@ class _TopicState:
         pulumi.set(self, "fifo_topic", value)
 
     @property
+    @pulumi.getter(name="firehoseFailureFeedbackRoleArn")
+    def firehose_failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        IAM role for failure feedback
+        """
+        return pulumi.get(self, "firehose_failure_feedback_role_arn")
+
+    @firehose_failure_feedback_role_arn.setter
+    def firehose_failure_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firehose_failure_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackRoleArn")
+    def firehose_success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IAM role permitted to receive success feedback for this topic
+        """
+        return pulumi.get(self, "firehose_success_feedback_role_arn")
+
+    @firehose_success_feedback_role_arn.setter
+    def firehose_success_feedback_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firehose_success_feedback_role_arn", value)
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackSampleRate")
+    def firehose_success_feedback_sample_rate(self) -> Optional[pulumi.Input[int]]:
+        """
+        Percentage of success to sample
+        """
+        return pulumi.get(self, "firehose_success_feedback_sample_rate")
+
+    @firehose_success_feedback_sample_rate.setter
+    def firehose_success_feedback_sample_rate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "firehose_success_feedback_sample_rate", value)
+
+    @property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
     def http_failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -675,6 +775,18 @@ class _TopicState:
 
     @property
     @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Account ID of the SNS topic owner
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
         The fully-formed AWS policy as JSON.
@@ -725,7 +837,7 @@ class _TopicState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -758,6 +870,9 @@ class Topic(pulumi.CustomResource):
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
+                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
@@ -853,6 +968,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
+        :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
+        :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] http_success_feedback_sample_rate: Percentage of success to sample
@@ -866,7 +984,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -967,6 +1085,9 @@ class Topic(pulumi.CustomResource):
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
+                 firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+                 firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
@@ -1001,6 +1122,9 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["delivery_policy"] = delivery_policy
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["fifo_topic"] = fifo_topic
+            __props__.__dict__["firehose_failure_feedback_role_arn"] = firehose_failure_feedback_role_arn
+            __props__.__dict__["firehose_success_feedback_role_arn"] = firehose_success_feedback_role_arn
+            __props__.__dict__["firehose_success_feedback_sample_rate"] = firehose_success_feedback_sample_rate
             __props__.__dict__["http_failure_feedback_role_arn"] = http_failure_feedback_role_arn
             __props__.__dict__["http_success_feedback_role_arn"] = http_success_feedback_role_arn
             __props__.__dict__["http_success_feedback_sample_rate"] = http_success_feedback_sample_rate
@@ -1017,6 +1141,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["owner"] = None
         super(Topic, __self__).__init__(
             'aws:sns/topic:Topic',
             resource_name,
@@ -1035,6 +1160,9 @@ class Topic(pulumi.CustomResource):
             delivery_policy: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             fifo_topic: Optional[pulumi.Input[bool]] = None,
+            firehose_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+            firehose_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
+            firehose_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
             http_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             http_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             http_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
@@ -1044,6 +1172,7 @@ class Topic(pulumi.CustomResource):
             lambda_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
+            owner: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             sqs_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1065,6 +1194,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
+        :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
+        :param pulumi.Input[str] firehose_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
+        :param pulumi.Input[int] firehose_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] http_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] http_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] http_success_feedback_sample_rate: Percentage of success to sample
@@ -1074,11 +1206,12 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[int] lambda_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, this provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
+        :param pulumi.Input[str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[str] policy: The fully-formed AWS policy as JSON.
         :param pulumi.Input[str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1093,6 +1226,9 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["delivery_policy"] = delivery_policy
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["fifo_topic"] = fifo_topic
+        __props__.__dict__["firehose_failure_feedback_role_arn"] = firehose_failure_feedback_role_arn
+        __props__.__dict__["firehose_success_feedback_role_arn"] = firehose_success_feedback_role_arn
+        __props__.__dict__["firehose_success_feedback_sample_rate"] = firehose_success_feedback_sample_rate
         __props__.__dict__["http_failure_feedback_role_arn"] = http_failure_feedback_role_arn
         __props__.__dict__["http_success_feedback_role_arn"] = http_success_feedback_role_arn
         __props__.__dict__["http_success_feedback_sample_rate"] = http_success_feedback_sample_rate
@@ -1102,6 +1238,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["lambda_success_feedback_sample_rate"] = lambda_success_feedback_sample_rate
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
+        __props__.__dict__["owner"] = owner
         __props__.__dict__["policy"] = policy
         __props__.__dict__["sqs_failure_feedback_role_arn"] = sqs_failure_feedback_role_arn
         __props__.__dict__["sqs_success_feedback_role_arn"] = sqs_success_feedback_role_arn
@@ -1173,6 +1310,30 @@ class Topic(pulumi.CustomResource):
         Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
         """
         return pulumi.get(self, "fifo_topic")
+
+    @property
+    @pulumi.getter(name="firehoseFailureFeedbackRoleArn")
+    def firehose_failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        IAM role for failure feedback
+        """
+        return pulumi.get(self, "firehose_failure_feedback_role_arn")
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackRoleArn")
+    def firehose_success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IAM role permitted to receive success feedback for this topic
+        """
+        return pulumi.get(self, "firehose_success_feedback_role_arn")
+
+    @property
+    @pulumi.getter(name="firehoseSuccessFeedbackSampleRate")
+    def firehose_success_feedback_sample_rate(self) -> pulumi.Output[Optional[int]]:
+        """
+        Percentage of success to sample
+        """
+        return pulumi.get(self, "firehose_success_feedback_sample_rate")
 
     @property
     @pulumi.getter(name="httpFailureFeedbackRoleArn")
@@ -1248,6 +1409,14 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def owner(self) -> pulumi.Output[str]:
+        """
+        The AWS Account ID of the SNS topic owner
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
         The fully-formed AWS policy as JSON.
@@ -1282,7 +1451,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

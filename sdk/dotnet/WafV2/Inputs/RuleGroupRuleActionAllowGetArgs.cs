@@ -12,6 +12,12 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class RuleGroupRuleActionAllowGetArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines custom handling for the web request. See Custom Request Handling below for details.
+        /// </summary>
+        [Input("customRequestHandling")]
+        public Input<Inputs.RuleGroupRuleActionAllowCustomRequestHandlingGetArgs>? CustomRequestHandling { get; set; }
+
         public RuleGroupRuleActionAllowGetArgs()
         {
         }

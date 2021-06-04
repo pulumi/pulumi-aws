@@ -368,6 +368,8 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationT
 }
 
 type ClusterClientAuthenticationSasl struct {
+	// Enables IAM client authentication. Defaults to `false`.
+	Iam *bool `pulumi:"iam"`
 	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram *bool `pulumi:"scram"`
 }
@@ -384,6 +386,8 @@ type ClusterClientAuthenticationSaslInput interface {
 }
 
 type ClusterClientAuthenticationSaslArgs struct {
+	// Enables IAM client authentication. Defaults to `false`.
+	Iam pulumi.BoolPtrInput `pulumi:"iam"`
 	// Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 	Scram pulumi.BoolPtrInput `pulumi:"scram"`
 }
@@ -465,6 +469,11 @@ func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSasl
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
 
+// Enables IAM client authentication. Defaults to `false`.
+func (o ClusterClientAuthenticationSaslOutput) Iam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Iam }).(pulumi.BoolPtrOutput)
+}
+
 // Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
 func (o ClusterClientAuthenticationSaslOutput) Scram() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *bool { return v.Scram }).(pulumi.BoolPtrOutput)
@@ -486,6 +495,16 @@ func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationS
 
 func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthenticationSaslOutput {
 	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) ClusterClientAuthenticationSasl { return *v }).(ClusterClientAuthenticationSaslOutput)
+}
+
+// Enables IAM client authentication. Defaults to `false`.
+func (o ClusterClientAuthenticationSaslPtrOutput) Iam() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.

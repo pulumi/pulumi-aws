@@ -11,11 +11,11 @@ import (
 )
 
 type TrailEventSelector struct {
-	// Specifies logging data events. Fields documented below.
+	// Configuration block for data events. See details below.
 	DataResources []TrailEventSelectorDataResource `pulumi:"dataResources"`
-	// Specify if you want your event selector to include management events for your trail.
+	// Whether to include management events for your trail.
 	IncludeManagementEvents *bool `pulumi:"includeManagementEvents"`
-	// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+	// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
 	ReadWriteType *string `pulumi:"readWriteType"`
 }
 
@@ -31,11 +31,11 @@ type TrailEventSelectorInput interface {
 }
 
 type TrailEventSelectorArgs struct {
-	// Specifies logging data events. Fields documented below.
+	// Configuration block for data events. See details below.
 	DataResources TrailEventSelectorDataResourceArrayInput `pulumi:"dataResources"`
-	// Specify if you want your event selector to include management events for your trail.
+	// Whether to include management events for your trail.
 	IncludeManagementEvents pulumi.BoolPtrInput `pulumi:"includeManagementEvents"`
-	// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+	// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
 	ReadWriteType pulumi.StringPtrInput `pulumi:"readWriteType"`
 }
 
@@ -90,17 +90,17 @@ func (o TrailEventSelectorOutput) ToTrailEventSelectorOutputWithContext(ctx cont
 	return o
 }
 
-// Specifies logging data events. Fields documented below.
+// Configuration block for data events. See details below.
 func (o TrailEventSelectorOutput) DataResources() TrailEventSelectorDataResourceArrayOutput {
 	return o.ApplyT(func(v TrailEventSelector) []TrailEventSelectorDataResource { return v.DataResources }).(TrailEventSelectorDataResourceArrayOutput)
 }
 
-// Specify if you want your event selector to include management events for your trail.
+// Whether to include management events for your trail.
 func (o TrailEventSelectorOutput) IncludeManagementEvents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TrailEventSelector) *bool { return v.IncludeManagementEvents }).(pulumi.BoolPtrOutput)
 }
 
-// Specify if you want your trail to log read-only events, write-only events, or all. By default, the value is All. You can specify only the following value: "ReadOnly", "WriteOnly", "All". Defaults to `All`.
+// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
 func (o TrailEventSelectorOutput) ReadWriteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailEventSelector) *string { return v.ReadWriteType }).(pulumi.StringPtrOutput)
 }
@@ -126,9 +126,9 @@ func (o TrailEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailEventSelect
 }
 
 type TrailEventSelectorDataResource struct {
-	// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
+	// Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
 	Type string `pulumi:"type"`
-	// A list of ARN for the specified S3 buckets and object prefixes..
+	// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
 	Values []string `pulumi:"values"`
 }
 
@@ -144,9 +144,9 @@ type TrailEventSelectorDataResourceInput interface {
 }
 
 type TrailEventSelectorDataResourceArgs struct {
-	// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
+	// Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
 	Type pulumi.StringInput `pulumi:"type"`
-	// A list of ARN for the specified S3 buckets and object prefixes..
+	// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -201,12 +201,12 @@ func (o TrailEventSelectorDataResourceOutput) ToTrailEventSelectorDataResourceOu
 	return o
 }
 
-// The resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function"
+// Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
 func (o TrailEventSelectorDataResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailEventSelectorDataResource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// A list of ARN for the specified S3 buckets and object prefixes..
+// List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
 func (o TrailEventSelectorDataResourceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailEventSelectorDataResource) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -232,7 +232,7 @@ func (o TrailEventSelectorDataResourceArrayOutput) Index(i pulumi.IntInput) Trai
 }
 
 type TrailInsightSelector struct {
-	// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+	// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
 	InsightType string `pulumi:"insightType"`
 }
 
@@ -248,7 +248,7 @@ type TrailInsightSelectorInput interface {
 }
 
 type TrailInsightSelectorArgs struct {
-	// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+	// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
 	InsightType pulumi.StringInput `pulumi:"insightType"`
 }
 
@@ -303,7 +303,7 @@ func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx 
 	return o
 }
 
-// The type of insights to log on a trail. In this release, only `ApiCallRateInsight` is supported as an insight type.
+// Type of insights to log on a trail. The valid value is `ApiCallRateInsight`.
 func (o TrailInsightSelectorOutput) InsightType() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailInsightSelector) string { return v.InsightType }).(pulumi.StringOutput)
 }

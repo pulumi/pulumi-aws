@@ -294,7 +294,7 @@ type WebAcl struct {
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// A friendly name of the WebACL.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
@@ -355,7 +355,7 @@ type webAclState struct {
 	// A friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// A friendly name of the WebACL.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -379,7 +379,7 @@ type WebAclState struct {
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// A friendly name of the WebACL.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
@@ -402,7 +402,7 @@ type webAclArgs struct {
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// A friendly description of the WebACL.
 	Description *string `pulumi:"description"`
-	// A friendly name of the WebACL.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -422,7 +422,7 @@ type WebAclArgs struct {
 	DefaultAction WebAclDefaultActionInput
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrInput
-	// A friendly name of the WebACL.
+	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput

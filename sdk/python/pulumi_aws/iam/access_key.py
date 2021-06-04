@@ -472,7 +472,7 @@ class AccessKey(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> pulumi.Output[Optional[str]]:
         """
         The access key status to apply. Defaults to `Active`.
         Valid values are `Active` and `Inactive`.

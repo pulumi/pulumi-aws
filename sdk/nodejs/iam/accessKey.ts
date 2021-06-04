@@ -111,7 +111,7 @@ export class AccessKey extends pulumi.CustomResource {
      * The access key status to apply. Defaults to `Active`.
      * Valid values are `Active` and `Inactive`.
      */
-    public readonly status!: pulumi.Output<string>;
+    public readonly status!: pulumi.Output<string | undefined>;
     /**
      * The IAM user to associate with this access key.
      */

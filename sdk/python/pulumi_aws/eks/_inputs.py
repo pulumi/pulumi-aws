@@ -22,6 +22,7 @@ __all__ = [
     'NodeGroupResourceArgs',
     'NodeGroupResourceAutoscalingGroupArgs',
     'NodeGroupScalingConfigArgs',
+    'NodeGroupTaintArgs',
 ]
 
 @pulumi.input_type
@@ -536,5 +537,58 @@ class NodeGroupScalingConfigArgs:
     @min_size.setter
     def min_size(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_size", value)
+
+
+@pulumi.input_type
+class NodeGroupTaintArgs:
+    def __init__(__self__, *,
+                 effect: pulumi.Input[str],
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] effect: The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+        :param pulumi.Input[str] key: The key of the taint. Maximum length of 63.
+        :param pulumi.Input[str] value: The value of the taint. Maximum length of 63.
+        """
+        pulumi.set(__self__, "effect", effect)
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def effect(self) -> pulumi.Input[str]:
+        """
+        The effect of the taint. Valid values: `NO_SCHEDULE`, `NO_EXECUTE`, `PREFER_NO_SCHEDULE`.
+        """
+        return pulumi.get(self, "effect")
+
+    @effect.setter
+    def effect(self, value: pulumi.Input[str]):
+        pulumi.set(self, "effect", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key of the taint. Maximum length of 63.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the taint. Maximum length of 63.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
