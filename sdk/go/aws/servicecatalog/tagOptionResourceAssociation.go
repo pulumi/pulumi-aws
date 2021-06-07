@@ -50,6 +50,8 @@ import (
 type TagOptionResourceAssociation struct {
 	pulumi.CustomResourceState
 
+	// Description of the resource.
+	AssociatedResourceName pulumi.StringOutput `pulumi:"associatedResourceName"`
 	// ARN of the resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Creation time of the resource.
@@ -58,8 +60,6 @@ type TagOptionResourceAssociation struct {
 	ResourceDescription pulumi.StringOutput `pulumi:"resourceDescription"`
 	// Resource identifier.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// Description of the resource.
-	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 	// Tag Option identifier.
 	TagOptionId pulumi.StringOutput `pulumi:"tagOptionId"`
 }
@@ -99,6 +99,8 @@ func GetTagOptionResourceAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagOptionResourceAssociation resources.
 type tagOptionResourceAssociationState struct {
+	// Description of the resource.
+	AssociatedResourceName *string `pulumi:"associatedResourceName"`
 	// ARN of the resource.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Creation time of the resource.
@@ -107,13 +109,13 @@ type tagOptionResourceAssociationState struct {
 	ResourceDescription *string `pulumi:"resourceDescription"`
 	// Resource identifier.
 	ResourceId *string `pulumi:"resourceId"`
-	// Description of the resource.
-	ResourceName *string `pulumi:"resourceName"`
 	// Tag Option identifier.
 	TagOptionId *string `pulumi:"tagOptionId"`
 }
 
 type TagOptionResourceAssociationState struct {
+	// Description of the resource.
+	AssociatedResourceName pulumi.StringPtrInput
 	// ARN of the resource.
 	ResourceArn pulumi.StringPtrInput
 	// Creation time of the resource.
@@ -122,8 +124,6 @@ type TagOptionResourceAssociationState struct {
 	ResourceDescription pulumi.StringPtrInput
 	// Resource identifier.
 	ResourceId pulumi.StringPtrInput
-	// Description of the resource.
-	ResourceName pulumi.StringPtrInput
 	// Tag Option identifier.
 	TagOptionId pulumi.StringPtrInput
 }
