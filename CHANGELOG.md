@@ -2,9 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Rename `aws.serviceCatalog.TagOptionResourceAssocition` `resourceName` to be `associatedResourceName` in all languages.  
-  This is a **breaking change** but is due to `resourceName` being a reserved parameter name in Pulumi and thus causing
-  compilation problems in some of our SDKs.
+_(none)_
+
 ---
 
 ## 4.7.0 (2021-06-04)

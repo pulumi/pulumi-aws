@@ -51,23 +51,21 @@ class TagOptionResourceAssociationArgs:
 @pulumi.input_type
 class _TagOptionResourceAssociationState:
     def __init__(__self__, *,
-                 associated_resource_name: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_created_time: Optional[pulumi.Input[str]] = None,
                  resource_description: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
                  tag_option_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagOptionResourceAssociation resources.
-        :param pulumi.Input[str] associated_resource_name: Description of the resource.
         :param pulumi.Input[str] resource_arn: ARN of the resource.
         :param pulumi.Input[str] resource_created_time: Creation time of the resource.
         :param pulumi.Input[str] resource_description: Description of the resource.
         :param pulumi.Input[str] resource_id: Resource identifier.
+        :param pulumi.Input[str] resource_name: Description of the resource.
         :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
-        if associated_resource_name is not None:
-            pulumi.set(__self__, "associated_resource_name", associated_resource_name)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_created_time is not None:
@@ -76,20 +74,10 @@ class _TagOptionResourceAssociationState:
             pulumi.set(__self__, "resource_description", resource_description)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tag_option_id is not None:
             pulumi.set(__self__, "tag_option_id", tag_option_id)
-
-    @property
-    @pulumi.getter(name="associatedResourceName")
-    def associated_resource_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Description of the resource.
-        """
-        return pulumi.get(self, "associated_resource_name")
-
-    @associated_resource_name.setter
-    def associated_resource_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "associated_resource_name", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -138,6 +126,18 @@ class _TagOptionResourceAssociationState:
     @resource_id.setter
     def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
 
     @property
     @pulumi.getter(name="tagOptionId")
@@ -256,10 +256,10 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
             if tag_option_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_option_id'")
             __props__.__dict__["tag_option_id"] = tag_option_id
-            __props__.__dict__["associated_resource_name"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["resource_created_time"] = None
             __props__.__dict__["resource_description"] = None
+            __props__.__dict__["resource_name"] = None
         super(TagOptionResourceAssociation, __self__).__init__(
             'aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation',
             resource_name,
@@ -270,11 +270,11 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            associated_resource_name: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             resource_created_time: Optional[pulumi.Input[str]] = None,
             resource_description: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
+            resource_name: Optional[pulumi.Input[str]] = None,
             tag_option_id: Optional[pulumi.Input[str]] = None) -> 'TagOptionResourceAssociation':
         """
         Get an existing TagOptionResourceAssociation resource's state with the given name, id, and optional extra
@@ -283,32 +283,24 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] associated_resource_name: Description of the resource.
         :param pulumi.Input[str] resource_arn: ARN of the resource.
         :param pulumi.Input[str] resource_created_time: Creation time of the resource.
         :param pulumi.Input[str] resource_description: Description of the resource.
         :param pulumi.Input[str] resource_id: Resource identifier.
+        :param pulumi.Input[str] resource_name: Description of the resource.
         :param pulumi.Input[str] tag_option_id: Tag Option identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _TagOptionResourceAssociationState.__new__(_TagOptionResourceAssociationState)
 
-        __props__.__dict__["associated_resource_name"] = associated_resource_name
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_created_time"] = resource_created_time
         __props__.__dict__["resource_description"] = resource_description
         __props__.__dict__["resource_id"] = resource_id
+        __props__.__dict__["resource_name"] = resource_name
         __props__.__dict__["tag_option_id"] = tag_option_id
         return TagOptionResourceAssociation(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="associatedResourceName")
-    def associated_resource_name(self) -> pulumi.Output[str]:
-        """
-        Description of the resource.
-        """
-        return pulumi.get(self, "associated_resource_name")
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -341,6 +333,14 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         Resource identifier.
         """
         return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Output[str]:
+        """
+        Description of the resource.
+        """
+        return pulumi.get(self, "resource_name")
 
     @property
     @pulumi.getter(name="tagOptionId")

@@ -2136,11 +2136,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicecatalog_provisioning_artifact": {Tok: awsResource(servicecatalogMod, "ProvisioningArtifact")},
 			"aws_servicecatalog_tag_option_resource_association": {
 				Tok: awsResource(servicecatalogMod, "TagOptionResourceAssociation"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"resource_name": {
-						Name: "associatedResourceName",
-					},
-				},
 			},
 			"aws_servicecatalog_principal_portfolio_association": {
 				Tok: awsResource(servicecatalogMod, "PrincipalPortfolioAssociation"),
