@@ -59,10 +59,6 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Description of the resource.
-     */
-    public /*out*/ readonly associatedResourceName!: pulumi.Output<string>;
-    /**
      * ARN of the resource.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -78,6 +74,10 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
      * Resource identifier.
      */
     public readonly resourceId!: pulumi.Output<string>;
+    /**
+     * Description of the resource.
+     */
+    public /*out*/ readonly resourceName!: pulumi.Output<string>;
     /**
      * Tag Option identifier.
      */
@@ -96,11 +96,11 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionResourceAssociationState | undefined;
-            inputs["associatedResourceName"] = state ? state.associatedResourceName : undefined;
             inputs["resourceArn"] = state ? state.resourceArn : undefined;
             inputs["resourceCreatedTime"] = state ? state.resourceCreatedTime : undefined;
             inputs["resourceDescription"] = state ? state.resourceDescription : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
+            inputs["resourceName"] = state ? state.resourceName : undefined;
             inputs["tagOptionId"] = state ? state.tagOptionId : undefined;
         } else {
             const args = argsOrState as TagOptionResourceAssociationArgs | undefined;
@@ -112,10 +112,10 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
             }
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["tagOptionId"] = args ? args.tagOptionId : undefined;
-            inputs["associatedResourceName"] = undefined /*out*/;
             inputs["resourceArn"] = undefined /*out*/;
             inputs["resourceCreatedTime"] = undefined /*out*/;
             inputs["resourceDescription"] = undefined /*out*/;
+            inputs["resourceName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -128,10 +128,6 @@ export class TagOptionResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TagOptionResourceAssociation resources.
  */
 export interface TagOptionResourceAssociationState {
-    /**
-     * Description of the resource.
-     */
-    associatedResourceName?: pulumi.Input<string>;
     /**
      * ARN of the resource.
      */
@@ -148,6 +144,10 @@ export interface TagOptionResourceAssociationState {
      * Resource identifier.
      */
     resourceId?: pulumi.Input<string>;
+    /**
+     * Description of the resource.
+     */
+    resourceName?: pulumi.Input<string>;
     /**
      * Tag Option identifier.
      */

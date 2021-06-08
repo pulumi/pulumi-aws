@@ -47,12 +47,6 @@ namespace Pulumi.Aws.ServiceCatalog
     public partial class TagOptionResourceAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// Description of the resource.
-        /// </summary>
-        [Output("associatedResourceName")]
-        public Output<string> AssociatedResourceName { get; private set; } = null!;
-
-        /// <summary>
         /// ARN of the resource.
         /// </summary>
         [Output("resourceArn")]
@@ -75,6 +69,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the resource.
+        /// </summary>
+        [Output("resourceName")]
+        public Output<string> ResourceName { get; private set; } = null!;
 
         /// <summary>
         /// Tag Option identifier.
@@ -148,12 +148,6 @@ namespace Pulumi.Aws.ServiceCatalog
     public sealed class TagOptionResourceAssociationState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Description of the resource.
-        /// </summary>
-        [Input("associatedResourceName")]
-        public Input<string>? AssociatedResourceName { get; set; }
-
-        /// <summary>
         /// ARN of the resource.
         /// </summary>
         [Input("resourceArn")]
@@ -176,6 +170,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
+
+        /// <summary>
+        /// Description of the resource.
+        /// </summary>
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         /// <summary>
         /// Tag Option identifier.
