@@ -343,7 +343,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                                 `This value will be stored as an encyrpted Pulumi secret, but may be available in plain text ` +
                                 `inside the AWS deployment package. You can use 'pulumi.unsecret' to convert the value to a non-secret ` +
                                 `value if this is not a sensitive value, or else use Secrets Manager or environment variables to pass the ` +
-                                `senstive data to your function.`)
+                                `senstive data to your function.`, this);
                 return true;
             }
             return false;
