@@ -249,7 +249,7 @@ namespace Pulumi.Aws.Eks
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -436,7 +436,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -617,7 +617,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {

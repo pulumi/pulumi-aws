@@ -18,6 +18,7 @@ class TaskDefinitionArgs:
                  container_definitions: pulumi.Input[str],
                  family: pulumi.Input[str],
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
                  ipc_mode: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] family: A unique name for your task definition.
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
@@ -54,6 +56,8 @@ class TaskDefinitionArgs:
         pulumi.set(__self__, "family", family)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if inference_accelerators is not None:
@@ -116,6 +120,18 @@ class TaskDefinitionArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]:
+        """
+        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -280,6 +296,7 @@ class _TaskDefinitionState:
                  arn: Optional[pulumi.Input[str]] = None,
                  container_definitions: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
@@ -300,6 +317,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
@@ -322,6 +340,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "container_definitions", container_definitions)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if family is not None:
@@ -388,6 +408,18 @@ class _TaskDefinitionState:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]:
+        """
+        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="executionRoleArn")
@@ -577,6 +609,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
@@ -705,6 +738,34 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        ### Example Using `fsx_windows_file_server_volume_configuration`
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.secretsmanager.SecretVersion("test",
+            secret_id=aws_secretsmanager_secret["test"]["id"],
+            secret_string=json.dumps({
+                "username": "admin",
+                "password": aws_directory_service_directory["test"]["password"],
+            }))
+        service = aws.ecs.TaskDefinition("service",
+            family="service",
+            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
+                name="service-storage",
+                fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
+                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    root_directory="\\data",
+                    authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
+                        credentials_parameter=test.arn,
+                        domain=aws_directory_service_directory["test"]["name"],
+                    ),
+                ),
+            )])
+        ```
         ### Example Using `container_definitions` and `inference_accelerator`
 
         ```python
@@ -759,6 +820,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
@@ -893,6 +955,34 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        ### Example Using `fsx_windows_file_server_volume_configuration`
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        test = aws.secretsmanager.SecretVersion("test",
+            secret_id=aws_secretsmanager_secret["test"]["id"],
+            secret_string=json.dumps({
+                "username": "admin",
+                "password": aws_directory_service_directory["test"]["password"],
+            }))
+        service = aws.ecs.TaskDefinition("service",
+            family="service",
+            container_definitions=(lambda path: open(path).read())("task-definitions/service.json"),
+            volumes=[aws.ecs.TaskDefinitionVolumeArgs(
+                name="service-storage",
+                fsx_windows_file_server_volume_configuration=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs(
+                    file_system_id=aws_fsx_windows_file_system["test"]["id"],
+                    root_directory="\\data",
+                    authorization_config=aws.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs(
+                        credentials_parameter=test.arn,
+                        domain=aws_directory_service_directory["test"]["name"],
+                    ),
+                ),
+            )])
+        ```
         ### Example Using `container_definitions` and `inference_accelerator`
 
         ```python
@@ -960,6 +1050,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[str]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
@@ -990,6 +1081,7 @@ class TaskDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_definitions'")
             __props__.__dict__["container_definitions"] = container_definitions
             __props__.__dict__["cpu"] = cpu
+            __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
@@ -1021,6 +1113,7 @@ class TaskDefinition(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             container_definitions: Optional[pulumi.Input[str]] = None,
             cpu: Optional[pulumi.Input[str]] = None,
+            ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             family: Optional[pulumi.Input[str]] = None,
             inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]]] = None,
@@ -1046,6 +1139,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Full ARN of the Task Definition (including both `family` and `revision`).
         :param pulumi.Input[str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionEphemeralStorageArgs']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[str] family: A unique name for your task definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionInferenceAcceleratorArgs']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
@@ -1069,6 +1163,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["container_definitions"] = container_definitions
         __props__.__dict__["cpu"] = cpu
+        __props__.__dict__["ephemeral_storage"] = ephemeral_storage
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["family"] = family
         __props__.__dict__["inference_accelerators"] = inference_accelerators
@@ -1109,6 +1204,14 @@ class TaskDefinition(pulumi.CustomResource):
         Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         """
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> pulumi.Output[Optional['outputs.TaskDefinitionEphemeralStorage']]:
+        """
+        The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="executionRoleArn")

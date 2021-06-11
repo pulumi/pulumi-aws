@@ -19,16 +19,34 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? CreateAuthChallenge { get; set; }
 
         /// <summary>
+        /// A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        /// </summary>
+        [Input("customEmailSender")]
+        public Input<Inputs.UserPoolLambdaConfigCustomEmailSenderArgs>? CustomEmailSender { get; set; }
+
+        /// <summary>
         /// Custom Message AWS Lambda trigger.
         /// </summary>
         [Input("customMessage")]
         public Input<string>? CustomMessage { get; set; }
 
         /// <summary>
+        /// A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        /// </summary>
+        [Input("customSmsSender")]
+        public Input<Inputs.UserPoolLambdaConfigCustomSmsSenderArgs>? CustomSmsSender { get; set; }
+
+        /// <summary>
         /// Defines the authentication challenge.
         /// </summary>
         [Input("defineAuthChallenge")]
         public Input<string>? DefineAuthChallenge { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        /// </summary>
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// Post-authentication AWS Lambda trigger.

@@ -131,6 +131,10 @@ namespace Pulumi.Aws.Ec2
         /// The Id of the EIP allocated to the selected Nat Gateway.
         /// </summary>
         public readonly string AllocationId;
+        /// <summary>
+        /// The connectivity type of the NAT Gateway.
+        /// </summary>
+        public readonly string ConnectivityType;
         public readonly ImmutableArray<Outputs.GetNatGatewayFilterResult> Filters;
         public readonly string Id;
         /// <summary>
@@ -154,6 +158,8 @@ namespace Pulumi.Aws.Ec2
         private GetNatGatewayResult(
             string allocationId,
 
+            string connectivityType,
+
             ImmutableArray<Outputs.GetNatGatewayFilterResult> filters,
 
             string id,
@@ -173,6 +179,7 @@ namespace Pulumi.Aws.Ec2
             string vpcId)
         {
             AllocationId = allocationId;
+            ConnectivityType = connectivityType;
             Filters = filters;
             Id = id;
             NetworkInterfaceId = networkInterfaceId;

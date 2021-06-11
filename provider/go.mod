@@ -14,5 +14,5 @@ require (
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210402103405-f5979773e8ba
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20210604095832-fba6d9b95a5e
+	github.com/terraform-providers/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20210611124343-864fc2adc252
 )

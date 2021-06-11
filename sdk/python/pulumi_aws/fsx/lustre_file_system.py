@@ -19,6 +19,7 @@ class LustreFileSystemArgs:
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
@@ -39,6 +40,7 @@ class LustreFileSystemArgs:
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -62,6 +64,8 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if drive_cache_type is not None:
@@ -158,6 +162,18 @@ class LustreFileSystemArgs:
     @daily_automatic_backup_start_time.setter
     def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_compression_type", value)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -312,6 +328,7 @@ class _LustreFileSystemState:
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
@@ -338,6 +355,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
@@ -368,6 +386,8 @@ class _LustreFileSystemState:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
             pulumi.set(__self__, "daily_automatic_backup_start_time", daily_automatic_backup_start_time)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
         if deployment_type is not None:
             pulumi.set(__self__, "deployment_type", deployment_type)
         if dns_name is not None:
@@ -466,6 +486,18 @@ class _LustreFileSystemState:
     @daily_automatic_backup_start_time.setter
     def daily_automatic_backup_start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "daily_automatic_backup_start_time", value)
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_compression_type", value)
 
     @property
     @pulumi.getter(name="deploymentType")
@@ -705,6 +737,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
@@ -763,6 +796,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
@@ -840,6 +874,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+                 data_compression_type: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
                  drive_cache_type: Optional[pulumi.Input[str]] = None,
                  export_path: Optional[pulumi.Input[str]] = None,
@@ -870,6 +905,7 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
+            __props__.__dict__["data_compression_type"] = data_compression_type
             __props__.__dict__["deployment_type"] = deployment_type
             __props__.__dict__["drive_cache_type"] = drive_cache_type
             __props__.__dict__["export_path"] = export_path
@@ -909,6 +945,7 @@ class LustreFileSystem(pulumi.CustomResource):
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
+            data_compression_type: Optional[pulumi.Input[str]] = None,
             deployment_type: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             drive_cache_type: Optional[pulumi.Input[str]] = None,
@@ -940,6 +977,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
+        :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
@@ -969,6 +1007,7 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
+        __props__.__dict__["data_compression_type"] = data_compression_type
         __props__.__dict__["deployment_type"] = deployment_type
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["drive_cache_type"] = drive_cache_type
@@ -1029,6 +1068,14 @@ class LustreFileSystem(pulumi.CustomResource):
         A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         """
         return pulumi.get(self, "daily_automatic_backup_start_time")
+
+    @property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        """
+        return pulumi.get(self, "data_compression_type")
 
     @property
     @pulumi.getter(name="deploymentType")

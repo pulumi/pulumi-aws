@@ -119,9 +119,17 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+     */
+    public /*out*/ readonly customDomain!: pulumi.Output<string>;
+    /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
+    /**
+     * Holds the domain prefix if the user pool has a domain associated with it.
+     */
+    public /*out*/ readonly domain!: pulumi.Output<string>;
     /**
      * Configuration block for configuring email. Detailed below.
      */
@@ -138,6 +146,10 @@ export class UserPool extends pulumi.CustomResource {
      * Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    /**
+     * A number estimating the size of the user pool.
+     */
+    public /*out*/ readonly estimatedNumberOfUsers!: pulumi.Output<number>;
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */
@@ -222,11 +234,14 @@ export class UserPool extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoVerifiedAttributes"] = state ? state.autoVerifiedAttributes : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
+            inputs["customDomain"] = state ? state.customDomain : undefined;
             inputs["deviceConfiguration"] = state ? state.deviceConfiguration : undefined;
+            inputs["domain"] = state ? state.domain : undefined;
             inputs["emailConfiguration"] = state ? state.emailConfiguration : undefined;
             inputs["emailVerificationMessage"] = state ? state.emailVerificationMessage : undefined;
             inputs["emailVerificationSubject"] = state ? state.emailVerificationSubject : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
+            inputs["estimatedNumberOfUsers"] = state ? state.estimatedNumberOfUsers : undefined;
             inputs["lambdaConfig"] = state ? state.lambdaConfig : undefined;
             inputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
             inputs["mfaConfiguration"] = state ? state.mfaConfiguration : undefined;
@@ -270,7 +285,10 @@ export class UserPool extends pulumi.CustomResource {
             inputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["customDomain"] = undefined /*out*/;
+            inputs["domain"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["estimatedNumberOfUsers"] = undefined /*out*/;
             inputs["lastModifiedDate"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -309,9 +327,17 @@ export interface UserPoolState {
      */
     creationDate?: pulumi.Input<string>;
     /**
+     * A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+     */
+    customDomain?: pulumi.Input<string>;
+    /**
      * Configuration block for the user pool's device tracking. Detailed below.
      */
     deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfiguration>;
+    /**
+     * Holds the domain prefix if the user pool has a domain associated with it.
+     */
+    domain?: pulumi.Input<string>;
     /**
      * Configuration block for configuring email. Detailed below.
      */
@@ -328,6 +354,10 @@ export interface UserPoolState {
      * Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * A number estimating the size of the user pool.
+     */
+    estimatedNumberOfUsers?: pulumi.Input<number>;
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */

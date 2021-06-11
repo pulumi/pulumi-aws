@@ -62,6 +62,27 @@ namespace Pulumi.Aws.Sqs
     /// }
     /// ```
     /// 
+    /// ## High-throughput FIFO queue
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             DeduplicationScope = "messageGroup",
+    ///             FifoQueue = true,
+    ///             FifoThroughputLimit = "perMessageGroupId",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Server-side encryption (SSE)
     /// 
     /// ```csharp
@@ -106,6 +127,12 @@ namespace Pulumi.Aws.Sqs
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// </summary>
+        [Output("deduplicationScope")]
+        public Output<string> DeduplicationScope { get; private set; } = null!;
+
+        /// <summary>
         /// The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         /// </summary>
         [Output("delaySeconds")]
@@ -116,6 +143,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Output("fifoQueue")]
         public Output<bool?> FifoQueue { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        /// </summary>
+        [Output("fifoThroughputLimit")]
+        public Output<string> FifoThroughputLimit { get; private set; } = null!;
 
         /// <summary>
         /// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
@@ -172,16 +205,22 @@ namespace Pulumi.Aws.Sqs
         public Output<string?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Same as `id`: The URL for the created Amazon SQS queue.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
         /// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
@@ -242,6 +281,12 @@ namespace Pulumi.Aws.Sqs
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// </summary>
+        [Input("deduplicationScope")]
+        public Input<string>? DeduplicationScope { get; set; }
+
+        /// <summary>
         /// The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         /// </summary>
         [Input("delaySeconds")]
@@ -252,6 +297,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("fifoQueue")]
         public Input<bool>? FifoQueue { get; set; }
+
+        /// <summary>
+        /// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        /// </summary>
+        [Input("fifoThroughputLimit")]
+        public Input<string>? FifoThroughputLimit { get; set; }
 
         /// <summary>
         /// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
@@ -311,7 +362,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -323,7 +374,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -357,6 +408,12 @@ namespace Pulumi.Aws.Sqs
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
+        /// Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        /// </summary>
+        [Input("deduplicationScope")]
+        public Input<string>? DeduplicationScope { get; set; }
+
+        /// <summary>
         /// The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         /// </summary>
         [Input("delaySeconds")]
@@ -367,6 +424,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("fifoQueue")]
         public Input<bool>? FifoQueue { get; set; }
+
+        /// <summary>
+        /// Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        /// </summary>
+        [Input("fifoThroughputLimit")]
+        public Input<string>? FifoThroughputLimit { get; set; }
 
         /// <summary>
         /// The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
@@ -426,7 +489,7 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -438,13 +501,19 @@ namespace Pulumi.Aws.Sqs
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider.
         /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Same as `id`: The URL for the created Amazon SQS queue.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         /// <summary>
         /// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).

@@ -25492,6 +25492,200 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) VirtualRouterName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetMeshSpec struct {
+	// The egress filter rules for the service mesh.
+	EgressFilters []GetMeshSpecEgressFilter `pulumi:"egressFilters"`
+}
+
+// GetMeshSpecInput is an input type that accepts GetMeshSpecArgs and GetMeshSpecOutput values.
+// You can construct a concrete instance of `GetMeshSpecInput` via:
+//
+//          GetMeshSpecArgs{...}
+type GetMeshSpecInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecOutput() GetMeshSpecOutput
+	ToGetMeshSpecOutputWithContext(context.Context) GetMeshSpecOutput
+}
+
+type GetMeshSpecArgs struct {
+	// The egress filter rules for the service mesh.
+	EgressFilters GetMeshSpecEgressFilterArrayInput `pulumi:"egressFilters"`
+}
+
+func (GetMeshSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpec)(nil)).Elem()
+}
+
+func (i GetMeshSpecArgs) ToGetMeshSpecOutput() GetMeshSpecOutput {
+	return i.ToGetMeshSpecOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecArgs) ToGetMeshSpecOutputWithContext(ctx context.Context) GetMeshSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecOutput)
+}
+
+// GetMeshSpecArrayInput is an input type that accepts GetMeshSpecArray and GetMeshSpecArrayOutput values.
+// You can construct a concrete instance of `GetMeshSpecArrayInput` via:
+//
+//          GetMeshSpecArray{ GetMeshSpecArgs{...} }
+type GetMeshSpecArrayInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecArrayOutput() GetMeshSpecArrayOutput
+	ToGetMeshSpecArrayOutputWithContext(context.Context) GetMeshSpecArrayOutput
+}
+
+type GetMeshSpecArray []GetMeshSpecInput
+
+func (GetMeshSpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpec)(nil)).Elem()
+}
+
+func (i GetMeshSpecArray) ToGetMeshSpecArrayOutput() GetMeshSpecArrayOutput {
+	return i.ToGetMeshSpecArrayOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecArray) ToGetMeshSpecArrayOutputWithContext(ctx context.Context) GetMeshSpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecArrayOutput)
+}
+
+type GetMeshSpecOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpec)(nil)).Elem()
+}
+
+func (o GetMeshSpecOutput) ToGetMeshSpecOutput() GetMeshSpecOutput {
+	return o
+}
+
+func (o GetMeshSpecOutput) ToGetMeshSpecOutputWithContext(ctx context.Context) GetMeshSpecOutput {
+	return o
+}
+
+// The egress filter rules for the service mesh.
+func (o GetMeshSpecOutput) EgressFilters() GetMeshSpecEgressFilterArrayOutput {
+	return o.ApplyT(func(v GetMeshSpec) []GetMeshSpecEgressFilter { return v.EgressFilters }).(GetMeshSpecEgressFilterArrayOutput)
+}
+
+type GetMeshSpecArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpec)(nil)).Elem()
+}
+
+func (o GetMeshSpecArrayOutput) ToGetMeshSpecArrayOutput() GetMeshSpecArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecArrayOutput) ToGetMeshSpecArrayOutputWithContext(ctx context.Context) GetMeshSpecArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecArrayOutput) Index(i pulumi.IntInput) GetMeshSpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMeshSpec {
+		return vs[0].([]GetMeshSpec)[vs[1].(int)]
+	}).(GetMeshSpecOutput)
+}
+
+type GetMeshSpecEgressFilter struct {
+	// The egress filter type.
+	Type string `pulumi:"type"`
+}
+
+// GetMeshSpecEgressFilterInput is an input type that accepts GetMeshSpecEgressFilterArgs and GetMeshSpecEgressFilterOutput values.
+// You can construct a concrete instance of `GetMeshSpecEgressFilterInput` via:
+//
+//          GetMeshSpecEgressFilterArgs{...}
+type GetMeshSpecEgressFilterInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecEgressFilterOutput() GetMeshSpecEgressFilterOutput
+	ToGetMeshSpecEgressFilterOutputWithContext(context.Context) GetMeshSpecEgressFilterOutput
+}
+
+type GetMeshSpecEgressFilterArgs struct {
+	// The egress filter type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetMeshSpecEgressFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpecEgressFilter)(nil)).Elem()
+}
+
+func (i GetMeshSpecEgressFilterArgs) ToGetMeshSpecEgressFilterOutput() GetMeshSpecEgressFilterOutput {
+	return i.ToGetMeshSpecEgressFilterOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecEgressFilterArgs) ToGetMeshSpecEgressFilterOutputWithContext(ctx context.Context) GetMeshSpecEgressFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecEgressFilterOutput)
+}
+
+// GetMeshSpecEgressFilterArrayInput is an input type that accepts GetMeshSpecEgressFilterArray and GetMeshSpecEgressFilterArrayOutput values.
+// You can construct a concrete instance of `GetMeshSpecEgressFilterArrayInput` via:
+//
+//          GetMeshSpecEgressFilterArray{ GetMeshSpecEgressFilterArgs{...} }
+type GetMeshSpecEgressFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetMeshSpecEgressFilterArrayOutput() GetMeshSpecEgressFilterArrayOutput
+	ToGetMeshSpecEgressFilterArrayOutputWithContext(context.Context) GetMeshSpecEgressFilterArrayOutput
+}
+
+type GetMeshSpecEgressFilterArray []GetMeshSpecEgressFilterInput
+
+func (GetMeshSpecEgressFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpecEgressFilter)(nil)).Elem()
+}
+
+func (i GetMeshSpecEgressFilterArray) ToGetMeshSpecEgressFilterArrayOutput() GetMeshSpecEgressFilterArrayOutput {
+	return i.ToGetMeshSpecEgressFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetMeshSpecEgressFilterArray) ToGetMeshSpecEgressFilterArrayOutputWithContext(ctx context.Context) GetMeshSpecEgressFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMeshSpecEgressFilterArrayOutput)
+}
+
+type GetMeshSpecEgressFilterOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecEgressFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMeshSpecEgressFilter)(nil)).Elem()
+}
+
+func (o GetMeshSpecEgressFilterOutput) ToGetMeshSpecEgressFilterOutput() GetMeshSpecEgressFilterOutput {
+	return o
+}
+
+func (o GetMeshSpecEgressFilterOutput) ToGetMeshSpecEgressFilterOutputWithContext(ctx context.Context) GetMeshSpecEgressFilterOutput {
+	return o
+}
+
+// The egress filter type.
+func (o GetMeshSpecEgressFilterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMeshSpecEgressFilter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetMeshSpecEgressFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMeshSpecEgressFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMeshSpecEgressFilter)(nil)).Elem()
+}
+
+func (o GetMeshSpecEgressFilterArrayOutput) ToGetMeshSpecEgressFilterArrayOutput() GetMeshSpecEgressFilterArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecEgressFilterArrayOutput) ToGetMeshSpecEgressFilterArrayOutputWithContext(ctx context.Context) GetMeshSpecEgressFilterArrayOutput {
+	return o
+}
+
+func (o GetMeshSpecEgressFilterArrayOutput) Index(i pulumi.IntInput) GetMeshSpecEgressFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMeshSpecEgressFilter {
+		return vs[0].([]GetMeshSpecEgressFilter)[vs[1].(int)]
+	}).(GetMeshSpecEgressFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayRouteSpecOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecPtrOutput{})
@@ -25832,4 +26026,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualServiceSpecProviderVirtualNodePtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecProviderVirtualRouterOutput{})
 	pulumi.RegisterOutputType(VirtualServiceSpecProviderVirtualRouterPtrOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecArrayOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecEgressFilterOutput{})
+	pulumi.RegisterOutputType(GetMeshSpecEgressFilterArrayOutput{})
 }

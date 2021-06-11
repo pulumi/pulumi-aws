@@ -53,6 +53,8 @@ type LookupServerResult struct {
 	Arn string `pulumi:"arn"`
 	// The ARN of any certificate.
 	Certificate string `pulumi:"certificate"`
+	// The domain of the storage system that is used for file transfers.
+	Domain string `pulumi:"domain"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
 	Endpoint string `pulumi:"endpoint"`
 	// The type of endpoint that the server is connected to.

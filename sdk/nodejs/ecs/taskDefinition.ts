@@ -124,6 +124,36 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ### Example Using `fsxWindowsFileServerVolumeConfiguration`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * from "fs";
+ *
+ * const test = new aws.secretsmanager.SecretVersion("test", {
+ *     secretId: aws_secretsmanager_secret.test.id,
+ *     secretString: JSON.stringify({
+ *         username: "admin",
+ *         password: aws_directory_service_directory.test.password,
+ *     }),
+ * });
+ * const service = new aws.ecs.TaskDefinition("service", {
+ *     family: "service",
+ *     containerDefinitions: fs.readFileSync("task-definitions/service.json"),
+ *     volumes: [{
+ *         name: "service-storage",
+ *         fsxWindowsFileServerVolumeConfiguration: {
+ *             fileSystemId: aws_fsx_windows_file_system.test.id,
+ *             rootDirectory: "\\data",
+ *             authorizationConfig: {
+ *                 credentialsParameter: test.arn,
+ *                 domain: aws_directory_service_directory.test.name,
+ *             },
+ *         },
+ *     }],
+ * });
+ * ```
  * ### Example Using `containerDefinitions` and `inferenceAccelerator`
  *
  * ```typescript
@@ -215,6 +245,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
+     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     */
+    public readonly ephemeralStorage!: pulumi.Output<outputs.ecs.TaskDefinitionEphemeralStorage | undefined>;
+    /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
@@ -291,6 +325,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
             inputs["cpu"] = state ? state.cpu : undefined;
+            inputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             inputs["family"] = state ? state.family : undefined;
             inputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
@@ -316,6 +351,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             }
             inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
             inputs["cpu"] = args ? args.cpu : undefined;
+            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["family"] = args ? args.family : undefined;
             inputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
@@ -356,6 +392,10 @@ export interface TaskDefinitionState {
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     cpu?: pulumi.Input<string>;
+    /**
+     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     */
+    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */
@@ -430,6 +470,10 @@ export interface TaskDefinitionArgs {
      * Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
      */
     cpu?: pulumi.Input<string>;
+    /**
+     * The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+     */
+    ephemeralStorage?: pulumi.Input<inputs.ecs.TaskDefinitionEphemeralStorage>;
     /**
      * ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
      */

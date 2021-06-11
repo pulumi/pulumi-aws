@@ -360,6 +360,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         session = aws.ec2.TrafficMirrorSession("session",
             description="traffic mirror session - example",
             network_interface_id=aws_instance["test"]["primary_network_interface_id"],
+            session_number=1,
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
@@ -407,6 +408,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         session = aws.ec2.TrafficMirrorSession("session",
             description="traffic mirror session - example",
             network_interface_id=aws_instance["test"]["primary_network_interface_id"],
+            session_number=1,
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```

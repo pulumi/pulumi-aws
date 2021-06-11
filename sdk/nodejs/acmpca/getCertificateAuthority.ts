@@ -49,6 +49,7 @@ export interface GetCertificateAuthorityArgs {
      * * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+     * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
      */
     revocationConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**
@@ -93,6 +94,7 @@ export interface GetCertificateAuthorityResult {
      * * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+     * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
      */
     readonly revocationConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**

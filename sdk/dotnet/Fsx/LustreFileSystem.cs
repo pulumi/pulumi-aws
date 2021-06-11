@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        /// </summary>
+        [Output("dataCompressionType")]
+        public Output<string?> DataCompressionType { get; private set; } = null!;
+
+        /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         /// </summary>
         [Output("deploymentType")]
@@ -276,6 +282,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
+        /// Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        /// </summary>
+        [Input("dataCompressionType")]
+        public Input<string>? DataCompressionType { get; set; }
+
+        /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
         /// </summary>
         [Input("deploymentType")]
@@ -413,6 +425,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dailyAutomaticBackupStartTime")]
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
+
+        /// <summary>
+        /// Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+        /// </summary>
+        [Input("dataCompressionType")]
+        public Input<string>? DataCompressionType { get; set; }
 
         /// <summary>
         /// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.

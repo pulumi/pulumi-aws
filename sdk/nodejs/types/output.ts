@@ -432,6 +432,7 @@ export namespace acmpca {
         enabled: boolean;
         expirationInDays: number;
         s3BucketName: string;
+        s3ObjectAcl: string;
     }
 }
 
@@ -2472,6 +2473,20 @@ export namespace appmesh {
          * Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
          */
         prefix: string;
+    }
+
+    export interface GetMeshSpec {
+        /**
+         * The egress filter rules for the service mesh.
+         */
+        egressFilters: outputs.appmesh.GetMeshSpecEgressFilter[];
+    }
+
+    export interface GetMeshSpecEgressFilter {
+        /**
+         * The egress filter type.
+         */
+        type: string;
     }
 
     export interface MeshSpec {
@@ -6765,7 +6780,7 @@ export namespace cloudwatch {
          */
         group?: string;
         /**
-         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values are `EC2` or `FARGATE`.
+         * Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
          */
         launchType?: string;
         /**
@@ -6819,7 +6834,7 @@ export namespace cloudwatch {
     export interface EventTargetInputTransformer {
         /**
          * Key value pairs specified in the form of JSONPath (for example, time = $.time)
-         * * You can have as many as 10 key-value pairs.
+         * * You can have as many as 100 key-value pairs.
          * * You must use JSON dot notation, not bracket notation.
          * * The keys can't start with "AWS".
          */
@@ -8100,13 +8115,25 @@ export namespace cognito {
          */
         createAuthChallenge?: string;
         /**
+         * A custom email sender AWS Lambda trigger. See customEmailSender Below.
+         */
+        customEmailSender: outputs.cognito.UserPoolLambdaConfigCustomEmailSender;
+        /**
          * Custom Message AWS Lambda trigger.
          */
         customMessage?: string;
         /**
+         * A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
+         */
+        customSmsSender: outputs.cognito.UserPoolLambdaConfigCustomSmsSender;
+        /**
          * Defines the authentication challenge.
          */
         defineAuthChallenge?: string;
+        /**
+         * The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+         */
+        kmsKeyId?: string;
         /**
          * Post-authentication AWS Lambda trigger.
          */
@@ -8135,6 +8162,28 @@ export namespace cognito {
          * Verifies the authentication challenge response.
          */
         verifyAuthChallengeResponse?: string;
+    }
+
+    export interface UserPoolLambdaConfigCustomEmailSender {
+        /**
+         * he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         */
+        lambdaArn: string;
+        /**
+         * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         */
+        lambdaVersion: string;
+    }
+
+    export interface UserPoolLambdaConfigCustomSmsSender {
+        /**
+         * he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         */
+        lambdaArn: string;
+        /**
+         * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         */
+        lambdaVersion: string;
     }
 
     export interface UserPoolPasswordPolicy {
@@ -12166,6 +12215,13 @@ export namespace ecs {
         registryArn: string;
     }
 
+    export interface TaskDefinitionEphemeralStorage {
+        /**
+         * The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+         */
+        sizeInGib: number;
+    }
+
     export interface TaskDefinitionInferenceAccelerator {
         /**
          * Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
@@ -12213,6 +12269,10 @@ export namespace ecs {
          */
         efsVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfiguration;
         /**
+         * Configuration block for an FSX Windows File Server volume. Detailed below.
+         */
+        fsxWindowsFileServerVolumeConfiguration?: outputs.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration;
+        /**
          * Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
          */
         hostPath?: string;
@@ -12248,15 +12308,15 @@ export namespace ecs {
 
     export interface TaskDefinitionVolumeEfsVolumeConfiguration {
         /**
-         * Configuration block for authorization for the Amazon EFS file system. Detailed below.
+         * Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
          */
         authorizationConfig?: outputs.ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig;
         /**
-         * ID of the EFS File System.
+         * The Amazon FSx for Windows File Server file system ID to use.
          */
         fileSystemId: string;
         /**
-         * Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+         * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
          */
         rootDirectory?: string;
         /**
@@ -12278,6 +12338,32 @@ export namespace ecs {
          * Whether or not to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the EFSVolumeConfiguration. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
          */
         iam?: string;
+    }
+
+    export interface TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+        /**
+         * Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+         */
+        authorizationConfig: outputs.ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig;
+        /**
+         * The Amazon FSx for Windows File Server file system ID to use.
+         */
+        fileSystemId: string;
+        /**
+         * The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+         */
+        rootDirectory: string;
+    }
+
+    export interface TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+        /**
+         * The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         */
+        credentialsParameter: string;
+        /**
+         * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+         */
+        domain: string;
     }
 }
 
@@ -15031,6 +15117,17 @@ export namespace globalaccelerator {
          * The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
          */
         listenerPort: number;
+    }
+
+    export interface GetAcceleratorAttribute {
+        flowLogsEnabled: boolean;
+        flowLogsS3Bucket: string;
+        flowLogsS3Prefix: string;
+    }
+
+    export interface GetAcceleratorIpSet {
+        ipAddresses: string[];
+        ipFamily: string;
     }
 
     export interface ListenerPortRange {
@@ -26163,6 +26260,21 @@ export namespace transfer {
          * Represents the map target.
          */
         target: string;
+    }
+
+    export interface UserPosixProfile {
+        /**
+         * The POSIX group ID used for all EFS operations by this user.
+         */
+        gid: number;
+        /**
+         * The secondary POSIX group IDs used for all EFS operations by this user.
+         */
+        secondaryGids?: number[];
+        /**
+         * The POSIX user ID used for all EFS operations by this user.
+         */
+        uid: number;
     }
 }
 

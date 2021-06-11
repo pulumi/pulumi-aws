@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  * const session = new aws.ec2.TrafficMirrorSession("session", {
  *     description: "traffic mirror session - example",
  *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
+ *     sessionNumber: 1,
  *     trafficMirrorFilterId: filter.id,
  *     trafficMirrorTargetId: target.id,
  * });

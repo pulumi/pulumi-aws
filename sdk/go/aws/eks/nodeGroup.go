@@ -150,7 +150,7 @@ type NodeGroup struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints NodeGroupTaintArrayOutput `pulumi:"taints"`
@@ -237,7 +237,7 @@ type nodeGroupState struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints []NodeGroupTaint `pulumi:"taints"`
@@ -284,7 +284,7 @@ type NodeGroupState struct {
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints NodeGroupTaintArrayInput
@@ -329,7 +329,7 @@ type nodeGroupArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints []NodeGroupTaint `pulumi:"taints"`
@@ -371,7 +371,7 @@ type NodeGroupArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// Key-value map of resource tags. If configured with a provider defaultTags present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
 	// The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
 	Taints NodeGroupTaintArrayInput

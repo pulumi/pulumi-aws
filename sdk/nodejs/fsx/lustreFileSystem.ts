@@ -91,6 +91,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
+     * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+     */
+    public readonly dataCompressionType!: pulumi.Output<string | undefined>;
+    /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
@@ -185,6 +189,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            inputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
             inputs["deploymentType"] = state ? state.deploymentType : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["driveCacheType"] = state ? state.driveCacheType : undefined;
@@ -216,6 +221,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            inputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
             inputs["deploymentType"] = args ? args.deploymentType : undefined;
             inputs["driveCacheType"] = args ? args.driveCacheType : undefined;
             inputs["exportPath"] = args ? args.exportPath : undefined;
@@ -268,6 +274,10 @@ export interface LustreFileSystemState {
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    /**
+     * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+     */
+    dataCompressionType?: pulumi.Input<string>;
     /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */
@@ -366,6 +376,10 @@ export interface LustreFileSystemArgs {
      * A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automaticBackupRetentionDays` to be set.
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
+    /**
+     * Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
+     */
+    dataCompressionType?: pulumi.Input<string>;
     /**
      * - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
      */

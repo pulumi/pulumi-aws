@@ -18,13 +18,25 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? CreateAuthChallenge;
         /// <summary>
+        /// A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        /// </summary>
+        public readonly Outputs.UserPoolLambdaConfigCustomEmailSender? CustomEmailSender;
+        /// <summary>
         /// Custom Message AWS Lambda trigger.
         /// </summary>
         public readonly string? CustomMessage;
         /// <summary>
+        /// A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        /// </summary>
+        public readonly Outputs.UserPoolLambdaConfigCustomSmsSender? CustomSmsSender;
+        /// <summary>
         /// Defines the authentication challenge.
         /// </summary>
         public readonly string? DefineAuthChallenge;
+        /// <summary>
+        /// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        /// </summary>
+        public readonly string? KmsKeyId;
         /// <summary>
         /// Post-authentication AWS Lambda trigger.
         /// </summary>
@@ -58,9 +70,15 @@ namespace Pulumi.Aws.Cognito.Outputs
         private UserPoolLambdaConfig(
             string? createAuthChallenge,
 
+            Outputs.UserPoolLambdaConfigCustomEmailSender? customEmailSender,
+
             string? customMessage,
 
+            Outputs.UserPoolLambdaConfigCustomSmsSender? customSmsSender,
+
             string? defineAuthChallenge,
+
+            string? kmsKeyId,
 
             string? postAuthentication,
 
@@ -77,8 +95,11 @@ namespace Pulumi.Aws.Cognito.Outputs
             string? verifyAuthChallengeResponse)
         {
             CreateAuthChallenge = createAuthChallenge;
+            CustomEmailSender = customEmailSender;
             CustomMessage = customMessage;
+            CustomSmsSender = customSmsSender;
             DefineAuthChallenge = defineAuthChallenge;
+            KmsKeyId = kmsKeyId;
             PostAuthentication = postAuthentication;
             PostConfirmation = postConfirmation;
             PreAuthentication = preAuthentication;

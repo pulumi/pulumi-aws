@@ -137,6 +137,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<string | undefined>;
     /**
+     * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     */
+    public readonly domain!: pulumi.Output<string | undefined>;
+    /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -205,6 +209,7 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
+            inputs["domain"] = state ? state.domain : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
             inputs["endpointType"] = state ? state.endpointType : undefined;
@@ -222,6 +227,7 @@ export class Server extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ServerArgs | undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["domain"] = args ? args.domain : undefined;
             inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
@@ -257,6 +263,10 @@ export interface ServerState {
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      */
     certificate?: pulumi.Input<string>;
+    /**
+     * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     */
+    domain?: pulumi.Input<string>;
     /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
      */
@@ -320,6 +330,10 @@ export interface ServerArgs {
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      */
     certificate?: pulumi.Input<string>;
+    /**
+     * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+     */
+    domain?: pulumi.Input<string>;
     /**
      * The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
      */

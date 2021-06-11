@@ -180,6 +180,8 @@ __all__ = [
     'VirtualServiceSpecProvider',
     'VirtualServiceSpecProviderVirtualNode',
     'VirtualServiceSpecProviderVirtualRouter',
+    'GetMeshSpecResult',
+    'GetMeshSpecEgressFilterResult',
 ]
 
 @pulumi.output_type
@@ -6905,5 +6907,41 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
         The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
         """
         return pulumi.get(self, "virtual_router_name")
+
+
+@pulumi.output_type
+class GetMeshSpecResult(dict):
+    def __init__(__self__, *,
+                 egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
+        """
+        :param Sequence['GetMeshSpecEgressFilterArgs'] egress_filters: The egress filter rules for the service mesh.
+        """
+        pulumi.set(__self__, "egress_filters", egress_filters)
+
+    @property
+    @pulumi.getter(name="egressFilters")
+    def egress_filters(self) -> Sequence['outputs.GetMeshSpecEgressFilterResult']:
+        """
+        The egress filter rules for the service mesh.
+        """
+        return pulumi.get(self, "egress_filters")
+
+
+@pulumi.output_type
+class GetMeshSpecEgressFilterResult(dict):
+    def __init__(__self__, *,
+                 type: str):
+        """
+        :param str type: The egress filter type.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The egress filter type.
+        """
+        return pulumi.get(self, "type")
 
 

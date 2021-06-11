@@ -1779,10 +1779,16 @@ func (o UserPoolEmailConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput 
 type UserPoolLambdaConfig struct {
 	// ARN of the lambda creating an authentication challenge.
 	CreateAuthChallenge *string `pulumi:"createAuthChallenge"`
+	// A custom email sender AWS Lambda trigger. See customEmailSender Below.
+	CustomEmailSender *UserPoolLambdaConfigCustomEmailSender `pulumi:"customEmailSender"`
 	// Custom Message AWS Lambda trigger.
 	CustomMessage *string `pulumi:"customMessage"`
+	// A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
+	CustomSmsSender *UserPoolLambdaConfigCustomSmsSender `pulumi:"customSmsSender"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
+	// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Post-authentication AWS Lambda trigger.
 	PostAuthentication *string `pulumi:"postAuthentication"`
 	// Post-confirmation AWS Lambda trigger.
@@ -1813,10 +1819,16 @@ type UserPoolLambdaConfigInput interface {
 type UserPoolLambdaConfigArgs struct {
 	// ARN of the lambda creating an authentication challenge.
 	CreateAuthChallenge pulumi.StringPtrInput `pulumi:"createAuthChallenge"`
+	// A custom email sender AWS Lambda trigger. See customEmailSender Below.
+	CustomEmailSender UserPoolLambdaConfigCustomEmailSenderPtrInput `pulumi:"customEmailSender"`
 	// Custom Message AWS Lambda trigger.
 	CustomMessage pulumi.StringPtrInput `pulumi:"customMessage"`
+	// A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
+	CustomSmsSender UserPoolLambdaConfigCustomSmsSenderPtrInput `pulumi:"customSmsSender"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"defineAuthChallenge"`
+	// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Post-authentication AWS Lambda trigger.
 	PostAuthentication pulumi.StringPtrInput `pulumi:"postAuthentication"`
 	// Post-confirmation AWS Lambda trigger.
@@ -1915,14 +1927,29 @@ func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CreateAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
+// A custom email sender AWS Lambda trigger. See customEmailSender Below.
+func (o UserPoolLambdaConfigOutput) CustomEmailSender() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolLambdaConfigCustomEmailSender { return v.CustomEmailSender }).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
+}
+
 // Custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.CustomMessage }).(pulumi.StringPtrOutput)
 }
 
+// A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
+func (o UserPoolLambdaConfigOutput) CustomSmsSender() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolLambdaConfigCustomSmsSender { return v.CustomSmsSender }).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
+}
+
 // Defines the authentication challenge.
 func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+func (o UserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Post-authentication AWS Lambda trigger.
@@ -1988,6 +2015,16 @@ func (o UserPoolLambdaConfigPtrOutput) CreateAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// A custom email sender AWS Lambda trigger. See customEmailSender Below.
+func (o UserPoolLambdaConfigPtrOutput) CustomEmailSender() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolLambdaConfigCustomEmailSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEmailSender
+	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
+}
+
 // Custom Message AWS Lambda trigger.
 func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
@@ -1998,6 +2035,16 @@ func (o UserPoolLambdaConfigPtrOutput) CustomMessage() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A custom SMS sender AWS Lambda trigger. See customSmsSender Below.
+func (o UserPoolLambdaConfigPtrOutput) CustomSmsSender() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolLambdaConfigCustomSmsSender {
+		if v == nil {
+			return nil
+		}
+		return v.CustomSmsSender
+	}).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
+}
+
 // Defines the authentication challenge.
 func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
@@ -2005,6 +2052,16 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 			return nil
 		}
 		return v.DefineAuthChallenge
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+func (o UserPoolLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2075,6 +2132,306 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 			return nil
 		}
 		return v.VerifyAuthChallengeResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolLambdaConfigCustomEmailSender struct {
+	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolLambdaConfigCustomEmailSenderInput is an input type that accepts UserPoolLambdaConfigCustomEmailSenderArgs and UserPoolLambdaConfigCustomEmailSenderOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigCustomEmailSenderInput` via:
+//
+//          UserPoolLambdaConfigCustomEmailSenderArgs{...}
+type UserPoolLambdaConfigCustomEmailSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigCustomEmailSenderOutput() UserPoolLambdaConfigCustomEmailSenderOutput
+	ToUserPoolLambdaConfigCustomEmailSenderOutputWithContext(context.Context) UserPoolLambdaConfigCustomEmailSenderOutput
+}
+
+type UserPoolLambdaConfigCustomEmailSenderArgs struct {
+	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolLambdaConfigCustomEmailSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (i UserPoolLambdaConfigCustomEmailSenderArgs) ToUserPoolLambdaConfigCustomEmailSenderOutput() UserPoolLambdaConfigCustomEmailSenderOutput {
+	return i.ToUserPoolLambdaConfigCustomEmailSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigCustomEmailSenderArgs) ToUserPoolLambdaConfigCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomEmailSenderOutput)
+}
+
+func (i UserPoolLambdaConfigCustomEmailSenderArgs) ToUserPoolLambdaConfigCustomEmailSenderPtrOutput() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return i.ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigCustomEmailSenderArgs) ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomEmailSenderOutput).ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolLambdaConfigCustomEmailSenderPtrInput is an input type that accepts UserPoolLambdaConfigCustomEmailSenderArgs, UserPoolLambdaConfigCustomEmailSenderPtr and UserPoolLambdaConfigCustomEmailSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigCustomEmailSenderPtrInput` via:
+//
+//          UserPoolLambdaConfigCustomEmailSenderArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolLambdaConfigCustomEmailSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigCustomEmailSenderPtrOutput() UserPoolLambdaConfigCustomEmailSenderPtrOutput
+	ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput
+}
+
+type userPoolLambdaConfigCustomEmailSenderPtrType UserPoolLambdaConfigCustomEmailSenderArgs
+
+func UserPoolLambdaConfigCustomEmailSenderPtr(v *UserPoolLambdaConfigCustomEmailSenderArgs) UserPoolLambdaConfigCustomEmailSenderPtrInput {
+	return (*userPoolLambdaConfigCustomEmailSenderPtrType)(v)
+}
+
+func (*userPoolLambdaConfigCustomEmailSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (i *userPoolLambdaConfigCustomEmailSenderPtrType) ToUserPoolLambdaConfigCustomEmailSenderPtrOutput() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return i.ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolLambdaConfigCustomEmailSenderPtrType) ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
+}
+
+type UserPoolLambdaConfigCustomEmailSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigCustomEmailSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCustomEmailSenderOutput() UserPoolLambdaConfigCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCustomEmailSenderOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCustomEmailSenderPtrOutput() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o.ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) *UserPoolLambdaConfigCustomEmailSender {
+		return &v
+	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
+}
+
+// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type UserPoolLambdaConfigCustomEmailSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigCustomEmailSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigCustomEmailSender)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) ToUserPoolLambdaConfigCustomEmailSenderPtrOutput() UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) Elem() UserPoolLambdaConfigCustomEmailSenderOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) UserPoolLambdaConfigCustomEmailSender { return *v }).(UserPoolLambdaConfigCustomEmailSenderOutput)
+}
+
+// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolLambdaConfigCustomSmsSender struct {
+	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolLambdaConfigCustomSmsSenderInput is an input type that accepts UserPoolLambdaConfigCustomSmsSenderArgs and UserPoolLambdaConfigCustomSmsSenderOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigCustomSmsSenderInput` via:
+//
+//          UserPoolLambdaConfigCustomSmsSenderArgs{...}
+type UserPoolLambdaConfigCustomSmsSenderInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigCustomSmsSenderOutput() UserPoolLambdaConfigCustomSmsSenderOutput
+	ToUserPoolLambdaConfigCustomSmsSenderOutputWithContext(context.Context) UserPoolLambdaConfigCustomSmsSenderOutput
+}
+
+type UserPoolLambdaConfigCustomSmsSenderArgs struct {
+	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolLambdaConfigCustomSmsSenderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (i UserPoolLambdaConfigCustomSmsSenderArgs) ToUserPoolLambdaConfigCustomSmsSenderOutput() UserPoolLambdaConfigCustomSmsSenderOutput {
+	return i.ToUserPoolLambdaConfigCustomSmsSenderOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigCustomSmsSenderArgs) ToUserPoolLambdaConfigCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomSmsSenderOutput)
+}
+
+func (i UserPoolLambdaConfigCustomSmsSenderArgs) ToUserPoolLambdaConfigCustomSmsSenderPtrOutput() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return i.ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigCustomSmsSenderArgs) ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomSmsSenderOutput).ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx)
+}
+
+// UserPoolLambdaConfigCustomSmsSenderPtrInput is an input type that accepts UserPoolLambdaConfigCustomSmsSenderArgs, UserPoolLambdaConfigCustomSmsSenderPtr and UserPoolLambdaConfigCustomSmsSenderPtrOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigCustomSmsSenderPtrInput` via:
+//
+//          UserPoolLambdaConfigCustomSmsSenderArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPoolLambdaConfigCustomSmsSenderPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigCustomSmsSenderPtrOutput() UserPoolLambdaConfigCustomSmsSenderPtrOutput
+	ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput
+}
+
+type userPoolLambdaConfigCustomSmsSenderPtrType UserPoolLambdaConfigCustomSmsSenderArgs
+
+func UserPoolLambdaConfigCustomSmsSenderPtr(v *UserPoolLambdaConfigCustomSmsSenderArgs) UserPoolLambdaConfigCustomSmsSenderPtrInput {
+	return (*userPoolLambdaConfigCustomSmsSenderPtrType)(v)
+}
+
+func (*userPoolLambdaConfigCustomSmsSenderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (i *userPoolLambdaConfigCustomSmsSenderPtrType) ToUserPoolLambdaConfigCustomSmsSenderPtrOutput() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return i.ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolLambdaConfigCustomSmsSenderPtrType) ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
+}
+
+type UserPoolLambdaConfigCustomSmsSenderOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigCustomSmsSenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomSmsSenderOutput() UserPoolLambdaConfigCustomSmsSenderOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomSmsSenderOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomSmsSenderPtrOutput() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o.ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) *UserPoolLambdaConfigCustomSmsSender {
+		return &v
+	}).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
+}
+
+// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigCustomSmsSenderOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type UserPoolLambdaConfigCustomSmsSenderPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigCustomSmsSenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigCustomSmsSender)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) ToUserPoolLambdaConfigCustomSmsSenderPtrOutput() UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) Elem() UserPoolLambdaConfigCustomSmsSenderOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) UserPoolLambdaConfigCustomSmsSender { return *v }).(UserPoolLambdaConfigCustomSmsSenderOutput)
+}
+
+// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3551,6 +3908,10 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolEmailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomEmailSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomEmailSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomSmsSenderOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomSmsSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolPasswordPolicyOutput{})
 	pulumi.RegisterOutputType(UserPoolPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaOutput{})

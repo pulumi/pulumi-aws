@@ -61,25 +61,31 @@ namespace Pulumi.Aws.Cur
     public partial class ReportDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
+        /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
         [Output("additionalArtifacts")]
         public Output<ImmutableArray<string>> AdditionalArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: RESOURCES.
+        /// A list of schema elements. Valid values are: `RESOURCES`.
         /// </summary>
         [Output("additionalSchemaElements")]
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+        /// The Amazon Resource Name (ARN) specifying the cur report.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
         [Output("compression")]
         public Output<string> Compression { get; private set; } = null!;
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+        /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
@@ -97,7 +103,7 @@ namespace Pulumi.Aws.Cur
         public Output<string> ReportName { get; private set; } = null!;
 
         /// <summary>
-        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
         [Output("reportVersioning")]
         public Output<string?> ReportVersioning { get; private set; } = null!;
@@ -121,7 +127,7 @@ namespace Pulumi.Aws.Cur
         public Output<string> S3Region { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
         /// </summary>
         [Output("timeUnit")]
         public Output<string> TimeUnit { get; private set; } = null!;
@@ -176,7 +182,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalArtifacts;
 
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
+        /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
         public InputList<string> AdditionalArtifacts
         {
@@ -188,7 +194,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: RESOURCES.
+        /// A list of schema elements. Valid values are: `RESOURCES`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -197,13 +203,13 @@ namespace Pulumi.Aws.Cur
         }
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+        /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
         [Input("compression", required: true)]
         public Input<string> Compression { get; set; } = null!;
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+        /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -221,7 +227,7 @@ namespace Pulumi.Aws.Cur
         public Input<string> ReportName { get; set; } = null!;
 
         /// <summary>
-        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
         [Input("reportVersioning")]
         public Input<string>? ReportVersioning { get; set; }
@@ -245,7 +251,7 @@ namespace Pulumi.Aws.Cur
         public Input<string> S3Region { get; set; } = null!;
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
         /// </summary>
         [Input("timeUnit", required: true)]
         public Input<string> TimeUnit { get; set; } = null!;
@@ -261,7 +267,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalArtifacts;
 
         /// <summary>
-        /// A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be OVERWRITE_REPORT.
+        /// A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         /// </summary>
         public InputList<string> AdditionalArtifacts
         {
@@ -273,7 +279,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: RESOURCES.
+        /// A list of schema elements. Valid values are: `RESOURCES`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -282,13 +288,19 @@ namespace Pulumi.Aws.Cur
         }
 
         /// <summary>
-        /// Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+        /// The Amazon Resource Name (ARN) specifying the cur report.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
 
         /// <summary>
-        /// Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+        /// Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         /// </summary>
         [Input("format")]
         public Input<string>? Format { get; set; }
@@ -306,7 +318,7 @@ namespace Pulumi.Aws.Cur
         public Input<string>? ReportName { get; set; }
 
         /// <summary>
-        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+        /// Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         /// </summary>
         [Input("reportVersioning")]
         public Input<string>? ReportVersioning { get; set; }
@@ -330,7 +342,7 @@ namespace Pulumi.Aws.Cur
         public Input<string>? S3Region { get; set; }
 
         /// <summary>
-        /// The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+        /// The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
         /// </summary>
         [Input("timeUnit")]
         public Input<string>? TimeUnit { get; set; }

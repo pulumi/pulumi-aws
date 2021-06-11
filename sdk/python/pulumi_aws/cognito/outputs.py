@@ -23,6 +23,8 @@ __all__ = [
     'UserPoolDeviceConfiguration',
     'UserPoolEmailConfiguration',
     'UserPoolLambdaConfig',
+    'UserPoolLambdaConfigCustomEmailSender',
+    'UserPoolLambdaConfigCustomSmsSender',
     'UserPoolPasswordPolicy',
     'UserPoolSchema',
     'UserPoolSchemaNumberAttributeConstraints',
@@ -773,10 +775,16 @@ class UserPoolLambdaConfig(dict):
         suggest = None
         if key == "createAuthChallenge":
             suggest = "create_auth_challenge"
+        elif key == "customEmailSender":
+            suggest = "custom_email_sender"
         elif key == "customMessage":
             suggest = "custom_message"
+        elif key == "customSmsSender":
+            suggest = "custom_sms_sender"
         elif key == "defineAuthChallenge":
             suggest = "define_auth_challenge"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
         elif key == "postAuthentication":
             suggest = "post_authentication"
         elif key == "postConfirmation":
@@ -805,8 +813,11 @@ class UserPoolLambdaConfig(dict):
 
     def __init__(__self__, *,
                  create_auth_challenge: Optional[str] = None,
+                 custom_email_sender: Optional['outputs.UserPoolLambdaConfigCustomEmailSender'] = None,
                  custom_message: Optional[str] = None,
+                 custom_sms_sender: Optional['outputs.UserPoolLambdaConfigCustomSmsSender'] = None,
                  define_auth_challenge: Optional[str] = None,
+                 kms_key_id: Optional[str] = None,
                  post_authentication: Optional[str] = None,
                  post_confirmation: Optional[str] = None,
                  pre_authentication: Optional[str] = None,
@@ -816,8 +827,11 @@ class UserPoolLambdaConfig(dict):
                  verify_auth_challenge_response: Optional[str] = None):
         """
         :param str create_auth_challenge: ARN of the lambda creating an authentication challenge.
+        :param 'UserPoolLambdaConfigCustomEmailSenderArgs' custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
         :param str custom_message: Custom Message AWS Lambda trigger.
+        :param 'UserPoolLambdaConfigCustomSmsSenderArgs' custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
         :param str define_auth_challenge: Defines the authentication challenge.
+        :param str kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         :param str post_authentication: Post-authentication AWS Lambda trigger.
         :param str post_confirmation: Post-confirmation AWS Lambda trigger.
         :param str pre_authentication: Pre-authentication AWS Lambda trigger.
@@ -828,10 +842,16 @@ class UserPoolLambdaConfig(dict):
         """
         if create_auth_challenge is not None:
             pulumi.set(__self__, "create_auth_challenge", create_auth_challenge)
+        if custom_email_sender is not None:
+            pulumi.set(__self__, "custom_email_sender", custom_email_sender)
         if custom_message is not None:
             pulumi.set(__self__, "custom_message", custom_message)
+        if custom_sms_sender is not None:
+            pulumi.set(__self__, "custom_sms_sender", custom_sms_sender)
         if define_auth_challenge is not None:
             pulumi.set(__self__, "define_auth_challenge", define_auth_challenge)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if post_authentication is not None:
             pulumi.set(__self__, "post_authentication", post_authentication)
         if post_confirmation is not None:
@@ -856,6 +876,14 @@ class UserPoolLambdaConfig(dict):
         return pulumi.get(self, "create_auth_challenge")
 
     @property
+    @pulumi.getter(name="customEmailSender")
+    def custom_email_sender(self) -> Optional['outputs.UserPoolLambdaConfigCustomEmailSender']:
+        """
+        A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        """
+        return pulumi.get(self, "custom_email_sender")
+
+    @property
     @pulumi.getter(name="customMessage")
     def custom_message(self) -> Optional[str]:
         """
@@ -864,12 +892,28 @@ class UserPoolLambdaConfig(dict):
         return pulumi.get(self, "custom_message")
 
     @property
+    @pulumi.getter(name="customSmsSender")
+    def custom_sms_sender(self) -> Optional['outputs.UserPoolLambdaConfigCustomSmsSender']:
+        """
+        A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        """
+        return pulumi.get(self, "custom_sms_sender")
+
+    @property
     @pulumi.getter(name="defineAuthChallenge")
     def define_auth_challenge(self) -> Optional[str]:
         """
         Defines the authentication challenge.
         """
         return pulumi.get(self, "define_auth_challenge")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        """
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter(name="postAuthentication")
@@ -926,6 +970,102 @@ class UserPoolLambdaConfig(dict):
         Verifies the authentication challenge response.
         """
         return pulumi.get(self, "verify_auth_challenge_response")
+
+
+@pulumi.output_type
+class UserPoolLambdaConfigCustomEmailSender(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolLambdaConfigCustomEmailSender. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolLambdaConfigCustomEmailSender.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolLambdaConfigCustomEmailSender.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+        return pulumi.get(self, "lambda_version")
+
+
+@pulumi.output_type
+class UserPoolLambdaConfigCustomSmsSender(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaArn":
+            suggest = "lambda_arn"
+        elif key == "lambdaVersion":
+            suggest = "lambda_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolLambdaConfigCustomSmsSender. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolLambdaConfigCustomSmsSender.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolLambdaConfigCustomSmsSender.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_arn: str,
+                 lambda_version: str):
+        """
+        :param str lambda_arn: he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        pulumi.set(__self__, "lambda_version", lambda_version)
+
+    @property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> str:
+        """
+        he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @property
+    @pulumi.getter(name="lambdaVersion")
+    def lambda_version(self) -> str:
+        """
+        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+        """
+        return pulumi.get(self, "lambda_version")
 
 
 @pulumi.output_type

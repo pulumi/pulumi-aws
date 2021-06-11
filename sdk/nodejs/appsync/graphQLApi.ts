@@ -116,6 +116,48 @@ import * as utilities from "../utilities";
  *     fieldLogLevel: "ERROR",
  * }});
  * ```
+ * ### Associate Web ACL (v2)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
+ * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
+ *     description: "Example of a managed rule.",
+ *     scope: "REGIONAL",
+ *     defaultAction: {
+ *         allow: {},
+ *     },
+ *     rules: [{
+ *         name: "rule-1",
+ *         priority: 1,
+ *         overrideAction: {
+ *             block: [{}],
+ *         },
+ *         statement: {
+ *             managedRuleGroupStatement: {
+ *                 name: "AWSManagedRulesCommonRuleSet",
+ *                 vendorName: "AWS",
+ *             },
+ *         },
+ *         visibilityConfig: {
+ *             cloudwatchMetricsEnabled: false,
+ *             metricName: "friendly-rule-metric-name",
+ *             sampledRequestsEnabled: false,
+ *         },
+ *     }],
+ *     visibilityConfig: {
+ *         cloudwatchMetricsEnabled: false,
+ *         metricName: "friendly-metric-name",
+ *         sampledRequestsEnabled: false,
+ *     },
+ * });
+ * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
+ *     resourceArn: exampleGraphQLApi.arn,
+ *     webAclArn: exampleWebAcl.arn,
+ * });
+ * ```
  *
  * ## Import
  *

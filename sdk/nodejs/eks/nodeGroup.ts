@@ -187,7 +187,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -359,7 +359,7 @@ export interface NodeGroupState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -441,7 +441,7 @@ export interface NodeGroupArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

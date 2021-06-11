@@ -69,19 +69,23 @@ export class ReportDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
+     * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
     public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of schema elements. Valid values are: RESOURCES.
+     * A list of schema elements. Valid values are: `RESOURCES`.
      */
     public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+     * The Amazon Resource Name (ARN) specifying the cur report.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */
     public readonly compression!: pulumi.Output<string>;
     /**
-     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+     * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      */
     public readonly format!: pulumi.Output<string>;
     /**
@@ -93,7 +97,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly reportName!: pulumi.Output<string>;
     /**
-     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
     public readonly reportVersioning!: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +113,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly s3Region!: pulumi.Output<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
      */
     public readonly timeUnit!: pulumi.Output<string>;
 
@@ -128,6 +132,7 @@ export class ReportDefinition extends pulumi.CustomResource {
             const state = argsOrState as ReportDefinitionState | undefined;
             inputs["additionalArtifacts"] = state ? state.additionalArtifacts : undefined;
             inputs["additionalSchemaElements"] = state ? state.additionalSchemaElements : undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["compression"] = state ? state.compression : undefined;
             inputs["format"] = state ? state.format : undefined;
             inputs["refreshClosedReports"] = state ? state.refreshClosedReports : undefined;
@@ -171,6 +176,7 @@ export class ReportDefinition extends pulumi.CustomResource {
             inputs["s3Prefix"] = args ? args.s3Prefix : undefined;
             inputs["s3Region"] = args ? args.s3Region : undefined;
             inputs["timeUnit"] = args ? args.timeUnit : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -184,19 +190,23 @@ export class ReportDefinition extends pulumi.CustomResource {
  */
 export interface ReportDefinitionState {
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
+     * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: RESOURCES.
+     * A list of schema elements. Valid values are: `RESOURCES`.
      */
     additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+     * The Amazon Resource Name (ARN) specifying the cur report.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */
     compression?: pulumi.Input<string>;
     /**
-     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+     * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      */
     format?: pulumi.Input<string>;
     /**
@@ -208,7 +218,7 @@ export interface ReportDefinitionState {
      */
     reportName?: pulumi.Input<string>;
     /**
-     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
     reportVersioning?: pulumi.Input<string>;
     /**
@@ -224,7 +234,7 @@ export interface ReportDefinitionState {
      */
     s3Region?: pulumi.Input<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
      */
     timeUnit?: pulumi.Input<string>;
 }
@@ -234,19 +244,19 @@ export interface ReportDefinitionState {
  */
 export interface ReportDefinitionArgs {
     /**
-     * A list of additional artifacts. Valid values are: REDSHIFT, QUICKSIGHT, ATHENA. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be OVERWRITE_REPORT.
+     * A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and reportVersioning must be `OVERWRITE_REPORT`.
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: RESOURCES.
+     * A list of schema elements. Valid values are: `RESOURCES`.
      */
     additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Compression format for report. Valid values are: GZIP, ZIP, Parquet. If Parquet is used, then format must also be Parquet.
+     * Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
      */
     compression: pulumi.Input<string>;
     /**
-     * Format for report. Valid values are: textORcsv, Parquet. If Parquet is used, then Compression must also be Parquet.
+     * Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
      */
     format: pulumi.Input<string>;
     /**
@@ -258,7 +268,7 @@ export interface ReportDefinitionArgs {
      */
     reportName: pulumi.Input<string>;
     /**
-     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: CREATE_NEW_REPORT, OVERWRITE_REPORT
+     * Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
      */
     reportVersioning?: pulumi.Input<string>;
     /**
@@ -274,7 +284,7 @@ export interface ReportDefinitionArgs {
      */
     s3Region: pulumi.Input<string>;
     /**
-     * The frequency on which report data are measured and displayed.  Valid values are: HOURLY, DAILY.
+     * The frequency on which report data are measured and displayed.  Valid values are: `HOURLY`, `DAILY`.
      */
     timeUnit: pulumi.Input<string>;
 }

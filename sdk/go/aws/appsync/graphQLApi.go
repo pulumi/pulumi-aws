@@ -203,6 +203,73 @@ import (
 // 	})
 // }
 // ```
+// ### Associate Web ACL (v2)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
+// 			AuthenticationType: pulumi.String("API_KEY"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleWebAcl, err := wafv2.NewWebAcl(ctx, "exampleWebAcl", &wafv2.WebAclArgs{
+// 			Description: pulumi.String("Example of a managed rule."),
+// 			Scope:       pulumi.String("REGIONAL"),
+// 			DefaultAction: &wafv2.WebAclDefaultActionArgs{
+// 				Allow: nil,
+// 			},
+// 			Rules: wafv2.WebAclRuleArray{
+// 				&wafv2.WebAclRuleArgs{
+// 					Name:     pulumi.String("rule-1"),
+// 					Priority: pulumi.Int(1),
+// 					OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
+// 						Block: pulumi.MapArray{
+// 							nil,
+// 						},
+// 					},
+// 					Statement: &wafv2.WebAclRuleStatementArgs{
+// 						ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
+// 							Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
+// 							VendorName: pulumi.String("AWS"),
+// 						},
+// 					},
+// 					VisibilityConfig: &wafv2.WebAclRuleVisibilityConfigArgs{
+// 						CloudwatchMetricsEnabled: pulumi.Bool(false),
+// 						MetricName:               pulumi.String("friendly-rule-metric-name"),
+// 						SampledRequestsEnabled:   pulumi.Bool(false),
+// 					},
+// 				},
+// 			},
+// 			VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+// 				CloudwatchMetricsEnabled: pulumi.Bool(false),
+// 				MetricName:               pulumi.String("friendly-metric-name"),
+// 				SampledRequestsEnabled:   pulumi.Bool(false),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = wafv2.NewWebAclAssociation(ctx, "exampleWebAclAssociation", &wafv2.WebAclAssociationArgs{
+// 			ResourceArn: exampleGraphQLApi.Arn,
+// 			WebAclArn:   exampleWebAcl.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

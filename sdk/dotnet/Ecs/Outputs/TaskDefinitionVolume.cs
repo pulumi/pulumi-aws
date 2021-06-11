@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? EfsVolumeConfiguration;
         /// <summary>
+        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// </summary>
+        public readonly Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration? FsxWindowsFileServerVolumeConfiguration;
+        /// <summary>
         /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
         public readonly string? HostPath;
@@ -37,12 +41,15 @@ namespace Pulumi.Aws.Ecs.Outputs
 
             Outputs.TaskDefinitionVolumeEfsVolumeConfiguration? efsVolumeConfiguration,
 
+            Outputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration? fsxWindowsFileServerVolumeConfiguration,
+
             string? hostPath,
 
             string name)
         {
             DockerVolumeConfiguration = dockerVolumeConfiguration;
             EfsVolumeConfiguration = efsVolumeConfiguration;
+            FsxWindowsFileServerVolumeConfiguration = fsxWindowsFileServerVolumeConfiguration;
             HostPath = hostPath;
             Name = name;
         }

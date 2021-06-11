@@ -46,6 +46,7 @@ import (
 // 		_, err = ec2.NewTrafficMirrorSession(ctx, "session", &ec2.TrafficMirrorSessionArgs{
 // 			Description:           pulumi.String("traffic mirror session - example"),
 // 			NetworkInterfaceId:    pulumi.Any(aws_instance.Test.Primary_network_interface_id),
+// 			SessionNumber:         pulumi.Int(1),
 // 			TrafficMirrorFilterId: filter.ID(),
 // 			TrafficMirrorTargetId: target.ID(),
 // 		})

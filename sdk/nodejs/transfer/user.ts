@@ -107,7 +107,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly homeDirectory!: pulumi.Output<string | undefined>;
     /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
     public readonly homeDirectoryMappings!: pulumi.Output<outputs.transfer.UserHomeDirectoryMapping[] | undefined>;
     /**
@@ -119,6 +119,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+     */
+    public readonly posixProfile!: pulumi.Output<outputs.transfer.UserPosixProfile | undefined>;
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     public readonly role!: pulumi.Output<string>;
@@ -126,7 +130,13 @@ export class User extends pulumi.CustomResource {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name used for log in to your SFTP server.
@@ -151,6 +161,7 @@ export class User extends pulumi.CustomResource {
             inputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
             inputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
             inputs["policy"] = state ? state.policy : undefined;
+            inputs["posixProfile"] = state ? state.posixProfile : undefined;
             inputs["role"] = state ? state.role : undefined;
             inputs["serverId"] = state ? state.serverId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -171,6 +182,7 @@ export class User extends pulumi.CustomResource {
             inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
             inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["posixProfile"] = args ? args.posixProfile : undefined;
             inputs["role"] = args ? args.role : undefined;
             inputs["serverId"] = args ? args.serverId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -198,7 +210,7 @@ export interface UserState {
      */
     homeDirectory?: pulumi.Input<string>;
     /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
     homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
     /**
@@ -210,6 +222,10 @@ export interface UserState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+     */
+    posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     role?: pulumi.Input<string>;
@@ -217,7 +233,13 @@ export interface UserState {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     serverId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.
@@ -234,7 +256,7 @@ export interface UserArgs {
      */
     homeDirectory?: pulumi.Input<string>;
     /**
-     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+     * Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
      */
     homeDirectoryMappings?: pulumi.Input<pulumi.Input<inputs.transfer.UserHomeDirectoryMapping>[]>;
     /**
@@ -246,6 +268,10 @@ export interface UserArgs {
      */
     policy?: pulumi.Input<string>;
     /**
+     * Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+     */
+    posixProfile?: pulumi.Input<inputs.transfer.UserPosixProfile>;
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      */
     role: pulumi.Input<string>;
@@ -253,7 +279,13 @@ export interface UserArgs {
      * The Server ID of the Transfer Server (e.g. `s-12345678`)
      */
     serverId: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name used for log in to your SFTP server.

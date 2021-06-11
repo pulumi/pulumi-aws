@@ -13,35 +13,28 @@ __all__ = ['NatGatewayArgs', 'NatGateway']
 @pulumi.input_type
 class NatGatewayArgs:
     def __init__(__self__, *,
-                 allocation_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
+                 allocation_id: Optional[pulumi.Input[str]] = None,
+                 connectivity_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NatGateway resource.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.
         :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
-        pulumi.set(__self__, "allocation_id", allocation_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if allocation_id is not None:
+            pulumi.set(__self__, "allocation_id", allocation_id)
+        if connectivity_type is not None:
+            pulumi.set(__self__, "connectivity_type", connectivity_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
-
-    @property
-    @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> pulumi.Input[str]:
-        """
-        The Allocation ID of the Elastic IP address for the gateway.
-        """
-        return pulumi.get(self, "allocation_id")
-
-    @allocation_id.setter
-    def allocation_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "allocation_id", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -54,6 +47,30 @@ class NatGatewayArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="allocationId")
+    def allocation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        """
+        return pulumi.get(self, "allocation_id")
+
+    @allocation_id.setter
+    def allocation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter(name="connectivityType")
+    def connectivity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        """
+        return pulumi.get(self, "connectivity_type")
+
+    @connectivity_type.setter
+    def connectivity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connectivity_type", value)
 
     @property
     @pulumi.getter
@@ -84,6 +101,7 @@ class NatGatewayArgs:
 class _NatGatewayState:
     def __init__(__self__, *,
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 connectivity_type: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  public_ip: Optional[pulumi.Input[str]] = None,
@@ -92,7 +110,8 @@ class _NatGatewayState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering NatGateway resources.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[str] network_interface_id: The ENI ID of the network interface created by the NAT gateway.
         :param pulumi.Input[str] private_ip: The private IP address of the NAT Gateway.
         :param pulumi.Input[str] public_ip: The public IP address of the NAT Gateway.
@@ -102,6 +121,8 @@ class _NatGatewayState:
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
+        if connectivity_type is not None:
+            pulumi.set(__self__, "connectivity_type", connectivity_type)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if private_ip is not None:
@@ -119,13 +140,25 @@ class _NatGatewayState:
     @pulumi.getter(name="allocationId")
     def allocation_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Allocation ID of the Elastic IP address for the gateway.
+        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
         """
         return pulumi.get(self, "allocation_id")
 
     @allocation_id.setter
     def allocation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "allocation_id", value)
+
+    @property
+    @pulumi.getter(name="connectivityType")
+    def connectivity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        """
+        return pulumi.get(self, "connectivity_type")
+
+    @connectivity_type.setter
+    def connectivity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connectivity_type", value)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -206,6 +239,7 @@ class NatGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 connectivity_type: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -214,28 +248,29 @@ class NatGateway(pulumi.CustomResource):
         Provides a resource to create a VPC NAT Gateway.
 
         ## Example Usage
+        ### Public NAT
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        gw = aws.ec2.NatGateway("gw",
-            allocation_id=aws_eip["nat"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
-        ```
-
-        Usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        gw = aws.ec2.NatGateway("gw",
-            allocation_id=aws_eip["nat"]["id"],
+        example = aws.ec2.NatGateway("example",
+            allocation_id=aws_eip["example"]["id"],
             subnet_id=aws_subnet["example"]["id"],
             tags={
                 "Name": "gw NAT",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
+        ```
+        ### Private NAT
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            connectivity_type="private",
+            subnet_id=aws_subnet["example"]["id"])
         ```
 
         ## Import
@@ -248,7 +283,8 @@ class NatGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[str] subnet_id: The Subnet ID of the subnet in which to place the gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -263,28 +299,29 @@ class NatGateway(pulumi.CustomResource):
         Provides a resource to create a VPC NAT Gateway.
 
         ## Example Usage
+        ### Public NAT
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        gw = aws.ec2.NatGateway("gw",
-            allocation_id=aws_eip["nat"]["id"],
-            subnet_id=aws_subnet["example"]["id"])
-        ```
-
-        Usage with tags:
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        gw = aws.ec2.NatGateway("gw",
-            allocation_id=aws_eip["nat"]["id"],
+        example = aws.ec2.NatGateway("example",
+            allocation_id=aws_eip["example"]["id"],
             subnet_id=aws_subnet["example"]["id"],
             tags={
                 "Name": "gw NAT",
-            })
+            },
+            opts=pulumi.ResourceOptions(depends_on=[aws_internet_gateway["example"]]))
+        ```
+        ### Private NAT
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ec2.NatGateway("example",
+            connectivity_type="private",
+            subnet_id=aws_subnet["example"]["id"])
         ```
 
         ## Import
@@ -311,6 +348,7 @@ class NatGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
+                 connectivity_type: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -326,9 +364,8 @@ class NatGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NatGatewayArgs.__new__(NatGatewayArgs)
 
-            if allocation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'allocation_id'")
             __props__.__dict__["allocation_id"] = allocation_id
+            __props__.__dict__["connectivity_type"] = connectivity_type
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
@@ -348,6 +385,7 @@ class NatGateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allocation_id: Optional[pulumi.Input[str]] = None,
+            connectivity_type: Optional[pulumi.Input[str]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
             public_ip: Optional[pulumi.Input[str]] = None,
@@ -361,7 +399,8 @@ class NatGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway.
+        :param pulumi.Input[str] allocation_id: The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
+        :param pulumi.Input[str] connectivity_type: Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
         :param pulumi.Input[str] network_interface_id: The ENI ID of the network interface created by the NAT gateway.
         :param pulumi.Input[str] private_ip: The private IP address of the NAT Gateway.
         :param pulumi.Input[str] public_ip: The public IP address of the NAT Gateway.
@@ -374,6 +413,7 @@ class NatGateway(pulumi.CustomResource):
         __props__ = _NatGatewayState.__new__(_NatGatewayState)
 
         __props__.__dict__["allocation_id"] = allocation_id
+        __props__.__dict__["connectivity_type"] = connectivity_type
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["private_ip"] = private_ip
         __props__.__dict__["public_ip"] = public_ip
@@ -384,11 +424,19 @@ class NatGateway(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allocationId")
-    def allocation_id(self) -> pulumi.Output[str]:
+    def allocation_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The Allocation ID of the Elastic IP address for the gateway.
+        The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="connectivityType")
+    def connectivity_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        """
+        return pulumi.get(self, "connectivity_type")
 
     @property
     @pulumi.getter(name="networkInterfaceId")

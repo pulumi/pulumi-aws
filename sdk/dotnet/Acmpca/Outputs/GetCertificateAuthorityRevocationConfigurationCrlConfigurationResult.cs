@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         public readonly bool Enabled;
         public readonly int ExpirationInDays;
         public readonly string S3BucketName;
+        public readonly string S3ObjectAcl;
 
         [OutputConstructor]
         private GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(
@@ -26,12 +27,15 @@ namespace Pulumi.Aws.Acmpca.Outputs
 
             int expirationInDays,
 
-            string s3BucketName)
+            string s3BucketName,
+
+            string s3ObjectAcl)
         {
             CustomCname = customCname;
             Enabled = enabled;
             ExpirationInDays = expirationInDays;
             S3BucketName = s3BucketName;
+            S3ObjectAcl = s3ObjectAcl;
         }
     }
 }

@@ -21,6 +21,7 @@ __all__ = [
     'ServiceOrderedPlacementStrategyArgs',
     'ServicePlacementConstraintArgs',
     'ServiceServiceRegistriesArgs',
+    'TaskDefinitionEphemeralStorageArgs',
     'TaskDefinitionInferenceAcceleratorArgs',
     'TaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionProxyConfigurationArgs',
@@ -28,6 +29,8 @@ __all__ = [
     'TaskDefinitionVolumeDockerVolumeConfigurationArgs',
     'TaskDefinitionVolumeEfsVolumeConfigurationArgs',
     'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs',
+    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs',
+    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs',
 ]
 
 @pulumi.input_type
@@ -652,6 +655,28 @@ class ServiceServiceRegistriesArgs:
 
 
 @pulumi.input_type
+class TaskDefinitionEphemeralStorageArgs:
+    def __init__(__self__, *,
+                 size_in_gib: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] size_in_gib: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+        """
+        pulumi.set(__self__, "size_in_gib", size_in_gib)
+
+    @property
+    @pulumi.getter(name="sizeInGib")
+    def size_in_gib(self) -> pulumi.Input[int]:
+        """
+        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+        """
+        return pulumi.get(self, "size_in_gib")
+
+    @size_in_gib.setter
+    def size_in_gib(self, value: pulumi.Input[int]):
+        pulumi.set(self, "size_in_gib", value)
+
+
+@pulumi.input_type
 class TaskDefinitionInferenceAcceleratorArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
@@ -786,12 +811,14 @@ class TaskDefinitionVolumeArgs:
                  name: pulumi.Input[str],
                  docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']] = None,
                  efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']] = None,
+                 fsx_windows_file_server_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']] = None,
                  host_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the volume. This name is referenced in the `sourceVolume`
                parameter of container definition in the `mountPoints` section.
         :param pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
         :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param pulumi.Input[str] host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         """
         pulumi.set(__self__, "name", name)
@@ -799,6 +826,8 @@ class TaskDefinitionVolumeArgs:
             pulumi.set(__self__, "docker_volume_configuration", docker_volume_configuration)
         if efs_volume_configuration is not None:
             pulumi.set(__self__, "efs_volume_configuration", efs_volume_configuration)
+        if fsx_windows_file_server_volume_configuration is not None:
+            pulumi.set(__self__, "fsx_windows_file_server_volume_configuration", fsx_windows_file_server_volume_configuration)
         if host_path is not None:
             pulumi.set(__self__, "host_path", host_path)
 
@@ -838,6 +867,18 @@ class TaskDefinitionVolumeArgs:
     @efs_volume_configuration.setter
     def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']]):
         pulumi.set(self, "efs_volume_configuration", value)
+
+    @property
+    @pulumi.getter(name="fsxWindowsFileServerVolumeConfiguration")
+    def fsx_windows_file_server_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']]:
+        """
+        Configuration block for an FSX Windows File Server volume. Detailed below.
+        """
+        return pulumi.get(self, "fsx_windows_file_server_volume_configuration")
+
+    @fsx_windows_file_server_volume_configuration.setter
+    def fsx_windows_file_server_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']]):
+        pulumi.set(self, "fsx_windows_file_server_volume_configuration", value)
 
     @property
     @pulumi.getter(name="hostPath")
@@ -948,9 +989,9 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
                  transit_encryption: Optional[pulumi.Input[str]] = None,
                  transit_encryption_port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] file_system_id: ID of the EFS File System.
-        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs'] authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
-        :param pulumi.Input[str] root_directory: Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+        :param pulumi.Input[str] file_system_id: The Amazon FSx for Windows File Server file system ID to use.
+        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs'] authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param pulumi.Input[str] root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         :param pulumi.Input[str] transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         :param pulumi.Input[int] transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
         """
@@ -968,7 +1009,7 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
         """
-        ID of the EFS File System.
+        The Amazon FSx for Windows File Server file system ID to use.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -980,7 +1021,7 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
     @pulumi.getter(name="authorizationConfig")
     def authorization_config(self) -> Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs']]:
         """
-        Configuration block for authorization for the Amazon EFS file system. Detailed below.
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
         """
         return pulumi.get(self, "authorization_config")
 
@@ -992,7 +1033,7 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
     @pulumi.getter(name="rootDirectory")
     def root_directory(self) -> Optional[pulumi.Input[str]]:
         """
-        Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
+        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         """
         return pulumi.get(self, "root_directory")
 
@@ -1062,5 +1103,94 @@ class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs:
     @iam.setter
     def iam(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "iam", value)
+
+
+@pulumi.input_type
+class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 authorization_config: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'],
+                 file_system_id: pulumi.Input[str],
+                 root_directory: pulumi.Input[str]):
+        """
+        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'] authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param pulumi.Input[str] file_system_id: The Amazon FSx for Windows File Server file system ID to use.
+        :param pulumi.Input[str] root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
+        pulumi.set(__self__, "authorization_config", authorization_config)
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        pulumi.set(__self__, "root_directory", root_directory)
+
+    @property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs']:
+        """
+        Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        """
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs']):
+        pulumi.set(self, "authorization_config", value)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The Amazon FSx for Windows File Server file system ID to use.
+        """
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="rootDirectory")
+    def root_directory(self) -> pulumi.Input[str]:
+        """
+        The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+        """
+        return pulumi.get(self, "root_directory")
+
+    @root_directory.setter
+    def root_directory(self, value: pulumi.Input[str]):
+        pulumi.set(self, "root_directory", value)
+
+
+@pulumi.input_type
+class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 credentials_parameter: pulumi.Input[str],
+                 domain: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] credentials_parameter: The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        :param pulumi.Input[str] domain: A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+        pulumi.set(__self__, "domain", domain)
+
+    @property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> pulumi.Input[str]:
+        """
+        The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+    @credentials_parameter.setter
+    def credentials_parameter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "credentials_parameter", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Input[str]:
+        """
+        A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain", value)
 
 

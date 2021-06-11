@@ -8,29 +8,31 @@ import * as utilities from "../utilities";
  * Provides a resource to create a VPC NAT Gateway.
  *
  * ## Example Usage
+ * ### Public NAT
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const gw = new aws.ec2.NatGateway("gw", {
- *     allocationId: aws_eip.nat.id,
- *     subnetId: aws_subnet.example.id,
- * });
- * ```
- *
- * Usage with tags:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gw = new aws.ec2.NatGateway("gw", {
- *     allocationId: aws_eip.nat.id,
+ * const example = new aws.ec2.NatGateway("example", {
+ *     allocationId: aws_eip.example.id,
  *     subnetId: aws_subnet.example.id,
  *     tags: {
  *         Name: "gw NAT",
  *     },
+ * }, {
+ *     dependsOn: [aws_internet_gateway.example],
+ * });
+ * ```
+ * ### Private NAT
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.NatGateway("example", {
+ *     connectivityType: "private",
+ *     subnetId: aws_subnet.example.id,
  * });
  * ```
  *
@@ -71,9 +73,13 @@ export class NatGateway extends pulumi.CustomResource {
     }
 
     /**
-     * The Allocation ID of the Elastic IP address for the gateway.
+     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
      */
-    public readonly allocationId!: pulumi.Output<string>;
+    public readonly allocationId!: pulumi.Output<string | undefined>;
+    /**
+     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     */
+    public readonly connectivityType!: pulumi.Output<string | undefined>;
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
@@ -113,6 +119,7 @@ export class NatGateway extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NatGatewayState | undefined;
             inputs["allocationId"] = state ? state.allocationId : undefined;
+            inputs["connectivityType"] = state ? state.connectivityType : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
             inputs["publicIp"] = state ? state.publicIp : undefined;
@@ -121,13 +128,11 @@ export class NatGateway extends pulumi.CustomResource {
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NatGatewayArgs | undefined;
-            if ((!args || args.allocationId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'allocationId'");
-            }
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
             inputs["allocationId"] = args ? args.allocationId : undefined;
+            inputs["connectivityType"] = args ? args.connectivityType : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -147,9 +152,13 @@ export class NatGateway extends pulumi.CustomResource {
  */
 export interface NatGatewayState {
     /**
-     * The Allocation ID of the Elastic IP address for the gateway.
+     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
      */
     allocationId?: pulumi.Input<string>;
+    /**
+     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     */
+    connectivityType?: pulumi.Input<string>;
     /**
      * The ENI ID of the network interface created by the NAT gateway.
      */
@@ -181,9 +190,13 @@ export interface NatGatewayState {
  */
 export interface NatGatewayArgs {
     /**
-     * The Allocation ID of the Elastic IP address for the gateway.
+     * The Allocation ID of the Elastic IP address for the gateway. Required for `connectivityType` of `public`.
      */
-    allocationId: pulumi.Input<string>;
+    allocationId?: pulumi.Input<string>;
+    /**
+     * Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+     */
+    connectivityType?: pulumi.Input<string>;
     /**
      * The Subnet ID of the subnet in which to place the gateway.
      */

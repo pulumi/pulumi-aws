@@ -16,6 +16,7 @@ __all__ = ['ServerArgs', 'Server']
 class ServerArgs:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -31,6 +32,7 @@ class ServerArgs:
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
@@ -47,6 +49,8 @@ class ServerArgs:
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if endpoint_details is not None:
             pulumi.set(__self__, "endpoint_details", endpoint_details)
         if endpoint_type is not None:
@@ -83,6 +87,18 @@ class ServerArgs:
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter(name="endpointDetails")
@@ -231,6 +247,7 @@ class _ServerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
@@ -249,6 +266,7 @@ class _ServerState:
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -269,6 +287,8 @@ class _ServerState:
             pulumi.set(__self__, "arn", arn)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if endpoint_details is not None:
@@ -321,6 +341,18 @@ class _ServerState:
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter
@@ -494,6 +526,7 @@ class Server(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -595,6 +628,7 @@ class Server(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
@@ -716,6 +750,7 @@ class Server(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -741,6 +776,7 @@ class Server(pulumi.CustomResource):
             __props__ = ServerArgs.__new__(ServerArgs)
 
             __props__.__dict__["certificate"] = certificate
+            __props__.__dict__["domain"] = domain
             __props__.__dict__["endpoint_details"] = endpoint_details
             __props__.__dict__["endpoint_type"] = endpoint_type
             __props__.__dict__["force_destroy"] = force_destroy
@@ -768,6 +804,7 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate: Optional[pulumi.Input[str]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
             endpoint_type: Optional[pulumi.Input[str]] = None,
@@ -791,6 +828,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
+        :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
@@ -813,6 +851,7 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["domain"] = domain
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["endpoint_details"] = endpoint_details
         __props__.__dict__["endpoint_type"] = endpoint_type
@@ -844,6 +883,14 @@ class Server(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         """
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter

@@ -14,8 +14,10 @@ __all__ = ['QueueArgs', 'Queue']
 class QueueArgs:
     def __init__(__self__, *,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 deduplication_scope: Optional[pulumi.Input[str]] = None,
                  delay_seconds: Optional[pulumi.Input[int]] = None,
                  fifo_queue: Optional[pulumi.Input[bool]] = None,
+                 fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  max_message_size: Optional[pulumi.Input[int]] = None,
@@ -31,8 +33,10 @@ class QueueArgs:
         """
         The set of arguments for constructing a Queue resource.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+        :param pulumi.Input[str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         :param pulumi.Input[int] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        :param pulumi.Input[str] fifo_throughput_limit: Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         :param pulumi.Input[int] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[int] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
@@ -42,16 +46,20 @@ class QueueArgs:
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+        if deduplication_scope is not None:
+            pulumi.set(__self__, "deduplication_scope", deduplication_scope)
         if delay_seconds is not None:
             pulumi.set(__self__, "delay_seconds", delay_seconds)
         if fifo_queue is not None:
             pulumi.set(__self__, "fifo_queue", fifo_queue)
+        if fifo_throughput_limit is not None:
+            pulumi.set(__self__, "fifo_throughput_limit", fifo_throughput_limit)
         if kms_data_key_reuse_period_seconds is not None:
             pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
         if kms_master_key_id is not None:
@@ -90,6 +98,18 @@ class QueueArgs:
         pulumi.set(self, "content_based_deduplication", value)
 
     @property
+    @pulumi.getter(name="deduplicationScope")
+    def deduplication_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        """
+        return pulumi.get(self, "deduplication_scope")
+
+    @deduplication_scope.setter
+    def deduplication_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deduplication_scope", value)
+
+    @property
     @pulumi.getter(name="delaySeconds")
     def delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -112,6 +132,18 @@ class QueueArgs:
     @fifo_queue.setter
     def fifo_queue(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fifo_queue", value)
+
+    @property
+    @pulumi.getter(name="fifoThroughputLimit")
+    def fifo_throughput_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        """
+        return pulumi.get(self, "fifo_throughput_limit")
+
+    @fifo_throughput_limit.setter
+    def fifo_throughput_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fifo_throughput_limit", value)
 
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
@@ -225,7 +257,7 @@ class QueueArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -237,7 +269,7 @@ class QueueArgs:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider.
         """
         return pulumi.get(self, "tags_all")
 
@@ -263,8 +295,10 @@ class _QueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 deduplication_scope: Optional[pulumi.Input[str]] = None,
                  delay_seconds: Optional[pulumi.Input[int]] = None,
                  fifo_queue: Optional[pulumi.Input[bool]] = None,
+                 fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  max_message_size: Optional[pulumi.Input[int]] = None,
@@ -276,13 +310,16 @@ class _QueueState:
                  redrive_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
                  visibility_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Queue resources.
         :param pulumi.Input[str] arn: The ARN of the SQS queue
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+        :param pulumi.Input[str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         :param pulumi.Input[int] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        :param pulumi.Input[str] fifo_throughput_limit: Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         :param pulumi.Input[int] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[int] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
@@ -292,18 +329,23 @@ class _QueueState:
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[str] url: Same as `id`: The URL for the created Amazon SQS queue.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
+        if deduplication_scope is not None:
+            pulumi.set(__self__, "deduplication_scope", deduplication_scope)
         if delay_seconds is not None:
             pulumi.set(__self__, "delay_seconds", delay_seconds)
         if fifo_queue is not None:
             pulumi.set(__self__, "fifo_queue", fifo_queue)
+        if fifo_throughput_limit is not None:
+            pulumi.set(__self__, "fifo_throughput_limit", fifo_throughput_limit)
         if kms_data_key_reuse_period_seconds is not None:
             pulumi.set(__self__, "kms_data_key_reuse_period_seconds", kms_data_key_reuse_period_seconds)
         if kms_master_key_id is not None:
@@ -326,6 +368,8 @@ class _QueueState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
         if visibility_timeout_seconds is not None:
             pulumi.set(__self__, "visibility_timeout_seconds", visibility_timeout_seconds)
 
@@ -354,6 +398,18 @@ class _QueueState:
         pulumi.set(self, "content_based_deduplication", value)
 
     @property
+    @pulumi.getter(name="deduplicationScope")
+    def deduplication_scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        """
+        return pulumi.get(self, "deduplication_scope")
+
+    @deduplication_scope.setter
+    def deduplication_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deduplication_scope", value)
+
+    @property
     @pulumi.getter(name="delaySeconds")
     def delay_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -376,6 +432,18 @@ class _QueueState:
     @fifo_queue.setter
     def fifo_queue(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fifo_queue", value)
+
+    @property
+    @pulumi.getter(name="fifoThroughputLimit")
+    def fifo_throughput_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        """
+        return pulumi.get(self, "fifo_throughput_limit")
+
+    @fifo_throughput_limit.setter
+    def fifo_throughput_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fifo_throughput_limit", value)
 
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
@@ -489,7 +557,7 @@ class _QueueState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -501,13 +569,25 @@ class _QueueState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider.
         """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Same as `id`: The URL for the created Amazon SQS queue.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="visibilityTimeoutSeconds")
@@ -528,8 +608,10 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 deduplication_scope: Optional[pulumi.Input[str]] = None,
                  delay_seconds: Optional[pulumi.Input[int]] = None,
                  fifo_queue: Optional[pulumi.Input[bool]] = None,
+                 fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  max_message_size: Optional[pulumi.Input[int]] = None,
@@ -575,6 +657,18 @@ class Queue(pulumi.CustomResource):
             fifo_queue=True)
         ```
 
+        ## High-throughput FIFO queue
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        terraform_queue = aws.sqs.Queue("terraformQueue",
+            deduplication_scope="messageGroup",
+            fifo_queue=True,
+            fifo_throughput_limit="perMessageGroupId")
+        ```
+
         ## Server-side encryption (SSE)
 
         ```python
@@ -597,8 +691,10 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+        :param pulumi.Input[str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         :param pulumi.Input[int] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        :param pulumi.Input[str] fifo_throughput_limit: Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         :param pulumi.Input[int] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[int] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
@@ -608,8 +704,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         ...
@@ -650,6 +746,18 @@ class Queue(pulumi.CustomResource):
             fifo_queue=True)
         ```
 
+        ## High-throughput FIFO queue
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        terraform_queue = aws.sqs.Queue("terraformQueue",
+            deduplication_scope="messageGroup",
+            fifo_queue=True,
+            fifo_throughput_limit="perMessageGroupId")
+        ```
+
         ## Server-side encryption (SSE)
 
         ```python
@@ -685,8 +793,10 @@ class Queue(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+                 deduplication_scope: Optional[pulumi.Input[str]] = None,
                  delay_seconds: Optional[pulumi.Input[int]] = None,
                  fifo_queue: Optional[pulumi.Input[bool]] = None,
+                 fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
                  kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  max_message_size: Optional[pulumi.Input[int]] = None,
@@ -712,8 +822,10 @@ class Queue(pulumi.CustomResource):
             __props__ = QueueArgs.__new__(QueueArgs)
 
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
+            __props__.__dict__["deduplication_scope"] = deduplication_scope
             __props__.__dict__["delay_seconds"] = delay_seconds
             __props__.__dict__["fifo_queue"] = fifo_queue
+            __props__.__dict__["fifo_throughput_limit"] = fifo_throughput_limit
             __props__.__dict__["kms_data_key_reuse_period_seconds"] = kms_data_key_reuse_period_seconds
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
             __props__.__dict__["max_message_size"] = max_message_size
@@ -727,6 +839,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["visibility_timeout_seconds"] = visibility_timeout_seconds
             __props__.__dict__["arn"] = None
+            __props__.__dict__["url"] = None
         super(Queue, __self__).__init__(
             'aws:sqs/queue:Queue',
             resource_name,
@@ -739,8 +852,10 @@ class Queue(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
+            deduplication_scope: Optional[pulumi.Input[str]] = None,
             delay_seconds: Optional[pulumi.Input[int]] = None,
             fifo_queue: Optional[pulumi.Input[bool]] = None,
+            fifo_throughput_limit: Optional[pulumi.Input[str]] = None,
             kms_data_key_reuse_period_seconds: Optional[pulumi.Input[int]] = None,
             kms_master_key_id: Optional[pulumi.Input[str]] = None,
             max_message_size: Optional[pulumi.Input[int]] = None,
@@ -752,6 +867,7 @@ class Queue(pulumi.CustomResource):
             redrive_policy: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            url: Optional[pulumi.Input[str]] = None,
             visibility_timeout_seconds: Optional[pulumi.Input[int]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
@@ -762,8 +878,10 @@ class Queue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SQS queue
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO queues. For more information, see the [related documentation](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing)
+        :param pulumi.Input[str] deduplication_scope: Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
         :param pulumi.Input[int] delay_seconds: The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
         :param pulumi.Input[bool] fifo_queue: Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
+        :param pulumi.Input[str] fifo_throughput_limit: Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
         :param pulumi.Input[int] kms_data_key_reuse_period_seconds: The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SQS or a custom CMK. For more information, see [Key Terms](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html#sqs-sse-key-terms).
         :param pulumi.Input[int] max_message_size: The limit of how many bytes a message can contain before Amazon SQS rejects it. An integer from 1024 bytes (1 KiB) up to 262144 bytes (256 KiB). The default for this attribute is 262144 (256 KiB).
@@ -773,8 +891,9 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] policy: The JSON policy for the SQS queue.
         :param pulumi.Input[int] receive_wait_time_seconds: The time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[str] redrive_policy: The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
+        :param pulumi.Input[str] url: Same as `id`: The URL for the created Amazon SQS queue.
         :param pulumi.Input[int] visibility_timeout_seconds: The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -783,8 +902,10 @@ class Queue(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["content_based_deduplication"] = content_based_deduplication
+        __props__.__dict__["deduplication_scope"] = deduplication_scope
         __props__.__dict__["delay_seconds"] = delay_seconds
         __props__.__dict__["fifo_queue"] = fifo_queue
+        __props__.__dict__["fifo_throughput_limit"] = fifo_throughput_limit
         __props__.__dict__["kms_data_key_reuse_period_seconds"] = kms_data_key_reuse_period_seconds
         __props__.__dict__["kms_master_key_id"] = kms_master_key_id
         __props__.__dict__["max_message_size"] = max_message_size
@@ -796,6 +917,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["redrive_policy"] = redrive_policy
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["url"] = url
         __props__.__dict__["visibility_timeout_seconds"] = visibility_timeout_seconds
         return Queue(resource_name, opts=opts, __props__=__props__)
 
@@ -816,6 +938,14 @@ class Queue(pulumi.CustomResource):
         return pulumi.get(self, "content_based_deduplication")
 
     @property
+    @pulumi.getter(name="deduplicationScope")
+    def deduplication_scope(self) -> pulumi.Output[str]:
+        """
+        Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+        """
+        return pulumi.get(self, "deduplication_scope")
+
+    @property
     @pulumi.getter(name="delaySeconds")
     def delay_seconds(self) -> pulumi.Output[Optional[int]]:
         """
@@ -830,6 +960,14 @@ class Queue(pulumi.CustomResource):
         Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
         """
         return pulumi.get(self, "fifo_queue")
+
+    @property
+    @pulumi.getter(name="fifoThroughputLimit")
+    def fifo_throughput_limit(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+        """
+        return pulumi.get(self, "fifo_throughput_limit")
 
     @property
     @pulumi.getter(name="kmsDataKeyReusePeriodSeconds")
@@ -907,7 +1045,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the queue. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -915,9 +1053,17 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        Same as `id`: The URL for the created Amazon SQS queue.
+        """
+        return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="visibilityTimeoutSeconds")
