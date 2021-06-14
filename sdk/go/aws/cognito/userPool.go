@@ -119,8 +119,12 @@ type UserPool struct {
 	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
 	// Date the user pool was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+	CustomDomain pulumi.StringOutput `pulumi:"customDomain"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
+	// Holds the domain prefix if the user pool has a domain associated with it.
+	Domain pulumi.StringOutput `pulumi:"domain"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrOutput `pulumi:"emailConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
@@ -129,6 +133,8 @@ type UserPool struct {
 	EmailVerificationSubject pulumi.StringOutput `pulumi:"emailVerificationSubject"`
 	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
+	// A number estimating the size of the user pool.
+	EstimatedNumberOfUsers pulumi.IntOutput `pulumi:"estimatedNumberOfUsers"`
 	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigOutput `pulumi:"lambdaConfig"`
 	// Date the user pool was last modified.
@@ -204,8 +210,12 @@ type userPoolState struct {
 	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
 	// Date the user pool was created.
 	CreationDate *string `pulumi:"creationDate"`
+	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+	CustomDomain *string `pulumi:"customDomain"`
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
+	// Holds the domain prefix if the user pool has a domain associated with it.
+	Domain *string `pulumi:"domain"`
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration *UserPoolEmailConfiguration `pulumi:"emailConfiguration"`
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
@@ -214,6 +224,8 @@ type userPoolState struct {
 	EmailVerificationSubject *string `pulumi:"emailVerificationSubject"`
 	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint *string `pulumi:"endpoint"`
+	// A number estimating the size of the user pool.
+	EstimatedNumberOfUsers *int `pulumi:"estimatedNumberOfUsers"`
 	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig *UserPoolLambdaConfig `pulumi:"lambdaConfig"`
 	// Date the user pool was last modified.
@@ -261,8 +273,12 @@ type UserPoolState struct {
 	AutoVerifiedAttributes pulumi.StringArrayInput
 	// Date the user pool was created.
 	CreationDate pulumi.StringPtrInput
+	// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+	CustomDomain pulumi.StringPtrInput
 	// Configuration block for the user pool's device tracking. Detailed below.
 	DeviceConfiguration UserPoolDeviceConfigurationPtrInput
+	// Holds the domain prefix if the user pool has a domain associated with it.
+	Domain pulumi.StringPtrInput
 	// Configuration block for configuring email. Detailed below.
 	EmailConfiguration UserPoolEmailConfigurationPtrInput
 	// String representing the email verification message. Conflicts with `verificationMessageTemplate` configuration block `emailMessage` argument.
@@ -271,6 +287,8 @@ type UserPoolState struct {
 	EmailVerificationSubject pulumi.StringPtrInput
 	// Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
 	Endpoint pulumi.StringPtrInput
+	// A number estimating the size of the user pool.
+	EstimatedNumberOfUsers pulumi.IntPtrInput
 	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
 	LambdaConfig UserPoolLambdaConfigPtrInput
 	// Date the user pool was last modified.

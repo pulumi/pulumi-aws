@@ -498,6 +498,46 @@ class GraphQLApi(pulumi.CustomResource):
             field_log_level="ERROR",
         ))
         ```
+        ### Associate Web ACL (v2)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            rules=[aws.wafv2.WebAclRuleArgs(
+                name="rule-1",
+                priority=1,
+                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
+                    block=[{}],
+                ),
+                statement=aws.wafv2.WebAclRuleStatementArgs(
+                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
+                        name="AWSManagedRulesCommonRuleSet",
+                        vendor_name="AWS",
+                    ),
+                ),
+                visibility_config={
+                    "cloudwatchMetricsEnabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampledRequestsEnabled": False,
+                },
+            )],
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            resource_arn=example_graph_ql_api.arn,
+            web_acl_arn=example_web_acl.arn)
+        ```
 
         ## Import
 
@@ -628,6 +668,46 @@ class GraphQLApi(pulumi.CustomResource):
             cloudwatch_logs_role_arn=example_role.arn,
             field_log_level="ERROR",
         ))
+        ```
+        ### Associate Web ACL (v2)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
+            description="Example of a managed rule.",
+            scope="REGIONAL",
+            default_action=aws.wafv2.WebAclDefaultActionArgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            ),
+            rules=[aws.wafv2.WebAclRuleArgs(
+                name="rule-1",
+                priority=1,
+                override_action=aws.wafv2.WebAclRuleOverrideActionArgs(
+                    block=[{}],
+                ),
+                statement=aws.wafv2.WebAclRuleStatementArgs(
+                    managed_rule_group_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs(
+                        name="AWSManagedRulesCommonRuleSet",
+                        vendor_name="AWS",
+                    ),
+                ),
+                visibility_config={
+                    "cloudwatchMetricsEnabled": False,
+                    "metric_name": "friendly-rule-metric-name",
+                    "sampledRequestsEnabled": False,
+                },
+            )],
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+                cloudwatch_metrics_enabled=False,
+                metric_name="friendly-metric-name",
+                sampled_requests_enabled=False,
+            ))
+        example_web_acl_association = aws.wafv2.WebAclAssociation("exampleWebAclAssociation",
+            resource_arn=example_graph_ql_api.arn,
+            web_acl_arn=example_web_acl.arn)
         ```
 
         ## Import

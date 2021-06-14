@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./accelerator";
 export * from "./endpointGroup";
+export * from "./getAccelerator";
 export * from "./listener";
 
 // Import resources to register:

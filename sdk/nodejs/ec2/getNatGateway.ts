@@ -93,6 +93,10 @@ export interface GetNatGatewayResult {
      * The Id of the EIP allocated to the selected Nat Gateway.
      */
     readonly allocationId: string;
+    /**
+     * The connectivity type of the NAT Gateway.
+     */
+    readonly connectivityType: string;
     readonly filters?: outputs.ec2.GetNatGatewayFilter[];
     readonly id: string;
     /**

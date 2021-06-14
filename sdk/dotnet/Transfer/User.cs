@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> HomeDirectory { get; private set; } = null!;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
         [Output("homeDirectoryMappings")]
         public Output<ImmutableArray<Outputs.UserHomeDirectoryMapping>> HomeDirectoryMappings { get; private set; } = null!;
@@ -126,6 +126,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// </summary>
+        [Output("posixProfile")]
+        public Output<Outputs.UserPosixProfile?> PosixProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
@@ -137,9 +143,15 @@ namespace Pulumi.Aws.Transfer
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -205,7 +217,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.UserHomeDirectoryMappingArgs>? _homeDirectoryMappings;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
         public InputList<Inputs.UserHomeDirectoryMappingArgs> HomeDirectoryMappings
         {
@@ -226,6 +238,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// </summary>
+        [Input("posixProfile")]
+        public Input<Inputs.UserPosixProfileArgs>? PosixProfile { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role", required: true)]
@@ -239,6 +257,10 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -247,6 +269,10 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -282,7 +308,7 @@ namespace Pulumi.Aws.Transfer
         private InputList<Inputs.UserHomeDirectoryMappingGetArgs>? _homeDirectoryMappings;
 
         /// <summary>
-        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. documented below.
+        /// Logical directory mappings that specify what S3 paths and keys should be visible to your user and how you want to make them visible. See Home Directory Mappings below.
         /// </summary>
         public InputList<Inputs.UserHomeDirectoryMappingGetArgs> HomeDirectoryMappings
         {
@@ -303,6 +329,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Policy { get; set; }
 
         /// <summary>
+        /// Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        /// </summary>
+        [Input("posixProfile")]
+        public Input<Inputs.UserPosixProfileGetArgs>? PosixProfile { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
@@ -316,6 +348,10 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -324,6 +360,10 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

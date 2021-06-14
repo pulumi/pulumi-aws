@@ -41,6 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             Description = "traffic mirror session - example",
     ///             NetworkInterfaceId = aws_instance.Test.Primary_network_interface_id,
+    ///             SessionNumber = 1,
     ///             TrafficMirrorFilterId = filter.Id,
     ///             TrafficMirrorTargetId = target.Id,
     ///         });

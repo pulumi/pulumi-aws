@@ -91,9 +91,11 @@ type LookupNatGatewayArgs struct {
 // A collection of values returned by getNatGateway.
 type LookupNatGatewayResult struct {
 	// The Id of the EIP allocated to the selected Nat Gateway.
-	AllocationId string                `pulumi:"allocationId"`
-	Filters      []GetNatGatewayFilter `pulumi:"filters"`
-	Id           string                `pulumi:"id"`
+	AllocationId string `pulumi:"allocationId"`
+	// The connectivity type of the NAT Gateway.
+	ConnectivityType string                `pulumi:"connectivityType"`
+	Filters          []GetNatGatewayFilter `pulumi:"filters"`
+	Id               string                `pulumi:"id"`
 	// The Id of the ENI allocated to the selected Nat Gateway.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// The private Ip address of the selected Nat Gateway.

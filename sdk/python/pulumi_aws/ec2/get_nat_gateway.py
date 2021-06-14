@@ -21,10 +21,13 @@ class GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
-    def __init__(__self__, allocation_id=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, state=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocation_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, state=None, subnet_id=None, tags=None, vpc_id=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
+        if connectivity_type and not isinstance(connectivity_type, str):
+            raise TypeError("Expected argument 'connectivity_type' to be a str")
+        pulumi.set(__self__, "connectivity_type", connectivity_type)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -60,6 +63,14 @@ class GetNatGatewayResult:
         The Id of the EIP allocated to the selected Nat Gateway.
         """
         return pulumi.get(self, "allocation_id")
+
+    @property
+    @pulumi.getter(name="connectivityType")
+    def connectivity_type(self) -> str:
+        """
+        The connectivity type of the NAT Gateway.
+        """
+        return pulumi.get(self, "connectivity_type")
 
     @property
     @pulumi.getter
@@ -123,6 +134,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             yield self
         return GetNatGatewayResult(
             allocation_id=self.allocation_id,
+            connectivity_type=self.connectivity_type,
             filters=self.filters,
             id=self.id,
             network_interface_id=self.network_interface_id,
@@ -191,6 +203,7 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
 
     return AwaitableGetNatGatewayResult(
         allocation_id=__ret__.allocation_id,
+        connectivity_type=__ret__.connectivity_type,
         filters=__ret__.filters,
         id=__ret__.id,
         network_interface_id=__ret__.network_interface_id,

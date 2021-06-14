@@ -19,13 +19,16 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, certificate=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, url=None):
+    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if certificate and not isinstance(certificate, str):
             raise TypeError("Expected argument 'certificate' to be a str")
         pulumi.set(__self__, "certificate", certificate)
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -72,6 +75,14 @@ class GetServerResult:
         The ARN of any certificate.
         """
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        The domain of the storage system that is used for file transfers.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter
@@ -159,6 +170,7 @@ class AwaitableGetServerResult(GetServerResult):
         return GetServerResult(
             arn=self.arn,
             certificate=self.certificate,
+            domain=self.domain,
             endpoint=self.endpoint,
             endpoint_type=self.endpoint_type,
             id=self.id,
@@ -200,6 +212,7 @@ def get_server(server_id: Optional[str] = None,
     return AwaitableGetServerResult(
         arn=__ret__.arn,
         certificate=__ret__.certificate,
+        domain=__ret__.domain,
         endpoint=__ret__.endpoint,
         endpoint_type=__ret__.endpoint_type,
         id=__ret__.id,

@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Acmpca.Inputs
         [Input("s3BucketName", required: true)]
         public string S3BucketName { get; set; } = null!;
 
+        [Input("s3ObjectAcl", required: true)]
+        public string S3ObjectAcl { get; set; } = null!;
+
         public GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs()
         {
         }

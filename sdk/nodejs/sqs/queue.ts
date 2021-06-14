@@ -37,6 +37,19 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## High-throughput FIFO queue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ *     deduplicationScope: "messageGroup",
+ *     fifoQueue: true,
+ *     fifoThroughputLimit: "perMessageGroupId",
+ * });
+ * ```
+ *
  * ## Server-side encryption (SSE)
  *
  * ```typescript
@@ -94,6 +107,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly contentBasedDeduplication!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+     */
+    public readonly deduplicationScope!: pulumi.Output<string>;
+    /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
     public readonly delaySeconds!: pulumi.Output<number | undefined>;
@@ -101,6 +118,10 @@ export class Queue extends pulumi.CustomResource {
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      */
     public readonly fifoQueue!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+     */
+    public readonly fifoThroughputLimit!: pulumi.Output<string>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
@@ -138,13 +159,17 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the queue. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Same as `id`: The URL for the created Amazon SQS queue.
+     */
+    public /*out*/ readonly url!: pulumi.Output<string>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -165,8 +190,10 @@ export class Queue extends pulumi.CustomResource {
             const state = argsOrState as QueueState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
+            inputs["deduplicationScope"] = state ? state.deduplicationScope : undefined;
             inputs["delaySeconds"] = state ? state.delaySeconds : undefined;
             inputs["fifoQueue"] = state ? state.fifoQueue : undefined;
+            inputs["fifoThroughputLimit"] = state ? state.fifoThroughputLimit : undefined;
             inputs["kmsDataKeyReusePeriodSeconds"] = state ? state.kmsDataKeyReusePeriodSeconds : undefined;
             inputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
             inputs["maxMessageSize"] = state ? state.maxMessageSize : undefined;
@@ -178,12 +205,15 @@ export class Queue extends pulumi.CustomResource {
             inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            inputs["url"] = state ? state.url : undefined;
             inputs["visibilityTimeoutSeconds"] = state ? state.visibilityTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             inputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
+            inputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
             inputs["delaySeconds"] = args ? args.delaySeconds : undefined;
             inputs["fifoQueue"] = args ? args.fifoQueue : undefined;
+            inputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
             inputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
             inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
             inputs["maxMessageSize"] = args ? args.maxMessageSize : undefined;
@@ -197,6 +227,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -218,6 +249,10 @@ export interface QueueState {
      */
     contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
+     * Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+     */
+    deduplicationScope?: pulumi.Input<string>;
+    /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
     delaySeconds?: pulumi.Input<number>;
@@ -225,6 +260,10 @@ export interface QueueState {
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      */
     fifoQueue?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+     */
+    fifoThroughputLimit?: pulumi.Input<string>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
@@ -262,13 +301,17 @@ export interface QueueState {
      */
     redrivePolicy?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the queue. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Same as `id`: The URL for the created Amazon SQS queue.
+     */
+    url?: pulumi.Input<string>;
     /**
      * The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
      */
@@ -284,6 +327,10 @@ export interface QueueArgs {
      */
     contentBasedDeduplication?: pulumi.Input<boolean>;
     /**
+     * Specifies whether message deduplication occurs at the message group or queue level. Valid values are `messageGroup` and `queue` (default).
+     */
+    deduplicationScope?: pulumi.Input<string>;
+    /**
      * The time in seconds that the delivery of all messages in the queue will be delayed. An integer from 0 to 900 (15 minutes). The default for this attribute is 0 seconds.
      */
     delaySeconds?: pulumi.Input<number>;
@@ -291,6 +338,10 @@ export interface QueueArgs {
      * Boolean designating a FIFO queue. If not set, it defaults to `false` making it standard.
      */
     fifoQueue?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are `perQueue` (default) and `perMessageGroupId`.
+     */
+    fifoThroughputLimit?: pulumi.Input<string>;
     /**
      * The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling AWS KMS again. An integer representing seconds, between 60 seconds (1 minute) and 86,400 seconds (24 hours). The default is 300 (5 minutes).
      */
@@ -328,11 +379,11 @@ export interface QueueArgs {
      */
     redrivePolicy?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the queue. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

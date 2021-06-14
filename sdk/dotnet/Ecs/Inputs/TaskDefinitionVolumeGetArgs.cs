@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<Inputs.TaskDefinitionVolumeEfsVolumeConfigurationGetArgs>? EfsVolumeConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration block for an FSX Windows File Server volume. Detailed below.
+        /// </summary>
+        [Input("fsxWindowsFileServerVolumeConfiguration")]
+        public Input<Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationGetArgs>? FsxWindowsFileServerVolumeConfiguration { get; set; }
+
+        /// <summary>
         /// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         /// </summary>
         [Input("hostPath")]

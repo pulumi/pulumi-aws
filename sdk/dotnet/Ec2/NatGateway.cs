@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
     /// ## Example Usage
+    /// ### Public NAT
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -22,34 +23,39 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         var gw = new Aws.Ec2.NatGateway("gw", new Aws.Ec2.NatGatewayArgs
+    ///         var example = new Aws.Ec2.NatGateway("example", new Aws.Ec2.NatGatewayArgs
     ///         {
-    ///             AllocationId = aws_eip.Nat.Id,
-    ///             SubnetId = aws_subnet.Example.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// Usage with tags:
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var gw = new Aws.Ec2.NatGateway("gw", new Aws.Ec2.NatGatewayArgs
-    ///         {
-    ///             AllocationId = aws_eip.Nat.Id,
+    ///             AllocationId = aws_eip.Example.Id,
     ///             SubnetId = aws_subnet.Example.Id,
     ///             Tags = 
     ///             {
     ///                 { "Name", "gw NAT" },
     ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_internet_gateway.Example,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Private NAT
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.NatGateway("example", new Aws.Ec2.NatGatewayArgs
+    ///         {
+    ///             ConnectivityType = "private",
+    ///             SubnetId = aws_subnet.Example.Id,
     ///         });
     ///     }
     /// 
@@ -68,10 +74,16 @@ namespace Pulumi.Aws.Ec2
     public partial class NatGateway : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway.
+        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Output("allocationId")]
-        public Output<string> AllocationId { get; private set; } = null!;
+        public Output<string?> AllocationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// </summary>
+        [Output("connectivityType")]
+        public Output<string?> ConnectivityType { get; private set; } = null!;
 
         /// <summary>
         /// The ENI ID of the network interface created by the NAT gateway.
@@ -156,10 +168,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway.
+        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
         /// </summary>
-        [Input("allocationId", required: true)]
-        public Input<string> AllocationId { get; set; } = null!;
+        [Input("allocationId")]
+        public Input<string>? AllocationId { get; set; }
+
+        /// <summary>
+        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// </summary>
+        [Input("connectivityType")]
+        public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
         /// The Subnet ID of the subnet in which to place the gateway.
@@ -199,10 +217,16 @@ namespace Pulumi.Aws.Ec2
     public sealed class NatGatewayState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Allocation ID of the Elastic IP address for the gateway.
+        /// The Allocation ID of the Elastic IP address for the gateway. Required for `connectivity_type` of `public`.
         /// </summary>
         [Input("allocationId")]
         public Input<string>? AllocationId { get; set; }
+
+        /// <summary>
+        /// Connectivity type for the gateway. Valid values are `private` and `public`. Defaults to `public`.
+        /// </summary>
+        [Input("connectivityType")]
+        public Input<string>? ConnectivityType { get; set; }
 
         /// <summary>
         /// The ENI ID of the network interface created by the NAT gateway.

@@ -162,6 +162,12 @@ namespace Pulumi.Aws.Ec2
         [Input("netbiosNodeType")]
         public Input<string>? NetbiosNodeType { get; set; }
 
+        /// <summary>
+        /// The ID of the AWS account that owns the DHCP options set.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

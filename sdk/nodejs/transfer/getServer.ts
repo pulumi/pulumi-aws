@@ -56,6 +56,10 @@ export interface GetServerResult {
      */
     readonly certificate: string;
     /**
+     * The domain of the storage system that is used for file transfers.
+     */
+    readonly domain: string;
+    /**
      * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
      */
     readonly endpoint: string;

@@ -131,6 +131,8 @@ type TaskDefinition struct {
 	ContainerDefinitions pulumi.StringOutput `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
@@ -204,6 +206,8 @@ type taskDefinitionState struct {
 	ContainerDefinitions *string `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
@@ -243,6 +247,8 @@ type TaskDefinitionState struct {
 	ContainerDefinitions pulumi.StringPtrInput
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.
@@ -284,6 +290,8 @@ type taskDefinitionArgs struct {
 	ContainerDefinitions string `pulumi:"containerDefinitions"`
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu *string `pulumi:"cpu"`
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// A unique name for your task definition.
@@ -320,6 +328,8 @@ type TaskDefinitionArgs struct {
 	ContainerDefinitions pulumi.StringInput
 	// Number of cpu units used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
 	Cpu pulumi.StringPtrInput
+	// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
 	// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// A unique name for your task definition.

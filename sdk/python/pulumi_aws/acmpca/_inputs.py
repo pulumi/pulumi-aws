@@ -453,11 +453,13 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
                  custom_cname: str,
                  enabled: bool,
                  expiration_in_days: int,
-                 s3_bucket_name: str):
+                 s3_bucket_name: str,
+                 s3_object_acl: str):
         pulumi.set(__self__, "custom_cname", custom_cname)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        pulumi.set(__self__, "s3_object_acl", s3_object_acl)
 
     @property
     @pulumi.getter(name="customCname")
@@ -494,5 +496,14 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @s3_bucket_name.setter
     def s3_bucket_name(self, value: str):
         pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3ObjectAcl")
+    def s3_object_acl(self) -> str:
+        return pulumi.get(self, "s3_object_acl")
+
+    @s3_object_acl.setter
+    def s3_object_acl(self, value: str):
+        pulumi.set(self, "s3_object_acl", value)
 
 

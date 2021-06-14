@@ -141,10 +141,22 @@ namespace Pulumi.Aws.Cognito
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
+        /// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        /// </summary>
+        [Output("customDomain")]
+        public Output<string> CustomDomain { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
         [Output("deviceConfiguration")]
         public Output<Outputs.UserPoolDeviceConfiguration?> DeviceConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Holds the domain prefix if the user pool has a domain associated with it.
+        /// </summary>
+        [Output("domain")]
+        public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for configuring email. Detailed below.
@@ -169,6 +181,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// A number estimating the size of the user pool.
+        /// </summary>
+        [Output("estimatedNumberOfUsers")]
+        public Output<int> EstimatedNumberOfUsers { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
@@ -542,10 +560,22 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? CreationDate { get; set; }
 
         /// <summary>
+        /// A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        /// </summary>
+        [Input("customDomain")]
+        public Input<string>? CustomDomain { get; set; }
+
+        /// <summary>
         /// Configuration block for the user pool's device tracking. Detailed below.
         /// </summary>
         [Input("deviceConfiguration")]
         public Input<Inputs.UserPoolDeviceConfigurationGetArgs>? DeviceConfiguration { get; set; }
+
+        /// <summary>
+        /// Holds the domain prefix if the user pool has a domain associated with it.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
 
         /// <summary>
         /// Configuration block for configuring email. Detailed below.
@@ -570,6 +600,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// A number estimating the size of the user pool.
+        /// </summary>
+        [Input("estimatedNumberOfUsers")]
+        public Input<int>? EstimatedNumberOfUsers { get; set; }
 
         /// <summary>
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.

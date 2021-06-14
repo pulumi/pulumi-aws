@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ServerEndpointDetailsArgs',
     'UserHomeDirectoryMappingArgs',
+    'UserPosixProfileArgs',
 ]
 
 @pulumi.input_type
@@ -119,5 +120,58 @@ class UserHomeDirectoryMappingArgs:
     @target.setter
     def target(self, value: pulumi.Input[str]):
         pulumi.set(self, "target", value)
+
+
+@pulumi.input_type
+class UserPosixProfileArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int],
+                 secondary_gids: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None):
+        """
+        :param pulumi.Input[int] gid: The POSIX group ID used for all EFS operations by this user.
+        :param pulumi.Input[int] uid: The POSIX user ID used for all EFS operations by this user.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] secondary_gids: The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        """
+        The POSIX group ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        """
+        The POSIX user ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "secondary_gids")
+
+    @secondary_gids.setter
+    def secondary_gids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "secondary_gids", value)
 
 

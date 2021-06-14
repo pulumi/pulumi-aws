@@ -397,11 +397,14 @@ class _UserPoolState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
+                 custom_domain: Optional[pulumi.Input[str]] = None,
                  device_configuration: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']] = None,
+                 domain: Optional[pulumi.Input[str]] = None,
                  email_configuration: Optional[pulumi.Input['UserPoolEmailConfigurationArgs']] = None,
                  email_verification_message: Optional[pulumi.Input[str]] = None,
                  email_verification_subject: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
+                 estimated_number_of_users: Optional[pulumi.Input[int]] = None,
                  lambda_config: Optional[pulumi.Input['UserPoolLambdaConfigArgs']] = None,
                  last_modified_date: Optional[pulumi.Input[str]] = None,
                  mfa_configuration: Optional[pulumi.Input[str]] = None,
@@ -426,11 +429,14 @@ class _UserPoolState:
         :param pulumi.Input[str] arn: ARN of the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         :param pulumi.Input[str] creation_date: Date the user pool was created.
+        :param pulumi.Input[str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
         :param pulumi.Input['UserPoolDeviceConfigurationArgs'] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
+        :param pulumi.Input[str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: Configuration block for configuring email. Detailed below.
         :param pulumi.Input[str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
+        :param pulumi.Input[int] estimated_number_of_users: A number estimating the size of the user pool.
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[str] last_modified_date: Date the user pool was last modified.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
@@ -460,8 +466,12 @@ class _UserPoolState:
             pulumi.set(__self__, "auto_verified_attributes", auto_verified_attributes)
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
+        if custom_domain is not None:
+            pulumi.set(__self__, "custom_domain", custom_domain)
         if device_configuration is not None:
             pulumi.set(__self__, "device_configuration", device_configuration)
+        if domain is not None:
+            pulumi.set(__self__, "domain", domain)
         if email_configuration is not None:
             pulumi.set(__self__, "email_configuration", email_configuration)
         if email_verification_message is not None:
@@ -470,6 +480,8 @@ class _UserPoolState:
             pulumi.set(__self__, "email_verification_subject", email_verification_subject)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
+        if estimated_number_of_users is not None:
+            pulumi.set(__self__, "estimated_number_of_users", estimated_number_of_users)
         if lambda_config is not None:
             pulumi.set(__self__, "lambda_config", lambda_config)
         if last_modified_date is not None:
@@ -576,6 +588,18 @@ class _UserPoolState:
         pulumi.set(self, "creation_date", value)
 
     @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @custom_domain.setter
+    def custom_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_domain", value)
+
+    @property
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]:
         """
@@ -586,6 +610,18 @@ class _UserPoolState:
     @device_configuration.setter
     def device_configuration(self, value: Optional[pulumi.Input['UserPoolDeviceConfigurationArgs']]):
         pulumi.set(self, "device_configuration", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Holds the domain prefix if the user pool has a domain associated with it.
+        """
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "domain", value)
 
     @property
     @pulumi.getter(name="emailConfiguration")
@@ -634,6 +670,18 @@ class _UserPoolState:
     @endpoint.setter
     def endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="estimatedNumberOfUsers")
+    def estimated_number_of_users(self) -> Optional[pulumi.Input[int]]:
+        """
+        A number estimating the size of the user pool.
+        """
+        return pulumi.get(self, "estimated_number_of_users")
+
+    @estimated_number_of_users.setter
+    def estimated_number_of_users(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "estimated_number_of_users", value)
 
     @property
     @pulumi.getter(name="lambdaConfig")
@@ -1080,7 +1128,10 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["verification_message_template"] = verification_message_template
             __props__.__dict__["arn"] = None
             __props__.__dict__["creation_date"] = None
+            __props__.__dict__["custom_domain"] = None
+            __props__.__dict__["domain"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["estimated_number_of_users"] = None
             __props__.__dict__["last_modified_date"] = None
         super(UserPool, __self__).__init__(
             'aws:cognito/userPool:UserPool',
@@ -1098,11 +1149,14 @@ class UserPool(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_verified_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
+            custom_domain: Optional[pulumi.Input[str]] = None,
             device_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
             email_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']]] = None,
             email_verification_message: Optional[pulumi.Input[str]] = None,
             email_verification_subject: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
+            estimated_number_of_users: Optional[pulumi.Input[int]] = None,
             lambda_config: Optional[pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']]] = None,
             last_modified_date: Optional[pulumi.Input[str]] = None,
             mfa_configuration: Optional[pulumi.Input[str]] = None,
@@ -1132,11 +1186,14 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the user pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: Attributes to be auto-verified. Valid values: `email`, `phone_number`.
         :param pulumi.Input[str] creation_date: Date the user pool was created.
+        :param pulumi.Input[str] custom_domain: A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
         :param pulumi.Input[pulumi.InputType['UserPoolDeviceConfigurationArgs']] device_configuration: Configuration block for the user pool's device tracking. Detailed below.
+        :param pulumi.Input[str] domain: Holds the domain prefix if the user pool has a domain associated with it.
         :param pulumi.Input[pulumi.InputType['UserPoolEmailConfigurationArgs']] email_configuration: Configuration block for configuring email. Detailed below.
         :param pulumi.Input[str] email_verification_message: String representing the email verification message. Conflicts with `verification_message_template` configuration block `email_message` argument.
         :param pulumi.Input[str] email_verification_subject: String representing the email verification subject. Conflicts with `verification_message_template` configuration block `email_subject` argument.
         :param pulumi.Input[str] endpoint: Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
+        :param pulumi.Input[int] estimated_number_of_users: A number estimating the size of the user pool.
         :param pulumi.Input[pulumi.InputType['UserPoolLambdaConfigArgs']] lambda_config: Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         :param pulumi.Input[str] last_modified_date: Date the user pool was last modified.
         :param pulumi.Input[str] mfa_configuration: Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `sms_configuration` or `software_token_mfa_configuration` to be configured).
@@ -1164,11 +1221,14 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_verified_attributes"] = auto_verified_attributes
         __props__.__dict__["creation_date"] = creation_date
+        __props__.__dict__["custom_domain"] = custom_domain
         __props__.__dict__["device_configuration"] = device_configuration
+        __props__.__dict__["domain"] = domain
         __props__.__dict__["email_configuration"] = email_configuration
         __props__.__dict__["email_verification_message"] = email_verification_message
         __props__.__dict__["email_verification_subject"] = email_verification_subject
         __props__.__dict__["endpoint"] = endpoint
+        __props__.__dict__["estimated_number_of_users"] = estimated_number_of_users
         __props__.__dict__["lambda_config"] = lambda_config
         __props__.__dict__["last_modified_date"] = last_modified_date
         __props__.__dict__["mfa_configuration"] = mfa_configuration
@@ -1236,12 +1296,28 @@ class UserPool(pulumi.CustomResource):
         return pulumi.get(self, "creation_date")
 
     @property
+    @pulumi.getter(name="customDomain")
+    def custom_domain(self) -> pulumi.Output[str]:
+        """
+        A custom domain name that you provide to Amazon Cognito. This parameter applies only if you use a custom domain to host the sign-up and sign-in pages for your application. For example: `auth.example.com`.
+        """
+        return pulumi.get(self, "custom_domain")
+
+    @property
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolDeviceConfiguration']]:
         """
         Configuration block for the user pool's device tracking. Detailed below.
         """
         return pulumi.get(self, "device_configuration")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[str]:
+        """
+        Holds the domain prefix if the user pool has a domain associated with it.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="emailConfiguration")
@@ -1274,6 +1350,14 @@ class UserPool(pulumi.CustomResource):
         Endpoint name of the user pool. Example format: `cognito-idp.REGION.amazonaws.com/xxxx_yyyyy`
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="estimatedNumberOfUsers")
+    def estimated_number_of_users(self) -> pulumi.Output[int]:
+        """
+        A number estimating the size of the user pool.
+        """
+        return pulumi.get(self, "estimated_number_of_users")
 
     @property
     @pulumi.getter(name="lambdaConfig")

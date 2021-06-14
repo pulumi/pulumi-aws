@@ -3656,6 +3656,8 @@ func Provider() tfbridge.ProviderInfo {
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			"aws_acmpca_certificate":           {Tok: awsDataSource(acmpcaMod, "getCertificate")},
+			// AppMesh
+			"aws_appmesh_mesh": {Tok: awsDataSource(appmeshMod, "getMesh")},
 			// API Gateway
 			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},
@@ -3841,6 +3843,8 @@ func Provider() tfbridge.ProviderInfo {
 			// ElastiCache
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
+			// Global Accelerator
+			"aws_globalaccelerator_accelerator": {Tok: awsDataSource(globalacceleratorMod, "getAccelerator")},
 			// Glue
 			"aws_glue_script":                           {Tok: awsDataSource(glueMod, "getScript")},
 			"aws_glue_connection":                       {Tok: awsDataSource(glueMod, "getConnection")},

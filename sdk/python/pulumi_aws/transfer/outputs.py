@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ServerEndpointDetails',
     'UserHomeDirectoryMapping',
+    'UserPosixProfile',
 ]
 
 @pulumi.output_type
@@ -118,5 +119,63 @@ class UserHomeDirectoryMapping(dict):
         Represents the map target.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class UserPosixProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPosixProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPosixProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPosixProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gid: int,
+                 uid: int,
+                 secondary_gids: Optional[Sequence[int]] = None):
+        """
+        :param int gid: The POSIX group ID used for all EFS operations by this user.
+        :param int uid: The POSIX user ID used for all EFS operations by this user.
+        :param Sequence[int] secondary_gids: The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> int:
+        """
+        The POSIX group ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "gid")
+
+    @property
+    @pulumi.getter
+    def uid(self) -> int:
+        """
+        The POSIX user ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "uid")
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[Sequence[int]]:
+        """
+        The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "secondary_gids")
 
 

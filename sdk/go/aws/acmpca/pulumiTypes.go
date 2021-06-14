@@ -1145,6 +1145,7 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	Enabled          bool   `pulumi:"enabled"`
 	ExpirationInDays int    `pulumi:"expirationInDays"`
 	S3BucketName     string `pulumi:"s3BucketName"`
+	S3ObjectAcl      string `pulumi:"s3ObjectAcl"`
 }
 
 // GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs and GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput values.
@@ -1163,6 +1164,7 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	Enabled          pulumi.BoolInput   `pulumi:"enabled"`
 	ExpirationInDays pulumi.IntInput    `pulumi:"expirationInDays"`
 	S3BucketName     pulumi.StringInput `pulumi:"s3BucketName"`
+	S3ObjectAcl      pulumi.StringInput `pulumi:"s3ObjectAcl"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs) ElementType() reflect.Type {
@@ -1230,6 +1232,10 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Ex
 
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3BucketName }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) S3ObjectAcl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.S3ObjectAcl }).(pulumi.StringOutput)
 }
 
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput struct{ *pulumi.OutputState }

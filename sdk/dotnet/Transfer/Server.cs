@@ -182,6 +182,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
+        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// </summary>
+        [Output("domain")]
+        public Output<string?> Domain { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
         /// </summary>
         [Output("endpoint")]
@@ -315,6 +321,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
+        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
+
+        /// <summary>
         /// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         /// </summary>
         [Input("endpointDetails")]
@@ -417,6 +429,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
+
+        /// <summary>
+        /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
+        /// </summary>
+        [Input("domain")]
+        public Input<string>? Domain { get; set; }
 
         /// <summary>
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)

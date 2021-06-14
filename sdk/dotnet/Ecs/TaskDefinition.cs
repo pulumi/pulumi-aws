@@ -198,6 +198,54 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
+    /// ### Example Using `fsx_windows_file_server_volume_configuration`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.SecretsManager.SecretVersion("test", new Aws.SecretsManager.SecretVersionArgs
+    ///         {
+    ///             SecretId = aws_secretsmanager_secret.Test.Id,
+    ///             SecretString = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "username", "admin" },
+    ///                 { "password", aws_directory_service_directory.Test.Password },
+    ///             }),
+    ///         });
+    ///         var service = new Aws.Ecs.TaskDefinition("service", new Aws.Ecs.TaskDefinitionArgs
+    ///         {
+    ///             Family = "service",
+    ///             ContainerDefinitions = File.ReadAllText("task-definitions/service.json"),
+    ///             Volumes = 
+    ///             {
+    ///                 new Aws.Ecs.Inputs.TaskDefinitionVolumeArgs
+    ///                 {
+    ///                     Name = "service-storage",
+    ///                     FsxWindowsFileServerVolumeConfiguration = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
+    ///                     {
+    ///                         FileSystemId = aws_fsx_windows_file_system.Test.Id,
+    ///                         RootDirectory = "\\data",
+    ///                         AuthorizationConfig = new Aws.Ecs.Inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
+    ///                         {
+    ///                             CredentialsParameter = test.Arn,
+    ///                             Domain = aws_directory_service_directory.Test.Name,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Example Using `container_definitions` and `inference_accelerator`
     /// 
     /// ```csharp
@@ -281,6 +329,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
+
+        /// <summary>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        /// </summary>
+        [Output("ephemeralStorage")]
+        public Output<Outputs.TaskDefinitionEphemeralStorage?> EphemeralStorage { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
@@ -431,6 +485,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.TaskDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
+
+        /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         /// </summary>
         [Input("executionRoleArn")]
@@ -574,6 +634,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
+
+        /// <summary>
+        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.TaskDefinitionEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
         /// ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.

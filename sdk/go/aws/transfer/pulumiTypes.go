@@ -304,9 +304,180 @@ func (o UserHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) UserHomeDi
 	}).(UserHomeDirectoryMappingOutput)
 }
 
+type UserPosixProfile struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid int `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid int `pulumi:"uid"`
+}
+
+// UserPosixProfileInput is an input type that accepts UserPosixProfileArgs and UserPosixProfileOutput values.
+// You can construct a concrete instance of `UserPosixProfileInput` via:
+//
+//          UserPosixProfileArgs{...}
+type UserPosixProfileInput interface {
+	pulumi.Input
+
+	ToUserPosixProfileOutput() UserPosixProfileOutput
+	ToUserPosixProfileOutputWithContext(context.Context) UserPosixProfileOutput
+}
+
+type UserPosixProfileArgs struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (UserPosixProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPosixProfile)(nil)).Elem()
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfileOutput() UserPosixProfileOutput {
+	return i.ToUserPosixProfileOutputWithContext(context.Background())
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfileOutputWithContext(ctx context.Context) UserPosixProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput)
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput).ToUserPosixProfilePtrOutputWithContext(ctx)
+}
+
+// UserPosixProfilePtrInput is an input type that accepts UserPosixProfileArgs, UserPosixProfilePtr and UserPosixProfilePtrOutput values.
+// You can construct a concrete instance of `UserPosixProfilePtrInput` via:
+//
+//          UserPosixProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type UserPosixProfilePtrInput interface {
+	pulumi.Input
+
+	ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput
+	ToUserPosixProfilePtrOutputWithContext(context.Context) UserPosixProfilePtrOutput
+}
+
+type userPosixProfilePtrType UserPosixProfileArgs
+
+func UserPosixProfilePtr(v *UserPosixProfileArgs) UserPosixProfilePtrInput {
+	return (*userPosixProfilePtrType)(v)
+}
+
+func (*userPosixProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPosixProfile)(nil)).Elem()
+}
+
+func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfilePtrOutput)
+}
+
+type UserPosixProfileOutput struct{ *pulumi.OutputState }
+
+func (UserPosixProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPosixProfile)(nil)).Elem()
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfileOutput() UserPosixProfileOutput {
+	return o
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfileOutputWithContext(ctx context.Context) UserPosixProfileOutput {
+	return o
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return o.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return o.ApplyT(func(v UserPosixProfile) *UserPosixProfile {
+		return &v
+	}).(UserPosixProfilePtrOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o UserPosixProfileOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v UserPosixProfile) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o UserPosixProfileOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v UserPosixProfile) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o UserPosixProfileOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v UserPosixProfile) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type UserPosixProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPosixProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPosixProfile)(nil)).Elem()
+}
+
+func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return o
+}
+
+func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return o
+}
+
+func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
+	return o.ApplyT(func(v *UserPosixProfile) UserPosixProfile { return *v }).(UserPosixProfileOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPosixProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *UserPosixProfile) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryGids
+	}).(pulumi.IntArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPosixProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingArrayOutput{})
+	pulumi.RegisterOutputType(UserPosixProfileOutput{})
+	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
 }

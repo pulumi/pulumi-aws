@@ -122,6 +122,7 @@ class GetCertificateAuthorityResult:
         * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
         * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+        * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
         """
         return pulumi.get(self, "revocation_configurations")
 
@@ -202,6 +203,7 @@ def get_certificate_authority(arn: Optional[str] = None,
            * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
            * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
            * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+           * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
     :param Mapping[str, str] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()

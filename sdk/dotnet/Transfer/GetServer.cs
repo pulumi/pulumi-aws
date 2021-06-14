@@ -69,6 +69,10 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string Certificate;
         /// <summary>
+        /// The domain of the storage system that is used for file transfers.
+        /// </summary>
+        public readonly string Domain;
+        /// <summary>
         /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
         /// </summary>
         public readonly string Endpoint;
@@ -112,6 +116,8 @@ namespace Pulumi.Aws.Transfer
 
             string certificate,
 
+            string domain,
+
             string endpoint,
 
             string endpointType,
@@ -134,6 +140,7 @@ namespace Pulumi.Aws.Transfer
         {
             Arn = arn;
             Certificate = certificate;
+            Domain = domain;
             Endpoint = endpoint;
             EndpointType = endpointType;
             Id = id;

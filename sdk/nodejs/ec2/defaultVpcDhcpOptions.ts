@@ -85,7 +85,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
     /**
      * The ID of the AWS account that owns the DHCP options set.
      */
-    public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    public readonly ownerId!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource.
      */
@@ -118,13 +118,13 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             const args = argsOrState as DefaultVpcDhcpOptionsArgs | undefined;
             inputs["netbiosNameServers"] = args ? args.netbiosNameServers : undefined;
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
+            inputs["ownerId"] = args ? args.ownerId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
             inputs["ntpServers"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -175,6 +175,10 @@ export interface DefaultVpcDhcpOptionsArgs {
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      */
     netbiosNodeType?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the DHCP options set.
+     */
+    ownerId?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

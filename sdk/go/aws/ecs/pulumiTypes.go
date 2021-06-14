@@ -1709,6 +1709,137 @@ func (o ServiceServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskDefinitionEphemeralStorage struct {
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	SizeInGib int `pulumi:"sizeInGib"`
+}
+
+// TaskDefinitionEphemeralStorageInput is an input type that accepts TaskDefinitionEphemeralStorageArgs and TaskDefinitionEphemeralStorageOutput values.
+// You can construct a concrete instance of `TaskDefinitionEphemeralStorageInput` via:
+//
+//          TaskDefinitionEphemeralStorageArgs{...}
+type TaskDefinitionEphemeralStorageInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput
+	ToTaskDefinitionEphemeralStorageOutputWithContext(context.Context) TaskDefinitionEphemeralStorageOutput
+}
+
+type TaskDefinitionEphemeralStorageArgs struct {
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+	SizeInGib pulumi.IntInput `pulumi:"sizeInGib"`
+}
+
+func (TaskDefinitionEphemeralStorageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput {
+	return i.ToTaskDefinitionEphemeralStorageOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStorageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStorageOutput)
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return i.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionEphemeralStorageArgs) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStorageOutput).ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionEphemeralStoragePtrInput is an input type that accepts TaskDefinitionEphemeralStorageArgs, TaskDefinitionEphemeralStoragePtr and TaskDefinitionEphemeralStoragePtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionEphemeralStoragePtrInput` via:
+//
+//          TaskDefinitionEphemeralStorageArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionEphemeralStoragePtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput
+	ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Context) TaskDefinitionEphemeralStoragePtrOutput
+}
+
+type taskDefinitionEphemeralStoragePtrType TaskDefinitionEphemeralStorageArgs
+
+func TaskDefinitionEphemeralStoragePtr(v *TaskDefinitionEphemeralStorageArgs) TaskDefinitionEphemeralStoragePtrInput {
+	return (*taskDefinitionEphemeralStoragePtrType)(v)
+}
+
+func (*taskDefinitionEphemeralStoragePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (i *taskDefinitionEphemeralStoragePtrType) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return i.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionEphemeralStoragePtrType) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionEphemeralStoragePtrOutput)
+}
+
+type TaskDefinitionEphemeralStorageOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionEphemeralStorageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStorageOutput() TaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStorageOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStorageOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return o.ToTaskDefinitionEphemeralStoragePtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *TaskDefinitionEphemeralStorage {
+		return &v
+	}).(TaskDefinitionEphemeralStoragePtrOutput)
+}
+
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+func (o TaskDefinitionEphemeralStorageOutput) SizeInGib() pulumi.IntOutput {
+	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) int { return v.SizeInGib }).(pulumi.IntOutput)
+}
+
+type TaskDefinitionEphemeralStoragePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionEphemeralStoragePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionEphemeralStorage)(nil)).Elem()
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) ToTaskDefinitionEphemeralStoragePtrOutput() TaskDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
+	return o
+}
+
+func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralStorageOutput {
+	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) TaskDefinitionEphemeralStorage { return *v }).(TaskDefinitionEphemeralStorageOutput)
+}
+
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
+func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGib() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.SizeInGib
+	}).(pulumi.IntPtrOutput)
+}
+
 type TaskDefinitionInferenceAccelerator struct {
 	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
 	DeviceName string `pulumi:"deviceName"`
@@ -2095,6 +2226,8 @@ type TaskDefinitionVolume struct {
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration *TaskDefinitionVolumeEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
+	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	FsxWindowsFileServerVolumeConfiguration *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath *string `pulumi:"hostPath"`
 	// Name of the volume. This name is referenced in the `sourceVolume`
@@ -2118,6 +2251,8 @@ type TaskDefinitionVolumeArgs struct {
 	DockerVolumeConfiguration TaskDefinitionVolumeDockerVolumeConfigurationPtrInput `pulumi:"dockerVolumeConfiguration"`
 	// Configuration block for an EFS volume. Detailed below.
 	EfsVolumeConfiguration TaskDefinitionVolumeEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
+	// Configuration block for an FSX Windows File Server volume. Detailed below.
+	FsxWindowsFileServerVolumeConfiguration TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput `pulumi:"fsxWindowsFileServerVolumeConfiguration"`
 	// Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
 	HostPath pulumi.StringPtrInput `pulumi:"hostPath"`
 	// Name of the volume. This name is referenced in the `sourceVolume`
@@ -2188,6 +2323,13 @@ func (o TaskDefinitionVolumeOutput) EfsVolumeConfiguration() TaskDefinitionVolum
 	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeEfsVolumeConfiguration {
 		return v.EfsVolumeConfiguration
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
+}
+
+// Configuration block for an FSX Windows File Server volume. Detailed below.
+func (o TaskDefinitionVolumeOutput) FsxWindowsFileServerVolumeConfiguration() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolume) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+		return v.FsxWindowsFileServerVolumeConfiguration
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput)
 }
 
 // Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
@@ -2431,11 +2573,11 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Scope() pulumi.S
 }
 
 type TaskDefinitionVolumeEfsVolumeConfiguration struct {
-	// Configuration block for authorization for the Amazon EFS file system. Detailed below.
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 	AuthorizationConfig *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
-	// ID of the EFS File System.
+	// The Amazon FSx for Windows File Server file system ID to use.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 	RootDirectory *string `pulumi:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	TransitEncryption *string `pulumi:"transitEncryption"`
@@ -2455,11 +2597,11 @@ type TaskDefinitionVolumeEfsVolumeConfigurationInput interface {
 }
 
 type TaskDefinitionVolumeEfsVolumeConfigurationArgs struct {
-	// Configuration block for authorization for the Amazon EFS file system. Detailed below.
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 	AuthorizationConfig TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
-	// ID of the EFS File System.
+	// The Amazon FSx for Windows File Server file system ID to use.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 	RootDirectory pulumi.StringPtrInput `pulumi:"rootDirectory"`
 	// Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
 	TransitEncryption pulumi.StringPtrInput `pulumi:"transitEncryption"`
@@ -2544,19 +2686,19 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolume
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
 
-// Configuration block for authorization for the Amazon EFS file system. Detailed below.
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		return v.AuthorizationConfig
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// ID of the EFS File System.
+// The Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *string { return v.RootDirectory }).(pulumi.StringPtrOutput)
 }
@@ -2591,7 +2733,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) Elem() TaskDefiniti
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationOutput)
 }
 
-// Configuration block for authorization for the Amazon EFS file system. Detailed below.
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		if v == nil {
@@ -2601,7 +2743,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) AuthorizationConfig
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
 
-// ID of the EFS File System.
+// The Amazon FSx for Windows File Server file system ID to use.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
 		if v == nil {
@@ -2611,7 +2753,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) FileSystemId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorizationConfig`.
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) *string {
 		if v == nil {
@@ -2793,6 +2935,335 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfig TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig `pulumi:"authorizationConfig"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory string `pulumi:"rootDirectory"`
+}
+
+// TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput is an input type that accepts TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs and TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput` via:
+//
+//          TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{...}
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs struct {
+	// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+	AuthorizationConfig TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput `pulumi:"authorizationConfig"`
+	// The Amazon FSx for Windows File Server file system ID to use.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+	RootDirectory pulumi.StringInput `pulumi:"rootDirectory"`
+}
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput)
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput).ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput is an input type that accepts TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs, TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtr and TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput` via:
+//
+//          TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput
+}
+
+type taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrType TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs
+
+func TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtr(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput {
+	return (*taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrType)(v)
+}
+
+func (*taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrType) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrType) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput)
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+		return &v
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput)
+}
+
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) AuthorizationConfig() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		return v.AuthorizationConfig
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// The Amazon FSx for Windows File Server file system ID to use.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) RootDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) string { return v.RootDirectory }).(pulumi.StringOutput)
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Elem() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+		return *v
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput)
+}
+
+// Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) AuthorizationConfig() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationConfig
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+// The Amazon FSx for Windows File Server file system ID to use.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) RootDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootDirectory
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	CredentialsParameter string `pulumi:"credentialsParameter"`
+	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain string `pulumi:"domain"`
+}
+
+// TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput is an input type that accepts TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs and TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput` via:
+//
+//          TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{...}
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs struct {
+	// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+	CredentialsParameter pulumi.StringInput `pulumi:"credentialsParameter"`
+	// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+	Domain pulumi.StringInput `pulumi:"domain"`
+}
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput).ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrInput is an input type that accepts TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs, TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtr and TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrInput` via:
+//
+//          TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput
+	ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput
+}
+
+type taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrType TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs
+
+func TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtr(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrInput {
+	return (*taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrType)(v)
+}
+
+func (*taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return i.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrType) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		return &v
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
+}
+
+// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) CredentialsParameter() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
+		return v.CredentialsParameter
+	}).(pulumi.StringOutput)
+}
+
+// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) string {
+		return v.Domain
+	}).(pulumi.StringOutput)
+}
+
+type TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig)(nil)).Elem()
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) Elem() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+		return *v
+	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
+}
+
+// The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) CredentialsParameter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsParameter
+	}).(pulumi.StringPtrOutput)
+}
+
+// A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
+func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Domain
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterSetting struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
@@ -2918,6 +3389,8 @@ func init() {
 	pulumi.RegisterOutputType(ServicePlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesOutput{})
 	pulumi.RegisterOutputType(ServiceServiceRegistriesPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintOutput{})
@@ -2932,6 +3405,10 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
 }

@@ -60,6 +60,7 @@ namespace Pulumi.Aws.Acmpca
         /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
         /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+        /// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
         /// </summary>
         public List<Inputs.GetCertificateAuthorityRevocationConfigurationArgs> RevocationConfigurations
         {
@@ -120,6 +121,7 @@ namespace Pulumi.Aws.Acmpca
         /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
         /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
         /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+        /// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> RevocationConfigurations;
         /// <summary>
