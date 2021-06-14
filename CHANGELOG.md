@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.45.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.8.0 (2021-06-14)
+* Upgrade to v3.45.0 of the AWS Terraform Provider
 
 ## 4.7.0 (2021-06-04)
 * Upgrade to v3.44.0 of the AWS Terraform Provider
