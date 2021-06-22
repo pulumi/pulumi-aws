@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./gatewayRoute";
 export * from "./getMesh";
+export * from "./getVirtualService";
 export * from "./mesh";
 export * from "./route";
 export * from "./virtualGateway";

@@ -73,9 +73,6 @@ namespace Pulumi.Aws.Ebs
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
@@ -185,9 +182,6 @@ namespace Pulumi.Aws.Ebs
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -274,9 +268,6 @@ namespace Pulumi.Aws.Ebs
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
-        /// <summary>
-        /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 

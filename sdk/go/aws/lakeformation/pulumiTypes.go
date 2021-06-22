@@ -709,7 +709,7 @@ func (o PermissionsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
 type PermissionsTableWithColumns struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// List of column names for the table.
+	// Set of column names for the table.
 	ColumnNames []string `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName        string   `pulumi:"databaseName"`
@@ -733,7 +733,7 @@ type PermissionsTableWithColumnsInput interface {
 type PermissionsTableWithColumnsArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// List of column names for the table.
+	// Set of column names for the table.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName        pulumi.StringInput      `pulumi:"databaseName"`
@@ -825,7 +825,7 @@ func (o PermissionsTableWithColumnsOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// List of column names for the table.
+// Set of column names for the table.
 func (o PermissionsTableWithColumnsOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -876,7 +876,7 @@ func (o PermissionsTableWithColumnsPtrOutput) CatalogId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of column names for the table.
+// Set of column names for the table.
 func (o PermissionsTableWithColumnsPtrOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumns) []string {
 		if v == nil {
@@ -1340,11 +1340,11 @@ func (o GetPermissionsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 type GetPermissionsTableWithColumns struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
-	// List of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
+	// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
 	ColumnNames []string `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName string `pulumi:"databaseName"`
-	// List of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
+	// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
 	Name string `pulumi:"name"`
@@ -1366,11 +1366,11 @@ type GetPermissionsTableWithColumnsInput interface {
 type GetPermissionsTableWithColumnsArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
-	// List of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
+	// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
 	// Name of the database for the table with columns resource. Unique to the Data Catalog.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// List of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
+	// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 	// Name of the table resource.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1409,7 +1409,7 @@ func (o GetPermissionsTableWithColumnsOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) string { return v.CatalogId }).(pulumi.StringOutput)
 }
 
-// List of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
+// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
 func (o GetPermissionsTableWithColumnsOutput) ColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -1419,7 +1419,7 @@ func (o GetPermissionsTableWithColumnsOutput) DatabaseName() pulumi.StringOutput
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// List of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
+// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
 func (o GetPermissionsTableWithColumnsOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }

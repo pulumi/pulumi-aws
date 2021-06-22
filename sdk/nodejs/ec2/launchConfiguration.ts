@@ -154,14 +154,14 @@ export class LaunchConfiguration extends pulumi.CustomResource {
     public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name.
+     * this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * Creates a unique name beginning with the specified
      * prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The tenancy of the instance. Valid values are
      * `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
@@ -322,7 +322,7 @@ export interface LaunchConfigurationState {
     metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name.
+     * this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -416,7 +416,7 @@ export interface LaunchConfigurationArgs {
     metadataOptions?: pulumi.Input<inputs.ec2.LaunchConfigurationMetadataOptions>;
     /**
      * The name of the launch configuration. If you leave
-     * this blank, this provider will auto-generate a unique name.
+     * this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
      */
     name?: pulumi.Input<string>;
     /**

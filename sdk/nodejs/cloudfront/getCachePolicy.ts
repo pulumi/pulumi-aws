@@ -6,9 +6,9 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
+ * Use this data source to retrieve information about a CloudFront cache policy.
  *
- * The following example below creates a CloudFront cache policy.
+ * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

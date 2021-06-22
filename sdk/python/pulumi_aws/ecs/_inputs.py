@@ -11,6 +11,9 @@ from .. import _utilities
 __all__ = [
     'CapacityProviderAutoScalingGroupProviderArgs',
     'CapacityProviderAutoScalingGroupProviderManagedScalingArgs',
+    'ClusterConfigurationArgs',
+    'ClusterConfigurationExecuteCommandConfigurationArgs',
+    'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs',
     'ClusterDefaultCapacityProviderStrategyArgs',
     'ClusterSettingArgs',
     'ServiceCapacityProviderStrategyArgs',
@@ -172,6 +175,171 @@ class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
     @target_capacity.setter
     def target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "target_capacity", value)
+
+
+@pulumi.input_type
+class ClusterConfigurationArgs:
+    def __init__(__self__, *,
+                 execute_command_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration. Detailed below.
+        """
+        if execute_command_configuration is not None:
+            pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
+
+    @property
+    @pulumi.getter(name="executeCommandConfiguration")
+    def execute_command_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']]:
+        """
+        The details of the execute command configuration. Detailed below.
+        """
+        return pulumi.get(self, "execute_command_configuration")
+
+    @execute_command_configuration.setter
+    def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']]):
+        pulumi.set(self, "execute_command_configuration", value)
+
+
+@pulumi.input_type
+class ClusterConfigurationExecuteCommandConfigurationArgs:
+    def __init__(__self__, *,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 log_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']] = None,
+                 logging: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs'] log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        :param pulumi.Input[str] logging: The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if logging is not None:
+            pulumi.set(__self__, "logging", logging)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']]:
+        """
+        The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def logging(self) -> Optional[pulumi.Input[str]]:
+        """
+        The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+        """
+        return pulumi.get(self, "logging")
+
+    @logging.setter
+    def logging(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logging", value)
+
+
+@pulumi.input_type
+class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs:
+    def __init__(__self__, *,
+                 cloud_watch_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 cloud_watch_log_group_name: Optional[pulumi.Input[str]] = None,
+                 s3_bucket_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+                 s3_bucket_name: Optional[pulumi.Input[str]] = None,
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] cloud_watch_encryption_enabled: Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+        :param pulumi.Input[str] cloud_watch_log_group_name: The name of the CloudWatch log group to send logs to.
+        :param pulumi.Input[bool] s3_bucket_encryption_enabled: Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+        :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket to send logs to.
+        :param pulumi.Input[str] s3_key_prefix: An optional folder in the S3 bucket to place logs in.
+        """
+        if cloud_watch_encryption_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_encryption_enabled", cloud_watch_encryption_enabled)
+        if cloud_watch_log_group_name is not None:
+            pulumi.set(__self__, "cloud_watch_log_group_name", cloud_watch_log_group_name)
+        if s3_bucket_encryption_enabled is not None:
+            pulumi.set(__self__, "s3_bucket_encryption_enabled", s3_bucket_encryption_enabled)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+        if s3_key_prefix is not None:
+            pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+
+    @property
+    @pulumi.getter(name="cloudWatchEncryptionEnabled")
+    def cloud_watch_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+        """
+        return pulumi.get(self, "cloud_watch_encryption_enabled")
+
+    @cloud_watch_encryption_enabled.setter
+    def cloud_watch_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloud_watch_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogGroupName")
+    def cloud_watch_log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the CloudWatch log group to send logs to.
+        """
+        return pulumi.get(self, "cloud_watch_log_group_name")
+
+    @cloud_watch_log_group_name.setter
+    def cloud_watch_log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_log_group_name", value)
+
+    @property
+    @pulumi.getter(name="s3BucketEncryptionEnabled")
+    def s3_bucket_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+        """
+        return pulumi.get(self, "s3_bucket_encryption_enabled")
+
+    @s3_bucket_encryption_enabled.setter
+    def s3_bucket_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "s3_bucket_encryption_enabled", value)
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the S3 bucket to send logs to.
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+    @s3_bucket_name.setter
+    def s3_bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_name", value)
+
+    @property
+    @pulumi.getter(name="s3KeyPrefix")
+    def s3_key_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        An optional folder in the S3 bucket to place logs in.
+        """
+        return pulumi.get(self, "s3_key_prefix")
+
+    @s3_key_prefix.setter
+    def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key_prefix", value)
 
 
 @pulumi.input_type

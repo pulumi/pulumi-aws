@@ -30,6 +30,10 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string Namespace;
         /// <summary>
+        /// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+        /// </summary>
+        public readonly string? Unit;
+        /// <summary>
         /// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         /// </summary>
         public readonly string Value;
@@ -44,12 +48,15 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             string @namespace,
 
+            string? unit,
+
             string value)
         {
             DefaultValue = defaultValue;
             Dimensions = dimensions;
             Name = name;
             Namespace = @namespace;
+            Unit = unit;
             Value = value;
         }
     }

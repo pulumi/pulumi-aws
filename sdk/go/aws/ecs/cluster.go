@@ -39,6 +39,50 @@ import (
 // 	})
 // }
 // ```
+// ## Example W/Log Configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// 			Description:          pulumi.String("example"),
+// 			DeletionWindowInDays: pulumi.Int(7),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewCluster(ctx, "test", &ecs.ClusterArgs{
+// 			Configuration: &ecs.ClusterConfigurationArgs{
+// 				ExecuteCommandConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationArgs{
+// 					KmsKeyId: exampleKey.Arn,
+// 					Logging:  pulumi.String("OVERRIDE"),
+// 					LogConfiguration: &ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{
+// 						CloudWatchEncryptionEnabled: pulumi.Bool(true),
+// 						CloudWatchLogGroupName:      exampleLogGroup.Name,
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -54,6 +98,8 @@ type Cluster struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders pulumi.StringArrayOutput `pulumi:"capacityProviders"`
+	// The execute command configuration for the cluster. Detailed below.
+	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
@@ -97,6 +143,8 @@ type clusterState struct {
 	Arn *string `pulumi:"arn"`
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders []string `pulumi:"capacityProviders"`
+	// The execute command configuration for the cluster. Detailed below.
+	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
@@ -112,6 +160,8 @@ type ClusterState struct {
 	Arn pulumi.StringPtrInput
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders pulumi.StringArrayInput
+	// The execute command configuration for the cluster. Detailed below.
+	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.
@@ -129,6 +179,8 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders []string `pulumi:"capacityProviders"`
+	// The execute command configuration for the cluster. Detailed below.
+	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
 	// Name of the setting to manage. Valid values: `containerInsights`.
@@ -143,6 +195,8 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
 	CapacityProviders pulumi.StringArrayInput
+	// The execute command configuration for the cluster. Detailed below.
+	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
 	// Name of the setting to manage. Valid values: `containerInsights`.

@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'EfsLocationEc2Config',
     'LocationSmbMountOptions',
+    'NfsLocationMountOptions',
     'NfsLocationOnPremConfig',
     'S3LocationS3Config',
     'TaskExcludes',
@@ -81,6 +82,25 @@ class LocationSmbMountOptions(dict):
     def version(self) -> Optional[str]:
         """
         The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class NfsLocationMountOptions(dict):
+    def __init__(__self__, *,
+                 version: Optional[str] = None):
+        """
+        :param str version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
         """
         return pulumi.get(self, "version")
 

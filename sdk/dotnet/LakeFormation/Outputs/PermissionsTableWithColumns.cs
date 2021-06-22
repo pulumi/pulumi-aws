@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>
-        /// List of column names for the table.
+        /// Set of column names for the table.
         /// </summary>
         public readonly ImmutableArray<string> ColumnNames;
         /// <summary>

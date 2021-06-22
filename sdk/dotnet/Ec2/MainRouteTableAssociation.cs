@@ -9,37 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2
 {
-    /// <summary>
-    /// Provides a resource for managing the main routing table of a VPC.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var mainRouteTableAssociation = new Aws.Ec2.MainRouteTableAssociation("mainRouteTableAssociation", new Aws.Ec2.MainRouteTableAssociationArgs
-    ///         {
-    ///             VpcId = aws_vpc.Foo.Id,
-    ///             RouteTableId = aws_route_table.Bar.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ## Notes
-    /// 
-    /// On VPC creation, the AWS API always creates an initial Main Route Table. This
-    /// resource records the ID of that Route Table under `original_route_table_id`.
-    /// The "Delete" action for a `main_route_table_association` consists of resetting
-    /// this original table as the Main Route Table for the VPC. You'll see this
-    /// additional Route Table in the AWS console; it must remain intact in order for
-    /// the `main_route_table_association` delete to work properly.
-    /// </summary>
     [AwsResourceType("aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation")]
     public partial class MainRouteTableAssociation : Pulumi.CustomResource
     {

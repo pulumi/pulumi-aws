@@ -1258,13 +1258,15 @@ class LogMetricFilterMetricTransformationArgs:
                  namespace: pulumi.Input[str],
                  value: pulumi.Input[str],
                  default_value: Optional[pulumi.Input[str]] = None,
-                 dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 dimensions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
         :param pulumi.Input[str] namespace: The destination namespace of the CloudWatch metric.
         :param pulumi.Input[str] value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         :param pulumi.Input[str] default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        :param pulumi.Input[str] unit: The unit to assign to the metric. If you omit this, the unit is set as `None`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
@@ -1273,6 +1275,8 @@ class LogMetricFilterMetricTransformationArgs:
             pulumi.set(__self__, "default_value", default_value)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter
@@ -1333,6 +1337,18 @@ class LogMetricFilterMetricTransformationArgs:
     @dimensions.setter
     def dimensions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit to assign to the metric. If you omit this, the unit is set as `None`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
 
 
 @pulumi.input_type

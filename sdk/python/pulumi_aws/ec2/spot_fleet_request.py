@@ -25,6 +25,9 @@ class SpotFleetRequestArgs:
                  launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+                 on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -64,6 +67,9 @@ class SpotFleetRequestArgs:
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
+        :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -96,6 +102,12 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         if load_balancers is not None:
             pulumi.set(__self__, "load_balancers", load_balancers)
+        if on_demand_allocation_strategy is not None:
+            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+        if on_demand_max_total_price is not None:
+            pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
+        if on_demand_target_capacity is not None:
+            pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
@@ -255,6 +267,42 @@ class SpotFleetRequestArgs:
         pulumi.set(self, "load_balancers", value)
 
     @property
+    @pulumi.getter(name="onDemandAllocationStrategy")
+    def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        """
+        return pulumi.get(self, "on_demand_allocation_strategy")
+
+    @on_demand_allocation_strategy.setter
+    def on_demand_allocation_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_demand_allocation_strategy", value)
+
+    @property
+    @pulumi.getter(name="onDemandMaxTotalPrice")
+    def on_demand_max_total_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        """
+        return pulumi.get(self, "on_demand_max_total_price")
+
+    @on_demand_max_total_price.setter
+    def on_demand_max_total_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_demand_max_total_price", value)
+
+    @property
+    @pulumi.getter(name="onDemandTargetCapacity")
+    def on_demand_target_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        """
+        return pulumi.get(self, "on_demand_target_capacity")
+
+    @on_demand_target_capacity.setter
+    def on_demand_target_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_demand_target_capacity", value)
+
+    @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -391,6 +439,9 @@ class _SpotFleetRequestState:
                  launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationArgs']]]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+                 on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -429,6 +480,9 @@ class _SpotFleetRequestState:
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigArgs']]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
+        :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -467,6 +521,12 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "launch_template_configs", launch_template_configs)
         if load_balancers is not None:
             pulumi.set(__self__, "load_balancers", load_balancers)
+        if on_demand_allocation_strategy is not None:
+            pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
+        if on_demand_max_total_price is not None:
+            pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
+        if on_demand_target_capacity is not None:
+            pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
@@ -623,6 +683,42 @@ class _SpotFleetRequestState:
     @load_balancers.setter
     def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "load_balancers", value)
+
+    @property
+    @pulumi.getter(name="onDemandAllocationStrategy")
+    def on_demand_allocation_strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        """
+        return pulumi.get(self, "on_demand_allocation_strategy")
+
+    @on_demand_allocation_strategy.setter
+    def on_demand_allocation_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_demand_allocation_strategy", value)
+
+    @property
+    @pulumi.getter(name="onDemandMaxTotalPrice")
+    def on_demand_max_total_price(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        """
+        return pulumi.get(self, "on_demand_max_total_price")
+
+    @on_demand_max_total_price.setter
+    def on_demand_max_total_price(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "on_demand_max_total_price", value)
+
+    @property
+    @pulumi.getter(name="onDemandTargetCapacity")
+    def on_demand_target_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        """
+        return pulumi.get(self, "on_demand_target_capacity")
+
+    @on_demand_target_capacity.setter
+    def on_demand_target_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_demand_target_capacity", value)
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")
@@ -788,6 +884,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                  launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+                 on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -967,6 +1066,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
+        :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -1155,6 +1257,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                  launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
                  launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+                 on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+                 on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -1189,6 +1294,9 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["launch_specifications"] = launch_specifications
             __props__.__dict__["launch_template_configs"] = launch_template_configs
             __props__.__dict__["load_balancers"] = load_balancers
+            __props__.__dict__["on_demand_allocation_strategy"] = on_demand_allocation_strategy
+            __props__.__dict__["on_demand_max_total_price"] = on_demand_max_total_price
+            __props__.__dict__["on_demand_target_capacity"] = on_demand_target_capacity
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
             __props__.__dict__["spot_price"] = spot_price
@@ -1224,6 +1332,9 @@ class SpotFleetRequest(pulumi.CustomResource):
             launch_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchSpecificationArgs']]]]] = None,
             launch_template_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]]] = None,
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            on_demand_allocation_strategy: Optional[pulumi.Input[str]] = None,
+            on_demand_max_total_price: Optional[pulumi.Input[str]] = None,
+            on_demand_target_capacity: Optional[pulumi.Input[int]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
             spot_maintenance_strategies: Optional[pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']]] = None,
             spot_price: Optional[pulumi.Input[str]] = None,
@@ -1267,6 +1378,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                across different markets and instance types. Conflicts with `launch_template_config`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotFleetRequestLaunchTemplateConfigArgs']]]] launch_template_configs: Launch template configuration block. See Launch Template Configs below for more details. Conflicts with `launch_specification`. At least one of `launch_specification` or `launch_template_config` is required.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: A list of elastic load balancer names to add to the Spot fleet.
+        :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        :param pulumi.Input[int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
         :param pulumi.Input[bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[pulumi.InputType['SpotFleetRequestSpotMaintenanceStrategiesArgs']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -1299,6 +1413,9 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["launch_specifications"] = launch_specifications
         __props__.__dict__["launch_template_configs"] = launch_template_configs
         __props__.__dict__["load_balancers"] = load_balancers
+        __props__.__dict__["on_demand_allocation_strategy"] = on_demand_allocation_strategy
+        __props__.__dict__["on_demand_max_total_price"] = on_demand_max_total_price
+        __props__.__dict__["on_demand_target_capacity"] = on_demand_target_capacity
         __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
         __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
         __props__.__dict__["spot_price"] = spot_price
@@ -1404,6 +1521,30 @@ class SpotFleetRequest(pulumi.CustomResource):
         A list of elastic load balancer names to add to the Spot fleet.
         """
         return pulumi.get(self, "load_balancers")
+
+    @property
+    @pulumi.getter(name="onDemandAllocationStrategy")
+    def on_demand_allocation_strategy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        """
+        return pulumi.get(self, "on_demand_allocation_strategy")
+
+    @property
+    @pulumi.getter(name="onDemandMaxTotalPrice")
+    def on_demand_max_total_price(self) -> pulumi.Output[Optional[str]]:
+        """
+        The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        """
+        return pulumi.get(self, "on_demand_max_total_price")
+
+    @property
+    @pulumi.getter(name="onDemandTargetCapacity")
+    def on_demand_target_capacity(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        """
+        return pulumi.get(self, "on_demand_target_capacity")
 
     @property
     @pulumi.getter(name="replaceUnhealthyInstances")

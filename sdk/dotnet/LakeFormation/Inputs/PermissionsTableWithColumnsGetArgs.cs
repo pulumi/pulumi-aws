@@ -22,7 +22,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         private InputList<string>? _columnNames;
 
         /// <summary>
-        /// List of column names for the table.
+        /// Set of column names for the table.
         /// </summary>
         public InputList<string> ColumnNames
         {

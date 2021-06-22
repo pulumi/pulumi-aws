@@ -1111,6 +1111,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "budgets/budgetAction",
+  "fqn": "pulumi_aws.budgets",
+  "classes": {
+   "aws:budgets/budgetAction:BudgetAction": "BudgetAction"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cfg/aggregateAuthorization",
   "fqn": "pulumi_aws.cfg",
   "classes": {
@@ -5067,6 +5075,14 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/resolverEndpoint:ResolverEndpoint": "ResolverEndpoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53/resolverFirewallConfig",
+  "fqn": "pulumi_aws.route53",
+  "classes": {
+   "aws:route53/resolverFirewallConfig:ResolverFirewallConfig": "ResolverFirewallConfig"
   }
  },
  {

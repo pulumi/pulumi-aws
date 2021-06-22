@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Kms
         public Output<string?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
-        /// A valid policy JSON document.
+        /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// A valid policy JSON document.
+        /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// A valid policy JSON document.
+        /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

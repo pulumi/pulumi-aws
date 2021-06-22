@@ -66,6 +66,10 @@ export class NfsLocation extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Configuration block containing mount options used by DataSync to access the NFS Server.
+     */
+    public readonly mountOptions!: pulumi.Output<outputs.datasync.NfsLocationMountOptions | undefined>;
+    /**
      * Configuration block containing information for connecting to the NFS File System.
      */
     public readonly onPremConfig!: pulumi.Output<outputs.datasync.NfsLocationOnPremConfig>;
@@ -101,6 +105,7 @@ export class NfsLocation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NfsLocationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["mountOptions"] = state ? state.mountOptions : undefined;
             inputs["onPremConfig"] = state ? state.onPremConfig : undefined;
             inputs["serverHostname"] = state ? state.serverHostname : undefined;
             inputs["subdirectory"] = state ? state.subdirectory : undefined;
@@ -118,6 +123,7 @@ export class NfsLocation extends pulumi.CustomResource {
             if ((!args || args.subdirectory === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subdirectory'");
             }
+            inputs["mountOptions"] = args ? args.mountOptions : undefined;
             inputs["onPremConfig"] = args ? args.onPremConfig : undefined;
             inputs["serverHostname"] = args ? args.serverHostname : undefined;
             inputs["subdirectory"] = args ? args.subdirectory : undefined;
@@ -141,6 +147,10 @@ export interface NfsLocationState {
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration block containing mount options used by DataSync to access the NFS Server.
+     */
+    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */
@@ -168,6 +178,10 @@ export interface NfsLocationState {
  * The set of arguments for constructing a NfsLocation resource.
  */
 export interface NfsLocationArgs {
+    /**
+     * Configuration block containing mount options used by DataSync to access the NFS Server.
+     */
+    mountOptions?: pulumi.Input<inputs.datasync.NfsLocationMountOptions>;
     /**
      * Configuration block containing information for connecting to the NFS File System.
      */

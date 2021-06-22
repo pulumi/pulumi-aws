@@ -59,8 +59,7 @@ type Volume struct {
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntOutput `pulumi:"iops"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	Iops     pulumi.IntOutput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
@@ -117,8 +116,7 @@ type volumeState struct {
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops *int `pulumi:"iops"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
@@ -144,8 +142,7 @@ type VolumeState struct {
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntPtrInput
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
@@ -173,8 +170,7 @@ type volumeArgs struct {
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops *int `pulumi:"iops"`
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
@@ -199,8 +195,7 @@ type VolumeArgs struct {
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
-	Iops pulumi.IntPtrInput
-	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
+	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput

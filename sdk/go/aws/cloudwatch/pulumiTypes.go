@@ -3629,6 +3629,8 @@ type LogMetricFilterMetricTransformation struct {
 	Name string `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
 	Namespace string `pulumi:"namespace"`
+	// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+	Unit *string `pulumi:"unit"`
 	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 	Value string `pulumi:"value"`
 }
@@ -3653,6 +3655,8 @@ type LogMetricFilterMetricTransformationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 	Value pulumi.StringInput `pulumi:"value"`
 }
@@ -3754,6 +3758,11 @@ func (o LogMetricFilterMetricTransformationOutput) Namespace() pulumi.StringOutp
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+func (o LogMetricFilterMetricTransformationOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
 // What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Value }).(pulumi.StringOutput)
@@ -3814,6 +3823,16 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Namespace() pulumi.StringP
 			return nil
 		}
 		return &v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+func (o LogMetricFilterMetricTransformationPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly int? OnDemandBaseCapacity;
         /// <summary>
-        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `0`.
+        /// Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         /// </summary>
         public readonly int? OnDemandPercentageAboveBaseCapacity;
         /// <summary>

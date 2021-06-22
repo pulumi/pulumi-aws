@@ -527,7 +527,7 @@ func (o GetPolicyDocumentStatementConditionArrayOutput) Index(i pulumi.IntInput)
 type GetPolicyDocumentStatementNotPrincipal struct {
 	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 	Type string `pulumi:"type"`
 }
 
@@ -545,7 +545,7 @@ type GetPolicyDocumentStatementNotPrincipalInput interface {
 type GetPolicyDocumentStatementNotPrincipalArgs struct {
 	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -605,7 +605,7 @@ func (o GetPolicyDocumentStatementNotPrincipalOutput) Identifiers() pulumi.Strin
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 func (o GetPolicyDocumentStatementNotPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementNotPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -633,7 +633,7 @@ func (o GetPolicyDocumentStatementNotPrincipalArrayOutput) Index(i pulumi.IntInp
 type GetPolicyDocumentStatementPrincipal struct {
 	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers []string `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 	Type string `pulumi:"type"`
 }
 
@@ -651,7 +651,7 @@ type GetPolicyDocumentStatementPrincipalInput interface {
 type GetPolicyDocumentStatementPrincipalArgs struct {
 	// List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
 	Identifiers pulumi.StringArrayInput `pulumi:"identifiers"`
-	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+	// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -711,7 +711,7 @@ func (o GetPolicyDocumentStatementPrincipalOutput) Identifiers() pulumi.StringAr
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) []string { return v.Identifiers }).(pulumi.StringArrayOutput)
 }
 
-// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
 func (o GetPolicyDocumentStatementPrincipalOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatementPrincipal) string { return v.Type }).(pulumi.StringOutput)
 }

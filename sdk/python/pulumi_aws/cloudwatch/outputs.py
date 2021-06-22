@@ -1369,13 +1369,15 @@ class LogMetricFilterMetricTransformation(dict):
                  namespace: str,
                  value: str,
                  default_value: Optional[str] = None,
-                 dimensions: Optional[Mapping[str, str]] = None):
+                 dimensions: Optional[Mapping[str, str]] = None,
+                 unit: Optional[str] = None):
         """
         :param str name: The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
         :param str namespace: The destination namespace of the CloudWatch metric.
         :param str value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         :param str default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
         :param Mapping[str, str] dimensions: Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+        :param str unit: The unit to assign to the metric. If you omit this, the unit is set as `None`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
@@ -1384,6 +1386,8 @@ class LogMetricFilterMetricTransformation(dict):
             pulumi.set(__self__, "default_value", default_value)
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
 
     @property
     @pulumi.getter
@@ -1424,6 +1428,14 @@ class LogMetricFilterMetricTransformation(dict):
         Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
         """
         return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        The unit to assign to the metric. If you omit this, the unit is set as `None`.
+        """
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

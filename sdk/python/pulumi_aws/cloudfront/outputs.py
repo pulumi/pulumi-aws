@@ -2823,17 +2823,27 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']):
+        """
+        :param str cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
+        """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         pulumi.set(__self__, "cookies", cookies)
 
     @property
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> str:
+        """
+        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        """
         return pulumi.get(self, "cookie_behavior")
 
     @property
     @pulumi.getter
     def cookies(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']:
+        """
+        Object that contains a list of cookie names. See Items for more information.
+        """
         return pulumi.get(self, "cookies")
 
 
@@ -2841,11 +2851,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
+        """
+        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Sequence[str]:
+        """
+        A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         return pulumi.get(self, "items")
 
 
@@ -2854,17 +2870,27 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(
     def __init__(__self__, *,
                  header_behavior: str,
                  headers: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']):
+        """
+        :param str header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs'] headers: Object that contains a list of header names. See Items for more information.
+        """
         pulumi.set(__self__, "header_behavior", header_behavior)
         pulumi.set(__self__, "headers", headers)
 
     @property
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> str:
+        """
+        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        """
         return pulumi.get(self, "header_behavior")
 
     @property
     @pulumi.getter
     def headers(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']:
+        """
+        Object that contains a list of header names. See Items for more information.
+        """
         return pulumi.get(self, "headers")
 
 
@@ -2872,11 +2898,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
+        """
+        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Sequence[str]:
+        """
+        A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         return pulumi.get(self, "items")
 
 
@@ -2885,17 +2917,27 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigRe
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']):
+        """
+        :param str query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs'] query_strings: Object that contains a list of query string names. See Items for more information.
+        """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         pulumi.set(__self__, "query_strings", query_strings)
 
     @property
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> str:
+        """
+        Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        """
         return pulumi.get(self, "query_string_behavior")
 
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']:
+        """
+        Object that contains a list of query string names. See Items for more information.
+        """
         return pulumi.get(self, "query_strings")
 
 
@@ -2903,11 +2945,17 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigRe
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
+        """
+        :param Sequence[str] items: A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Sequence[str]:
+        """
+        A list of item names (`cookies`, `headers`, or `query_strings`).
+        """
         return pulumi.get(self, "items")
 
 

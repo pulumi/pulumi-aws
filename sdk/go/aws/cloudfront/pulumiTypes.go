@@ -6855,8 +6855,10 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput) Index
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct {
-	CookieBehavior string                                                                      `pulumi:"cookieBehavior"`
-	Cookies        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie `pulumi:"cookies"`
+	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	CookieBehavior string `pulumi:"cookieBehavior"`
+	// Object that contains a list of cookie names. See Items for more information.
+	Cookies []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie `pulumi:"cookies"`
 }
 
 // GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput values.
@@ -6871,8 +6873,10 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput in
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs struct {
-	CookieBehavior pulumi.StringInput                                                                  `pulumi:"cookieBehavior"`
-	Cookies        GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput `pulumi:"cookies"`
+	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
+	// Object that contains a list of cookie names. See Items for more information.
+	Cookies GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput `pulumi:"cookies"`
 }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ElementType() reflect.Type {
@@ -6926,12 +6930,14 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutpu
 	return o
 }
 
+// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) string {
 		return v.CookieBehavior
 	}).(pulumi.StringOutput)
 }
 
+// Object that contains a list of cookie names. See Items for more information.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) Cookies() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie {
 		return v.Cookies
@@ -6959,6 +6965,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items []string `pulumi:"items"`
 }
 
@@ -6974,6 +6981,7 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieIn
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -7028,6 +7036,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCooki
 	return o
 }
 
+// A list of item names (`cookies`, `headers`, or `queryStrings`).
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie) []string {
 		return v.Items
@@ -7055,8 +7064,10 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCooki
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig struct {
-	HeaderBehavior string                                                                      `pulumi:"headerBehavior"`
-	Headers        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+	HeaderBehavior string `pulumi:"headerBehavior"`
+	// Object that contains a list of header names. See Items for more information.
+	Headers []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader `pulumi:"headers"`
 }
 
 // GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput values.
@@ -7071,8 +7082,10 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput in
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs struct {
-	HeaderBehavior pulumi.StringInput                                                                  `pulumi:"headerBehavior"`
-	Headers        GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput `pulumi:"headers"`
+	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
+	// Object that contains a list of header names. See Items for more information.
+	Headers GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput `pulumi:"headers"`
 }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ElementType() reflect.Type {
@@ -7126,12 +7139,14 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutpu
 	return o
 }
 
+// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) HeaderBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) string {
 		return v.HeaderBehavior
 	}).(pulumi.StringOutput)
 }
 
+// Object that contains a list of header names. See Items for more information.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) Headers() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader {
 		return v.Headers
@@ -7159,6 +7174,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items []string `pulumi:"items"`
 }
 
@@ -7174,6 +7190,7 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderIn
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -7228,6 +7245,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeade
 	return o
 }
 
+// A list of item names (`cookies`, `headers`, or `queryStrings`).
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader) []string {
 		return v.Items
@@ -7255,8 +7273,10 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeade
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig struct {
-	QueryStringBehavior string                                                                                `pulumi:"queryStringBehavior"`
-	QueryStrings        []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	QueryStringBehavior string `pulumi:"queryStringBehavior"`
+	// Object that contains a list of query string names. See Items for more information.
+	QueryStrings []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString `pulumi:"queryStrings"`
 }
 
 // GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput values.
@@ -7271,8 +7291,10 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInp
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs struct {
-	QueryStringBehavior pulumi.StringInput                                                                            `pulumi:"queryStringBehavior"`
-	QueryStrings        GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
+	// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
+	// Object that contains a list of query string names. See Items for more information.
+	QueryStrings GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
 }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ElementType() reflect.Type {
@@ -7326,12 +7348,14 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
 	return o
 }
 
+// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) string {
 		return v.QueryStringBehavior
 	}).(pulumi.StringOutput)
 }
 
+// Object that contains a list of query string names. See Items for more information.
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStrings() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString {
 		return v.QueryStrings
@@ -7359,6 +7383,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items []string `pulumi:"items"`
 }
 
@@ -7374,6 +7399,7 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs struct {
+	// A list of item names (`cookies`, `headers`, or `queryStrings`).
 	Items pulumi.StringArrayInput `pulumi:"items"`
 }
 
@@ -7428,6 +7454,7 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
 	return o
 }
 
+// A list of item names (`cookies`, `headers`, or `queryStrings`).
 func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString) []string {
 		return v.Items

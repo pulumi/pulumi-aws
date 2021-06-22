@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Iam.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Identifiers;
         /// <summary>
-        /// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+        /// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
         /// </summary>
         public readonly string Type;
 

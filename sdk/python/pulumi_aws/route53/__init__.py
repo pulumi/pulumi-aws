@@ -19,6 +19,7 @@ from .query_log import *
 from .record import *
 from .resolver_dns_sec_config import *
 from .resolver_endpoint import *
+from .resolver_firewall_config import *
 from .resolver_firewall_domain_list import *
 from .resolver_firewall_rule import *
 from .resolver_firewall_rule_group import *

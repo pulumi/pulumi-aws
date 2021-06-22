@@ -64,7 +64,7 @@ type Key struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrOutput `pulumi:"keyUsage"`
-	// A valid policy JSON document.
+	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy  pulumi.StringOutput    `pulumi:"policy"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -117,7 +117,7 @@ type keyState struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	// A valid policy JSON document.
+	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy  *string           `pulumi:"policy"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -142,7 +142,7 @@ type KeyState struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	// A valid policy JSON document.
+	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
@@ -167,7 +167,7 @@ type keyArgs struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
-	// A valid policy JSON document.
+	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy  *string           `pulumi:"policy"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -189,7 +189,7 @@ type KeyArgs struct {
 	// Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
-	// A valid policy JSON document.
+	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput

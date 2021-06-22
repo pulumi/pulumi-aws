@@ -51,7 +51,7 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name.
+               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
@@ -233,7 +233,7 @@ class LaunchConfigurationArgs:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name.
+        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -395,7 +395,7 @@ class _LaunchConfigurationState:
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input['LaunchConfigurationMetadataOptionsArgs'] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name.
+               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
@@ -593,7 +593,7 @@ class _LaunchConfigurationState:
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name.
+        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
@@ -826,7 +826,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name.
+               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
@@ -1042,7 +1042,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name that should be used for the instance.
         :param pulumi.Input[pulumi.InputType['LaunchConfigurationMetadataOptionsArgs']] metadata_options: The metadata options for the instance.
         :param pulumi.Input[str] name: The name of the launch configuration. If you leave
-               this blank, this provider will auto-generate a unique name.
+               this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_tenancy: The tenancy of the instance. Valid values are
@@ -1180,13 +1180,13 @@ class LaunchConfiguration(pulumi.CustomResource):
     def name(self) -> pulumi.Output[str]:
         """
         The name of the launch configuration. If you leave
-        this blank, this provider will auto-generate a unique name.
+        this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified
         prefix. Conflicts with `name`.

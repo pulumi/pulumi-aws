@@ -108,11 +108,11 @@ type LaunchConfiguration struct {
 	// The metadata options for the instance.
 	MetadataOptions LaunchConfigurationMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
-	// this blank, this provider will auto-generate a unique name.
+	// this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are
 	// `"default"` or `"dedicated"`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html)
 	// for more details
@@ -195,7 +195,7 @@ type launchConfigurationState struct {
 	// The metadata options for the instance.
 	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
-	// this blank, this provider will auto-generate a unique name.
+	// this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -248,7 +248,7 @@ type LaunchConfigurationState struct {
 	// The metadata options for the instance.
 	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave
-	// this blank, this provider will auto-generate a unique name.
+	// this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -303,7 +303,7 @@ type launchConfigurationArgs struct {
 	// The metadata options for the instance.
 	MetadataOptions *LaunchConfigurationMetadataOptions `pulumi:"metadataOptions"`
 	// The name of the launch configuration. If you leave
-	// this blank, this provider will auto-generate a unique name.
+	// this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
@@ -355,7 +355,7 @@ type LaunchConfigurationArgs struct {
 	// The metadata options for the instance.
 	MetadataOptions LaunchConfigurationMetadataOptionsPtrInput
 	// The name of the launch configuration. If you leave
-	// this blank, this provider will auto-generate a unique name.
+	// this blank, this provider will auto-generate a unique name. Conflicts with `namePrefix`.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
