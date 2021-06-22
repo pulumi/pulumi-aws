@@ -56,6 +56,8 @@ type NfsLocation struct {
 
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block containing mount options used by DataSync to access the NFS Server.
+	MountOptions NfsLocationMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigOutput `pulumi:"onPremConfig"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
@@ -109,6 +111,8 @@ func GetNfsLocation(ctx *pulumi.Context,
 type nfsLocationState struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn *string `pulumi:"arn"`
+	// Configuration block containing mount options used by DataSync to access the NFS Server.
+	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig *NfsLocationOnPremConfig `pulumi:"onPremConfig"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
@@ -125,6 +129,8 @@ type nfsLocationState struct {
 type NfsLocationState struct {
 	// Amazon Resource Name (ARN) of the DataSync Location.
 	Arn pulumi.StringPtrInput
+	// Configuration block containing mount options used by DataSync to access the NFS Server.
+	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigPtrInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
@@ -143,6 +149,8 @@ func (NfsLocationState) ElementType() reflect.Type {
 }
 
 type nfsLocationArgs struct {
+	// Configuration block containing mount options used by DataSync to access the NFS Server.
+	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfig `pulumi:"onPremConfig"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
@@ -157,6 +165,8 @@ type nfsLocationArgs struct {
 
 // The set of arguments for constructing a NfsLocation resource.
 type NfsLocationArgs struct {
+	// Configuration block containing mount options used by DataSync to access the NFS Server.
+	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.

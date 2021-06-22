@@ -21,6 +21,28 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * ## Example W/Log Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleKey = new aws.kms.Key("exampleKey", {
+ *     description: "example",
+ *     deletionWindowInDays: 7,
+ * });
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
+ * const test = new aws.ecs.Cluster("test", {configuration: {
+ *     executeCommandConfiguration: {
+ *         kmsKeyId: exampleKey.arn,
+ *         logging: "OVERRIDE",
+ *         logConfiguration: {
+ *             cloudWatchEncryptionEnabled: true,
+ *             cloudWatchLogGroupName: exampleLogGroup.name,
+ *         },
+ *     },
+ * }});
+ * ```
  *
  * ## Import
  *
@@ -67,6 +89,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly capacityProviders!: pulumi.Output<string[] | undefined>;
     /**
+     * The execute command configuration for the cluster. Detailed below.
+     */
+    public readonly configuration!: pulumi.Output<outputs.ecs.ClusterConfiguration | undefined>;
+    /**
      * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
     public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterDefaultCapacityProviderStrategy[] | undefined>;
@@ -96,6 +122,7 @@ export class Cluster extends pulumi.CustomResource {
             const state = argsOrState as ClusterState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capacityProviders"] = state ? state.capacityProviders : undefined;
+            inputs["configuration"] = state ? state.configuration : undefined;
             inputs["defaultCapacityProviderStrategies"] = state ? state.defaultCapacityProviderStrategies : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["settings"] = state ? state.settings : undefined;
@@ -104,6 +131,7 @@ export class Cluster extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             inputs["capacityProviders"] = args ? args.capacityProviders : undefined;
+            inputs["configuration"] = args ? args.configuration : undefined;
             inputs["defaultCapacityProviderStrategies"] = args ? args.defaultCapacityProviderStrategies : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["settings"] = args ? args.settings : undefined;
@@ -131,6 +159,10 @@ export interface ClusterState {
      */
     capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The execute command configuration for the cluster. Detailed below.
+     */
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
+    /**
      * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */
     defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
@@ -154,6 +186,10 @@ export interface ClusterArgs {
      * List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
      */
     capacityProviders?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The execute command configuration for the cluster. Detailed below.
+     */
+    configuration?: pulumi.Input<inputs.ecs.ClusterConfiguration>;
     /**
      * Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
      */

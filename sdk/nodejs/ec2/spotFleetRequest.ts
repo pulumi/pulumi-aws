@@ -237,6 +237,18 @@ export class SpotFleetRequest extends pulumi.CustomResource {
      */
     public readonly loadBalancers!: pulumi.Output<string[]>;
     /**
+     * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+     */
+    public readonly onDemandAllocationStrategy!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+     */
+    public readonly onDemandMaxTotalPrice!: pulumi.Output<string | undefined>;
+    /**
+     * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+     */
+    public readonly onDemandTargetCapacity!: pulumi.Output<number | undefined>;
+    /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
@@ -313,6 +325,9 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["launchSpecifications"] = state ? state.launchSpecifications : undefined;
             inputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            inputs["onDemandAllocationStrategy"] = state ? state.onDemandAllocationStrategy : undefined;
+            inputs["onDemandMaxTotalPrice"] = state ? state.onDemandMaxTotalPrice : undefined;
+            inputs["onDemandTargetCapacity"] = state ? state.onDemandTargetCapacity : undefined;
             inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             inputs["spotMaintenanceStrategies"] = state ? state.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = state ? state.spotPrice : undefined;
@@ -342,6 +357,9 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["launchSpecifications"] = args ? args.launchSpecifications : undefined;
             inputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            inputs["onDemandAllocationStrategy"] = args ? args.onDemandAllocationStrategy : undefined;
+            inputs["onDemandMaxTotalPrice"] = args ? args.onDemandMaxTotalPrice : undefined;
+            inputs["onDemandTargetCapacity"] = args ? args.onDemandTargetCapacity : undefined;
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             inputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
@@ -419,6 +437,18 @@ export interface SpotFleetRequestState {
      * A list of elastic load balancer names to add to the Spot fleet.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+     */
+    onDemandAllocationStrategy?: pulumi.Input<string>;
+    /**
+     * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+     */
+    onDemandMaxTotalPrice?: pulumi.Input<string>;
+    /**
+     * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+     */
+    onDemandTargetCapacity?: pulumi.Input<number>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */
@@ -529,6 +559,18 @@ export interface SpotFleetRequestArgs {
      * A list of elastic load balancer names to add to the Spot fleet.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+     */
+    onDemandAllocationStrategy?: pulumi.Input<string>;
+    /**
+     * The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+     */
+    onDemandMaxTotalPrice?: pulumi.Input<string>;
+    /**
+     * The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+     */
+    onDemandTargetCapacity?: pulumi.Input<number>;
     /**
      * Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
      */

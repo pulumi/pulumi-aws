@@ -76,9 +76,6 @@ export class Volume extends pulumi.CustomResource {
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     public readonly iops!: pulumi.Output<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-     */
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
@@ -179,9 +176,6 @@ export interface VolumeState {
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
@@ -227,9 +221,6 @@ export interface VolumeArgs {
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     iops?: pulumi.Input<number>;
-    /**
-     * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
-     */
     kmsKeyId?: pulumi.Input<string>;
     /**
      * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.

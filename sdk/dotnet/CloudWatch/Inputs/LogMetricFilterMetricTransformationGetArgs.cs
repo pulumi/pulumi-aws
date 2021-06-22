@@ -43,6 +43,12 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<string> Namespace { get; set; } = null!;
 
         /// <summary>
+        /// The unit to assign to the metric. If you omit this, the unit is set as `None`.
+        /// </summary>
+        [Input("unit")]
+        public Input<string>? Unit { get; set; }
+
+        /// <summary>
         /// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         /// </summary>
         [Input("value", required: true)]

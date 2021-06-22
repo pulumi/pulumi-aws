@@ -182,6 +182,10 @@ __all__ = [
     'VirtualServiceSpecProviderVirtualRouter',
     'GetMeshSpecResult',
     'GetMeshSpecEgressFilterResult',
+    'GetVirtualServiceSpecResult',
+    'GetVirtualServiceSpecProviderResult',
+    'GetVirtualServiceSpecProviderVirtualNodeResult',
+    'GetVirtualServiceSpecProviderVirtualRouterResult',
 ]
 
 @pulumi.output_type
@@ -6943,5 +6947,88 @@ class GetMeshSpecEgressFilterResult(dict):
         The egress filter type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetVirtualServiceSpecResult(dict):
+    def __init__(__self__, *,
+                 providers: Sequence['outputs.GetVirtualServiceSpecProviderResult']):
+        """
+        :param Sequence['GetVirtualServiceSpecProviderArgs'] providers: The App Mesh object that is acting as the provider for a virtual service.
+        """
+        pulumi.set(__self__, "providers", providers)
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Sequence['outputs.GetVirtualServiceSpecProviderResult']:
+        """
+        The App Mesh object that is acting as the provider for a virtual service.
+        """
+        return pulumi.get(self, "providers")
+
+
+@pulumi.output_type
+class GetVirtualServiceSpecProviderResult(dict):
+    def __init__(__self__, *,
+                 virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
+                 virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']):
+        """
+        :param Sequence['GetVirtualServiceSpecProviderVirtualNodeArgs'] virtual_nodes: The virtual node associated with the virtual service.
+        :param Sequence['GetVirtualServiceSpecProviderVirtualRouterArgs'] virtual_routers: The virtual router associated with the virtual service.
+        """
+        pulumi.set(__self__, "virtual_nodes", virtual_nodes)
+        pulumi.set(__self__, "virtual_routers", virtual_routers)
+
+    @property
+    @pulumi.getter(name="virtualNodes")
+    def virtual_nodes(self) -> Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult']:
+        """
+        The virtual node associated with the virtual service.
+        """
+        return pulumi.get(self, "virtual_nodes")
+
+    @property
+    @pulumi.getter(name="virtualRouters")
+    def virtual_routers(self) -> Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']:
+        """
+        The virtual router associated with the virtual service.
+        """
+        return pulumi.get(self, "virtual_routers")
+
+
+@pulumi.output_type
+class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
+    def __init__(__self__, *,
+                 virtual_node_name: str):
+        """
+        :param str virtual_node_name: The name of the virtual node that is acting as a service provider.
+        """
+        pulumi.set(__self__, "virtual_node_name", virtual_node_name)
+
+    @property
+    @pulumi.getter(name="virtualNodeName")
+    def virtual_node_name(self) -> str:
+        """
+        The name of the virtual node that is acting as a service provider.
+        """
+        return pulumi.get(self, "virtual_node_name")
+
+
+@pulumi.output_type
+class GetVirtualServiceSpecProviderVirtualRouterResult(dict):
+    def __init__(__self__, *,
+                 virtual_router_name: str):
+        """
+        :param str virtual_router_name: The name of the virtual router that is acting as a service provider.
+        """
+        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
+
+    @property
+    @pulumi.getter(name="virtualRouterName")
+    def virtual_router_name(self) -> str:
+        """
+        The name of the virtual router that is acting as a service provider.
+        """
+        return pulumi.get(self, "virtual_router_name")
 
 

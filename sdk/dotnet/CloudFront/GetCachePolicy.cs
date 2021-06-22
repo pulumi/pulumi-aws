@@ -12,11 +12,11 @@ namespace Pulumi.Aws.CloudFront
     public static class GetCachePolicy
     {
         /// <summary>
+        /// Use this data source to retrieve information about a CloudFront cache policy.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// 
-        /// The following example below creates a CloudFront cache policy.
         /// 
         /// ```csharp
         /// using Pulumi;

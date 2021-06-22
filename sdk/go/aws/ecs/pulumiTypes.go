@@ -390,6 +390,527 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) TargetC
 	}).(pulumi.IntPtrOutput)
 }
 
+type ClusterConfiguration struct {
+	// The details of the execute command configuration. Detailed below.
+	ExecuteCommandConfiguration *ClusterConfigurationExecuteCommandConfiguration `pulumi:"executeCommandConfiguration"`
+}
+
+// ClusterConfigurationInput is an input type that accepts ClusterConfigurationArgs and ClusterConfigurationOutput values.
+// You can construct a concrete instance of `ClusterConfigurationInput` via:
+//
+//          ClusterConfigurationArgs{...}
+type ClusterConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationOutput() ClusterConfigurationOutput
+	ToClusterConfigurationOutputWithContext(context.Context) ClusterConfigurationOutput
+}
+
+type ClusterConfigurationArgs struct {
+	// The details of the execute command configuration. Detailed below.
+	ExecuteCommandConfiguration ClusterConfigurationExecuteCommandConfigurationPtrInput `pulumi:"executeCommandConfiguration"`
+}
+
+func (ClusterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfiguration)(nil)).Elem()
+}
+
+func (i ClusterConfigurationArgs) ToClusterConfigurationOutput() ClusterConfigurationOutput {
+	return i.ToClusterConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationArgs) ToClusterConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationOutput)
+}
+
+func (i ClusterConfigurationArgs) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return i.ToClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationArgs) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationOutput).ToClusterConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterConfigurationPtrInput is an input type that accepts ClusterConfigurationArgs, ClusterConfigurationPtr and ClusterConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationPtrInput` via:
+//
+//          ClusterConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput
+	ToClusterConfigurationPtrOutputWithContext(context.Context) ClusterConfigurationPtrOutput
+}
+
+type clusterConfigurationPtrType ClusterConfigurationArgs
+
+func ClusterConfigurationPtr(v *ClusterConfigurationArgs) ClusterConfigurationPtrInput {
+	return (*clusterConfigurationPtrType)(v)
+}
+
+func (*clusterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfiguration)(nil)).Elem()
+}
+
+func (i *clusterConfigurationPtrType) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return i.ToClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterConfigurationPtrType) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationPtrOutput)
+}
+
+type ClusterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationOutput) ToClusterConfigurationOutput() ClusterConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationOutput) ToClusterConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return o.ToClusterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfiguration) *ClusterConfiguration {
+		return &v
+	}).(ClusterConfigurationPtrOutput)
+}
+
+// The details of the execute command configuration. Detailed below.
+func (o ClusterConfigurationOutput) ExecuteCommandConfiguration() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
+		return v.ExecuteCommandConfiguration
+	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
+}
+
+type ClusterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationPtrOutput) ToClusterConfigurationPtrOutput() ClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationPtrOutput) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationPtrOutput) Elem() ClusterConfigurationOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) ClusterConfiguration { return *v }).(ClusterConfigurationOutput)
+}
+
+// The details of the execute command configuration. Detailed below.
+func (o ClusterConfigurationPtrOutput) ExecuteCommandConfiguration() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ExecuteCommandConfiguration
+	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfiguration struct {
+	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+	LogConfiguration *ClusterConfigurationExecuteCommandConfigurationLogConfiguration `pulumi:"logConfiguration"`
+	// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+	Logging *string `pulumi:"logging"`
+}
+
+// ClusterConfigurationExecuteCommandConfigurationInput is an input type that accepts ClusterConfigurationExecuteCommandConfigurationArgs and ClusterConfigurationExecuteCommandConfigurationOutput values.
+// You can construct a concrete instance of `ClusterConfigurationExecuteCommandConfigurationInput` via:
+//
+//          ClusterConfigurationExecuteCommandConfigurationArgs{...}
+type ClusterConfigurationExecuteCommandConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationExecuteCommandConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationOutput
+	ToClusterConfigurationExecuteCommandConfigurationOutputWithContext(context.Context) ClusterConfigurationExecuteCommandConfigurationOutput
+}
+
+type ClusterConfigurationExecuteCommandConfigurationArgs struct {
+	// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+	LogConfiguration ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput `pulumi:"logConfiguration"`
+	// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+	Logging pulumi.StringPtrInput `pulumi:"logging"`
+}
+
+func (ClusterConfigurationExecuteCommandConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationOutput)
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationOutput).ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterConfigurationExecuteCommandConfigurationPtrInput is an input type that accepts ClusterConfigurationExecuteCommandConfigurationArgs, ClusterConfigurationExecuteCommandConfigurationPtr and ClusterConfigurationExecuteCommandConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationExecuteCommandConfigurationPtrInput` via:
+//
+//          ClusterConfigurationExecuteCommandConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterConfigurationExecuteCommandConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationExecuteCommandConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationPtrOutput
+	ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput
+}
+
+type clusterConfigurationExecuteCommandConfigurationPtrType ClusterConfigurationExecuteCommandConfigurationArgs
+
+func ClusterConfigurationExecuteCommandConfigurationPtr(v *ClusterConfigurationExecuteCommandConfigurationArgs) ClusterConfigurationExecuteCommandConfigurationPtrInput {
+	return (*clusterConfigurationExecuteCommandConfigurationPtrType)(v)
+}
+
+func (*clusterConfigurationExecuteCommandConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (i *clusterConfigurationExecuteCommandConfigurationPtrType) ToClusterConfigurationExecuteCommandConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterConfigurationExecuteCommandConfigurationPtrType) ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationExecuteCommandConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o.ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
+		return &v
+	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
+}
+
+// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) LogConfiguration() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+		return v.LogConfiguration
+	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
+}
+
+// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+func (o ClusterConfigurationExecuteCommandConfigurationOutput) Logging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *string { return v.Logging }).(pulumi.StringPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationExecuteCommandConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationExecuteCommandConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) ToClusterConfigurationExecuteCommandConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Elem() ClusterConfigurationExecuteCommandConfigurationOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) ClusterConfigurationExecuteCommandConfiguration {
+		return *v
+	}).(ClusterConfigurationExecuteCommandConfigurationOutput)
+}
+
+// The AWS Key Management Service key ID to encrypt the data between the local client and the container.
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) LogConfiguration() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
+}
+
+// The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
+func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Logging() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Logging
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfigurationLogConfiguration struct {
+	// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+	CloudWatchEncryptionEnabled *bool `pulumi:"cloudWatchEncryptionEnabled"`
+	// The name of the CloudWatch log group to send logs to.
+	CloudWatchLogGroupName *string `pulumi:"cloudWatchLogGroupName"`
+	// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+	S3BucketEncryptionEnabled *bool `pulumi:"s3BucketEncryptionEnabled"`
+	// The name of the S3 bucket to send logs to.
+	S3BucketName *string `pulumi:"s3BucketName"`
+	// An optional folder in the S3 bucket to place logs in.
+	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+}
+
+// ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput is an input type that accepts ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs and ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput values.
+// You can construct a concrete instance of `ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput` via:
+//
+//          ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{...}
+type ClusterConfigurationExecuteCommandConfigurationLogConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput
+	ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutputWithContext(context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput
+}
+
+type ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs struct {
+	// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+	CloudWatchEncryptionEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchEncryptionEnabled"`
+	// The name of the CloudWatch log group to send logs to.
+	CloudWatchLogGroupName pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupName"`
+	// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+	S3BucketEncryptionEnabled pulumi.BoolPtrInput `pulumi:"s3BucketEncryptionEnabled"`
+	// The name of the S3 bucket to send logs to.
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+	// An optional folder in the S3 bucket to place logs in.
+	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+}
+
+func (ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput)
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput).ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput is an input type that accepts ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs, ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtr and ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput` via:
+//
+//          ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
+	ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
+}
+
+type clusterConfigurationExecuteCommandConfigurationLogConfigurationPtrType ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
+
+func ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtr(v *ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrInput {
+	return (*clusterConfigurationExecuteCommandConfigurationLogConfigurationPtrType)(v)
+}
+
+func (*clusterConfigurationExecuteCommandConfigurationLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationExecuteCommandConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (i *clusterConfigurationExecuteCommandConfigurationLogConfigurationPtrType) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return i.ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterConfigurationExecuteCommandConfigurationLogConfigurationPtrType) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterConfigurationExecuteCommandConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o.ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+		return &v
+	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
+}
+
+// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
+		return v.CloudWatchEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the CloudWatch log group to send logs to.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3BucketEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
+		return v.S3BucketEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the S3 bucket to send logs to.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+}
+
+// An optional folder in the S3 bucket to place logs in.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
+}
+
+type ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterConfigurationExecuteCommandConfigurationLogConfiguration)(nil)).Elem()
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput() ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) Elem() ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+		return *v
+	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput)
+}
+
+// Whether or not to enable encryption on the CloudWatch logs. If not specified, encryption will be disabled.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) CloudWatchEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the CloudWatch log group to send logs to.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) CloudWatchLogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to enable encryption on the logs sent to S3. If not specified, encryption will be disabled.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3BucketEncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketEncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the S3 bucket to send logs to.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An optional folder in the S3 bucket to place logs in.
+func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterDefaultCapacityProviderStrategy struct {
 	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
 	Base *int `pulumi:"base"`
@@ -3369,6 +3890,12 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterDefaultCapacityProviderStrategyOutput{})
 	pulumi.RegisterOutputType(ClusterDefaultCapacityProviderStrategyArrayOutput{})
 	pulumi.RegisterOutputType(ClusterSettingOutput{})

@@ -16,6 +16,7 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
@@ -24,12 +25,15 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         """
         if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if default_capacity_provider_strategies is not None:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
@@ -52,6 +56,18 @@ class ClusterArgs:
     @capacity_providers.setter
     def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "capacity_providers", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+        """
+        The execute command configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
@@ -113,6 +129,7 @@ class _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
@@ -122,6 +139,7 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
@@ -130,6 +148,8 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
         if default_capacity_provider_strategies is not None:
             pulumi.set(__self__, "default_capacity_provider_strategies", default_capacity_provider_strategies)
         if name is not None:
@@ -164,6 +184,18 @@ class _ClusterState:
     @capacity_providers.setter
     def capacity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "capacity_providers", value)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+        """
+        The execute command configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
+        pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategies")
@@ -226,6 +258,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
@@ -246,6 +279,27 @@ class Cluster(pulumi.CustomResource):
             value="enabled",
         )])
         ```
+        ## Example W/Log Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey",
+            description="example",
+            deletion_window_in_days=7)
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
+            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+                kms_key_id=example_key.arn,
+                logging="OVERRIDE",
+                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                    cloud_watch_encryption_enabled=True,
+                    cloud_watch_log_group_name=example_log_group.name,
+                ),
+            ),
+        ))
+        ```
 
         ## Import
 
@@ -258,6 +312,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
@@ -281,6 +336,27 @@ class Cluster(pulumi.CustomResource):
             name="containerInsights",
             value="enabled",
         )])
+        ```
+        ## Example W/Log Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_key = aws.kms.Key("exampleKey",
+            description="example",
+            deletion_window_in_days=7)
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
+        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
+            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+                kms_key_id=example_key.arn,
+                logging="OVERRIDE",
+                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                    cloud_watch_encryption_enabled=True,
+                    cloud_watch_log_group_name=example_log_group.name,
+                ),
+            ),
+        ))
         ```
 
         ## Import
@@ -307,6 +383,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
                  default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
@@ -325,6 +402,7 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["capacity_providers"] = capacity_providers
+            __props__.__dict__["configuration"] = configuration
             __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
             __props__.__dict__["name"] = name
             __props__.__dict__["settings"] = settings
@@ -343,6 +421,7 @@ class Cluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             capacity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
             default_capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
@@ -357,6 +436,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capacity_providers: List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
@@ -367,6 +447,7 @@ class Cluster(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["capacity_providers"] = capacity_providers
+        __props__.__dict__["configuration"] = configuration
         __props__.__dict__["default_capacity_provider_strategies"] = default_capacity_provider_strategies
         __props__.__dict__["name"] = name
         __props__.__dict__["settings"] = settings
@@ -389,6 +470,14 @@ class Cluster(pulumi.CustomResource):
         List of short names of one or more capacity providers to associate with the cluster. Valid values also include `FARGATE` and `FARGATE_SPOT`.
         """
         return pulumi.get(self, "capacity_providers")
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Output[Optional['outputs.ClusterConfiguration']]:
+        """
+        The execute command configuration for the cluster. Detailed below.
+        """
+        return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="defaultCapacityProviderStrategies")

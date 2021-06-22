@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Iam.Inputs
         }
 
         /// <summary>
-        /// Type of principal. Valid values include `AWS`, `Service`, `Federated`, and `CanonicalUser`.
+        /// Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
         /// </summary>
         [Input("type", required: true)]
         public string Type { get; set; } = null!;

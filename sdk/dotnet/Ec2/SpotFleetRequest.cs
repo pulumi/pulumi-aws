@@ -304,6 +304,24 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
+        /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        /// </summary>
+        [Output("onDemandAllocationStrategy")]
+        public Output<string?> OnDemandAllocationStrategy { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        /// </summary>
+        [Output("onDemandMaxTotalPrice")]
+        public Output<string?> OnDemandMaxTotalPrice { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        /// </summary>
+        [Output("onDemandTargetCapacity")]
+        public Output<int?> OnDemandTargetCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         /// </summary>
         [Output("replaceUnhealthyInstances")]
@@ -514,6 +532,24 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        /// </summary>
+        [Input("onDemandAllocationStrategy")]
+        public Input<string>? OnDemandAllocationStrategy { get; set; }
+
+        /// <summary>
+        /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        /// </summary>
+        [Input("onDemandMaxTotalPrice")]
+        public Input<string>? OnDemandMaxTotalPrice { get; set; }
+
+        /// <summary>
+        /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        /// </summary>
+        [Input("onDemandTargetCapacity")]
+        public Input<int>? OnDemandTargetCapacity { get; set; }
+
+        /// <summary>
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         /// </summary>
         [Input("replaceUnhealthyInstances")]
@@ -698,6 +734,24 @@ namespace Pulumi.Aws.Ec2
             get => _loadBalancers ?? (_loadBalancers = new InputList<string>());
             set => _loadBalancers = value;
         }
+
+        /// <summary>
+        /// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+        /// </summary>
+        [Input("onDemandAllocationStrategy")]
+        public Input<string>? OnDemandAllocationStrategy { get; set; }
+
+        /// <summary>
+        /// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+        /// </summary>
+        [Input("onDemandMaxTotalPrice")]
+        public Input<string>? OnDemandMaxTotalPrice { get; set; }
+
+        /// <summary>
+        /// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        /// </summary>
+        [Input("onDemandTargetCapacity")]
+        public Input<int>? OnDemandTargetCapacity { get; set; }
 
         /// <summary>
         /// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.

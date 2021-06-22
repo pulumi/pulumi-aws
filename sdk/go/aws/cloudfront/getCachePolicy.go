@@ -7,9 +7,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
+// Use this data source to retrieve information about a CloudFront cache policy.
 //
-// The following example below creates a CloudFront cache policy.
+// ## Example Usage
 //
 // ```go
 // package main

@@ -125,9 +125,9 @@ def get_cache_policy(id: Optional[str] = None,
                      name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCachePolicyResult:
     """
-    ## Example Usage
+    Use this data source to retrieve information about a CloudFront cache policy.
 
-    The following example below creates a CloudFront cache policy.
+    ## Example Usage
 
     ```python
     import pulumi

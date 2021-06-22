@@ -59,6 +59,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block containing mount options used by DataSync to access the NFS Server.
+        /// </summary>
+        [Output("mountOptions")]
+        public Output<Outputs.NfsLocationMountOptions?> MountOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block containing information for connecting to the NFS File System.
         /// </summary>
         [Output("onPremConfig")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.DataSync
     public sealed class NfsLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block containing mount options used by DataSync to access the NFS Server.
+        /// </summary>
+        [Input("mountOptions")]
+        public Input<Inputs.NfsLocationMountOptionsArgs>? MountOptions { get; set; }
+
+        /// <summary>
         /// Configuration block containing information for connecting to the NFS File System.
         /// </summary>
         [Input("onPremConfig", required: true)]
@@ -191,6 +203,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration block containing mount options used by DataSync to access the NFS Server.
+        /// </summary>
+        [Input("mountOptions")]
+        public Input<Inputs.NfsLocationMountOptionsGetArgs>? MountOptions { get; set; }
 
         /// <summary>
         /// Configuration block containing information for connecting to the NFS File System.

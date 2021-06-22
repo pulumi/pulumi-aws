@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./budgetResourceAssociation";
 export * from "./constraint";
 export * from "./getConstraint";
+export * from "./getPortfolio";
 export * from "./organizationsAccess";
 export * from "./portfolio";
 export * from "./portfolioShare";

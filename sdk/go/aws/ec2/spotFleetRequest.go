@@ -259,6 +259,12 @@ type SpotFleetRequest struct {
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayOutput `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayOutput `pulumi:"loadBalancers"`
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+	OnDemandAllocationStrategy pulumi.StringPtrOutput `pulumi:"onDemandAllocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	OnDemandMaxTotalPrice pulumi.StringPtrOutput `pulumi:"onDemandMaxTotalPrice"`
+	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity pulumi.IntPtrOutput `pulumi:"onDemandTargetCapacity"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -359,6 +365,12 @@ type spotFleetRequestState struct {
 	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
+	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -425,6 +437,12 @@ type SpotFleetRequestState struct {
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+	OnDemandAllocationStrategy pulumi.StringPtrInput
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	OnDemandMaxTotalPrice pulumi.StringPtrInput
+	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity pulumi.IntPtrInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -494,6 +512,12 @@ type spotFleetRequestArgs struct {
 	LaunchTemplateConfigs []SpotFleetRequestLaunchTemplateConfig `pulumi:"launchTemplateConfigs"`
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers []string `pulumi:"loadBalancers"`
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+	OnDemandAllocationStrategy *string `pulumi:"onDemandAllocationStrategy"`
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	OnDemandMaxTotalPrice *string `pulumi:"onDemandMaxTotalPrice"`
+	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity *int `pulumi:"onDemandTargetCapacity"`
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
@@ -558,6 +582,12 @@ type SpotFleetRequestArgs struct {
 	LaunchTemplateConfigs SpotFleetRequestLaunchTemplateConfigArrayInput
 	// A list of elastic load balancer names to add to the Spot fleet.
 	LoadBalancers pulumi.StringArrayInput
+	// The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
+	OnDemandAllocationStrategy pulumi.StringPtrInput
+	// The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
+	OnDemandMaxTotalPrice pulumi.StringPtrInput
+	// The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+	OnDemandTargetCapacity pulumi.IntPtrInput
 	// Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
 	// Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.

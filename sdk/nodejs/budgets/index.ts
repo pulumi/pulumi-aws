@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./budget";
+export * from "./budgetAction";
 
 // Import resources to register:
 import { Budget } from "./budget";
+import { BudgetAction } from "./budgetAction";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:budgets/budget:Budget":
                 return new Budget(name, <any>undefined, { urn })
+            case "aws:budgets/budgetAction:BudgetAction":
+                return new BudgetAction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "budgets/budget", _module)
+pulumi.runtime.registerResourceModule("aws", "budgets/budgetAction", _module)

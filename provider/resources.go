@@ -675,7 +675,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_batch_job_definition":      {Tok: awsResource(batchMod, "JobDefinition")},
 			"aws_batch_job_queue":           {Tok: awsResource(batchMod, "JobQueue")},
 			// Budgets
-			"aws_budgets_budget": {Tok: awsResource(budgetsMod, "Budget")},
+			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
+			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -2093,6 +2094,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_route53_resolver_firewall_rule_group_association": {
 				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroupAssociation"),
 			},
+			"aws_route53_resolver_firewall_config": {Tok: awsResource(route53Mod, "ResolverFirewallConfig")},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
@@ -3657,7 +3659,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acmpca_certificate_authority": {Tok: awsDataSource(acmpcaMod, "getCertificateAuthority")},
 			"aws_acmpca_certificate":           {Tok: awsDataSource(acmpcaMod, "getCertificate")},
 			// AppMesh
-			"aws_appmesh_mesh": {Tok: awsDataSource(appmeshMod, "getMesh")},
+			"aws_appmesh_mesh":            {Tok: awsDataSource(appmeshMod, "getMesh")},
+			"aws_appmesh_virtual_service": {Tok: awsDataSource(appmeshMod, "getVirtualService")},
 			// API Gateway
 			"aws_api_gateway_api_key":     {Tok: awsDataSource(apigatewayMod, "getKey")},
 			"aws_api_gateway_resource":    {Tok: awsDataSource(apigatewayMod, "getResource")},
@@ -4051,6 +4054,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// servicecatalog
 			"aws_servicecatalog_constraint": {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
+			"aws_servicecatalog_portfolio":  {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
 
 			// LakeFormation
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},
@@ -4216,7 +4220,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0,<4.0.0", // https://www.python.org/dev/peps/pep-0440/#handling-of-pre-releases
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
@@ -4230,8 +4234,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*", // this will cover the alphas while we are in the testing phase
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: namespaceMap,
 		},

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name.
+        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Ec2
         /// prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The tenancy of the instance. Valid values are
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name.
+        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -504,7 +504,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The name of the launch configuration. If you leave
-        /// this blank, this provider will auto-generate a unique name.
+        /// this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

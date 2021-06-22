@@ -7,11 +7,354 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'BudgetActionActionThreshold',
+    'BudgetActionDefinition',
+    'BudgetActionDefinitionIamActionDefinition',
+    'BudgetActionDefinitionScpActionDefinition',
+    'BudgetActionDefinitionSsmActionDefinition',
+    'BudgetActionSubscriber',
     'BudgetCostTypes',
     'BudgetNotification',
 ]
+
+@pulumi.output_type
+class BudgetActionActionThreshold(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionThresholdType":
+            suggest = "action_threshold_type"
+        elif key == "actionThresholdValue":
+            suggest = "action_threshold_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionActionThreshold. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionActionThreshold.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionActionThreshold.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_threshold_type: str,
+                 action_threshold_value: float):
+        """
+        :param str action_threshold_type: The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+        :param float action_threshold_value: The threshold of a notification.
+        """
+        pulumi.set(__self__, "action_threshold_type", action_threshold_type)
+        pulumi.set(__self__, "action_threshold_value", action_threshold_value)
+
+    @property
+    @pulumi.getter(name="actionThresholdType")
+    def action_threshold_type(self) -> str:
+        """
+        The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+        """
+        return pulumi.get(self, "action_threshold_type")
+
+    @property
+    @pulumi.getter(name="actionThresholdValue")
+    def action_threshold_value(self) -> float:
+        """
+        The threshold of a notification.
+        """
+        return pulumi.get(self, "action_threshold_value")
+
+
+@pulumi.output_type
+class BudgetActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamActionDefinition":
+            suggest = "iam_action_definition"
+        elif key == "scpActionDefinition":
+            suggest = "scp_action_definition"
+        elif key == "ssmActionDefinition":
+            suggest = "ssm_action_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_action_definition: Optional['outputs.BudgetActionDefinitionIamActionDefinition'] = None,
+                 scp_action_definition: Optional['outputs.BudgetActionDefinitionScpActionDefinition'] = None,
+                 ssm_action_definition: Optional['outputs.BudgetActionDefinitionSsmActionDefinition'] = None):
+        """
+        :param 'BudgetActionDefinitionIamActionDefinitionArgs' iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
+        :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        """
+        if iam_action_definition is not None:
+            pulumi.set(__self__, "iam_action_definition", iam_action_definition)
+        if scp_action_definition is not None:
+            pulumi.set(__self__, "scp_action_definition", scp_action_definition)
+        if ssm_action_definition is not None:
+            pulumi.set(__self__, "ssm_action_definition", ssm_action_definition)
+
+    @property
+    @pulumi.getter(name="iamActionDefinition")
+    def iam_action_definition(self) -> Optional['outputs.BudgetActionDefinitionIamActionDefinition']:
+        """
+        The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        """
+        return pulumi.get(self, "iam_action_definition")
+
+    @property
+    @pulumi.getter(name="scpActionDefinition")
+    def scp_action_definition(self) -> Optional['outputs.BudgetActionDefinitionScpActionDefinition']:
+        """
+        The service control policies (SCPs) action definition details. See SCP Action Definition.
+        """
+        return pulumi.get(self, "scp_action_definition")
+
+    @property
+    @pulumi.getter(name="ssmActionDefinition")
+    def ssm_action_definition(self) -> Optional['outputs.BudgetActionDefinitionSsmActionDefinition']:
+        """
+        The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        """
+        return pulumi.get(self, "ssm_action_definition")
+
+
+@pulumi.output_type
+class BudgetActionDefinitionIamActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyArn":
+            suggest = "policy_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionDefinitionIamActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionDefinitionIamActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionDefinitionIamActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_arn: str,
+                 groups: Optional[Sequence[str]] = None,
+                 roles: Optional[Sequence[str]] = None,
+                 users: Optional[Sequence[str]] = None):
+        """
+        :param str policy_arn: The Amazon Resource Name (ARN) of the policy to be attached.
+        :param Sequence[str] groups: A list of groups to be attached. There must be at least one group.
+        :param Sequence[str] roles: A list of roles to be attached. There must be at least one role.
+        :param Sequence[str] users: A list of users to be attached. There must be at least one user.
+        """
+        pulumi.set(__self__, "policy_arn", policy_arn)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+        if users is not None:
+            pulumi.set(__self__, "users", users)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the policy to be attached.
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence[str]]:
+        """
+        A list of groups to be attached. There must be at least one group.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[str]]:
+        """
+        A list of roles to be attached. There must be at least one role.
+        """
+        return pulumi.get(self, "roles")
+
+    @property
+    @pulumi.getter
+    def users(self) -> Optional[Sequence[str]]:
+        """
+        A list of users to be attached. There must be at least one user.
+        """
+        return pulumi.get(self, "users")
+
+
+@pulumi.output_type
+class BudgetActionDefinitionScpActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyId":
+            suggest = "policy_id"
+        elif key == "targetIds":
+            suggest = "target_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionDefinitionScpActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionDefinitionScpActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionDefinitionScpActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_id: str,
+                 target_ids: Sequence[str]):
+        """
+        :param str policy_id: The policy ID attached.
+        :param Sequence[str] target_ids: A list of target IDs.
+        """
+        pulumi.set(__self__, "policy_id", policy_id)
+        pulumi.set(__self__, "target_ids", target_ids)
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> str:
+        """
+        The policy ID attached.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="targetIds")
+    def target_ids(self) -> Sequence[str]:
+        """
+        A list of target IDs.
+        """
+        return pulumi.get(self, "target_ids")
+
+
+@pulumi.output_type
+class BudgetActionDefinitionSsmActionDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionSubType":
+            suggest = "action_sub_type"
+        elif key == "instanceIds":
+            suggest = "instance_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionDefinitionSsmActionDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionDefinitionSsmActionDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionDefinitionSsmActionDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_sub_type: str,
+                 instance_ids: Sequence[str],
+                 region: str):
+        """
+        :param str action_sub_type: The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+        :param Sequence[str] instance_ids: The EC2 and RDS instance IDs.
+        :param str region: The Region to run the SSM document.
+        """
+        pulumi.set(__self__, "action_sub_type", action_sub_type)
+        pulumi.set(__self__, "instance_ids", instance_ids)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter(name="actionSubType")
+    def action_sub_type(self) -> str:
+        """
+        The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+        """
+        return pulumi.get(self, "action_sub_type")
+
+    @property
+    @pulumi.getter(name="instanceIds")
+    def instance_ids(self) -> Sequence[str]:
+        """
+        The EC2 and RDS instance IDs.
+        """
+        return pulumi.get(self, "instance_ids")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        The Region to run the SSM document.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class BudgetActionSubscriber(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subscriptionType":
+            suggest = "subscription_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionSubscriber. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionSubscriber.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionSubscriber.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address: str,
+                 subscription_type: str):
+        """
+        :param str address: The address that AWS sends budget notifications to, either an SNS topic or an email.
+        :param str subscription_type: The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "subscription_type", subscription_type)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The address that AWS sends budget notifications to, either an SNS topic or an email.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="subscriptionType")
+    def subscription_type(self) -> str:
+        """
+        The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+        """
+        return pulumi.get(self, "subscription_type")
+
 
 @pulumi.output_type
 class BudgetCostTypes(dict):

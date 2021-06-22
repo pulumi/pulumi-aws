@@ -25686,6 +25686,407 @@ func (o GetMeshSpecEgressFilterArrayOutput) Index(i pulumi.IntInput) GetMeshSpec
 	}).(GetMeshSpecEgressFilterOutput)
 }
 
+type GetVirtualServiceSpec struct {
+	// The App Mesh object that is acting as the provider for a virtual service.
+	Providers []GetVirtualServiceSpecProvider `pulumi:"providers"`
+}
+
+// GetVirtualServiceSpecInput is an input type that accepts GetVirtualServiceSpecArgs and GetVirtualServiceSpecOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecInput` via:
+//
+//          GetVirtualServiceSpecArgs{...}
+type GetVirtualServiceSpecInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecOutput() GetVirtualServiceSpecOutput
+	ToGetVirtualServiceSpecOutputWithContext(context.Context) GetVirtualServiceSpecOutput
+}
+
+type GetVirtualServiceSpecArgs struct {
+	// The App Mesh object that is acting as the provider for a virtual service.
+	Providers GetVirtualServiceSpecProviderArrayInput `pulumi:"providers"`
+}
+
+func (GetVirtualServiceSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpec)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecArgs) ToGetVirtualServiceSpecOutput() GetVirtualServiceSpecOutput {
+	return i.ToGetVirtualServiceSpecOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecArgs) ToGetVirtualServiceSpecOutputWithContext(ctx context.Context) GetVirtualServiceSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecOutput)
+}
+
+// GetVirtualServiceSpecArrayInput is an input type that accepts GetVirtualServiceSpecArray and GetVirtualServiceSpecArrayOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecArrayInput` via:
+//
+//          GetVirtualServiceSpecArray{ GetVirtualServiceSpecArgs{...} }
+type GetVirtualServiceSpecArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecArrayOutput() GetVirtualServiceSpecArrayOutput
+	ToGetVirtualServiceSpecArrayOutputWithContext(context.Context) GetVirtualServiceSpecArrayOutput
+}
+
+type GetVirtualServiceSpecArray []GetVirtualServiceSpecInput
+
+func (GetVirtualServiceSpecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpec)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecArray) ToGetVirtualServiceSpecArrayOutput() GetVirtualServiceSpecArrayOutput {
+	return i.ToGetVirtualServiceSpecArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecArray) ToGetVirtualServiceSpecArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecArrayOutput)
+}
+
+type GetVirtualServiceSpecOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpec)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecOutput) ToGetVirtualServiceSpecOutput() GetVirtualServiceSpecOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecOutput) ToGetVirtualServiceSpecOutputWithContext(ctx context.Context) GetVirtualServiceSpecOutput {
+	return o
+}
+
+// The App Mesh object that is acting as the provider for a virtual service.
+func (o GetVirtualServiceSpecOutput) Providers() GetVirtualServiceSpecProviderArrayOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpec) []GetVirtualServiceSpecProvider { return v.Providers }).(GetVirtualServiceSpecProviderArrayOutput)
+}
+
+type GetVirtualServiceSpecArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpec)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecArrayOutput) ToGetVirtualServiceSpecArrayOutput() GetVirtualServiceSpecArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecArrayOutput) ToGetVirtualServiceSpecArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecArrayOutput) Index(i pulumi.IntInput) GetVirtualServiceSpecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualServiceSpec {
+		return vs[0].([]GetVirtualServiceSpec)[vs[1].(int)]
+	}).(GetVirtualServiceSpecOutput)
+}
+
+type GetVirtualServiceSpecProvider struct {
+	// The virtual node associated with the virtual service.
+	VirtualNodes []GetVirtualServiceSpecProviderVirtualNode `pulumi:"virtualNodes"`
+	// The virtual router associated with the virtual service.
+	VirtualRouters []GetVirtualServiceSpecProviderVirtualRouter `pulumi:"virtualRouters"`
+}
+
+// GetVirtualServiceSpecProviderInput is an input type that accepts GetVirtualServiceSpecProviderArgs and GetVirtualServiceSpecProviderOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderInput` via:
+//
+//          GetVirtualServiceSpecProviderArgs{...}
+type GetVirtualServiceSpecProviderInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderOutput() GetVirtualServiceSpecProviderOutput
+	ToGetVirtualServiceSpecProviderOutputWithContext(context.Context) GetVirtualServiceSpecProviderOutput
+}
+
+type GetVirtualServiceSpecProviderArgs struct {
+	// The virtual node associated with the virtual service.
+	VirtualNodes GetVirtualServiceSpecProviderVirtualNodeArrayInput `pulumi:"virtualNodes"`
+	// The virtual router associated with the virtual service.
+	VirtualRouters GetVirtualServiceSpecProviderVirtualRouterArrayInput `pulumi:"virtualRouters"`
+}
+
+func (GetVirtualServiceSpecProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProvider)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderArgs) ToGetVirtualServiceSpecProviderOutput() GetVirtualServiceSpecProviderOutput {
+	return i.ToGetVirtualServiceSpecProviderOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderArgs) ToGetVirtualServiceSpecProviderOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderOutput)
+}
+
+// GetVirtualServiceSpecProviderArrayInput is an input type that accepts GetVirtualServiceSpecProviderArray and GetVirtualServiceSpecProviderArrayOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderArrayInput` via:
+//
+//          GetVirtualServiceSpecProviderArray{ GetVirtualServiceSpecProviderArgs{...} }
+type GetVirtualServiceSpecProviderArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderArrayOutput() GetVirtualServiceSpecProviderArrayOutput
+	ToGetVirtualServiceSpecProviderArrayOutputWithContext(context.Context) GetVirtualServiceSpecProviderArrayOutput
+}
+
+type GetVirtualServiceSpecProviderArray []GetVirtualServiceSpecProviderInput
+
+func (GetVirtualServiceSpecProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProvider)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderArray) ToGetVirtualServiceSpecProviderArrayOutput() GetVirtualServiceSpecProviderArrayOutput {
+	return i.ToGetVirtualServiceSpecProviderArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderArray) ToGetVirtualServiceSpecProviderArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderArrayOutput)
+}
+
+type GetVirtualServiceSpecProviderOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProvider)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderOutput) ToGetVirtualServiceSpecProviderOutput() GetVirtualServiceSpecProviderOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderOutput) ToGetVirtualServiceSpecProviderOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderOutput {
+	return o
+}
+
+// The virtual node associated with the virtual service.
+func (o GetVirtualServiceSpecProviderOutput) VirtualNodes() GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProvider) []GetVirtualServiceSpecProviderVirtualNode {
+		return v.VirtualNodes
+	}).(GetVirtualServiceSpecProviderVirtualNodeArrayOutput)
+}
+
+// The virtual router associated with the virtual service.
+func (o GetVirtualServiceSpecProviderOutput) VirtualRouters() GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProvider) []GetVirtualServiceSpecProviderVirtualRouter {
+		return v.VirtualRouters
+	}).(GetVirtualServiceSpecProviderVirtualRouterArrayOutput)
+}
+
+type GetVirtualServiceSpecProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProvider)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderArrayOutput) ToGetVirtualServiceSpecProviderArrayOutput() GetVirtualServiceSpecProviderArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderArrayOutput) ToGetVirtualServiceSpecProviderArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderArrayOutput) Index(i pulumi.IntInput) GetVirtualServiceSpecProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualServiceSpecProvider {
+		return vs[0].([]GetVirtualServiceSpecProvider)[vs[1].(int)]
+	}).(GetVirtualServiceSpecProviderOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualNode struct {
+	// The name of the virtual node that is acting as a service provider.
+	VirtualNodeName string `pulumi:"virtualNodeName"`
+}
+
+// GetVirtualServiceSpecProviderVirtualNodeInput is an input type that accepts GetVirtualServiceSpecProviderVirtualNodeArgs and GetVirtualServiceSpecProviderVirtualNodeOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderVirtualNodeInput` via:
+//
+//          GetVirtualServiceSpecProviderVirtualNodeArgs{...}
+type GetVirtualServiceSpecProviderVirtualNodeInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderVirtualNodeOutput() GetVirtualServiceSpecProviderVirtualNodeOutput
+	ToGetVirtualServiceSpecProviderVirtualNodeOutputWithContext(context.Context) GetVirtualServiceSpecProviderVirtualNodeOutput
+}
+
+type GetVirtualServiceSpecProviderVirtualNodeArgs struct {
+	// The name of the virtual node that is acting as a service provider.
+	VirtualNodeName pulumi.StringInput `pulumi:"virtualNodeName"`
+}
+
+func (GetVirtualServiceSpecProviderVirtualNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProviderVirtualNode)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderVirtualNodeArgs) ToGetVirtualServiceSpecProviderVirtualNodeOutput() GetVirtualServiceSpecProviderVirtualNodeOutput {
+	return i.ToGetVirtualServiceSpecProviderVirtualNodeOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderVirtualNodeArgs) ToGetVirtualServiceSpecProviderVirtualNodeOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderVirtualNodeOutput)
+}
+
+// GetVirtualServiceSpecProviderVirtualNodeArrayInput is an input type that accepts GetVirtualServiceSpecProviderVirtualNodeArray and GetVirtualServiceSpecProviderVirtualNodeArrayOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderVirtualNodeArrayInput` via:
+//
+//          GetVirtualServiceSpecProviderVirtualNodeArray{ GetVirtualServiceSpecProviderVirtualNodeArgs{...} }
+type GetVirtualServiceSpecProviderVirtualNodeArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderVirtualNodeArrayOutput() GetVirtualServiceSpecProviderVirtualNodeArrayOutput
+	ToGetVirtualServiceSpecProviderVirtualNodeArrayOutputWithContext(context.Context) GetVirtualServiceSpecProviderVirtualNodeArrayOutput
+}
+
+type GetVirtualServiceSpecProviderVirtualNodeArray []GetVirtualServiceSpecProviderVirtualNodeInput
+
+func (GetVirtualServiceSpecProviderVirtualNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProviderVirtualNode)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderVirtualNodeArray) ToGetVirtualServiceSpecProviderVirtualNodeArrayOutput() GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
+	return i.ToGetVirtualServiceSpecProviderVirtualNodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderVirtualNodeArray) ToGetVirtualServiceSpecProviderVirtualNodeArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderVirtualNodeArrayOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualNodeOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderVirtualNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProviderVirtualNode)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderVirtualNodeOutput) ToGetVirtualServiceSpecProviderVirtualNodeOutput() GetVirtualServiceSpecProviderVirtualNodeOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualNodeOutput) ToGetVirtualServiceSpecProviderVirtualNodeOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualNodeOutput {
+	return o
+}
+
+// The name of the virtual node that is acting as a service provider.
+func (o GetVirtualServiceSpecProviderVirtualNodeOutput) VirtualNodeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualNode) string { return v.VirtualNodeName }).(pulumi.StringOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderVirtualNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProviderVirtualNode)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderVirtualNodeArrayOutput) ToGetVirtualServiceSpecProviderVirtualNodeArrayOutput() GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualNodeArrayOutput) ToGetVirtualServiceSpecProviderVirtualNodeArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualNodeArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualNodeArrayOutput) Index(i pulumi.IntInput) GetVirtualServiceSpecProviderVirtualNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualServiceSpecProviderVirtualNode {
+		return vs[0].([]GetVirtualServiceSpecProviderVirtualNode)[vs[1].(int)]
+	}).(GetVirtualServiceSpecProviderVirtualNodeOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualRouter struct {
+	// The name of the virtual router that is acting as a service provider.
+	VirtualRouterName string `pulumi:"virtualRouterName"`
+}
+
+// GetVirtualServiceSpecProviderVirtualRouterInput is an input type that accepts GetVirtualServiceSpecProviderVirtualRouterArgs and GetVirtualServiceSpecProviderVirtualRouterOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderVirtualRouterInput` via:
+//
+//          GetVirtualServiceSpecProviderVirtualRouterArgs{...}
+type GetVirtualServiceSpecProviderVirtualRouterInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderVirtualRouterOutput() GetVirtualServiceSpecProviderVirtualRouterOutput
+	ToGetVirtualServiceSpecProviderVirtualRouterOutputWithContext(context.Context) GetVirtualServiceSpecProviderVirtualRouterOutput
+}
+
+type GetVirtualServiceSpecProviderVirtualRouterArgs struct {
+	// The name of the virtual router that is acting as a service provider.
+	VirtualRouterName pulumi.StringInput `pulumi:"virtualRouterName"`
+}
+
+func (GetVirtualServiceSpecProviderVirtualRouterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderVirtualRouterArgs) ToGetVirtualServiceSpecProviderVirtualRouterOutput() GetVirtualServiceSpecProviderVirtualRouterOutput {
+	return i.ToGetVirtualServiceSpecProviderVirtualRouterOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderVirtualRouterArgs) ToGetVirtualServiceSpecProviderVirtualRouterOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualRouterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderVirtualRouterOutput)
+}
+
+// GetVirtualServiceSpecProviderVirtualRouterArrayInput is an input type that accepts GetVirtualServiceSpecProviderVirtualRouterArray and GetVirtualServiceSpecProviderVirtualRouterArrayOutput values.
+// You can construct a concrete instance of `GetVirtualServiceSpecProviderVirtualRouterArrayInput` via:
+//
+//          GetVirtualServiceSpecProviderVirtualRouterArray{ GetVirtualServiceSpecProviderVirtualRouterArgs{...} }
+type GetVirtualServiceSpecProviderVirtualRouterArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualServiceSpecProviderVirtualRouterArrayOutput() GetVirtualServiceSpecProviderVirtualRouterArrayOutput
+	ToGetVirtualServiceSpecProviderVirtualRouterArrayOutputWithContext(context.Context) GetVirtualServiceSpecProviderVirtualRouterArrayOutput
+}
+
+type GetVirtualServiceSpecProviderVirtualRouterArray []GetVirtualServiceSpecProviderVirtualRouterInput
+
+func (GetVirtualServiceSpecProviderVirtualRouterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
+}
+
+func (i GetVirtualServiceSpecProviderVirtualRouterArray) ToGetVirtualServiceSpecProviderVirtualRouterArrayOutput() GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
+	return i.ToGetVirtualServiceSpecProviderVirtualRouterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualServiceSpecProviderVirtualRouterArray) ToGetVirtualServiceSpecProviderVirtualRouterArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualServiceSpecProviderVirtualRouterArrayOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualRouterOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderVirtualRouterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderVirtualRouterOutput) ToGetVirtualServiceSpecProviderVirtualRouterOutput() GetVirtualServiceSpecProviderVirtualRouterOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualRouterOutput) ToGetVirtualServiceSpecProviderVirtualRouterOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualRouterOutput {
+	return o
+}
+
+// The name of the virtual router that is acting as a service provider.
+func (o GetVirtualServiceSpecProviderVirtualRouterOutput) VirtualRouterName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualServiceSpecProviderVirtualRouter) string { return v.VirtualRouterName }).(pulumi.StringOutput)
+}
+
+type GetVirtualServiceSpecProviderVirtualRouterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualServiceSpecProviderVirtualRouterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualServiceSpecProviderVirtualRouter)(nil)).Elem()
+}
+
+func (o GetVirtualServiceSpecProviderVirtualRouterArrayOutput) ToGetVirtualServiceSpecProviderVirtualRouterArrayOutput() GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualRouterArrayOutput) ToGetVirtualServiceSpecProviderVirtualRouterArrayOutputWithContext(ctx context.Context) GetVirtualServiceSpecProviderVirtualRouterArrayOutput {
+	return o
+}
+
+func (o GetVirtualServiceSpecProviderVirtualRouterArrayOutput) Index(i pulumi.IntInput) GetVirtualServiceSpecProviderVirtualRouterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualServiceSpecProviderVirtualRouter {
+		return vs[0].([]GetVirtualServiceSpecProviderVirtualRouter)[vs[1].(int)]
+	}).(GetVirtualServiceSpecProviderVirtualRouterOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GatewayRouteSpecOutput{})
 	pulumi.RegisterOutputType(GatewayRouteSpecPtrOutput{})
@@ -26030,4 +26431,12 @@ func init() {
 	pulumi.RegisterOutputType(GetMeshSpecArrayOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterOutput{})
 	pulumi.RegisterOutputType(GetMeshSpecEgressFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderVirtualNodeOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderVirtualNodeArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderVirtualRouterOutput{})
+	pulumi.RegisterOutputType(GetVirtualServiceSpecProviderVirtualRouterArrayOutput{})
 }

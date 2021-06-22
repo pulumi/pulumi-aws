@@ -291,6 +291,137 @@ func (o LocationSmbMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type NfsLocationMountOptions struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	Version *string `pulumi:"version"`
+}
+
+// NfsLocationMountOptionsInput is an input type that accepts NfsLocationMountOptionsArgs and NfsLocationMountOptionsOutput values.
+// You can construct a concrete instance of `NfsLocationMountOptionsInput` via:
+//
+//          NfsLocationMountOptionsArgs{...}
+type NfsLocationMountOptionsInput interface {
+	pulumi.Input
+
+	ToNfsLocationMountOptionsOutput() NfsLocationMountOptionsOutput
+	ToNfsLocationMountOptionsOutputWithContext(context.Context) NfsLocationMountOptionsOutput
+}
+
+type NfsLocationMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (NfsLocationMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsLocationMountOptions)(nil)).Elem()
+}
+
+func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsOutput() NfsLocationMountOptionsOutput {
+	return i.ToNfsLocationMountOptionsOutputWithContext(context.Background())
+}
+
+func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsOutputWithContext(ctx context.Context) NfsLocationMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMountOptionsOutput)
+}
+
+func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput {
+	return i.ToNfsLocationMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i NfsLocationMountOptionsArgs) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMountOptionsOutput).ToNfsLocationMountOptionsPtrOutputWithContext(ctx)
+}
+
+// NfsLocationMountOptionsPtrInput is an input type that accepts NfsLocationMountOptionsArgs, NfsLocationMountOptionsPtr and NfsLocationMountOptionsPtrOutput values.
+// You can construct a concrete instance of `NfsLocationMountOptionsPtrInput` via:
+//
+//          NfsLocationMountOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type NfsLocationMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput
+	ToNfsLocationMountOptionsPtrOutputWithContext(context.Context) NfsLocationMountOptionsPtrOutput
+}
+
+type nfsLocationMountOptionsPtrType NfsLocationMountOptionsArgs
+
+func NfsLocationMountOptionsPtr(v *NfsLocationMountOptionsArgs) NfsLocationMountOptionsPtrInput {
+	return (*nfsLocationMountOptionsPtrType)(v)
+}
+
+func (*nfsLocationMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsLocationMountOptions)(nil)).Elem()
+}
+
+func (i *nfsLocationMountOptionsPtrType) ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput {
+	return i.ToNfsLocationMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *nfsLocationMountOptionsPtrType) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMountOptionsPtrOutput)
+}
+
+type NfsLocationMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (NfsLocationMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NfsLocationMountOptions)(nil)).Elem()
+}
+
+func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsOutput() NfsLocationMountOptionsOutput {
+	return o
+}
+
+func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsOutputWithContext(ctx context.Context) NfsLocationMountOptionsOutput {
+	return o
+}
+
+func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput {
+	return o.ToNfsLocationMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
+	return o.ApplyT(func(v NfsLocationMountOptions) *NfsLocationMountOptions {
+		return &v
+	}).(NfsLocationMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+func (o NfsLocationMountOptionsOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NfsLocationMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type NfsLocationMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (NfsLocationMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NfsLocationMountOptions)(nil)).Elem()
+}
+
+func (o NfsLocationMountOptionsPtrOutput) ToNfsLocationMountOptionsPtrOutput() NfsLocationMountOptionsPtrOutput {
+	return o
+}
+
+func (o NfsLocationMountOptionsPtrOutput) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
+	return o
+}
+
+func (o NfsLocationMountOptionsPtrOutput) Elem() NfsLocationMountOptionsOutput {
+	return o.ApplyT(func(v *NfsLocationMountOptions) NfsLocationMountOptions { return *v }).(NfsLocationMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+func (o NfsLocationMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NfsLocationMountOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type NfsLocationOnPremConfig struct {
 	// List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
 	AgentArns []string `pulumi:"agentArns"`
@@ -1198,6 +1329,8 @@ func init() {
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
+	pulumi.RegisterOutputType(NfsLocationMountOptionsOutput{})
+	pulumi.RegisterOutputType(NfsLocationMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(NfsLocationOnPremConfigOutput{})
 	pulumi.RegisterOutputType(NfsLocationOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(S3LocationS3ConfigOutput{})

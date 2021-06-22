@@ -90,7 +90,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly keyUsage!: pulumi.Output<string | undefined>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      */
     public readonly policy!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -180,7 +180,7 @@ export interface KeyState {
      */
     keyUsage?: pulumi.Input<string>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      */
     policy?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -218,7 +218,7 @@ export interface KeyArgs {
      */
     keyUsage?: pulumi.Input<string>;
     /**
-     * A valid policy JSON document.
+     * A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
      */
     policy?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

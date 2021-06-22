@@ -19,6 +19,7 @@ export * from "./record";
 export * from "./recordType";
 export * from "./resolverDnsSecConfig";
 export * from "./resolverEndpoint";
+export * from "./resolverFirewallConfig";
 export * from "./resolverFirewallDomainList";
 export * from "./resolverFirewallRule";
 export * from "./resolverFirewallRuleGroup";
@@ -43,6 +44,7 @@ import { QueryLog } from "./queryLog";
 import { Record } from "./record";
 import { ResolverDnsSecConfig } from "./resolverDnsSecConfig";
 import { ResolverEndpoint } from "./resolverEndpoint";
+import { ResolverFirewallConfig } from "./resolverFirewallConfig";
 import { ResolverFirewallDomainList } from "./resolverFirewallDomainList";
 import { ResolverFirewallRule } from "./resolverFirewallRule";
 import { ResolverFirewallRuleGroup } from "./resolverFirewallRuleGroup";
@@ -75,6 +77,8 @@ const _module = {
                 return new ResolverDnsSecConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverEndpoint:ResolverEndpoint":
                 return new ResolverEndpoint(name, <any>undefined, { urn })
+            case "aws:route53/resolverFirewallConfig:ResolverFirewallConfig":
+                return new ResolverFirewallConfig(name, <any>undefined, { urn })
             case "aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList":
                 return new ResolverFirewallDomainList(name, <any>undefined, { urn })
             case "aws:route53/resolverFirewallRule:ResolverFirewallRule":
@@ -110,6 +114,7 @@ pulumi.runtime.registerResourceModule("aws", "route53/queryLog", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/record", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverDnsSecConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverEndpoint", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallDomainList", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRule", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverFirewallRuleGroup", _module)

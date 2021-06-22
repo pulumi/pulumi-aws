@@ -37,6 +37,44 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
+    /// ## Example W/Log Configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "example",
+    ///             DeletionWindowInDays = 7,
+    ///         });
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///         });
+    ///         var test = new Aws.Ecs.Cluster("test", new Aws.Ecs.ClusterArgs
+    ///         {
+    ///             Configuration = new Aws.Ecs.Inputs.ClusterConfigurationArgs
+    ///             {
+    ///                 ExecuteCommandConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationArgs
+    ///                 {
+    ///                     KmsKeyId = exampleKey.Arn,
+    ///                     Logging = "OVERRIDE",
+    ///                     LogConfiguration = new Aws.Ecs.Inputs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs
+    ///                     {
+    ///                         CloudWatchEncryptionEnabled = true,
+    ///                         CloudWatchLogGroupName = exampleLogGroup.Name,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -60,6 +98,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("capacityProviders")]
         public Output<ImmutableArray<string>> CapacityProviders { get; private set; } = null!;
+
+        /// <summary>
+        /// The execute command configuration for the cluster. Detailed below.
+        /// </summary>
+        [Output("configuration")]
+        public Output<Outputs.ClusterConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
@@ -143,6 +187,12 @@ namespace Pulumi.Aws.Ecs
             set => _capacityProviders = value;
         }
 
+        /// <summary>
+        /// The execute command configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.ClusterConfigurationArgs>? Configuration { get; set; }
+
         [Input("defaultCapacityProviderStrategies")]
         private InputList<Inputs.ClusterDefaultCapacityProviderStrategyArgs>? _defaultCapacityProviderStrategies;
 
@@ -213,6 +263,12 @@ namespace Pulumi.Aws.Ecs
             get => _capacityProviders ?? (_capacityProviders = new InputList<string>());
             set => _capacityProviders = value;
         }
+
+        /// <summary>
+        /// The execute command configuration for the cluster. Detailed below.
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.ClusterConfigurationGetArgs>? Configuration { get; set; }
 
         [Input("defaultCapacityProviderStrategies")]
         private InputList<Inputs.ClusterDefaultCapacityProviderStrategyGetArgs>? _defaultCapacityProviderStrategies;
