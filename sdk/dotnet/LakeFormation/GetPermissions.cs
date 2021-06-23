@@ -19,6 +19,30 @@ namespace Pulumi.Aws.LakeFormation
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Permissions For A Lake Formation S3 Resource
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         {
+        ///             Principal = aws_iam_role.Workflow_role.Arn,
+        ///             DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationArgs
+        ///             {
+        ///                 Arn = aws_lakeformation_resource.Test.Arn,
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
         /// ### Permissions For A Glue Catalog Database
         /// 
         /// ```csharp

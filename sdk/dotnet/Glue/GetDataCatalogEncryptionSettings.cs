@@ -13,6 +13,29 @@ namespace Pulumi.Aws.Glue
     {
         /// <summary>
         /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetDataCatalogEncryptionSettings.InvokeAsync(new Aws.Glue.GetDataCatalogEncryptionSettingsArgs
+        ///         {
+        ///             Id = "123456789123",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithVersion());

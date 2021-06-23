@@ -21,6 +21,8 @@ type Provider struct {
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
+	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+	Region pulumi.StringPtrOutput `pulumi:"region"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.

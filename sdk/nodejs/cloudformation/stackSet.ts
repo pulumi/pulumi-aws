@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", {
- *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json,
+ *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument => aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json),
  *     role: aWSCloudFormationStackSetAdministrationRole.name,
  * });
  * ```

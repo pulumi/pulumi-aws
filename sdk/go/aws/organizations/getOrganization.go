@@ -10,31 +10,6 @@ import (
 // Get information about the organization that the user's account belongs to
 //
 // ## Example Usage
-// ### List all account IDs for the organization
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/organizations"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := organizations.LookupOrganization(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		var splat0 []string
-// 		for _, val0 := range example.Accounts {
-// 			splat0 = append(splat0, val0.Id)
-// 		}
-// 		ctx.Export("accountIds", splat0)
-// 		return nil
-// 	})
-// }
-// ```
 // ### SNS topic that can be interacted by the organization only
 //
 // ```go

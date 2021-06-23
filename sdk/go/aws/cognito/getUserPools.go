@@ -37,20 +37,13 @@ import (
 // 		_, err = apigateway.NewAuthorizer(ctx, "cognito", &apigateway.AuthorizerArgs{
 // 			Type:         pulumi.String("COGNITO_USER_POOLS"),
 // 			RestApi:      pulumi.String(selectedRestApi.Id),
-// 			ProviderArns: toPulumiStringArray(selectedUserPools.Arns),
+// 			ProviderArns: interface{}(selectedUserPools.Arns),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		return nil
 // 	})
-// }
-// func toPulumiStringArray(arr []string) pulumi.StringArray {
-// 	var pulumiArr pulumi.StringArray
-// 	for _, v := range arr {
-// 		pulumiArr = append(pulumiArr, pulumi.String(v))
-// 	}
-// 	return pulumiArr
 // }
 // ```
 func GetUserPools(ctx *pulumi.Context, args *GetUserPoolsArgs, opts ...pulumi.InvokeOption) (*GetUserPoolsResult, error) {

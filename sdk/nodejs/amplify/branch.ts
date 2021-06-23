@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  * }));
  * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplifyAppMasterTopicPolicy", {
  *     arn: amplifyAppMasterTopic.arn,
- *     policy: amplifyAppMasterPolicyDocument.json,
+ *     policy: amplifyAppMasterPolicyDocument.apply(amplifyAppMasterPolicyDocument => amplifyAppMasterPolicyDocument.json),
  * });
  * ```
  *

@@ -7,6 +7,19 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a CloudFront Function.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const functionName = config.require("functionName");
+ * const existing = aws.cloudtrail.getFunction({
+ *     name: functionName,
+ * });
+ * ```
  */
 export function getFunction(args: GetFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionResult> {
     if (!opts) {

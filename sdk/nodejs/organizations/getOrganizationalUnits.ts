@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  *
  * const org = aws.organizations.getOrganization({});
  * const ou = org.then(org => aws.organizations.getOrganizationalUnits({
- *     parentId: org.roots[0].id,
+ *     parentId: org.roots?[0]?.id,
  * }));
  * ```
  */

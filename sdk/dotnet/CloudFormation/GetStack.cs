@@ -35,7 +35,7 @@ namespace Pulumi.Aws.CloudFormation
         ///         {
         ///             Ami = "ami-abb07bcb",
         ///             InstanceType = "t2.micro",
-        ///             SubnetId = network.Apply(network =&gt; network.Outputs.SubnetId),
+        ///             SubnetId = network.Apply(network =&gt; network.Outputs?.SubnetId),
         ///             Tags = 
         ///             {
         ///                 { "Name", "HelloWorld" },

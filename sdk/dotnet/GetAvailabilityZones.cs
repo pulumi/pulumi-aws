@@ -40,12 +40,12 @@ namespace Pulumi.Aws
         ///         }));
         ///         var primary = new Aws.Ec2.Subnet("primary", new Aws.Ec2.SubnetArgs
         ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names[0]),
+        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
         ///         });
         ///         // ...
         ///         var secondary = new Aws.Ec2.Subnet("secondary", new Aws.Ec2.SubnetArgs
         ///         {
-        ///             AvailabilityZone = available.Apply(available =&gt; available.Names[1]),
+        ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
         ///         });
         ///         // ...
         ///     }

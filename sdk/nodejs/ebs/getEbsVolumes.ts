@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
  * `aws.ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
  *
  * This data source can be useful for getting a list of volume IDs with (for example) matching tags.
- *
- * ## Example Usage
- *
- * The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleEbsVolumes = aws.ebs.getEbsVolumes({
- *     tags: {
- *         VolumeSet: "TestVolumeSet",
- *     },
- * });
- * const exampleVolume = exampleEbsVolumes.then(exampleEbsVolumes => exampleEbsVolumes.ids.map((v, k) => [k, v]).map(([, ]) => aws.ebs.getVolume({
- *     filters: [{
- *         name: "volume-id",
- *         values: [each.value],
- *     }],
- * })));
- * export const availabilityZoneToVolumeId = exampleVolume.reduce((__obj, s) => { ...__obj, [s.id]: s.availabilityZone });
- * ```
  */
 export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOptions): Promise<GetEbsVolumesResult> {
     args = args || {};

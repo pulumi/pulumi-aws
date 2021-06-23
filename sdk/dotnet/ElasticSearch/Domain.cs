@@ -200,8 +200,8 @@ namespace Pulumi.Aws.ElasticSearch
     ///             {
     ///                 SubnetIds = 
     ///                 {
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[0]),
-    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids[1]),
+    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids?[0]),
+    ///                     selectedSubnetIds.Apply(selectedSubnetIds =&gt; selectedSubnetIds.Ids?[1]),
     ///                 },
     ///                 SecurityGroupIds = 
     ///                 {

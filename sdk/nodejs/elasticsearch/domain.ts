@@ -132,8 +132,8 @@ import {PolicyDocument} from "../iam";
  *     },
  *     vpcOptions: {
  *         subnetIds: [
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[0]),
- *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids[1]),
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?[0]),
+ *             selectedSubnetIds.then(selectedSubnetIds => selectedSubnetIds.ids?[1]),
  *         ],
  *         securityGroupIds: [esSecurityGroup.id],
  *     },

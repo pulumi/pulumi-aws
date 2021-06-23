@@ -145,6 +145,17 @@ def get_permissions(catalog_id: Optional[str] = None,
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
     ## Example Usage
+    ### Permissions For A Lake Formation S3 Resource
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
+            arn=aws_lakeformation_resource["test"]["arn"],
+        ))
+    ```
     ### Permissions For A Glue Catalog Database
 
     ```python

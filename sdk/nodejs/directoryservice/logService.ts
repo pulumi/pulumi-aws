@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     }],
  * }));
  * const ad_log_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("ad-log-policyLogResourcePolicy", {
- *     policyDocument: ad_log_policyPolicyDocument.json,
+ *     policyDocument: ad_log_policyPolicyDocument.apply(ad_log_policyPolicyDocument => ad_log_policyPolicyDocument.json),
  *     policyName: "ad-log-policy",
  * });
  * const exampleLogService = new aws.directoryservice.LogService("exampleLogService", {

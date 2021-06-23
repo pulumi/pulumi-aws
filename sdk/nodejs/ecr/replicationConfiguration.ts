@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const exampleReplicationConfiguration = new aws.ecr.ReplicationConfiguration("exampleReplicationConfiguration", {replicationConfiguration: {
  *     rule: {
  *         destinations: [{
- *             region: exampleRegions.then(exampleRegions => exampleRegions.names[0]),
+ *             region: exampleRegions.then(exampleRegions => exampleRegions.names?[0]),
  *             registryId: current.then(current => current.accountId),
  *         }],
  *     },

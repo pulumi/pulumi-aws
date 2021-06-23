@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * }));
  * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("exampleIdentityPolicy", {
  *     identity: exampleDomainIdentity.arn,
- *     policy: examplePolicyDocument.json,
+ *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
  * });
  * ```
  *

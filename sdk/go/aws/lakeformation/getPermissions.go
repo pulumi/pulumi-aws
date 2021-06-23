@@ -12,6 +12,31 @@ import (
 // > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 //
 // ## Example Usage
+// ### Permissions For A Lake Formation S3 Resource
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lakeformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
+// 			Principal: aws_iam_role.Workflow_role.Arn,
+// 			DataLocation: lakeformation.GetPermissionsDataLocation{
+// 				Arn: aws_lakeformation_resource.Test.Arn,
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Permissions For A Glue Catalog Database
 //
 // ```go
