@@ -507,6 +507,14 @@ class Provider(pulumi.ProviderResource):
         return pulumi.get(self, "profile")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> pulumi.Output[Optional[str]]:
         """

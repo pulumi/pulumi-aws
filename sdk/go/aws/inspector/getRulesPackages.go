@@ -44,20 +44,13 @@ import (
 // 		_, err = inspector.NewAssessmentTemplate(ctx, "assessmentAssessmentTemplate", &inspector.AssessmentTemplateArgs{
 // 			TargetArn:        assessmentAssessmentTarget.Arn,
 // 			Duration:         pulumi.Int(60),
-// 			RulesPackageArns: toPulumiStringArray(rules.Arns),
+// 			RulesPackageArns: interface{}(rules.Arns),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		return nil
 // 	})
-// }
-// func toPulumiStringArray(arr []string) pulumi.StringArray {
-// 	var pulumiArr pulumi.StringArray
-// 	for _, v := range arr {
-// 		pulumiArr = append(pulumiArr, pulumi.String(v))
-// 	}
-// 	return pulumiArr
 // }
 // ```
 func GetRulesPackages(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRulesPackagesResult, error) {

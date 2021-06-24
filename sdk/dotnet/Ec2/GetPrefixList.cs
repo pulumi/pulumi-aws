@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         ///             Egress = false,
         ///             Protocol = "tcp",
         ///             RuleAction = "allow",
-        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks[0]),
+        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks?[0]),
         ///             FromPort = 443,
         ///             ToPort = 443,
         ///         });

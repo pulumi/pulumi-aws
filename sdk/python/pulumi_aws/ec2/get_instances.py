@@ -120,28 +120,6 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     instances (e.g. managed via autoscaling group), as the output may change at any time
     and you'd need to re-run `apply` every time an instance comes up or dies.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    test_instances = aws.ec2.get_instances(instance_tags={
-            "Role": "HardWorker",
-        },
-        filters=[aws.ec2.GetInstancesFilterArgs(
-            name="instance.group-id",
-            values=["sg-12345678"],
-        )],
-        instance_state_names=[
-            "running",
-            "stopped",
-        ])
-    test_eip = []
-    for range in [{"value": i} for i in range(0, len(test_instances.ids))]:
-        test_eip.append(aws.ec2.Eip(f"testEip-{range['value']}", instance=test_instances.ids[range["value"]]))
-    ```
-
 
     :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out

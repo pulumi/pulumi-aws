@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     egress: false,
  *     protocol: "tcp",
  *     ruleAction: "allow",
- *     cidrBlock: privateS3PrefixList.cidrBlocks[0],
+ *     cidrBlock: privateS3PrefixList.apply(privateS3PrefixList => privateS3PrefixList.cidrBlocks?[0]),
  *     fromPort: 443,
  *     toPort: 443,
  * });

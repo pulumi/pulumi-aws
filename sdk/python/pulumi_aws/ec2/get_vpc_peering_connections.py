@@ -81,19 +81,6 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     Use this data source to get IDs of Amazon VPC peering connections
     To get more details on each connection, use the data resource `ec2.VpcPeeringConnection`
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    pcs = aws.ec2.get_vpc_peering_connections(filters=[aws.ec2.GetVpcPeeringConnectionsFilterArgs(
-        name="requester-vpc-info.vpc-id",
-        values=[aws_vpc["foo"]["id"]],
-    )])
-    pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
-    ```
-
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match

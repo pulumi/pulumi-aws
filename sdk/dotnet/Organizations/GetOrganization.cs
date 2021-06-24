@@ -29,7 +29,10 @@ namespace Pulumi.Aws.Organizations
         ///     public MyStack()
         ///     {
         ///         var example = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
-        ///         this.AccountIds = example.Apply(example =&gt; example.Accounts.Select(__item =&gt; __item.Id).ToList());
+        ///         this.AccountIds = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Accounts),
+        ///         }.Select(__item =&gt; __item?.Id).ToList();
         ///     }
         /// 
         ///     [Output("accountIds")]

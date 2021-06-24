@@ -13,6 +13,31 @@ namespace Pulumi.Aws.CloudTrail
     {
         /// <summary>
         /// Provides information about a CloudFront Function.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var functionName = config.Require("functionName");
+        ///         var existing = Output.Create(Aws.CloudTrail.GetFunction.InvokeAsync(new Aws.CloudTrail.GetFunctionArgs
+        ///         {
+        ///             Name = functionName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:cloudtrail/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());

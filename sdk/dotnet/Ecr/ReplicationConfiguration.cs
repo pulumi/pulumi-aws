@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ecr
     ///                     {
     ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
     ///                         {
-    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names[0]),
+    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
     ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
     ///                         },
     ///                     },

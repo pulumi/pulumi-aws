@@ -19,17 +19,17 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const subnetAz1 = new aws.ec2.Subnet("subnetAz1", {
- *     availabilityZone: azs.then(azs => azs.names[0]),
+ *     availabilityZone: azs.then(azs => azs.names?[0]),
  *     cidrBlock: "192.168.0.0/24",
  *     vpcId: vpc.id,
  * });
  * const subnetAz2 = new aws.ec2.Subnet("subnetAz2", {
- *     availabilityZone: azs.then(azs => azs.names[1]),
+ *     availabilityZone: azs.then(azs => azs.names?[1]),
  *     cidrBlock: "192.168.1.0/24",
  *     vpcId: vpc.id,
  * });
  * const subnetAz3 = new aws.ec2.Subnet("subnetAz3", {
- *     availabilityZone: azs.then(azs => azs.names[2]),
+ *     availabilityZone: azs.then(azs => azs.names?[2]),
  *     cidrBlock: "192.168.2.0/24",
  *     vpcId: vpc.id,
  * });

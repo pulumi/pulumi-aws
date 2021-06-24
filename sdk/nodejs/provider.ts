@@ -37,6 +37,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly profile!: pulumi.Output<string | undefined>;
     /**
+     * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+     */
+    public readonly region!: pulumi.Output<Region | undefined>;
+    /**
      * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;

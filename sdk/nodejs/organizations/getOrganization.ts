@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.organizations.getOrganization({});
- * export const accountIds = example.then(example => example.accounts.map(__item => __item.id));
+ * export const accountIds = [example.then(example => example.accounts)].map(__item => __item?.id);
  * ```
  * ### SNS topic that can be interacted by the organization only
  *
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * }));
  * const snsTopicPolicyTopicPolicy = new aws.sns.TopicPolicy("snsTopicPolicyTopicPolicy", {
  *     arn: snsTopic.arn,
- *     policy: snsTopicPolicyPolicyDocument.json,
+ *     policy: snsTopicPolicyPolicyDocument.apply(snsTopicPolicyPolicyDocument => snsTopicPolicyPolicyDocument.json),
  * });
  * ```
  */

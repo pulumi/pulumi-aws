@@ -78,13 +78,13 @@ namespace Pulumi.Aws.WafRegional
     ///         {
     ///             VpcId = fooVpc.Id,
     ///             CidrBlock = "10.1.1.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[0]),
+    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[0]),
     ///         });
     ///         var bar = new Aws.Ec2.Subnet("bar", new Aws.Ec2.SubnetArgs
     ///         {
     ///             VpcId = fooVpc.Id,
     ///             CidrBlock = "10.1.2.0/24",
-    ///             AvailabilityZone = available.Apply(available =&gt; available.Names[1]),
+    ///             AvailabilityZone = available.Apply(available =&gt; available.Names?[1]),
     ///         });
     ///         var fooLoadBalancer = new Aws.Alb.LoadBalancer("fooLoadBalancer", new Aws.Alb.LoadBalancerArgs
     ///         {

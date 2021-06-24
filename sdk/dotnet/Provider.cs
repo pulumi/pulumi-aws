@@ -31,6 +31,12 @@ namespace Pulumi.Aws
         public Output<string?> Profile { get; private set; } = null!;
 
         /// <summary>
+        /// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
+        /// </summary>
+        [Output("region")]
+        public Output<string?> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The secret key for API operations. You can retrieve this from the 'Security &amp; Credentials' section of the AWS console.
         /// </summary>
         [Output("secretKey")]

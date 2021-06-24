@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Organizations
         ///         var org = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
         ///         var ou = org.Apply(org =&gt; Output.Create(Aws.Organizations.GetOrganizationalUnits.InvokeAsync(new Aws.Organizations.GetOrganizationalUnitsArgs
         ///         {
-        ///             ParentId = org.Roots[0].Id,
+        ///             ParentId = org.Roots?[0]?.Id,
         ///         })));
         ///     }
         /// 

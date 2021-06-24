@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * }));
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: awsLogins.arn,
- *     policy: snsTopicPolicy.json,
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
  * });
  * ```
  *

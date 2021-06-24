@@ -10,10 +10,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcPeeringConnectionAccepterArgs', 'VpcPeeringConnectionAccepter']
+__all__ = ['VpcPeeringConnectionAccepterInitArgs', 'VpcPeeringConnectionAccepter']
 
 @pulumi.input_type
-class VpcPeeringConnectionAccepterArgs:
+class VpcPeeringConnectionAccepterInitArgs:
     def __init__(__self__, *,
                  vpc_peering_connection_id: pulumi.Input[str],
                  accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
@@ -397,7 +397,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcPeeringConnectionAccepterArgs,
+                 args: VpcPeeringConnectionAccepterInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the accepter's side of a VPC Peering Connection.
@@ -463,12 +463,12 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
          } }
 
         :param str resource_name: The name of the resource.
-        :param VpcPeeringConnectionAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param VpcPeeringConnectionAccepterInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcPeeringConnectionAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcPeeringConnectionAccepterInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -493,7 +493,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcPeeringConnectionAccepterArgs.__new__(VpcPeeringConnectionAccepterArgs)
+            __props__ = VpcPeeringConnectionAccepterInitArgs.__new__(VpcPeeringConnectionAccepterInitArgs)
 
             __props__.__dict__["accepter"] = accepter
             __props__.__dict__["auto_accept"] = auto_accept

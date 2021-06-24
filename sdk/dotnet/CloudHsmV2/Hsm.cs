@@ -30,7 +30,7 @@ namespace Pulumi.Aws.CloudHsmV2
     ///         }));
     ///         var cloudhsmV2Hsm = new Aws.CloudHsmV2.Hsm("cloudhsmV2Hsm", new Aws.CloudHsmV2.HsmArgs
     ///         {
-    ///             SubnetId = cluster.Apply(cluster =&gt; cluster.SubnetIds[0]),
+    ///             SubnetId = cluster.Apply(cluster =&gt; cluster.SubnetIds?[0]),
     ///             ClusterId = cluster.Apply(cluster =&gt; cluster.ClusterId),
     ///         });
     ///     }

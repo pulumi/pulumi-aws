@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * }));
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: notif.arn,
- *     policy: notifAccess.json,
+ *     policy: notifAccess.apply(notifAccess => notifAccess.json),
  * });
  * const commits = new aws.codestarnotifications.NotificationRule("commits", {
  *     detailType: "BASIC",

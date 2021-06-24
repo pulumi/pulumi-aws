@@ -32,19 +32,19 @@ namespace Pulumi.Aws.Msk
     ///         }));
     ///         var subnetAz1 = new Aws.Ec2.Subnet("subnetAz1", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[0]),
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[0]),
     ///             CidrBlock = "192.168.0.0/24",
     ///             VpcId = vpc.Id,
     ///         });
     ///         var subnetAz2 = new Aws.Ec2.Subnet("subnetAz2", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[1]),
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[1]),
     ///             CidrBlock = "192.168.1.0/24",
     ///             VpcId = vpc.Id,
     ///         });
     ///         var subnetAz3 = new Aws.Ec2.Subnet("subnetAz3", new Aws.Ec2.SubnetArgs
     ///         {
-    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names[2]),
+    ///             AvailabilityZone = azs.Apply(azs =&gt; azs.Names?[2]),
     ///             CidrBlock = "192.168.2.0/24",
     ///             VpcId = vpc.Id,
     ///         });

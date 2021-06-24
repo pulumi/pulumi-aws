@@ -168,15 +168,6 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     Get information about the organization that the user's account belongs to
 
     ## Example Usage
-    ### List all account IDs for the organization
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.organizations.get_organization()
-    pulumi.export("accountIds", [__item.id for __item in example.accounts])
-    ```
     ### SNS topic that can be interacted by the organization only
 
     ```python

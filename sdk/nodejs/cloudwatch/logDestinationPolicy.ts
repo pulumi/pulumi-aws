@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * }));
  * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
  *     destinationName: testDestination.name,
- *     accessPolicy: testDestinationPolicyPolicyDocument.json,
+ *     accessPolicy: testDestinationPolicyPolicyDocument.apply(testDestinationPolicyPolicyDocument => testDestinationPolicyPolicyDocument.json),
  * });
  * ```
  *

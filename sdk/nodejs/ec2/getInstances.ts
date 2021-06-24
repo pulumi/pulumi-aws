@@ -13,33 +13,6 @@ import * as utilities from "../utilities";
  * > **Note:** It's strongly discouraged to use this data source for querying ephemeral
  * instances (e.g. managed via autoscaling group), as the output may change at any time
  * and you'd need to re-run `apply` every time an instance comes up or dies.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const testInstances = await aws.ec2.getInstances({
- *         instanceTags: {
- *             Role: "HardWorker",
- *         },
- *         filters: [{
- *             name: "instance.group-id",
- *             values: ["sg-12345678"],
- *         }],
- *         instanceStateNames: [
- *             "running",
- *             "stopped",
- *         ],
- *     });
- *     const testEip: aws.ec2.Eip[];
- *     for (const range = {value: 0}; range.value < testInstances.ids.length; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`testEip-${range.value}`, {instance: testInstances.ids[range.value]}));
- *     }
- * }
- * ```
  */
 export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
     args = args || {};
