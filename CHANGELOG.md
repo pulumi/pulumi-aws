@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.3.0 of the pulumi-terraform-bridge
+_(none)_
 
 ---
+
+## 4.9.1 (2021-06-24)
+* Upgrade to v3.3.0 of the pulumi-terraform-bridge
 
 ## 4.9.0 (2021-06-22)
 * Upgrade to v3.46.0 of the AWS Terraform Provider
