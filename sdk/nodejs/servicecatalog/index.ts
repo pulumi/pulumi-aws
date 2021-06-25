@@ -9,6 +9,7 @@ export * from "./budgetResourceAssociation";
 export * from "./constraint";
 export * from "./getConstraint";
 export * from "./getPortfolio";
+export * from "./getProduct";
 export * from "./organizationsAccess";
 export * from "./portfolio";
 export * from "./portfolioShare";

@@ -142,6 +142,10 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
     def __init__(__self__, *,
                  cookie_behavior: pulumi.Input[str],
                  cookies: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs']] = None):
+        """
+        :param pulumi.Input[str] cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
+        """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         if cookies is not None:
             pulumi.set(__self__, "cookies", cookies)
@@ -149,6 +153,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
     @property
     @pulumi.getter(name="cookieBehavior")
     def cookie_behavior(self) -> pulumi.Input[str]:
+        """
+        Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        """
         return pulumi.get(self, "cookie_behavior")
 
     @cookie_behavior.setter
@@ -158,6 +165,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
     @property
     @pulumi.getter
     def cookies(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs']]:
+        """
+        Object that contains a list of cookie names. See Items for more information.
+        """
         return pulumi.get(self, "cookies")
 
     @cookies.setter
@@ -169,12 +179,18 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of item names (cookies, headers, or query strings).
+        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of item names (cookies, headers, or query strings).
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -187,6 +203,10 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
     def __init__(__self__, *,
                  header_behavior: Optional[pulumi.Input[str]] = None,
                  headers: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs']] = None):
+        """
+        :param pulumi.Input[str] header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs'] headers: Object that contains a list of header names. See Items for more information.
+        """
         if header_behavior is not None:
             pulumi.set(__self__, "header_behavior", header_behavior)
         if headers is not None:
@@ -195,6 +215,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
     @property
     @pulumi.getter(name="headerBehavior")
     def header_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+        """
         return pulumi.get(self, "header_behavior")
 
     @header_behavior.setter
@@ -204,6 +227,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
     @property
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs']]:
+        """
+        Object that contains a list of header names. See Items for more information.
+        """
         return pulumi.get(self, "headers")
 
     @headers.setter
@@ -215,12 +241,18 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of item names (cookies, headers, or query strings).
+        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of item names (cookies, headers, or query strings).
+        """
         return pulumi.get(self, "items")
 
     @items.setter
@@ -233,6 +265,10 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
     def __init__(__self__, *,
                  query_string_behavior: pulumi.Input[str],
                  query_strings: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs']] = None):
+        """
+        :param pulumi.Input[str] query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs'] query_strings: Object that contains a list of query string names. See Items for more information.
+        """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         if query_strings is not None:
             pulumi.set(__self__, "query_strings", query_strings)
@@ -240,6 +276,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
     @property
     @pulumi.getter(name="queryStringBehavior")
     def query_string_behavior(self) -> pulumi.Input[str]:
+        """
+        Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+        """
         return pulumi.get(self, "query_string_behavior")
 
     @query_string_behavior.setter
@@ -249,6 +288,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
     @property
     @pulumi.getter(name="queryStrings")
     def query_strings(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs']]:
+        """
+        Object that contains a list of query string names. See Items for more information.
+        """
         return pulumi.get(self, "query_strings")
 
     @query_strings.setter
@@ -260,12 +302,18 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs:
 class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs:
     def __init__(__self__, *,
                  items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] items: A list of item names (cookies, headers, or query strings).
+        """
         if items is not None:
             pulumi.set(__self__, "items", items)
 
     @property
     @pulumi.getter
     def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of item names (cookies, headers, or query strings).
+        """
         return pulumi.get(self, "items")
 
     @items.setter

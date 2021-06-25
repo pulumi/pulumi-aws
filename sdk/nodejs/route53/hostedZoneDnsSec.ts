@@ -27,9 +27,24 @@ import * as utilities from "../utilities";
  *                 ],
  *                 Effect: "Allow",
  *                 Principal: {
- *                     Service: "api-service.dnssec.route53.aws.internal",
+ *                     Service: "dnssec-route53.amazonaws.com",
  *                 },
- *                 Sid: "Route 53 DNSSEC Permissions",
+ *                 Sid: "Allow Route 53 DNSSEC Service",
+ *                 Resource: "*",
+ *             },
+ *             {
+ *                 Action: "kms:CreateGrant",
+ *                 Effect: "Allow",
+ *                 Principal: {
+ *                     Service: "dnssec-route53.amazonaws.com",
+ *                 },
+ *                 Sid: "Allow Route 53 DNSSEC Service to CreateGrant",
+ *                 Resource: "*",
+ *                 Condition: {
+ *                     Bool: {
+ *                         "kms:GrantIsForAWSResource": "true",
+ *                     },
+ *                 },
  *             },
  *             {
  *                 Action: "kms:*",
@@ -46,10 +61,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleZone = new aws.route53.Zone("exampleZone", {});
  * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {
- *     hostedZoneId: aws_route53_zone.test.id,
- *     keyManagementServiceArn: aws_kms_key.test.arn,
+ *     hostedZoneId: exampleZone.id,
+ *     keyManagementServiceArn: exampleKey.arn,
  * });
- * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId});
+ * const exampleHostedZoneDnsSec = new aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", {hostedZoneId: exampleKeySigningKey.hostedZoneId}, {
+ *     dependsOn: [exampleKeySigningKey],
+ * });
  * ```
  *
  * ## Import

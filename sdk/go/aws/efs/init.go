@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:efs/accessPoint:AccessPoint":
 		r = &AccessPoint{}
+	case "aws:efs/backupPolicy:BackupPolicy":
+		r = &BackupPolicy{}
 	case "aws:efs/fileSystem:FileSystem":
 		r = &FileSystem{}
 	case "aws:efs/fileSystemPolicy:FileSystemPolicy":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"efs/accessPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"efs/backupPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

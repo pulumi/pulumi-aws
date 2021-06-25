@@ -20,6 +20,8 @@ __all__ = [
     'DomainEncryptAtRest',
     'DomainLogPublishingOption',
     'DomainNodeToNodeEncryption',
+    'DomainSamlOptionsSamlOptions',
+    'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
     'DomainVpcOptions',
     'GetDomainAdvancedSecurityOptionResult',
@@ -716,6 +718,170 @@ class DomainNodeToNodeEncryption(dict):
         Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainSamlOptionsSamlOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "masterBackendRole":
+            suggest = "master_backend_role"
+        elif key == "masterUserName":
+            suggest = "master_user_name"
+        elif key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "sessionTimeoutMinutes":
+            suggest = "session_timeout_minutes"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSamlOptionsSamlOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSamlOptionsSamlOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSamlOptionsSamlOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 idp: Optional['outputs.DomainSamlOptionsSamlOptionsIdp'] = None,
+                 master_backend_role: Optional[str] = None,
+                 master_user_name: Optional[str] = None,
+                 roles_key: Optional[str] = None,
+                 session_timeout_minutes: Optional[int] = None,
+                 subject_key: Optional[str] = None):
+        """
+        :param bool enabled: Whether SAML authentication is enabled.
+        :param 'DomainSamlOptionsSamlOptionsIdpArgs' idp: Information from your identity provider.
+        :param str master_backend_role: This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        :param str master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        :param str roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
+        :param int session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+        :param str subject_key: Element of the SAML assertion to use for username. Default is NameID.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if idp is not None:
+            pulumi.set(__self__, "idp", idp)
+        if master_backend_role is not None:
+            pulumi.set(__self__, "master_backend_role", master_backend_role)
+        if master_user_name is not None:
+            pulumi.set(__self__, "master_user_name", master_user_name)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if session_timeout_minutes is not None:
+            pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether SAML authentication is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def idp(self) -> Optional['outputs.DomainSamlOptionsSamlOptionsIdp']:
+        """
+        Information from your identity provider.
+        """
+        return pulumi.get(self, "idp")
+
+    @property
+    @pulumi.getter(name="masterBackendRole")
+    def master_backend_role(self) -> Optional[str]:
+        """
+        This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        return pulumi.get(self, "master_backend_role")
+
+    @property
+    @pulumi.getter(name="masterUserName")
+    def master_user_name(self) -> Optional[str]:
+        """
+        This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        return pulumi.get(self, "master_user_name")
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[str]:
+        """
+        Element of the SAML assertion to use for backend roles. Default is roles.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> Optional[int]:
+        """
+        Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[str]:
+        """
+        Element of the SAML assertion to use for username. Default is NameID.
+        """
+        return pulumi.get(self, "subject_key")
+
+
+@pulumi.output_type
+class DomainSamlOptionsSamlOptionsIdp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityId":
+            suggest = "entity_id"
+        elif key == "metadataContent":
+            suggest = "metadata_content"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSamlOptionsSamlOptionsIdp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSamlOptionsSamlOptionsIdp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSamlOptionsSamlOptionsIdp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_id: str,
+                 metadata_content: str):
+        """
+        :param str entity_id: The unique Entity ID of the application in SAML Identity Provider.
+        :param str metadata_content: The Metadata of the SAML application in xml format.
+        """
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "metadata_content", metadata_content)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> str:
+        """
+        The unique Entity ID of the application in SAML Identity Provider.
+        """
+        return pulumi.get(self, "entity_id")
+
+    @property
+    @pulumi.getter(name="metadataContent")
+    def metadata_content(self) -> str:
+        """
+        The Metadata of the SAML application in xml format.
+        """
+        return pulumi.get(self, "metadata_content")
 
 
 @pulumi.output_type

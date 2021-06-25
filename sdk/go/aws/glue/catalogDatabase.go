@@ -52,7 +52,7 @@ type CatalogDatabase struct {
 	// Description of the database.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Location of the database (for example, an HDFS path).
-	LocationUri pulumi.StringPtrOutput `pulumi:"locationUri"`
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.

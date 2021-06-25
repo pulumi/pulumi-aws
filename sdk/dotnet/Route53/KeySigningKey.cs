@@ -45,9 +45,28 @@ namespace Pulumi.Aws.Route53
     ///                             { "Effect", "Allow" },
     ///                             { "Principal", new Dictionary&lt;string, object?&gt;
     ///                             {
-    ///                                 { "Service", "api-service.dnssec.route53.aws.internal" },
+    ///                                 { "Service", "dnssec-route53.amazonaws.com" },
     ///                             } },
-    ///                             { "Sid", "Route 53 DNSSEC Permissions" },
+    ///                             { "Sid", "Allow Route 53 DNSSEC Service" },
+    ///                             { "Resource", "*" },
+    ///                         },
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "Action", "kms:CreateGrant" },
+    ///                             { "Effect", "Allow" },
+    ///                             { "Principal", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Service", "dnssec-route53.amazonaws.com" },
+    ///                             } },
+    ///                             { "Sid", "Allow Route 53 DNSSEC Service to CreateGrant" },
+    ///                             { "Resource", "*" },
+    ///                             { "Condition", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Bool", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "kms:GrantIsForAWSResource", "true" },
+    ///                                 } },
+    ///                             } },
     ///                         },
     ///                         new Dictionary&lt;string, object?&gt;
     ///                         {
@@ -76,6 +95,12 @@ namespace Pulumi.Aws.Route53
     ///         var exampleHostedZoneDnsSec = new Aws.Route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", new Aws.Route53.HostedZoneDnsSecArgs
     ///         {
     ///             HostedZoneId = exampleKeySigningKey.HostedZoneId,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleKeySigningKey,
+    ///             },
     ///         });
     ///     }
     /// 

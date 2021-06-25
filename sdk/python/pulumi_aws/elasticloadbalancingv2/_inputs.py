@@ -1875,7 +1875,7 @@ class TargetGroupHealthCheckArgs:
                  timeout: Optional[pulumi.Input[int]] = None,
                  unhealthy_threshold: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable `stickiness`. Default is `true`.
+        :param pulumi.Input[bool] enabled: Boolean to enable / disable `stickiness`. Default is `true`.
         :param pulumi.Input[int] healthy_threshold: Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
         :param pulumi.Input[int] interval: Approximate amount of time, in seconds, between health checks of an individual target. Minimum value 5 seconds, Maximum value 300 seconds. For `lambda` target groups, it needs to be greater as the `timeout` of the underlying `lambda`. Default 30 seconds.
         :param pulumi.Input[str] matcher: Response codes to use when checking for a healthy responses from a target. You can specify multiple values (for example, "200,202" for HTTP(s) or "0,12" for GRPC) or a range of values (for example, "200-299" or "0-99"). Required for HTTP/HTTPS/GRPC ALB. Only applies to Application Load Balancers (i.e., HTTP/HTTPS/GRPC) not Network Load Balancers (i.e., TCP).
@@ -1908,7 +1908,7 @@ class TargetGroupHealthCheckArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable `stickiness`. Default is `true`.
+        Boolean to enable / disable `stickiness`. Default is `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -2018,15 +2018,19 @@ class TargetGroupStickinessArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  cookie_duration: Optional[pulumi.Input[int]] = None,
+                 cookie_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] type: Type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        :param pulumi.Input[str] type: The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
         :param pulumi.Input[int] cookie_duration: Only used when the type is `lb_cookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
-        :param pulumi.Input[bool] enabled: Whether to enable `stickiness`. Default is `true`.
+        :param pulumi.Input[str] cookie_name: Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
+        :param pulumi.Input[bool] enabled: Boolean to enable / disable `stickiness`. Default is `true`.
         """
         pulumi.set(__self__, "type", type)
         if cookie_duration is not None:
             pulumi.set(__self__, "cookie_duration", cookie_duration)
+        if cookie_name is not None:
+            pulumi.set(__self__, "cookie_name", cookie_name)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
 
@@ -2034,7 +2038,7 @@ class TargetGroupStickinessArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
         """
         return pulumi.get(self, "type")
 
@@ -2055,10 +2059,22 @@ class TargetGroupStickinessArgs:
         pulumi.set(self, "cookie_duration", value)
 
     @property
+    @pulumi.getter(name="cookieName")
+    def cookie_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
+        """
+        return pulumi.get(self, "cookie_name")
+
+    @cookie_name.setter
+    def cookie_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_name", value)
+
+    @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable `stickiness`. Default is `true`.
+        Boolean to enable / disable `stickiness`. Default is `true`.
         """
         return pulumi.get(self, "enabled")
 

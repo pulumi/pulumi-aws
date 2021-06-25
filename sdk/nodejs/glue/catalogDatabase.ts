@@ -70,7 +70,7 @@ export class CatalogDatabase extends pulumi.CustomResource {
     /**
      * Location of the database (for example, an HDFS path).
      */
-    public readonly locationUri!: pulumi.Output<string | undefined>;
+    public readonly locationUri!: pulumi.Output<string>;
     /**
      * Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.
      */

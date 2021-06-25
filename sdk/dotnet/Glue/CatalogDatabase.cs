@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Glue
         /// Location of the database (for example, an HDFS path).
         /// </summary>
         [Output("locationUri")]
-        public Output<string?> LocationUri { get; private set; } = null!;
+        public Output<string> LocationUri { get; private set; } = null!;
 
         /// <summary>
         /// Name of the database. The acceptable characters are lowercase letters, numbers, and the underscore character.

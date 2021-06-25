@@ -4329,7 +4329,7 @@ func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalan
 }
 
 type TargetGroupHealthCheck struct {
-	// Whether to enable `stickiness`. Default is `true`.
+	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 	HealthyThreshold *int `pulumi:"healthyThreshold"`
@@ -4361,7 +4361,7 @@ type TargetGroupHealthCheckInput interface {
 }
 
 type TargetGroupHealthCheckArgs struct {
-	// Whether to enable `stickiness`. Default is `true`.
+	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of consecutive health checks successes required before considering an unhealthy target healthy. Defaults to 3.
 	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
@@ -4458,7 +4458,7 @@ func (o TargetGroupHealthCheckOutput) ToTargetGroupHealthCheckPtrOutputWithConte
 	}).(TargetGroupHealthCheckPtrOutput)
 }
 
-// Whether to enable `stickiness`. Default is `true`.
+// Boolean to enable / disable `stickiness`. Default is `true`.
 func (o TargetGroupHealthCheckOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupHealthCheck) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -4521,7 +4521,7 @@ func (o TargetGroupHealthCheckPtrOutput) Elem() TargetGroupHealthCheckOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) TargetGroupHealthCheck { return *v }).(TargetGroupHealthCheckOutput)
 }
 
-// Whether to enable `stickiness`. Default is `true`.
+// Boolean to enable / disable `stickiness`. Default is `true`.
 func (o TargetGroupHealthCheckPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupHealthCheck) *bool {
 		if v == nil {
@@ -4614,9 +4614,11 @@ func (o TargetGroupHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutpu
 type TargetGroupStickiness struct {
 	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration *int `pulumi:"cookieDuration"`
-	// Whether to enable `stickiness`. Default is `true`.
+	// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+	CookieName *string `pulumi:"cookieName"`
+	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
 	Type string `pulumi:"type"`
 }
 
@@ -4634,9 +4636,11 @@ type TargetGroupStickinessInput interface {
 type TargetGroupStickinessArgs struct {
 	// Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).
 	CookieDuration pulumi.IntPtrInput `pulumi:"cookieDuration"`
-	// Whether to enable `stickiness`. Default is `true`.
+	// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+	CookieName pulumi.StringPtrInput `pulumi:"cookieName"`
+	// Boolean to enable / disable `stickiness`. Default is `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+	// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -4722,12 +4726,17 @@ func (o TargetGroupStickinessOutput) CookieDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *int { return v.CookieDuration }).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable `stickiness`. Default is `true`.
+// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+func (o TargetGroupStickinessOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TargetGroupStickiness) *string { return v.CookieName }).(pulumi.StringPtrOutput)
+}
+
+// Boolean to enable / disable `stickiness`. Default is `true`.
 func (o TargetGroupStickinessOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
 func (o TargetGroupStickinessOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetGroupStickiness) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4760,7 +4769,17 @@ func (o TargetGroupStickinessPtrOutput) CookieDuration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Whether to enable `stickiness`. Default is `true`.
+// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+func (o TargetGroupStickinessPtrOutput) CookieName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TargetGroupStickiness) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CookieName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean to enable / disable `stickiness`. Default is `true`.
 func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *bool {
 		if v == nil {
@@ -4770,7 +4789,7 @@ func (o TargetGroupStickinessPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+// The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
 func (o TargetGroupStickinessPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TargetGroupStickiness) *string {
 		if v == nil {
@@ -6032,6 +6051,7 @@ func (o GetTargetGroupHealthCheckOutput) UnhealthyThreshold() pulumi.IntOutput {
 
 type GetTargetGroupStickiness struct {
 	CookieDuration int    `pulumi:"cookieDuration"`
+	CookieName     string `pulumi:"cookieName"`
 	Enabled        bool   `pulumi:"enabled"`
 	Type           string `pulumi:"type"`
 }
@@ -6049,6 +6069,7 @@ type GetTargetGroupStickinessInput interface {
 
 type GetTargetGroupStickinessArgs struct {
 	CookieDuration pulumi.IntInput    `pulumi:"cookieDuration"`
+	CookieName     pulumi.StringInput `pulumi:"cookieName"`
 	Enabled        pulumi.BoolInput   `pulumi:"enabled"`
 	Type           pulumi.StringInput `pulumi:"type"`
 }
@@ -6081,6 +6102,10 @@ func (o GetTargetGroupStickinessOutput) ToGetTargetGroupStickinessOutputWithCont
 
 func (o GetTargetGroupStickinessOutput) CookieDuration() pulumi.IntOutput {
 	return o.ApplyT(func(v GetTargetGroupStickiness) int { return v.CookieDuration }).(pulumi.IntOutput)
+}
+
+func (o GetTargetGroupStickinessOutput) CookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTargetGroupStickiness) string { return v.CookieName }).(pulumi.StringOutput)
 }
 
 func (o GetTargetGroupStickinessOutput) Enabled() pulumi.BoolOutput {

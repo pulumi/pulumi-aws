@@ -498,6 +498,137 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) Permissions() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type BackupPolicyBackupPolicy struct {
+	// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// BackupPolicyBackupPolicyInput is an input type that accepts BackupPolicyBackupPolicyArgs and BackupPolicyBackupPolicyOutput values.
+// You can construct a concrete instance of `BackupPolicyBackupPolicyInput` via:
+//
+//          BackupPolicyBackupPolicyArgs{...}
+type BackupPolicyBackupPolicyInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBackupPolicyOutput() BackupPolicyBackupPolicyOutput
+	ToBackupPolicyBackupPolicyOutputWithContext(context.Context) BackupPolicyBackupPolicyOutput
+}
+
+type BackupPolicyBackupPolicyArgs struct {
+	// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (BackupPolicyBackupPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBackupPolicy)(nil)).Elem()
+}
+
+func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyOutput() BackupPolicyBackupPolicyOutput {
+	return i.ToBackupPolicyBackupPolicyOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyOutput)
+}
+
+func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
+	return i.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyOutput).ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx)
+}
+
+// BackupPolicyBackupPolicyPtrInput is an input type that accepts BackupPolicyBackupPolicyArgs, BackupPolicyBackupPolicyPtr and BackupPolicyBackupPolicyPtrOutput values.
+// You can construct a concrete instance of `BackupPolicyBackupPolicyPtrInput` via:
+//
+//          BackupPolicyBackupPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type BackupPolicyBackupPolicyPtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput
+	ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Context) BackupPolicyBackupPolicyPtrOutput
+}
+
+type backupPolicyBackupPolicyPtrType BackupPolicyBackupPolicyArgs
+
+func BackupPolicyBackupPolicyPtr(v *BackupPolicyBackupPolicyArgs) BackupPolicyBackupPolicyPtrInput {
+	return (*backupPolicyBackupPolicyPtrType)(v)
+}
+
+func (*backupPolicyBackupPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyBackupPolicy)(nil)).Elem()
+}
+
+func (i *backupPolicyBackupPolicyPtrType) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
+	return i.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyBackupPolicyPtrType) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyPtrOutput)
+}
+
+type BackupPolicyBackupPolicyOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBackupPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyBackupPolicy)(nil)).Elem()
+}
+
+func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyOutput() BackupPolicyBackupPolicyOutput {
+	return o
+}
+
+func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyOutput {
+	return o
+}
+
+func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
+	return o.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
+	return o.ApplyT(func(v BackupPolicyBackupPolicy) *BackupPolicyBackupPolicy {
+		return &v
+	}).(BackupPolicyBackupPolicyPtrOutput)
+}
+
+// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+func (o BackupPolicyBackupPolicyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type BackupPolicyBackupPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyBackupPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyBackupPolicy)(nil)).Elem()
+}
+
+func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
+	return o
+}
+
+func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
+	return o
+}
+
+func (o BackupPolicyBackupPolicyPtrOutput) Elem() BackupPolicyBackupPolicyOutput {
+	return o.ApplyT(func(v *BackupPolicyBackupPolicy) BackupPolicyBackupPolicy { return *v }).(BackupPolicyBackupPolicyOutput)
+}
+
+// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+func (o BackupPolicyBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyBackupPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type FileSystemLifecyclePolicy struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
 	TransitionToIa string `pulumi:"transitionToIa"`
@@ -1139,6 +1270,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointRootDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoPtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBackupPolicyOutput{})
+	pulumi.RegisterOutputType(BackupPolicyBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})

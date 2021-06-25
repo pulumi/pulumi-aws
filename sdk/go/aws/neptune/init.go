@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:neptune/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:neptune/clusterEndpoint:ClusterEndpoint":
+		r = &ClusterEndpoint{}
 	case "aws:neptune/clusterInstance:ClusterInstance":
 		r = &ClusterInstance{}
 	case "aws:neptune/clusterParameterGroup:ClusterParameterGroup":
@@ -51,6 +53,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"neptune/cluster",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"neptune/clusterEndpoint",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

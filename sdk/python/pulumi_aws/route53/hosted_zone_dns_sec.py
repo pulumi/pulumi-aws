@@ -121,9 +121,24 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                         ],
                         "Effect": "Allow",
                         "Principal": {
-                            "Service": "api-service.dnssec.route53.aws.internal",
+                            "Service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Route 53 DNSSEC Permissions",
+                        "Sid": "Allow Route 53 DNSSEC Service",
+                        "Resource": "*",
+                    },
+                    {
+                        "Action": "kms:CreateGrant",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "dnssec-route53.amazonaws.com",
+                        },
+                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
+                        "Resource": "*",
+                        "Condition": {
+                            "Bool": {
+                                "kms:GrantIsForAWSResource": "true",
+                            },
+                        },
                     },
                     {
                         "Action": "kms:*",
@@ -139,9 +154,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
             }))
         example_zone = aws.route53.Zone("exampleZone")
         example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=aws_route53_zone["test"]["id"],
-            key_management_service_arn=aws_kms_key["test"]["arn"])
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id)
+            hosted_zone_id=example_zone.id,
+            key_management_service_arn=example_key.arn)
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
+        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
 
         ## Import
@@ -187,9 +203,24 @@ class HostedZoneDnsSec(pulumi.CustomResource):
                         ],
                         "Effect": "Allow",
                         "Principal": {
-                            "Service": "api-service.dnssec.route53.aws.internal",
+                            "Service": "dnssec-route53.amazonaws.com",
                         },
-                        "Sid": "Route 53 DNSSEC Permissions",
+                        "Sid": "Allow Route 53 DNSSEC Service",
+                        "Resource": "*",
+                    },
+                    {
+                        "Action": "kms:CreateGrant",
+                        "Effect": "Allow",
+                        "Principal": {
+                            "Service": "dnssec-route53.amazonaws.com",
+                        },
+                        "Sid": "Allow Route 53 DNSSEC Service to CreateGrant",
+                        "Resource": "*",
+                        "Condition": {
+                            "Bool": {
+                                "kms:GrantIsForAWSResource": "true",
+                            },
+                        },
                     },
                     {
                         "Action": "kms:*",
@@ -205,9 +236,10 @@ class HostedZoneDnsSec(pulumi.CustomResource):
             }))
         example_zone = aws.route53.Zone("exampleZone")
         example_key_signing_key = aws.route53.KeySigningKey("exampleKeySigningKey",
-            hosted_zone_id=aws_route53_zone["test"]["id"],
-            key_management_service_arn=aws_kms_key["test"]["arn"])
-        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id)
+            hosted_zone_id=example_zone.id,
+            key_management_service_arn=example_key.arn)
+        example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("exampleHostedZoneDnsSec", hosted_zone_id=example_key_signing_key.hosted_zone_id,
+        opts=pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         ```
 
         ## Import

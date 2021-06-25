@@ -19,13 +19,19 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Inputs
         public Input<int>? CookieDuration { get; set; }
 
         /// <summary>
-        /// Whether to enable `stickiness`. Default is `true`.
+        /// Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `app_cookie`.
+        /// </summary>
+        [Input("cookieName")]
+        public Input<string>? CookieName { get; set; }
+
+        /// <summary>
+        /// Boolean to enable / disable `stickiness`. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Type of sticky sessions. The only current possible values are `lb_cookie` for ALBs and `source_ip` for NLBs.
+        /// The type of sticky sessions. The only current possible values are `lb_cookie`, `app_cookie` for ALBs, and `source_ip` for NLBs.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
