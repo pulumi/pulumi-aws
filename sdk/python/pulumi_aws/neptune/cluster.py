@@ -18,6 +18,7 @@ class ClusterArgs:
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class ClusterArgs:
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -76,6 +78,8 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         if cluster_identifier_prefix is not None:
             pulumi.set(__self__, "cluster_identifier_prefix", cluster_identifier_prefix)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
@@ -176,6 +180,18 @@ class ClusterArgs:
     @cluster_identifier_prefix.setter
     def cluster_identifier_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_identifier_prefix", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -429,6 +445,7 @@ class _ClusterState:
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
                  cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -462,6 +479,7 @@ class _ClusterState:
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
@@ -502,6 +520,8 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_members", cluster_members)
         if cluster_resource_id is not None:
             pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+        if copy_tags_to_snapshot is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if enable_cloudwatch_logs_exports is not None:
@@ -644,6 +664,18 @@ class _ClusterState:
     @cluster_resource_id.setter
     def cluster_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_resource_id", value)
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @copy_tags_to_snapshot.setter
+    def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags_to_snapshot", value)
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -932,6 +964,7 @@ class Cluster(pulumi.CustomResource):
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -998,6 +1031,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[int] backup_retention_period: The days to retain backups for. Default `1`
         :param pulumi.Input[str] cluster_identifier: The cluster identifier. If omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
+        :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this Neptune cluster. Defaults to `neptune`.
@@ -1083,6 +1117,7 @@ class Cluster(pulumi.CustomResource):
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
+                 copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -1120,6 +1155,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["cluster_identifier_prefix"] = cluster_identifier_prefix
+            __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
             __props__.__dict__["engine"] = engine
@@ -1164,6 +1200,7 @@ class Cluster(pulumi.CustomResource):
             cluster_identifier_prefix: Optional[pulumi.Input[str]] = None,
             cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+            copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
             enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
@@ -1202,6 +1239,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[str] cluster_resource_id: The Neptune Cluster Resource ID
+        :param pulumi.Input[bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
         :param pulumi.Input[str] endpoint: The DNS address of the Neptune instance
@@ -1238,6 +1276,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_identifier_prefix"] = cluster_identifier_prefix
         __props__.__dict__["cluster_members"] = cluster_members
         __props__.__dict__["cluster_resource_id"] = cluster_resource_id
+        __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         __props__.__dict__["deletion_protection"] = deletion_protection
         __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
@@ -1326,6 +1365,14 @@ class Cluster(pulumi.CustomResource):
         The Neptune Cluster Resource ID
         """
         return pulumi.get(self, "cluster_resource_id")
+
+    @property
+    @pulumi.getter(name="copyTagsToSnapshot")
+    def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshot")
 
     @property
     @pulumi.getter(name="deletionProtection")

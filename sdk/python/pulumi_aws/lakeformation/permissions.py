@@ -330,25 +330,7 @@ class Permissions(pulumi.CustomResource):
                  table_with_columns: Optional[pulumi.Input[pulumi.InputType['PermissionsTableWithColumnsArgs']]] = None,
                  __props__=None):
         """
-        Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-        > **NOTE:** Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed. There are two ways to avoid these errors. First, grant explicit permissions (and `permissions_with_grant_option`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. Second, avoid using this resource with principals that have implicit permissions. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-        ## Example Usage
-        ### Grant Permissions For A Lake Formation S3 Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["test"]["arn"],
-            ))
-        ```
-
+        Create a Permissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -368,25 +350,7 @@ class Permissions(pulumi.CustomResource):
                  args: PermissionsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-
-        > **NOTE:** Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed. There are two ways to avoid these errors. First, grant explicit permissions (and `permissions_with_grant_option`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. Second, avoid using this resource with principals that have implicit permissions. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-
-        ## Example Usage
-        ### Grant Permissions For A Lake Formation S3 Resource
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.lakeformation.Permissions("test",
-            principal=aws_iam_role["workflow_role"]["arn"],
-            permissions=["ALL"],
-            data_location=aws.lakeformation.PermissionsDataLocationArgs(
-                arn=aws_lakeformation_resource["test"]["arn"],
-            ))
-        ```
-
+        Create a Permissions resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PermissionsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

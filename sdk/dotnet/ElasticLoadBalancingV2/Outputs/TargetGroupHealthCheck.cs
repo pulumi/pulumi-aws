@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2.Outputs
     public sealed class TargetGroupHealthCheck
     {
         /// <summary>
-        /// Whether to enable `stickiness`. Default is `true`.
+        /// Boolean to enable / disable `stickiness`. Default is `true`.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>

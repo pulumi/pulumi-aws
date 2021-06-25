@@ -38,9 +38,24 @@ import (
 // 					},
 // 					"Effect": "Allow",
 // 					"Principal": map[string]interface{}{
-// 						"Service": "api-service.dnssec.route53.aws.internal",
+// 						"Service": "dnssec-route53.amazonaws.com",
 // 					},
-// 					"Sid": "Route 53 DNSSEC Permissions",
+// 					"Sid":      "Allow Route 53 DNSSEC Service",
+// 					"Resource": "*",
+// 				},
+// 				map[string]interface{}{
+// 					"Action": "kms:CreateGrant",
+// 					"Effect": "Allow",
+// 					"Principal": map[string]interface{}{
+// 						"Service": "dnssec-route53.amazonaws.com",
+// 					},
+// 					"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
+// 					"Resource": "*",
+// 					"Condition": map[string]interface{}{
+// 						"Bool": map[string]interface{}{
+// 							"kms:GrantIsForAWSResource": "true",
+// 						},
+// 					},
 // 				},
 // 				map[string]interface{}{
 // 					"Action": "kms:*",
@@ -80,7 +95,9 @@ import (
 // 		}
 // 		_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
 // 			HostedZoneId: exampleKeySigningKey.HostedZoneId,
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleKeySigningKey,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

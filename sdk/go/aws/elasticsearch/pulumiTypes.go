@@ -1760,6 +1760,401 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type DomainSamlOptionsSamlOptions struct {
+	// Whether SAML authentication is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Information from your identity provider.
+	Idp *DomainSamlOptionsSamlOptionsIdp `pulumi:"idp"`
+	// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+	MasterBackendRole *string `pulumi:"masterBackendRole"`
+	// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+	MasterUserName *string `pulumi:"masterUserName"`
+	// Element of the SAML assertion to use for backend roles. Default is roles.
+	RolesKey *string `pulumi:"rolesKey"`
+	// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+	SessionTimeoutMinutes *int `pulumi:"sessionTimeoutMinutes"`
+	// Element of the SAML assertion to use for username. Default is NameID.
+	SubjectKey *string `pulumi:"subjectKey"`
+}
+
+// DomainSamlOptionsSamlOptionsInput is an input type that accepts DomainSamlOptionsSamlOptionsArgs and DomainSamlOptionsSamlOptionsOutput values.
+// You can construct a concrete instance of `DomainSamlOptionsSamlOptionsInput` via:
+//
+//          DomainSamlOptionsSamlOptionsArgs{...}
+type DomainSamlOptionsSamlOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSamlOptionsSamlOptionsOutput() DomainSamlOptionsSamlOptionsOutput
+	ToDomainSamlOptionsSamlOptionsOutputWithContext(context.Context) DomainSamlOptionsSamlOptionsOutput
+}
+
+type DomainSamlOptionsSamlOptionsArgs struct {
+	// Whether SAML authentication is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Information from your identity provider.
+	Idp DomainSamlOptionsSamlOptionsIdpPtrInput `pulumi:"idp"`
+	// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+	MasterBackendRole pulumi.StringPtrInput `pulumi:"masterBackendRole"`
+	// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+	MasterUserName pulumi.StringPtrInput `pulumi:"masterUserName"`
+	// Element of the SAML assertion to use for backend roles. Default is roles.
+	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
+	// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+	SessionTimeoutMinutes pulumi.IntPtrInput `pulumi:"sessionTimeoutMinutes"`
+	// Element of the SAML assertion to use for username. Default is NameID.
+	SubjectKey pulumi.StringPtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainSamlOptionsSamlOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSamlOptionsSamlOptions)(nil)).Elem()
+}
+
+func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsOutput() DomainSamlOptionsSamlOptionsOutput {
+	return i.ToDomainSamlOptionsSamlOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsOutput)
+}
+
+func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput {
+	return i.ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSamlOptionsSamlOptionsArgs) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsOutput).ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainSamlOptionsSamlOptionsPtrInput is an input type that accepts DomainSamlOptionsSamlOptionsArgs, DomainSamlOptionsSamlOptionsPtr and DomainSamlOptionsSamlOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSamlOptionsSamlOptionsPtrInput` via:
+//
+//          DomainSamlOptionsSamlOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainSamlOptionsSamlOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput
+	ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(context.Context) DomainSamlOptionsSamlOptionsPtrOutput
+}
+
+type domainSamlOptionsSamlOptionsPtrType DomainSamlOptionsSamlOptionsArgs
+
+func DomainSamlOptionsSamlOptionsPtr(v *DomainSamlOptionsSamlOptionsArgs) DomainSamlOptionsSamlOptionsPtrInput {
+	return (*domainSamlOptionsSamlOptionsPtrType)(v)
+}
+
+func (*domainSamlOptionsSamlOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSamlOptionsSamlOptions)(nil)).Elem()
+}
+
+func (i *domainSamlOptionsSamlOptionsPtrType) ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput {
+	return i.ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSamlOptionsSamlOptionsPtrType) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsPtrOutput)
+}
+
+type DomainSamlOptionsSamlOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainSamlOptionsSamlOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSamlOptionsSamlOptions)(nil)).Elem()
+}
+
+func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsOutput() DomainSamlOptionsSamlOptionsOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput {
+	return o.ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptions {
+		return &v
+	}).(DomainSamlOptionsSamlOptionsPtrOutput)
+}
+
+// Whether SAML authentication is enabled.
+func (o DomainSamlOptionsSamlOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Information from your identity provider.
+func (o DomainSamlOptionsSamlOptionsOutput) Idp() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptionsIdp { return v.Idp }).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
+}
+
+// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+func (o DomainSamlOptionsSamlOptionsOutput) MasterBackendRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *string { return v.MasterBackendRole }).(pulumi.StringPtrOutput)
+}
+
+// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+func (o DomainSamlOptionsSamlOptionsOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *string { return v.MasterUserName }).(pulumi.StringPtrOutput)
+}
+
+// Element of the SAML assertion to use for backend roles. Default is roles.
+func (o DomainSamlOptionsSamlOptionsOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *string { return v.RolesKey }).(pulumi.StringPtrOutput)
+}
+
+// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+func (o DomainSamlOptionsSamlOptionsOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *int { return v.SessionTimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+// Element of the SAML assertion to use for username. Default is NameID.
+func (o DomainSamlOptionsSamlOptionsOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *string { return v.SubjectKey }).(pulumi.StringPtrOutput)
+}
+
+type DomainSamlOptionsSamlOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSamlOptionsSamlOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSamlOptionsSamlOptions)(nil)).Elem()
+}
+
+func (o DomainSamlOptionsSamlOptionsPtrOutput) ToDomainSamlOptionsSamlOptionsPtrOutput() DomainSamlOptionsSamlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsPtrOutput) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsPtrOutput) Elem() DomainSamlOptionsSamlOptionsOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) DomainSamlOptionsSamlOptions { return *v }).(DomainSamlOptionsSamlOptionsOutput)
+}
+
+// Whether SAML authentication is enabled.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Information from your identity provider.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) Idp() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptionsIdp {
+		if v == nil {
+			return nil
+		}
+		return v.Idp
+	}).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
+}
+
+// This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) MasterBackendRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterBackendRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) MasterUserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterUserName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Element of the SAML assertion to use for backend roles. Default is roles.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) RolesKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) SessionTimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SessionTimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Element of the SAML assertion to use for username. Default is NameID.
+func (o DomainSamlOptionsSamlOptionsPtrOutput) SubjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainSamlOptionsSamlOptionsIdp struct {
+	// The unique Entity ID of the application in SAML Identity Provider.
+	EntityId string `pulumi:"entityId"`
+	// The Metadata of the SAML application in xml format.
+	MetadataContent string `pulumi:"metadataContent"`
+}
+
+// DomainSamlOptionsSamlOptionsIdpInput is an input type that accepts DomainSamlOptionsSamlOptionsIdpArgs and DomainSamlOptionsSamlOptionsIdpOutput values.
+// You can construct a concrete instance of `DomainSamlOptionsSamlOptionsIdpInput` via:
+//
+//          DomainSamlOptionsSamlOptionsIdpArgs{...}
+type DomainSamlOptionsSamlOptionsIdpInput interface {
+	pulumi.Input
+
+	ToDomainSamlOptionsSamlOptionsIdpOutput() DomainSamlOptionsSamlOptionsIdpOutput
+	ToDomainSamlOptionsSamlOptionsIdpOutputWithContext(context.Context) DomainSamlOptionsSamlOptionsIdpOutput
+}
+
+type DomainSamlOptionsSamlOptionsIdpArgs struct {
+	// The unique Entity ID of the application in SAML Identity Provider.
+	EntityId pulumi.StringInput `pulumi:"entityId"`
+	// The Metadata of the SAML application in xml format.
+	MetadataContent pulumi.StringInput `pulumi:"metadataContent"`
+}
+
+func (DomainSamlOptionsSamlOptionsIdpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdp)(nil)).Elem()
+}
+
+func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpOutput() DomainSamlOptionsSamlOptionsIdpOutput {
+	return i.ToDomainSamlOptionsSamlOptionsIdpOutputWithContext(context.Background())
+}
+
+func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsIdpOutput)
+}
+
+func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return i.ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSamlOptionsSamlOptionsIdpArgs) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsIdpOutput).ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx)
+}
+
+// DomainSamlOptionsSamlOptionsIdpPtrInput is an input type that accepts DomainSamlOptionsSamlOptionsIdpArgs, DomainSamlOptionsSamlOptionsIdpPtr and DomainSamlOptionsSamlOptionsIdpPtrOutput values.
+// You can construct a concrete instance of `DomainSamlOptionsSamlOptionsIdpPtrInput` via:
+//
+//          DomainSamlOptionsSamlOptionsIdpArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainSamlOptionsSamlOptionsIdpPtrInput interface {
+	pulumi.Input
+
+	ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput
+	ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput
+}
+
+type domainSamlOptionsSamlOptionsIdpPtrType DomainSamlOptionsSamlOptionsIdpArgs
+
+func DomainSamlOptionsSamlOptionsIdpPtr(v *DomainSamlOptionsSamlOptionsIdpArgs) DomainSamlOptionsSamlOptionsIdpPtrInput {
+	return (*domainSamlOptionsSamlOptionsIdpPtrType)(v)
+}
+
+func (*domainSamlOptionsSamlOptionsIdpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSamlOptionsSamlOptionsIdp)(nil)).Elem()
+}
+
+func (i *domainSamlOptionsSamlOptionsIdpPtrType) ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return i.ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSamlOptionsSamlOptionsIdpPtrType) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
+}
+
+type DomainSamlOptionsSamlOptionsIdpOutput struct{ *pulumi.OutputState }
+
+func (DomainSamlOptionsSamlOptionsIdpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdp)(nil)).Elem()
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdpOutput() DomainSamlOptionsSamlOptionsIdpOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdpOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o.ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) *DomainSamlOptionsSamlOptionsIdp {
+		return &v
+	}).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
+}
+
+// The unique Entity ID of the application in SAML Identity Provider.
+func (o DomainSamlOptionsSamlOptionsIdpOutput) EntityId() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) string { return v.EntityId }).(pulumi.StringOutput)
+}
+
+// The Metadata of the SAML application in xml format.
+func (o DomainSamlOptionsSamlOptionsIdpOutput) MetadataContent() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) string { return v.MetadataContent }).(pulumi.StringOutput)
+}
+
+type DomainSamlOptionsSamlOptionsIdpPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSamlOptionsSamlOptionsIdpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSamlOptionsSamlOptionsIdp)(nil)).Elem()
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutput() DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
+	return o
+}
+
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) Elem() DomainSamlOptionsSamlOptionsIdpOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) DomainSamlOptionsSamlOptionsIdp { return *v }).(DomainSamlOptionsSamlOptionsIdpOutput)
+}
+
+// The unique Entity ID of the application in SAML Identity Provider.
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) EntityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EntityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Metadata of the SAML application in xml format.
+func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) MetadataContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataContent
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainSnapshotOptions struct {
 	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
@@ -3261,6 +3656,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainLogPublishingOptionArrayOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsOutput{})
+	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpOutput{})
+	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})

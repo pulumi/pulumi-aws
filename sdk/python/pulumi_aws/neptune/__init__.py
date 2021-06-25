@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cluster import *
+from .cluster_endpoint import *
 from .cluster_instance import *
 from .cluster_parameter_group import *
 from .cluster_snapshot import *

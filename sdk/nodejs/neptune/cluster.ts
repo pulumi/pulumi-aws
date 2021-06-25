@@ -104,6 +104,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterResourceId!: pulumi.Output<string>;
     /**
+     * If set to true, tags are copied to any snapshot of the DB cluster that is created.
+     */
+    public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
@@ -217,6 +221,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["clusterIdentifierPrefix"] = state ? state.clusterIdentifierPrefix : undefined;
             inputs["clusterMembers"] = state ? state.clusterMembers : undefined;
             inputs["clusterResourceId"] = state ? state.clusterResourceId : undefined;
+            inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
             inputs["enableCloudwatchLogsExports"] = state ? state.enableCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
@@ -247,6 +252,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             inputs["clusterIdentifierPrefix"] = args ? args.clusterIdentifierPrefix : undefined;
+            inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             inputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
@@ -317,6 +323,10 @@ export interface ClusterState {
      * The Neptune Cluster Resource ID
      */
     clusterResourceId?: pulumi.Input<string>;
+    /**
+     * If set to true, tags are copied to any snapshot of the DB cluster that is created.
+     */
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
@@ -435,6 +445,10 @@ export interface ClusterArgs {
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
      */
     clusterIdentifierPrefix?: pulumi.Input<string>;
+    /**
+     * If set to true, tags are copied to any snapshot of the DB cluster that is created.
+     */
+    copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */

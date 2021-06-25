@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./accessPoint";
+export * from "./backupPolicy";
 export * from "./fileSystem";
 export * from "./fileSystemPolicy";
 export * from "./getAccessPoint";
@@ -16,6 +17,7 @@ export * from "./mountTarget";
 
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
+import { BackupPolicy } from "./backupPolicy";
 import { FileSystem } from "./fileSystem";
 import { FileSystemPolicy } from "./fileSystemPolicy";
 import { MountTarget } from "./mountTarget";
@@ -26,6 +28,8 @@ const _module = {
         switch (type) {
             case "aws:efs/accessPoint:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
+            case "aws:efs/backupPolicy:BackupPolicy":
+                return new BackupPolicy(name, <any>undefined, { urn })
             case "aws:efs/fileSystem:FileSystem":
                 return new FileSystem(name, <any>undefined, { urn })
             case "aws:efs/fileSystemPolicy:FileSystemPolicy":
@@ -38,6 +42,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "efs/accessPoint", _module)
+pulumi.runtime.registerResourceModule("aws", "efs/backupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/fileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/fileSystemPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/mountTarget", _module)

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Alb.Inputs
     public sealed class TargetGroupHealthCheckGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to enable `stickiness`. Default is `true`.
+        /// Boolean to enable / disable `stickiness`. Default is `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

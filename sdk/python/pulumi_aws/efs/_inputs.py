@@ -12,6 +12,7 @@ __all__ = [
     'AccessPointPosixUserArgs',
     'AccessPointRootDirectoryArgs',
     'AccessPointRootDirectoryCreationInfoArgs',
+    'BackupPolicyBackupPolicyArgs',
     'FileSystemLifecyclePolicyArgs',
     'FileSystemSizeInByteArgs',
 ]
@@ -158,6 +159,28 @@ class AccessPointRootDirectoryCreationInfoArgs:
     @permissions.setter
     def permissions(self, value: pulumi.Input[str]):
         pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
+class BackupPolicyBackupPolicyArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] status: A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[str]:
+        """
+        A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

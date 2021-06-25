@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterEndpoint";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
@@ -17,6 +18,7 @@ export * from "./subnetGroup";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
+import { ClusterEndpoint } from "./clusterEndpoint";
 import { ClusterInstance } from "./clusterInstance";
 import { ClusterParameterGroup } from "./clusterParameterGroup";
 import { ClusterSnapshot } from "./clusterSnapshot";
@@ -30,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws:neptune/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:neptune/clusterEndpoint:ClusterEndpoint":
+                return new ClusterEndpoint(name, <any>undefined, { urn })
             case "aws:neptune/clusterInstance:ClusterInstance":
                 return new ClusterInstance(name, <any>undefined, { urn })
             case "aws:neptune/clusterParameterGroup:ClusterParameterGroup":
@@ -48,6 +52,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "neptune/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "neptune/clusterEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "neptune/clusterSnapshot", _module)

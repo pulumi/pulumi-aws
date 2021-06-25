@@ -108,6 +108,12 @@ namespace Pulumi.Aws.Neptune
         public Output<string> ClusterResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        /// </summary>
+        [Output("copyTagsToSnapshot")]
+        public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         [Output("deletionProtection")]
@@ -328,6 +334,12 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? ClusterIdentifierPrefix { get; set; }
 
         /// <summary>
+        /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
+
+        /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         [Input("deletionProtection")]
@@ -543,6 +555,12 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         [Input("clusterResourceId")]
         public Input<string>? ClusterResourceId { get; set; }
+
+        /// <summary>
+        /// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+        /// </summary>
+        [Input("copyTagsToSnapshot")]
+        public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
         /// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

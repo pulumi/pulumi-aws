@@ -537,6 +537,7 @@ export namespace alb {
 
     export interface GetTargetGroupStickiness {
         cookieDuration: number;
+        cookieName: string;
         enabled: boolean;
         type: string;
     }
@@ -1036,7 +1037,7 @@ export namespace alb {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
@@ -1079,11 +1080,15 @@ export namespace alb {
          */
         cookieDuration?: number;
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+         */
+        cookieName?: string;
+        /**
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -1790,6 +1795,7 @@ export namespace applicationloadbalancing {
 
     export interface GetTargetGroupStickiness {
         cookieDuration: number;
+        cookieName: string;
         enabled: boolean;
         type: string;
     }
@@ -2289,7 +2295,7 @@ export namespace applicationloadbalancing {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
@@ -2332,11 +2338,15 @@ export namespace applicationloadbalancing {
          */
         cookieDuration?: number;
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+         */
+        cookieName?: string;
+        /**
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -5826,29 +5836,56 @@ export namespace cloudfront {
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+        /**
+         * Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         */
         cookieBehavior: string;
+        /**
+         * Object that contains a list of cookie names. See Items for more information.
+         */
         cookies?: outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+        /**
+         * A list of item names (cookies, headers, or query strings).
+         */
         items?: string[];
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+        /**
+         * Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
+         */
         headerBehavior?: string;
+        /**
+         * Object that contains a list of header names. See Items for more information.
+         */
         headers?: outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+        /**
+         * A list of item names (cookies, headers, or query strings).
+         */
         items?: string[];
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+        /**
+         * Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
+         */
         queryStringBehavior: string;
+        /**
+         * Object that contains a list of query string names. See Items for more information.
+         */
         queryStrings?: outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings;
     }
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+        /**
+         * A list of item names (cookies, headers, or query strings).
+         */
         items?: string[];
     }
 
@@ -12606,6 +12643,13 @@ export namespace efs {
         permissions: string;
     }
 
+    export interface BackupPolicyBackupPolicy {
+        /**
+         * A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+         */
+        status: string;
+    }
+
     export interface FileSystemLifecyclePolicy {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
@@ -13234,6 +13278,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface GetTargetGroupStickiness {
         cookieDuration: number;
+        cookieName: string;
         enabled: boolean;
         type: string;
     }
@@ -13733,7 +13778,7 @@ export namespace elasticloadbalancingv2 {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
@@ -13776,11 +13821,15 @@ export namespace elasticloadbalancingv2 {
          */
         cookieDuration?: number;
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+         */
+        cookieName?: string;
+        /**
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
          */
         type: string;
     }
@@ -13956,6 +14005,48 @@ export namespace elasticsearch {
          * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
          */
         enabled: boolean;
+    }
+
+    export interface DomainSamlOptionsSamlOptions {
+        /**
+         * Whether SAML authentication is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * Information from your identity provider.
+         */
+        idp?: outputs.elasticsearch.DomainSamlOptionsSamlOptionsIdp;
+        /**
+         * This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterBackendRole?: string;
+        /**
+         * This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterUserName?: string;
+        /**
+         * Element of the SAML assertion to use for backend roles. Default is roles.
+         */
+        rolesKey?: string;
+        /**
+         * Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+         */
+        sessionTimeoutMinutes?: number;
+        /**
+         * Element of the SAML assertion to use for username. Default is NameID.
+         */
+        subjectKey?: string;
+    }
+
+    export interface DomainSamlOptionsSamlOptionsIdp {
+        /**
+         * The unique Entity ID of the application in SAML Identity Provider.
+         */
+        entityId: string;
+        /**
+         * The Metadata of the SAML application in xml format.
+         */
+        metadataContent: string;
     }
 
     export interface DomainSnapshotOptions {
@@ -19530,6 +19621,7 @@ export namespace lb {
 
     export interface GetTargetGroupStickiness {
         cookieDuration: number;
+        cookieName: string;
         enabled: boolean;
         type: string;
     }
@@ -20029,7 +20121,7 @@ export namespace lb {
 
     export interface TargetGroupHealthCheck {
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
@@ -20072,11 +20164,15 @@ export namespace lb {
          */
         cookieDuration?: number;
         /**
-         * Whether to enable `stickiness`. Default is `true`.
+         * Name of the application based cookie. AWSALB, AWSALBAPP, and AWSALBTG prefixes are reserved and cannot be used. Only needed when type is `appCookie`.
+         */
+        cookieName?: string;
+        /**
+         * Boolean to enable / disable `stickiness`. Default is `true`.
          */
         enabled?: boolean;
         /**
-         * Type of sticky sessions. The only current possible values are `lbCookie` for ALBs and `sourceIp` for NLBs.
+         * The type of sticky sessions. The only current possible values are `lbCookie`, `appCookie` for ALBs, and `sourceIp` for NLBs.
          */
         type: string;
     }

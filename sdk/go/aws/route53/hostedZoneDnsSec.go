@@ -38,9 +38,24 @@ import (
 // 					},
 // 					"Effect": "Allow",
 // 					"Principal": map[string]interface{}{
-// 						"Service": "api-service.dnssec.route53.aws.internal",
+// 						"Service": "dnssec-route53.amazonaws.com",
 // 					},
-// 					"Sid": "Route 53 DNSSEC Permissions",
+// 					"Sid":      "Allow Route 53 DNSSEC Service",
+// 					"Resource": "*",
+// 				},
+// 				map[string]interface{}{
+// 					"Action": "kms:CreateGrant",
+// 					"Effect": "Allow",
+// 					"Principal": map[string]interface{}{
+// 						"Service": "dnssec-route53.amazonaws.com",
+// 					},
+// 					"Sid":      "Allow Route 53 DNSSEC Service to CreateGrant",
+// 					"Resource": "*",
+// 					"Condition": map[string]interface{}{
+// 						"Bool": map[string]interface{}{
+// 							"kms:GrantIsForAWSResource": "true",
+// 						},
+// 					},
 // 				},
 // 				map[string]interface{}{
 // 					"Action": "kms:*",
@@ -58,7 +73,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
+// 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
 // 			CustomerMasterKeySpec: pulumi.String("ECC_NIST_P256"),
 // 			DeletionWindowInDays:  pulumi.Int(7),
 // 			KeyUsage:              pulumi.String("SIGN_VERIFY"),
@@ -67,20 +82,22 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewZone(ctx, "exampleZone", nil)
+// 		exampleZone, err := route53.NewZone(ctx, "exampleZone", nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleKeySigningKey, err := route53.NewKeySigningKey(ctx, "exampleKeySigningKey", &route53.KeySigningKeyArgs{
-// 			HostedZoneId:            pulumi.Any(aws_route53_zone.Test.Id),
-// 			KeyManagementServiceArn: pulumi.Any(aws_kms_key.Test.Arn),
+// 			HostedZoneId:            exampleZone.ID(),
+// 			KeyManagementServiceArn: exampleKey.Arn,
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = route53.NewHostedZoneDnsSec(ctx, "exampleHostedZoneDnsSec", &route53.HostedZoneDnsSecArgs{
 // 			HostedZoneId: exampleKeySigningKey.HostedZoneId,
-// 		})
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleKeySigningKey,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

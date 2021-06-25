@@ -13,6 +13,7 @@ __all__ = [
     'AccessPointPosixUser',
     'AccessPointRootDirectory',
     'AccessPointRootDirectoryCreationInfo',
+    'BackupPolicyBackupPolicy',
     'FileSystemLifecyclePolicy',
     'FileSystemSizeInByte',
     'GetAccessPointPosixUserResult',
@@ -184,6 +185,24 @@ class AccessPointRootDirectoryCreationInfo(dict):
         POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         """
         return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class BackupPolicyBackupPolicy(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

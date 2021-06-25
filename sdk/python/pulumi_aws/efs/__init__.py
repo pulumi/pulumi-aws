@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .access_point import *
+from .backup_policy import *
 from .file_system import *
 from .file_system_policy import *
 from .get_access_point import *

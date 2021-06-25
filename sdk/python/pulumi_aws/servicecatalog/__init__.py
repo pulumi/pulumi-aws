@@ -9,6 +9,7 @@ from .budget_resource_association import *
 from .constraint import *
 from .get_constraint import *
 from .get_portfolio import *
+from .get_product import *
 from .organizations_access import *
 from .portfolio import *
 from .portfolio_share import *

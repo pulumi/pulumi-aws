@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.47.0 of the AWS Terraform Provider
+* Add support for autonaming FIFO `aws.sns.Topic` with a `.fifo` suffix
 
 ---
 

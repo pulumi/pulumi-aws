@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Alb.Outputs
     public sealed class GetTargetGroupStickinessResult
     {
         public readonly int CookieDuration;
+        public readonly string CookieName;
         public readonly bool Enabled;
         public readonly string Type;
 
@@ -21,11 +22,14 @@ namespace Pulumi.Aws.Alb.Outputs
         private GetTargetGroupStickinessResult(
             int cookieDuration,
 
+            string cookieName,
+
             bool enabled,
 
             string type)
         {
             CookieDuration = cookieDuration;
+            CookieName = cookieName;
             Enabled = enabled;
             Type = type;
         }

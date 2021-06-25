@@ -78,6 +78,8 @@ type Cluster struct {
 	ClusterMembers pulumi.StringArrayOutput `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
 	ClusterResourceId pulumi.StringOutput `pulumi:"clusterResourceId"`
+	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -171,6 +173,8 @@ type clusterState struct {
 	ClusterMembers []string `pulumi:"clusterMembers"`
 	// The Neptune Cluster Resource ID
 	ClusterResourceId *string `pulumi:"clusterResourceId"`
+	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -236,6 +240,8 @@ type ClusterState struct {
 	ClusterMembers pulumi.StringArrayInput
 	// The Neptune Cluster Resource ID
 	ClusterResourceId pulumi.StringPtrInput
+	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -299,6 +305,8 @@ type clusterArgs struct {
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
+	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.
@@ -353,6 +361,8 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
+	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
+	CopyTagsToSnapshot pulumi.BoolPtrInput
 	// A value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection pulumi.BoolPtrInput
 	// A list of the log types this DB cluster is configured to export to Cloudwatch Logs. Currently only supports `audit`.

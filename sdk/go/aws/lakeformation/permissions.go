@@ -11,39 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Grants permissions to the principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
-//
-// > **NOTE:** Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed. There are two ways to avoid these errors. First, grant explicit permissions (and `permissionsWithGrantOption`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. Second, avoid using this resource with principals that have implicit permissions. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
-//
-// ## Example Usage
-// ### Grant Permissions For A Lake Formation S3 Resource
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lakeformation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
-// 			Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
-// 			Permissions: pulumi.StringArray{
-// 				pulumi.String("ALL"),
-// 			},
-// 			DataLocation: &lakeformation.PermissionsDataLocationArgs{
-// 				Arn: pulumi.Any(aws_lakeformation_resource.Test.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type Permissions struct {
 	pulumi.CustomResourceState
 

@@ -789,6 +789,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_metric_stream":         {Tok: awsResource(cloudwatchMod, "MetricStream")},
 			"aws_cloudwatch_event_api_destination": {Tok: awsResource(cloudwatchMod, "EventApiDestination")},
 			"aws_cloudwatch_event_connection":      {Tok: awsResource(cloudwatchMod, "EventConnection")},
+			"aws_cloudwatch_event_bus_policy":      {Tok: awsResource(cloudwatchMod, "EventBusPolicy")},
 			// CodeBuild
 			"aws_codebuild_project":           {Tok: awsResource(codebuildMod, "Project")},
 			"aws_codebuild_webhook":           {Tok: awsResource(codebuildMod, "Webhook")},
@@ -1328,6 +1329,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_efs_access_point":       {Tok: awsResource(efsMod, "AccessPoint")},
 			"aws_efs_file_system_policy": {Tok: awsResource(efsMod, "FileSystemPolicy")},
+			"aws_efs_backup_policy": {
+				Tok: awsResource(efsMod, "BackupPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"backup_policy": {
+						CSharpName: "BackupPolicyDetails",
+					},
+				},
+			},
 			// ECS for Kubernetes
 			"aws_eks_cluster": {
 				Tok: awsResource(eksMod, "Cluster"),
@@ -1377,6 +1386,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_elasticsearch_domain_saml_options": {Tok: awsResource(elasticsearchMod, "DomainSamlOptions")},
 			// Elastic Transcoder
 			"aws_elastictranscoder_pipeline": {
 				Tok: awsResource(elastictranscoderMod, "Pipeline"),
@@ -1863,6 +1873,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_neptune_cluster_snapshot":        {Tok: awsResource(neptuneMod, "ClusterSnapshot")},
 			"aws_neptune_event_subscription":      {Tok: awsResource(neptuneMod, "EventSubscription")},
 			"aws_neptune_parameter_group":         {Tok: awsResource(neptuneMod, "ParameterGroup")},
+			"aws_neptune_cluster_endpoint":        {Tok: awsResource(neptuneMod, "ClusterEndpoint")},
 			"aws_neptune_subnet_group": {
 				Tok: awsResource(neptuneMod, "SubnetGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2344,6 +2355,20 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
+					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
+						Separator: "-",
+						Maxlen:    80,
+						Randlen:   7,
+						// If this is a FIFO topic, it's name must end with `.fifo`
+						PostTransform: func(res *tfbridge.PulumiResource, name string) (string, error) {
+							if fifo, hasfifo := res.Properties["fifoTopic"]; hasfifo {
+								if fifo.IsBool() && fifo.BoolValue() {
+									return name + ".fifo", nil
+								}
+							}
+							return name, nil
+						},
+					}),
 				},
 			},
 			"aws_sns_topic_policy": {
@@ -4055,6 +4080,7 @@ func Provider() tfbridge.ProviderInfo {
 			// servicecatalog
 			"aws_servicecatalog_constraint": {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
 			"aws_servicecatalog_portfolio":  {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
+			"aws_servicecatalog_product":    {Tok: awsDataSource(servicecatalogMod, "getProduct")},
 
 			// LakeFormation
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},

@@ -19,6 +19,8 @@ __all__ = [
     'DomainEncryptAtRestArgs',
     'DomainLogPublishingOptionArgs',
     'DomainNodeToNodeEncryptionArgs',
+    'DomainSamlOptionsSamlOptionsArgs',
+    'DomainSamlOptionsSamlOptionsIdpArgs',
     'DomainSnapshotOptionsArgs',
     'DomainVpcOptionsArgs',
 ]
@@ -654,6 +656,162 @@ class DomainNodeToNodeEncryptionArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class DomainSamlOptionsSamlOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 idp: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']] = None,
+                 master_backend_role: Optional[pulumi.Input[str]] = None,
+                 master_user_name: Optional[pulumi.Input[str]] = None,
+                 roles_key: Optional[pulumi.Input[str]] = None,
+                 session_timeout_minutes: Optional[pulumi.Input[int]] = None,
+                 subject_key: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether SAML authentication is enabled.
+        :param pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs'] idp: Information from your identity provider.
+        :param pulumi.Input[str] master_backend_role: This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        :param pulumi.Input[str] master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        :param pulumi.Input[str] roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
+        :param pulumi.Input[int] session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+        :param pulumi.Input[str] subject_key: Element of the SAML assertion to use for username. Default is NameID.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if idp is not None:
+            pulumi.set(__self__, "idp", idp)
+        if master_backend_role is not None:
+            pulumi.set(__self__, "master_backend_role", master_backend_role)
+        if master_user_name is not None:
+            pulumi.set(__self__, "master_user_name", master_user_name)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if session_timeout_minutes is not None:
+            pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether SAML authentication is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def idp(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']]:
+        """
+        Information from your identity provider.
+        """
+        return pulumi.get(self, "idp")
+
+    @idp.setter
+    def idp(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']]):
+        pulumi.set(self, "idp", value)
+
+    @property
+    @pulumi.getter(name="masterBackendRole")
+    def master_backend_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        return pulumi.get(self, "master_backend_role")
+
+    @master_backend_role.setter
+    def master_backend_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_backend_role", value)
+
+    @property
+    @pulumi.getter(name="masterUserName")
+    def master_user_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+        """
+        return pulumi.get(self, "master_user_name")
+
+    @master_user_name.setter
+    def master_user_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_name", value)
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Element of the SAML assertion to use for backend roles. Default is roles.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @roles_key.setter
+    def roles_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "roles_key", value)
+
+    @property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
+
+    @session_timeout_minutes.setter
+    def session_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "session_timeout_minutes", value)
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Element of the SAML assertion to use for username. Default is NameID.
+        """
+        return pulumi.get(self, "subject_key")
+
+    @subject_key.setter
+    def subject_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subject_key", value)
+
+
+@pulumi.input_type
+class DomainSamlOptionsSamlOptionsIdpArgs:
+    def __init__(__self__, *,
+                 entity_id: pulumi.Input[str],
+                 metadata_content: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] entity_id: The unique Entity ID of the application in SAML Identity Provider.
+        :param pulumi.Input[str] metadata_content: The Metadata of the SAML application in xml format.
+        """
+        pulumi.set(__self__, "entity_id", entity_id)
+        pulumi.set(__self__, "metadata_content", metadata_content)
+
+    @property
+    @pulumi.getter(name="entityId")
+    def entity_id(self) -> pulumi.Input[str]:
+        """
+        The unique Entity ID of the application in SAML Identity Provider.
+        """
+        return pulumi.get(self, "entity_id")
+
+    @entity_id.setter
+    def entity_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "entity_id", value)
+
+    @property
+    @pulumi.getter(name="metadataContent")
+    def metadata_content(self) -> pulumi.Input[str]:
+        """
+        The Metadata of the SAML application in xml format.
+        """
+        return pulumi.get(self, "metadata_content")
+
+    @metadata_content.setter
+    def metadata_content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata_content", value)
 
 
 @pulumi.input_type

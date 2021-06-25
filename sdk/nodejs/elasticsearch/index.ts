@@ -7,11 +7,13 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./domain";
 export * from "./domainPolicy";
+export * from "./domainSamlOptions";
 export * from "./getDomain";
 
 // Import resources to register:
 import { Domain } from "./domain";
 import { DomainPolicy } from "./domainPolicy";
+import { DomainSamlOptions } from "./domainSamlOptions";
 
 const _module = {
     version: utilities.getVersion(),
@@ -21,6 +23,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws:elasticsearch/domainPolicy:DomainPolicy":
                 return new DomainPolicy(name, <any>undefined, { urn })
+            case "aws:elasticsearch/domainSamlOptions:DomainSamlOptions":
+                return new DomainSamlOptions(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -28,3 +32,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "elasticsearch/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticsearch/domainPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticsearch/domainSamlOptions", _module)

@@ -1367,6 +1367,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudwatch/eventBusPolicy",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/eventBusPolicy:EventBusPolicy": "EventBusPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudwatch/eventConnection",
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
@@ -2887,6 +2895,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "efs/backupPolicy",
+  "fqn": "pulumi_aws.efs",
+  "classes": {
+   "aws:efs/backupPolicy:BackupPolicy": "BackupPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "efs/fileSystem",
   "fqn": "pulumi_aws.efs",
   "classes": {
@@ -3147,6 +3163,14 @@ _utilities.register(
   "fqn": "pulumi_aws.elasticsearch",
   "classes": {
    "aws:elasticsearch/domainPolicy:DomainPolicy": "DomainPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "elasticsearch/domainSamlOptions",
+  "fqn": "pulumi_aws.elasticsearch",
+  "classes": {
+   "aws:elasticsearch/domainSamlOptions:DomainSamlOptions": "DomainSamlOptions"
   }
  },
  {
@@ -4387,6 +4411,14 @@ _utilities.register(
   "fqn": "pulumi_aws.neptune",
   "classes": {
    "aws:neptune/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "neptune/clusterEndpoint",
+  "fqn": "pulumi_aws.neptune",
+  "classes": {
+   "aws:neptune/clusterEndpoint:ClusterEndpoint": "ClusterEndpoint"
   }
  },
  {

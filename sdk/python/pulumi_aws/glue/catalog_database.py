@@ -414,7 +414,7 @@ class CatalogDatabase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="locationUri")
-    def location_uri(self) -> pulumi.Output[Optional[str]]:
+    def location_uri(self) -> pulumi.Output[str]:
         """
         Location of the database (for example, an HDFS path).
         """
