@@ -26,7 +26,7 @@ func main() {
 		}
 
 		mostRecent := true
-		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
+		ami, err := aws.ec2.GetAmi(ctx, &aws.ec2.GetAmiArgs{
 			Filters: []aws.GetAmiFilter{
 				{
 					Name:   "name",
