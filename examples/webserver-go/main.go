@@ -3,7 +3,6 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -26,8 +25,8 @@ func main() {
 		}
 
 		mostRecent := true
-		ami, err := aws.GetAmi(ctx, &aws.GetAmiArgs{
-			Filters: []aws.GetAmiFilter{
+		ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+			Filters: []ec2.GetAmiFilter{
 				{
 					Name:   "name",
 					Values: []string{"amzn-ami-hvm-*-x86_64-ebs"},
