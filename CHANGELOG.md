@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.47.0 of the AWS Terraform Provider
-* Add support for autonaming FIFO `aws.sns.Topic` with a `.fifo` suffix
+_(none)_
 
 ---
+
+## 4.10.0 (2021-06-28)
+* Upgrade to v3.47.0 of the AWS Terraform Provider
+* Add support for autonaming FIFO `aws.sns.Topic` with a `.fifo` suffix
 
 ## 4.9.1 (2021-06-24)
 * Upgrade to v3.3.0 of the pulumi-terraform-bridge
