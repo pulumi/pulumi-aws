@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update `ContainerDefinition` type in Node SDK to include `environmentFile`.
 
 ---
 
