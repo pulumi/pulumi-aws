@@ -62,7 +62,7 @@ import (
 // 			NetworkInterfaceId: pulumi.Any(aws_instance.Example.Private_ip),
 // 			SnapshotId:         pulumi.Any(aws_ebs_snapshot.Example.Id),
 // 			TargetName:         pulumi.String("example"),
-// 			VolumeSizeInBytes:  pulumi.Int(aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024),
+// 			VolumeSizeInBytes:  aws_ebs_snapshot.Example.Volume_size * 1024 * 1024 * 1024,
 // 		})
 // 		if err != nil {
 // 			return err

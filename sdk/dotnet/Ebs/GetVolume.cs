@@ -14,6 +14,48 @@ namespace Pulumi.Aws.Ebs
         /// <summary>
         /// Use this data source to get information about an EBS volume for use in other
         /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolume = Output.Create(Aws.Ebs.GetVolume.InvokeAsync(new Aws.Ebs.GetVolumeArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "volume-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "gp2",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());

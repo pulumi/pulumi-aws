@@ -127,6 +127,84 @@ import (
 // 	})
 // }
 // ```
+// ### Multiple Statements
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid:    "DevAccountAccess",
+// 					Effect: "Allow",
+// 					Actions: []string{
+// 						"events:PutEvents",
+// 					},
+// 					Resources: []string{
+// 						"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								"123456789012",
+// 							},
+// 						},
+// 					},
+// 				},
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid:    "OrganizationAccess",
+// 					Effect: "Allow",
+// 					Actions: []string{
+// 						"events:DescribeRule",
+// 						"events:ListRules",
+// 						"events:ListTargetsByRule",
+// 						"events:ListTagsForResource",
+// 					},
+// 					Resources: []string{
+// 						"arn:aws:events:eu-west-1:123456789012:rule/*",
+// 						"arn:aws:events:eu-west-1:123456789012:event-bus/default",
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								"*",
+// 							},
+// 						},
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test:     "StringEquals",
+// 							Variable: "aws:PrincipalOrgID",
+// 							Values:   aws_organizations_organization.Example.Id,
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventBusPolicy(ctx, "testEventBusPolicy", &cloudwatch.EventBusPolicyArgs{
+// 			Policy:       pulumi.String(testPolicyDocument.Json),
+// 			EventBusName: pulumi.Any(aws_cloudwatch_event_bus.Test.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

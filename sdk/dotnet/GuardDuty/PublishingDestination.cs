@@ -12,6 +12,174 @@ namespace Pulumi.Aws.GuardDuty
     /// <summary>
     /// Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var currentRegion = Output.Create(Aws.GetRegion.InvokeAsync());
+    ///         var gdBucket = new Aws.S3.Bucket("gdBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///             Acl = "private",
+    ///             ForceDestroy = true,
+    ///         });
+    ///         var bucketPol = Output.Tuple(gdBucket.Arn, gdBucket.Arn).Apply(values =&gt;
+    ///         {
+    ///             var gdBucketArn = values.Item1;
+    ///             var gdBucketArn1 = values.Item2;
+    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             {
+    ///                 Statements = 
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Sid = "Allow PutObject",
+    ///                         Actions = 
+    ///                         {
+    ///                             "s3:PutObject",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             $"{gdBucketArn}/*",
+    ///                         },
+    ///                         Principals = 
+    ///                         {
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             {
+    ///                                 Type = "Service",
+    ///                                 Identifiers = 
+    ///                                 {
+    ///                                     "guardduty.amazonaws.com",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Sid = "Allow GetBucketLocation",
+    ///                         Actions = 
+    ///                         {
+    ///                             "s3:GetBucketLocation",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             gdBucketArn1,
+    ///                         },
+    ///                         Principals = 
+    ///                         {
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             {
+    ///                                 Type = "Service",
+    ///                                 Identifiers = 
+    ///                                 {
+    ///                                     "guardduty.amazonaws.com",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             });
+    ///         });
+    ///         var kmsPol = Output.Tuple(currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity).Apply(values =&gt;
+    ///         {
+    ///             var currentRegion = values.Item1;
+    ///             var currentCallerIdentity = values.Item2;
+    ///             var currentRegion1 = values.Item3;
+    ///             var currentCallerIdentity1 = values.Item4;
+    ///             var currentCallerIdentity2 = values.Item5;
+    ///             return Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///             {
+    ///                 Statements = 
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Sid = "Allow GuardDuty to encrypt findings",
+    ///                         Actions = 
+    ///                         {
+    ///                             "kms:GenerateDataKey",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             $"arn:aws:kms:{currentRegion.Name}:{currentCallerIdentity.AccountId}:key/*",
+    ///                         },
+    ///                         Principals = 
+    ///                         {
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             {
+    ///                                 Type = "Service",
+    ///                                 Identifiers = 
+    ///                                 {
+    ///                                     "guardduty.amazonaws.com",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Sid = "Allow all users to modify/delete key (test only)",
+    ///                         Actions = 
+    ///                         {
+    ///                             "kms:*",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             $"arn:aws:kms:{currentRegion1.Name}:{currentCallerIdentity1.AccountId}:key/*",
+    ///                         },
+    ///                         Principals = 
+    ///                         {
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                             {
+    ///                                 Type = "AWS",
+    ///                                 Identifiers = 
+    ///                                 {
+    ///                                     $"arn:aws:iam::{currentCallerIdentity2.AccountId}:root",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             }));
+    ///         });
+    ///         var testGd = new Aws.GuardDuty.Detector("testGd", new Aws.GuardDuty.DetectorArgs
+    ///         {
+    ///             Enable = true,
+    ///         });
+    ///         var gdBucketPolicy = new Aws.S3.BucketPolicy("gdBucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = gdBucket.Id,
+    ///             Policy = bucketPol.Apply(bucketPol =&gt; bucketPol.Json),
+    ///         });
+    ///         var gdKey = new Aws.Kms.Key("gdKey", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "Temporary key for AccTest of TF",
+    ///             DeletionWindowInDays = 7,
+    ///             Policy = kmsPol.Apply(kmsPol =&gt; kmsPol.Json),
+    ///         });
+    ///         var test = new Aws.GuardDuty.PublishingDestination("test", new Aws.GuardDuty.PublishingDestinationArgs
+    ///         {
+    ///             DetectorId = testGd.Id,
+    ///             DestinationArn = gdBucket.Arn,
+    ///             KmsKeyArn = gdKey.Arn,
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 gdBucketPolicy,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// &gt; **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+    /// 
     /// ## Import
     /// 
     /// GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.

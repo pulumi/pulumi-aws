@@ -22,6 +22,69 @@ import (
 // instances in conjunction with a ELB Attachment resources. Doing so will cause a
 // conflict and will overwrite attachments.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 				pulumi.String("us-west-2b"),
+// 				pulumi.String("us-west-2c"),
+// 			},
+// 			AccessLogs: &elb.LoadBalancerAccessLogsArgs{
+// 				Bucket:       pulumi.String("foo"),
+// 				BucketPrefix: pulumi.String("bar"),
+// 				Interval:     pulumi.Int(60),
+// 			},
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(8000),
+// 					InstanceProtocol: pulumi.String("http"),
+// 					LbPort:           pulumi.Int(80),
+// 					LbProtocol:       pulumi.String("http"),
+// 				},
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(8000),
+// 					InstanceProtocol: pulumi.String("http"),
+// 					LbPort:           pulumi.Int(443),
+// 					LbProtocol:       pulumi.String("https"),
+// 					SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
+// 				},
+// 			},
+// 			HealthCheck: &elb.LoadBalancerHealthCheckArgs{
+// 				HealthyThreshold:   pulumi.Int(2),
+// 				UnhealthyThreshold: pulumi.Int(2),
+// 				Timeout:            pulumi.Int(3),
+// 				Target:             pulumi.String("HTTP:8000/"),
+// 				Interval:           pulumi.Int(30),
+// 			},
+// 			Instances: pulumi.StringArray{
+// 				pulumi.Any(aws_instance.Foo.Id),
+// 			},
+// 			CrossZoneLoadBalancing:    pulumi.Bool(true),
+// 			IdleTimeout:               pulumi.Int(400),
+// 			ConnectionDraining:        pulumi.Bool(true),
+// 			ConnectionDrainingTimeout: pulumi.Int(400),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("foobar-elb"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Note on ECDSA Key Algorithm
 //
 // If the ARN of the `sslCertificateId` that is pointed to references a

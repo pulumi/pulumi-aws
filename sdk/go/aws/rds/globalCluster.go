@@ -98,13 +98,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := providers.Newaws(ctx, "primary", &providers.awsArgs{
-// 			Region: pulumi.String("us-east-2"),
+// 			Region: "us-east-2",
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = providers.Newaws(ctx, "secondary", &providers.awsArgs{
-// 			Region: pulumi.String("us-east-1"),
+// 			Region: "us-east-1",
 // 		})
 // 		if err != nil {
 // 			return err

@@ -13,6 +13,186 @@ import (
 
 // Provides a resource to create a new launch configuration, used for autoscaling groups.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+// 			MostRecent: &opt0,
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				ec2.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Using with AutoScaling Groups
+//
+// Launch Configurations cannot be updated after creation with the Amazon
+// Web Service API. In order to update a Launch Configuration, this provider will
+// destroy the existing resource and create a replacement. In order to effectively
+// use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+// it's recommended to specify `createBeforeDestroy` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block.
+// Either omit the Launch Configuration `name` attribute, or specify a partial name
+// with `namePrefix`.  Example:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+// 			MostRecent: &opt0,
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				ec2.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			NamePrefix:   pulumi.String("lc-example-"),
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("t2.micro"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			LaunchConfiguration: asConf.Name,
+// 			MinSize:             pulumi.Int(1),
+// 			MaxSize:             pulumi.Int(2),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// With this setup this provider generates a unique name for your Launch
+// Configuration and can then update the AutoScaling Group without conflict before
+// destroying the previous Launch Configuration.
+//
+// ## Using with Spot Instances
+//
+// Launch configurations can set the spot instance pricing to be used for the
+// Auto Scaling Group to reserve instances. Simply specifying the `spotPrice`
+// parameter will set the price on the Launch Configuration which will attempt to
+// reserve your instances at this price.  See the [AWS Spot Instance
+// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+// for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+// 			MostRecent: &opt0,
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*",
+// 					},
+// 				},
+// 				ec2.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		asConf, err := ec2.NewLaunchConfiguration(ctx, "asConf", &ec2.LaunchConfigurationArgs{
+// 			ImageId:      pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("m4.large"),
+// 			SpotPrice:    pulumi.String("0.001"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "bar", &autoscaling.GroupArgs{
+// 			LaunchConfiguration: asConf.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Block devices
 //
 // Each of the `*_block_device` attributes controls a portion of the AWS
@@ -185,7 +365,7 @@ type launchConfigurationState struct {
 	EphemeralBlockDevices []LaunchConfigurationEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
-	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// The EC2 image ID to launch.
 	ImageId *string `pulumi:"imageId"`
 	// The size of instance to launch.
@@ -238,7 +418,7 @@ type LaunchConfigurationState struct {
 	EphemeralBlockDevices LaunchConfigurationEphemeralBlockDeviceArrayInput
 	// The name attribute of the IAM instance profile to associate
 	// with launched instances.
-	IamInstanceProfile pulumi.StringPtrInput
+	IamInstanceProfile pulumi.Input
 	// The EC2 image ID to launch.
 	ImageId pulumi.StringPtrInput
 	// The size of instance to launch.

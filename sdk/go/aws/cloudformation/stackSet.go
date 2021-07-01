@@ -69,9 +69,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", &iam.RolePolicyArgs{
-// 			Policy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+// 			Policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json, nil
-// 			}).(pulumi.StringOutput)),
+// 			}).(pulumi.StringOutput),
 // 			Role: aWSCloudFormationStackSetAdministrationRole.Name,
 // 		})
 // 		if err != nil {

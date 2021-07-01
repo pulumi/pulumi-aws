@@ -95,25 +95,25 @@ import (
 // 					},
 // 					HttpMethod: pulumi.String("GET"),
 // 					OauthHttpParameters: &cloudwatch.EventConnectionAuthParametersOauthOauthHttpParametersArgs{
-// 						Body: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"isValueSecret": pulumi.Bool(false),
-// 								"key":           pulumi.String("body-parameter-key"),
-// 								"value":         pulumi.String("body-parameter-value"),
+// 						Body: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"isValueSecret": false,
+// 								"key":           "body-parameter-key",
+// 								"value":         "body-parameter-value",
 // 							},
 // 						},
-// 						Header: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"isValueSecret": pulumi.Bool(false),
-// 								"key":           pulumi.String("header-parameter-key"),
-// 								"value":         pulumi.String("header-parameter-value"),
+// 						Header: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"isValueSecret": false,
+// 								"key":           "header-parameter-key",
+// 								"value":         "header-parameter-value",
 // 							},
 // 						},
-// 						QueryString: pulumi.MapArray{
-// 							pulumi.Map{
-// 								"isValueSecret": pulumi.Bool(false),
-// 								"key":           pulumi.String("query-string-parameter-key"),
-// 								"value":         pulumi.String("query-string-parameter-value"),
+// 						QueryString: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"isValueSecret": false,
+// 								"key":           "query-string-parameter-key",
+// 								"value":         "query-string-parameter-value",
 // 							},
 // 						},
 // 					},
@@ -148,30 +148,30 @@ import (
 // 					Username: pulumi.String("user"),
 // 				},
 // 				InvocationHttpParameters: &cloudwatch.EventConnectionAuthParametersInvocationHttpParametersArgs{
-// 					Body: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"isValueSecret": pulumi.Bool(false),
-// 							"key":           pulumi.String("body-parameter-key"),
-// 							"value":         pulumi.String("body-parameter-value"),
+// 					Body: []interface{}{
+// 						map[string]interface{}{
+// 							"isValueSecret": false,
+// 							"key":           "body-parameter-key",
+// 							"value":         "body-parameter-value",
 // 						},
-// 						pulumi.Map{
-// 							"isValueSecret": pulumi.Bool(true),
-// 							"key":           pulumi.String("body-parameter-key2"),
-// 							"value":         pulumi.String("body-parameter-value2"),
-// 						},
-// 					},
-// 					Header: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"isValueSecret": pulumi.Bool(false),
-// 							"key":           pulumi.String("header-parameter-key"),
-// 							"value":         pulumi.String("header-parameter-value"),
+// 						map[string]interface{}{
+// 							"isValueSecret": true,
+// 							"key":           "body-parameter-key2",
+// 							"value":         "body-parameter-value2",
 // 						},
 // 					},
-// 					QueryString: pulumi.MapArray{
-// 						pulumi.Map{
-// 							"isValueSecret": pulumi.Bool(false),
-// 							"key":           pulumi.String("query-string-parameter-key"),
-// 							"value":         pulumi.String("query-string-parameter-value"),
+// 					Header: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"isValueSecret": false,
+// 							"key":           "header-parameter-key",
+// 							"value":         "header-parameter-value",
+// 						},
+// 					},
+// 					QueryString: []map[string]interface{}{
+// 						map[string]interface{}{
+// 							"isValueSecret": false,
+// 							"key":           "query-string-parameter-key",
+// 							"value":         "query-string-parameter-value",
 // 						},
 // 					},
 // 				},

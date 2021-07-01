@@ -74,6 +74,94 @@ import (
 // 	})
 // }
 // ```
+// ## VPC Link
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lb"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		name := cfg.RequireObject("name")
+// 		subnetId := cfg.RequireObject("subnetId")
+// 		testLoadBalancer, err := lb.NewLoadBalancer(ctx, "testLoadBalancer", &lb.LoadBalancerArgs{
+// 			Internal:         pulumi.Bool(true),
+// 			LoadBalancerType: pulumi.String("network"),
+// 			Subnets: pulumi.StringArray{
+// 				pulumi.Any(subnetId),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testVpcLink, err := apigateway.NewVpcLink(ctx, "testVpcLink", &apigateway.VpcLinkArgs{
+// 			TargetArn: pulumi.String{
+// 				testLoadBalancer.Arn,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testResource, err := apigateway.NewResource(ctx, "testResource", &apigateway.ResourceArgs{
+// 			RestApi:  testRestApi.ID(),
+// 			ParentId: testRestApi.RootResourceId,
+// 			PathPart: pulumi.String("test"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testMethod, err := apigateway.NewMethod(ctx, "testMethod", &apigateway.MethodArgs{
+// 			RestApi:       testRestApi.ID(),
+// 			ResourceId:    testResource.ID(),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			Authorization: pulumi.String("NONE"),
+// 			RequestModels: pulumi.StringMap{
+// 				"application/json": pulumi.String("Error"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
+// 			RestApi:    testRestApi.ID(),
+// 			ResourceId: testResource.ID(),
+// 			HttpMethod: testMethod.HttpMethod,
+// 			RequestTemplates: pulumi.StringMap{
+// 				"application/json": pulumi.String(""),
+// 				"application/xml":  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n{ }")),
+// 			},
+// 			RequestParameters: pulumi.StringMap{
+// 				"integration.request.header.X-Authorization": pulumi.String("'static'"),
+// 				"integration.request.header.X-Foo":           pulumi.String("'Bar'"),
+// 			},
+// 			Type:                  pulumi.String("HTTP"),
+// 			Uri:                   pulumi.String("https://www.google.de"),
+// 			IntegrationHttpMethod: pulumi.String("GET"),
+// 			PassthroughBehavior:   pulumi.String("WHEN_NO_MATCH"),
+// 			ContentHandling:       pulumi.String("CONVERT_TO_TEXT"),
+// 			ConnectionType:        pulumi.String("VPC_LINK"),
+// 			ConnectionId:          testVpcLink.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -201,7 +289,7 @@ type integrationState struct {
 	// The API resource ID.
 	ResourceId *string `pulumi:"resourceId"`
 	// The ID of the associated REST API.
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds *int `pulumi:"timeoutMilliseconds"`
 	// Configuration block specifying the TLS configuration for an integration. Defined below.
@@ -246,7 +334,7 @@ type IntegrationState struct {
 	// The API resource ID.
 	ResourceId pulumi.StringPtrInput
 	// The ID of the associated REST API.
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
 	TimeoutMilliseconds pulumi.IntPtrInput
 	// Configuration block specifying the TLS configuration for an integration. Defined below.

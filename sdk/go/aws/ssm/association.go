@@ -12,6 +12,36 @@ import (
 
 // Associates an SSM Document to an instance or EC2 tag.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssm.NewAssociation(ctx, "example", &ssm.AssociationArgs{
+// 			Targets: ssm.AssociationTargetArray{
+// 				&ssm.AssociationTargetArgs{
+// 					Key: pulumi.String("InstanceIds"),
+// 					Values: pulumi.StringArray{
+// 						pulumi.Any(aws_instance.Example.Id),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // SSM associations can be imported using the `association_id`, e.g.

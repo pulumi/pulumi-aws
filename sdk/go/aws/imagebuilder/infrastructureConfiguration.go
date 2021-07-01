@@ -13,6 +13,50 @@ import (
 
 // Manages an Image Builder Infrastructure Configuration.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/imagebuilder"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := imagebuilder.NewInfrastructureConfiguration(ctx, "example", &imagebuilder.InfrastructureConfigurationArgs{
+// 			Description:         pulumi.String("example description"),
+// 			InstanceProfileName: pulumi.Any(aws_iam_instance_profile.Example.Name),
+// 			InstanceTypes: pulumi.StringArray{
+// 				pulumi.String("t2.nano"),
+// 				pulumi.String("t3.micro"),
+// 			},
+// 			KeyPair: pulumi.Any(aws_key_pair.Example.Key_name),
+// 			SecurityGroupIds: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Example.Id),
+// 			},
+// 			SnsTopicArn:                pulumi.Any(aws_sns_topic.Example.Arn),
+// 			SubnetId:                   pulumi.Any(aws_subnet.Main.Id),
+// 			TerminateInstanceOnFailure: pulumi.Bool(true),
+// 			Logging: &imagebuilder.InfrastructureConfigurationLoggingArgs{
+// 				S3Logs: &imagebuilder.InfrastructureConfigurationLoggingS3LogsArgs{
+// 					S3BucketName: pulumi.Any(aws_s3_bucket.Example.Bucket),
+// 					S3KeyPrefix:  pulumi.String("logs"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"foo": pulumi.String("bar"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.

@@ -68,10 +68,10 @@ import (
 // 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
-// 						Message: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"content":     pulumi.String("What type of flowers would you like to order?"),
-// 								"contentType": pulumi.String("PlainText"),
+// 						Message: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"content":     "What type of flowers would you like to order?",
+// 								"contentType": "PlainText",
 // 							},
 // 						},
 // 					},
@@ -88,10 +88,10 @@ import (
 // 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
-// 						Message: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"content":     pulumi.String("What day do you want the {FlowerType} to be picked up?"),
-// 								"contentType": pulumi.String("PlainText"),
+// 						Message: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"content":     "What day do you want the {FlowerType} to be picked up?",
+// 								"contentType": "PlainText",
 // 							},
 // 						},
 // 					},
@@ -108,10 +108,10 @@ import (
 // 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
-// 						Message: pulumi.StringMapArray{
-// 							pulumi.StringMap{
-// 								"content":     pulumi.String("Pick up the {FlowerType} at what time on {PickupDate}?"),
-// 								"contentType": pulumi.String("PlainText"),
+// 						Message: []map[string]interface{}{
+// 							map[string]interface{}{
+// 								"content":     "Pick up the {FlowerType} at what time on {PickupDate}?",
+// 								"contentType": "PlainText",
 // 							},
 // 						},
 // 					},

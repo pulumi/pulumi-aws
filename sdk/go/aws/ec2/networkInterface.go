@@ -13,6 +13,41 @@ import (
 
 // Provides an Elastic network interface (ENI) resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewNetworkInterface(ctx, "test", &ec2.NetworkInterfaceArgs{
+// 			SubnetId: pulumi.Any(aws_subnet.Public_a.Id),
+// 			PrivateIps: pulumi.StringArray{
+// 				pulumi.String("10.0.0.50"),
+// 			},
+// 			SecurityGroups: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Web.Id),
+// 			},
+// 			Attachments: ec2.NetworkInterfaceAttachmentArray{
+// 				&ec2.NetworkInterfaceAttachmentArgs{
+// 					Instance:    pulumi.Any(aws_instance.Test.Id),
+// 					DeviceIndex: pulumi.Int(1),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Network Interfaces can be imported using the `id`, e.g.

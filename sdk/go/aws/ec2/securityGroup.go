@@ -24,6 +24,94 @@ import (
 // > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), security groups associated with Lambda Functions can take up to 45 minutes to successfully delete.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewSecurityGroup(ctx, "allowTls", &ec2.SecurityGroupArgs{
+// 			Description: pulumi.String("Allow TLS inbound traffic"),
+// 			VpcId:       pulumi.Any(aws_vpc.Main.Id),
+// 			Ingress: ec2.SecurityGroupIngressArray{
+// 				&ec2.SecurityGroupIngressArgs{
+// 					Description: pulumi.String("TLS from VPC"),
+// 					FromPort:    pulumi.Int(443),
+// 					ToPort:      pulumi.Int(443),
+// 					Protocol:    pulumi.String("tcp"),
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.Any(aws_vpc.Main.Cidr_block),
+// 					},
+// 					Ipv6CidrBlocks: pulumi.StringArray{
+// 						pulumi.Any(aws_vpc.Main.Ipv6_cidr_block),
+// 					},
+// 				},
+// 			},
+// 			Egress: ec2.SecurityGroupEgressArray{
+// 				&ec2.SecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 					},
+// 					Ipv6CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("::/0"),
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("allow_tls"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **NOTE on Egress rules:** By default, AWS creates an `ALLOW ALL` egress rule when creating a new Security Group inside of a VPC. When creating a new Security Group inside a VPC, **this provider will remove this default rule**, and require you specifically re-create it if you desire that rule. We feel this leads to fewer surprises in terms of controlling your egress rules. If you desire this rule to be in place, you can use this `egress` block:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+// 			Egress: ec2.SecurityGroupEgressArray{
+// 				&ec2.SecurityGroupEgressArgs{
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 					},
+// 					FromPort: pulumi.Int(0),
+// 					Ipv6CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("::/0"),
+// 					},
+// 					Protocol: pulumi.String("-1"),
+// 					ToPort:   pulumi.Int(0),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Usage With Prefix List IDs
 //
 // Prefix Lists are either managed by AWS internally, or created by the customer using a

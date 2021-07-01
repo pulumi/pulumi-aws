@@ -31,9 +31,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := servicecatalog.NewProduct(ctx, "example", &servicecatalog.ProductArgs{
-// 			Owner: pulumi.String(pulumi.String{
-// 				pulumi.Any(aws_security_group.Example.Id),
-// 			}),
+// 			Owner: pulumi.String{
+// 				aws_security_group.Example.Id,
+// 			},
 // 			Type: pulumi.Any(aws_subnet.Main.Id),
 // 			ProvisioningArtifactParameters: &servicecatalog.ProductProvisioningArtifactParametersArgs{
 // 				TemplateUrl: pulumi.String("https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json"),

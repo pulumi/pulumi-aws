@@ -133,6 +133,141 @@ def get_policy_document(override_json: Optional[str] = None,
     Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
 
     ## Example Usage
+    ### Basic Example
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_policy_document = aws.iam.get_policy_document(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="1",
+            actions=[
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+            ],
+            resources=["arn:aws:s3:::*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["s3:ListBucket"],
+            resources=[f"arn:aws:s3:::{var['s3_bucket_name']}"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="StringLike",
+                variable="s3:prefix",
+                values=[
+                    "",
+                    "home/",
+                    "home/&{aws:username}/",
+                ],
+            )],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["s3:*"],
+            resources=[
+                f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}",
+                f"arn:aws:s3:::{var['s3_bucket_name']}/home/&{{aws:username}}/*",
+            ],
+        ),
+    ])
+    example_policy = aws.iam.Policy("examplePolicy",
+        path="/",
+        policy=example_policy_document.json)
+    ```
+    ### Example Assume-Role Policy with Multiple Principals
+
+    You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    event_stream_bucket_role_assume_role_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=["sts:AssumeRole"],
+        principals=[
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["firehose.amazonaws.com"],
+            ),
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="AWS",
+                identifiers=[var["trusted_role_arn"]],
+            ),
+            aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Federated",
+                identifiers=[
+                    f"arn:aws:iam::{var['account_id']}:saml-provider/{var['provider_name']}",
+                    "cognito-identity.amazonaws.com",
+                ],
+            ),
+        ],
+    )])
+    ```
+    ### Example Using A Source Document
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    source = aws.iam.get_policy_document(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["ec2:*"],
+            resources=["*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="SidToOverride",
+            actions=["s3:*"],
+            resources=["*"],
+        ),
+    ])
+    source_json_example = aws.iam.get_policy_document(source_json=source.json,
+        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="SidToOverride",
+            actions=["s3:*"],
+            resources=[
+                "arn:aws:s3:::somebucket",
+                "arn:aws:s3:::somebucket/*",
+            ],
+        )])
+    ```
+
+    `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
+    ### Example Using An Override Document
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    override = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="SidToOverride",
+        actions=["s3:*"],
+        resources=["*"],
+    )])
+    override_json_example = aws.iam.get_policy_document(override_json=override.json,
+        statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                actions=["ec2:*"],
+                resources=["*"],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="SidToOverride",
+                actions=["s3:*"],
+                resources=[
+                    "arn:aws:s3:::somebucket",
+                    "arn:aws:s3:::somebucket/*",
+                ],
+            ),
+        ])
+    ```
+
+    `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
     ### Example with Both Source and Override Documents
 
     You can also combine `source_json` and `override_json` in the same document.
@@ -156,6 +291,96 @@ def get_policy_document(override_json: Optional[str] = None,
     ```
 
     `data.aws_iam_policy_document.politik.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
+    ### Example of Merging Source Documents
+
+    Multiple documents can be combined using the `source_policy_documents` or `override_policy_documents` attributes. `source_policy_documents` requires that all documents have unique Sids, while `override_policy_documents` will iteratively override matching Sids.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    source_one = aws.iam.get_policy_document(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["ec2:*"],
+            resources=["*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="UniqueSidOne",
+            actions=["s3:*"],
+            resources=["*"],
+        ),
+    ])
+    source_two = aws.iam.get_policy_document(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="UniqueSidTwo",
+            actions=["iam:*"],
+            resources=["*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["lambda:*"],
+            resources=["*"],
+        ),
+    ])
+    combined = aws.iam.get_policy_document(source_policy_documents=[
+        source_one.json,
+        source_two.json,
+    ])
+    ```
+
+    `data.aws_iam_policy_document.combined.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
+    ### Example of Merging Override Documents
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    policy_one = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceHolderOne",
+        effect="Allow",
+        actions=["s3:*"],
+        resources=["*"],
+    )])
+    policy_two = aws.iam.get_policy_document(statements=[
+        aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            actions=["ec2:*"],
+            resources=["*"],
+        ),
+        aws.iam.GetPolicyDocumentStatementArgs(
+            sid="OverridePlaceHolderTwo",
+            effect="Allow",
+            actions=["iam:*"],
+            resources=["*"],
+        ),
+    ])
+    policy_three = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        sid="OverridePlaceHolderOne",
+        effect="Deny",
+        actions=["logs:*"],
+        resources=["*"],
+    )])
+    combined = aws.iam.get_policy_document(override_policy_documents=[
+            policy_one.json,
+            policy_two.json,
+            policy_three.json,
+        ],
+        statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            sid="OverridePlaceHolderTwo",
+            effect="Deny",
+            actions=["*"],
+            resources=["*"],
+        )])
+    ```
+
+    `data.aws_iam_policy_document.combined.json` will evaluate to:
 
     ```python
     import pulumi

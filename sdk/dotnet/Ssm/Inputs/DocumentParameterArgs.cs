@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ssm.Inputs
 {
+
+    public sealed class DocumentParameterArgs : Pulumi.ResourceArgs
+    {
+        [Input("defaultValue")]
+        public Input<string>? DefaultValue { get; set; }
+
+        /// <summary>
+        /// The description of the document.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The name of the document.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public DocumentParameterArgs()
+        {
+        }
+    }
 }

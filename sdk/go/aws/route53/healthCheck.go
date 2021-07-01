@@ -72,6 +72,35 @@ import (
 // 	})
 // }
 // ```
+// ### Aggregate Check
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.NewHealthCheck(ctx, "parent", &route53.HealthCheckArgs{
+// 			Type:                 pulumi.String("CALCULATED"),
+// 			ChildHealthThreshold: pulumi.Int(1),
+// 			ChildHealthchecks: pulumi.StringArray{
+// 				pulumi.Any(aws_route53_health_check.Child.Id),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("tf-test-calculated-health-check"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### CloudWatch Alarm Check
 //
 // ```go

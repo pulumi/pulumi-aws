@@ -16,6 +16,274 @@ namespace Pulumi.Aws.Glue
         /// 
         /// {{% examples %}}
         /// ## Example Usage
+        /// {{% example %}}
+        /// ### Generate Python Script
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
+        ///         {
+        ///             Language = "PYTHON",
+        ///             DagEdges = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "datasource0",
+        ///                     Target = "applymapping1",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "applymapping1",
+        ///                     Target = "selectfields2",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "selectfields2",
+        ///                     Target = "resolvechoice3",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "resolvechoice3",
+        ///                     Target = "datasink4",
+        ///                 },
+        ///             },
+        ///             DagNodes = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Source.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "mapping",
+        ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "paths",
+        ///                             Value = "[\"column1\"]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "choice",
+        ///                             Value = "\"MATCH_CATALOG\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         this.PythonScript = example.Apply(example =&gt; example.PythonScript);
+        ///     }
+        /// 
+        ///     [Output("pythonScript")]
+        ///     public Output&lt;string&gt; PythonScript { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Generate Scala Code
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetScript.InvokeAsync(new Aws.Glue.GetScriptArgs
+        ///         {
+        ///             Language = "SCALA",
+        ///             DagEdges = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "datasource0",
+        ///                     Target = "applymapping1",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "applymapping1",
+        ///                     Target = "selectfields2",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "selectfields2",
+        ///                     Target = "resolvechoice3",
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagEdgeArgs
+        ///                 {
+        ///                     Source = "resolvechoice3",
+        ///                     Target = "datasink4",
+        ///                 },
+        ///             },
+        ///             DagNodes = 
+        ///             {
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasource0",
+        ///                     NodeType = "DataSource",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Source.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Source.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "applymapping1",
+        ///                     NodeType = "ApplyMapping",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "mappings",
+        ///                             Value = "[(\"column1\", \"string\", \"column1\", \"string\")]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "selectfields2",
+        ///                     NodeType = "SelectFields",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "paths",
+        ///                             Value = "[\"column1\"]",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "resolvechoice3",
+        ///                     NodeType = "ResolveChoice",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "choice",
+        ///                             Value = "\"MATCH_CATALOG\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///                 new Aws.Glue.Inputs.GetScriptDagNodeArgs
+        ///                 {
+        ///                     Id = "datasink4",
+        ///                     NodeType = "DataSink",
+        ///                     Args = 
+        ///                     {
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "database",
+        ///                             Value = $"\"{aws_glue_catalog_database.Destination.Name}\"",
+        ///                         },
+        ///                         new Aws.Glue.Inputs.GetScriptDagNodeArgArgs
+        ///                         {
+        ///                             Name = "table_name",
+        ///                             Value = $"\"{aws_glue_catalog_table.Destination.Name}\"",
+        ///                         },
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         this.ScalaCode = example.Apply(example =&gt; example.ScalaCode);
+        ///     }
+        /// 
+        ///     [Output("scalaCode")]
+        ///     public Output&lt;string&gt; ScalaCode { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScriptResult> InvokeAsync(GetScriptArgs args, InvokeOptions? options = null)

@@ -600,6 +600,71 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
+        ## Example SSM Document Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+        )])
+        stop_instance = aws.ssm.Document("stopInstance",
+            document_type="Command",
+            content=\"\"\"  {
+            "schemaVersion": "1.2",
+            "description": "Stop an instance",
+            "parameters": {
+
+            },
+            "runtimeConfig": {
+              "aws:runShellScript": {
+                "properties": [
+                  {
+                    "id": "0.aws:runShellScript",
+                    "runCommand": ["halt"]
+                  }
+                ]
+              }
+            }
+          }
+        \"\"\")
+        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="ec2:ResourceTag/Terminate",
+                    values=["*"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=[arn],
+            ),
+        ]))
+        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
+        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn=stop_instance.arn,
+            rule=stop_instances_event_rule.name,
+            role_arn=ssm_lifecycle_role.arn,
+            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                key="tag:Terminate",
+                values=["midnight"],
+            )])
+        ```
+
         ## Example RunCommand Usage
 
         ```python
@@ -764,6 +829,71 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
+        ## Example SSM Document Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        ssm_lifecycle_trust = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=["sts:AssumeRole"],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="Service",
+                identifiers=["events.amazonaws.com"],
+            )],
+        )])
+        stop_instance = aws.ssm.Document("stopInstance",
+            document_type="Command",
+            content=\"\"\"  {
+            "schemaVersion": "1.2",
+            "description": "Stop an instance",
+            "parameters": {
+
+            },
+            "runtimeConfig": {
+              "aws:runShellScript": {
+                "properties": [
+                  {
+                    "id": "0.aws:runShellScript",
+                    "runCommand": ["halt"]
+                  }
+                ]
+              }
+            }
+          }
+        \"\"\")
+        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=["arn:aws:ec2:eu-west-1:1234567890:instance/*"],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="ec2:ResourceTag/Terminate",
+                    values=["*"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                effect="Allow",
+                actions=["ssm:SendCommand"],
+                resources=[arn],
+            ),
+        ]))
+        ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
+        ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
+        stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
+            description="Stop instances nightly",
+            schedule_expression="cron(0 0 * * ? *)")
+        stop_instances_event_target = aws.cloudwatch.EventTarget("stopInstancesEventTarget",
+            arn=stop_instance.arn,
+            rule=stop_instances_event_rule.name,
+            role_arn=ssm_lifecycle_role.arn,
+            run_command_targets=[aws.cloudwatch.EventTargetRunCommandTargetArgs(
+                key="tag:Terminate",
+                values=["midnight"],
+            )])
+        ```
+
         ## Example RunCommand Usage
 
         ```python

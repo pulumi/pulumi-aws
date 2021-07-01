@@ -46,6 +46,80 @@ import (
 // 	})
 // }
 // ```
+// ### Lambda File Systems
+//
+// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/efs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		efsForLambda, err := efs.NewFileSystem(ctx, "efsForLambda", &efs.FileSystemArgs{
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("efs_for_lambda"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		alpha, err := efs.NewMountTarget(ctx, "alpha", &efs.MountTargetArgs{
+// 			FileSystemId: efsForLambda.ID(),
+// 			SubnetId:     pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
+// 			SecurityGroups: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Sg_for_lambda.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		accessPointForLambda, err := efs.NewAccessPoint(ctx, "accessPointForLambda", &efs.AccessPointArgs{
+// 			FileSystemId: efsForLambda.ID(),
+// 			RootDirectory: &efs.AccessPointRootDirectoryArgs{
+// 				Path: pulumi.String("/lambda"),
+// 				CreationInfo: &efs.AccessPointRootDirectoryCreationInfoArgs{
+// 					OwnerGid:    pulumi.Int(1000),
+// 					OwnerUid:    pulumi.Int(1000),
+// 					Permissions: pulumi.String("777"),
+// 				},
+// 			},
+// 			PosixUser: &efs.AccessPointPosixUserArgs{
+// 				Gid: pulumi.Int(1000),
+// 				Uid: pulumi.Int(1000),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+// 			FileSystemConfig: &lambda.FunctionFileSystemConfigArgs{
+// 				Arn:            accessPointForLambda.Arn,
+// 				LocalMountPath: pulumi.String("/mnt/efs"),
+// 			},
+// 			VpcConfig: &lambda.FunctionVpcConfigArgs{
+// 				SubnetIds: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Subnet_for_lambda.Id),
+// 				},
+// 				SecurityGroupIds: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.Sg_for_lambda.Id),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			alpha,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## CloudWatch Logging and Permissions
 //
 // For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
@@ -56,6 +130,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
@@ -79,7 +154,7 @@ import (
 // 		lambdaLogging, err := iam.NewPolicy(ctx, "lambdaLogging", &iam.PolicyArgs{
 // 			Path:        pulumi.String("/"),
 // 			Description: pulumi.String("IAM policy for logging from a lambda"),
-// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*:*:*\",\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy:      pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*:*:*\",\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

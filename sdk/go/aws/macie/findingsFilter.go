@@ -13,6 +13,48 @@ import (
 
 // Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/macie"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/macie2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := macie2.NewAccount(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = macie.NewFindingsFilter(ctx, "test", &macie.FindingsFilterArgs{
+// 			Description: pulumi.String("DESCRIPTION"),
+// 			Position:    pulumi.Int(1),
+// 			Action:      pulumi.String("ARCHIVE"),
+// 			FindingCriteria: &macie.FindingsFilterFindingCriteriaArgs{
+// 				Criterions: macie.FindingsFilterFindingCriteriaCriterionArray{
+// 					&macie.FindingsFilterFindingCriteriaCriterionArgs{
+// 						Field: pulumi.String("region"),
+// 						Eqs: pulumi.StringArray{
+// 							pulumi.Any(data.Aws_region.Current.Name),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_macie2_account.Test,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_macie2_findings_filter` can be imported using the id, e.g.

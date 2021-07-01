@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Synthetics.Inputs
 {
+
+    public sealed class CanaryTimelineArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Date and time the canary was created.
+        /// </summary>
+        [Input("created")]
+        public Input<string>? Created { get; set; }
+
+        /// <summary>
+        /// Date and time the canary was most recently modified.
+        /// </summary>
+        [Input("lastModified")]
+        public Input<string>? LastModified { get; set; }
+
+        /// <summary>
+        /// Date and time that the canary's most recent run started.
+        /// </summary>
+        [Input("lastStarted")]
+        public Input<string>? LastStarted { get; set; }
+
+        /// <summary>
+        /// Date and time that the canary's most recent run ended.
+        /// </summary>
+        [Input("lastStopped")]
+        public Input<string>? LastStopped { get; set; }
+
+        public CanaryTimelineArgs()
+        {
+        }
+    }
 }

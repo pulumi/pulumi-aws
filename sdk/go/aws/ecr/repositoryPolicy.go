@@ -24,6 +24,7 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecr"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -35,7 +36,7 @@ import (
 // 		}
 // 		_, err = ecr.NewRepositoryPolicy(ctx, "foopolicy", &ecr.RepositoryPolicyArgs{
 // 			Repository: foo.Name,
-// 			Policy:     pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2008-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"new policy\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": \"*\",\n", "            \"Action\": [\n", "                \"ecr:GetDownloadUrlForLayer\",\n", "                \"ecr:BatchGetImage\",\n", "                \"ecr:BatchCheckLayerAvailability\",\n", "                \"ecr:PutImage\",\n", "                \"ecr:InitiateLayerUpload\",\n", "                \"ecr:UploadLayerPart\",\n", "                \"ecr:CompleteLayerUpload\",\n", "                \"ecr:DescribeRepositories\",\n", "                \"ecr:GetRepositoryPolicy\",\n", "                \"ecr:ListImages\",\n", "                \"ecr:DeleteRepository\",\n", "                \"ecr:BatchDeleteImage\",\n", "                \"ecr:SetRepositoryPolicy\",\n", "                \"ecr:DeleteRepositoryPolicy\"\n", "            ]\n", "        }\n", "    ]\n", "}\n")),
+// 			Policy:     pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2008-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"new policy\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": \"*\",\n", "            \"Action\": [\n", "                \"ecr:GetDownloadUrlForLayer\",\n", "                \"ecr:BatchGetImage\",\n", "                \"ecr:BatchCheckLayerAvailability\",\n", "                \"ecr:PutImage\",\n", "                \"ecr:InitiateLayerUpload\",\n", "                \"ecr:UploadLayerPart\",\n", "                \"ecr:CompleteLayerUpload\",\n", "                \"ecr:DescribeRepositories\",\n", "                \"ecr:GetRepositoryPolicy\",\n", "                \"ecr:ListImages\",\n", "                \"ecr:DeleteRepository\",\n", "                \"ecr:BatchDeleteImage\",\n", "                \"ecr:SetRepositoryPolicy\",\n", "                \"ecr:DeleteRepositoryPolicy\"\n", "            ]\n", "        }\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -99,7 +100,7 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RepositoryPolicy resources.
 type repositoryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
@@ -108,7 +109,7 @@ type repositoryPolicyState struct {
 
 type RepositoryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
 	// Name of the repository to apply the policy.

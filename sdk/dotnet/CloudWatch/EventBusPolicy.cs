@@ -128,6 +128,92 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// ### Multiple Statements
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testPolicyDocument = Output.Create(Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Sid = "DevAccountAccess",
+    ///                     Effect = "Allow",
+    ///                     Actions = 
+    ///                     {
+    ///                         "events:PutEvents",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "AWS",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "123456789012",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 {
+    ///                     Sid = "OrganizationAccess",
+    ///                     Effect = "Allow",
+    ///                     Actions = 
+    ///                     {
+    ///                         "events:DescribeRule",
+    ///                         "events:ListRules",
+    ///                         "events:ListTargetsByRule",
+    ///                         "events:ListTagsForResource",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         "arn:aws:events:eu-west-1:123456789012:rule/*",
+    ///                         "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                         {
+    ///                             Type = "AWS",
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Conditions = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         {
+    ///                             Test = "StringEquals",
+    ///                             Variable = "aws:PrincipalOrgID",
+    ///                             Values = aws_organizations_organization.Example.Id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }));
+    ///         var testEventBusPolicy = new Aws.CloudWatch.EventBusPolicy("testEventBusPolicy", new Aws.CloudWatch.EventBusPolicyArgs
+    ///         {
+    ///             Policy = testPolicyDocument.Apply(testPolicyDocument =&gt; testPolicyDocument.Json),
+    ///             EventBusName = aws_cloudwatch_event_bus.Test.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

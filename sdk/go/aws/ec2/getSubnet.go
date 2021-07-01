@@ -12,6 +12,49 @@ import (
 // This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
 //
 // ## Example Usage
+//
+// The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		subnetId := cfg.RequireObject("subnetId")
+// 		opt0 := subnetId
+// 		selected, err := ec2.LookupSubnet(ctx, &ec2.LookupSubnetArgs{
+// 			Id: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewSecurityGroup(ctx, "subnet", &ec2.SecurityGroupArgs{
+// 			VpcId: pulumi.String(selected.VpcId),
+// 			Ingress: ec2.SecurityGroupIngressArray{
+// 				&ec2.SecurityGroupIngressArgs{
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String(selected.CidrBlock),
+// 					},
+// 					FromPort: pulumi.Int(80),
+// 					ToPort:   pulumi.Int(80),
+// 					Protocol: pulumi.String("tcp"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Filter Example
 //
 // If you want to match against tag `Name`, use:

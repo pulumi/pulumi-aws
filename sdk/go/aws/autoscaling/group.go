@@ -119,6 +119,66 @@ import (
 // 	})
 // }
 // ```
+// ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("example"),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			CapacityRebalance: pulumi.Bool(true),
+// 			DesiredCapacity:   pulumi.Int(12),
+// 			MaxSize:           pulumi.Int(15),
+// 			MinSize:           pulumi.Int(12),
+// 			VpcZoneIdentifiers: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Example1.Id),
+// 				pulumi.Any(aws_subnet.Example2.Id),
+// 			},
+// 			MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
+// 				InstancesDistribution: &autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs{
+// 					OnDemandBaseCapacity:                pulumi.Int(0),
+// 					OnDemandPercentageAboveBaseCapacity: pulumi.Int(25),
+// 					SpotAllocationStrategy:              pulumi.String("capacity-optimized"),
+// 				},
+// 				LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
+// 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
+// 						LaunchTemplateId: exampleLaunchTemplate.ID(),
+// 					},
+// 					Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType:     pulumi.String("c4.large"),
+// 							WeightedCapacity: pulumi.String("3"),
+// 						},
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceType:     pulumi.String("c3.large"),
+// 							WeightedCapacity: pulumi.String("2"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 //
 // When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
@@ -545,7 +605,7 @@ type groupState struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh *GroupInstanceRefresh `pulumi:"instanceRefresh"`
 	// The name of the launch configuration to use.
-	LaunchConfiguration *string `pulumi:"launchConfiguration"`
+	LaunchConfiguration interface{} `pulumi:"launchConfiguration"`
 	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 	LaunchTemplate *GroupLaunchTemplate `pulumi:"launchTemplate"`
 	// A list of elastic load balancer names to add to the autoscaling
@@ -572,7 +632,7 @@ type groupState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup *string `pulumi:"placementGroup"`
+	PlacementGroup interface{} `pulumi:"placementGroup"`
 	// Allows setting instance protection. The
 	// Auto Scaling Group will not select instances with this setting for termination
 	// during scale in events.
@@ -648,7 +708,7 @@ type GroupState struct {
 	// when this Auto Scaling Group is updated. Defined below.
 	InstanceRefresh GroupInstanceRefreshPtrInput
 	// The name of the launch configuration to use.
-	LaunchConfiguration pulumi.StringPtrInput
+	LaunchConfiguration pulumi.Input
 	// Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
 	LaunchTemplate GroupLaunchTemplatePtrInput
 	// A list of elastic load balancer names to add to the autoscaling
@@ -675,7 +735,7 @@ type GroupState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The name of the placement group into which you'll launch your instances, if any.
-	PlacementGroup pulumi.StringPtrInput
+	PlacementGroup pulumi.Input
 	// Allows setting instance protection. The
 	// Auto Scaling Group will not select instances with this setting for termination
 	// during scale in events.

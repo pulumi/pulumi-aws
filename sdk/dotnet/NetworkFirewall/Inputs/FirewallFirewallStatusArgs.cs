@@ -9,4 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
+
+    public sealed class FirewallFirewallStatusArgs : Pulumi.ResourceArgs
+    {
+        [Input("syncStates")]
+        private InputList<Inputs.FirewallFirewallStatusSyncStateArgs>? _syncStates;
+
+        /// <summary>
+        /// Set of subnets configured for use by the firewall.
+        /// </summary>
+        public InputList<Inputs.FirewallFirewallStatusSyncStateArgs> SyncStates
+        {
+            get => _syncStates ?? (_syncStates = new InputList<Inputs.FirewallFirewallStatusSyncStateArgs>());
+            set => _syncStates = value;
+        }
+
+        public FirewallFirewallStatusArgs()
+        {
+        }
+    }
 }

@@ -9,4 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Dax.Inputs
 {
+
+    public sealed class ClusterNodeArgs : Pulumi.ResourceArgs
+    {
+        [Input("address")]
+        public Input<string>? Address { get; set; }
+
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The port used by the configuration endpoint
+        /// </summary>
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        public ClusterNodeArgs()
+        {
+        }
+    }
 }
