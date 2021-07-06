@@ -53,11 +53,11 @@ namespace Pulumi.Aws
     public sealed class GetCallerIdentityResult
     {
         /// <summary>
-        /// The AWS Account ID number of the account that owns or contains the calling entity.
+        /// AWS Account ID number of the account that owns or contains the calling entity.
         /// </summary>
         public readonly string AccountId;
         /// <summary>
-        /// The AWS ARN associated with the calling entity.
+        /// ARN associated with the calling entity.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -65,7 +65,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The unique identifier of the calling entity.
+        /// Unique identifier of the calling entity.
         /// </summary>
         public readonly string UserId;
 

@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type WindowsFileSystemAuditLogConfiguration struct {
+	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	AuditLogDestination *string `pulumi:"auditLogDestination"`
+	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+	FileAccessAuditLogLevel *string `pulumi:"fileAccessAuditLogLevel"`
+	// Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+	FileShareAccessAuditLogLevel *string `pulumi:"fileShareAccessAuditLogLevel"`
+}
+
+// WindowsFileSystemAuditLogConfigurationInput is an input type that accepts WindowsFileSystemAuditLogConfigurationArgs and WindowsFileSystemAuditLogConfigurationOutput values.
+// You can construct a concrete instance of `WindowsFileSystemAuditLogConfigurationInput` via:
+//
+//          WindowsFileSystemAuditLogConfigurationArgs{...}
+type WindowsFileSystemAuditLogConfigurationInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemAuditLogConfigurationOutput() WindowsFileSystemAuditLogConfigurationOutput
+	ToWindowsFileSystemAuditLogConfigurationOutputWithContext(context.Context) WindowsFileSystemAuditLogConfigurationOutput
+}
+
+type WindowsFileSystemAuditLogConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+	AuditLogDestination pulumi.StringPtrInput `pulumi:"auditLogDestination"`
+	// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+	FileAccessAuditLogLevel pulumi.StringPtrInput `pulumi:"fileAccessAuditLogLevel"`
+	// Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+	FileShareAccessAuditLogLevel pulumi.StringPtrInput `pulumi:"fileShareAccessAuditLogLevel"`
+}
+
+func (WindowsFileSystemAuditLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogConfigurationOutput() WindowsFileSystemAuditLogConfigurationOutput {
+	return i.ToWindowsFileSystemAuditLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemAuditLogConfigurationOutput)
+}
+
+func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return i.ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemAuditLogConfigurationArgs) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemAuditLogConfigurationOutput).ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// WindowsFileSystemAuditLogConfigurationPtrInput is an input type that accepts WindowsFileSystemAuditLogConfigurationArgs, WindowsFileSystemAuditLogConfigurationPtr and WindowsFileSystemAuditLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `WindowsFileSystemAuditLogConfigurationPtrInput` via:
+//
+//          WindowsFileSystemAuditLogConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WindowsFileSystemAuditLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput
+	ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput
+}
+
+type windowsFileSystemAuditLogConfigurationPtrType WindowsFileSystemAuditLogConfigurationArgs
+
+func WindowsFileSystemAuditLogConfigurationPtr(v *WindowsFileSystemAuditLogConfigurationArgs) WindowsFileSystemAuditLogConfigurationPtrInput {
+	return (*windowsFileSystemAuditLogConfigurationPtrType)(v)
+}
+
+func (*windowsFileSystemAuditLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (i *windowsFileSystemAuditLogConfigurationPtrType) ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return i.ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsFileSystemAuditLogConfigurationPtrType) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemAuditLogConfigurationPtrOutput)
+}
+
+type WindowsFileSystemAuditLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemAuditLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLogConfigurationOutput() WindowsFileSystemAuditLogConfigurationOutput {
+	return o
+}
+
+func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLogConfigurationOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationOutput {
+	return o
+}
+
+func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return o.ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *WindowsFileSystemAuditLogConfiguration {
+		return &v
+	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+func (o WindowsFileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *string { return v.AuditLogDestination }).(pulumi.StringPtrOutput)
+}
+
+// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+func (o WindowsFileSystemAuditLogConfigurationOutput) FileAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *string { return v.FileAccessAuditLogLevel }).(pulumi.StringPtrOutput)
+}
+
+// Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+func (o WindowsFileSystemAuditLogConfigurationOutput) FileShareAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *string { return v.FileShareAccessAuditLogLevel }).(pulumi.StringPtrOutput)
+}
+
+type WindowsFileSystemAuditLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemAuditLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystemAuditLogConfiguration)(nil)).Elem()
+}
+
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutput() WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return o
+}
+
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
+	return o
+}
+
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) Elem() WindowsFileSystemAuditLogConfigurationOutput {
+	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) WindowsFileSystemAuditLogConfiguration { return *v }).(WindowsFileSystemAuditLogConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) AuditLogDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuditLogDestination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) FileAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileAccessAuditLogLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+func (o WindowsFileSystemAuditLogConfigurationPtrOutput) FileShareAccessAuditLogLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileShareAccessAuditLogLevel
+	}).(pulumi.StringPtrOutput)
+}
+
 type WindowsFileSystemSelfManagedActiveDirectory struct {
 	// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps []string `pulumi:"dnsIps"`
@@ -241,6 +410,8 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 func init() {
+	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput{})
 }

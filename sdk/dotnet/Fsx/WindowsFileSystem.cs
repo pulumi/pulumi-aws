@@ -118,6 +118,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// </summary>
+        [Output("auditLogConfiguration")]
+        public Output<Outputs.WindowsFileSystemAuditLogConfiguration> AuditLogConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Output("automaticBackupRetentionDays")]
@@ -302,6 +308,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? ActiveDirectoryId { get; set; }
 
         /// <summary>
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// </summary>
+        [Input("auditLogConfiguration")]
+        public Input<Inputs.WindowsFileSystemAuditLogConfigurationArgs>? AuditLogConfiguration { get; set; }
+
+        /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         /// </summary>
         [Input("automaticBackupRetentionDays")]
@@ -439,6 +451,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// </summary>
+        [Input("auditLogConfiguration")]
+        public Input<Inputs.WindowsFileSystemAuditLogConfigurationGetArgs>? AuditLogConfiguration { get; set; }
 
         /// <summary>
         /// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.

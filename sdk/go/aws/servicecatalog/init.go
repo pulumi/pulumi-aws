@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Product{}
 	case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
 		r = &ProductPortfolioAssociation{}
+	case "aws:servicecatalog/provisionedProduct:ProvisionedProduct":
+		r = &ProvisionedProduct{}
 	case "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact":
 		r = &ProvisioningArtifact{}
 	case "aws:servicecatalog/serviceAction:ServiceAction":
@@ -96,6 +98,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicecatalog/productPortfolioAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicecatalog/provisionedProduct",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

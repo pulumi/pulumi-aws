@@ -37,7 +37,7 @@ class GetCallerIdentityResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The AWS Account ID number of the account that owns or contains the calling entity.
+        AWS Account ID number of the account that owns or contains the calling entity.
         """
         return pulumi.get(self, "account_id")
 
@@ -45,7 +45,7 @@ class GetCallerIdentityResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The AWS ARN associated with the calling entity.
+        ARN associated with the calling entity.
         """
         return pulumi.get(self, "arn")
 
@@ -61,7 +61,7 @@ class GetCallerIdentityResult:
     @pulumi.getter(name="userId")
     def user_id(self) -> str:
         """
-        The unique identifier of the calling entity.
+        Unique identifier of the calling entity.
         """
         return pulumi.get(self, "user_id")
 

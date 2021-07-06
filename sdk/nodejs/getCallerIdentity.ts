@@ -38,11 +38,11 @@ export function getCallerIdentity(opts?: pulumi.InvokeOptions): Promise<GetCalle
  */
 export interface GetCallerIdentityResult {
     /**
-     * The AWS Account ID number of the account that owns or contains the calling entity.
+     * AWS Account ID number of the account that owns or contains the calling entity.
      */
     readonly accountId: string;
     /**
-     * The AWS ARN associated with the calling entity.
+     * ARN associated with the calling entity.
      */
     readonly arn: string;
     /**
@@ -50,7 +50,7 @@ export interface GetCallerIdentityResult {
      */
     readonly id: string;
     /**
-     * The unique identifier of the calling entity.
+     * Unique identifier of the calling entity.
      */
     readonly userId: string;
 }

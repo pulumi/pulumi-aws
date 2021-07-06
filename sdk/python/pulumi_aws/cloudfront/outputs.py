@@ -44,6 +44,8 @@ __all__ = [
     'DistributionTrustedSigner',
     'DistributionTrustedSignerItem',
     'DistributionViewerCertificate',
+    'MonitoringSubscriptionMonitoringSubscription',
+    'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
     'OriginRequestPolicyCookiesConfigCookies',
     'OriginRequestPolicyHeadersConfig',
@@ -2551,6 +2553,76 @@ class DistributionViewerCertificate(dict):
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[str]:
         return pulumi.get(self, "ssl_support_method")
+
+
+@pulumi.output_type
+class MonitoringSubscriptionMonitoringSubscription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "realtimeMetricsSubscriptionConfig":
+            suggest = "realtime_metrics_subscription_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSubscriptionMonitoringSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSubscriptionMonitoringSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSubscriptionMonitoringSubscription.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_config: 'outputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig'):
+        """
+        :param 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs' realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
+        """
+        pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
+    def realtime_metrics_subscription_config(self) -> 'outputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig':
+        """
+        A subscription configuration for additional CloudWatch metrics. See below.
+        """
+        return pulumi.get(self, "realtime_metrics_subscription_config")
+
+
+@pulumi.output_type
+class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "realtimeMetricsSubscriptionStatus":
+            suggest = "realtime_metrics_subscription_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_status: str):
+        """
+        :param str realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+        """
+        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
+    def realtime_metrics_subscription_status(self) -> str:
+        """
+        A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+        """
+        return pulumi.get(self, "realtime_metrics_subscription_status")
 
 
 @pulumi.output_type

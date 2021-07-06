@@ -8,7 +8,9 @@ import typing
 from .budget_resource_association import *
 from .constraint import *
 from .get_constraint import *
+from .get_launch_paths import *
 from .get_portfolio import *
+from .get_portfolio_constraints import *
 from .get_product import *
 from .organizations_access import *
 from .portfolio import *
@@ -16,6 +18,7 @@ from .portfolio_share import *
 from .principal_portfolio_association import *
 from .product import *
 from .product_portfolio_association import *
+from .provisioned_product import *
 from .provisioning_artifact import *
 from .service_action import *
 from .tag_option import *

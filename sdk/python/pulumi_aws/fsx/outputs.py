@@ -9,8 +9,73 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
 ]
+
+@pulumi.output_type
+class WindowsFileSystemAuditLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLogDestination":
+            suggest = "audit_log_destination"
+        elif key == "fileAccessAuditLogLevel":
+            suggest = "file_access_audit_log_level"
+        elif key == "fileShareAccessAuditLogLevel":
+            suggest = "file_share_access_audit_log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WindowsFileSystemAuditLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WindowsFileSystemAuditLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WindowsFileSystemAuditLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audit_log_destination: Optional[str] = None,
+                 file_access_audit_log_level: Optional[str] = None,
+                 file_share_access_audit_log_level: Optional[str] = None):
+        """
+        :param str audit_log_destination: The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        :param str file_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        :param str file_share_access_audit_log_level: Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
+        if audit_log_destination is not None:
+            pulumi.set(__self__, "audit_log_destination", audit_log_destination)
+        if file_access_audit_log_level is not None:
+            pulumi.set(__self__, "file_access_audit_log_level", file_access_audit_log_level)
+        if file_share_access_audit_log_level is not None:
+            pulumi.set(__self__, "file_share_access_audit_log_level", file_share_access_audit_log_level)
+
+    @property
+    @pulumi.getter(name="auditLogDestination")
+    def audit_log_destination(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `file_access_audit_log_level` and `file_share_access_audit_log_level` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `audit_log_destionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+        """
+        return pulumi.get(self, "audit_log_destination")
+
+    @property
+    @pulumi.getter(name="fileAccessAuditLogLevel")
+    def file_access_audit_log_level(self) -> Optional[str]:
+        """
+        Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
+        return pulumi.get(self, "file_access_audit_log_level")
+
+    @property
+    @pulumi.getter(name="fileShareAccessAuditLogLevel")
+    def file_share_access_audit_log_level(self) -> Optional[str]:
+        """
+        Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+        """
+        return pulumi.get(self, "file_share_access_audit_log_level")
+
 
 @pulumi.output_type
 class WindowsFileSystemSelfManagedActiveDirectory(dict):

@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+        /// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
         /// </summary>
         [Output("campaignHook")]
         public Output<Outputs.AppCampaignHook?> CampaignHook { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+        /// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
         /// </summary>
         [Input("campaignHook")]
         public Input<Inputs.AppCampaignHookArgs>? CampaignHook { get; set; }
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+        /// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
         /// </summary>
         [Input("campaignHook")]
         public Input<Inputs.AppCampaignHookGetArgs>? CampaignHook { get; set; }

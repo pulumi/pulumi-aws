@@ -70,7 +70,7 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      */
     public readonly campaignHook!: pulumi.Output<outputs.pinpoint.AppCampaignHook | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface AppState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      */
     campaignHook?: pulumi.Input<inputs.pinpoint.AppCampaignHook>;
     /**
@@ -186,7 +186,7 @@ export interface AppState {
  */
 export interface AppArgs {
     /**
-     * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      */
     campaignHook?: pulumi.Input<inputs.pinpoint.AppCampaignHook>;
     /**

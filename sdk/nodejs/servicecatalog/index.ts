@@ -8,7 +8,9 @@ import * as utilities from "../utilities";
 export * from "./budgetResourceAssociation";
 export * from "./constraint";
 export * from "./getConstraint";
+export * from "./getLaunchPaths";
 export * from "./getPortfolio";
+export * from "./getPortfolioConstraints";
 export * from "./getProduct";
 export * from "./organizationsAccess";
 export * from "./portfolio";
@@ -16,6 +18,7 @@ export * from "./portfolioShare";
 export * from "./principalPortfolioAssociation";
 export * from "./product";
 export * from "./productPortfolioAssociation";
+export * from "./provisionedProduct";
 export * from "./provisioningArtifact";
 export * from "./serviceAction";
 export * from "./tagOption";
@@ -30,6 +33,7 @@ import { PortfolioShare } from "./portfolioShare";
 import { PrincipalPortfolioAssociation } from "./principalPortfolioAssociation";
 import { Product } from "./product";
 import { ProductPortfolioAssociation } from "./productPortfolioAssociation";
+import { ProvisionedProduct } from "./provisionedProduct";
 import { ProvisioningArtifact } from "./provisioningArtifact";
 import { ServiceAction } from "./serviceAction";
 import { TagOption } from "./tagOption";
@@ -55,6 +59,8 @@ const _module = {
                 return new Product(name, <any>undefined, { urn })
             case "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation":
                 return new ProductPortfolioAssociation(name, <any>undefined, { urn })
+            case "aws:servicecatalog/provisionedProduct:ProvisionedProduct":
+                return new ProvisionedProduct(name, <any>undefined, { urn })
             case "aws:servicecatalog/provisioningArtifact:ProvisioningArtifact":
                 return new ProvisioningArtifact(name, <any>undefined, { urn })
             case "aws:servicecatalog/serviceAction:ServiceAction":
@@ -76,6 +82,7 @@ pulumi.runtime.registerResourceModule("aws", "servicecatalog/portfolioShare", _m
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/principalPortfolioAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/product", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/productPortfolioAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "servicecatalog/provisionedProduct", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/provisioningArtifact", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/serviceAction", _module)
 pulumi.runtime.registerResourceModule("aws", "servicecatalog/tagOption", _module)

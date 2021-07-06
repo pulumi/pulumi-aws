@@ -12,6 +12,7 @@ from .get_cache_policy import *
 from .get_distribution import *
 from .get_origin_request_policy import *
 from .key_group import *
+from .monitoring_subscription import *
 from .origin_access_identity import *
 from .origin_request_policy import *
 from .public_key import *

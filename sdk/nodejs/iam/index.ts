@@ -16,6 +16,7 @@ export * from "./getPolicy";
 export * from "./getPolicyDocument";
 export * from "./getRole";
 export * from "./getServerCertificate";
+export * from "./getSessionContext";
 export * from "./getUser";
 export * from "./group";
 export * from "./groupMembership";

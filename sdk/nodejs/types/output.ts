@@ -6615,6 +6615,20 @@ export namespace cloudfront {
         items: string[];
     }
 
+    export interface MonitoringSubscriptionMonitoringSubscription {
+        /**
+         * A subscription configuration for additional CloudWatch metrics. See below.
+         */
+        realtimeMetricsSubscriptionConfig: outputs.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig;
+    }
+
+    export interface MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+        /**
+         * A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+         */
+        realtimeMetricsSubscriptionStatus: string;
+    }
+
     export interface OriginRequestPolicyCookiesConfig {
         cookieBehavior: string;
         cookies?: outputs.cloudfront.OriginRequestPolicyCookiesConfigCookies;
@@ -15209,6 +15223,21 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface WindowsFileSystemAuditLogConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+         */
+        auditLogDestination: string;
+        /**
+         * Sets which attempt type is logged by Amazon FSx for file and folder accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+         */
+        fileAccessAuditLogLevel?: string;
+        /**
+         * Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
+         */
+        fileShareAccessAuditLogLevel?: string;
+    }
+
     export interface WindowsFileSystemSelfManagedActiveDirectory {
         /**
          * A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
@@ -25670,6 +25699,60 @@ export namespace securityhub {
 }
 
 export namespace servicecatalog {
+    export interface GetLaunchPathsSummary {
+        /**
+         * Block for constraints on the portfolio-product relationship. See details below.
+         */
+        constraintSummaries: outputs.servicecatalog.GetLaunchPathsSummaryConstraintSummary[];
+        /**
+         * Name of the portfolio to which the path was assigned.
+         */
+        name: string;
+        /**
+         * Identifier of the product path.
+         */
+        pathId: string;
+        /**
+         * Tags associated with this product path.
+         */
+        tags: {[key: string]: string};
+    }
+
+    export interface GetLaunchPathsSummaryConstraintSummary {
+        /**
+         * Description of the constraint.
+         */
+        description: string;
+        /**
+         * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+         */
+        type: string;
+    }
+
+    export interface GetPortfolioConstraintsDetail {
+        /**
+         * Identifier of the constraint.
+         */
+        constraintId: string;
+        /**
+         * Description of the constraint.
+         */
+        description: string;
+        owner: string;
+        /**
+         * Portfolio identifier.
+         */
+        portfolioId: string;
+        /**
+         * Product identifier.
+         */
+        productId: string;
+        /**
+         * Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+         */
+        type: string;
+    }
+
     export interface ProductProvisioningArtifactParameters {
         /**
          * Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
@@ -25695,6 +25778,48 @@ export namespace servicecatalog {
          * Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
          */
         type?: string;
+    }
+
+    export interface ProvisionedProductProvisioningParameter {
+        /**
+         * Parameter key.
+         */
+        key: string;
+        /**
+         * Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+         */
+        usePreviousValue?: boolean;
+        /**
+         * Parameter value.
+         */
+        value?: string;
+    }
+
+    export interface ProvisionedProductStackSetProvisioningPreferences {
+        /**
+         * One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+         */
+        accounts?: string[];
+        /**
+         * Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
+         */
+        failureToleranceCount?: number;
+        /**
+         * Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
+         */
+        failureTolerancePercentage?: number;
+        /**
+         * Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+         */
+        maxConcurrencyCount?: number;
+        /**
+         * Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+         */
+        maxConcurrencyPercentage?: number;
+        /**
+         * One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+         */
+        regions?: string[];
     }
 
     export interface ServiceActionDefinition {

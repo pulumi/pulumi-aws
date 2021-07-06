@@ -111,6 +111,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     */
+    public readonly auditLogConfiguration!: pulumi.Output<outputs.fsx.WindowsFileSystemAuditLogConfiguration>;
+    /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
@@ -214,6 +218,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             const state = argsOrState as WindowsFileSystemState | undefined;
             inputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
@@ -248,6 +253,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
             inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
+            inputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
@@ -291,6 +297,10 @@ export interface WindowsFileSystemState {
      * Amazon Resource Name of the file system.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     */
+    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */
@@ -389,6 +399,10 @@ export interface WindowsFileSystemArgs {
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     activeDirectoryId?: pulumi.Input<string>;
+    /**
+     * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+     */
+    auditLogConfiguration?: pulumi.Input<inputs.fsx.WindowsFileSystemAuditLogConfiguration>;
     /**
      * The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
      */

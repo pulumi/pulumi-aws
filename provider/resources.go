@@ -710,6 +710,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_realtime_log_config":    {Tok: awsResource(cloudfrontMod, "RealtimeLogConfig")},
 			"aws_cloudfront_key_group":              {Tok: awsResource(cloudfrontMod, "KeyGroup")},
 			"aws_cloudfront_function":               {Tok: awsResource(cloudfrontMod, "Function")},
+			"aws_cloudfront_monitoring_subscription": {
+				Tok: awsResource(cloudfrontMod, "MonitoringSubscription"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"monitoring_subscription": {
+						CSharpName: "MonitoringSubscriptionDetails",
+					},
+				},
+			},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -2153,6 +2161,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicecatalog_principal_portfolio_association": {
 				Tok: awsResource(servicecatalogMod, "PrincipalPortfolioAssociation"),
 			},
+			"aws_servicecatalog_provisioned_product": {Tok: awsResource(servicecatalogMod, "ProvisionedProduct")},
 			// Security Hub
 			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
@@ -3932,6 +3941,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role":               {Tok: awsDataSource(iamMod, "getRole")},
 			"aws_iam_server_certificate": {Tok: awsDataSource(iamMod, "getServerCertificate")},
 			"aws_iam_user":               {Tok: awsDataSource(iamMod, "getUser")},
+			"aws_iam_session_context":    {Tok: awsDataSource(iamMod, "getSessionContext")},
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
 			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},
@@ -4078,9 +4088,11 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsDataSource(serverlessRepositoryMod, "getApplication"),
 			},
 			// servicecatalog
-			"aws_servicecatalog_constraint": {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
-			"aws_servicecatalog_portfolio":  {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
-			"aws_servicecatalog_product":    {Tok: awsDataSource(servicecatalogMod, "getProduct")},
+			"aws_servicecatalog_constraint":            {Tok: awsDataSource(servicecatalogMod, "getConstraint")},
+			"aws_servicecatalog_portfolio":             {Tok: awsDataSource(servicecatalogMod, "getPortfolio")},
+			"aws_servicecatalog_product":               {Tok: awsDataSource(servicecatalogMod, "getProduct")},
+			"aws_servicecatalog_launch_paths":          {Tok: awsDataSource(servicecatalogMod, "getLaunchPaths")},
+			"aws_servicecatalog_portfolio_constraints": {Tok: awsDataSource(servicecatalogMod, "getPortfolioConstraints")},
 
 			// LakeFormation
 			"aws_lakeformation_data_lake_settings": {Tok: awsDataSource(lakeFormationMod, "getDataLakeSettings")},

@@ -55,7 +55,7 @@ type App struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Amazon Resource Name (ARN) of the PinPoint Application
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+	// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
 	CampaignHook AppCampaignHookPtrOutput `pulumi:"campaignHook"`
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	Limits AppLimitsPtrOutput `pulumi:"limits"`
@@ -104,7 +104,7 @@ type appState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// Amazon Resource Name (ARN) of the PinPoint Application
 	Arn *string `pulumi:"arn"`
-	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+	// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
 	CampaignHook *AppCampaignHook `pulumi:"campaignHook"`
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	Limits *AppLimits `pulumi:"limits"`
@@ -125,7 +125,7 @@ type AppState struct {
 	ApplicationId pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the PinPoint Application
 	Arn pulumi.StringPtrInput
-	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+	// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
 	CampaignHook AppCampaignHookPtrInput
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	Limits AppLimitsPtrInput
@@ -146,7 +146,7 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+	// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
 	CampaignHook *AppCampaignHook `pulumi:"campaignHook"`
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	Limits *AppLimits `pulumi:"limits"`
@@ -164,7 +164,7 @@ type appArgs struct {
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+	// Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
 	CampaignHook AppCampaignHookPtrInput
 	// The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
 	Limits AppLimitsPtrInput

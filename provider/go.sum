@@ -176,6 +176,8 @@ github.com/aws/aws-sdk-go v1.38.61 h1:wizuqQZe0K4iYJ+Slrs0aSQ4P94FAwqBUHwk46Iz5U
 github.com/aws/aws-sdk-go v1.38.61/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/aws/aws-sdk-go v1.38.66 h1:z1nEnVOb0ctiHURel3sFxZdXDrXnG6Fa+Dly3Kb0KVo=
 github.com/aws/aws-sdk-go v1.38.66/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
+github.com/aws/aws-sdk-go v1.38.68 h1:aOG8geU4SohNp659eKBHRBgbqSrZ6jNZlfimIuJAwL8=
+github.com/aws/aws-sdk-go v1.38.68/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -842,6 +844,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20210625104432-3c8a2dd3c9c8 h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210625104432-3c8a2dd3c9c8/go.mod h1:eEE9LMYJIfAxOlDCv4LE5aBRZHkKNVmOa7ucUhkrEyw=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210625105356-ce053ed7b5e4 h1:POyEAKV1Y+jMnSAjHUyWfJCq/vOc6oPXtwSydWWOvHs=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210625105356-ce053ed7b5e4/go.mod h1:eEE9LMYJIfAxOlDCv4LE5aBRZHkKNVmOa7ucUhkrEyw=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210706104737-8b9c0e66f8cb h1:1wKHCzq+HKmwA+HljtLn3By82vVqYjapgnyn5GI7BtU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210706104737-8b9c0e66f8cb/go.mod h1:3mySlX6hr0D4MikLB7F9XE8LuCBTnSCQTl47J5jjyrs=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
