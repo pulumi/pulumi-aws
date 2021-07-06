@@ -96,10 +96,10 @@ import * as utilities from "../utilities";
  *                 "s3:ListBucket",
  *                 "s3:ListBucketMultipartUploads",
  *                 "s3:PutObject"
- *             ],      
- *             "Resource": [        
+ *             ],
+ *             "Resource": [
  *                 "${bucket.arn}",
- *                 "${bucket.arn}/*"		    
+ *                 "${bucket.arn}/*"
  *             ]
  *         }
  *     ]
@@ -174,7 +174,7 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      */
     public readonly outputFormat!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -286,7 +286,7 @@ export interface MetricStreamState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      */
     outputFormat?: pulumi.Input<string>;
     /**
@@ -298,7 +298,7 @@ export interface MetricStreamState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -329,7 +329,7 @@ export interface MetricStreamArgs {
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+     * Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
      */
     outputFormat: pulumi.Input<string>;
     /**
@@ -337,7 +337,7 @@ export interface MetricStreamArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

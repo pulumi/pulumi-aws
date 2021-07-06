@@ -16,6 +16,7 @@ from .get_policy import *
 from .get_policy_document import *
 from .get_role import *
 from .get_server_certificate import *
+from .get_session_context import *
 from .get_user import *
 from .group import *
 from .group_membership import *

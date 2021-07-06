@@ -1271,6 +1271,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/monitoringSubscription",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/monitoringSubscription:MonitoringSubscription": "MonitoringSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/originAccessIdentity",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
@@ -5635,6 +5643,14 @@ _utilities.register(
   "fqn": "pulumi_aws.servicecatalog",
   "classes": {
    "aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation": "ProductPortfolioAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "servicecatalog/provisionedProduct",
+  "fqn": "pulumi_aws.servicecatalog",
+  "classes": {
+   "aws:servicecatalog/provisionedProduct:ProvisionedProduct": "ProvisionedProduct"
   }
  },
  {

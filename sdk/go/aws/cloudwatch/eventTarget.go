@@ -271,7 +271,7 @@ type EventTarget struct {
 	KinesisTarget EventTargetKinesisTargetPtrOutput `pulumi:"kinesisTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringOutput `pulumi:"rule"`
@@ -340,7 +340,7 @@ type eventTargetState struct {
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule *string `pulumi:"rule"`
@@ -375,7 +375,7 @@ type EventTargetState struct {
 	KinesisTarget EventTargetKinesisTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringPtrInput
@@ -414,7 +414,7 @@ type eventTargetArgs struct {
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the rule you want to add targets to.
 	Rule string `pulumi:"rule"`
@@ -450,7 +450,7 @@ type EventTargetArgs struct {
 	KinesisTarget EventTargetKinesisTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
 	RoleArn pulumi.StringPtrInput
 	// The name of the rule you want to add targets to.
 	Rule pulumi.StringInput

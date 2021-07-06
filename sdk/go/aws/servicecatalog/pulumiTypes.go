@@ -236,6 +236,349 @@ func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type ProvisionedProductProvisioningParameter struct {
+	// Parameter key.
+	Key string `pulumi:"key"`
+	// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+	UsePreviousValue *bool `pulumi:"usePreviousValue"`
+	// Parameter value.
+	Value *string `pulumi:"value"`
+}
+
+// ProvisionedProductProvisioningParameterInput is an input type that accepts ProvisionedProductProvisioningParameterArgs and ProvisionedProductProvisioningParameterOutput values.
+// You can construct a concrete instance of `ProvisionedProductProvisioningParameterInput` via:
+//
+//          ProvisionedProductProvisioningParameterArgs{...}
+type ProvisionedProductProvisioningParameterInput interface {
+	pulumi.Input
+
+	ToProvisionedProductProvisioningParameterOutput() ProvisionedProductProvisioningParameterOutput
+	ToProvisionedProductProvisioningParameterOutputWithContext(context.Context) ProvisionedProductProvisioningParameterOutput
+}
+
+type ProvisionedProductProvisioningParameterArgs struct {
+	// Parameter key.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+	UsePreviousValue pulumi.BoolPtrInput `pulumi:"usePreviousValue"`
+	// Parameter value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ProvisionedProductProvisioningParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProvisionedProductProvisioningParameterArgs) ToProvisionedProductProvisioningParameterOutput() ProvisionedProductProvisioningParameterOutput {
+	return i.ToProvisionedProductProvisioningParameterOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductProvisioningParameterArgs) ToProvisionedProductProvisioningParameterOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductProvisioningParameterOutput)
+}
+
+// ProvisionedProductProvisioningParameterArrayInput is an input type that accepts ProvisionedProductProvisioningParameterArray and ProvisionedProductProvisioningParameterArrayOutput values.
+// You can construct a concrete instance of `ProvisionedProductProvisioningParameterArrayInput` via:
+//
+//          ProvisionedProductProvisioningParameterArray{ ProvisionedProductProvisioningParameterArgs{...} }
+type ProvisionedProductProvisioningParameterArrayInput interface {
+	pulumi.Input
+
+	ToProvisionedProductProvisioningParameterArrayOutput() ProvisionedProductProvisioningParameterArrayOutput
+	ToProvisionedProductProvisioningParameterArrayOutputWithContext(context.Context) ProvisionedProductProvisioningParameterArrayOutput
+}
+
+type ProvisionedProductProvisioningParameterArray []ProvisionedProductProvisioningParameterInput
+
+func (ProvisionedProductProvisioningParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisionedProductProvisioningParameter)(nil)).Elem()
+}
+
+func (i ProvisionedProductProvisioningParameterArray) ToProvisionedProductProvisioningParameterArrayOutput() ProvisionedProductProvisioningParameterArrayOutput {
+	return i.ToProvisionedProductProvisioningParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductProvisioningParameterArray) ToProvisionedProductProvisioningParameterArrayOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductProvisioningParameterArrayOutput)
+}
+
+type ProvisionedProductProvisioningParameterOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductProvisioningParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProvisionedProductProvisioningParameterOutput) ToProvisionedProductProvisioningParameterOutput() ProvisionedProductProvisioningParameterOutput {
+	return o
+}
+
+func (o ProvisionedProductProvisioningParameterOutput) ToProvisionedProductProvisioningParameterOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterOutput {
+	return o
+}
+
+// Parameter key.
+func (o ProvisionedProductProvisioningParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+func (o ProvisionedProductProvisioningParameterOutput) UsePreviousValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) *bool { return v.UsePreviousValue }).(pulumi.BoolPtrOutput)
+}
+
+// Parameter value.
+func (o ProvisionedProductProvisioningParameterOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductProvisioningParameter) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ProvisionedProductProvisioningParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductProvisioningParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProvisionedProductProvisioningParameter)(nil)).Elem()
+}
+
+func (o ProvisionedProductProvisioningParameterArrayOutput) ToProvisionedProductProvisioningParameterArrayOutput() ProvisionedProductProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProvisionedProductProvisioningParameterArrayOutput) ToProvisionedProductProvisioningParameterArrayOutputWithContext(ctx context.Context) ProvisionedProductProvisioningParameterArrayOutput {
+	return o
+}
+
+func (o ProvisionedProductProvisioningParameterArrayOutput) Index(i pulumi.IntInput) ProvisionedProductProvisioningParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProvisionedProductProvisioningParameter {
+		return vs[0].([]ProvisionedProductProvisioningParameter)[vs[1].(int)]
+	}).(ProvisionedProductProvisioningParameterOutput)
+}
+
+type ProvisionedProductStackSetProvisioningPreferences struct {
+	// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+	Accounts []string `pulumi:"accounts"`
+	// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
+	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
+	// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
+	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
+	// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+	MaxConcurrencyCount *int `pulumi:"maxConcurrencyCount"`
+	// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+	MaxConcurrencyPercentage *int `pulumi:"maxConcurrencyPercentage"`
+	// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+	Regions []string `pulumi:"regions"`
+}
+
+// ProvisionedProductStackSetProvisioningPreferencesInput is an input type that accepts ProvisionedProductStackSetProvisioningPreferencesArgs and ProvisionedProductStackSetProvisioningPreferencesOutput values.
+// You can construct a concrete instance of `ProvisionedProductStackSetProvisioningPreferencesInput` via:
+//
+//          ProvisionedProductStackSetProvisioningPreferencesArgs{...}
+type ProvisionedProductStackSetProvisioningPreferencesInput interface {
+	pulumi.Input
+
+	ToProvisionedProductStackSetProvisioningPreferencesOutput() ProvisionedProductStackSetProvisioningPreferencesOutput
+	ToProvisionedProductStackSetProvisioningPreferencesOutputWithContext(context.Context) ProvisionedProductStackSetProvisioningPreferencesOutput
+}
+
+type ProvisionedProductStackSetProvisioningPreferencesArgs struct {
+	// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
+	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
+	// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
+	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
+	// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+	MaxConcurrencyCount pulumi.IntPtrInput `pulumi:"maxConcurrencyCount"`
+	// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+	MaxConcurrencyPercentage pulumi.IntPtrInput `pulumi:"maxConcurrencyPercentage"`
+	// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+}
+
+func (ProvisionedProductStackSetProvisioningPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferences)(nil)).Elem()
+}
+
+func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProductStackSetProvisioningPreferencesOutput() ProvisionedProductStackSetProvisioningPreferencesOutput {
+	return i.ToProvisionedProductStackSetProvisioningPreferencesOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProductStackSetProvisioningPreferencesOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductStackSetProvisioningPreferencesOutput)
+}
+
+func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return i.ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i ProvisionedProductStackSetProvisioningPreferencesArgs) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductStackSetProvisioningPreferencesOutput).ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx)
+}
+
+// ProvisionedProductStackSetProvisioningPreferencesPtrInput is an input type that accepts ProvisionedProductStackSetProvisioningPreferencesArgs, ProvisionedProductStackSetProvisioningPreferencesPtr and ProvisionedProductStackSetProvisioningPreferencesPtrOutput values.
+// You can construct a concrete instance of `ProvisionedProductStackSetProvisioningPreferencesPtrInput` via:
+//
+//          ProvisionedProductStackSetProvisioningPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type ProvisionedProductStackSetProvisioningPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput
+	ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput
+}
+
+type provisionedProductStackSetProvisioningPreferencesPtrType ProvisionedProductStackSetProvisioningPreferencesArgs
+
+func ProvisionedProductStackSetProvisioningPreferencesPtr(v *ProvisionedProductStackSetProvisioningPreferencesArgs) ProvisionedProductStackSetProvisioningPreferencesPtrInput {
+	return (*provisionedProductStackSetProvisioningPreferencesPtrType)(v)
+}
+
+func (*provisionedProductStackSetProvisioningPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedProductStackSetProvisioningPreferences)(nil)).Elem()
+}
+
+func (i *provisionedProductStackSetProvisioningPreferencesPtrType) ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return i.ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionedProductStackSetProvisioningPreferencesPtrType) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
+}
+
+type ProvisionedProductStackSetProvisioningPreferencesOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductStackSetProvisioningPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferences)(nil)).Elem()
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedProductStackSetProvisioningPreferencesOutput() ProvisionedProductStackSetProvisioningPreferencesOutput {
+	return o
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedProductStackSetProvisioningPreferencesOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesOutput {
+	return o
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return o.ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *ProvisionedProductStackSetProvisioningPreferences {
+		return &v
+	}).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
+}
+
+// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) []string { return v.Accounts }).(pulumi.StringArrayOutput)
+}
+
+// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
+}
+
+// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) MaxConcurrencyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.MaxConcurrencyCount }).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) MaxConcurrencyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *int { return v.MaxConcurrencyPercentage }).(pulumi.IntPtrOutput)
+}
+
+// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+func (o ProvisionedProductStackSetProvisioningPreferencesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+type ProvisionedProductStackSetProvisioningPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProvisionedProductStackSetProvisioningPreferences)(nil)).Elem()
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutput() ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return o
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
+	return o
+}
+
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Elem() ProvisionedProductStackSetProvisioningPreferencesOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) ProvisionedProductStackSetProvisioningPreferences {
+		return *v
+	}).(ProvisionedProductStackSetProvisioningPreferencesOutput)
+}
+
+// One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Accounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both. The default value is 0 if no value is specified.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureToleranceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failureToleranceCount` or `failureTolerancePercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureTolerancePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failureToleranceCount`. `maxConcurrencyCount` is at most one more than the `failureToleranceCount`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurrencyCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrencyCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `maxConcurrencyCount` or `maxConcurrencyPercentage`, but not both.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) MaxConcurrencyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrencyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `awsServicecatalogProvisioningParameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
 type ServiceActionDefinition struct {
 	// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
 	AssumeRole *string `pulumi:"assumeRole"`
@@ -443,9 +786,388 @@ func (o ServiceActionDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetLaunchPathsSummary struct {
+	// Block for constraints on the portfolio-product relationship. See details below.
+	ConstraintSummaries []GetLaunchPathsSummaryConstraintSummary `pulumi:"constraintSummaries"`
+	// Name of the portfolio to which the path was assigned.
+	Name string `pulumi:"name"`
+	// Identifier of the product path.
+	PathId string `pulumi:"pathId"`
+	// Tags associated with this product path.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// GetLaunchPathsSummaryInput is an input type that accepts GetLaunchPathsSummaryArgs and GetLaunchPathsSummaryOutput values.
+// You can construct a concrete instance of `GetLaunchPathsSummaryInput` via:
+//
+//          GetLaunchPathsSummaryArgs{...}
+type GetLaunchPathsSummaryInput interface {
+	pulumi.Input
+
+	ToGetLaunchPathsSummaryOutput() GetLaunchPathsSummaryOutput
+	ToGetLaunchPathsSummaryOutputWithContext(context.Context) GetLaunchPathsSummaryOutput
+}
+
+type GetLaunchPathsSummaryArgs struct {
+	// Block for constraints on the portfolio-product relationship. See details below.
+	ConstraintSummaries GetLaunchPathsSummaryConstraintSummaryArrayInput `pulumi:"constraintSummaries"`
+	// Name of the portfolio to which the path was assigned.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Identifier of the product path.
+	PathId pulumi.StringInput `pulumi:"pathId"`
+	// Tags associated with this product path.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetLaunchPathsSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsSummary)(nil)).Elem()
+}
+
+func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutput() GetLaunchPathsSummaryOutput {
+	return i.ToGetLaunchPathsSummaryOutputWithContext(context.Background())
+}
+
+func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryOutput)
+}
+
+// GetLaunchPathsSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryArray and GetLaunchPathsSummaryArrayOutput values.
+// You can construct a concrete instance of `GetLaunchPathsSummaryArrayInput` via:
+//
+//          GetLaunchPathsSummaryArray{ GetLaunchPathsSummaryArgs{...} }
+type GetLaunchPathsSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchPathsSummaryArrayOutput() GetLaunchPathsSummaryArrayOutput
+	ToGetLaunchPathsSummaryArrayOutputWithContext(context.Context) GetLaunchPathsSummaryArrayOutput
+}
+
+type GetLaunchPathsSummaryArray []GetLaunchPathsSummaryInput
+
+func (GetLaunchPathsSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchPathsSummary)(nil)).Elem()
+}
+
+func (i GetLaunchPathsSummaryArray) ToGetLaunchPathsSummaryArrayOutput() GetLaunchPathsSummaryArrayOutput {
+	return i.ToGetLaunchPathsSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchPathsSummaryArray) ToGetLaunchPathsSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryArrayOutput)
+}
+
+type GetLaunchPathsSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchPathsSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsSummary)(nil)).Elem()
+}
+
+func (o GetLaunchPathsSummaryOutput) ToGetLaunchPathsSummaryOutput() GetLaunchPathsSummaryOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryOutput) ToGetLaunchPathsSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryOutput {
+	return o
+}
+
+// Block for constraints on the portfolio-product relationship. See details below.
+func (o GetLaunchPathsSummaryOutput) ConstraintSummaries() GetLaunchPathsSummaryConstraintSummaryArrayOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) []GetLaunchPathsSummaryConstraintSummary { return v.ConstraintSummaries }).(GetLaunchPathsSummaryConstraintSummaryArrayOutput)
+}
+
+// Name of the portfolio to which the path was assigned.
+func (o GetLaunchPathsSummaryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Identifier of the product path.
+func (o GetLaunchPathsSummaryOutput) PathId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) string { return v.PathId }).(pulumi.StringOutput)
+}
+
+// Tags associated with this product path.
+func (o GetLaunchPathsSummaryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummary) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type GetLaunchPathsSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchPathsSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchPathsSummary)(nil)).Elem()
+}
+
+func (o GetLaunchPathsSummaryArrayOutput) ToGetLaunchPathsSummaryArrayOutput() GetLaunchPathsSummaryArrayOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryArrayOutput) ToGetLaunchPathsSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryArrayOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPathsSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchPathsSummary {
+		return vs[0].([]GetLaunchPathsSummary)[vs[1].(int)]
+	}).(GetLaunchPathsSummaryOutput)
+}
+
+type GetLaunchPathsSummaryConstraintSummary struct {
+	// Description of the constraint.
+	Description string `pulumi:"description"`
+	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+	Type string `pulumi:"type"`
+}
+
+// GetLaunchPathsSummaryConstraintSummaryInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArgs and GetLaunchPathsSummaryConstraintSummaryOutput values.
+// You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryInput` via:
+//
+//          GetLaunchPathsSummaryConstraintSummaryArgs{...}
+type GetLaunchPathsSummaryConstraintSummaryInput interface {
+	pulumi.Input
+
+	ToGetLaunchPathsSummaryConstraintSummaryOutput() GetLaunchPathsSummaryConstraintSummaryOutput
+	ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(context.Context) GetLaunchPathsSummaryConstraintSummaryOutput
+}
+
+type GetLaunchPathsSummaryConstraintSummaryArgs struct {
+	// Description of the constraint.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetLaunchPathsSummaryConstraintSummaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
+}
+
+func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConstraintSummaryOutput() GetLaunchPathsSummaryConstraintSummaryOutput {
+	return i.ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(context.Background())
+}
+
+func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryOutput)
+}
+
+// GetLaunchPathsSummaryConstraintSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArray and GetLaunchPathsSummaryConstraintSummaryArrayOutput values.
+// You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryArrayInput` via:
+//
+//          GetLaunchPathsSummaryConstraintSummaryArray{ GetLaunchPathsSummaryConstraintSummaryArgs{...} }
+type GetLaunchPathsSummaryConstraintSummaryArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchPathsSummaryConstraintSummaryArrayOutput() GetLaunchPathsSummaryConstraintSummaryArrayOutput
+	ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput
+}
+
+type GetLaunchPathsSummaryConstraintSummaryArray []GetLaunchPathsSummaryConstraintSummaryInput
+
+func (GetLaunchPathsSummaryConstraintSummaryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
+}
+
+func (i GetLaunchPathsSummaryConstraintSummaryArray) ToGetLaunchPathsSummaryConstraintSummaryArrayOutput() GetLaunchPathsSummaryConstraintSummaryArrayOutput {
+	return i.ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchPathsSummaryConstraintSummaryArray) ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryArrayOutput)
+}
+
+type GetLaunchPathsSummaryConstraintSummaryOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchPathsSummaryConstraintSummaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
+}
+
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryConstraintSummaryOutput() GetLaunchPathsSummaryConstraintSummaryOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryOutput {
+	return o
+}
+
+// Description of the constraint.
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+func (o GetLaunchPathsSummaryConstraintSummaryOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsSummaryConstraintSummary) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetLaunchPathsSummaryConstraintSummaryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchPathsSummaryConstraintSummaryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
+}
+
+func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) ToGetLaunchPathsSummaryConstraintSummaryArrayOutput() GetLaunchPathsSummaryConstraintSummaryArrayOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput {
+	return o
+}
+
+func (o GetLaunchPathsSummaryConstraintSummaryArrayOutput) Index(i pulumi.IntInput) GetLaunchPathsSummaryConstraintSummaryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchPathsSummaryConstraintSummary {
+		return vs[0].([]GetLaunchPathsSummaryConstraintSummary)[vs[1].(int)]
+	}).(GetLaunchPathsSummaryConstraintSummaryOutput)
+}
+
+type GetPortfolioConstraintsDetail struct {
+	// Identifier of the constraint.
+	ConstraintId string `pulumi:"constraintId"`
+	// Description of the constraint.
+	Description string `pulumi:"description"`
+	Owner       string `pulumi:"owner"`
+	// Portfolio identifier.
+	PortfolioId string `pulumi:"portfolioId"`
+	// Product identifier.
+	ProductId string `pulumi:"productId"`
+	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+	Type string `pulumi:"type"`
+}
+
+// GetPortfolioConstraintsDetailInput is an input type that accepts GetPortfolioConstraintsDetailArgs and GetPortfolioConstraintsDetailOutput values.
+// You can construct a concrete instance of `GetPortfolioConstraintsDetailInput` via:
+//
+//          GetPortfolioConstraintsDetailArgs{...}
+type GetPortfolioConstraintsDetailInput interface {
+	pulumi.Input
+
+	ToGetPortfolioConstraintsDetailOutput() GetPortfolioConstraintsDetailOutput
+	ToGetPortfolioConstraintsDetailOutputWithContext(context.Context) GetPortfolioConstraintsDetailOutput
+}
+
+type GetPortfolioConstraintsDetailArgs struct {
+	// Identifier of the constraint.
+	ConstraintId pulumi.StringInput `pulumi:"constraintId"`
+	// Description of the constraint.
+	Description pulumi.StringInput `pulumi:"description"`
+	Owner       pulumi.StringInput `pulumi:"owner"`
+	// Portfolio identifier.
+	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
+	// Product identifier.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetPortfolioConstraintsDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPortfolioConstraintsDetail)(nil)).Elem()
+}
+
+func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutput() GetPortfolioConstraintsDetailOutput {
+	return i.ToGetPortfolioConstraintsDetailOutputWithContext(context.Background())
+}
+
+func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailOutput)
+}
+
+// GetPortfolioConstraintsDetailArrayInput is an input type that accepts GetPortfolioConstraintsDetailArray and GetPortfolioConstraintsDetailArrayOutput values.
+// You can construct a concrete instance of `GetPortfolioConstraintsDetailArrayInput` via:
+//
+//          GetPortfolioConstraintsDetailArray{ GetPortfolioConstraintsDetailArgs{...} }
+type GetPortfolioConstraintsDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetPortfolioConstraintsDetailArrayOutput() GetPortfolioConstraintsDetailArrayOutput
+	ToGetPortfolioConstraintsDetailArrayOutputWithContext(context.Context) GetPortfolioConstraintsDetailArrayOutput
+}
+
+type GetPortfolioConstraintsDetailArray []GetPortfolioConstraintsDetailInput
+
+func (GetPortfolioConstraintsDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPortfolioConstraintsDetail)(nil)).Elem()
+}
+
+func (i GetPortfolioConstraintsDetailArray) ToGetPortfolioConstraintsDetailArrayOutput() GetPortfolioConstraintsDetailArrayOutput {
+	return i.ToGetPortfolioConstraintsDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetPortfolioConstraintsDetailArray) ToGetPortfolioConstraintsDetailArrayOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailArrayOutput)
+}
+
+type GetPortfolioConstraintsDetailOutput struct{ *pulumi.OutputState }
+
+func (GetPortfolioConstraintsDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPortfolioConstraintsDetail)(nil)).Elem()
+}
+
+func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutput() GetPortfolioConstraintsDetailOutput {
+	return o
+}
+
+func (o GetPortfolioConstraintsDetailOutput) ToGetPortfolioConstraintsDetailOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailOutput {
+	return o
+}
+
+// Identifier of the constraint.
+func (o GetPortfolioConstraintsDetailOutput) ConstraintId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ConstraintId }).(pulumi.StringOutput)
+}
+
+// Description of the constraint.
+func (o GetPortfolioConstraintsDetailOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetPortfolioConstraintsDetailOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Portfolio identifier.
+func (o GetPortfolioConstraintsDetailOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+// Product identifier.
+func (o GetPortfolioConstraintsDetailOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
+func (o GetPortfolioConstraintsDetailOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsDetail) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetPortfolioConstraintsDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPortfolioConstraintsDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPortfolioConstraintsDetail)(nil)).Elem()
+}
+
+func (o GetPortfolioConstraintsDetailArrayOutput) ToGetPortfolioConstraintsDetailArrayOutput() GetPortfolioConstraintsDetailArrayOutput {
+	return o
+}
+
+func (o GetPortfolioConstraintsDetailArrayOutput) ToGetPortfolioConstraintsDetailArrayOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailArrayOutput {
+	return o
+}
+
+func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPortfolioConstraintsDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPortfolioConstraintsDetail {
+		return vs[0].([]GetPortfolioConstraintsDetail)[vs[1].(int)]
+	}).(GetPortfolioConstraintsDetailOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterArrayOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductStackSetProvisioningPreferencesOutput{})
+	pulumi.RegisterOutputType(ProvisionedProductStackSetProvisioningPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(GetLaunchPathsSummaryOutput{})
+	pulumi.RegisterOutputType(GetLaunchPathsSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchPathsSummaryConstraintSummaryOutput{})
+	pulumi.RegisterOutputType(GetLaunchPathsSummaryConstraintSummaryArrayOutput{})
+	pulumi.RegisterOutputType(GetPortfolioConstraintsDetailOutput{})
+	pulumi.RegisterOutputType(GetPortfolioConstraintsDetailArrayOutput{})
 }

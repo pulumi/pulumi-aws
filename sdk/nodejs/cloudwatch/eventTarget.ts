@@ -225,7 +225,7 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface EventTargetState {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
      */
     roleArn?: pulumi.Input<string>;
     /**
@@ -425,7 +425,7 @@ export interface EventTargetArgs {
      */
     retryPolicy?: pulumi.Input<inputs.cloudwatch.EventTargetRetryPolicy>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used.
+     * The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
      */
     roleArn?: pulumi.Input<string>;
     /**

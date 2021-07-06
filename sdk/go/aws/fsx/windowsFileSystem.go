@@ -45,6 +45,8 @@ type WindowsFileSystem struct {
 	ActiveDirectoryId pulumi.StringPtrOutput `pulumi:"activeDirectoryId"`
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationOutput `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -133,6 +135,8 @@ type windowsFileSystemState struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -184,6 +188,8 @@ type WindowsFileSystemState struct {
 	ActiveDirectoryId pulumi.StringPtrInput
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -237,6 +243,8 @@ func (WindowsFileSystemState) ElementType() reflect.Type {
 type windowsFileSystemArgs struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -275,6 +283,8 @@ type windowsFileSystemArgs struct {
 type WindowsFileSystemArgs struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId pulumi.StringPtrInput
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.

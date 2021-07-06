@@ -125,10 +125,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                 ""s3:ListBucket"",
     ///                 ""s3:ListBucketMultipartUploads"",
     ///                 ""s3:PutObject""
-    ///             ],      
-    ///             ""Resource"": [        
+    ///             ],
+    ///             ""Resource"": [
     ///                 ""{bucketArn}"",
-    ///                 ""{bucketArn1}/*""		    
+    ///                 ""{bucketArn1}/*""
     ///             ]
     ///         }}
     ///     ]
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// </summary>
         [Output("outputFormat")]
         public Output<string> OutputFormat { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// </summary>
         [Input("outputFormat", required: true)]
         public Input<string> OutputFormat { get; set; } = null!;
@@ -328,7 +328,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -413,7 +413,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// Output format for the stream. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
+        /// Output format for the stream. Possible values are `json` and `opentelemetry0.7`. For more information about output formats, see [Metric streams output formats](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html).
         /// </summary>
         [Input("outputFormat")]
         public Input<string>? OutputFormat { get; set; }
@@ -434,7 +434,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

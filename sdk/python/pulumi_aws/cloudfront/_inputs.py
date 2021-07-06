@@ -43,6 +43,8 @@ __all__ = [
     'DistributionTrustedSignerArgs',
     'DistributionTrustedSignerItemArgs',
     'DistributionViewerCertificateArgs',
+    'MonitoringSubscriptionMonitoringSubscriptionArgs',
+    'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
     'OriginRequestPolicyCookiesConfigArgs',
     'OriginRequestPolicyCookiesConfigCookiesArgs',
     'OriginRequestPolicyHeadersConfigArgs',
@@ -2407,6 +2409,50 @@ class DistributionViewerCertificateArgs:
     @ssl_support_method.setter
     def ssl_support_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ssl_support_method", value)
+
+
+@pulumi.input_type
+class MonitoringSubscriptionMonitoringSubscriptionArgs:
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_config: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']):
+        """
+        :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs'] realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
+        """
+        pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionConfig")
+    def realtime_metrics_subscription_config(self) -> pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']:
+        """
+        A subscription configuration for additional CloudWatch metrics. See below.
+        """
+        return pulumi.get(self, "realtime_metrics_subscription_config")
+
+    @realtime_metrics_subscription_config.setter
+    def realtime_metrics_subscription_config(self, value: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs']):
+        pulumi.set(self, "realtime_metrics_subscription_config", value)
+
+
+@pulumi.input_type
+class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs:
+    def __init__(__self__, *,
+                 realtime_metrics_subscription_status: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+        """
+        pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
+
+    @property
+    @pulumi.getter(name="realtimeMetricsSubscriptionStatus")
+    def realtime_metrics_subscription_status(self) -> pulumi.Input[str]:
+        """
+        A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
+        """
+        return pulumi.get(self, "realtime_metrics_subscription_status")
+
+    @realtime_metrics_subscription_status.setter
+    def realtime_metrics_subscription_status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "realtime_metrics_subscription_status", value)
 
 
 @pulumi.input_type

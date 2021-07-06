@@ -10,6 +10,8 @@ from .. import _utilities
 
 __all__ = [
     'ProductProvisioningArtifactParametersArgs',
+    'ProvisionedProductProvisioningParameterArgs',
+    'ProvisionedProductStackSetProvisioningPreferencesArgs',
     'ServiceActionDefinitionArgs',
 ]
 
@@ -114,6 +116,163 @@ class ProductProvisioningArtifactParametersArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ProvisionedProductProvisioningParameterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 use_previous_value: Optional[pulumi.Input[bool]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key: Parameter key.
+        :param pulumi.Input[bool] use_previous_value: Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+        :param pulumi.Input[str] value: Parameter value.
+        """
+        pulumi.set(__self__, "key", key)
+        if use_previous_value is not None:
+            pulumi.set(__self__, "use_previous_value", use_previous_value)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Parameter key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="usePreviousValue")
+    def use_previous_value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to ignore `value` and keep the previous parameter value. Ignored when initially provisioning a product.
+        """
+        return pulumi.get(self, "use_previous_value")
+
+    @use_previous_value.setter
+    def use_previous_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_previous_value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ProvisionedProductStackSetProvisioningPreferencesArgs:
+    def __init__(__self__, *,
+                 accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 failure_tolerance_count: Optional[pulumi.Input[int]] = None,
+                 failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrency_percentage: Optional[pulumi.Input[int]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+        :param pulumi.Input[int] failure_tolerance_count: Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
+        :param pulumi.Input[int] failure_tolerance_percentage: Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
+        :param pulumi.Input[int] max_concurrency_count: Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        :param pulumi.Input[int] max_concurrency_percentage: Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+        """
+        if accounts is not None:
+            pulumi.set(__self__, "accounts", accounts)
+        if failure_tolerance_count is not None:
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+        if failure_tolerance_percentage is not None:
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+        if max_concurrency_count is not None:
+            pulumi.set(__self__, "max_concurrency_count", max_concurrency_count)
+        if max_concurrency_percentage is not None:
+            pulumi.set(__self__, "max_concurrency_percentage", max_concurrency_percentage)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+
+    @property
+    @pulumi.getter
+    def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more AWS accounts that will have access to the provisioned product. The AWS accounts specified should be within the list of accounts in the STACKSET constraint. To get the list of accounts in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all accounts from the STACKSET constraint.
+        """
+        return pulumi.get(self, "accounts")
+
+    @accounts.setter
+    def accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accounts", value)
+
+    @property
+    @pulumi.getter(name="failureToleranceCount")
+    def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of accounts, per region, for which this operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both. The default value is 0 if no value is specified.
+        """
+        return pulumi.get(self, "failure_tolerance_count")
+
+    @failure_tolerance_count.setter
+    def failure_tolerance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_count", value)
+
+    @property
+    @pulumi.getter(name="failureTolerancePercentage")
+    def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Percentage of accounts, per region, for which this stack operation can fail before AWS Service Catalog stops the operation in that region. If the operation is stopped in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. You must specify either `failure_tolerance_count` or `failure_tolerance_percentage`, but not both.
+        """
+        return pulumi.get(self, "failure_tolerance_percentage")
+
+    @failure_tolerance_percentage.setter
+    def failure_tolerance_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_percentage", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrencyCount")
+    def max_concurrency_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `failure_tolerance_count`. `max_concurrency_count` is at most one more than the `failure_tolerance_count`. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        """
+        return pulumi.get(self, "max_concurrency_count")
+
+    @max_concurrency_count.setter
+    def max_concurrency_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrency_count", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrencyPercentage")
+    def max_concurrency_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum percentage of accounts in which to perform this operation at one time. When calculating the number of accounts based on the specified percentage, AWS Service Catalog rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, AWS Service Catalog sets the number as 1 instead. Note that this setting lets you specify the maximum for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling. You must specify either `max_concurrency_count` or `max_concurrency_percentage`, but not both.
+        """
+        return pulumi.get(self, "max_concurrency_percentage")
+
+    @max_concurrency_percentage.setter
+    def max_concurrency_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrency_percentage", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more AWS Regions where the provisioned product will be available. The specified regions should be within the list of regions from the STACKSET constraint. To get the list of regions in the STACKSET constraint, use the `aws_servicecatalog_provisioning_parameters` data source. If no values are specified, the default value is all regions from the STACKSET constraint.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
 
 
 @pulumi.input_type

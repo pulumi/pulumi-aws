@@ -19,6 +19,7 @@ class WindowsFileSystemArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  throughput_capacity: pulumi.Input[int],
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -57,6 +59,8 @@ class WindowsFileSystemArgs:
         pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
+        if audit_log_configuration is not None:
+            pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if copy_tags_to_backups is not None:
@@ -131,6 +135,18 @@ class WindowsFileSystemArgs:
     @active_directory_id.setter
     def active_directory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "active_directory_id", value)
+
+    @property
+    @pulumi.getter(name="auditLogConfiguration")
+    def audit_log_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]:
+        """
+        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        """
+        return pulumi.get(self, "audit_log_configuration")
+
+    @audit_log_configuration.setter
+    def audit_log_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]):
+        pulumi.set(self, "audit_log_configuration", value)
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
@@ -294,6 +310,7 @@ class _WindowsFileSystemState:
     def __init__(__self__, *,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -320,6 +337,7 @@ class _WindowsFileSystemState:
         Input properties used for looking up and filtering WindowsFileSystem resources.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -347,6 +365,8 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if audit_log_configuration is not None:
+            pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
         if copy_tags_to_backups is not None:
@@ -415,6 +435,18 @@ class _WindowsFileSystemState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="auditLogConfiguration")
+    def audit_log_configuration(self) -> Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]:
+        """
+        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        """
+        return pulumi.get(self, "audit_log_configuration")
+
+    @audit_log_configuration.setter
+    def audit_log_configuration(self, value: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']]):
+        pulumi.set(self, "audit_log_configuration", value)
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
@@ -687,6 +719,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -774,6 +807,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -880,6 +914,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -909,6 +944,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__ = WindowsFileSystemArgs.__new__(WindowsFileSystemArgs)
 
             __props__.__dict__["active_directory_id"] = active_directory_id
+            __props__.__dict__["audit_log_configuration"] = audit_log_configuration
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
@@ -950,6 +986,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             active_directory_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
@@ -981,6 +1018,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -1010,6 +1048,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         __props__.__dict__["active_directory_id"] = active_directory_id
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["audit_log_configuration"] = audit_log_configuration
         __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
@@ -1049,6 +1088,14 @@ class WindowsFileSystem(pulumi.CustomResource):
         Amazon Resource Name of the file system.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="auditLogConfiguration")
+    def audit_log_configuration(self) -> pulumi.Output['outputs.WindowsFileSystemAuditLogConfiguration']:
+        """
+        The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        """
+        return pulumi.get(self, "audit_log_configuration")
 
     @property
     @pulumi.getter(name="automaticBackupRetentionDays")
