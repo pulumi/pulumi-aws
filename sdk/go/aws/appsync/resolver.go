@@ -13,6 +13,79 @@ import (
 
 // Provides an AppSync Resolver.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testGraphQLApi, err := appsync.NewGraphQLApi(ctx, "testGraphQLApi", &appsync.GraphQLApiArgs{
+// 			AuthenticationType: pulumi.String("API_KEY"),
+// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "type Mutation {\n", "	putPost(id: ID!, title: String!): Post\n", "}\n", "\n", "type Post {\n", "	id: ID!\n", "	title: String!\n", "}\n", "\n", "type Query {\n", "	singlePost(id: ID!): Post\n", "}\n", "\n", "schema {\n", "	query: Query\n", "	mutation: Mutation\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testDataSource, err := appsync.NewDataSource(ctx, "testDataSource", &appsync.DataSourceArgs{
+// 			ApiId: testGraphQLApi.ID(),
+// 			Name:  pulumi.String("tf_example"),
+// 			Type:  pulumi.String("HTTP"),
+// 			HttpConfig: &appsync.DataSourceHttpConfigArgs{
+// 				Endpoint: pulumi.String("http://example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appsync.NewResolver(ctx, "testResolver", &appsync.ResolverArgs{
+// 			ApiId:            testGraphQLApi.ID(),
+// 			Field:            pulumi.String("singlePost"),
+// 			Type:             pulumi.String("Query"),
+// 			DataSource:       testDataSource.Name,
+// 			RequestTemplate:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"version\": \"2018-05-29\",\n", "    \"method\": \"GET\",\n", "    \"resourcePath\": \"/\",\n", "    \"params\":{\n", "        \"headers\": ", "$", "utils.http.copyheaders(", "$", "ctx.request.headers)\n", "    }\n", "}\n")),
+// 			ResponseTemplate: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "#if(", "$", "ctx.result.statusCode == 200)\n", "    ", "$", "ctx.result.body\n", "#else\n", "    ", "$", "utils.appendError(", "$", "ctx.result.body, ", "$", "ctx.result.statusCode)\n", "#end\n")),
+// 			CachingConfig: &appsync.ResolverCachingConfigArgs{
+// 				CachingKeys: pulumi.StringArray{
+// 					pulumi.String(fmt.Sprintf("%v%v", "$", "context.identity.sub")),
+// 					pulumi.String(fmt.Sprintf("%v%v", "$", "context.arguments.id")),
+// 				},
+// 				Ttl: pulumi.Int(60),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = appsync.NewResolver(ctx, "mutationPipelineTest", &appsync.ResolverArgs{
+// 			Type:             pulumi.String("Mutation"),
+// 			ApiId:            testGraphQLApi.ID(),
+// 			Field:            pulumi.String("pipelineTest"),
+// 			RequestTemplate:  pulumi.String("{}"),
+// 			ResponseTemplate: pulumi.String(fmt.Sprintf("%v%v%v%v", "$", "util.toJson(", "$", "ctx.result)")),
+// 			Kind:             pulumi.String("PIPELINE"),
+// 			PipelineConfig: &appsync.ResolverPipelineConfigArgs{
+// 				Functions: pulumi.StringArray{
+// 					pulumi.Any(aws_appsync_function.Test1.Function_id),
+// 					pulumi.Any(aws_appsync_function.Test2.Function_id),
+// 					pulumi.Any(aws_appsync_function.Test3.Function_id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_appsync_resolver` can be imported with their `api_id`, a hyphen, `type`, a hypen and `field` e.g.

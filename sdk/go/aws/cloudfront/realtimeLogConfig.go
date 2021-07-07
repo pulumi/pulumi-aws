@@ -29,14 +29,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"cloudfront.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"cloudfront.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		exampleRolePolicy, err := iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
 // 			Role:   exampleRole.ID(),
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "        \"Effect\": \"Allow\",\n", "        \"Action\": [\n", "          \"kinesis:DescribeStreamSummary\",\n", "          \"kinesis:DescribeStream\",\n", "          \"kinesis:PutRecord\",\n", "          \"kinesis:PutRecords\"\n", "        ],\n", "        \"Resource\": \"", aws_kinesis_stream.Example.Arn, "\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "        \"Effect\": \"Allow\",\n", "        \"Action\": [\n", "          \"kinesis:DescribeStreamSummary\",\n", "          \"kinesis:DescribeStream\",\n", "          \"kinesis:PutRecord\",\n", "          \"kinesis:PutRecords\"\n", "        ],\n", "        \"Resource\": \"", aws_kinesis_stream.Example.Arn, "\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

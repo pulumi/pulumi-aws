@@ -15,6 +15,65 @@ namespace Pulumi.Aws
         /// <summary>
         /// Use this data source to get the ID of a registered AMI for use in other
         /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+        ///         {
+        ///             ExecutableUsers = 
+        ///             {
+        ///                 "self",
+        ///             },
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+        ///                 {
+        ///                     Name = "name",
+        ///                     Values = 
+        ///                     {
+        ///                         "myami-*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+        ///                 {
+        ///                     Name = "root-device-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "ebs",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+        ///                 {
+        ///                     Name = "virtualization-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "hvm",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///             NameRegex = "^myami-\\d{3}",
+        ///             Owners = 
+        ///             {
+        ///                 "self",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAmiResult> InvokeAsync(GetAmiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:index/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithVersion());

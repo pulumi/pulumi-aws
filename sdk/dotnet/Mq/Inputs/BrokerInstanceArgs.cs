@@ -9,4 +9,25 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Mq.Inputs
 {
+
+    public sealed class BrokerInstanceArgs : Pulumi.ResourceArgs
+    {
+        [Input("consoleUrl")]
+        public Input<string>? ConsoleUrl { get; set; }
+
+        [Input("endpoints")]
+        private InputList<string>? _endpoints;
+        public InputList<string> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<string>());
+            set => _endpoints = value;
+        }
+
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        public BrokerInstanceArgs()
+        {
+        }
+    }
 }

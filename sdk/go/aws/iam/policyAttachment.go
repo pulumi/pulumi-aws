@@ -27,6 +27,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -38,7 +39,7 @@ import (
 // 			return err
 // 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"ec2.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"ec2.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,19 +50,19 @@ import (
 // 		}
 // 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
 // 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy:      pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"ec2:Describe*\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewPolicyAttachment(ctx, "test_attach", &iam.PolicyAttachmentArgs{
-// 			Users: pulumi.StringArray{
+// 			Users: pulumi.AnyArray{
 // 				user.Name,
 // 			},
-// 			Roles: pulumi.StringArray{
+// 			Roles: pulumi.AnyArray{
 // 				role.Name,
 // 			},
-// 			Groups: pulumi.StringArray{
+// 			Groups: pulumi.AnyArray{
 // 				group.Name,
 // 			},
 // 			PolicyArn: policy.Arn,
@@ -121,28 +122,28 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
 	// The group(s) the policy should be applied to
-	Groups []string `pulumi:"groups"`
+	Groups []interface{} `pulumi:"groups"`
 	// The name of the attachment. This cannot be an empty string.
 	Name *string `pulumi:"name"`
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 	// The role(s) the policy should be applied to
-	Roles []string `pulumi:"roles"`
+	Roles []interface{} `pulumi:"roles"`
 	// The user(s) the policy should be applied to
-	Users []string `pulumi:"users"`
+	Users []interface{} `pulumi:"users"`
 }
 
 type PolicyAttachmentState struct {
 	// The group(s) the policy should be applied to
-	Groups pulumi.StringArrayInput
+	Groups pulumi.ArrayInput
 	// The name of the attachment. This cannot be an empty string.
 	Name pulumi.StringPtrInput
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 	// The role(s) the policy should be applied to
-	Roles pulumi.StringArrayInput
+	Roles pulumi.ArrayInput
 	// The user(s) the policy should be applied to
-	Users pulumi.StringArrayInput
+	Users pulumi.ArrayInput
 }
 
 func (PolicyAttachmentState) ElementType() reflect.Type {

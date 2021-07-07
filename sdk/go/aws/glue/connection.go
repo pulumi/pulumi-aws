@@ -39,6 +39,43 @@ import (
 // 	})
 // }
 // ```
+// ### VPC Connection
+//
+// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
+// 			ConnectionProperties: pulumi.StringMap{
+// 				"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("%v%v%v", "jdbc:mysql://", aws_rds_cluster.Example.Endpoint, "/exampledatabase")),
+// 				"PASSWORD":            pulumi.String("examplepassword"),
+// 				"USERNAME":            pulumi.String("exampleusername"),
+// 			},
+// 			PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
+// 				AvailabilityZone: pulumi.Any(aws_subnet.Example.Availability_zone),
+// 				SecurityGroupIdLists: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.Example.Id),
+// 				},
+// 				SubnetId: pulumi.Any(aws_subnet.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

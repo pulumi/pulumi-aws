@@ -150,6 +150,51 @@ class EventBusPolicy(pulumi.CustomResource):
             policy=test_policy_document.json,
             event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
         ```
+        ### Multiple Statements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_policy_document = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="DevAccountAccess",
+                effect="Allow",
+                actions=["events:PutEvents"],
+                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["123456789012"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="OrganizationAccess",
+                effect="Allow",
+                actions=[
+                    "events:DescribeRule",
+                    "events:ListRules",
+                    "events:ListTargetsByRule",
+                    "events:ListTagsForResource",
+                ],
+                resources=[
+                    "arn:aws:events:eu-west-1:123456789012:rule/*",
+                    "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+                ],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["*"],
+                )],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="aws:PrincipalOrgID",
+                    values=aws_organizations_organization["example"]["id"],
+                )],
+            ),
+        ])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
+            policy=test_policy_document.json,
+            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        ```
 
         ## Import
 
@@ -226,6 +271,51 @@ class EventBusPolicy(pulumi.CustomResource):
                 values=aws_organizations_organization["example"]["id"],
             )],
         )])
+        test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
+            policy=test_policy_document.json,
+            event_bus_name=aws_cloudwatch_event_bus["test"]["name"])
+        ```
+        ### Multiple Statements
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_policy_document = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="DevAccountAccess",
+                effect="Allow",
+                actions=["events:PutEvents"],
+                resources=["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["123456789012"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="OrganizationAccess",
+                effect="Allow",
+                actions=[
+                    "events:DescribeRule",
+                    "events:ListRules",
+                    "events:ListTargetsByRule",
+                    "events:ListTagsForResource",
+                ],
+                resources=[
+                    "arn:aws:events:eu-west-1:123456789012:rule/*",
+                    "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+                ],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=["*"],
+                )],
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    test="StringEquals",
+                    variable="aws:PrincipalOrgID",
+                    values=aws_organizations_organization["example"]["id"],
+                )],
+            ),
+        ])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
             policy=test_policy_document.json,
             event_bus_name=aws_cloudwatch_event_bus["test"]["name"])

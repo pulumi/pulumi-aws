@@ -28,7 +28,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
 // 			Path:             pulumi.String("/"),
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Action\": \"sts:AssumeRole\",\n", "            \"Principal\": {\n", "               \"Service\": \"ec2.amazonaws.com\"\n", "            },\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"\"\n", "        }\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Action\": \"sts:AssumeRole\",\n", "            \"Principal\": {\n", "               \"Service\": \"ec2.amazonaws.com\"\n", "            },\n", "            \"Effect\": \"Allow\",\n", "            \"Sid\": \"\"\n", "        }\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -114,7 +114,7 @@ type instanceProfileState struct {
 	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path *string `pulumi:"path"`
 	// Name of the role to add to the profile.
-	Role *string `pulumi:"role"`
+	Role interface{} `pulumi:"role"`
 	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -135,7 +135,7 @@ type InstanceProfileState struct {
 	// Path to the instance profile. For more information about paths, see [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) in the IAM User Guide. Can be a string of characters consisting of either a forward slash (`/`) by itself or a string that must begin and end with forward slashes. Can include any ASCII character from the ! (\u0021) through the DEL character (\u007F), including most punctuation characters, digits, and upper and lowercase letters.
 	Path pulumi.StringPtrInput
 	// Name of the role to add to the profile.
-	Role pulumi.StringPtrInput
+	Role pulumi.Input
 	// Map of resource tags for the IAM Instance Profile. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .

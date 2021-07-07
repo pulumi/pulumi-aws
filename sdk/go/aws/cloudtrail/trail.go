@@ -31,6 +31,7 @@ import (
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudtrail"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -228,14 +229,14 @@ import (
 // 			return err
 // 		}
 // 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"cloudtrail.", current.DnsSuffix, "\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"cloudtrail.", current.DnsSuffix, "\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "testRolePolicy", &iam.RolePolicyArgs{
 // 			Role:   testRole.ID(),
-// 			Policy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"AWSCloudTrailCreateLogStream\",\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"", aws_cloudwatch_log_group.Test.Arn, ":*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"AWSCloudTrailCreateLogStream\",\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ],\n", "      \"Resource\": \"", aws_cloudwatch_log_group.Test.Arn, ":*\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

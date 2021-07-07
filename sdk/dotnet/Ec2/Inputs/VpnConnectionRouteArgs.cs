@@ -9,4 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2.Inputs
 {
+
+    public sealed class VpnConnectionRouteArgs : Pulumi.ResourceArgs
+    {
+        [Input("destinationCidrBlock")]
+        public Input<string>? DestinationCidrBlock { get; set; }
+
+        [Input("source")]
+        public Input<string>? Source { get; set; }
+
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        public VpnConnectionRouteArgs()
+        {
+        }
+    }
 }

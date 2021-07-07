@@ -57,14 +57,14 @@ func GetPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering PolicyAttachment resources.
 type policyAttachmentState struct {
 	// The name of the policy to attach.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The identity to which the policy is attached.
 	Target *string `pulumi:"target"`
 }
 
 type PolicyAttachmentState struct {
 	// The name of the policy to attach.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// The identity to which the policy is attached.
 	Target pulumi.StringPtrInput
 }

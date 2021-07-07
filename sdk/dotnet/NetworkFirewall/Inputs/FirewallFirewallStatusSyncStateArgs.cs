@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.NetworkFirewall.Inputs
 {
+
+    public sealed class FirewallFirewallStatusSyncStateArgs : Pulumi.ResourceArgs
+    {
+        [Input("attachments")]
+        private InputList<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>? _attachments;
+
+        /// <summary>
+        /// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
+        /// </summary>
+        public InputList<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs> Attachments
+        {
+            get => _attachments ?? (_attachments = new InputList<Inputs.FirewallFirewallStatusSyncStateAttachmentArgs>());
+            set => _attachments = value;
+        }
+
+        /// <summary>
+        /// The Availability Zone where the subnet is configured.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        public FirewallFirewallStatusSyncStateArgs()
+        {
+        }
+    }
 }

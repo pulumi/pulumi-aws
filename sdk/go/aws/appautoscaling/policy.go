@@ -89,7 +89,7 @@ import (
 // 				StepAdjustments: appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArray{
 // 					&appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{
 // 						MetricIntervalUpperBound: pulumi.String("0"),
-// 						ScalingAdjustment:        pulumi.Int(-1),
+// 						ScalingAdjustment:        -1,
 // 					},
 // 				},
 // 			},

@@ -9,4 +9,27 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ElasticBeanstalk.Inputs
 {
+
+    public sealed class EnvironmentAllSettingArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// A unique name for this Environment. This name is used
+        /// in the application URL
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("namespace", required: true)]
+        public Input<string> Namespace { get; set; } = null!;
+
+        [Input("resource")]
+        public Input<string>? Resource { get; set; }
+
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
+
+        public EnvironmentAllSettingArgs()
+        {
+        }
+    }
 }

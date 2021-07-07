@@ -127,7 +127,7 @@ type userPolicyState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The policy document. This is a JSON formatted string.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// IAM user to which to attach this policy.
 	User *string `pulumi:"user"`
 }
@@ -138,7 +138,7 @@ type UserPolicyState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// IAM user to which to attach this policy.
 	User pulumi.StringPtrInput
 }

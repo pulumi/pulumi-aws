@@ -103,186 +103,6 @@ export interface GetRegionsFilter {
     values: string[];
 }
 
-export interface ProviderAssumeRole {
-    durationSeconds?: number;
-    externalId?: string;
-    policy?: string;
-    policyArns?: string[];
-    roleArn?: string;
-    sessionName?: string;
-    tags?: {[key: string]: string};
-    transitiveTagKeys?: string[];
-}
-
-export interface ProviderDefaultTags {
-    tags?: {[key: string]: string};
-}
-
-export interface ProviderEndpoint {
-    accessanalyzer?: string;
-    acm?: string;
-    acmpca?: string;
-    amplify?: string;
-    apigateway?: string;
-    appconfig?: string;
-    applicationautoscaling?: string;
-    applicationinsights?: string;
-    appmesh?: string;
-    apprunner?: string;
-    appstream?: string;
-    appsync?: string;
-    athena?: string;
-    auditmanager?: string;
-    autoscaling?: string;
-    autoscalingplans?: string;
-    backup?: string;
-    batch?: string;
-    budgets?: string;
-    chime?: string;
-    cloud9?: string;
-    cloudformation?: string;
-    cloudfront?: string;
-    cloudhsm?: string;
-    cloudsearch?: string;
-    cloudtrail?: string;
-    cloudwatch?: string;
-    cloudwatchevents?: string;
-    cloudwatchlogs?: string;
-    codeartifact?: string;
-    codebuild?: string;
-    codecommit?: string;
-    codedeploy?: string;
-    codepipeline?: string;
-    codestarconnections?: string;
-    cognitoidentity?: string;
-    cognitoidp?: string;
-    configservice?: string;
-    connect?: string;
-    cur?: string;
-    dataexchange?: string;
-    datapipeline?: string;
-    datasync?: string;
-    dax?: string;
-    detective?: string;
-    devicefarm?: string;
-    directconnect?: string;
-    dlm?: string;
-    dms?: string;
-    docdb?: string;
-    ds?: string;
-    dynamodb?: string;
-    ec2?: string;
-    ecr?: string;
-    ecrpublic?: string;
-    ecs?: string;
-    efs?: string;
-    eks?: string;
-    elasticache?: string;
-    elasticbeanstalk?: string;
-    elastictranscoder?: string;
-    elb?: string;
-    emr?: string;
-    emrcontainers?: string;
-    es?: string;
-    firehose?: string;
-    fms?: string;
-    forecast?: string;
-    fsx?: string;
-    gamelift?: string;
-    glacier?: string;
-    globalaccelerator?: string;
-    glue?: string;
-    greengrass?: string;
-    guardduty?: string;
-    iam?: string;
-    identitystore?: string;
-    imagebuilder?: string;
-    inspector?: string;
-    iot?: string;
-    iotanalytics?: string;
-    iotevents?: string;
-    kafka?: string;
-    kinesis?: string;
-    kinesisanalytics?: string;
-    kinesisanalyticsv2?: string;
-    kinesisvideo?: string;
-    kms?: string;
-    lakeformation?: string;
-    lambda?: string;
-    lexmodels?: string;
-    licensemanager?: string;
-    lightsail?: string;
-    location?: string;
-    macie?: string;
-    macie2?: string;
-    managedblockchain?: string;
-    marketplacecatalog?: string;
-    mediaconnect?: string;
-    mediaconvert?: string;
-    medialive?: string;
-    mediapackage?: string;
-    mediastore?: string;
-    mediastoredata?: string;
-    mq?: string;
-    mwaa?: string;
-    neptune?: string;
-    networkfirewall?: string;
-    networkmanager?: string;
-    opsworks?: string;
-    organizations?: string;
-    outposts?: string;
-    personalize?: string;
-    pinpoint?: string;
-    pricing?: string;
-    qldb?: string;
-    quicksight?: string;
-    ram?: string;
-    rds?: string;
-    redshift?: string;
-    resourcegroups?: string;
-    resourcegroupstaggingapi?: string;
-    route53?: string;
-    route53domains?: string;
-    route53resolver?: string;
-    s3?: string;
-    s3control?: string;
-    s3outposts?: string;
-    sagemaker?: string;
-    schemas?: string;
-    sdb?: string;
-    secretsmanager?: string;
-    securityhub?: string;
-    serverlessrepo?: string;
-    servicecatalog?: string;
-    servicediscovery?: string;
-    servicequotas?: string;
-    ses?: string;
-    shield?: string;
-    signer?: string;
-    sns?: string;
-    sqs?: string;
-    ssm?: string;
-    ssoadmin?: string;
-    stepfunctions?: string;
-    storagegateway?: string;
-    sts?: string;
-    swf?: string;
-    synthetics?: string;
-    timestreamwrite?: string;
-    transfer?: string;
-    waf?: string;
-    wafregional?: string;
-    wafv2?: string;
-    worklink?: string;
-    workmail?: string;
-    workspaces?: string;
-    xray?: string;
-}
-
-export interface ProviderIgnoreTags {
-    keyPrefixes?: string[];
-    keys?: string[];
-}
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -309,6 +129,7 @@ export namespace acm {
          */
         certificateTransparencyLoggingPreference?: string;
     }
+
 }
 
 export namespace acmpca {
@@ -434,6 +255,7 @@ export namespace acmpca {
         s3BucketName: string;
         s3ObjectAcl: string;
     }
+
 }
 
 export namespace alb {
@@ -1092,6 +914,7 @@ export namespace alb {
          */
         type: string;
     }
+
 }
 
 export namespace amplify {
@@ -1194,6 +1017,7 @@ export namespace amplify {
          */
         verified: boolean;
     }
+
 }
 
 export namespace apigateway {
@@ -1371,6 +1195,7 @@ export namespace apigateway {
          */
         rateLimit?: number;
     }
+
 }
 
 export namespace apigatewayv2 {
@@ -1569,6 +1394,7 @@ export namespace apigatewayv2 {
          */
         throttlingRateLimit?: number;
     }
+
 }
 
 export namespace appautoscaling {
@@ -1692,6 +1518,7 @@ export namespace appautoscaling {
          */
         minCapacity?: number;
     }
+
 }
 
 export namespace applicationloadbalancing {
@@ -2350,6 +2177,7 @@ export namespace applicationloadbalancing {
          */
         type: string;
     }
+
 }
 
 export namespace appmesh {
@@ -4493,6 +4321,7 @@ export namespace apprunner {
          */
         startCommand?: string;
     }
+
 }
 
 export namespace appsync {
@@ -4655,6 +4484,7 @@ export namespace appsync {
          */
         functions?: string[];
     }
+
 }
 
 export namespace athena {
@@ -4709,6 +4539,7 @@ export namespace athena {
          */
         kmsKeyArn?: string;
     }
+
 }
 
 export namespace autoscaling {
@@ -5074,6 +4905,7 @@ export namespace autoscaling {
          */
         resourceLabel?: string;
     }
+
 }
 
 export namespace autoscalingplans {
@@ -5265,6 +5097,7 @@ export namespace autoscalingplans {
          */
         resourceLabel?: string;
     }
+
 }
 
 export namespace backup {
@@ -5365,6 +5198,7 @@ export namespace backup {
          */
         value: string;
     }
+
 }
 
 export namespace batch {
@@ -5487,6 +5321,7 @@ export namespace batch {
          */
         attemptDurationSeconds?: number;
     }
+
 }
 
 export namespace budgets {
@@ -5645,6 +5480,7 @@ export namespace budgets {
          */
         thresholdType: string;
     }
+
 }
 
 export namespace cfg {
@@ -5774,6 +5610,7 @@ export namespace cfg {
          */
         messageType?: string;
     }
+
 }
 
 export namespace cloudformation {
@@ -5809,6 +5646,7 @@ export namespace cloudformation {
          */
         retainStacksOnAccountRemoval?: boolean;
     }
+
 }
 
 export namespace cloudfront {
@@ -6696,6 +6534,7 @@ export namespace cloudhsmv2 {
         hsmCertificate: string;
         manufacturerHardwareCertificate: string;
     }
+
 }
 
 export namespace cloudtrail {
@@ -6731,6 +6570,7 @@ export namespace cloudtrail {
          */
         insightType: string;
     }
+
 }
 
 export namespace cloudwatch {
@@ -7166,6 +7006,7 @@ export namespace cloudwatch {
          */
         namespace: string;
     }
+
 }
 
 export namespace codeartifact {
@@ -7184,6 +7025,7 @@ export namespace codeartifact {
          */
         repositoryName: string;
     }
+
 }
 
 export namespace codebuild {
@@ -7658,6 +7500,7 @@ export namespace codebuild {
          */
         type: string;
     }
+
 }
 
 export namespace codecommit {
@@ -7683,6 +7526,7 @@ export namespace codecommit {
          */
         name: string;
     }
+
 }
 
 export namespace codedeploy {
@@ -7968,6 +7812,7 @@ export namespace codedeploy {
          */
         triggerTargetArn: string;
     }
+
 }
 
 export namespace codepipeline {
@@ -8084,6 +7929,7 @@ export namespace codepipeline {
          */
         matchEquals: string;
     }
+
 }
 
 export namespace codestarconnections {
@@ -8105,6 +7951,7 @@ export namespace codestarconnections {
          */
         vpcId: string;
     }
+
 }
 
 export namespace codestarnotifications {
@@ -8122,6 +7969,7 @@ export namespace codestarnotifications {
          */
         type?: string;
     }
+
 }
 
 export namespace cognito {
@@ -8520,6 +8368,7 @@ export namespace cognito {
          */
         smsMessage: string;
     }
+
 }
 
 export namespace config {
@@ -8703,6 +8552,7 @@ export namespace config {
         keyPrefixes?: string[];
         keys?: string[];
     }
+
 }
 
 export namespace datasync {
@@ -8817,6 +8667,7 @@ export namespace datasync {
          */
         scheduleExpression: string;
     }
+
 }
 
 export namespace dax {
@@ -8847,6 +8698,7 @@ export namespace dax {
          */
         value: string;
     }
+
 }
 
 export namespace directoryservice {
@@ -8921,6 +8773,7 @@ export namespace directoryservice {
          */
         vpcId: string;
     }
+
 }
 
 export namespace dlm {
@@ -8983,6 +8836,7 @@ export namespace dlm {
          */
         count: number;
     }
+
 }
 
 export namespace dms {
@@ -9092,6 +8946,7 @@ export namespace dms {
          */
         serviceAccessRoleArn?: string;
     }
+
 }
 
 export namespace docdb {
@@ -9109,6 +8964,7 @@ export namespace docdb {
          */
         value: string;
     }
+
 }
 
 export namespace dynamodb {
@@ -9289,6 +9145,7 @@ export namespace dynamodb {
          */
         kmsKeyArn: string;
     }
+
 }
 
 export namespace ebs {
@@ -9320,6 +9177,7 @@ export namespace ebs {
         name: string;
         values: string[];
     }
+
 }
 
 export namespace ec2 {
@@ -12073,6 +11931,7 @@ export namespace ec2clientvpn {
          */
         enabled: boolean;
     }
+
 }
 
 export namespace ec2transitgateway {
@@ -12143,6 +12002,7 @@ export namespace ec2transitgateway {
          */
         values: string[];
     }
+
 }
 
 export namespace ecr {
@@ -12206,6 +12066,7 @@ export namespace ecr {
          */
         scanOnPush: boolean;
     }
+
 }
 
 export namespace ecrpublic {
@@ -12235,6 +12096,7 @@ export namespace ecrpublic {
          */
         usageText?: string;
     }
+
 }
 
 export namespace ecs {
@@ -12613,6 +12475,7 @@ export namespace ecs {
          */
         domain: string;
     }
+
 }
 
 export namespace efs {
@@ -12731,6 +12594,7 @@ export namespace efs {
     export interface GetFileSystemLifecyclePolicy {
         transitionToIa: string;
     }
+
 }
 
 export namespace eks {
@@ -12954,6 +12818,7 @@ export namespace eks {
          */
         value?: string;
     }
+
 }
 
 export namespace elasticache {
@@ -13005,6 +12870,7 @@ export namespace elasticache {
          */
         replicasPerNodeGroup: number;
     }
+
 }
 
 export namespace elasticbeanstalk {
@@ -13077,6 +12943,7 @@ export namespace elasticbeanstalk {
          */
         serviceRole: string;
     }
+
 }
 
 export namespace elasticloadbalancing {
@@ -13847,6 +13714,7 @@ export namespace elasticloadbalancingv2 {
          */
         type: string;
     }
+
 }
 
 export namespace elasticsearch {
@@ -14240,6 +14108,7 @@ export namespace elasticsearch {
          */
         vpcId: string;
     }
+
 }
 
 export namespace elastictranscoder {
@@ -14488,6 +14357,7 @@ export namespace elastictranscoder {
          */
         verticalOffset?: string;
     }
+
 }
 
 export namespace elb {
@@ -15191,6 +15061,7 @@ export namespace emr {
          */
         unitType: string;
     }
+
 }
 
 export namespace fms {
@@ -15220,6 +15091,7 @@ export namespace fms {
          */
         type: string;
     }
+
 }
 
 export namespace fsx {
@@ -15264,6 +15136,7 @@ export namespace fsx {
          */
         username: string;
     }
+
 }
 
 export namespace gamelift {
@@ -15367,6 +15240,7 @@ export namespace gamelift {
          */
         policyDurationSeconds?: number;
     }
+
 }
 
 export namespace glacier {
@@ -15380,6 +15254,7 @@ export namespace glacier {
          */
         snsTopic: string;
     }
+
 }
 
 export namespace globalaccelerator {
@@ -15457,6 +15332,7 @@ export namespace globalaccelerator {
          */
         toPort?: number;
     }
+
 }
 
 export namespace glue {
@@ -16266,6 +16142,7 @@ export namespace glue {
          */
         uri: string;
     }
+
 }
 
 export namespace guardduty {
@@ -16303,6 +16180,7 @@ export namespace guardduty {
          */
         notEquals?: string[];
     }
+
 }
 
 export namespace iam {
@@ -16411,6 +16289,7 @@ export namespace iam {
          */
         policy?: string;
     }
+
 }
 
 export namespace identitystore {
@@ -16435,6 +16314,7 @@ export namespace identitystore {
          */
         attributeValue: string;
     }
+
 }
 
 export namespace imagebuilder {
@@ -16819,6 +16699,7 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: string;
     }
+
 }
 
 export namespace iot {
@@ -17386,6 +17267,7 @@ export namespace iot {
          */
         stateMachineName: string;
     }
+
 }
 
 export namespace kinesis {
@@ -18630,6 +18512,7 @@ export namespace kinesis {
          */
         parameterValue: string;
     }
+
 }
 
 export namespace kinesisanalyticsv2 {
@@ -19156,6 +19039,7 @@ export namespace kinesisanalyticsv2 {
          */
         logStreamArn: string;
     }
+
 }
 
 export namespace kms {
@@ -19195,6 +19079,7 @@ export namespace kms {
          */
         encryptionContextSubset?: {[key: string]: string};
     }
+
 }
 
 export namespace lakeformation {
@@ -19547,6 +19432,7 @@ export namespace lambda {
         subnetIds: string[];
         vpcId: string;
     }
+
 }
 
 export namespace lb {
@@ -20205,6 +20091,7 @@ export namespace lb {
          */
         type: string;
     }
+
 }
 
 export namespace lex {
@@ -20632,6 +20519,7 @@ export namespace lex {
          */
         value: string;
     }
+
 }
 
 export namespace lightsail {
@@ -20653,6 +20541,7 @@ export namespace lightsail {
          */
         toPort: number;
     }
+
 }
 
 export namespace macie {
@@ -20710,6 +20599,7 @@ export namespace macie {
          */
         oneTime?: string;
     }
+
 }
 
 export namespace macie2 {
@@ -20886,6 +20776,7 @@ export namespace macie2 {
         jobImminentExpirationHealthEventArn: string;
         jobPausedAt: string;
     }
+
 }
 
 export namespace mediaconvert {
@@ -20903,6 +20794,7 @@ export namespace mediaconvert {
          */
         reservedSlots: number;
     }
+
 }
 
 export namespace mediapackage {
@@ -20927,6 +20819,7 @@ export namespace mediapackage {
          */
         username: string;
     }
+
 }
 
 export namespace mq {
@@ -21096,6 +20989,7 @@ export namespace mq {
         groups: string[];
         username: string;
     }
+
 }
 
 export namespace msk {
@@ -21265,6 +21159,7 @@ export namespace msk {
          */
         enabledInBroker: boolean;
     }
+
 }
 
 export namespace mwaa {
@@ -21379,6 +21274,7 @@ export namespace mwaa {
          */
         subnetIds: string[];
     }
+
 }
 
 export namespace neptune {
@@ -21411,6 +21307,7 @@ export namespace neptune {
          */
         value: string;
     }
+
 }
 
 export namespace networkfirewall {
@@ -21836,6 +21733,7 @@ export namespace networkfirewall {
          */
         masks?: string[];
     }
+
 }
 
 export namespace opsworks {
@@ -22226,6 +22124,7 @@ export namespace opsworks {
          */
         type?: string;
     }
+
 }
 
 export namespace organizations {
@@ -22501,6 +22400,7 @@ export namespace pinpoint {
          */
         start?: string;
     }
+
 }
 
 export namespace pricing {
@@ -22514,6 +22414,7 @@ export namespace pricing {
          */
         value: string;
     }
+
 }
 
 export namespace ram {
@@ -22527,6 +22428,7 @@ export namespace ram {
          */
         values: string[];
     }
+
 }
 
 export namespace rds {
@@ -22782,6 +22684,7 @@ export namespace rds {
          */
         securityGroupOwnerId: string;
     }
+
 }
 
 export namespace redshift {
@@ -22842,6 +22745,7 @@ export namespace redshift {
          */
         securityGroupOwnerId: string;
     }
+
 }
 
 export namespace resourcegroups {
@@ -22855,6 +22759,7 @@ export namespace resourcegroups {
          */
         type?: string;
     }
+
 }
 
 export namespace resourcegroupstaggingapi {
@@ -22894,6 +22799,7 @@ export namespace resourcegroupstaggingapi {
          */
         values?: string[];
     }
+
 }
 
 export namespace route53 {
@@ -22986,6 +22892,7 @@ export namespace route53 {
          */
         vpcRegion: string;
     }
+
 }
 
 export namespace s3 {
@@ -23583,6 +23490,7 @@ export namespace s3 {
          */
         uri?: string;
     }
+
 }
 
 export namespace s3control {
@@ -23641,6 +23549,7 @@ export namespace s3control {
          */
         tags?: {[key: string]: string};
     }
+
 }
 
 export namespace s3outposts {
@@ -23650,6 +23559,7 @@ export namespace s3outposts {
          */
         networkInterfaceId: string;
     }
+
 }
 
 export namespace sagemaker {
@@ -24162,6 +24072,7 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: string;
     }
+
 }
 
 export namespace secretsmanager {
@@ -24186,6 +24097,7 @@ export namespace secretsmanager {
          */
         automaticallyAfterDays: number;
     }
+
 }
 
 export namespace securityhub {
@@ -25696,6 +25608,7 @@ export namespace securityhub {
          */
         value: string;
     }
+
 }
 
 export namespace servicecatalog {
@@ -25844,6 +25757,7 @@ export namespace servicecatalog {
          */
         version: string;
     }
+
 }
 
 export namespace servicediscovery {
@@ -25894,6 +25808,7 @@ export namespace servicediscovery {
          */
         failureThreshold?: number;
     }
+
 }
 
 export namespace ses {
@@ -26072,6 +25987,7 @@ export namespace ses {
          */
         topicArn?: string;
     }
+
 }
 
 export namespace sfn {
@@ -26096,6 +26012,7 @@ export namespace sfn {
          */
         enabled?: boolean;
     }
+
 }
 
 export namespace signer {
@@ -26496,6 +26413,7 @@ export namespace ssm {
          */
         syncFormat?: string;
     }
+
 }
 
 export namespace storagegateway {
@@ -26572,6 +26490,7 @@ export namespace storagegateway {
          */
         cacheStaleTimeoutInSeconds?: number;
     }
+
 }
 
 export namespace synthetics {
@@ -26634,6 +26553,7 @@ export namespace synthetics {
          */
         vpcId: string;
     }
+
 }
 
 export namespace timestreamwrite {
@@ -26647,6 +26567,7 @@ export namespace timestreamwrite {
          */
         memoryStoreRetentionPeriodInHours: number;
     }
+
 }
 
 export namespace transfer {
@@ -26694,6 +26615,7 @@ export namespace transfer {
          */
         uid: number;
     }
+
 }
 
 export namespace waf {
@@ -27035,6 +26957,7 @@ export namespace waf {
          */
         type: string;
     }
+
 }
 
 export namespace wafregional {
@@ -27342,6 +27265,7 @@ export namespace wafregional {
          */
         type: string;
     }
+
 }
 
 export namespace wafv2 {
@@ -62226,6 +62150,7 @@ export namespace wafv2 {
          */
         sampledRequestsEnabled: boolean;
     }
+
 }
 
 export namespace worklink {
@@ -62254,6 +62179,7 @@ export namespace worklink {
          */
         vpcId: string;
     }
+
 }
 
 export namespace workspaces {
@@ -62488,4 +62414,5 @@ export namespace workspaces {
          */
         userVolumeSizeGib?: number;
     }
+
 }

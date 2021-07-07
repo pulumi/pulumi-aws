@@ -408,7 +408,10 @@ class PlacementStrategy(str, Enum):
     See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html
     """
     SPREAD = "spread"
+    """A `spread` placement group places instances on distinct hardware."""
     CLUSTER = "cluster"
+    """A `cluster` placement group is a logical grouping of instances within a single
+Availability Zone that benefit from low network latency, high network throughput."""
 
 
 class ProtocolType(str, Enum):

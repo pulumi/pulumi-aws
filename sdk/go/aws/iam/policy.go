@@ -131,7 +131,7 @@ type policyState struct {
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path *string `pulumi:"path"`
 	// The policy document. This is a JSON formatted string.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The policy's ID.
 	PolicyId *string `pulumi:"policyId"`
 	// Map of resource tags for the IAM Policy
@@ -153,7 +153,7 @@ type PolicyState struct {
 	// See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
 	Path pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// The policy's ID.
 	PolicyId pulumi.StringPtrInput
 	// Map of resource tags for the IAM Policy

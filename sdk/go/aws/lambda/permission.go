@@ -37,7 +37,7 @@ import (
 // 		}
 // 		_, err = lambda.NewPermission(ctx, "lambdaPermission", &lambda.PermissionArgs{
 // 			Action:    pulumi.String("lambda:InvokeFunction"),
-// 			Function:  pulumi.String("MyDemoFunction"),
+// 			Function:  pulumi.Any("MyDemoFunction"),
 // 			Principal: pulumi.String("apigateway.amazonaws.com"),
 // 			SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
 // 				return fmt.Sprintf("%v%v", executionArn, "/*/*/*"), nil
@@ -132,7 +132,7 @@ type permissionState struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
-	Function *string `pulumi:"function"`
+	Function interface{} `pulumi:"function"`
 	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
@@ -157,7 +157,7 @@ type PermissionState struct {
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
-	Function pulumi.StringPtrInput
+	Function pulumi.Input
 	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
 	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`

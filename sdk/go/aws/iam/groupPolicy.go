@@ -127,7 +127,7 @@ type groupPolicyState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The policy document. This is a JSON formatted string.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 }
 
 type GroupPolicyState struct {
@@ -140,7 +140,7 @@ type GroupPolicyState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 }
 
 func (GroupPolicyState) ElementType() reflect.Type {

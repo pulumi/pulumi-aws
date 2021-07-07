@@ -9,4 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2.Inputs
 {
+
+    public sealed class VpcEndpointServicePrivateDnsNameConfigurationArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the record subdomain the service provider needs to create.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Endpoint service verification type, for example `TXT`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Value the service provider adds to the private DNS name domain record before verification.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
+
+        public VpcEndpointServicePrivateDnsNameConfigurationArgs()
+        {
+        }
+    }
 }

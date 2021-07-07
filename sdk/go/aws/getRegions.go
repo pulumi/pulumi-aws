@@ -45,7 +45,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
-// 		_, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{
+// 		_, err := aws.GetRegions(ctx, &GetRegionsArgs{
 // 			AllRegions: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -69,10 +69,10 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := true
-// 		_, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{
+// 		_, err := aws.GetRegions(ctx, &GetRegionsArgs{
 // 			AllRegions: &opt0,
-// 			Filters: []aws.GetRegionsFilter{
-// 				aws.GetRegionsFilter{
+// 			Filters: []GetRegionsFilter{
+// 				GetRegionsFilter{
 // 					Name: "opt-in-status",
 // 					Values: []string{
 // 						"not-opted-in",

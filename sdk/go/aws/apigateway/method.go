@@ -214,7 +214,7 @@ type methodState struct {
 	// The API resource ID
 	ResourceId *string `pulumi:"resourceId"`
 	// The ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 }
 
 type MethodState struct {
@@ -242,7 +242,7 @@ type MethodState struct {
 	// The API resource ID
 	ResourceId pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 }
 
 func (MethodState) ElementType() reflect.Type {

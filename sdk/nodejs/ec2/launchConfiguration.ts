@@ -10,6 +10,110 @@ import {InstanceProfile} from "../iam";
 /**
  * Provides a resource to create a new launch configuration, used for autoscaling groups.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getAmi({
+ *     mostRecent: true,
+ *     filters: [
+ *         {
+ *             name: "name",
+ *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+ *         },
+ *         {
+ *             name: "virtualization-type",
+ *             values: ["hvm"],
+ *         },
+ *     ],
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: "t2.micro",
+ * });
+ * ```
+ * ## Using with AutoScaling Groups
+ *
+ * Launch Configurations cannot be updated after creation with the Amazon
+ * Web Service API. In order to update a Launch Configuration, this provider will
+ * destroy the existing resource and create a replacement. In order to effectively
+ * use a Launch Configuration resource with an [AutoScaling Group resource](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html),
+ * it's recommended to specify `createBeforeDestroy` in a [lifecycle](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html) block.
+ * Either omit the Launch Configuration `name` attribute, or specify a partial name
+ * with `namePrefix`.  Example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getAmi({
+ *     mostRecent: true,
+ *     filters: [
+ *         {
+ *             name: "name",
+ *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+ *         },
+ *         {
+ *             name: "virtualization-type",
+ *             values: ["hvm"],
+ *         },
+ *     ],
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ *     namePrefix: "lc-example-",
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: "t2.micro",
+ * });
+ * const bar = new aws.autoscaling.Group("bar", {
+ *     launchConfiguration: asConf.name,
+ *     minSize: 1,
+ *     maxSize: 2,
+ * });
+ * ```
+ *
+ * With this setup this provider generates a unique name for your Launch
+ * Configuration and can then update the AutoScaling Group without conflict before
+ * destroying the previous Launch Configuration.
+ *
+ * ## Using with Spot Instances
+ *
+ * Launch configurations can set the spot instance pricing to be used for the
+ * Auto Scaling Group to reserve instances. Simply specifying the `spotPrice`
+ * parameter will set the price on the Launch Configuration which will attempt to
+ * reserve your instances at this price.  See the [AWS Spot Instance
+ * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+ * for more information or how to launch [Spot Instances](https://www.terraform.io/docs/providers/aws/r/spot_instance_request.html) with this provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const ubuntu = aws.ec2.getAmi({
+ *     mostRecent: true,
+ *     filters: [
+ *         {
+ *             name: "name",
+ *             values: ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
+ *         },
+ *         {
+ *             name: "virtualization-type",
+ *             values: ["hvm"],
+ *         },
+ *     ],
+ *     owners: ["099720109477"],
+ * });
+ * const asConf = new aws.ec2.LaunchConfiguration("asConf", {
+ *     imageId: ubuntu.then(ubuntu => ubuntu.id),
+ *     instanceType: "m4.large",
+ *     spotPrice: "0.001",
+ * });
+ * const bar = new aws.autoscaling.Group("bar", {launchConfiguration: asConf.name});
+ * ```
+ *
  * ## Block devices
  *
  * Each of the `*_block_device` attributes controls a portion of the AWS

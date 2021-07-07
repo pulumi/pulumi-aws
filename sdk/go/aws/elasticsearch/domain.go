@@ -56,6 +56,7 @@ import (
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 // )
@@ -76,7 +77,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-// 			AccessPolicies: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 			AccessPolicies: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -207,7 +208,7 @@ func GetDomain(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  *string           `pulumi:"accessPolicies"`
+	AccessPolicies  interface{}       `pulumi:"accessPolicies"`
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
@@ -248,7 +249,7 @@ type domainState struct {
 
 type DomainState struct {
 	// IAM policy document specifying the access policies for the domain.
-	AccessPolicies  pulumi.StringPtrInput
+	AccessPolicies  pulumi.Input
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput

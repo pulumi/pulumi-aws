@@ -9,4 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Ec2.Inputs
 {
+
+    public sealed class VpnConnectionVgwTelemetryArgs : Pulumi.ResourceArgs
+    {
+        [Input("acceptedRouteCount")]
+        public Input<int>? AcceptedRouteCount { get; set; }
+
+        [Input("lastStatusChange")]
+        public Input<string>? LastStatusChange { get; set; }
+
+        [Input("outsideIpAddress")]
+        public Input<string>? OutsideIpAddress { get; set; }
+
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        [Input("statusMessage")]
+        public Input<string>? StatusMessage { get; set; }
+
+        public VpnConnectionVgwTelemetryArgs()
+        {
+        }
+    }
 }

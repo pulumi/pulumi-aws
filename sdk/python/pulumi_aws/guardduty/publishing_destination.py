@@ -164,6 +164,74 @@ class PublishingDestination(pulumi.CustomResource):
         """
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        gd_bucket = aws.s3.Bucket("gdBucket",
+            acl="private",
+            force_destroy=True)
+        bucket_pol = pulumi.Output.all(gd_bucket.arn, gd_bucket.arn).apply(lambda gdBucketArn, gdBucketArn1: aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow PutObject",
+                actions=["s3:PutObject"],
+                resources=[f"{gd_bucket_arn}/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GetBucketLocation",
+                actions=["s3:GetBucketLocation"],
+                resources=[gd_bucket_arn1],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+        ]))
+        kms_pol = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GuardDuty to encrypt findings",
+                actions=["kms:GenerateDataKey"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow all users to modify/delete key (test only)",
+                actions=["kms:*"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                )],
+            ),
+        ])
+        test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+            bucket=gd_bucket.id,
+            policy=bucket_pol.json)
+        gd_key = aws.kms.Key("gdKey",
+            description="Temporary key for AccTest of TF",
+            deletion_window_in_days=7,
+            policy=kms_pol.json)
+        test = aws.guardduty.PublishingDestination("test",
+            detector_id=test_gd.id,
+            destination_arn=gd_bucket.arn,
+            kms_key_arn=gd_key.arn,
+            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+        ```
+
+        > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+
         ## Import
 
         GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.
@@ -187,6 +255,74 @@ class PublishingDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current_caller_identity = aws.get_caller_identity()
+        current_region = aws.get_region()
+        gd_bucket = aws.s3.Bucket("gdBucket",
+            acl="private",
+            force_destroy=True)
+        bucket_pol = pulumi.Output.all(gd_bucket.arn, gd_bucket.arn).apply(lambda gdBucketArn, gdBucketArn1: aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow PutObject",
+                actions=["s3:PutObject"],
+                resources=[f"{gd_bucket_arn}/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GetBucketLocation",
+                actions=["s3:GetBucketLocation"],
+                resources=[gd_bucket_arn1],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+        ]))
+        kms_pol = aws.iam.get_policy_document(statements=[
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow GuardDuty to encrypt findings",
+                actions=["kms:GenerateDataKey"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="Service",
+                    identifiers=["guardduty.amazonaws.com"],
+                )],
+            ),
+            aws.iam.GetPolicyDocumentStatementArgs(
+                sid="Allow all users to modify/delete key (test only)",
+                actions=["kms:*"],
+                resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    type="AWS",
+                    identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
+                )],
+            ),
+        ])
+        test_gd = aws.guardduty.Detector("testGd", enable=True)
+        gd_bucket_policy = aws.s3.BucketPolicy("gdBucketPolicy",
+            bucket=gd_bucket.id,
+            policy=bucket_pol.json)
+        gd_key = aws.kms.Key("gdKey",
+            description="Temporary key for AccTest of TF",
+            deletion_window_in_days=7,
+            policy=kms_pol.json)
+        test = aws.guardduty.PublishingDestination("test",
+            detector_id=test_gd.id,
+            destination_arn=gd_bucket.arn,
+            kms_key_arn=gd_key.arn,
+            opts=pulumi.ResourceOptions(depends_on=[gd_bucket_policy]))
+        ```
+
+        > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
 
         ## Import
 

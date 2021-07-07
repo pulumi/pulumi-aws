@@ -32,7 +32,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := providers.Newaws(ctx, "alternate", &providers.awsArgs{
-// 			Profile: pulumi.String("profile1"),
+// 			Profile: "profile1",
 // 		})
 // 		if err != nil {
 // 			return err
