@@ -109,7 +109,7 @@ type resourceState struct {
 	// The last path segment of this API resource.
 	PathPart *string `pulumi:"pathPart"`
 	// The ID of the associated REST API
-	RestApi interface{} `pulumi:"restApi"`
+	RestApi *string `pulumi:"restApi"`
 }
 
 type ResourceState struct {
@@ -120,7 +120,7 @@ type ResourceState struct {
 	// The last path segment of this API resource.
 	PathPart pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.Input
+	RestApi pulumi.StringPtrInput
 }
 
 func (ResourceState) ElementType() reflect.Type {

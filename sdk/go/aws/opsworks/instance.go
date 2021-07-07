@@ -13,34 +13,6 @@ import (
 
 // Provides an OpsWorks instance resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/opsworks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := opsworks.NewInstance(ctx, "my_instance", &opsworks.InstanceArgs{
-// 			StackId: pulumi.Any(aws_opsworks_stack.Main.Id),
-// 			LayerIds: pulumi.StringArray{
-// 				pulumi.Any(aws_opsworks_custom_layer.My - layer.Id),
-// 			},
-// 			InstanceType: pulumi.String("t2.micro"),
-// 			Os:           pulumi.String("Amazon Linux 2015.09"),
-// 			State:        pulumi.String("stopped"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 // ## Block devices
 //
 // Each of the `*_block_device` attributes controls a portion of the AWS

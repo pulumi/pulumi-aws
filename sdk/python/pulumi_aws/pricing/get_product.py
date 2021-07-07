@@ -81,62 +81,6 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     Use this data source to get the pricing information of all products in AWS.
     This data source is only available in a us-east-1 or ap-south-1 provider.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="c5.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="operatingSystem",
-                value="Linux",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="preInstalledSw",
-                value="NA",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="licenseModel",
-                value="No License required",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="tenancy",
-                value="Shared",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="capacitystatus",
-                value="Used",
-            ),
-        ],
-        service_code="AmazonEC2")
-    ```
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
-                field="instanceType",
-                value="ds1.xlarge",
-            ),
-            aws.pricing.GetProductFilterArgs(
-                field="location",
-                value="US East (N. Virginia)",
-            ),
-        ],
-        service_code="AmazonRedshift")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.

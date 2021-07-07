@@ -76,25 +76,25 @@ import (
 // 			Type:        pulumi.String("STATEFUL"),
 // 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 // 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-// 					Dynamic: []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"forEach": ips,
-// 							"content": []map[string]interface{}{
-// 								map[string]interface{}{
-// 									"action": "PASS",
-// 									"header": []map[string]interface{}{
-// 										map[string]interface{}{
-// 											"destination":     "ANY",
-// 											"destinationPort": "ANY",
-// 											"protocol":        "HTTP",
-// 											"direction":       "ANY",
-// 											"sourcePort":      "ANY",
-// 											"source":          stateful_rule.Value,
+// 					Dynamic: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"forEach": toPulumiStringArray(ips),
+// 							"content": pulumi.MapArray{
+// 								pulumi.Map{
+// 									"action": pulumi.String("PASS"),
+// 									"header": pulumi.MapArray{
+// 										pulumi.Map{
+// 											"destination":     pulumi.String("ANY"),
+// 											"destinationPort": pulumi.String("ANY"),
+// 											"protocol":        pulumi.String("HTTP"),
+// 											"direction":       pulumi.String("ANY"),
+// 											"sourcePort":      pulumi.String("ANY"),
+// 											"source":          pulumi.Any(stateful_rule.Value),
 // 										},
 // 									},
-// 									"ruleOption": []map[string]interface{}{
-// 										map[string]interface{}{
-// 											"keyword": "sid:1",
+// 									"ruleOption": pulumi.StringMapArray{
+// 										pulumi.StringMap{
+// 											"keyword": pulumi.String("sid:1"),
 // 										},
 // 									},
 // 								},
@@ -113,6 +113,13 @@ import (
 // 		return nil
 // 	})
 // }
+// func toPulumiStringArray(arr []string) pulumi.StringArray {
+// 	var pulumiArr pulumi.StringArray
+// 	for _, v := range arr {
+// 		pulumiArr = append(pulumiArr, pulumi.String(v))
+// 	}
+// 	return pulumiArr
+// }
 // ```
 // ### Stateful Inspection for blocking packets from going to an intended destination
 //
@@ -130,20 +137,20 @@ import (
 // 			Capacity: pulumi.Int(100),
 // 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 // 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
-// 					StatefulRule: []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"action": "DROP",
-// 							"header": map[string]interface{}{
-// 								"destination":     "124.1.1.24/32",
-// 								"destinationPort": 53,
-// 								"direction":       "ANY",
-// 								"protocol":        "TCP",
-// 								"source":          "1.2.3.4/32",
-// 								"sourcePort":      53,
+// 					StatefulRule: pulumi.MapArray{
+// 						pulumi.Map{
+// 							"action": pulumi.String("DROP"),
+// 							"header": pulumi.Map{
+// 								"destination":     pulumi.String("124.1.1.24/32"),
+// 								"destinationPort": pulumi.Float64(53),
+// 								"direction":       pulumi.String("ANY"),
+// 								"protocol":        pulumi.String("TCP"),
+// 								"source":          pulumi.String("1.2.3.4/32"),
+// 								"sourcePort":      pulumi.Float64(53),
 // 							},
-// 							"ruleOption": []map[string]interface{}{
-// 								map[string]interface{}{
-// 									"keyword": "sid:1",
+// 							"ruleOption": pulumi.StringMapArray{
+// 								pulumi.StringMap{
+// 									"keyword": pulumi.String("sid:1"),
 // 								},
 // 							},
 // 						},
@@ -181,62 +188,62 @@ import (
 // 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
 // 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
 // 					StatelessRulesAndCustomActions: &networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs{
-// 						CustomAction: []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"actionDefinition": map[string]interface{}{
-// 									"publishMetricAction": map[string]interface{}{
-// 										"dimension": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"value": "2",
+// 						CustomAction: pulumi.MapArray{
+// 							pulumi.Map{
+// 								"actionDefinition": pulumi.StringMapArrayMapMap{
+// 									"publishMetricAction": pulumi.StringMapArrayMap{
+// 										"dimension": pulumi.StringMapArray{
+// 											pulumi.StringMap{
+// 												"value": pulumi.String("2"),
 // 											},
 // 										},
 // 									},
 // 								},
-// 								"actionName": "ExampleMetricsAction",
+// 								"actionName": pulumi.String("ExampleMetricsAction"),
 // 							},
 // 						},
-// 						StatelessRule: []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"priority": 1,
-// 								"ruleDefinition": map[string]interface{}{
-// 									"actions": []string{
-// 										"aws:pass",
-// 										"ExampleMetricsAction",
+// 						StatelessRule: pulumi.MapArray{
+// 							pulumi.Map{
+// 								"priority": pulumi.Float64(1),
+// 								"ruleDefinition": pulumi.Map{
+// 									"actions": pulumi.StringArray{
+// 										pulumi.String("aws:pass"),
+// 										pulumi.String("ExampleMetricsAction"),
 // 									},
-// 									"matchAttributes": map[string]interface{}{
-// 										"destination": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"addressDefinition": "124.1.1.5/32",
+// 									"matchAttributes": pulumi.Map{
+// 										"destination": pulumi.StringMapArray{
+// 											pulumi.StringMap{
+// 												"addressDefinition": pulumi.String("124.1.1.5/32"),
 // 											},
 // 										},
-// 										"destinationPort": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"fromPort": 443,
-// 												"toPort":   443,
+// 										"destinationPort": pulumi.Float64MapArray{
+// 											pulumi.Float64Map{
+// 												"fromPort": pulumi.Float64(443),
+// 												"toPort":   pulumi.Float64(443),
 // 											},
 // 										},
-// 										"protocols": []float64{
-// 											6,
+// 										"protocols": pulumi.Float64Array{
+// 											pulumi.Float64(6),
 // 										},
-// 										"source": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"addressDefinition": "1.2.3.4/32",
+// 										"source": pulumi.StringMapArray{
+// 											pulumi.StringMap{
+// 												"addressDefinition": pulumi.String("1.2.3.4/32"),
 // 											},
 // 										},
-// 										"sourcePort": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"fromPort": 443,
-// 												"toPort":   443,
+// 										"sourcePort": pulumi.Float64MapArray{
+// 											pulumi.Float64Map{
+// 												"fromPort": pulumi.Float64(443),
+// 												"toPort":   pulumi.Float64(443),
 // 											},
 // 										},
-// 										"tcpFlag": []map[string]interface{}{
-// 											map[string]interface{}{
-// 												"flags": []string{
-// 													"SYN",
+// 										"tcpFlag": pulumi.StringArrayMapArray{
+// 											pulumi.StringArrayMap{
+// 												"flags": pulumi.StringArray{
+// 													pulumi.String("SYN"),
 // 												},
-// 												"masks": []string{
-// 													"SYN",
-// 													"ACK",
+// 												"masks": pulumi.StringArray{
+// 													pulumi.String("SYN"),
+// 													pulumi.String("ACK"),
 // 												},
 // 											},
 // 										},

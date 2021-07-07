@@ -22,7 +22,6 @@ import (
 // 	"fmt"
 //
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticsearch"
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
@@ -92,14 +91,14 @@ func GetDomainPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DomainPolicy resources.
 type domainPolicyState struct {
 	// IAM policy document specifying the access policies for the domain
-	AccessPolicies interface{} `pulumi:"accessPolicies"`
+	AccessPolicies *string `pulumi:"accessPolicies"`
 	// Name of the domain.
 	DomainName *string `pulumi:"domainName"`
 }
 
 type DomainPolicyState struct {
 	// IAM policy document specifying the access policies for the domain
-	AccessPolicies pulumi.Input
+	AccessPolicies pulumi.StringPtrInput
 	// Name of the domain.
 	DomainName pulumi.StringPtrInput
 }

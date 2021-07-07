@@ -144,9 +144,9 @@ type rolePolicyState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The policy document. This is a JSON formatted string.
-	Policy interface{} `pulumi:"policy"`
+	Policy *string `pulumi:"policy"`
 	// The IAM role to attach to the policy.
-	Role interface{} `pulumi:"role"`
+	Role *string `pulumi:"role"`
 }
 
 type RolePolicyState struct {
@@ -157,9 +157,9 @@ type RolePolicyState struct {
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.Input
+	Policy pulumi.StringPtrInput
 	// The IAM role to attach to the policy.
-	Role pulumi.Input
+	Role pulumi.StringPtrInput
 }
 
 func (RolePolicyState) ElementType() reflect.Type {

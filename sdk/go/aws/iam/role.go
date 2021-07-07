@@ -105,73 +105,6 @@ import (
 // 	})
 // }
 // ```
-// ### Example of Exclusive Inline Policies
-//
-// This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, the provider will remove that policy. If someone deletes these policies out-of-band, the provider will recreate them.
-//
-// ```go
-// package main
-//
-// import (
-// 	"encoding/json"
-//
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		inlinePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			Statements: []iam.GetPolicyDocumentStatement{
-// 				iam.GetPolicyDocumentStatement{
-// 					Actions: []string{
-// 						"ec2:DescribeAccountAttributes",
-// 					},
-// 					Resources: []string{
-// 						"*",
-// 					},
-// 				},
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"Version": "2012-10-17",
-// 			"Statement": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"Action": []string{
-// 						"ec2:Describe*",
-// 					},
-// 					"Effect":   "Allow",
-// 					"Resource": "*",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
-// 			InlinePolicies: iam.RoleInlinePolicyArray{
-// 				&iam.RoleInlinePolicyArgs{
-// 					Name:   pulumi.String("my_inline_policy"),
-// 					Policy: pulumi.String(json0),
-// 				},
-// 				&iam.RoleInlinePolicyArgs{
-// 					Name:   pulumi.String("policy-8675309"),
-// 					Policy: pulumi.String(inlinePolicy.Json),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 // ### Example of Removing Inline Policies
 //
 // This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, the provider will remove that policy.
@@ -291,7 +224,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 // 			AssumeRolePolicy:  pulumi.Any(data.Aws_iam_policy_document.Instance_assume_role_policy.Json),
-// 			ManagedPolicyArns: pulumi.StringArray{},
+// 			ManagedPolicyArns: []interface{}{},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -378,7 +311,7 @@ type roleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn *string `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
-	AssumeRolePolicy interface{} `pulumi:"assumeRolePolicy"`
+	AssumeRolePolicy *string `pulumi:"assumeRolePolicy"`
 	// Creation date of the IAM role.
 	CreateDate *string `pulumi:"createDate"`
 	// Description of the role.
@@ -411,7 +344,7 @@ type RoleState struct {
 	// Amazon Resource Name (ARN) specifying the role.
 	Arn pulumi.StringPtrInput
 	// Policy that grants an entity permission to assume the role.
-	AssumeRolePolicy pulumi.Input
+	AssumeRolePolicy pulumi.StringPtrInput
 	// Creation date of the IAM role.
 	CreateDate pulumi.StringPtrInput
 	// Description of the role.

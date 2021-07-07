@@ -42,12 +42,12 @@ import (
 // 					Priority: pulumi.Int(1),
 // 					Statement: &wafv2.WebAclRuleStatementArgs{
 // 						ManagedRuleGroupStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementArgs{
-// 							ExcludedRule: []map[string]interface{}{
-// 								map[string]interface{}{
-// 									"name": "SizeRestrictions_QUERYSTRING",
+// 							ExcludedRule: pulumi.StringMapArray{
+// 								pulumi.StringMap{
+// 									"name": pulumi.String("SizeRestrictions_QUERYSTRING"),
 // 								},
-// 								map[string]interface{}{
-// 									"name": "NoUserAgent_HEADER",
+// 								pulumi.StringMap{
+// 									"name": pulumi.String("NoUserAgent_HEADER"),
 // 								},
 // 							},
 // 							Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),

@@ -523,25 +523,6 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     Use this data source to get the ID of an Amazon EC2 Instance for use in other
     resources.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    foo = aws.ec2.get_instance(filters=[
-            aws.ec2.GetInstanceFilterArgs(
-                name="image-id",
-                values=["ami-xxxxxxxx"],
-            ),
-            aws.ec2.GetInstanceFilterArgs(
-                name="tag:Name",
-                values=["instance-name-tag"],
-            ),
-        ],
-        instance_id="i-instanceid")
-    ```
-
 
     :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
