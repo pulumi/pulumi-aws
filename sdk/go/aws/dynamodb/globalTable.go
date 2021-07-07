@@ -31,13 +31,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := providers.Newaws(ctx, "us_east_1", &providers.awsArgs{
-// 			Region: "us-east-1",
+// 			Region: pulumi.String("us-east-1"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = providers.Newaws(ctx, "us_west_2", &providers.awsArgs{
-// 			Region: "us-west-2",
+// 			Region: pulumi.String("us-west-2"),
 // 		})
 // 		if err != nil {
 // 			return err

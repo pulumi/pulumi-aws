@@ -9,17 +9,4 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks.Inputs
 {
-
-    public sealed class ClusterIdentityOidcArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Issuer URL for the OpenID Connect identity provider.
-        /// </summary>
-        [Input("issuer")]
-        public Input<string>? Issuer { get; set; }
-
-        public ClusterIdentityOidcArgs()
-        {
-        }
-    }
 }

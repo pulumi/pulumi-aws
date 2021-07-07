@@ -13,34 +13,6 @@ import (
 
 // Provides a Batch Job Queue resource.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := batch.NewJobQueue(ctx, "testQueue", &batch.JobQueueArgs{
-// 			State:    pulumi.String("ENABLED"),
-// 			Priority: pulumi.Int(1),
-// 			ComputeEnvironments: pulumi.StringArray{
-// 				pulumi.Any(aws_batch_compute_environment.Test_environment_1.Arn),
-// 				pulumi.Any(aws_batch_compute_environment.Test_environment_2.Arn),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Batch Job Queue can be imported using the `arn`, e.g.
