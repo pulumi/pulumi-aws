@@ -27,6 +27,7 @@ export interface ContainerDefinition {
     dockerSecurityOptions?: string[];
     entryPoint?: string[];
     environment?: KeyValuePair[];
+    environmentFiles?: EnvironmentFile[];
     essential?: boolean;
     extraHosts?: HostEntry[];
     firelensConfiguration?: FirelensConfiguration;
@@ -55,6 +56,12 @@ export interface ContainerDefinition {
     user?: string;
     volumesFrom?: VolumeFrom[];
     workingDirectory?: string;
+}
+
+// https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_EnvironmentFile.html
+export interface EnvironmentFile {
+    type: "s3";
+    value: string;
 }
 
 // https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
