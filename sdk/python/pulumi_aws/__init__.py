@@ -2959,6 +2959,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "eks/identityProviderConfig",
+  "fqn": "pulumi_aws.eks",
+  "classes": {
+   "aws:eks/identityProviderConfig:IdentityProviderConfig": "IdentityProviderConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "eks/nodeGroup",
   "fqn": "pulumi_aws.eks",
   "classes": {
@@ -4867,6 +4875,14 @@ _utilities.register(
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/clusterParameterGroup:ClusterParameterGroup": "ClusterParameterGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "rds/clusterRoleAssociation",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/clusterRoleAssociation:ClusterRoleAssociation": "ClusterRoleAssociation"
   }
  },
  {

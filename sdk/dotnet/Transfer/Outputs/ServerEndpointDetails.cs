@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Transfer.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AddressAllocationIds;
         /// <summary>
+        /// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+        /// </summary>
+        public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
         /// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.Transfer.Outputs
         private ServerEndpointDetails(
             ImmutableArray<string> addressAllocationIds,
 
+            ImmutableArray<string> securityGroupIds,
+
             ImmutableArray<string> subnetIds,
 
             string? vpcEndpointId,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.Transfer.Outputs
             string? vpcId)
         {
             AddressAllocationIds = addressAllocationIds;
+            SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcEndpointId = vpcEndpointId;
             VpcId = vpcId;

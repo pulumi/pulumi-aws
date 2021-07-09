@@ -190,6 +190,9 @@ export class Branch extends pulumi.CustomResource {
      * Enables basic authorization for the branch.
      */
     public readonly enableBasicAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enables notifications for the branch.
+     */
     public readonly enableNotification!: pulumi.Output<boolean | undefined>;
     /**
      * Enables performance mode for the branch.
@@ -359,6 +362,9 @@ export interface BranchState {
      * Enables basic authorization for the branch.
      */
     enableBasicAuth?: pulumi.Input<boolean>;
+    /**
+     * Enables notifications for the branch.
+     */
     enableNotification?: pulumi.Input<boolean>;
     /**
      * Enables performance mode for the branch.
@@ -438,6 +444,9 @@ export interface BranchArgs {
      * Enables basic authorization for the branch.
      */
     enableBasicAuth?: pulumi.Input<boolean>;
+    /**
+     * Enables notifications for the branch.
+     */
     enableNotification?: pulumi.Input<boolean>;
     /**
      * Enables performance mode for the branch.

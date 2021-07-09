@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer Server resource.
  *
+ * > **NOTE on AWS IAM permissions:** If the `endpointType` is set to `VPC`, the `ec2:DescribeVpcEndpoints` and `ec2:ModifyVpcEndpoint` [actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-actions-as-permissions) are used.
+ *
  * ## Example Usage
  * ### Basic
  *
@@ -19,28 +21,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Name: "Example",
  *     },
- * });
- * ```
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     tags: {
- *         Name: "Example",
- *     },
- * });
- * ```
- * ### Security Policy Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     securityPolicyName: "TransferSecurityPolicy-2020-06",
  * });
  * ```
  * ### Security Policy Name
@@ -95,7 +75,7 @@ import * as utilities from "../utilities";
  * Transfer Servers can be imported using the `server id`, e.g.
  *
  * ```sh
- *  $ pulumi import aws:transfer/server:Server bar s-12345678
+ *  $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
  *
  *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
@@ -153,7 +133,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly endpointType!: pulumi.Output<string | undefined>;
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      */
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
@@ -280,7 +260,7 @@ export interface ServerState {
      */
     endpointType?: pulumi.Input<string>;
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**
@@ -343,7 +323,7 @@ export interface ServerArgs {
      */
     endpointType?: pulumi.Input<string>;
     /**
-     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+     * A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identityProviderType`.
      */
     forceDestroy?: pulumi.Input<boolean>;
     /**

@@ -11506,6 +11506,41 @@ export namespace eks {
         namespace: pulumi.Input<string>;
     }
 
+    export interface IdentityProviderConfigOidc {
+        /**
+         * Client ID for the OpenID Connect identity provider.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The JWT claim that the provider will use to return groups.
+         */
+        groupsClaim?: pulumi.Input<string>;
+        /**
+         * A prefix that is prepended to group claims e.g. `oidc:`.
+         */
+        groupsPrefix?: pulumi.Input<string>;
+        /**
+         * The name of the identity provider config.
+         */
+        identityProviderConfigName: pulumi.Input<string>;
+        /**
+         * Issuer URL for the OpenID Connect identity provider.
+         */
+        issuerUrl: pulumi.Input<string>;
+        /**
+         * The key value pairs that describe required claims in the identity token.
+         */
+        requiredClaims?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The JWT claim that the provider will use as the username.
+         */
+        usernameClaim?: pulumi.Input<string>;
+        /**
+         * A prefix that is prepended to username claims.
+         */
+        usernamePrefix?: pulumi.Input<string>;
+    }
+
     export interface NodeGroupLaunchTemplate {
         /**
          * Identifier of the EC2 Launch Template. Conflicts with `name`.
@@ -24205,6 +24240,10 @@ export namespace transfer {
          * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
          */
         addressAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
          */

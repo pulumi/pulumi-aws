@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Transfer
     /// <summary>
     /// Provides a AWS Transfer Server resource.
     /// 
+    /// &gt; **NOTE on AWS IAM permissions:** If the `endpoint_type` is set to `VPC`, the `ec2:DescribeVpcEndpoints` and `ec2:ModifyVpcEndpoint` [actions](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html#amazonec2-actions-as-permissions) are used.
+    /// 
     /// ## Example Usage
     /// ### Basic
     /// 
@@ -29,45 +31,6 @@ namespace Pulumi.Aws.Transfer
     ///             {
     ///                 { "Name", "Example" },
     ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             Tags = 
-    ///             {
-    ///                 { "Name", "Example" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Security Policy Name
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.Transfer.Server("example", new Aws.Transfer.ServerArgs
-    ///         {
-    ///             SecurityPolicyName = "TransferSecurityPolicy-2020-06",
     ///         });
     ///     }
     /// 
@@ -161,7 +124,7 @@ namespace Pulumi.Aws.Transfer
     /// Transfer Servers can be imported using the `server id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/server:Server bar s-12345678
+    ///  $ pulumi import aws:transfer/server:Server example s-12345678
     /// ```
     /// 
     ///  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
@@ -206,7 +169,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         /// </summary>
         [Output("forceDestroy")]
         public Output<bool?> ForceDestroy { get; private set; } = null!;
@@ -339,7 +302,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }
@@ -455,7 +418,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`.
+        /// A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         /// </summary>
         [Input("forceDestroy")]
         public Input<bool>? ForceDestroy { get; set; }

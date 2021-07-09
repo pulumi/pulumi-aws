@@ -18,6 +18,7 @@ __all__ = [
     'ClusterKubernetesNetworkConfig',
     'ClusterVpcConfig',
     'FargateProfileSelector',
+    'IdentityProviderConfigOidc',
     'NodeGroupLaunchTemplate',
     'NodeGroupRemoteAccess',
     'NodeGroupResource',
@@ -335,6 +336,137 @@ class FargateProfileSelector(dict):
         Key-value map of Kubernetes labels for selection.
         """
         return pulumi.get(self, "labels")
+
+
+@pulumi.output_type
+class IdentityProviderConfigOidc(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "identityProviderConfigName":
+            suggest = "identity_provider_config_name"
+        elif key == "issuerUrl":
+            suggest = "issuer_url"
+        elif key == "groupsClaim":
+            suggest = "groups_claim"
+        elif key == "groupsPrefix":
+            suggest = "groups_prefix"
+        elif key == "requiredClaims":
+            suggest = "required_claims"
+        elif key == "usernameClaim":
+            suggest = "username_claim"
+        elif key == "usernamePrefix":
+            suggest = "username_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityProviderConfigOidc. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityProviderConfigOidc.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityProviderConfigOidc.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 identity_provider_config_name: str,
+                 issuer_url: str,
+                 groups_claim: Optional[str] = None,
+                 groups_prefix: Optional[str] = None,
+                 required_claims: Optional[Mapping[str, str]] = None,
+                 username_claim: Optional[str] = None,
+                 username_prefix: Optional[str] = None):
+        """
+        :param str client_id: Client ID for the OpenID Connect identity provider.
+        :param str identity_provider_config_name: The name of the identity provider config.
+        :param str issuer_url: Issuer URL for the OpenID Connect identity provider.
+        :param str groups_claim: The JWT claim that the provider will use to return groups.
+        :param str groups_prefix: A prefix that is prepended to group claims e.g. `oidc:`.
+        :param Mapping[str, str] required_claims: The key value pairs that describe required claims in the identity token.
+        :param str username_claim: The JWT claim that the provider will use as the username.
+        :param str username_prefix: A prefix that is prepended to username claims.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        if groups_claim is not None:
+            pulumi.set(__self__, "groups_claim", groups_claim)
+        if groups_prefix is not None:
+            pulumi.set(__self__, "groups_prefix", groups_prefix)
+        if required_claims is not None:
+            pulumi.set(__self__, "required_claims", required_claims)
+        if username_claim is not None:
+            pulumi.set(__self__, "username_claim", username_claim)
+        if username_prefix is not None:
+            pulumi.set(__self__, "username_prefix", username_prefix)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client ID for the OpenID Connect identity provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="identityProviderConfigName")
+    def identity_provider_config_name(self) -> str:
+        """
+        The name of the identity provider config.
+        """
+        return pulumi.get(self, "identity_provider_config_name")
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> str:
+        """
+        Issuer URL for the OpenID Connect identity provider.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> Optional[str]:
+        """
+        The JWT claim that the provider will use to return groups.
+        """
+        return pulumi.get(self, "groups_claim")
+
+    @property
+    @pulumi.getter(name="groupsPrefix")
+    def groups_prefix(self) -> Optional[str]:
+        """
+        A prefix that is prepended to group claims e.g. `oidc:`.
+        """
+        return pulumi.get(self, "groups_prefix")
+
+    @property
+    @pulumi.getter(name="requiredClaims")
+    def required_claims(self) -> Optional[Mapping[str, str]]:
+        """
+        The key value pairs that describe required claims in the identity token.
+        """
+        return pulumi.get(self, "required_claims")
+
+    @property
+    @pulumi.getter(name="usernameClaim")
+    def username_claim(self) -> Optional[str]:
+        """
+        The JWT claim that the provider will use as the username.
+        """
+        return pulumi.get(self, "username_claim")
+
+    @property
+    @pulumi.getter(name="usernamePrefix")
+    def username_prefix(self) -> Optional[str]:
+        """
+        A prefix that is prepended to username claims.
+        """
+        return pulumi.get(self, "username_prefix")
 
 
 @pulumi.output_type

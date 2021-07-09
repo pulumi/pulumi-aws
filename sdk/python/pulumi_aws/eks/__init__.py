@@ -11,6 +11,7 @@ from .fargate_profile import *
 from .get_addon import *
 from .get_cluster import *
 from .get_cluster_auth import *
+from .identity_provider_config import *
 from .node_group import *
 from ._inputs import *
 from . import outputs

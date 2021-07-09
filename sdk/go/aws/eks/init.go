@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws:eks/fargateProfile:FargateProfile":
 		r = &FargateProfile{}
+	case "aws:eks/identityProviderConfig:IdentityProviderConfig":
+		r = &IdentityProviderConfig{}
 	case "aws:eks/nodeGroup:NodeGroup":
 		r = &NodeGroup{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"eks/fargateProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"eks/identityProviderConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

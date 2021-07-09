@@ -1366,7 +1366,8 @@ func Provider() tfbridge.ProviderInfo {
 					"fargate_profile_name": tfbridge.AutoName("fargateProfileName", 255, "-"),
 				},
 			},
-			"aws_eks_addon": {Tok: awsResource(eksMod, "Addon")},
+			"aws_eks_addon":                    {Tok: awsResource(eksMod, "Addon")},
+			"aws_eks_identity_provider_config": {Tok: awsResource(eksMod, "IdentityProviderConfig")},
 			// Elastic Search
 			"aws_elasticsearch_domain": {
 				Tok: awsResource(elasticsearchMod, "Domain"),
@@ -1966,9 +1967,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_rds_global_cluster":    {Tok: awsResource(rdsMod, "GlobalCluster")},
-			"aws_db_cluster_snapshot":   {Tok: awsResource(rdsMod, "ClusterSnapshot")},
-			"aws_db_event_subscription": {Tok: awsResource(rdsMod, "EventSubscription")},
+			"aws_rds_global_cluster":           {Tok: awsResource(rdsMod, "GlobalCluster")},
+			"aws_rds_cluster_role_association": {Tok: awsResource(rdsMod, "ClusterRoleAssociation")},
+			"aws_db_cluster_snapshot":          {Tok: awsResource(rdsMod, "ClusterSnapshot")},
+			"aws_db_event_subscription":        {Tok: awsResource(rdsMod, "EventSubscription")},
 			"aws_db_instance": {
 				Tok: awsResource(rdsMod, "Instance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
