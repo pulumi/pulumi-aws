@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterInstance{}
 	case "aws:rds/clusterParameterGroup:ClusterParameterGroup":
 		r = &ClusterParameterGroup{}
+	case "aws:rds/clusterRoleAssociation:ClusterRoleAssociation":
+		r = &ClusterRoleAssociation{}
 	case "aws:rds/clusterSnapshot:ClusterSnapshot":
 		r = &ClusterSnapshot{}
 	case "aws:rds/eventSubscription:EventSubscription":
@@ -88,6 +90,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/clusterParameterGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/clusterRoleAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

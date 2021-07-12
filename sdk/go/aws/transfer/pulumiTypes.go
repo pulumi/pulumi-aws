@@ -13,6 +13,8 @@ import (
 type ServerEndpointDetails struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
+	// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
@@ -35,6 +37,8 @@ type ServerEndpointDetailsInput interface {
 type ServerEndpointDetailsArgs struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
+	// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// The ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
@@ -125,6 +129,11 @@ func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOu
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
 }
 
+// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
@@ -165,6 +174,16 @@ func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArra
 			return nil
 		}
 		return v.AddressAllocationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpointType` is set to `VPC`.
+func (o ServerEndpointDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
 }
 

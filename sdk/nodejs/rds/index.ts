@@ -9,6 +9,7 @@ export * from "./cluster";
 export * from "./clusterEndpoint";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
+export * from "./clusterRoleAssociation";
 export * from "./clusterSnapshot";
 export * from "./engineMode";
 export * from "./engineType";
@@ -45,6 +46,7 @@ import { Cluster } from "./cluster";
 import { ClusterEndpoint } from "./clusterEndpoint";
 import { ClusterInstance } from "./clusterInstance";
 import { ClusterParameterGroup } from "./clusterParameterGroup";
+import { ClusterRoleAssociation } from "./clusterRoleAssociation";
 import { ClusterSnapshot } from "./clusterSnapshot";
 import { EventSubscription } from "./eventSubscription";
 import { GlobalCluster } from "./globalCluster";
@@ -72,6 +74,8 @@ const _module = {
                 return new ClusterInstance(name, <any>undefined, { urn })
             case "aws:rds/clusterParameterGroup:ClusterParameterGroup":
                 return new ClusterParameterGroup(name, <any>undefined, { urn })
+            case "aws:rds/clusterRoleAssociation:ClusterRoleAssociation":
+                return new ClusterRoleAssociation(name, <any>undefined, { urn })
             case "aws:rds/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws:rds/eventSubscription:EventSubscription":
@@ -109,6 +113,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterParameterGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/clusterRoleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)

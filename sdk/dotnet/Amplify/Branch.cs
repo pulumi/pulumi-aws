@@ -255,6 +255,9 @@ namespace Pulumi.Aws.Amplify
         [Output("enableBasicAuth")]
         public Output<bool?> EnableBasicAuth { get; private set; } = null!;
 
+        /// <summary>
+        /// Enables notifications for the branch.
+        /// </summary>
         [Output("enableNotification")]
         public Output<bool?> EnableNotification { get; private set; } = null!;
 
@@ -412,6 +415,9 @@ namespace Pulumi.Aws.Amplify
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
+        /// <summary>
+        /// Enables notifications for the branch.
+        /// </summary>
         [Input("enableNotification")]
         public Input<bool>? EnableNotification { get; set; }
 
@@ -578,6 +584,9 @@ namespace Pulumi.Aws.Amplify
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
+        /// <summary>
+        /// Enables notifications for the branch.
+        /// </summary>
         [Input("enableNotification")]
         public Input<bool>? EnableNotification { get; set; }
 

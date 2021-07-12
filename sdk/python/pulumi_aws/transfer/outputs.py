@@ -21,6 +21,8 @@ class ServerEndpointDetails(dict):
         suggest = None
         if key == "addressAllocationIds":
             suggest = "address_allocation_ids"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
         elif key == "subnetIds":
             suggest = "subnet_ids"
         elif key == "vpcEndpointId":
@@ -41,17 +43,21 @@ class ServerEndpointDetails(dict):
 
     def __init__(__self__, *,
                  address_allocation_ids: Optional[Sequence[str]] = None,
+                 security_group_ids: Optional[Sequence[str]] = None,
                  subnet_ids: Optional[Sequence[str]] = None,
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
         :param Sequence[str] address_allocation_ids: A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+        :param Sequence[str] security_group_ids: A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
         :param Sequence[str] subnet_ids: A list of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
         :param str vpc_endpoint_id: The ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
         :param str vpc_id: The VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
         """
         if address_allocation_ids is not None:
             pulumi.set(__self__, "address_allocation_ids", address_allocation_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_endpoint_id is not None:
@@ -66,6 +72,14 @@ class ServerEndpointDetails(dict):
         A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
         """
         return pulumi.get(self, "address_allocation_ids")
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
+        """
+        return pulumi.get(self, "security_group_ids")
 
     @property
     @pulumi.getter(name="subnetIds")

@@ -41,6 +41,7 @@ class BranchArgs:
         :param pulumi.Input[str] display_name: The display name for a branch. This is used as the default domain prefix.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
+        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables for the branch.
@@ -185,6 +186,9 @@ class BranchArgs:
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables notifications for the branch.
+        """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
@@ -340,6 +344,7 @@ class _BranchState:
         :param pulumi.Input[str] display_name: The display name for a branch. This is used as the default domain prefix.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
+        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables for the branch.
@@ -545,6 +550,9 @@ class _BranchState:
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables notifications for the branch.
+        """
         return pulumi.get(self, "enable_notification")
 
     @enable_notification.setter
@@ -793,6 +801,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for a branch. This is used as the default domain prefix.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
+        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables for the branch.
@@ -1020,6 +1029,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name for a branch. This is used as the default domain prefix.
         :param pulumi.Input[bool] enable_auto_build: Enables auto building for the branch.
         :param pulumi.Input[bool] enable_basic_auth: Enables basic authorization for the branch.
+        :param pulumi.Input[bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[bool] enable_pull_request_preview: Enables pull request previews for this branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: The environment variables for the branch.
@@ -1159,6 +1169,9 @@ class Branch(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableNotification")
     def enable_notification(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enables notifications for the branch.
+        """
         return pulumi.get(self, "enable_notification")
 
     @property

@@ -10,6 +10,7 @@ from .cluster import *
 from .cluster_endpoint import *
 from .cluster_instance import *
 from .cluster_parameter_group import *
+from .cluster_role_association import *
 from .cluster_snapshot import *
 from .event_subscription import *
 from .get_certificate import *

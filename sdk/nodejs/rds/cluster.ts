@@ -244,7 +244,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A List of ARNs for the IAM roles to associate to the RDS Cluster.
      */
-    public readonly iamRoles!: pulumi.Output<string[] | undefined>;
+    public readonly iamRoles!: pulumi.Output<string[]>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */

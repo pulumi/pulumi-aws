@@ -2119,7 +2119,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iamRoles")
-    def iam_roles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def iam_roles(self) -> pulumi.Output[Sequence[str]]:
         """
         A List of ARNs for the IAM roles to associate to the RDS Cluster.
         """

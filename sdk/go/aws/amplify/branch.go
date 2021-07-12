@@ -79,7 +79,8 @@ type Branch struct {
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrOutput `pulumi:"enableAutoBuild"`
 	// Enables basic authorization for the branch.
-	EnableBasicAuth    pulumi.BoolPtrOutput `pulumi:"enableBasicAuth"`
+	EnableBasicAuth pulumi.BoolPtrOutput `pulumi:"enableBasicAuth"`
+	// Enables notifications for the branch.
 	EnableNotification pulumi.BoolPtrOutput `pulumi:"enableNotification"`
 	// Enables performance mode for the branch.
 	EnablePerformanceMode pulumi.BoolPtrOutput `pulumi:"enablePerformanceMode"`
@@ -161,7 +162,8 @@ type branchState struct {
 	// Enables auto building for the branch.
 	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
 	// Enables basic authorization for the branch.
-	EnableBasicAuth    *bool `pulumi:"enableBasicAuth"`
+	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
+	// Enables notifications for the branch.
 	EnableNotification *bool `pulumi:"enableNotification"`
 	// Enables performance mode for the branch.
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
@@ -209,7 +211,8 @@ type BranchState struct {
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrInput
 	// Enables basic authorization for the branch.
-	EnableBasicAuth    pulumi.BoolPtrInput
+	EnableBasicAuth pulumi.BoolPtrInput
+	// Enables notifications for the branch.
 	EnableNotification pulumi.BoolPtrInput
 	// Enables performance mode for the branch.
 	EnablePerformanceMode pulumi.BoolPtrInput
@@ -253,7 +256,8 @@ type branchArgs struct {
 	// Enables auto building for the branch.
 	EnableAutoBuild *bool `pulumi:"enableAutoBuild"`
 	// Enables basic authorization for the branch.
-	EnableBasicAuth    *bool `pulumi:"enableBasicAuth"`
+	EnableBasicAuth *bool `pulumi:"enableBasicAuth"`
+	// Enables notifications for the branch.
 	EnableNotification *bool `pulumi:"enableNotification"`
 	// Enables performance mode for the branch.
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
@@ -292,7 +296,8 @@ type BranchArgs struct {
 	// Enables auto building for the branch.
 	EnableAutoBuild pulumi.BoolPtrInput
 	// Enables basic authorization for the branch.
-	EnableBasicAuth    pulumi.BoolPtrInput
+	EnableBasicAuth pulumi.BoolPtrInput
+	// Enables notifications for the branch.
 	EnableNotification pulumi.BoolPtrInput
 	// Enables performance mode for the branch.
 	EnablePerformanceMode pulumi.BoolPtrInput

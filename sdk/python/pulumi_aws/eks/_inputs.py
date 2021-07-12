@@ -17,6 +17,7 @@ __all__ = [
     'ClusterKubernetesNetworkConfigArgs',
     'ClusterVpcConfigArgs',
     'FargateProfileSelectorArgs',
+    'IdentityProviderConfigOidcArgs',
     'NodeGroupLaunchTemplateArgs',
     'NodeGroupRemoteAccessArgs',
     'NodeGroupResourceArgs',
@@ -330,6 +331,138 @@ class FargateProfileSelectorArgs:
     @labels.setter
     def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "labels", value)
+
+
+@pulumi.input_type
+class IdentityProviderConfigOidcArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 identity_provider_config_name: pulumi.Input[str],
+                 issuer_url: pulumi.Input[str],
+                 groups_claim: Optional[pulumi.Input[str]] = None,
+                 groups_prefix: Optional[pulumi.Input[str]] = None,
+                 required_claims: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 username_claim: Optional[pulumi.Input[str]] = None,
+                 username_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] client_id: Client ID for the OpenID Connect identity provider.
+        :param pulumi.Input[str] identity_provider_config_name: The name of the identity provider config.
+        :param pulumi.Input[str] issuer_url: Issuer URL for the OpenID Connect identity provider.
+        :param pulumi.Input[str] groups_claim: The JWT claim that the provider will use to return groups.
+        :param pulumi.Input[str] groups_prefix: A prefix that is prepended to group claims e.g. `oidc:`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] required_claims: The key value pairs that describe required claims in the identity token.
+        :param pulumi.Input[str] username_claim: The JWT claim that the provider will use as the username.
+        :param pulumi.Input[str] username_prefix: A prefix that is prepended to username claims.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "identity_provider_config_name", identity_provider_config_name)
+        pulumi.set(__self__, "issuer_url", issuer_url)
+        if groups_claim is not None:
+            pulumi.set(__self__, "groups_claim", groups_claim)
+        if groups_prefix is not None:
+            pulumi.set(__self__, "groups_prefix", groups_prefix)
+        if required_claims is not None:
+            pulumi.set(__self__, "required_claims", required_claims)
+        if username_claim is not None:
+            pulumi.set(__self__, "username_claim", username_claim)
+        if username_prefix is not None:
+            pulumi.set(__self__, "username_prefix", username_prefix)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        Client ID for the OpenID Connect identity provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="identityProviderConfigName")
+    def identity_provider_config_name(self) -> pulumi.Input[str]:
+        """
+        The name of the identity provider config.
+        """
+        return pulumi.get(self, "identity_provider_config_name")
+
+    @identity_provider_config_name.setter
+    def identity_provider_config_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_provider_config_name", value)
+
+    @property
+    @pulumi.getter(name="issuerUrl")
+    def issuer_url(self) -> pulumi.Input[str]:
+        """
+        Issuer URL for the OpenID Connect identity provider.
+        """
+        return pulumi.get(self, "issuer_url")
+
+    @issuer_url.setter
+    def issuer_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer_url", value)
+
+    @property
+    @pulumi.getter(name="groupsClaim")
+    def groups_claim(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JWT claim that the provider will use to return groups.
+        """
+        return pulumi.get(self, "groups_claim")
+
+    @groups_claim.setter
+    def groups_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "groups_claim", value)
+
+    @property
+    @pulumi.getter(name="groupsPrefix")
+    def groups_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix that is prepended to group claims e.g. `oidc:`.
+        """
+        return pulumi.get(self, "groups_prefix")
+
+    @groups_prefix.setter
+    def groups_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "groups_prefix", value)
+
+    @property
+    @pulumi.getter(name="requiredClaims")
+    def required_claims(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The key value pairs that describe required claims in the identity token.
+        """
+        return pulumi.get(self, "required_claims")
+
+    @required_claims.setter
+    def required_claims(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "required_claims", value)
+
+    @property
+    @pulumi.getter(name="usernameClaim")
+    def username_claim(self) -> Optional[pulumi.Input[str]]:
+        """
+        The JWT claim that the provider will use as the username.
+        """
+        return pulumi.get(self, "username_claim")
+
+    @username_claim.setter
+    def username_claim(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_claim", value)
+
+    @property
+    @pulumi.getter(name="usernamePrefix")
+    def username_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        A prefix that is prepended to username claims.
+        """
+        return pulumi.get(self, "username_prefix")
+
+    @username_prefix.setter
+    def username_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_prefix", value)
 
 
 @pulumi.input_type

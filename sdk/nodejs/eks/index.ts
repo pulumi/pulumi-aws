@@ -11,12 +11,14 @@ export * from "./fargateProfile";
 export * from "./getAddon";
 export * from "./getCluster";
 export * from "./getClusterAuth";
+export * from "./identityProviderConfig";
 export * from "./nodeGroup";
 
 // Import resources to register:
 import { Addon } from "./addon";
 import { Cluster } from "./cluster";
 import { FargateProfile } from "./fargateProfile";
+import { IdentityProviderConfig } from "./identityProviderConfig";
 import { NodeGroup } from "./nodeGroup";
 
 const _module = {
@@ -29,6 +31,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:eks/fargateProfile:FargateProfile":
                 return new FargateProfile(name, <any>undefined, { urn })
+            case "aws:eks/identityProviderConfig:IdentityProviderConfig":
+                return new IdentityProviderConfig(name, <any>undefined, { urn })
             case "aws:eks/nodeGroup:NodeGroup":
                 return new NodeGroup(name, <any>undefined, { urn })
             default:
@@ -39,4 +43,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "eks/addon", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/fargateProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "eks/identityProviderConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "eks/nodeGroup", _module)
