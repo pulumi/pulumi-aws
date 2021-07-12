@@ -15,6 +15,66 @@ import (
 //
 // The `rds.ProxyDefaultTargetGroup` behaves differently from normal resources, in that the provider does not _create_ or _destroy_ this resource, since it implicitly exists as part of an RDS DB Proxy. On the provider resource creation it is automatically imported and on resource destruction, the provider performs no actions in RDS.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/rds"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleProxy, err := rds.NewProxy(ctx, "exampleProxy", &rds.ProxyArgs{
+// 			DebugLogging:      pulumi.Bool(false),
+// 			EngineFamily:      pulumi.String("MYSQL"),
+// 			IdleClientTimeout: pulumi.Int(1800),
+// 			RequireTls:        pulumi.Bool(true),
+// 			RoleArn:           pulumi.Any(aws_iam_role.Example.Arn),
+// 			VpcSecurityGroupIds: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Example.Id),
+// 			},
+// 			VpcSubnetIds: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Example.Id),
+// 			},
+// 			Auths: rds.ProxyAuthArray{
+// 				&rds.ProxyAuthArgs{
+// 					AuthScheme:  pulumi.String("SECRETS"),
+// 					Description: pulumi.String("example"),
+// 					IamAuth:     pulumi.String("DISABLED"),
+// 					SecretArn:   pulumi.Any(aws_secretsmanager_secret.Example.Arn),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("example"),
+// 				"Key":  pulumi.String("value"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = rds.NewProxyDefaultTargetGroup(ctx, "exampleProxyDefaultTargetGroup", &rds.ProxyDefaultTargetGroupArgs{
+// 			DbProxyName: exampleProxy.Name,
+// 			ConnectionPoolConfig: &rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs{
+// 				ConnectionBorrowTimeout:   pulumi.Int(120),
+// 				InitQuery:                 pulumi.String("SET x=1, y=2"),
+// 				MaxConnectionsPercent:     pulumi.Int(100),
+// 				MaxIdleConnectionsPercent: pulumi.Int(50),
+// 				SessionPinningFilters: pulumi.StringArray{
+// 					pulumi.String("EXCLUDE_VARIABLE_SETS"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // DB proxy default target groups can be imported using the `db_proxy_name`, e.g.

@@ -87,7 +87,7 @@ import (
 // 			return err
 // 		}
 // 		cloud9Eip, err := ec2.NewEip(ctx, "cloud9Eip", &ec2.EipArgs{
-// 			Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.LookupInstanceResult) (string, error) {
+// 			Instance: cloud9Instance.ApplyT(func(cloud9Instance ec2.GetInstanceResult) (string, error) {
 // 				return cloud9Instance.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Vpc: pulumi.Bool(true),

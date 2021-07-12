@@ -103,6 +103,43 @@ import (
 // 	})
 // }
 // ```
+// ### Catalog Target Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/glue"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := glue.NewCrawler(ctx, "example", &glue.CrawlerArgs{
+// 			DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
+// 			CatalogTargets: glue.CrawlerCatalogTargetArray{
+// 				&glue.CrawlerCatalogTargetArgs{
+// 					DatabaseName: pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 					Tables: pulumi.StringArray{
+// 						pulumi.Any(aws_glue_catalog_table.Example.Name),
+// 					},
+// 				},
+// 			},
+// 			SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
+// 				DeleteBehavior: pulumi.String("LOG"),
+// 			},
+// 			Configuration: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "{\n", "  \"Version\":1.0,\n", "  \"Grouping\": {\n", "    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"\n", "  }\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### MongoDB Target Example
 //
 // ```go
@@ -168,7 +205,7 @@ import (
 // 			DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
 // 			Schedule:      pulumi.String("cron(0 1 * * ? *)"),
 // 			Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
-// 			Tags:          _var.Tags,
+// 			Tags:          pulumi.Any(_var.Tags),
 // 			Configuration: pulumi.String(json0),
 // 			S3Targets: glue.CrawlerS3TargetArray{
 // 				&glue.CrawlerS3TargetArgs{

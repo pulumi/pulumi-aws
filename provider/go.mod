@@ -5,9 +5,9 @@ go 1.16
 require (
 	github.com/hashicorp/aws-sdk-go-base v0.7.1
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.3.0
-	github.com/pulumi/pulumi/pkg/v3 v3.5.2-0.20210623115523-414367963f50
-	github.com/pulumi/pulumi/sdk/v3 v3.5.2-0.20210623115523-414367963f50
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.4.1-0.20210708205251-d54fe5563756
+	github.com/pulumi/pulumi/pkg/v3 v3.6.2-0.20210712183851-30278f8e4c08
+	github.com/pulumi/pulumi/sdk/v3 v3.6.2-0.20210712183851-30278f8e4c08
 	github.com/terraform-providers/terraform-provider-aws v0.0.0-20191010190908-1261a98537f2
 )
 

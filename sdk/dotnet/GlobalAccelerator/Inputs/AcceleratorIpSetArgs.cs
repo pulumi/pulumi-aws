@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.GlobalAccelerator.Inputs
 {
+
+    public sealed class AcceleratorIpSetArgs : Pulumi.ResourceArgs
+    {
+        [Input("ipAddresses")]
+        private InputList<string>? _ipAddresses;
+
+        /// <summary>
+        /// A list of IP addresses in the IP address set.
+        /// </summary>
+        public InputList<string> IpAddresses
+        {
+            get => _ipAddresses ?? (_ipAddresses = new InputList<string>());
+            set => _ipAddresses = value;
+        }
+
+        /// <summary>
+        /// The type of IP addresses included in this IP set.
+        /// </summary>
+        [Input("ipFamily")]
+        public Input<string>? IpFamily { get; set; }
+
+        public AcceleratorIpSetArgs()
+        {
+        }
+    }
 }

@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.MediaPackage.Inputs
 {
+
+    public sealed class ChannelHlsIngestIngestEndpointArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The password
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// The URL
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// The username
+        /// </summary>
+        [Input("username")]
+        public Input<string>? Username { get; set; }
+
+        public ChannelHlsIngestIngestEndpointArgs()
+        {
+        }
+    }
 }

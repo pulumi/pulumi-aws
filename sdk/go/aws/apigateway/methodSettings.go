@@ -79,7 +79,7 @@ type methodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath *string `pulumi:"methodPath"`
 	// The ID of the REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The settings block, see below.
 	Settings *MethodSettingsSettings `pulumi:"settings"`
 	// The name of the stage
@@ -90,7 +90,7 @@ type MethodSettingsState struct {
 	// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
 	MethodPath pulumi.StringPtrInput
 	// The ID of the REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// The settings block, see below.
 	Settings MethodSettingsSettingsPtrInput
 	// The name of the stage

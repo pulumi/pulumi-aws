@@ -70,6 +70,78 @@ import (
 // 	})
 // }
 // ```
+// ### Interface Endpoint Type
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2.NewVpcEndpoint(ctx, "ec2", &ec2.VpcEndpointArgs{
+// 			VpcId:           pulumi.Any(aws_vpc.Main.Id),
+// 			ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
+// 			VpcEndpointType: pulumi.String("Interface"),
+// 			SecurityGroupIds: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Sg1.Id),
+// 			},
+// 			PrivateDnsEnabled: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Gateway Load Balancer Endpoint Type
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleVpcEndpointService, err := ec2.NewVpcEndpointService(ctx, "exampleVpcEndpointService", &ec2.VpcEndpointServiceArgs{
+// 			AcceptanceRequired: pulumi.Bool(false),
+// 			AllowedPrincipals: pulumi.StringArray{
+// 				pulumi.String(current.Arn),
+// 			},
+// 			GatewayLoadBalancerArns: pulumi.StringArray{
+// 				pulumi.Any(aws_lb.Example.Arn),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewVpcEndpoint(ctx, "exampleVpcEndpoint", &ec2.VpcEndpointArgs{
+// 			ServiceName: exampleVpcEndpointService.ServiceName,
+// 			SubnetIds: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Example.Id),
+// 			},
+// 			VpcEndpointType: exampleVpcEndpointService.ServiceType,
+// 			VpcId:           pulumi.Any(aws_vpc.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

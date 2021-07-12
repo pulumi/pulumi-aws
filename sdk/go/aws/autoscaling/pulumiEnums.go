@@ -11,7 +11,7 @@ import (
 )
 
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-type Metric pulumi.String
+type Metric string
 
 const (
 	MetricGroupMinSize              = Metric("GroupMinSize")
@@ -30,7 +30,23 @@ const (
 )
 
 func (Metric) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Metric)(nil)).Elem()
+}
+
+func (e Metric) ToMetricOutput() MetricOutput {
+	return pulumi.ToOutput(e).(MetricOutput)
+}
+
+func (e Metric) ToMetricOutputWithContext(ctx context.Context) MetricOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MetricOutput)
+}
+
+func (e Metric) ToMetricPtrOutput() MetricPtrOutput {
+	return e.ToMetricPtrOutputWithContext(context.Background())
+}
+
+func (e Metric) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
+	return Metric(e).ToMetricOutputWithContext(ctx).ToMetricPtrOutputWithContext(ctx)
 }
 
 func (e Metric) ToStringOutput() pulumi.StringOutput {
@@ -49,15 +65,117 @@ func (e Metric) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringP
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type MetricOutput struct{ *pulumi.OutputState }
+
+func (MetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Metric)(nil)).Elem()
+}
+
+func (o MetricOutput) ToMetricOutput() MetricOutput {
+	return o
+}
+
+func (o MetricOutput) ToMetricOutputWithContext(ctx context.Context) MetricOutput {
+	return o
+}
+
+func (o MetricOutput) ToMetricPtrOutput() MetricPtrOutput {
+	return o.ToMetricPtrOutputWithContext(context.Background())
+}
+
+func (o MetricOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Metric) *Metric {
+		return &v
+	}).(MetricPtrOutput)
+}
+
+type MetricPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricPtrOutput) ElementType() reflect.Type {
+	return metricPtrType
+}
+
+func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
+	return o
+}
+
+func (o MetricPtrOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
+	return o
+}
+
+func (o MetricPtrOutput) Elem() MetricOutput {
+	return o.ApplyT(func(v *Metric) Metric {
+		var ret Metric
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(MetricOutput)
+}
+
+// MetricInput is an input type that accepts MetricArgs and MetricOutput values.
+// You can construct a concrete instance of `MetricInput` via:
+//
+//          MetricArgs{...}
+type MetricInput interface {
+	pulumi.Input
+
+	ToMetricOutput() MetricOutput
+	ToMetricOutputWithContext(context.Context) MetricOutput
+}
+
+var metricPtrType = reflect.TypeOf((**Metric)(nil)).Elem()
+
+type MetricPtrInput interface {
+	pulumi.Input
+
+	ToMetricPtrOutput() MetricPtrOutput
+	ToMetricPtrOutputWithContext(context.Context) MetricPtrOutput
+}
+
+type metricPtr string
+
+func MetricPtr(v string) MetricPtrInput {
+	return (*metricPtr)(&v)
+}
+
+func (*metricPtr) ElementType() reflect.Type {
+	return metricPtrType
+}
+
+func (in *metricPtr) ToMetricPtrOutput() MetricPtrOutput {
+	return pulumi.ToOutput(in).(MetricPtrOutput)
+}
+
+func (in *metricPtr) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MetricPtrOutput)
+}
+
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
-type MetricsGranularity pulumi.String
+type MetricsGranularity string
 
 const (
 	MetricsGranularityOneMinute = MetricsGranularity("1Minute")
 )
 
 func (MetricsGranularity) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*MetricsGranularity)(nil)).Elem()
+}
+
+func (e MetricsGranularity) ToMetricsGranularityOutput() MetricsGranularityOutput {
+	return pulumi.ToOutput(e).(MetricsGranularityOutput)
+}
+
+func (e MetricsGranularity) ToMetricsGranularityOutputWithContext(ctx context.Context) MetricsGranularityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MetricsGranularityOutput)
+}
+
+func (e MetricsGranularity) ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput {
+	return e.ToMetricsGranularityPtrOutputWithContext(context.Background())
+}
+
+func (e MetricsGranularity) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
+	return MetricsGranularity(e).ToMetricsGranularityOutputWithContext(ctx).ToMetricsGranularityPtrOutputWithContext(ctx)
 }
 
 func (e MetricsGranularity) ToStringOutput() pulumi.StringOutput {
@@ -76,8 +194,94 @@ func (e MetricsGranularity) ToStringPtrOutputWithContext(ctx context.Context) pu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type MetricsGranularityOutput struct{ *pulumi.OutputState }
+
+func (MetricsGranularityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsGranularity)(nil)).Elem()
+}
+
+func (o MetricsGranularityOutput) ToMetricsGranularityOutput() MetricsGranularityOutput {
+	return o
+}
+
+func (o MetricsGranularityOutput) ToMetricsGranularityOutputWithContext(ctx context.Context) MetricsGranularityOutput {
+	return o
+}
+
+func (o MetricsGranularityOutput) ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput {
+	return o.ToMetricsGranularityPtrOutputWithContext(context.Background())
+}
+
+func (o MetricsGranularityOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricsGranularity) *MetricsGranularity {
+		return &v
+	}).(MetricsGranularityPtrOutput)
+}
+
+type MetricsGranularityPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricsGranularityPtrOutput) ElementType() reflect.Type {
+	return metricsGranularityPtrType
+}
+
+func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput {
+	return o
+}
+
+func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
+	return o
+}
+
+func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
+	return o.ApplyT(func(v *MetricsGranularity) MetricsGranularity {
+		var ret MetricsGranularity
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(MetricsGranularityOutput)
+}
+
+// MetricsGranularityInput is an input type that accepts MetricsGranularityArgs and MetricsGranularityOutput values.
+// You can construct a concrete instance of `MetricsGranularityInput` via:
+//
+//          MetricsGranularityArgs{...}
+type MetricsGranularityInput interface {
+	pulumi.Input
+
+	ToMetricsGranularityOutput() MetricsGranularityOutput
+	ToMetricsGranularityOutputWithContext(context.Context) MetricsGranularityOutput
+}
+
+var metricsGranularityPtrType = reflect.TypeOf((**MetricsGranularity)(nil)).Elem()
+
+type MetricsGranularityPtrInput interface {
+	pulumi.Input
+
+	ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput
+	ToMetricsGranularityPtrOutputWithContext(context.Context) MetricsGranularityPtrOutput
+}
+
+type metricsGranularityPtr string
+
+func MetricsGranularityPtr(v string) MetricsGranularityPtrInput {
+	return (*metricsGranularityPtr)(&v)
+}
+
+func (*metricsGranularityPtr) ElementType() reflect.Type {
+	return metricsGranularityPtrType
+}
+
+func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput {
+	return pulumi.ToOutput(in).(MetricsGranularityPtrOutput)
+}
+
+func (in *metricsGranularityPtr) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MetricsGranularityPtrOutput)
+}
+
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
-type NotificationType pulumi.String
+type NotificationType string
 
 const (
 	NotificationTypeInstanceLaunch         = NotificationType("autoscaling:EC2_INSTANCE_LAUNCH")
@@ -88,7 +292,23 @@ const (
 )
 
 func (NotificationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*NotificationType)(nil)).Elem()
+}
+
+func (e NotificationType) ToNotificationTypeOutput() NotificationTypeOutput {
+	return pulumi.ToOutput(e).(NotificationTypeOutput)
+}
+
+func (e NotificationType) ToNotificationTypeOutputWithContext(ctx context.Context) NotificationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NotificationTypeOutput)
+}
+
+func (e NotificationType) ToNotificationTypePtrOutput() NotificationTypePtrOutput {
+	return e.ToNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (e NotificationType) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
+	return NotificationType(e).ToNotificationTypeOutputWithContext(ctx).ToNotificationTypePtrOutputWithContext(ctx)
 }
 
 func (e NotificationType) ToStringOutput() pulumi.StringOutput {
@@ -105,4 +325,99 @@ func (e NotificationType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e NotificationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NotificationTypeOutput struct{ *pulumi.OutputState }
+
+func (NotificationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotificationType)(nil)).Elem()
+}
+
+func (o NotificationTypeOutput) ToNotificationTypeOutput() NotificationTypeOutput {
+	return o
+}
+
+func (o NotificationTypeOutput) ToNotificationTypeOutputWithContext(ctx context.Context) NotificationTypeOutput {
+	return o
+}
+
+func (o NotificationTypeOutput) ToNotificationTypePtrOutput() NotificationTypePtrOutput {
+	return o.ToNotificationTypePtrOutputWithContext(context.Background())
+}
+
+func (o NotificationTypeOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationType) *NotificationType {
+		return &v
+	}).(NotificationTypePtrOutput)
+}
+
+type NotificationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (NotificationTypePtrOutput) ElementType() reflect.Type {
+	return notificationTypePtrType
+}
+
+func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationTypePtrOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
+	return o
+}
+
+func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {
+	return o.ApplyT(func(v *NotificationType) NotificationType {
+		var ret NotificationType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(NotificationTypeOutput)
+}
+
+// NotificationTypeInput is an input type that accepts NotificationTypeArgs and NotificationTypeOutput values.
+// You can construct a concrete instance of `NotificationTypeInput` via:
+//
+//          NotificationTypeArgs{...}
+type NotificationTypeInput interface {
+	pulumi.Input
+
+	ToNotificationTypeOutput() NotificationTypeOutput
+	ToNotificationTypeOutputWithContext(context.Context) NotificationTypeOutput
+}
+
+var notificationTypePtrType = reflect.TypeOf((**NotificationType)(nil)).Elem()
+
+type NotificationTypePtrInput interface {
+	pulumi.Input
+
+	ToNotificationTypePtrOutput() NotificationTypePtrOutput
+	ToNotificationTypePtrOutputWithContext(context.Context) NotificationTypePtrOutput
+}
+
+type notificationTypePtr string
+
+func NotificationTypePtr(v string) NotificationTypePtrInput {
+	return (*notificationTypePtr)(&v)
+}
+
+func (*notificationTypePtr) ElementType() reflect.Type {
+	return notificationTypePtrType
+}
+
+func (in *notificationTypePtr) ToNotificationTypePtrOutput() NotificationTypePtrOutput {
+	return pulumi.ToOutput(in).(NotificationTypePtrOutput)
+}
+
+func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NotificationTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(MetricOutput{})
+	pulumi.RegisterOutputType(MetricPtrOutput{})
+	pulumi.RegisterOutputType(MetricsGranularityOutput{})
+	pulumi.RegisterOutputType(MetricsGranularityPtrOutput{})
+	pulumi.RegisterOutputType(NotificationTypeOutput{})
+	pulumi.RegisterOutputType(NotificationTypePtrOutput{})
 }

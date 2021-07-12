@@ -9,4 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.StorageGateway.Inputs
 {
+
+    public sealed class GatewayGatewayNetworkInterfaceArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The Internet Protocol version 4 (IPv4) address of the interface.
+        /// </summary>
+        [Input("ipv4Address")]
+        public Input<string>? Ipv4Address { get; set; }
+
+        public GatewayGatewayNetworkInterfaceArgs()
+        {
+        }
+    }
 }

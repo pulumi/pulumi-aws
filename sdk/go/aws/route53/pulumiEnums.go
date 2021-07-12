@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type RecordType pulumi.String
+type RecordType string
 
 const (
 	RecordTypeA     = RecordType("A")
@@ -28,7 +28,23 @@ const (
 )
 
 func (RecordType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*RecordType)(nil)).Elem()
+}
+
+func (e RecordType) ToRecordTypeOutput() RecordTypeOutput {
+	return pulumi.ToOutput(e).(RecordTypeOutput)
+}
+
+func (e RecordType) ToRecordTypeOutputWithContext(ctx context.Context) RecordTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RecordTypeOutput)
+}
+
+func (e RecordType) ToRecordTypePtrOutput() RecordTypePtrOutput {
+	return e.ToRecordTypePtrOutputWithContext(context.Background())
+}
+
+func (e RecordType) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
+	return RecordType(e).ToRecordTypeOutputWithContext(ctx).ToRecordTypePtrOutputWithContext(ctx)
 }
 
 func (e RecordType) ToStringOutput() pulumi.StringOutput {
@@ -45,4 +61,95 @@ func (e RecordType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e RecordType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RecordTypeOutput struct{ *pulumi.OutputState }
+
+func (RecordTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordType)(nil)).Elem()
+}
+
+func (o RecordTypeOutput) ToRecordTypeOutput() RecordTypeOutput {
+	return o
+}
+
+func (o RecordTypeOutput) ToRecordTypeOutputWithContext(ctx context.Context) RecordTypeOutput {
+	return o
+}
+
+func (o RecordTypeOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
+	return o.ToRecordTypePtrOutputWithContext(context.Background())
+}
+
+func (o RecordTypeOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordType) *RecordType {
+		return &v
+	}).(RecordTypePtrOutput)
+}
+
+type RecordTypePtrOutput struct{ *pulumi.OutputState }
+
+func (RecordTypePtrOutput) ElementType() reflect.Type {
+	return recordTypePtrType
+}
+
+func (o RecordTypePtrOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
+	return o
+}
+
+func (o RecordTypePtrOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
+	return o
+}
+
+func (o RecordTypePtrOutput) Elem() RecordTypeOutput {
+	return o.ApplyT(func(v *RecordType) RecordType {
+		var ret RecordType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(RecordTypeOutput)
+}
+
+// RecordTypeInput is an input type that accepts RecordTypeArgs and RecordTypeOutput values.
+// You can construct a concrete instance of `RecordTypeInput` via:
+//
+//          RecordTypeArgs{...}
+type RecordTypeInput interface {
+	pulumi.Input
+
+	ToRecordTypeOutput() RecordTypeOutput
+	ToRecordTypeOutputWithContext(context.Context) RecordTypeOutput
+}
+
+var recordTypePtrType = reflect.TypeOf((**RecordType)(nil)).Elem()
+
+type RecordTypePtrInput interface {
+	pulumi.Input
+
+	ToRecordTypePtrOutput() RecordTypePtrOutput
+	ToRecordTypePtrOutputWithContext(context.Context) RecordTypePtrOutput
+}
+
+type recordTypePtr string
+
+func RecordTypePtr(v string) RecordTypePtrInput {
+	return (*recordTypePtr)(&v)
+}
+
+func (*recordTypePtr) ElementType() reflect.Type {
+	return recordTypePtrType
+}
+
+func (in *recordTypePtr) ToRecordTypePtrOutput() RecordTypePtrOutput {
+	return pulumi.ToOutput(in).(RecordTypePtrOutput)
+}
+
+func (in *recordTypePtr) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RecordTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(RecordTypeOutput{})
+	pulumi.RegisterOutputType(RecordTypePtrOutput{})
 }

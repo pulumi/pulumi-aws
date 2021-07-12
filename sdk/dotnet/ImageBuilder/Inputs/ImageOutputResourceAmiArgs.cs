@@ -9,4 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
+
+    public sealed class ImageOutputResourceAmiArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Account identifier of the AMI.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Description of the AMI.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Identifier of the AMI.
+        /// </summary>
+        [Input("image")]
+        public Input<string>? Image { get; set; }
+
+        /// <summary>
+        /// Name of the AMI.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region of the AMI.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public ImageOutputResourceAmiArgs()
+        {
+        }
+    }
 }

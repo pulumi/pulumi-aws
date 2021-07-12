@@ -9,4 +9,17 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Eks.Inputs
 {
+
+    public sealed class NodeGroupResourceAutoscalingGroupArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// Name of the EC2 Launch Template. Conflicts with `id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public NodeGroupResourceAutoscalingGroupArgs()
+        {
+        }
+    }
 }

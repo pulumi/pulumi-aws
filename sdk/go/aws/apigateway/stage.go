@@ -156,7 +156,7 @@ type stageState struct {
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The ID of the deployment that the stage points to
-	Deployment *string `pulumi:"deployment"`
+	Deployment interface{} `pulumi:"deployment"`
 	// The description of the stage
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation
@@ -169,7 +169,7 @@ type stageState struct {
 	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// The ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The name of the stage
 	StageName *string `pulumi:"stageName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,7 +194,7 @@ type StageState struct {
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// The ID of the deployment that the stage points to
-	Deployment pulumi.StringPtrInput
+	Deployment pulumi.Input
 	// The description of the stage
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation
@@ -207,7 +207,7 @@ type StageState struct {
 	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// The name of the stage
 	StageName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

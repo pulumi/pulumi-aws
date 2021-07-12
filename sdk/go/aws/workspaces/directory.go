@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/directoryservice"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
@@ -93,7 +94,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = workspaces.NewDirectory(ctx, "exampleDirectory", &workspaces.DirectoryArgs{
-// 			DirectoryId: pulumi.String(exampleDirectoryservice / directoryDirectory.Id),
+// 			DirectoryId: exampleDirectoryservice / directoryDirectory.Id,
 // 			SubnetIds: pulumi.StringArray{
 // 				exampleC.ID(),
 // 				exampleD.ID(),

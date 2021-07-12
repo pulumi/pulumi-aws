@@ -9,4 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.ImageBuilder.Inputs
 {
+
+    public sealed class ImageOutputResourceArgs : Pulumi.ResourceArgs
+    {
+        [Input("amis")]
+        private InputList<Inputs.ImageOutputResourceAmiArgs>? _amis;
+
+        /// <summary>
+        /// Set of objects with each Amazon Machine Image (AMI) created.
+        /// </summary>
+        public InputList<Inputs.ImageOutputResourceAmiArgs> Amis
+        {
+            get => _amis ?? (_amis = new InputList<Inputs.ImageOutputResourceAmiArgs>());
+            set => _amis = value;
+        }
+
+        public ImageOutputResourceArgs()
+        {
+        }
+    }
 }

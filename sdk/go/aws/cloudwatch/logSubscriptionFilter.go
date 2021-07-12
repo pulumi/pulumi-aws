@@ -27,7 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudwatch.NewLogSubscriptionFilter(ctx, "testLambdafunctionLogfilter", &cloudwatch.LogSubscriptionFilterArgs{
 // 			RoleArn:        pulumi.Any(aws_iam_role.Iam_for_lambda.Arn),
-// 			LogGroup:       pulumi.String("/aws/lambda/example_lambda_name"),
+// 			LogGroup:       pulumi.Any("/aws/lambda/example_lambda_name"),
 // 			FilterPattern:  pulumi.String("logtype test"),
 // 			DestinationArn: pulumi.Any(aws_kinesis_stream.Test_logstream.Arn),
 // 			Distribution:   pulumi.String("Random"),
@@ -109,7 +109,7 @@ type logSubscriptionFilterState struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
 	FilterPattern *string `pulumi:"filterPattern"`
 	// The name of the log group to associate the subscription filter with
-	LogGroup *string `pulumi:"logGroup"`
+	LogGroup interface{} `pulumi:"logGroup"`
 	// A name for the subscription filter
 	Name *string `pulumi:"name"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
@@ -124,7 +124,7 @@ type LogSubscriptionFilterState struct {
 	// A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events.
 	FilterPattern pulumi.StringPtrInput
 	// The name of the log group to associate the subscription filter with
-	LogGroup pulumi.StringPtrInput
+	LogGroup pulumi.Input
 	// A name for the subscription filter
 	Name pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.

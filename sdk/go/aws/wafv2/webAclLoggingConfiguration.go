@@ -18,6 +18,95 @@ import (
 // Be sure to give the data firehose a name that starts with the prefix `aws-waf-logs-`.
 //
 // ## Example Usage
+// ### With Redacted Fields
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
+// 			LogDestinationConfigs: pulumi.StringArray{
+// 				pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 			},
+// 			ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
+// 			RedactedFields: wafv2.WebAclLoggingConfigurationRedactedFieldArray{
+// 				&wafv2.WebAclLoggingConfigurationRedactedFieldArgs{
+// 					SingleHeader: &wafv2.WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs{
+// 						Name: pulumi.String("user-agent"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### With Logging Filter
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/wafv2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := wafv2.NewWebAclLoggingConfiguration(ctx, "example", &wafv2.WebAclLoggingConfigurationArgs{
+// 			LogDestinationConfigs: pulumi.StringArray{
+// 				pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Arn),
+// 			},
+// 			ResourceArn: pulumi.Any(aws_wafv2_web_acl.Example.Arn),
+// 			LoggingFilter: &wafv2.WebAclLoggingConfigurationLoggingFilterArgs{
+// 				DefaultBehavior: pulumi.String("KEEP"),
+// 				Filters: wafv2.WebAclLoggingConfigurationLoggingFilterFilterArray{
+// 					&wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs{
+// 						Behavior: pulumi.String("DROP"),
+// 						Conditions: wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArray{
+// 							&wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs{
+// 								ActionCondition: &wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs{
+// 									Action: pulumi.String("COUNT"),
+// 								},
+// 							},
+// 							&wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs{
+// 								LabelNameCondition: &wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs{
+// 									LabelName: pulumi.String("awswaf:111122223333:rulegroup:testRules:LabelNameZ"),
+// 								},
+// 							},
+// 						},
+// 						Requirement: pulumi.String("MEETS_ALL"),
+// 					},
+// 					&wafv2.WebAclLoggingConfigurationLoggingFilterFilterArgs{
+// 						Behavior: pulumi.String("KEEP"),
+// 						Conditions: wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArray{
+// 							&wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionArgs{
+// 								ActionCondition: &wafv2.WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs{
+// 									Action: pulumi.String("ALLOW"),
+// 								},
+// 							},
+// 						},
+// 						Requirement: pulumi.String("MEETS_ANY"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

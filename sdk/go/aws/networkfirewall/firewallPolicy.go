@@ -70,9 +70,9 @@ import (
 // 					&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs{
 // 						ActionDefinition: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{
 // 							PublishMetricAction: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{
-// 								Dimension: pulumi.StringMapArray{
-// 									pulumi.StringMap{
-// 										"value": pulumi.String("1"),
+// 								Dimension: []map[string]interface{}{
+// 									map[string]interface{}{
+// 										"value": "1",
 // 									},
 // 								},
 // 							},

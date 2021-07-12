@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type EngineMode pulumi.String
+type EngineMode string
 
 const (
 	EngineModeProvisioned   = EngineMode("provisioned")
@@ -20,7 +20,23 @@ const (
 )
 
 func (EngineMode) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*EngineMode)(nil)).Elem()
+}
+
+func (e EngineMode) ToEngineModeOutput() EngineModeOutput {
+	return pulumi.ToOutput(e).(EngineModeOutput)
+}
+
+func (e EngineMode) ToEngineModeOutputWithContext(ctx context.Context) EngineModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EngineModeOutput)
+}
+
+func (e EngineMode) ToEngineModePtrOutput() EngineModePtrOutput {
+	return e.ToEngineModePtrOutputWithContext(context.Background())
+}
+
+func (e EngineMode) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
+	return EngineMode(e).ToEngineModeOutputWithContext(ctx).ToEngineModePtrOutputWithContext(ctx)
 }
 
 func (e EngineMode) ToStringOutput() pulumi.StringOutput {
@@ -39,7 +55,93 @@ func (e EngineMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type EngineType pulumi.String
+type EngineModeOutput struct{ *pulumi.OutputState }
+
+func (EngineModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EngineMode)(nil)).Elem()
+}
+
+func (o EngineModeOutput) ToEngineModeOutput() EngineModeOutput {
+	return o
+}
+
+func (o EngineModeOutput) ToEngineModeOutputWithContext(ctx context.Context) EngineModeOutput {
+	return o
+}
+
+func (o EngineModeOutput) ToEngineModePtrOutput() EngineModePtrOutput {
+	return o.ToEngineModePtrOutputWithContext(context.Background())
+}
+
+func (o EngineModeOutput) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EngineMode) *EngineMode {
+		return &v
+	}).(EngineModePtrOutput)
+}
+
+type EngineModePtrOutput struct{ *pulumi.OutputState }
+
+func (EngineModePtrOutput) ElementType() reflect.Type {
+	return engineModePtrType
+}
+
+func (o EngineModePtrOutput) ToEngineModePtrOutput() EngineModePtrOutput {
+	return o
+}
+
+func (o EngineModePtrOutput) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
+	return o
+}
+
+func (o EngineModePtrOutput) Elem() EngineModeOutput {
+	return o.ApplyT(func(v *EngineMode) EngineMode {
+		var ret EngineMode
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(EngineModeOutput)
+}
+
+// EngineModeInput is an input type that accepts EngineModeArgs and EngineModeOutput values.
+// You can construct a concrete instance of `EngineModeInput` via:
+//
+//          EngineModeArgs{...}
+type EngineModeInput interface {
+	pulumi.Input
+
+	ToEngineModeOutput() EngineModeOutput
+	ToEngineModeOutputWithContext(context.Context) EngineModeOutput
+}
+
+var engineModePtrType = reflect.TypeOf((**EngineMode)(nil)).Elem()
+
+type EngineModePtrInput interface {
+	pulumi.Input
+
+	ToEngineModePtrOutput() EngineModePtrOutput
+	ToEngineModePtrOutputWithContext(context.Context) EngineModePtrOutput
+}
+
+type engineModePtr string
+
+func EngineModePtr(v string) EngineModePtrInput {
+	return (*engineModePtr)(&v)
+}
+
+func (*engineModePtr) ElementType() reflect.Type {
+	return engineModePtrType
+}
+
+func (in *engineModePtr) ToEngineModePtrOutput() EngineModePtrOutput {
+	return pulumi.ToOutput(in).(EngineModePtrOutput)
+}
+
+func (in *engineModePtr) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EngineModePtrOutput)
+}
+
+type EngineType string
 
 const (
 	EngineTypeAurora           = EngineType("aurora")
@@ -48,7 +150,23 @@ const (
 )
 
 func (EngineType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*EngineType)(nil)).Elem()
+}
+
+func (e EngineType) ToEngineTypeOutput() EngineTypeOutput {
+	return pulumi.ToOutput(e).(EngineTypeOutput)
+}
+
+func (e EngineType) ToEngineTypeOutputWithContext(ctx context.Context) EngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EngineTypeOutput)
+}
+
+func (e EngineType) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return e.ToEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (e EngineType) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return EngineType(e).ToEngineTypeOutputWithContext(ctx).ToEngineTypePtrOutputWithContext(ctx)
 }
 
 func (e EngineType) ToStringOutput() pulumi.StringOutput {
@@ -67,7 +185,93 @@ func (e EngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.Str
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type InstanceType pulumi.String
+type EngineTypeOutput struct{ *pulumi.OutputState }
+
+func (EngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EngineType)(nil)).Elem()
+}
+
+func (o EngineTypeOutput) ToEngineTypeOutput() EngineTypeOutput {
+	return o
+}
+
+func (o EngineTypeOutput) ToEngineTypeOutputWithContext(ctx context.Context) EngineTypeOutput {
+	return o
+}
+
+func (o EngineTypeOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return o.ToEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EngineType) *EngineType {
+		return &v
+	}).(EngineTypePtrOutput)
+}
+
+type EngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EngineTypePtrOutput) ElementType() reflect.Type {
+	return engineTypePtrType
+}
+
+func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return o
+}
+
+func (o EngineTypePtrOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return o
+}
+
+func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
+	return o.ApplyT(func(v *EngineType) EngineType {
+		var ret EngineType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(EngineTypeOutput)
+}
+
+// EngineTypeInput is an input type that accepts EngineTypeArgs and EngineTypeOutput values.
+// You can construct a concrete instance of `EngineTypeInput` via:
+//
+//          EngineTypeArgs{...}
+type EngineTypeInput interface {
+	pulumi.Input
+
+	ToEngineTypeOutput() EngineTypeOutput
+	ToEngineTypeOutputWithContext(context.Context) EngineTypeOutput
+}
+
+var engineTypePtrType = reflect.TypeOf((**EngineType)(nil)).Elem()
+
+type EngineTypePtrInput interface {
+	pulumi.Input
+
+	ToEngineTypePtrOutput() EngineTypePtrOutput
+	ToEngineTypePtrOutputWithContext(context.Context) EngineTypePtrOutput
+}
+
+type engineTypePtr string
+
+func EngineTypePtr(v string) EngineTypePtrInput {
+	return (*engineTypePtr)(&v)
+}
+
+func (*engineTypePtr) ElementType() reflect.Type {
+	return engineTypePtrType
+}
+
+func (in *engineTypePtr) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return pulumi.ToOutput(in).(EngineTypePtrOutput)
+}
+
+func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
+}
+
+type InstanceType string
 
 const (
 	InstanceType_T3_Micro     = InstanceType("db.t3.micro")
@@ -132,7 +336,23 @@ const (
 )
 
 func (InstanceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*InstanceType)(nil)).Elem()
+}
+
+func (e InstanceType) ToInstanceTypeOutput() InstanceTypeOutput {
+	return pulumi.ToOutput(e).(InstanceTypeOutput)
+}
+
+func (e InstanceType) ToInstanceTypeOutputWithContext(ctx context.Context) InstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceTypeOutput)
+}
+
+func (e InstanceType) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return e.ToInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceType) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return InstanceType(e).ToInstanceTypeOutputWithContext(ctx).ToInstanceTypePtrOutputWithContext(ctx)
 }
 
 func (e InstanceType) ToStringOutput() pulumi.StringOutput {
@@ -151,7 +371,93 @@ func (e InstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type StorageType pulumi.String
+type InstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceType)(nil)).Elem()
+}
+
+func (o InstanceTypeOutput) ToInstanceTypeOutput() InstanceTypeOutput {
+	return o
+}
+
+func (o InstanceTypeOutput) ToInstanceTypeOutputWithContext(ctx context.Context) InstanceTypeOutput {
+	return o
+}
+
+func (o InstanceTypeOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return o.ToInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceType) *InstanceType {
+		return &v
+	}).(InstanceTypePtrOutput)
+}
+
+type InstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceTypePtrOutput) ElementType() reflect.Type {
+	return instanceTypePtrType
+}
+
+func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return o
+}
+
+func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return o
+}
+
+func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
+	return o.ApplyT(func(v *InstanceType) InstanceType {
+		var ret InstanceType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(InstanceTypeOutput)
+}
+
+// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
+// You can construct a concrete instance of `InstanceTypeInput` via:
+//
+//          InstanceTypeArgs{...}
+type InstanceTypeInput interface {
+	pulumi.Input
+
+	ToInstanceTypeOutput() InstanceTypeOutput
+	ToInstanceTypeOutputWithContext(context.Context) InstanceTypeOutput
+}
+
+var instanceTypePtrType = reflect.TypeOf((**InstanceType)(nil)).Elem()
+
+type InstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceTypePtrOutput() InstanceTypePtrOutput
+	ToInstanceTypePtrOutputWithContext(context.Context) InstanceTypePtrOutput
+}
+
+type instanceTypePtr string
+
+func InstanceTypePtr(v string) InstanceTypePtrInput {
+	return (*instanceTypePtr)(&v)
+}
+
+func (*instanceTypePtr) ElementType() reflect.Type {
+	return instanceTypePtrType
+}
+
+func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceTypePtrOutput)
+}
+
+func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
+}
+
+type StorageType string
 
 const (
 	StorageTypeStandard = StorageType("standard")
@@ -160,7 +466,23 @@ const (
 )
 
 func (StorageType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*StorageType)(nil)).Elem()
+}
+
+func (e StorageType) ToStorageTypeOutput() StorageTypeOutput {
+	return pulumi.ToOutput(e).(StorageTypeOutput)
+}
+
+func (e StorageType) ToStorageTypeOutputWithContext(ctx context.Context) StorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageTypeOutput)
+}
+
+func (e StorageType) ToStorageTypePtrOutput() StorageTypePtrOutput {
+	return e.ToStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e StorageType) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
+	return StorageType(e).ToStorageTypeOutputWithContext(ctx).ToStorageTypePtrOutputWithContext(ctx)
 }
 
 func (e StorageType) ToStringOutput() pulumi.StringOutput {
@@ -177,4 +499,101 @@ func (e StorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e StorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StorageTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageType)(nil)).Elem()
+}
+
+func (o StorageTypeOutput) ToStorageTypeOutput() StorageTypeOutput {
+	return o
+}
+
+func (o StorageTypeOutput) ToStorageTypeOutputWithContext(ctx context.Context) StorageTypeOutput {
+	return o
+}
+
+func (o StorageTypeOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
+	return o.ToStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o StorageTypeOutput) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageType) *StorageType {
+		return &v
+	}).(StorageTypePtrOutput)
+}
+
+type StorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageTypePtrOutput) ElementType() reflect.Type {
+	return storageTypePtrType
+}
+
+func (o StorageTypePtrOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
+	return o
+}
+
+func (o StorageTypePtrOutput) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
+	return o
+}
+
+func (o StorageTypePtrOutput) Elem() StorageTypeOutput {
+	return o.ApplyT(func(v *StorageType) StorageType {
+		var ret StorageType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(StorageTypeOutput)
+}
+
+// StorageTypeInput is an input type that accepts StorageTypeArgs and StorageTypeOutput values.
+// You can construct a concrete instance of `StorageTypeInput` via:
+//
+//          StorageTypeArgs{...}
+type StorageTypeInput interface {
+	pulumi.Input
+
+	ToStorageTypeOutput() StorageTypeOutput
+	ToStorageTypeOutputWithContext(context.Context) StorageTypeOutput
+}
+
+var storageTypePtrType = reflect.TypeOf((**StorageType)(nil)).Elem()
+
+type StorageTypePtrInput interface {
+	pulumi.Input
+
+	ToStorageTypePtrOutput() StorageTypePtrOutput
+	ToStorageTypePtrOutputWithContext(context.Context) StorageTypePtrOutput
+}
+
+type storageTypePtr string
+
+func StorageTypePtr(v string) StorageTypePtrInput {
+	return (*storageTypePtr)(&v)
+}
+
+func (*storageTypePtr) ElementType() reflect.Type {
+	return storageTypePtrType
+}
+
+func (in *storageTypePtr) ToStorageTypePtrOutput() StorageTypePtrOutput {
+	return pulumi.ToOutput(in).(StorageTypePtrOutput)
+}
+
+func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(EngineModeOutput{})
+	pulumi.RegisterOutputType(EngineModePtrOutput{})
+	pulumi.RegisterOutputType(EngineTypeOutput{})
+	pulumi.RegisterOutputType(EngineTypePtrOutput{})
+	pulumi.RegisterOutputType(InstanceTypeOutput{})
+	pulumi.RegisterOutputType(InstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(StorageTypeOutput{})
+	pulumi.RegisterOutputType(StorageTypePtrOutput{})
 }

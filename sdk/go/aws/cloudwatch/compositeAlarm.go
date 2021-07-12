@@ -32,8 +32,8 @@ import (
 // 		_, err := cloudwatch.NewCompositeAlarm(ctx, "example", &cloudwatch.CompositeAlarmArgs{
 // 			AlarmDescription: pulumi.String("This is a composite alarm!"),
 // 			AlarmName:        pulumi.String("example-composite-alarm"),
-// 			AlarmActions:     aws_sns_topic.Example.Arn,
-// 			OkActions:        aws_sns_topic.Example.Arn,
+// 			AlarmActions:     pulumi.Any(aws_sns_topic.Example.Arn),
+// 			OkActions:        pulumi.Any(aws_sns_topic.Example.Arn),
 // 			AlarmRule:        pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "ALARM(", aws_cloudwatch_metric_alarm.Alpha.Alarm_name, ") OR\n", "ALARM(", aws_cloudwatch_metric_alarm.Bravo.Alarm_name, ")\n")),
 // 		})
 // 		if err != nil {

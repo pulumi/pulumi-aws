@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type InstancePlatform pulumi.String
+type InstancePlatform string
 
 const (
 	InstancePlatformLinuxUnix                      = InstancePlatform("Linux/UNIX")
@@ -24,7 +24,23 @@ const (
 )
 
 func (InstancePlatform) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*InstancePlatform)(nil)).Elem()
+}
+
+func (e InstancePlatform) ToInstancePlatformOutput() InstancePlatformOutput {
+	return pulumi.ToOutput(e).(InstancePlatformOutput)
+}
+
+func (e InstancePlatform) ToInstancePlatformOutputWithContext(ctx context.Context) InstancePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstancePlatformOutput)
+}
+
+func (e InstancePlatform) ToInstancePlatformPtrOutput() InstancePlatformPtrOutput {
+	return e.ToInstancePlatformPtrOutputWithContext(context.Background())
+}
+
+func (e InstancePlatform) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
+	return InstancePlatform(e).ToInstancePlatformOutputWithContext(ctx).ToInstancePlatformPtrOutputWithContext(ctx)
 }
 
 func (e InstancePlatform) ToStringOutput() pulumi.StringOutput {
@@ -43,7 +59,93 @@ func (e InstancePlatform) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type InstanceType pulumi.String
+type InstancePlatformOutput struct{ *pulumi.OutputState }
+
+func (InstancePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePlatform)(nil)).Elem()
+}
+
+func (o InstancePlatformOutput) ToInstancePlatformOutput() InstancePlatformOutput {
+	return o
+}
+
+func (o InstancePlatformOutput) ToInstancePlatformOutputWithContext(ctx context.Context) InstancePlatformOutput {
+	return o
+}
+
+func (o InstancePlatformOutput) ToInstancePlatformPtrOutput() InstancePlatformPtrOutput {
+	return o.ToInstancePlatformPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePlatformOutput) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePlatform) *InstancePlatform {
+		return &v
+	}).(InstancePlatformPtrOutput)
+}
+
+type InstancePlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePlatformPtrOutput) ElementType() reflect.Type {
+	return instancePlatformPtrType
+}
+
+func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutput() InstancePlatformPtrOutput {
+	return o
+}
+
+func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
+	return o
+}
+
+func (o InstancePlatformPtrOutput) Elem() InstancePlatformOutput {
+	return o.ApplyT(func(v *InstancePlatform) InstancePlatform {
+		var ret InstancePlatform
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(InstancePlatformOutput)
+}
+
+// InstancePlatformInput is an input type that accepts InstancePlatformArgs and InstancePlatformOutput values.
+// You can construct a concrete instance of `InstancePlatformInput` via:
+//
+//          InstancePlatformArgs{...}
+type InstancePlatformInput interface {
+	pulumi.Input
+
+	ToInstancePlatformOutput() InstancePlatformOutput
+	ToInstancePlatformOutputWithContext(context.Context) InstancePlatformOutput
+}
+
+var instancePlatformPtrType = reflect.TypeOf((**InstancePlatform)(nil)).Elem()
+
+type InstancePlatformPtrInput interface {
+	pulumi.Input
+
+	ToInstancePlatformPtrOutput() InstancePlatformPtrOutput
+	ToInstancePlatformPtrOutputWithContext(context.Context) InstancePlatformPtrOutput
+}
+
+type instancePlatformPtr string
+
+func InstancePlatformPtr(v string) InstancePlatformPtrInput {
+	return (*instancePlatformPtr)(&v)
+}
+
+func (*instancePlatformPtr) ElementType() reflect.Type {
+	return instancePlatformPtrType
+}
+
+func (in *instancePlatformPtr) ToInstancePlatformPtrOutput() InstancePlatformPtrOutput {
+	return pulumi.ToOutput(in).(InstancePlatformPtrOutput)
+}
+
+func (in *instancePlatformPtr) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstancePlatformPtrOutput)
+}
+
+type InstanceType string
 
 const (
 	InstanceType_A1_2XLarge    = InstanceType("a1.2xlarge")
@@ -428,7 +530,23 @@ const (
 )
 
 func (InstanceType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*InstanceType)(nil)).Elem()
+}
+
+func (e InstanceType) ToInstanceTypeOutput() InstanceTypeOutput {
+	return pulumi.ToOutput(e).(InstanceTypeOutput)
+}
+
+func (e InstanceType) ToInstanceTypeOutputWithContext(ctx context.Context) InstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InstanceTypeOutput)
+}
+
+func (e InstanceType) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return e.ToInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (e InstanceType) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return InstanceType(e).ToInstanceTypeOutputWithContext(ctx).ToInstanceTypePtrOutputWithContext(ctx)
 }
 
 func (e InstanceType) ToStringOutput() pulumi.StringOutput {
@@ -447,9 +565,95 @@ func (e InstanceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
+type InstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (InstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceType)(nil)).Elem()
+}
+
+func (o InstanceTypeOutput) ToInstanceTypeOutput() InstanceTypeOutput {
+	return o
+}
+
+func (o InstanceTypeOutput) ToInstanceTypeOutputWithContext(ctx context.Context) InstanceTypeOutput {
+	return o
+}
+
+func (o InstanceTypeOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return o.ToInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceType) *InstanceType {
+		return &v
+	}).(InstanceTypePtrOutput)
+}
+
+type InstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceTypePtrOutput) ElementType() reflect.Type {
+	return instanceTypePtrType
+}
+
+func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return o
+}
+
+func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return o
+}
+
+func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
+	return o.ApplyT(func(v *InstanceType) InstanceType {
+		var ret InstanceType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(InstanceTypeOutput)
+}
+
+// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
+// You can construct a concrete instance of `InstanceTypeInput` via:
+//
+//          InstanceTypeArgs{...}
+type InstanceTypeInput interface {
+	pulumi.Input
+
+	ToInstanceTypeOutput() InstanceTypeOutput
+	ToInstanceTypeOutputWithContext(context.Context) InstanceTypeOutput
+}
+
+var instanceTypePtrType = reflect.TypeOf((**InstanceType)(nil)).Elem()
+
+type InstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToInstanceTypePtrOutput() InstanceTypePtrOutput
+	ToInstanceTypePtrOutputWithContext(context.Context) InstanceTypePtrOutput
+}
+
+type instanceTypePtr string
+
+func InstanceTypePtr(v string) InstanceTypePtrInput {
+	return (*instanceTypePtr)(&v)
+}
+
+func (*instanceTypePtr) ElementType() reflect.Type {
+	return instanceTypePtrType
+}
+
+func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
+	return pulumi.ToOutput(in).(InstanceTypePtrOutput)
+}
+
+func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
+}
+
 // The strategy of the placement group determines how the instances are organized within the group.
 // See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html
-type PlacementStrategy pulumi.String
+type PlacementStrategy string
 
 const (
 	// A `spread` placement group places instances on distinct hardware.
@@ -460,7 +664,23 @@ const (
 )
 
 func (PlacementStrategy) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*PlacementStrategy)(nil)).Elem()
+}
+
+func (e PlacementStrategy) ToPlacementStrategyOutput() PlacementStrategyOutput {
+	return pulumi.ToOutput(e).(PlacementStrategyOutput)
+}
+
+func (e PlacementStrategy) ToPlacementStrategyOutputWithContext(ctx context.Context) PlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlacementStrategyOutput)
+}
+
+func (e PlacementStrategy) ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput {
+	return e.ToPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e PlacementStrategy) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
+	return PlacementStrategy(e).ToPlacementStrategyOutputWithContext(ctx).ToPlacementStrategyPtrOutputWithContext(ctx)
 }
 
 func (e PlacementStrategy) ToStringOutput() pulumi.StringOutput {
@@ -479,7 +699,93 @@ func (e PlacementStrategy) ToStringPtrOutputWithContext(ctx context.Context) pul
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type ProtocolType pulumi.String
+type PlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (PlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlacementStrategy)(nil)).Elem()
+}
+
+func (o PlacementStrategyOutput) ToPlacementStrategyOutput() PlacementStrategyOutput {
+	return o
+}
+
+func (o PlacementStrategyOutput) ToPlacementStrategyOutputWithContext(ctx context.Context) PlacementStrategyOutput {
+	return o
+}
+
+func (o PlacementStrategyOutput) ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput {
+	return o.ToPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementStrategyOutput) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlacementStrategy) *PlacementStrategy {
+		return &v
+	}).(PlacementStrategyPtrOutput)
+}
+
+type PlacementStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (PlacementStrategyPtrOutput) ElementType() reflect.Type {
+	return placementStrategyPtrType
+}
+
+func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput {
+	return o
+}
+
+func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
+	return o
+}
+
+func (o PlacementStrategyPtrOutput) Elem() PlacementStrategyOutput {
+	return o.ApplyT(func(v *PlacementStrategy) PlacementStrategy {
+		var ret PlacementStrategy
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(PlacementStrategyOutput)
+}
+
+// PlacementStrategyInput is an input type that accepts PlacementStrategyArgs and PlacementStrategyOutput values.
+// You can construct a concrete instance of `PlacementStrategyInput` via:
+//
+//          PlacementStrategyArgs{...}
+type PlacementStrategyInput interface {
+	pulumi.Input
+
+	ToPlacementStrategyOutput() PlacementStrategyOutput
+	ToPlacementStrategyOutputWithContext(context.Context) PlacementStrategyOutput
+}
+
+var placementStrategyPtrType = reflect.TypeOf((**PlacementStrategy)(nil)).Elem()
+
+type PlacementStrategyPtrInput interface {
+	pulumi.Input
+
+	ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput
+	ToPlacementStrategyPtrOutputWithContext(context.Context) PlacementStrategyPtrOutput
+}
+
+type placementStrategyPtr string
+
+func PlacementStrategyPtr(v string) PlacementStrategyPtrInput {
+	return (*placementStrategyPtr)(&v)
+}
+
+func (*placementStrategyPtr) ElementType() reflect.Type {
+	return placementStrategyPtrType
+}
+
+func (in *placementStrategyPtr) ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput {
+	return pulumi.ToOutput(in).(PlacementStrategyPtrOutput)
+}
+
+func (in *placementStrategyPtr) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlacementStrategyPtrOutput)
+}
+
+type ProtocolType string
 
 const (
 	ProtocolTypeAll  = ProtocolType("all")
@@ -489,7 +795,23 @@ const (
 )
 
 func (ProtocolType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ProtocolType)(nil)).Elem()
+}
+
+func (e ProtocolType) ToProtocolTypeOutput() ProtocolTypeOutput {
+	return pulumi.ToOutput(e).(ProtocolTypeOutput)
+}
+
+func (e ProtocolType) ToProtocolTypeOutputWithContext(ctx context.Context) ProtocolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProtocolTypeOutput)
+}
+
+func (e ProtocolType) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
+	return e.ToProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (e ProtocolType) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
+	return ProtocolType(e).ToProtocolTypeOutputWithContext(ctx).ToProtocolTypePtrOutputWithContext(ctx)
 }
 
 func (e ProtocolType) ToStringOutput() pulumi.StringOutput {
@@ -508,7 +830,93 @@ func (e ProtocolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type Tenancy pulumi.String
+type ProtocolTypeOutput struct{ *pulumi.OutputState }
+
+func (ProtocolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtocolType)(nil)).Elem()
+}
+
+func (o ProtocolTypeOutput) ToProtocolTypeOutput() ProtocolTypeOutput {
+	return o
+}
+
+func (o ProtocolTypeOutput) ToProtocolTypeOutputWithContext(ctx context.Context) ProtocolTypeOutput {
+	return o
+}
+
+func (o ProtocolTypeOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
+	return o.ToProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolTypeOutput) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtocolType) *ProtocolType {
+		return &v
+	}).(ProtocolTypePtrOutput)
+}
+
+type ProtocolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolTypePtrOutput) ElementType() reflect.Type {
+	return protocolTypePtrType
+}
+
+func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
+	return o
+}
+
+func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
+	return o
+}
+
+func (o ProtocolTypePtrOutput) Elem() ProtocolTypeOutput {
+	return o.ApplyT(func(v *ProtocolType) ProtocolType {
+		var ret ProtocolType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ProtocolTypeOutput)
+}
+
+// ProtocolTypeInput is an input type that accepts ProtocolTypeArgs and ProtocolTypeOutput values.
+// You can construct a concrete instance of `ProtocolTypeInput` via:
+//
+//          ProtocolTypeArgs{...}
+type ProtocolTypeInput interface {
+	pulumi.Input
+
+	ToProtocolTypeOutput() ProtocolTypeOutput
+	ToProtocolTypeOutputWithContext(context.Context) ProtocolTypeOutput
+}
+
+var protocolTypePtrType = reflect.TypeOf((**ProtocolType)(nil)).Elem()
+
+type ProtocolTypePtrInput interface {
+	pulumi.Input
+
+	ToProtocolTypePtrOutput() ProtocolTypePtrOutput
+	ToProtocolTypePtrOutputWithContext(context.Context) ProtocolTypePtrOutput
+}
+
+type protocolTypePtr string
+
+func ProtocolTypePtr(v string) ProtocolTypePtrInput {
+	return (*protocolTypePtr)(&v)
+}
+
+func (*protocolTypePtr) ElementType() reflect.Type {
+	return protocolTypePtrType
+}
+
+func (in *protocolTypePtr) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
+	return pulumi.ToOutput(in).(ProtocolTypePtrOutput)
+}
+
+func (in *protocolTypePtr) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProtocolTypePtrOutput)
+}
+
+type Tenancy string
 
 const (
 	TenancyDefault   = Tenancy("default")
@@ -516,7 +924,23 @@ const (
 )
 
 func (Tenancy) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Tenancy)(nil)).Elem()
+}
+
+func (e Tenancy) ToTenancyOutput() TenancyOutput {
+	return pulumi.ToOutput(e).(TenancyOutput)
+}
+
+func (e Tenancy) ToTenancyOutputWithContext(ctx context.Context) TenancyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TenancyOutput)
+}
+
+func (e Tenancy) ToTenancyPtrOutput() TenancyPtrOutput {
+	return e.ToTenancyPtrOutputWithContext(context.Background())
+}
+
+func (e Tenancy) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
+	return Tenancy(e).ToTenancyOutputWithContext(ctx).ToTenancyPtrOutputWithContext(ctx)
 }
 
 func (e Tenancy) ToStringOutput() pulumi.StringOutput {
@@ -533,4 +957,103 @@ func (e Tenancy) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e Tenancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TenancyOutput struct{ *pulumi.OutputState }
+
+func (TenancyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Tenancy)(nil)).Elem()
+}
+
+func (o TenancyOutput) ToTenancyOutput() TenancyOutput {
+	return o
+}
+
+func (o TenancyOutput) ToTenancyOutputWithContext(ctx context.Context) TenancyOutput {
+	return o
+}
+
+func (o TenancyOutput) ToTenancyPtrOutput() TenancyPtrOutput {
+	return o.ToTenancyPtrOutputWithContext(context.Background())
+}
+
+func (o TenancyOutput) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Tenancy) *Tenancy {
+		return &v
+	}).(TenancyPtrOutput)
+}
+
+type TenancyPtrOutput struct{ *pulumi.OutputState }
+
+func (TenancyPtrOutput) ElementType() reflect.Type {
+	return tenancyPtrType
+}
+
+func (o TenancyPtrOutput) ToTenancyPtrOutput() TenancyPtrOutput {
+	return o
+}
+
+func (o TenancyPtrOutput) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
+	return o
+}
+
+func (o TenancyPtrOutput) Elem() TenancyOutput {
+	return o.ApplyT(func(v *Tenancy) Tenancy {
+		var ret Tenancy
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(TenancyOutput)
+}
+
+// TenancyInput is an input type that accepts TenancyArgs and TenancyOutput values.
+// You can construct a concrete instance of `TenancyInput` via:
+//
+//          TenancyArgs{...}
+type TenancyInput interface {
+	pulumi.Input
+
+	ToTenancyOutput() TenancyOutput
+	ToTenancyOutputWithContext(context.Context) TenancyOutput
+}
+
+var tenancyPtrType = reflect.TypeOf((**Tenancy)(nil)).Elem()
+
+type TenancyPtrInput interface {
+	pulumi.Input
+
+	ToTenancyPtrOutput() TenancyPtrOutput
+	ToTenancyPtrOutputWithContext(context.Context) TenancyPtrOutput
+}
+
+type tenancyPtr string
+
+func TenancyPtr(v string) TenancyPtrInput {
+	return (*tenancyPtr)(&v)
+}
+
+func (*tenancyPtr) ElementType() reflect.Type {
+	return tenancyPtrType
+}
+
+func (in *tenancyPtr) ToTenancyPtrOutput() TenancyPtrOutput {
+	return pulumi.ToOutput(in).(TenancyPtrOutput)
+}
+
+func (in *tenancyPtr) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TenancyPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(InstancePlatformOutput{})
+	pulumi.RegisterOutputType(InstancePlatformPtrOutput{})
+	pulumi.RegisterOutputType(InstanceTypeOutput{})
+	pulumi.RegisterOutputType(InstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(PlacementStrategyOutput{})
+	pulumi.RegisterOutputType(PlacementStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolTypeOutput{})
+	pulumi.RegisterOutputType(ProtocolTypePtrOutput{})
+	pulumi.RegisterOutputType(TenancyOutput{})
+	pulumi.RegisterOutputType(TenancyPtrOutput{})
 }

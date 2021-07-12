@@ -22,6 +22,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -98,14 +99,14 @@ func GetQueuePolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering QueuePolicy resources.
 type queuePolicyState struct {
 	// The JSON policy for the SQS queue.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl *string `pulumi:"queueUrl"`
 }
 
 type QueuePolicyState struct {
 	// The JSON policy for the SQS queue.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// The URL of the SQS Queue to which to attach the policy
 	QueueUrl pulumi.StringPtrInput
 }

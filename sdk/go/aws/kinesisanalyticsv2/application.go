@@ -222,6 +222,62 @@ import (
 // 	})
 // }
 // ```
+// ### VPC Configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesisanalyticsv2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleBucketObject, err := s3.NewBucketObject(ctx, "exampleBucketObject", &s3.BucketObjectArgs{
+// 			Bucket: exampleBucket.Bucket,
+// 			Key:    pulumi.String("example-flink-application"),
+// 			Source: pulumi.NewFileAsset("flink-app.jar"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kinesisanalyticsv2.NewApplication(ctx, "exampleApplication", &kinesisanalyticsv2.ApplicationArgs{
+// 			RuntimeEnvironment:   pulumi.String("FLINK-1_8"),
+// 			ServiceExecutionRole: pulumi.Any(aws_iam_role.Example.Arn),
+// 			ApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationArgs{
+// 				ApplicationCodeConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationArgs{
+// 					CodeContent: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs{
+// 						S3ContentLocation: &kinesisanalyticsv2.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs{
+// 							BucketArn: exampleBucket.Arn,
+// 							FileKey:   exampleBucketObject.Key,
+// 						},
+// 					},
+// 					CodeContentType: pulumi.String("ZIPFILE"),
+// 				},
+// 				VpcConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs{
+// 					SecurityGroupIds: pulumi.StringArray{
+// 						pulumi.Any(aws_security_group.Example[0].Id),
+// 						pulumi.Any(aws_security_group.Example[1].Id),
+// 					},
+// 					SubnetIds: pulumi.StringArray{
+// 						pulumi.Any(aws_subnet.Example.Id),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

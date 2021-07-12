@@ -41,7 +41,7 @@ import (
 // 			return err
 // 		}
 // 		opt0 := "available"
-// 		azs, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// 		azs, err := aws.GetAvailabilityZones(ctx, &GetAvailabilityZonesArgs{
 // 			State: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -94,7 +94,7 @@ import (
 // 			return err
 // 		}
 // 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "\"Version\": \"2012-10-17\",\n", "\"Statement\": [\n", "  {\n", "    \"Action\": \"sts:AssumeRole\",\n", "    \"Principal\": {\n", "      \"Service\": \"firehose.amazonaws.com\"\n", "    },\n", "    \"Effect\": \"Allow\",\n", "    \"Sid\": \"\"\n", "  }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "\"Version\": \"2012-10-17\",\n", "\"Statement\": [\n", "  {\n", "    \"Action\": \"sts:AssumeRole\",\n", "    \"Principal\": {\n", "      \"Service\": \"firehose.amazonaws.com\"\n", "    },\n", "    \"Effect\": \"Allow\",\n", "    \"Sid\": \"\"\n", "  }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

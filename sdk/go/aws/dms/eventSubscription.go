@@ -13,6 +13,41 @@ import (
 
 // Provides a DMS (Data Migration Service) event subscription resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/dms"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := dms.NewEventSubscription(ctx, "example", &dms.EventSubscriptionArgs{
+// 			Enabled: pulumi.Bool(true),
+// 			EventCategories: pulumi.StringArray{
+// 				pulumi.String("creation"),
+// 				pulumi.String("failure"),
+// 			},
+// 			SnsTopicArn: pulumi.Any(aws_sns_topic.Example.Arn),
+// 			SourceIds: pulumi.StringArray{
+// 				pulumi.Any(aws_dms_replication_task.Example.Replication_task_id),
+// 			},
+// 			SourceType: pulumi.String("replication-task"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Event subscriptions can be imported using the `name`, e.g.

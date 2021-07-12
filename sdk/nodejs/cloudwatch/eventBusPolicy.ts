@@ -71,6 +71,54 @@ import * as utilities from "../utilities";
  *     eventBusName: aws_cloudwatch_event_bus.test.name,
  * });
  * ```
+ * ### Multiple Statements
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testPolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "DevAccountAccess",
+ *             effect: "Allow",
+ *             actions: ["events:PutEvents"],
+ *             resources: ["arn:aws:events:eu-west-1:123456789012:event-bus/default"],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["123456789012"],
+ *             }],
+ *         },
+ *         {
+ *             sid: "OrganizationAccess",
+ *             effect: "Allow",
+ *             actions: [
+ *                 "events:DescribeRule",
+ *                 "events:ListRules",
+ *                 "events:ListTargetsByRule",
+ *                 "events:ListTagsForResource",
+ *             ],
+ *             resources: [
+ *                 "arn:aws:events:eu-west-1:123456789012:rule/*",
+ *                 "arn:aws:events:eu-west-1:123456789012:event-bus/default",
+ *             ],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "aws:PrincipalOrgID",
+ *                 values: aws_organizations_organization.example.id,
+ *             }],
+ *         },
+ *     ],
+ * });
+ * const testEventBusPolicy = new aws.cloudwatch.EventBusPolicy("testEventBusPolicy", {
+ *     policy: testPolicyDocument.then(testPolicyDocument => testPolicyDocument.json),
+ *     eventBusName: aws_cloudwatch_event_bus.test.name,
+ * });
+ * ```
  *
  * ## Import
  *

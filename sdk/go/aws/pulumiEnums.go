@@ -11,7 +11,7 @@ import (
 )
 
 // A Region represents any valid Amazon region that may be targeted with deployments.
-type Region pulumi.String
+type Region string
 
 const (
 	RegionAFSouth1     = Region("af-south-1")
@@ -41,7 +41,23 @@ const (
 )
 
 func (Region) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*Region)(nil)).Elem()
+}
+
+func (e Region) ToRegionOutput() RegionOutput {
+	return pulumi.ToOutput(e).(RegionOutput)
+}
+
+func (e Region) ToRegionOutputWithContext(ctx context.Context) RegionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RegionOutput)
+}
+
+func (e Region) ToRegionPtrOutput() RegionPtrOutput {
+	return e.ToRegionPtrOutputWithContext(context.Background())
+}
+
+func (e Region) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
+	return Region(e).ToRegionOutputWithContext(ctx).ToRegionPtrOutputWithContext(ctx)
 }
 
 func (e Region) ToStringOutput() pulumi.StringOutput {
@@ -58,4 +74,95 @@ func (e Region) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e Region) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RegionOutput struct{ *pulumi.OutputState }
+
+func (RegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Region)(nil)).Elem()
+}
+
+func (o RegionOutput) ToRegionOutput() RegionOutput {
+	return o
+}
+
+func (o RegionOutput) ToRegionOutputWithContext(ctx context.Context) RegionOutput {
+	return o
+}
+
+func (o RegionOutput) ToRegionPtrOutput() RegionPtrOutput {
+	return o.ToRegionPtrOutputWithContext(context.Background())
+}
+
+func (o RegionOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Region) *Region {
+		return &v
+	}).(RegionPtrOutput)
+}
+
+type RegionPtrOutput struct{ *pulumi.OutputState }
+
+func (RegionPtrOutput) ElementType() reflect.Type {
+	return regionPtrType
+}
+
+func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
+	return o
+}
+
+func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
+	return o
+}
+
+func (o RegionPtrOutput) Elem() RegionOutput {
+	return o.ApplyT(func(v *Region) Region {
+		var ret Region
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(RegionOutput)
+}
+
+// RegionInput is an input type that accepts RegionArgs and RegionOutput values.
+// You can construct a concrete instance of `RegionInput` via:
+//
+//          RegionArgs{...}
+type RegionInput interface {
+	pulumi.Input
+
+	ToRegionOutput() RegionOutput
+	ToRegionOutputWithContext(context.Context) RegionOutput
+}
+
+var regionPtrType = reflect.TypeOf((**Region)(nil)).Elem()
+
+type RegionPtrInput interface {
+	pulumi.Input
+
+	ToRegionPtrOutput() RegionPtrOutput
+	ToRegionPtrOutputWithContext(context.Context) RegionPtrOutput
+}
+
+type regionPtr string
+
+func RegionPtr(v string) RegionPtrInput {
+	return (*regionPtr)(&v)
+}
+
+func (*regionPtr) ElementType() reflect.Type {
+	return regionPtrType
+}
+
+func (in *regionPtr) ToRegionPtrOutput() RegionPtrOutput {
+	return pulumi.ToOutput(in).(RegionPtrOutput)
+}
+
+func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RegionPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(RegionOutput{})
+	pulumi.RegisterOutputType(RegionPtrOutput{})
 }

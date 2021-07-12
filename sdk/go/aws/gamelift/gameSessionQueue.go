@@ -12,6 +12,42 @@ import (
 
 // Provides an Gamelift Game Session Queue resource.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/gamelift"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
+// 			Destinations: pulumi.StringArray{
+// 				pulumi.Any(aws_gamelift_fleet.Us_west_2_fleet.Arn),
+// 				pulumi.Any(aws_gamelift_fleet.Eu_central_1_fleet.Arn),
+// 			},
+// 			PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
+// 				&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+// 					MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
+// 					PolicyDurationSeconds:                      pulumi.Int(5),
+// 				},
+// 				&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
+// 					MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
+// 				},
+// 			},
+// 			TimeoutInSeconds: pulumi.Int(60),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Gamelift Game Session Queues can be imported by their `name`, e.g.

@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -33,7 +34,7 @@ import (
 // 		}
 // 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
 // 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.String("{ ... policy JSON ... }"),
+// 			Policy:      pulumi.Any("{ ... policy JSON ... }"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -104,14 +105,14 @@ type userPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 	// The user the policy should be applied to
-	User *string `pulumi:"user"`
+	User interface{} `pulumi:"user"`
 }
 
 type UserPolicyAttachmentState struct {
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 	// The user the policy should be applied to
-	User pulumi.StringPtrInput
+	User pulumi.Input
 }
 
 func (UserPolicyAttachmentState) ElementType() reflect.Type {

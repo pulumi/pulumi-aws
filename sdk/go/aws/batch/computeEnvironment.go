@@ -28,6 +28,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
@@ -37,7 +38,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		ecsInstanceRoleRole, err := iam.NewRole(ctx, "ecsInstanceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "	        \"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "	        \"Service\": \"ec2.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -56,7 +57,7 @@ import (
 // 			return err
 // 		}
 // 		awsBatchServiceRoleRole, err := iam.NewRole(ctx, "awsBatchServiceRoleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"batch.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "	{\n", "	    \"Action\": \"sts:AssumeRole\",\n", "	    \"Effect\": \"Allow\",\n", "	    \"Principal\": {\n", "		\"Service\": \"batch.amazonaws.com\"\n", "	    }\n", "	}\n", "    ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -118,6 +119,42 @@ import (
 // 			Type:        pulumi.String("MANAGED"),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			awsBatchServiceRoleRolePolicyAttachment,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Fargate Type
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/batch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := batch.NewComputeEnvironment(ctx, "sample", &batch.ComputeEnvironmentArgs{
+// 			ComputeEnvironmentName: pulumi.String("sample"),
+// 			ComputeResources: &batch.ComputeEnvironmentComputeResourcesArgs{
+// 				MaxVcpus: pulumi.Int(16),
+// 				SecurityGroupIds: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.Sample.Id),
+// 				},
+// 				Subnets: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Sample.Id),
+// 				},
+// 				Type: pulumi.String("FARGATE"),
+// 			},
+// 			ServiceRole: pulumi.Any(aws_iam_role.Aws_batch_service_role.Arn),
+// 			Type:        pulumi.String("MANAGED"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_role_policy_attachment.Aws_batch_service_role,
 // 		}))
 // 		if err != nil {
 // 			return err

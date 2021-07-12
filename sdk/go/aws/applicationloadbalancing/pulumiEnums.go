@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type IpAddressType pulumi.String
+type IpAddressType string
 
 const (
 	IpAddressTypeIpv4      = IpAddressType("ipv4")
@@ -18,7 +18,23 @@ const (
 )
 
 func (IpAddressType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*IpAddressType)(nil)).Elem()
+}
+
+func (e IpAddressType) ToIpAddressTypeOutput() IpAddressTypeOutput {
+	return pulumi.ToOutput(e).(IpAddressTypeOutput)
+}
+
+func (e IpAddressType) ToIpAddressTypeOutputWithContext(ctx context.Context) IpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IpAddressTypeOutput)
+}
+
+func (e IpAddressType) ToIpAddressTypePtrOutput() IpAddressTypePtrOutput {
+	return e.ToIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e IpAddressType) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
+	return IpAddressType(e).ToIpAddressTypeOutputWithContext(ctx).ToIpAddressTypePtrOutputWithContext(ctx)
 }
 
 func (e IpAddressType) ToStringOutput() pulumi.StringOutput {
@@ -37,7 +53,93 @@ func (e IpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
 }
 
-type LoadBalancerType pulumi.String
+type IpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (IpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpAddressType)(nil)).Elem()
+}
+
+func (o IpAddressTypeOutput) ToIpAddressTypeOutput() IpAddressTypeOutput {
+	return o
+}
+
+func (o IpAddressTypeOutput) ToIpAddressTypeOutputWithContext(ctx context.Context) IpAddressTypeOutput {
+	return o
+}
+
+func (o IpAddressTypeOutput) ToIpAddressTypePtrOutput() IpAddressTypePtrOutput {
+	return o.ToIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o IpAddressTypeOutput) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpAddressType) *IpAddressType {
+		return &v
+	}).(IpAddressTypePtrOutput)
+}
+
+type IpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IpAddressTypePtrOutput) ElementType() reflect.Type {
+	return ipAddressTypePtrType
+}
+
+func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutput() IpAddressTypePtrOutput {
+	return o
+}
+
+func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
+	return o
+}
+
+func (o IpAddressTypePtrOutput) Elem() IpAddressTypeOutput {
+	return o.ApplyT(func(v *IpAddressType) IpAddressType {
+		var ret IpAddressType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(IpAddressTypeOutput)
+}
+
+// IpAddressTypeInput is an input type that accepts IpAddressTypeArgs and IpAddressTypeOutput values.
+// You can construct a concrete instance of `IpAddressTypeInput` via:
+//
+//          IpAddressTypeArgs{...}
+type IpAddressTypeInput interface {
+	pulumi.Input
+
+	ToIpAddressTypeOutput() IpAddressTypeOutput
+	ToIpAddressTypeOutputWithContext(context.Context) IpAddressTypeOutput
+}
+
+var ipAddressTypePtrType = reflect.TypeOf((**IpAddressType)(nil)).Elem()
+
+type IpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToIpAddressTypePtrOutput() IpAddressTypePtrOutput
+	ToIpAddressTypePtrOutputWithContext(context.Context) IpAddressTypePtrOutput
+}
+
+type ipAddressTypePtr string
+
+func IpAddressTypePtr(v string) IpAddressTypePtrInput {
+	return (*ipAddressTypePtr)(&v)
+}
+
+func (*ipAddressTypePtr) ElementType() reflect.Type {
+	return ipAddressTypePtrType
+}
+
+func (in *ipAddressTypePtr) ToIpAddressTypePtrOutput() IpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(IpAddressTypePtrOutput)
+}
+
+func (in *ipAddressTypePtr) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IpAddressTypePtrOutput)
+}
+
+type LoadBalancerType string
 
 const (
 	LoadBalancerTypeApplication = LoadBalancerType("application")
@@ -45,7 +147,23 @@ const (
 )
 
 func (LoadBalancerType) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*LoadBalancerType)(nil)).Elem()
+}
+
+func (e LoadBalancerType) ToLoadBalancerTypeOutput() LoadBalancerTypeOutput {
+	return pulumi.ToOutput(e).(LoadBalancerTypeOutput)
+}
+
+func (e LoadBalancerType) ToLoadBalancerTypeOutputWithContext(ctx context.Context) LoadBalancerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LoadBalancerTypeOutput)
+}
+
+func (e LoadBalancerType) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
+	return e.ToLoadBalancerTypePtrOutputWithContext(context.Background())
+}
+
+func (e LoadBalancerType) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
+	return LoadBalancerType(e).ToLoadBalancerTypeOutputWithContext(ctx).ToLoadBalancerTypePtrOutputWithContext(ctx)
 }
 
 func (e LoadBalancerType) ToStringOutput() pulumi.StringOutput {
@@ -62,4 +180,97 @@ func (e LoadBalancerType) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e LoadBalancerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LoadBalancerTypeOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerType)(nil)).Elem()
+}
+
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutput() LoadBalancerTypeOutput {
+	return o
+}
+
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypeOutputWithContext(ctx context.Context) LoadBalancerTypeOutput {
+	return o
+}
+
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
+	return o.ToLoadBalancerTypePtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerTypeOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerType) *LoadBalancerType {
+		return &v
+	}).(LoadBalancerTypePtrOutput)
+}
+
+type LoadBalancerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerTypePtrOutput) ElementType() reflect.Type {
+	return loadBalancerTypePtrType
+}
+
+func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
+	return o
+}
+
+func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
+	return o
+}
+
+func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {
+	return o.ApplyT(func(v *LoadBalancerType) LoadBalancerType {
+		var ret LoadBalancerType
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(LoadBalancerTypeOutput)
+}
+
+// LoadBalancerTypeInput is an input type that accepts LoadBalancerTypeArgs and LoadBalancerTypeOutput values.
+// You can construct a concrete instance of `LoadBalancerTypeInput` via:
+//
+//          LoadBalancerTypeArgs{...}
+type LoadBalancerTypeInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTypeOutput() LoadBalancerTypeOutput
+	ToLoadBalancerTypeOutputWithContext(context.Context) LoadBalancerTypeOutput
+}
+
+var loadBalancerTypePtrType = reflect.TypeOf((**LoadBalancerType)(nil)).Elem()
+
+type LoadBalancerTypePtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput
+	ToLoadBalancerTypePtrOutputWithContext(context.Context) LoadBalancerTypePtrOutput
+}
+
+type loadBalancerTypePtr string
+
+func LoadBalancerTypePtr(v string) LoadBalancerTypePtrInput {
+	return (*loadBalancerTypePtr)(&v)
+}
+
+func (*loadBalancerTypePtr) ElementType() reflect.Type {
+	return loadBalancerTypePtrType
+}
+
+func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
+	return pulumi.ToOutput(in).(LoadBalancerTypePtrOutput)
+}
+
+func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LoadBalancerTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(IpAddressTypeOutput{})
+	pulumi.RegisterOutputType(IpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTypeOutput{})
+	pulumi.RegisterOutputType(LoadBalancerTypePtrOutput{})
 }

@@ -61,6 +61,74 @@ import (
 // 	})
 // }
 // ```
+// ### VPC Endpoint
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+// 			EndpointType: pulumi.String("VPC"),
+// 			EndpointDetails: &transfer.ServerEndpointDetailsArgs{
+// 				AddressAllocationIds: pulumi.StringArray{
+// 					pulumi.Any(aws_eip.Example.Id),
+// 				},
+// 				SubnetIds: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Example.Id),
+// 				},
+// 				VpcId: pulumi.Any(aws_vpc.Example.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Protocols
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/transfer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
+// 			EndpointType: pulumi.String("VPC"),
+// 			EndpointDetails: &transfer.ServerEndpointDetailsArgs{
+// 				SubnetIds: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Example.Id),
+// 				},
+// 				VpcId: pulumi.Any(aws_vpc.Example.Id),
+// 			},
+// 			Protocols: pulumi.StringArray{
+// 				pulumi.String("FTP"),
+// 				pulumi.String("FTPS"),
+// 			},
+// 			Certificate:          pulumi.Any(aws_acm_certificate.Example.Arn),
+// 			IdentityProviderType: pulumi.String("API_GATEWAY"),
+// 			Url:                  pulumi.String(fmt.Sprintf("%v%v", aws_api_gateway_deployment.Example.Invoke_url, aws_api_gateway_resource.Example.Path)),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

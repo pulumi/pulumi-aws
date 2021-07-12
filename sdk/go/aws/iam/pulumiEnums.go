@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ManagedPolicy pulumi.String
+type ManagedPolicy string
 
 const (
 	ManagedPolicyAWSAccountActivityAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSAccountActivityAccess")
@@ -292,7 +292,23 @@ const (
 )
 
 func (ManagedPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*pulumi.String)(nil)).Elem()
+	return reflect.TypeOf((*ManagedPolicy)(nil)).Elem()
+}
+
+func (e ManagedPolicy) ToManagedPolicyOutput() ManagedPolicyOutput {
+	return pulumi.ToOutput(e).(ManagedPolicyOutput)
+}
+
+func (e ManagedPolicy) ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ManagedPolicyOutput)
+}
+
+func (e ManagedPolicy) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
+	return e.ToManagedPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e ManagedPolicy) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
+	return ManagedPolicy(e).ToManagedPolicyOutputWithContext(ctx).ToManagedPolicyPtrOutputWithContext(ctx)
 }
 
 func (e ManagedPolicy) ToStringOutput() pulumi.StringOutput {
@@ -309,4 +325,95 @@ func (e ManagedPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
 
 func (e ManagedPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
 	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ManagedPolicyOutput struct{ *pulumi.OutputState }
+
+func (ManagedPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPolicy)(nil)).Elem()
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyOutput() ManagedPolicyOutput {
+	return o
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyOutputWithContext(ctx context.Context) ManagedPolicyOutput {
+	return o
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
+	return o.ToManagedPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPolicyOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedPolicy) *ManagedPolicy {
+		return &v
+	}).(ManagedPolicyPtrOutput)
+}
+
+type ManagedPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedPolicyPtrOutput) ElementType() reflect.Type {
+	return managedPolicyPtrType
+}
+
+func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
+	return o
+}
+
+func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {
+	return o.ApplyT(func(v *ManagedPolicy) ManagedPolicy {
+		var ret ManagedPolicy
+		if v != nil {
+			ret = *v
+		}
+		return ret
+	}).(ManagedPolicyOutput)
+}
+
+// ManagedPolicyInput is an input type that accepts ManagedPolicyArgs and ManagedPolicyOutput values.
+// You can construct a concrete instance of `ManagedPolicyInput` via:
+//
+//          ManagedPolicyArgs{...}
+type ManagedPolicyInput interface {
+	pulumi.Input
+
+	ToManagedPolicyOutput() ManagedPolicyOutput
+	ToManagedPolicyOutputWithContext(context.Context) ManagedPolicyOutput
+}
+
+var managedPolicyPtrType = reflect.TypeOf((**ManagedPolicy)(nil)).Elem()
+
+type ManagedPolicyPtrInput interface {
+	pulumi.Input
+
+	ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput
+	ToManagedPolicyPtrOutputWithContext(context.Context) ManagedPolicyPtrOutput
+}
+
+type managedPolicyPtr string
+
+func ManagedPolicyPtr(v string) ManagedPolicyPtrInput {
+	return (*managedPolicyPtr)(&v)
+}
+
+func (*managedPolicyPtr) ElementType() reflect.Type {
+	return managedPolicyPtrType
+}
+
+func (in *managedPolicyPtr) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
+	return pulumi.ToOutput(in).(ManagedPolicyPtrOutput)
+}
+
+func (in *managedPolicyPtr) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ManagedPolicyPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ManagedPolicyOutput{})
+	pulumi.RegisterOutputType(ManagedPolicyPtrOutput{})
 }
