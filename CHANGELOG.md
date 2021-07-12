@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.49.0 of the AWS Terraform Provider
-* Update `ContainerDefinition` type in Node SDK to include `environmentFile`.
+_(none)_
 
 ---
+
+## 4.12.0 (2021-07-12)
+* Upgrade to v3.49.0 of the AWS Terraform Provider
+* Update `ContainerDefinition` type in Node SDK to include `environmentFile`.
 
 ## 4.11.0 (2021-07-06)
 * Upgrade to v3.48.0 of the AWS Terraform Provider
