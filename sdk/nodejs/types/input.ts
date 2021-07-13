@@ -401,15 +401,15 @@ export namespace acmpca {
     }
 
     export interface GetCertificateAuthorityRevocationConfiguration {
-        crlConfigurations: inputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
+        crlConfigurations?: inputs.acmpca.GetCertificateAuthorityRevocationConfigurationCrlConfiguration[];
     }
 
     export interface GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
-        customCname: string;
-        enabled: boolean;
-        expirationInDays: number;
-        s3BucketName: string;
-        s3ObjectAcl: string;
+        customCname?: string;
+        enabled?: boolean;
+        expirationInDays?: number;
+        s3BucketName?: string;
+        s3ObjectAcl?: string;
     }
 
 }
@@ -8444,8 +8444,8 @@ export namespace docdb {
 
 export namespace dynamodb {
     export interface GetTableServerSideEncryption {
-        enabled: boolean;
-        kmsKeyArn: string;
+        enabled?: boolean;
+        kmsKeyArn?: string;
     }
 
     export interface GlobalTableReplica {
@@ -9139,35 +9139,35 @@ export namespace ec2 {
     }
 
     export interface GetInstanceTypeFpga {
-        count: number;
-        manufacturer: string;
+        count?: number;
+        manufacturer?: string;
         /**
          * Size of the instance memory, in MiB.
          */
-        memorySize: number;
-        name: string;
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeGpus {
-        count: number;
-        manufacturer: string;
+        count?: number;
+        manufacturer?: string;
         /**
          * Size of the instance memory, in MiB.
          */
-        memorySize: number;
-        name: string;
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeInferenceAccelerator {
-        count: number;
-        manufacturer: string;
-        name: string;
+        count?: number;
+        manufacturer?: string;
+        name?: string;
     }
 
     export interface GetInstanceTypeInstanceDisk {
-        count: number;
-        size: number;
-        type: string;
+        count?: number;
+        size?: number;
+        type?: string;
     }
 
     export interface GetInstanceTypeOfferingFilter {
@@ -17300,14 +17300,14 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
     }
 
     export interface GetPermissionsDatabase {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the table resource.
          */
@@ -17318,7 +17318,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Name of the database for the table with columns resource. Unique to the Data Catalog.
          */
@@ -17326,7 +17326,7 @@ export namespace lakeformation {
         /**
          * Name of the table resource.
          */
-        name: string;
+        name?: string;
         /**
          * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
          */
@@ -17337,7 +17337,7 @@ export namespace lakeformation {
         /**
          * Identifier for the Data Catalog. By default, it is the account ID of the caller.
          */
-        catalogId: string;
+        catalogId?: string;
         /**
          * Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
          */
