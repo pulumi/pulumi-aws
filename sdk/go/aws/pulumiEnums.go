@@ -100,6 +100,27 @@ func (o RegionOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPt
 	}).(RegionPtrOutput)
 }
 
+func (o RegionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RegionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Region) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RegionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Region) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type RegionPtrOutput struct{ *pulumi.OutputState }
 
 func (RegionPtrOutput) ElementType() reflect.Type {
@@ -112,6 +133,20 @@ func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
 
 func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return o
+}
+
+func (o RegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Region) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o RegionPtrOutput) Elem() RegionOutput {

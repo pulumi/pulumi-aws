@@ -79,6 +79,27 @@ func (o EngineModeOutput) ToEngineModePtrOutputWithContext(ctx context.Context) 
 	}).(EngineModePtrOutput)
 }
 
+func (o EngineModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EngineModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EngineModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type EngineModePtrOutput struct{ *pulumi.OutputState }
 
 func (EngineModePtrOutput) ElementType() reflect.Type {
@@ -91,6 +112,20 @@ func (o EngineModePtrOutput) ToEngineModePtrOutput() EngineModePtrOutput {
 
 func (o EngineModePtrOutput) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
 	return o
+}
+
+func (o EngineModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EngineMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EngineModePtrOutput) Elem() EngineModeOutput {
@@ -209,6 +244,27 @@ func (o EngineTypeOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) 
 	}).(EngineTypePtrOutput)
 }
 
+func (o EngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type EngineTypePtrOutput struct{ *pulumi.OutputState }
 
 func (EngineTypePtrOutput) ElementType() reflect.Type {
@@ -221,6 +277,20 @@ func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
 
 func (o EngineTypePtrOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
 	return o
+}
+
+func (o EngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
@@ -395,6 +465,27 @@ func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Conte
 	}).(InstanceTypePtrOutput)
 }
 
+func (o InstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceTypePtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceTypePtrOutput) ElementType() reflect.Type {
@@ -407,6 +498,20 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
+}
+
+func (o InstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
@@ -525,6 +630,27 @@ func (o StorageTypeOutput) ToStorageTypePtrOutputWithContext(ctx context.Context
 	}).(StorageTypePtrOutput)
 }
 
+func (o StorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type StorageTypePtrOutput struct{ *pulumi.OutputState }
 
 func (StorageTypePtrOutput) ElementType() reflect.Type {
@@ -537,6 +663,20 @@ func (o StorageTypePtrOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
 
 func (o StorageTypePtrOutput) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
 	return o
+}
+
+func (o StorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o StorageTypePtrOutput) Elem() StorageTypeOutput {

@@ -351,6 +351,27 @@ func (o ManagedPolicyOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Con
 	}).(ManagedPolicyPtrOutput)
 }
 
+func (o ManagedPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ManagedPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ManagedPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ManagedPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type ManagedPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyPtrOutput) ElementType() reflect.Type {
@@ -363,6 +384,20 @@ func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutpu
 
 func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
 	return o
+}
+
+func (o ManagedPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ManagedPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {

@@ -83,6 +83,27 @@ func (o InstancePlatformOutput) ToInstancePlatformPtrOutputWithContext(ctx conte
 	}).(InstancePlatformPtrOutput)
 }
 
+func (o InstancePlatformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstancePlatformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstancePlatform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstancePlatformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePlatformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstancePlatform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstancePlatformPtrOutput struct{ *pulumi.OutputState }
 
 func (InstancePlatformPtrOutput) ElementType() reflect.Type {
@@ -95,6 +116,20 @@ func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutput() InstancePlatfor
 
 func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
 	return o
+}
+
+func (o InstancePlatformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstancePlatform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InstancePlatformPtrOutput) Elem() InstancePlatformOutput {
@@ -589,6 +624,27 @@ func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Conte
 	}).(InstanceTypePtrOutput)
 }
 
+func (o InstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InstanceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InstanceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceTypePtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceTypePtrOutput) ElementType() reflect.Type {
@@ -601,6 +657,20 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
+}
+
+func (o InstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InstanceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
@@ -723,6 +793,27 @@ func (o PlacementStrategyOutput) ToPlacementStrategyPtrOutputWithContext(ctx con
 	}).(PlacementStrategyPtrOutput)
 }
 
+func (o PlacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlacementStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlacementStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlacementStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type PlacementStrategyPtrOutput struct{ *pulumi.OutputState }
 
 func (PlacementStrategyPtrOutput) ElementType() reflect.Type {
@@ -735,6 +826,20 @@ func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutput() PlacementStra
 
 func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
 	return o
+}
+
+func (o PlacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlacementStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o PlacementStrategyPtrOutput) Elem() PlacementStrategyOutput {
@@ -854,6 +959,27 @@ func (o ProtocolTypeOutput) ToProtocolTypePtrOutputWithContext(ctx context.Conte
 	}).(ProtocolTypePtrOutput)
 }
 
+func (o ProtocolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProtocolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtocolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtocolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProtocolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type ProtocolTypePtrOutput struct{ *pulumi.OutputState }
 
 func (ProtocolTypePtrOutput) ElementType() reflect.Type {
@@ -866,6 +992,20 @@ func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
 
 func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
 	return o
+}
+
+func (o ProtocolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProtocolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ProtocolTypePtrOutput) Elem() ProtocolTypeOutput {
@@ -983,6 +1123,27 @@ func (o TenancyOutput) ToTenancyPtrOutputWithContext(ctx context.Context) Tenanc
 	}).(TenancyPtrOutput)
 }
 
+func (o TenancyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TenancyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Tenancy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TenancyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Tenancy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type TenancyPtrOutput struct{ *pulumi.OutputState }
 
 func (TenancyPtrOutput) ElementType() reflect.Type {
@@ -995,6 +1156,20 @@ func (o TenancyPtrOutput) ToTenancyPtrOutput() TenancyPtrOutput {
 
 func (o TenancyPtrOutput) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
 	return o
+}
+
+func (o TenancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Tenancy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o TenancyPtrOutput) Elem() TenancyOutput {

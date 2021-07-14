@@ -84,6 +84,27 @@ func (o CannedAclOutput) ToCannedAclPtrOutputWithContext(ctx context.Context) Ca
 	}).(CannedAclPtrOutput)
 }
 
+func (o CannedAclOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CannedAclOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CannedAcl) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CannedAclOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CannedAclOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CannedAcl) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type CannedAclPtrOutput struct{ *pulumi.OutputState }
 
 func (CannedAclPtrOutput) ElementType() reflect.Type {
@@ -96,6 +117,20 @@ func (o CannedAclPtrOutput) ToCannedAclPtrOutput() CannedAclPtrOutput {
 
 func (o CannedAclPtrOutput) ToCannedAclPtrOutputWithContext(ctx context.Context) CannedAclPtrOutput {
 	return o
+}
+
+func (o CannedAclPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CannedAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CannedAcl) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o CannedAclPtrOutput) Elem() CannedAclOutput {

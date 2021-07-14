@@ -87,6 +87,27 @@ func (o RecordTypeOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) 
 	}).(RecordTypePtrOutput)
 }
 
+func (o RecordTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RecordTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RecordTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RecordType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type RecordTypePtrOutput struct{ *pulumi.OutputState }
 
 func (RecordTypePtrOutput) ElementType() reflect.Type {
@@ -99,6 +120,20 @@ func (o RecordTypePtrOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (o RecordTypePtrOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return o
+}
+
+func (o RecordTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RecordType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o RecordTypePtrOutput) Elem() RecordTypeOutput {

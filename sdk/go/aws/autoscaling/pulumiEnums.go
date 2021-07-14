@@ -89,6 +89,27 @@ func (o MetricOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPt
 	}).(MetricPtrOutput)
 }
 
+func (o MetricOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MetricOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Metric) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Metric) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type MetricPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricPtrOutput) ElementType() reflect.Type {
@@ -101,6 +122,20 @@ func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
 
 func (o MetricPtrOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return o
+}
+
+func (o MetricPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Metric) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MetricPtrOutput) Elem() MetricOutput {
@@ -218,6 +253,27 @@ func (o MetricsGranularityOutput) ToMetricsGranularityPtrOutputWithContext(ctx c
 	}).(MetricsGranularityPtrOutput)
 }
 
+func (o MetricsGranularityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MetricsGranularityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricsGranularity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MetricsGranularityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricsGranularityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MetricsGranularity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type MetricsGranularityPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricsGranularityPtrOutput) ElementType() reflect.Type {
@@ -230,6 +286,20 @@ func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGran
 
 func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return o
+}
+
+func (o MetricsGranularityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MetricsGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MetricsGranularity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
@@ -351,6 +421,27 @@ func (o NotificationTypeOutput) ToNotificationTypePtrOutputWithContext(ctx conte
 	}).(NotificationTypePtrOutput)
 }
 
+func (o NotificationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NotificationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NotificationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NotificationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type NotificationTypePtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationTypePtrOutput) ElementType() reflect.Type {
@@ -363,6 +454,20 @@ func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTyp
 
 func (o NotificationTypePtrOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return o
+}
+
+func (o NotificationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NotificationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {
