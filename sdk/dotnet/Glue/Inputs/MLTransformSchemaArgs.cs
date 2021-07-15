@@ -9,4 +9,23 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Glue.Inputs
 {
+
+    public sealed class MLTransformSchemaArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The type of data in the column.
+        /// </summary>
+        [Input("dataType")]
+        public Input<string>? DataType { get; set; }
+
+        /// <summary>
+        /// The name you assign to this ML Transform. It must be unique in your account.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public MLTransformSchemaArgs()
+        {
+        }
+    }
 }

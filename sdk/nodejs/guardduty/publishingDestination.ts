@@ -7,6 +7,83 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const currentCallerIdentity = aws.getCallerIdentity({});
+ * const currentRegion = aws.getRegion({});
+ * const gdBucket = new aws.s3.Bucket("gdBucket", {
+ *     acl: "private",
+ *     forceDestroy: true,
+ * });
+ * const bucketPol = pulumi.all([gdBucket.arn, gdBucket.arn]).apply(([gdBucketArn, gdBucketArn1]) => aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "Allow PutObject",
+ *             actions: ["s3:PutObject"],
+ *             resources: [`${gdBucketArn}/*`],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["guardduty.amazonaws.com"],
+ *             }],
+ *         },
+ *         {
+ *             sid: "Allow GetBucketLocation",
+ *             actions: ["s3:GetBucketLocation"],
+ *             resources: [gdBucketArn1],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["guardduty.amazonaws.com"],
+ *             }],
+ *         },
+ *     ],
+ * }));
+ * const kmsPol = Promise.all([currentRegion, currentCallerIdentity, currentRegion, currentCallerIdentity, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity, currentRegion1, currentCallerIdentity1, currentCallerIdentity2]) => aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "Allow GuardDuty to encrypt findings",
+ *             actions: ["kms:GenerateDataKey"],
+ *             resources: [`arn:aws:kms:${currentRegion.name}:${currentCallerIdentity.accountId}:key/*`],
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["guardduty.amazonaws.com"],
+ *             }],
+ *         },
+ *         {
+ *             sid: "Allow all users to modify/delete key (test only)",
+ *             actions: ["kms:*"],
+ *             resources: [`arn:aws:kms:${currentRegion1.name}:${currentCallerIdentity1.accountId}:key/*`],
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: [`arn:aws:iam::${currentCallerIdentity2.accountId}:root`],
+ *             }],
+ *         },
+ *     ],
+ * }));
+ * const testGd = new aws.guardduty.Detector("testGd", {enable: true});
+ * const gdBucketPolicy = new aws.s3.BucketPolicy("gdBucketPolicy", {
+ *     bucket: gdBucket.id,
+ *     policy: bucketPol.apply(bucketPol => bucketPol.json),
+ * });
+ * const gdKey = new aws.kms.Key("gdKey", {
+ *     description: "Temporary key for AccTest of TF",
+ *     deletionWindowInDays: 7,
+ *     policy: kmsPol.then(kmsPol => kmsPol.json),
+ * });
+ * const test = new aws.guardduty.PublishingDestination("test", {
+ *     detectorId: testGd.id,
+ *     destinationArn: gdBucket.arn,
+ *     kmsKeyArn: gdKey.arn,
+ * }, {
+ *     dependsOn: [gdBucketPolicy],
+ * });
+ * ```
+ *
+ * > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+ *
  * ## Import
  *
  * GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.

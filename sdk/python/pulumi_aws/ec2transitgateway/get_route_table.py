@@ -121,6 +121,23 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     Get information on an EC2 Transit Gateway Route Table.
 
     ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_route_table(filters=[
+        aws.ec2transitgateway.GetRouteTableFilterArgs(
+            name="default-association-route-table",
+            values=["true"],
+        ),
+        aws.ec2transitgateway.GetRouteTableFilterArgs(
+            name="transit-gateway-id",
+            values=["tgw-12345678"],
+        ),
+    ])
+    ```
     ### By Identifier
 
     ```python

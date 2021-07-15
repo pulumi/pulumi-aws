@@ -39,7 +39,7 @@ import (
 // 			return err
 // 		}
 // 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"firehose.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"firehose.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -171,6 +171,88 @@ import (
 // 				},
 // 			},
 // 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Elasticsearch Destination With VPC
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testCluster, err := elasticsearch.NewDomain(ctx, "testCluster", &elasticsearch.DomainArgs{
+// 			ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// 				InstanceCount:        pulumi.Int(2),
+// 				ZoneAwarenessEnabled: pulumi.Bool(true),
+// 				InstanceType:         pulumi.String("t2.small.elasticsearch"),
+// 			},
+// 			EbsOptions: &elasticsearch.DomainEbsOptionsArgs{
+// 				EbsEnabled: pulumi.Bool(true),
+// 				VolumeSize: pulumi.Int(10),
+// 			},
+// 			VpcOptions: &elasticsearch.DomainVpcOptionsArgs{
+// 				SecurityGroupIds: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.First.Id),
+// 				},
+// 				SubnetIds: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.First.Id),
+// 					pulumi.Any(aws_subnet.Second.Id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicy(ctx, "firehose_elasticsearch", &iam.RolePolicyArgs{
+// 			Role: pulumi.Any(aws_iam_role.Firehose.Id),
+// 			Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
+// 				testClusterArn := _args[0].(string)
+// 				testClusterArn1 := _args[1].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"es:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", testClusterArn, "\",\n", "        \"", testClusterArn1, "/*\"\n", "      ]\n", "        },\n", "        {\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "            \"ec2:DescribeVpcs\",\n", "            \"ec2:DescribeVpcAttribute\",\n", "            \"ec2:DescribeSubnets\",\n", "            \"ec2:DescribeSecurityGroups\",\n", "            \"ec2:DescribeNetworkInterfaces\",\n", "            \"ec2:CreateNetworkInterface\",\n", "            \"ec2:CreateNetworkInterfacePermission\",\n", "            \"ec2:DeleteNetworkInterface\"\n", "          ],\n", "          \"Resource\": [\n", "            \"*\"\n", "          ]\n", "        }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = kinesis.NewFirehoseDeliveryStream(ctx, "test", &kinesis.FirehoseDeliveryStreamArgs{
+// 			Destination: pulumi.String("elasticsearch"),
+// 			S3Configuration: &kinesis.FirehoseDeliveryStreamS3ConfigurationArgs{
+// 				RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+// 				BucketArn: pulumi.Any(aws_s3_bucket.Bucket.Arn),
+// 			},
+// 			ElasticsearchConfiguration: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationArgs{
+// 				DomainArn: testCluster.Arn,
+// 				RoleArn:   pulumi.Any(aws_iam_role.Firehose.Arn),
+// 				IndexName: pulumi.String("test"),
+// 				TypeName:  pulumi.String("test"),
+// 				VpcConfig: &kinesis.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs{
+// 					SubnetIds: pulumi.StringArray{
+// 						pulumi.Any(aws_subnet.First.Id),
+// 						pulumi.Any(aws_subnet.Second.Id),
+// 					},
+// 					SecurityGroupIds: pulumi.StringArray{
+// 						pulumi.Any(aws_security_group.First.Id),
+// 					},
+// 					RoleArn: pulumi.Any(aws_iam_role.Firehose.Arn),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			firehose_elasticsearch,
+// 		}))
 // 		if err != nil {
 // 			return err
 // 		}

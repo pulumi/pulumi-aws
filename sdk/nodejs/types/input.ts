@@ -259,6 +259,7 @@ export interface ProviderIgnoreTags {
     keyPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     keys?: pulumi.Input<pulumi.Input<string>[]>;
 }
+
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -410,6 +411,7 @@ export namespace acmpca {
         s3BucketName?: string;
         s3ObjectAcl?: string;
     }
+
 }
 
 export namespace alb {
@@ -3983,6 +3985,7 @@ export namespace appmesh {
          */
         virtualRouterName: pulumi.Input<string>;
     }
+
 }
 
 export namespace apprunner {
@@ -6708,6 +6711,7 @@ export namespace cloudwatch {
          */
         namespace: pulumi.Input<string>;
     }
+
 }
 
 export namespace codeartifact {
@@ -8602,6 +8606,7 @@ export namespace ebs {
         name: string;
         values: string[];
     }
+
 }
 
 export namespace ec2 {
@@ -10895,6 +10900,7 @@ export namespace ec2transitgateway {
          */
         values: string[];
     }
+
 }
 
 export namespace ecr {
@@ -11614,6 +11620,7 @@ export namespace eks {
          */
         value?: pulumi.Input<string>;
     }
+
 }
 
 export namespace elasticache {
@@ -11794,6 +11801,7 @@ export namespace elasticloadbalancing {
          */
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace elasticloadbalancingv2 {
@@ -12920,6 +12928,7 @@ export namespace elb {
          */
         value: pulumi.Input<string>;
     }
+
 }
 
 export namespace emr {
@@ -14686,6 +14695,7 @@ export namespace identitystore {
          */
         attributeValue: string;
     }
+
 }
 
 export namespace imagebuilder {
@@ -16690,6 +16700,7 @@ export namespace kinesis {
          */
         parameterValue: pulumi.Input<string>;
     }
+
 }
 
 export namespace kinesisanalyticsv2 {
@@ -17216,6 +17227,7 @@ export namespace kinesisanalyticsv2 {
          */
         logStreamArn: pulumi.Input<string>;
     }
+
 }
 
 export namespace kms {
@@ -17406,6 +17418,7 @@ export namespace lakeformation {
         name: pulumi.Input<string>;
         wildcard?: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace lambda {
@@ -19679,6 +19692,7 @@ export namespace networkfirewall {
          */
         masks?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
 }
 
 export namespace opsworks {
@@ -20163,6 +20177,7 @@ export namespace organizations {
          */
         name?: pulumi.Input<string>;
     }
+
 }
 
 export namespace pinpoint {
@@ -20223,6 +20238,7 @@ export namespace pricing {
          */
         value: string;
     }
+
 }
 
 export namespace ram {
@@ -20236,6 +20252,7 @@ export namespace ram {
          */
         values: string[];
     }
+
 }
 
 export namespace rds {
@@ -20577,6 +20594,7 @@ export namespace resourcegroupstaggingapi {
          */
         values?: string[];
     }
+
 }
 
 export namespace route53 {
@@ -21266,6 +21284,7 @@ export namespace s3 {
          */
         uri?: pulumi.Input<string>;
     }
+
 }
 
 export namespace s3control {
@@ -21845,6 +21864,7 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: pulumi.Input<string>;
     }
+
 }
 
 export namespace secretsmanager {
@@ -23794,6 +23814,7 @@ export namespace signer {
         type: pulumi.Input<string>;
         value: pulumi.Input<number>;
     }
+
 }
 
 export namespace ssm {

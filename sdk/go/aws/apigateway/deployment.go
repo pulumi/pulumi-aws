@@ -91,7 +91,7 @@ type deploymentState struct {
 	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// REST API identifier.
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription *string `pulumi:"stageDescription"`
 	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.
@@ -115,7 +115,7 @@ type DeploymentState struct {
 	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
 	// REST API identifier.
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Description to set on the stage managed by the `stageName` argument.
 	StageDescription pulumi.StringPtrInput
 	// Name of the stage to create with this deployment. If the specified stage already exists, it will be updated to point to the new deployment. It is recommended to use the `apigateway.Stage` resource instead to manage stages.

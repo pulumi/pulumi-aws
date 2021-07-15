@@ -451,6 +451,32 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     Use this data source to get the ID of a registered AMI for use in other
     resources.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_ami(executable_users=["self"],
+        filters=[
+            aws.ec2.GetAmiFilterArgs(
+                name="name",
+                values=["myami-*"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="root-device-type",
+                values=["ebs"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="virtualization-type",
+                values=["hvm"],
+            ),
+        ],
+        most_recent=True,
+        name_regex="^myami-\\d{3}",
+        owners=["self"])
+    ```
+
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.

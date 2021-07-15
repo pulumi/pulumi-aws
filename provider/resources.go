@@ -2683,7 +2683,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "A Region represents any valid Amazon region that may be targeted with deployments.",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "af-south-1", Name: "AFSouth1"},
 					{Value: "ap-east-1", Name: "APEast1"},
 					{Value: "ap-northeast-1", Name: "APNortheast1"},
@@ -2715,7 +2715,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "1Minute", Name: "OneMinute"},
 				},
 			},
@@ -2724,7 +2724,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "GroupMinSize"},
 					{Value: "GroupMaxSize"},
 					{Value: "GroupDesiredCapacity"},
@@ -2745,7 +2745,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "InstanceLaunch", Value: "autoscaling:EC2_INSTANCE_LAUNCH"},
 					{Name: "InstanceTerminate", Value: "autoscaling:EC2_INSTANCE_TERMINATE"},
 					{Name: "InstanceLaunchError", Value: "autoscaling:EC2_INSTANCE_LAUNCH_ERROR"},
@@ -2757,7 +2757,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Ipv4", Value: "ipv4"},
 					{Name: "Dualstack", Value: "dualstack"},
 				},
@@ -2766,7 +2766,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Application", Value: "application"},
 					{Name: "Network", Value: "network"},
 				},
@@ -2775,7 +2775,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Ipv4", Value: "ipv4"},
 					{Name: "Dualstack", Value: "dualstack"},
 				},
@@ -2784,7 +2784,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Application", Value: "application"},
 					{Name: "Network", Value: "network"},
 				},
@@ -2793,7 +2793,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "LinuxUnix", Value: "Linux/UNIX"},
 					{Name: "RedHatEnterpriseLinux", Value: "Red Hat Enterprise Linux"},
 					{Name: "SuseLinux", Value: "SUSE Linux"},
@@ -2808,7 +2808,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "A1_2XLarge", Value: "a1.2xlarge"},
 					{Name: "A1_4XLarge", Value: "a1.4xlarge"},
 					{Name: "A1_Large", Value: "a1.large"},
@@ -3194,7 +3194,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "The strategy of the placement group determines how the instances are organized within the group.\nSee https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Spread", Value: "spread", Description: "A `spread` placement group places instances on distinct hardware."},
 					{Name: "Cluster", Value: "cluster", Description: "A `cluster` placement group is a logical grouping of instances within a single\nAvailability Zone that benefit from low network latency, high network throughput."},
 				},
@@ -3203,7 +3203,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "All", Value: "all"},
 					{Name: "TCP", Value: "tcp"},
 					{Name: "UDP", Value: "udp"},
@@ -3214,7 +3214,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Default", Value: "default"},
 					{Name: "Dedicated", Value: "dedicated"},
 				},
@@ -3223,7 +3223,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "AWSAccountActivityAccess", Value: "arn:aws:iam::aws:policy/AWSAccountActivityAccess"},
 					{Name: "AWSAccountUsageReportAccess", Value: "arn:aws:iam::aws:policy/AWSAccountUsageReportAccess"},
 					{Name: "AWSAgentlessDiscoveryService", Value: "arn:aws:iam::aws:policy/AWSAgentlessDiscoveryService"},
@@ -3513,7 +3513,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "dotnetcore2.1", Name: "DotnetCore2d1"},
 					{Value: "dotnetcore3.1", Name: "DotnetCore3d1"},
 					{Value: "go1.x", Name: "Go1dx"},
@@ -3537,7 +3537,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Provisioned", Value: "provisioned"},
 					{Name: "Serverless", Value: "serverless"},
 					{Name: "ParallelQuery", Value: "parallelquery"},
@@ -3548,7 +3548,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Aurora", Value: "aurora"},
 					{Name: "AuroraMysql", Value: "aurora-mysql"},
 					{Name: "AuroraPostgresql", Value: "aurora-postgresql"},
@@ -3558,7 +3558,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "T3_Micro", Value: "db.t3.micro"},
 					{Name: "T3_Small", Value: "db.t3.small"},
 					{Name: "T3_Medium", Value: "db.t3.medium"},
@@ -3624,7 +3624,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Standard", Value: "standard"},
 					{Name: "GP2", Value: "gp2"},
 					{Name: "IO1", Value: "io1"},
@@ -3634,7 +3634,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "A"},
 					{Value: "AAAA"},
 					{Value: "CNAME"},
@@ -3654,7 +3654,7 @@ func Provider() tfbridge.ProviderInfo {
 					Type:        "string",
 					Description: "See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Name: "Private", Value: "private"},
 					{Name: "PublicRead", Value: "public-read"},
 					{Name: "PublicReadWrite", Value: "public-read-write"},
@@ -3669,7 +3669,7 @@ func Provider() tfbridge.ProviderInfo {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Type: "string",
 				},
-				Enum: []*schema.EnumValueSpec{
+				Enum: []schema.EnumValueSpec{
 					{Value: "String"},
 					{Value: "StringList"},
 					{Value: "SecureString"},

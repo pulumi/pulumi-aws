@@ -111,7 +111,7 @@ type modelState struct {
 	// The name of the model
 	Name *string `pulumi:"name"`
 	// The ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The schema of the model in a JSON form
 	Schema *string `pulumi:"schema"`
 }
@@ -124,7 +124,7 @@ type ModelState struct {
 	// The name of the model
 	Name pulumi.StringPtrInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// The schema of the model in a JSON form
 	Schema pulumi.StringPtrInput
 }

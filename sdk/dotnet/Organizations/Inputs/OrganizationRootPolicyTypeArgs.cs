@@ -9,4 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.Organizations.Inputs
 {
+
+    public sealed class OrganizationRootPolicyTypeArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The status of the policy type as it relates to the associated root
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public OrganizationRootPolicyTypeArgs()
+        {
+        }
+    }
 }

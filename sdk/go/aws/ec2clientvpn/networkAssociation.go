@@ -38,6 +38,33 @@ import (
 // 	})
 // }
 // ```
+// ### Using custom security groups
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2clientvpn"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ec2clientvpn.NewNetworkAssociation(ctx, "example", &ec2clientvpn.NetworkAssociationArgs{
+// 			ClientVpnEndpointId: pulumi.Any(aws_ec2_client_vpn_endpoint.Example.Id),
+// 			SubnetId:            pulumi.Any(aws_subnet.Example.Id),
+// 			SecurityGroups: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Example1.Id),
+// 				pulumi.Any(aws_security_group.Example2.Id),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

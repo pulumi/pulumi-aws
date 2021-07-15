@@ -13,6 +13,120 @@ import (
 
 // Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/guardduty"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		currentRegion, err := aws.GetRegion(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		gdBucket, err := s3.NewBucket(ctx, "gdBucket", &s3.BucketArgs{
+// 			Acl:          pulumi.String("private"),
+// 			ForceDestroy: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid: "Allow GuardDuty to encrypt findings",
+// 					Actions: []string{
+// 						"kms:GenerateDataKey",
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v%v%v", "arn:aws:kms:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":key/*"),
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "Service",
+// 							Identifiers: []string{
+// 								"guardduty.amazonaws.com",
+// 							},
+// 						},
+// 					},
+// 				},
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid: "Allow all users to modify/delete key (test only)",
+// 					Actions: []string{
+// 						"kms:*",
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v%v%v", "arn:aws:kms:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":key/*"),
+// 					},
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								fmt.Sprintf("%v%v%v", "arn:aws:iam::", currentCallerIdentity.AccountId, ":root"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testGd, err := guardduty.NewDetector(ctx, "testGd", &guardduty.DetectorArgs{
+// 			Enable: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gdBucketPolicy", &s3.BucketPolicyArgs{
+// 			Bucket: gdBucket.ID(),
+// 			Policy: bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (string, error) {
+// 				return bucketPol.Json, nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		gdKey, err := kms.NewKey(ctx, "gdKey", &kms.KeyArgs{
+// 			Description:          pulumi.String("Temporary key for AccTest of TF"),
+// 			DeletionWindowInDays: pulumi.Int(7),
+// 			Policy:               pulumi.String(kmsPol.Json),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = guardduty.NewPublishingDestination(ctx, "test", &guardduty.PublishingDestinationArgs{
+// 			DetectorId:     testGd.ID(),
+// 			DestinationArn: gdBucket.Arn,
+// 			KmsKeyArn:      gdKey.Arn,
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			gdBucketPolicy,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// > **Note:** Please do not use this simple example for Bucket-Policy and KMS Key Policy in a production environment. It is much too open for such a use-case. Refer to the AWS documentation here: https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_exportfindings.html
+//
 // ## Import
 //
 // GuardDuty PublishingDestination can be imported using the the master GuardDuty detector ID and PublishingDestinationID, e.g.

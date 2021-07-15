@@ -13,6 +13,56 @@ namespace Pulumi.Aws.Ec2
     /// Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
     /// 
     /// ## Example Usage
+    /// ### Basic Example Using AMI Lookup
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ubuntu = Output.Create(Aws.Ec2.GetAmi.InvokeAsync(new Aws.Ec2.GetAmiArgs
+    ///         {
+    ///             MostRecent = true,
+    ///             Filters = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "name",
+    ///                     Values = 
+    ///                     {
+    ///                         "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+    ///                     },
+    ///                 },
+    ///                 new Aws.Ec2.Inputs.GetAmiFilterArgs
+    ///                 {
+    ///                     Name = "virtualization-type",
+    ///                     Values = 
+    ///                     {
+    ///                         "hvm",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Owners = 
+    ///             {
+    ///                 "099720109477",
+    ///             },
+    ///         }));
+    ///         var web = new Aws.Ec2.Instance("web", new Aws.Ec2.InstanceArgs
+    ///         {
+    ///             Ami = ubuntu.Apply(ubuntu =&gt; ubuntu.Id),
+    ///             InstanceType = "t3.micro",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "HelloWorld" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Network and Credit Specification Example
     /// 
     /// ```csharp

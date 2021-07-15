@@ -23,6 +23,269 @@ import (
 //
 // > **NOTE:** You cannot unsubscribe to a subscription that is pending confirmation. If you use `email`, `email-json`, or `http`/`https` (without auto-confirmation enabled), until the subscription is confirmed (e.g., outside of this provider), AWS does not allow this provider to delete / unsubscribe the subscription. If you `destroy` an unconfirmed subscription, this provider will remove the subscription from its state but the subscription will still exist in AWS. However, if you delete an SNS topic, SNS [deletes all the subscriptions](https://docs.aws.amazon.com/sns/latest/dg/sns-delete-subscription-topic.html) associated with the topic. Also, you can import a subscription after confirmation and then have the capability to delete it.
 //
+// ## Example Usage
+//
+// You can directly supply a topic and ARN by hand in the `topicArn` property along with the queue ARN:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+// 			Endpoint: pulumi.String("arn:aws:sqs:us-west-2:432981146916:queue-too"),
+// 			Protocol: pulumi.String("sqs"),
+// 			Topic:    pulumi.Any("arn:aws:sns:us-west-2:432981146916:user-updates-topic"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		userUpdates, err := sns.NewTopic(ctx, "userUpdates", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		userUpdatesQueue, err := sqs.NewQueue(ctx, "userUpdatesQueue", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopicSubscription(ctx, "userUpdatesSqsTarget", &sns.TopicSubscriptionArgs{
+// 			Topic:    userUpdates.Arn,
+// 			Protocol: pulumi.String("sqs"),
+// 			Endpoint: userUpdatesQueue.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/config"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sqs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		cfg := config.New(ctx, "")
+// 		sns := map[string]interface{}{
+// 			"account-id":   "111111111111",
+// 			"role-name":    "service/service",
+// 			"name":         "example-sns-topic",
+// 			"display_name": "example",
+// 			"region":       "us-west-1",
+// 		}
+// 		if param := cfg.GetBool("sns"); param != nil {
+// 			sns = param
+// 		}
+// 		sqs := map[string]interface{}{
+// 			"account-id": "222222222222",
+// 			"role-name":  "service/service",
+// 			"name":       "example-sqs-queue",
+// 			"region":     "us-east-1",
+// 		}
+// 		if param := cfg.GetBool("sqs"); param != nil {
+// 			sqs = param
+// 		}
+// 		opt0 := "__default_policy_ID"
+// 		sns_topic_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			PolicyId: &opt0,
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"SNS:Subscribe",
+// 						"SNS:SetTopicAttributes",
+// 						"SNS:RemovePermission",
+// 						"SNS:Publish",
+// 						"SNS:ListSubscriptionsByTopic",
+// 						"SNS:GetTopicAttributes",
+// 						"SNS:DeleteTopic",
+// 						"SNS:AddPermission",
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test:     "StringEquals",
+// 							Variable: "AWS:SourceOwner",
+// 							Values: []string{
+// 								sns.Account - id,
+// 							},
+// 						},
+// 					},
+// 					Effect: "Allow",
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								"*",
+// 							},
+// 						},
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 					},
+// 					Sid: "__default_statement_ID",
+// 				},
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"SNS:Subscribe",
+// 						"SNS:Receive",
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test:     "StringLike",
+// 							Variable: "SNS:Endpoint",
+// 							Values: []string{
+// 								fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name),
+// 							},
+// 						},
+// 					},
+// 					Effect: "Allow",
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								"*",
+// 							},
+// 						},
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 					},
+// 					Sid: "__console_sub_0",
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := fmt.Sprintf("%v%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name, "/SQSDefaultPolicy")
+// 		sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			PolicyId: &opt1,
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Sid:    "example-sns-topic",
+// 					Effect: "Allow",
+// 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
+// 						iam.GetPolicyDocumentStatementPrincipal{
+// 							Type: "AWS",
+// 							Identifiers: []string{
+// 								"*",
+// 							},
+// 						},
+// 					},
+// 					Actions: []string{
+// 						"SQS:SendMessage",
+// 					},
+// 					Resources: []string{
+// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name),
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test:     "ArnEquals",
+// 							Variable: "aws:SourceArn",
+// 							Values: []string{
+// 								fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = providers.Newaws(ctx, "awsSns", &providers.awsArgs{
+// 			Region: sns.Region,
+// 			AssumeRole: config.AssumeRole{
+// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sns.Account-id, ":role/", sns.Role-name),
+// 				SessionName: fmt.Sprintf("%v%v", "sns-", sns.Region),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = providers.Newaws(ctx, "awsSqs", &providers.awsArgs{
+// 			Region: sqs.Region,
+// 			AssumeRole: config.AssumeRole{
+// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sqs.Account-id, ":role/", sqs.Role-name),
+// 				SessionName: fmt.Sprintf("%v%v", "sqs-", sqs.Region),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = providers.Newaws(ctx, "sns2sqs", &providers.awsArgs{
+// 			Region: sns.Region,
+// 			AssumeRole: config.AssumeRole{
+// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sqs.Account-id, ":role/", sqs.Role-name),
+// 				SessionName: fmt.Sprintf("%v%v", "sns2sqs-", sns.Region),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopic(ctx, "sns_topicTopic", &sns.TopicArgs{
+// 			DisplayName: pulumi.String(sns.Display_name),
+// 			Policy:      pulumi.String(sns_topic_policy.Json),
+// 		}, pulumi.Provider("aws.sns"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sqs.NewQueue(ctx, "sqs_queue", &sqs.QueueArgs{
+// 			Policy: pulumi.String(sqs_queue_policy.Json),
+// 		}, pulumi.Provider("aws.sqs"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = sns.NewTopicSubscription(ctx, "sns_topicTopicSubscription", &sns.TopicSubscriptionArgs{
+// 			Topic:    sns_topicTopic.Arn,
+// 			Protocol: pulumi.String("sqs"),
+// 			Endpoint: sqs_queue.Arn,
+// 		}, pulumi.Provider("aws.sns2sqs"))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // SNS Topic Subscriptions can be imported using the `subscription arn`, e.g.
@@ -128,7 +391,7 @@ type topicSubscriptionState struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn *string `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
-	Topic *string `pulumi:"topic"`
+	Topic interface{} `pulumi:"topic"`
 }
 
 type TopicSubscriptionState struct {
@@ -159,7 +422,7 @@ type TopicSubscriptionState struct {
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrInput
 	// ARN of the SNS topic to subscribe to.
-	Topic pulumi.StringPtrInput
+	Topic pulumi.Input
 }
 
 func (TopicSubscriptionState) ElementType() reflect.Type {

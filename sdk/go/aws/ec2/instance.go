@@ -14,6 +14,56 @@ import (
 // Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 //
 // ## Example Usage
+// ### Basic Example Using AMI Lookup
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := true
+// 		ubuntu, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
+// 			MostRecent: &opt0,
+// 			Filters: []ec2.GetAmiFilter{
+// 				ec2.GetAmiFilter{
+// 					Name: "name",
+// 					Values: []string{
+// 						"ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*",
+// 					},
+// 				},
+// 				ec2.GetAmiFilter{
+// 					Name: "virtualization-type",
+// 					Values: []string{
+// 						"hvm",
+// 					},
+// 				},
+// 			},
+// 			Owners: []string{
+// 				"099720109477",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
+// 			Ami:          pulumi.String(ubuntu.Id),
+// 			InstanceType: pulumi.String("t3.micro"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("HelloWorld"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Network and Credit Specification Example
 //
 // ```go
@@ -253,7 +303,7 @@ type instanceState struct {
 	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId *string `pulumi:"hostId"`
 	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
+	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
@@ -350,7 +400,7 @@ type InstanceState struct {
 	// ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
 	HostId pulumi.StringPtrInput
 	// IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
-	IamInstanceProfile pulumi.StringPtrInput
+	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.

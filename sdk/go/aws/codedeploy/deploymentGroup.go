@@ -23,6 +23,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codedeploy"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
@@ -32,7 +33,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"codedeploy.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"codedeploy.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -92,6 +93,77 @@ import (
 // 					pulumi.String("my-alarm-name"),
 // 				},
 // 				Enabled: pulumi.Bool(true),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Blue Green Deployments with ECS
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codedeploy"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleApplication, err := codedeploy.NewApplication(ctx, "exampleApplication", &codedeploy.ApplicationArgs{
+// 			ComputePlatform: pulumi.String("ECS"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = codedeploy.NewDeploymentGroup(ctx, "exampleDeploymentGroup", &codedeploy.DeploymentGroupArgs{
+// 			AppName:              exampleApplication.Name,
+// 			DeploymentConfigName: pulumi.String("CodeDeployDefault.ECSAllAtOnce"),
+// 			DeploymentGroupName:  pulumi.String("example"),
+// 			ServiceRoleArn:       pulumi.Any(aws_iam_role.Example.Arn),
+// 			AutoRollbackConfiguration: &codedeploy.DeploymentGroupAutoRollbackConfigurationArgs{
+// 				Enabled: pulumi.Bool(true),
+// 				Events: pulumi.StringArray{
+// 					pulumi.String("DEPLOYMENT_FAILURE"),
+// 				},
+// 			},
+// 			BlueGreenDeploymentConfig: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigArgs{
+// 				DeploymentReadyOption: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs{
+// 					ActionOnTimeout: pulumi.String("CONTINUE_DEPLOYMENT"),
+// 				},
+// 				TerminateBlueInstancesOnDeploymentSuccess: &codedeploy.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs{
+// 					Action:                       pulumi.String("TERMINATE"),
+// 					TerminationWaitTimeInMinutes: pulumi.Int(5),
+// 				},
+// 			},
+// 			DeploymentStyle: &codedeploy.DeploymentGroupDeploymentStyleArgs{
+// 				DeploymentOption: pulumi.String("WITH_TRAFFIC_CONTROL"),
+// 				DeploymentType:   pulumi.String("BLUE_GREEN"),
+// 			},
+// 			EcsService: &codedeploy.DeploymentGroupEcsServiceArgs{
+// 				ClusterName: pulumi.Any(aws_ecs_cluster.Example.Name),
+// 				ServiceName: pulumi.Any(aws_ecs_service.Example.Name),
+// 			},
+// 			LoadBalancerInfo: &codedeploy.DeploymentGroupLoadBalancerInfoArgs{
+// 				TargetGroupPairInfo: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs{
+// 					ProdTrafficRoute: &codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs{
+// 						ListenerArns: pulumi.StringArray{
+// 							pulumi.Any(aws_lb_listener.Example.Arn),
+// 						},
+// 					},
+// 					TargetGroups: codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArray{
+// 						&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
+// 							Name: pulumi.Any(aws_lb_target_group.Blue.Name),
+// 						},
+// 						&codedeploy.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs{
+// 							Name: pulumi.Any(aws_lb_target_group.Green.Name),
+// 						},
+// 					},
+// 				},
 // 			},
 // 		})
 // 		if err != nil {

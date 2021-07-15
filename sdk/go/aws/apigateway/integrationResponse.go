@@ -173,7 +173,7 @@ type integrationResponseState struct {
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates map[string]string `pulumi:"responseTemplates"`
 	// The ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// Specifies the regular expression pattern used to choose
 	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.
@@ -196,7 +196,7 @@ type IntegrationResponseState struct {
 	// A map specifying the templates used to transform the integration response body
 	ResponseTemplates pulumi.StringMapInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// Specifies the regular expression pattern used to choose
 	// an integration response based on the response from the backend. Omit configuring this to make the integration the default one.
 	// If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched.

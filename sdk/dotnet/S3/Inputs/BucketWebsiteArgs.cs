@@ -35,7 +35,7 @@ namespace Pulumi.Aws.S3.Inputs
         /// describing redirect behavior and when redirects are applied.
         /// </summary>
         [Input("routingRules")]
-        public InputUnion<string, ImmutableArray<string>>? RoutingRules { get; set; }
+        public InputUnion<string, ImmutableArray<Input<string>>>? RoutingRules { get; set; }
 
         public BucketWebsiteArgs()
         {

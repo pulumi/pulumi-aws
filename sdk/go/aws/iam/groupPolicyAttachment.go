@@ -21,6 +21,7 @@ import (
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -33,7 +34,7 @@ import (
 // 		}
 // 		policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
 // 			Description: pulumi.String("A test policy"),
-// 			Policy:      pulumi.String("{ ... policy JSON ... }"),
+// 			Policy:      pulumi.Any("{ ... policy JSON ... }"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -102,14 +103,14 @@ func GetGroupPolicyAttachment(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GroupPolicyAttachment resources.
 type groupPolicyAttachmentState struct {
 	// The group the policy should be applied to
-	Group *string `pulumi:"group"`
+	Group interface{} `pulumi:"group"`
 	// The ARN of the policy you want to apply
 	PolicyArn *string `pulumi:"policyArn"`
 }
 
 type GroupPolicyAttachmentState struct {
 	// The group the policy should be applied to
-	Group pulumi.StringPtrInput
+	Group pulumi.Input
 	// The ARN of the policy you want to apply
 	PolicyArn pulumi.StringPtrInput
 }

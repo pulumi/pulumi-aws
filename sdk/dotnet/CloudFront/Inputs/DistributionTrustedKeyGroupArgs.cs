@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront.Inputs
 {
+
+    public sealed class DistributionTrustedKeyGroupArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// A flag that specifies whether Origin Shield is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        [Input("items")]
+        private InputList<Inputs.DistributionTrustedKeyGroupItemArgs>? _items;
+
+        /// <summary>
+        /// List of nested attributes for each trusted signer
+        /// </summary>
+        public InputList<Inputs.DistributionTrustedKeyGroupItemArgs> Items
+        {
+            get => _items ?? (_items = new InputList<Inputs.DistributionTrustedKeyGroupItemArgs>());
+            set => _items = value;
+        }
+
+        public DistributionTrustedKeyGroupArgs()
+        {
+        }
+    }
 }

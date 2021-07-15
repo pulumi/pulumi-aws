@@ -149,7 +149,7 @@ type methodResponseState struct {
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters map[string]bool `pulumi:"responseParameters"`
 	// The ID of the associated REST API
-	RestApi *string `pulumi:"restApi"`
+	RestApi interface{} `pulumi:"restApi"`
 	// The HTTP status code
 	StatusCode *string `pulumi:"statusCode"`
 }
@@ -166,7 +166,7 @@ type MethodResponseState struct {
 	// would define that the header `X-Some-Header` can be provided on the response.
 	ResponseParameters pulumi.BoolMapInput
 	// The ID of the associated REST API
-	RestApi pulumi.StringPtrInput
+	RestApi pulumi.Input
 	// The HTTP status code
 	StatusCode pulumi.StringPtrInput
 }

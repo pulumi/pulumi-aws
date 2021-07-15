@@ -11,6 +11,154 @@ import * as utilities from "../utilities";
  * Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
  *
  * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const examplePolicyDocument = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "1",
+ *             actions: [
+ *                 "s3:ListAllMyBuckets",
+ *                 "s3:GetBucketLocation",
+ *             ],
+ *             resources: ["arn:aws:s3:::*"],
+ *         },
+ *         {
+ *             actions: ["s3:ListBucket"],
+ *             resources: [`arn:aws:s3:::${_var.s3_bucket_name}`],
+ *             conditions: [{
+ *                 test: "StringLike",
+ *                 variable: "s3:prefix",
+ *                 values: [
+ *                     "",
+ *                     "home/",
+ *                     "home/&{aws:username}/",
+ *                 ],
+ *             }],
+ *         },
+ *         {
+ *             actions: ["s3:*"],
+ *             resources: [
+ *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}`,
+ *                 `arn:aws:s3:::${_var.s3_bucket_name}/home/&{aws:username}/*`,
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const examplePolicy = new aws.iam.Policy("examplePolicy", {
+ *     path: "/",
+ *     policy: examplePolicyDocument.then(examplePolicyDocument => examplePolicyDocument.json),
+ * });
+ * ```
+ * ### Example Assume-Role Policy with Multiple Principals
+ *
+ * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eventStreamBucketRoleAssumeRolePolicy = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         actions: ["sts:AssumeRole"],
+ *         principals: [
+ *             {
+ *                 type: "Service",
+ *                 identifiers: ["firehose.amazonaws.com"],
+ *             },
+ *             {
+ *                 type: "AWS",
+ *                 identifiers: [_var.trusted_role_arn],
+ *             },
+ *             {
+ *                 type: "Federated",
+ *                 identifiers: [
+ *                     `arn:aws:iam::${_var.account_id}:saml-provider/${_var.provider_name}`,
+ *                     "cognito-identity.amazonaws.com",
+ *                 ],
+ *             },
+ *         ],
+ *     }],
+ * });
+ * ```
+ * ### Example Using A Source Document
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const source = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "SidToOverride",
+ *             actions: ["s3:*"],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const sourceJsonExample = source.then(source => aws.iam.getPolicyDocument({
+ *     sourceJson: source.json,
+ *     statements: [{
+ *         sid: "SidToOverride",
+ *         actions: ["s3:*"],
+ *         resources: [
+ *             "arn:aws:s3:::somebucket",
+ *             "arn:aws:s3:::somebucket/*",
+ *         ],
+ *     }],
+ * }));
+ * ```
+ *
+ * `data.aws_iam_policy_document.source_json_example.json` will evaluate to:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * ### Example Using An Override Document
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const override = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "SidToOverride",
+ *         actions: ["s3:*"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const overrideJsonExample = override.then(override => aws.iam.getPolicyDocument({
+ *     overrideJson: override.json,
+ *     statements: [
+ *         {
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "SidToOverride",
+ *             actions: ["s3:*"],
+ *             resources: [
+ *                 "arn:aws:s3:::somebucket",
+ *                 "arn:aws:s3:::somebucket/*",
+ *             ],
+ *         },
+ *     ],
+ * }));
+ * ```
+ *
+ * `data.aws_iam_policy_document.override_json_example.json` will evaluate to:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
  * ### Example with Both Source and Override Documents
  *
  * You can also combine `sourceJson` and `overrideJson` in the same document.
@@ -40,6 +188,110 @@ import * as utilities from "../utilities";
  * ```
  *
  * `data.aws_iam_policy_document.politik.json` will evaluate to:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * ### Example of Merging Source Documents
+ *
+ * Multiple documents can be combined using the `sourcePolicyDocuments` or `overridePolicyDocuments` attributes. `sourcePolicyDocuments` requires that all documents have unique Sids, while `overridePolicyDocuments` will iteratively override matching Sids.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const sourceOne = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "UniqueSidOne",
+ *             actions: ["s3:*"],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const sourceTwo = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             sid: "UniqueSidTwo",
+ *             actions: ["iam:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             actions: ["lambda:*"],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const combined = Promise.all([sourceOne, sourceTwo]).then(([sourceOne, sourceTwo]) => aws.iam.getPolicyDocument({
+ *     sourcePolicyDocuments: [
+ *         sourceOne.json,
+ *         sourceTwo.json,
+ *     ],
+ * }));
+ * ```
+ *
+ * `data.aws_iam_policy_document.combined.json` will evaluate to:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * ### Example of Merging Override Documents
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const policyOne = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "OverridePlaceHolderOne",
+ *         effect: "Allow",
+ *         actions: ["s3:*"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const policyTwo = aws.iam.getPolicyDocument({
+ *     statements: [
+ *         {
+ *             effect: "Allow",
+ *             actions: ["ec2:*"],
+ *             resources: ["*"],
+ *         },
+ *         {
+ *             sid: "OverridePlaceHolderTwo",
+ *             effect: "Allow",
+ *             actions: ["iam:*"],
+ *             resources: ["*"],
+ *         },
+ *     ],
+ * });
+ * const policyThree = aws.iam.getPolicyDocument({
+ *     statements: [{
+ *         sid: "OverridePlaceHolderOne",
+ *         effect: "Deny",
+ *         actions: ["logs:*"],
+ *         resources: ["*"],
+ *     }],
+ * });
+ * const combined = Promise.all([policyOne, policyTwo, policyThree]).then(([policyOne, policyTwo, policyThree]) => aws.iam.getPolicyDocument({
+ *     overridePolicyDocuments: [
+ *         policyOne.json,
+ *         policyTwo.json,
+ *         policyThree.json,
+ *     ],
+ *     statements: [{
+ *         sid: "OverridePlaceHolderTwo",
+ *         effect: "Deny",
+ *         actions: ["*"],
+ *         resources: ["*"],
+ *     }],
+ * }));
+ * ```
+ *
+ * `data.aws_iam_policy_document.combined.json` will evaluate to:
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

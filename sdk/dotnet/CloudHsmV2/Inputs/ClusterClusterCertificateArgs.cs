@@ -9,4 +9,26 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudHsmV2.Inputs
 {
+
+    public sealed class ClusterClusterCertificateArgs : Pulumi.ResourceArgs
+    {
+        [Input("awsHardwareCertificate")]
+        public Input<string>? AwsHardwareCertificate { get; set; }
+
+        [Input("clusterCertificate")]
+        public Input<string>? ClusterCertificate { get; set; }
+
+        [Input("clusterCsr")]
+        public Input<string>? ClusterCsr { get; set; }
+
+        [Input("hsmCertificate")]
+        public Input<string>? HsmCertificate { get; set; }
+
+        [Input("manufacturerHardwareCertificate")]
+        public Input<string>? ManufacturerHardwareCertificate { get; set; }
+
+        public ClusterClusterCertificateArgs()
+        {
+        }
+    }
 }

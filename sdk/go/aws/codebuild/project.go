@@ -13,6 +13,156 @@ import (
 
 // Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codebuild"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", &s3.BucketArgs{
+// 			Acl: pulumi.String("private"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"codebuild.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicy(ctx, "exampleRolePolicy", &iam.RolePolicyArgs{
+// 			Role: exampleRole.Name,
+// 			Policy: pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
+// 				exampleBucketArn := _args[0].(string)
+// 				exampleBucketArn1 := _args[1].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"*\"\n", "      ],\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ]\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterface\",\n", "        \"ec2:DescribeDhcpOptions\",\n", "        \"ec2:DescribeNetworkInterfaces\",\n", "        \"ec2:DeleteNetworkInterface\",\n", "        \"ec2:DescribeSubnets\",\n", "        \"ec2:DescribeSecurityGroups\",\n", "        \"ec2:DescribeVpcs\"\n", "      ],\n", "      \"Resource\": \"*\"\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterfacePermission\"\n", "      ],\n", "      \"Resource\": [\n", "        \"arn:aws:ec2:us-east-1:123456789012:network-interface/*\"\n", "      ],\n", "      \"Condition\": {\n", "        \"StringEquals\": {\n", "          \"ec2:Subnet\": [\n", "            \"", aws_subnet.Example1.Arn, "\",\n", "            \"", aws_subnet.Example2.Arn, "\"\n", "          ],\n", "          \"ec2:AuthorizedService\": \"codebuild.amazonaws.com\"\n", "        }\n", "      }\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"s3:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", exampleBucketArn, "\",\n", "        \"", exampleBucketArn1, "/*\"\n", "      ]\n", "    }\n", "  ]\n", "}\n"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = codebuild.NewProject(ctx, "exampleProject", &codebuild.ProjectArgs{
+// 			Description:  pulumi.String("test_codebuild_project"),
+// 			BuildTimeout: pulumi.Int(5),
+// 			ServiceRole:  exampleRole.Arn,
+// 			Artifacts: &codebuild.ProjectArtifactsArgs{
+// 				Type: pulumi.String("NO_ARTIFACTS"),
+// 			},
+// 			Cache: &codebuild.ProjectCacheArgs{
+// 				Type:     pulumi.String("S3"),
+// 				Location: exampleBucket.Bucket,
+// 			},
+// 			Environment: &codebuild.ProjectEnvironmentArgs{
+// 				ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+// 				Image:                    pulumi.String("aws/codebuild/standard:1.0"),
+// 				Type:                     pulumi.String("LINUX_CONTAINER"),
+// 				ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+// 				EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
+// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+// 						Name:  pulumi.String("SOME_KEY1"),
+// 						Value: pulumi.String("SOME_VALUE1"),
+// 					},
+// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+// 						Name:  pulumi.String("SOME_KEY2"),
+// 						Value: pulumi.String("SOME_VALUE2"),
+// 						Type:  pulumi.String("PARAMETER_STORE"),
+// 					},
+// 				},
+// 			},
+// 			LogsConfig: &codebuild.ProjectLogsConfigArgs{
+// 				CloudwatchLogs: &codebuild.ProjectLogsConfigCloudwatchLogsArgs{
+// 					GroupName:  pulumi.String("log-group"),
+// 					StreamName: pulumi.String("log-stream"),
+// 				},
+// 				S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
+// 					Status: pulumi.String("ENABLED"),
+// 					Location: exampleBucket.ID().ApplyT(func(id string) (string, error) {
+// 						return fmt.Sprintf("%v%v", id, "/build-log"), nil
+// 					}).(pulumi.StringOutput),
+// 				},
+// 			},
+// 			Source: &codebuild.ProjectSourceArgs{
+// 				Type:          pulumi.String("GITHUB"),
+// 				Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
+// 				GitCloneDepth: pulumi.Int(1),
+// 				GitSubmodulesConfig: &codebuild.ProjectSourceGitSubmodulesConfigArgs{
+// 					FetchSubmodules: pulumi.Bool(true),
+// 				},
+// 			},
+// 			SourceVersion: pulumi.String("master"),
+// 			VpcConfig: &codebuild.ProjectVpcConfigArgs{
+// 				VpcId: pulumi.Any(aws_vpc.Example.Id),
+// 				Subnets: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Example1.Id),
+// 					pulumi.Any(aws_subnet.Example2.Id),
+// 				},
+// 				SecurityGroupIds: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.Example1.Id),
+// 					pulumi.Any(aws_security_group.Example2.Id),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Test"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = codebuild.NewProject(ctx, "project_with_cache", &codebuild.ProjectArgs{
+// 			Description:   pulumi.String("test_codebuild_project_cache"),
+// 			BuildTimeout:  pulumi.Int(5),
+// 			QueuedTimeout: pulumi.Int(5),
+// 			ServiceRole:   exampleRole.Arn,
+// 			Artifacts: &codebuild.ProjectArtifactsArgs{
+// 				Type: pulumi.String("NO_ARTIFACTS"),
+// 			},
+// 			Cache: &codebuild.ProjectCacheArgs{
+// 				Type: pulumi.String("LOCAL"),
+// 				Modes: pulumi.StringArray{
+// 					pulumi.String("LOCAL_DOCKER_LAYER_CACHE"),
+// 					pulumi.String("LOCAL_SOURCE_CACHE"),
+// 				},
+// 			},
+// 			Environment: &codebuild.ProjectEnvironmentArgs{
+// 				ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+// 				Image:                    pulumi.String("aws/codebuild/standard:1.0"),
+// 				Type:                     pulumi.String("LINUX_CONTAINER"),
+// 				ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+// 				EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
+// 					&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
+// 						Name:  pulumi.String("SOME_KEY1"),
+// 						Value: pulumi.String("SOME_VALUE1"),
+// 					},
+// 				},
+// 			},
+// 			Source: &codebuild.ProjectSourceArgs{
+// 				Type:          pulumi.String("GITHUB"),
+// 				Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
+// 				GitCloneDepth: pulumi.Int(1),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("Test"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // CodeBuild Project can be imported using the `name`, e.g.

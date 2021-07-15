@@ -9,4 +9,29 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Aws.CloudFront.Inputs
 {
+
+    public sealed class DistributionTrustedKeyGroupItemArgs : Pulumi.ResourceArgs
+    {
+        /// <summary>
+        /// The ID of the key group that contains the public keys
+        /// </summary>
+        [Input("keyGroupId")]
+        public Input<string>? KeyGroupId { get; set; }
+
+        [Input("keyPairIds")]
+        private InputList<string>? _keyPairIds;
+
+        /// <summary>
+        /// Set of active CloudFront key pairs associated with the signer account
+        /// </summary>
+        public InputList<string> KeyPairIds
+        {
+            get => _keyPairIds ?? (_keyPairIds = new InputList<string>());
+            set => _keyPairIds = value;
+        }
+
+        public DistributionTrustedKeyGroupItemArgs()
+        {
+        }
+    }
 }

@@ -20,6 +20,85 @@ import (
 // > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
 //
 // ## Example Usage
+// ### Basic Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/mq"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+// 			BrokerName: pulumi.String("example"),
+// 			Configuration: &mq.BrokerConfigurationArgs{
+// 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
+// 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+// 			},
+// 			EngineType:       pulumi.String("ActiveMQ"),
+// 			EngineVersion:    pulumi.String("5.15.9"),
+// 			HostInstanceType: pulumi.String("mq.t2.micro"),
+// 			SecurityGroups: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Test.Id),
+// 			},
+// 			Users: mq.BrokerUserArray{
+// 				&mq.BrokerUserArgs{
+// 					Username: pulumi.String("ExampleUser"),
+// 					Password: pulumi.String("MindTheGap"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### High-throughput Optimized Example
+//
+// This example shows the use of EBS storage for high-throughput optimized performance.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/mq"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
+// 			BrokerName: pulumi.String("example"),
+// 			Configuration: &mq.BrokerConfigurationArgs{
+// 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
+// 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
+// 			},
+// 			EngineType:       pulumi.String("ActiveMQ"),
+// 			EngineVersion:    pulumi.String("5.15.9"),
+// 			StorageType:      pulumi.String("ebs"),
+// 			HostInstanceType: pulumi.String("mq.m5.large"),
+// 			SecurityGroups: pulumi.StringArray{
+// 				pulumi.Any(aws_security_group.Test.Id),
+// 			},
+// 			Users: mq.BrokerUserArray{
+// 				&mq.BrokerUserArgs{
+// 					Username: pulumi.String("ExampleUser"),
+// 					Password: pulumi.String("MindTheGap"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
