@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.50.0 of the AWS Terraform Provider
-* (breaking) Bring Go `*State` types for resource get methods into agreement with other languages.
+_(none)_
 
 ---
+
+## 4.13.0 (2021-07-16)
+* Upgrade to v3.50.0 of the AWS Terraform Provider
+* (breaking) Change the way types are generated for the Pulumi Go SDK. In most circumstances these changes will relax the allowed types for input properties on `State` types, but in this release and future releases it may cause some properties to require an update to match the desired type.
 
 ## 4.12.0 (2021-07-12)
 * Upgrade to v3.49.0 of the AWS Terraform Provider
@@ -59,7 +62,7 @@ CHANGELOG
 
 ## 4.1.0 (2021-04-26)
 * Add support for `arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder` in `aws.iam.ManagedPolicy`
-* `aws.iam.CallbackFunction` will now default to the following policies if no policies are specified by the user: 
+* `aws.iam.CallbackFunction` will now default to the following policies if no policies are specified by the user:
   * LambdaFullAccess
   * CloudWatchFullAccess
   * CloudWatchEventsFullAccess
