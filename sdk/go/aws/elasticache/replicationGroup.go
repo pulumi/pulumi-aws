@@ -219,7 +219,7 @@ type ReplicationGroup struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModeOutput `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
@@ -231,7 +231,7 @@ type ReplicationGroup struct {
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
-	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -327,7 +327,7 @@ type replicationGroupState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
@@ -339,7 +339,7 @@ type replicationGroupState struct {
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -404,7 +404,7 @@ type ReplicationGroupState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolPtrInput
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringPtrInput
@@ -416,7 +416,7 @@ type ReplicationGroupState struct {
 	EngineVersionActual pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput
@@ -481,7 +481,7 @@ type replicationGroupArgs struct {
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
@@ -489,7 +489,7 @@ type replicationGroupArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -545,7 +545,7 @@ type ReplicationGroupArgs struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
@@ -553,7 +553,7 @@ type ReplicationGroupArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+	// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
 	KmsKeyId pulumi.StringPtrInput

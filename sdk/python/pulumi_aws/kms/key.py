@@ -354,7 +354,7 @@ class Key(pulumi.CustomResource):
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a KMS customer master key.
+        Provides a KMS single-Region customer master key (CMK).
 
         ## Example Usage
 
@@ -394,7 +394,7 @@ class Key(pulumi.CustomResource):
                  args: Optional[KeyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a KMS customer master key.
+        Provides a KMS single-Region customer master key (CMK).
 
         ## Example Usage
 

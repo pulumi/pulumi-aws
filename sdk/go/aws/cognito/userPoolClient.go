@@ -157,6 +157,8 @@ type UserPoolClient struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrOutput `pulumi:"defaultRedirectUri"`
+	// Enables or disables token revocation.
+	EnableTokenRevocation pulumi.BoolOutput `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows pulumi.StringArrayOutput `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
@@ -231,6 +233,8 @@ type userPoolClientState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
+	// Enables or disables token revocation.
+	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
@@ -274,6 +278,8 @@ type UserPoolClientState struct {
 	ClientSecret pulumi.StringPtrInput
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrInput
+	// Enables or disables token revocation.
+	EnableTokenRevocation pulumi.BoolPtrInput
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Should an application secret be generated.
@@ -319,6 +325,8 @@ type userPoolClientArgs struct {
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
+	// Enables or disables token revocation.
+	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows []string `pulumi:"explicitAuthFlows"`
 	// Should an application secret be generated.
@@ -361,6 +369,8 @@ type UserPoolClientArgs struct {
 	CallbackUrls pulumi.StringArrayInput
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrInput
+	// Enables or disables token revocation.
+	EnableTokenRevocation pulumi.BoolPtrInput
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
 	ExplicitAuthFlows pulumi.StringArrayInput
 	// Should an application secret be generated.

@@ -41,6 +41,7 @@ import * as amplify from "./amplify";
 import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
+import * as appconfig from "./appconfig";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
@@ -183,6 +184,7 @@ export {
     apigateway,
     apigatewayv2,
     appautoscaling,
+    appconfig,
     applicationloadbalancing,
     appmesh,
     apprunner,

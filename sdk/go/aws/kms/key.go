@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a KMS customer master key.
+// Provides a KMS single-Region customer master key (CMK).
 //
 // ## Example Usage
 //

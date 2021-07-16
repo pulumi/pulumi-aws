@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.50.0 of the AWS Terraform Provider
 * (breaking) Bring Go `*State` types for resource get methods into agreement with other languages.
 
 ---

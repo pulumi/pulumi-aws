@@ -64,6 +64,10 @@ jobs:
       run: |-
         tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+    - name: Install plugins
+      run: make install_plugins
+    - name: Update path
+      run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Build SDK
       run: make build_${{ matrix.language }}
     - name: Check worktree clean

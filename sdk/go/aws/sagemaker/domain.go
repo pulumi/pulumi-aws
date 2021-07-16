@@ -160,6 +160,8 @@ type Domain struct {
 	HomeEfsFileSystemId pulumi.StringOutput `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	RetentionPolicy DomainRetentionPolicyPtrOutput `pulumi:"retentionPolicy"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -232,6 +234,8 @@ type domainState struct {
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -261,6 +265,8 @@ type DomainState struct {
 	HomeEfsFileSystemId pulumi.StringPtrInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
@@ -290,6 +296,8 @@ type domainArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	RetentionPolicy *DomainRetentionPolicy `pulumi:"retentionPolicy"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -312,6 +320,8 @@ type DomainArgs struct {
 	DomainName pulumi.StringInput
 	// The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
 	KmsKeyId pulumi.StringPtrInput
+	// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+	RetentionPolicy DomainRetentionPolicyPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

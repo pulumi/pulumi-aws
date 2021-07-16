@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fms.Inputs
         public Input<string>? ManagedServiceData { get; set; }
 
         /// <summary>
-        /// The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
+        /// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -103,7 +103,7 @@ type Instance struct {
 
 	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address pulumi.StringOutput `pulumi:"address"`
-	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -338,7 +338,7 @@ func GetInstance(ctx *pulumi.Context,
 type instanceState struct {
 	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address *string `pulumi:"address"`
-	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -542,7 +542,7 @@ type instanceState struct {
 type InstanceState struct {
 	// The hostname of the RDS instance. See also `endpoint` and `port`.
 	Address pulumi.StringPtrInput
-	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage pulumi.IntPtrInput
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -748,7 +748,7 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and
@@ -937,7 +937,7 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+	// The allocated storage in gibibytes. If `maxAllocatedStorage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicateSourceDb` is set, the value is ignored during the creation of the instance.
 	AllocatedStorage pulumi.IntPtrInput
 	// Indicates that major version
 	// upgrades are allowed. Changing this parameter does not result in an outage and

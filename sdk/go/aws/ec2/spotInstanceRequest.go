@@ -103,9 +103,13 @@ type SpotInstanceRequest struct {
 	IamInstanceProfile pulumi.StringPtrOutput `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
-	InstanceInterruptionBehaviour pulumi.StringPtrOutput `pulumi:"instanceInterruptionBehaviour"`
-	InstanceState                 pulumi.StringOutput    `pulumi:"instanceState"`
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	InstanceInterruptionBehavior pulumi.StringOutput `pulumi:"instanceInterruptionBehavior"`
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+	//
+	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
+	InstanceInterruptionBehaviour pulumi.StringOutput `pulumi:"instanceInterruptionBehaviour"`
+	InstanceState                 pulumi.StringOutput `pulumi:"instanceState"`
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -263,7 +267,11 @@ type spotInstanceRequestState struct {
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+	//
+	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	InstanceState                 *string `pulumi:"instanceState"`
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -389,7 +397,11 @@ type SpotInstanceRequestState struct {
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	InstanceInterruptionBehavior pulumi.StringPtrInput
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+	//
+	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	InstanceState                 pulumi.StringPtrInput
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -518,7 +530,11 @@ type spotInstanceRequestArgs struct {
 	IamInstanceProfile *string `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+	//
+	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType string `pulumi:"instanceType"`
@@ -620,7 +636,11 @@ type SpotInstanceRequestArgs struct {
 	IamInstanceProfile pulumi.StringPtrInput
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+	InstanceInterruptionBehavior pulumi.StringPtrInput
+	// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+	//
+	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringInput

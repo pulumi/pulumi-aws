@@ -591,6 +591,112 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrganizationConformancePackInputParameter struct {
+	// The input key.
+	ParameterName string `pulumi:"parameterName"`
+	// The input value.
+	ParameterValue string `pulumi:"parameterValue"`
+}
+
+// OrganizationConformancePackInputParameterInput is an input type that accepts OrganizationConformancePackInputParameterArgs and OrganizationConformancePackInputParameterOutput values.
+// You can construct a concrete instance of `OrganizationConformancePackInputParameterInput` via:
+//
+//          OrganizationConformancePackInputParameterArgs{...}
+type OrganizationConformancePackInputParameterInput interface {
+	pulumi.Input
+
+	ToOrganizationConformancePackInputParameterOutput() OrganizationConformancePackInputParameterOutput
+	ToOrganizationConformancePackInputParameterOutputWithContext(context.Context) OrganizationConformancePackInputParameterOutput
+}
+
+type OrganizationConformancePackInputParameterArgs struct {
+	// The input key.
+	ParameterName pulumi.StringInput `pulumi:"parameterName"`
+	// The input value.
+	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
+}
+
+func (OrganizationConformancePackInputParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConformancePackInputParameter)(nil)).Elem()
+}
+
+func (i OrganizationConformancePackInputParameterArgs) ToOrganizationConformancePackInputParameterOutput() OrganizationConformancePackInputParameterOutput {
+	return i.ToOrganizationConformancePackInputParameterOutputWithContext(context.Background())
+}
+
+func (i OrganizationConformancePackInputParameterArgs) ToOrganizationConformancePackInputParameterOutputWithContext(ctx context.Context) OrganizationConformancePackInputParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackInputParameterOutput)
+}
+
+// OrganizationConformancePackInputParameterArrayInput is an input type that accepts OrganizationConformancePackInputParameterArray and OrganizationConformancePackInputParameterArrayOutput values.
+// You can construct a concrete instance of `OrganizationConformancePackInputParameterArrayInput` via:
+//
+//          OrganizationConformancePackInputParameterArray{ OrganizationConformancePackInputParameterArgs{...} }
+type OrganizationConformancePackInputParameterArrayInput interface {
+	pulumi.Input
+
+	ToOrganizationConformancePackInputParameterArrayOutput() OrganizationConformancePackInputParameterArrayOutput
+	ToOrganizationConformancePackInputParameterArrayOutputWithContext(context.Context) OrganizationConformancePackInputParameterArrayOutput
+}
+
+type OrganizationConformancePackInputParameterArray []OrganizationConformancePackInputParameterInput
+
+func (OrganizationConformancePackInputParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationConformancePackInputParameter)(nil)).Elem()
+}
+
+func (i OrganizationConformancePackInputParameterArray) ToOrganizationConformancePackInputParameterArrayOutput() OrganizationConformancePackInputParameterArrayOutput {
+	return i.ToOrganizationConformancePackInputParameterArrayOutputWithContext(context.Background())
+}
+
+func (i OrganizationConformancePackInputParameterArray) ToOrganizationConformancePackInputParameterArrayOutputWithContext(ctx context.Context) OrganizationConformancePackInputParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackInputParameterArrayOutput)
+}
+
+type OrganizationConformancePackInputParameterOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConformancePackInputParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConformancePackInputParameter)(nil)).Elem()
+}
+
+func (o OrganizationConformancePackInputParameterOutput) ToOrganizationConformancePackInputParameterOutput() OrganizationConformancePackInputParameterOutput {
+	return o
+}
+
+func (o OrganizationConformancePackInputParameterOutput) ToOrganizationConformancePackInputParameterOutputWithContext(ctx context.Context) OrganizationConformancePackInputParameterOutput {
+	return o
+}
+
+// The input key.
+func (o OrganizationConformancePackInputParameterOutput) ParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConformancePackInputParameter) string { return v.ParameterName }).(pulumi.StringOutput)
+}
+
+// The input value.
+func (o OrganizationConformancePackInputParameterOutput) ParameterValue() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConformancePackInputParameter) string { return v.ParameterValue }).(pulumi.StringOutput)
+}
+
+type OrganizationConformancePackInputParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConformancePackInputParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrganizationConformancePackInputParameter)(nil)).Elem()
+}
+
+func (o OrganizationConformancePackInputParameterArrayOutput) ToOrganizationConformancePackInputParameterArrayOutput() OrganizationConformancePackInputParameterArrayOutput {
+	return o
+}
+
+func (o OrganizationConformancePackInputParameterArrayOutput) ToOrganizationConformancePackInputParameterArrayOutputWithContext(ctx context.Context) OrganizationConformancePackInputParameterArrayOutput {
+	return o
+}
+
+func (o OrganizationConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) OrganizationConformancePackInputParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationConformancePackInputParameter {
+		return vs[0].([]OrganizationConformancePackInputParameter)[vs[1].(int)]
+	}).(OrganizationConformancePackInputParameterOutput)
+}
+
 type RecorderRecordingGroup struct {
 	// Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
 	AllSupported *bool `pulumi:"allSupported"`
@@ -1356,6 +1462,8 @@ func init() {
 	pulumi.RegisterOutputType(ConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConformancePackInputParameterOutput{})
+	pulumi.RegisterOutputType(OrganizationConformancePackInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(RecorderRecordingGroupPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationParameterOutput{})

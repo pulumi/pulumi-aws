@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -16,6 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myDetector = new aws.guardduty.Detector("MyDetector", {
+ *     datasources: {
+ *         s3Logs: {
+ *             enable: true,
+ *         },
+ *     },
  *     enable: true,
  * });
  * ```
@@ -65,7 +71,11 @@ export class Detector extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     */
+    public readonly datasources!: pulumi.Output<outputs.guardduty.DetectorDatasources>;
+    /**
+     * If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
      */
     public readonly enable!: pulumi.Output<boolean | undefined>;
     /**
@@ -73,7 +83,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly findingPublishingFrequency!: pulumi.Output<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -96,12 +106,14 @@ export class Detector extends pulumi.CustomResource {
             const state = argsOrState as DetectorState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["datasources"] = state ? state.datasources : undefined;
             inputs["enable"] = state ? state.enable : undefined;
             inputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DetectorArgs | undefined;
+            inputs["datasources"] = args ? args.datasources : undefined;
             inputs["enable"] = args ? args.enable : undefined;
             inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -129,7 +141,11 @@ export interface DetectorState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     */
+    datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
+    /**
+     * If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
      */
     enable?: pulumi.Input<boolean>;
     /**
@@ -137,7 +153,7 @@ export interface DetectorState {
      */
     findingPublishingFrequency?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -151,7 +167,11 @@ export interface DetectorState {
  */
 export interface DetectorArgs {
     /**
-     * Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+     * Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+     */
+    datasources?: pulumi.Input<inputs.guardduty.DetectorDatasources>;
+    /**
+     * If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
      */
     enable?: pulumi.Input<boolean>;
     /**
@@ -159,7 +179,7 @@ export interface DetectorArgs {
      */
     findingPublishingFrequency?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -24,6 +24,7 @@ __all__ = [
     'DomainDefaultUserSettingsSharingSettings',
     'DomainDefaultUserSettingsTensorBoardAppSettings',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
+    'DomainRetentionPolicy',
     'EndpointConfigurationDataCaptureConfig',
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader',
     'EndpointConfigurationDataCaptureConfigCaptureOption',
@@ -822,6 +823,42 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
         The ARN of the SageMaker image that the image version belongs to.
         """
         return pulumi.get(self, "sagemaker_image_arn")
+
+
+@pulumi.output_type
+class DomainRetentionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "homeEfsFileSystem":
+            suggest = "home_efs_file_system"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainRetentionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainRetentionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainRetentionPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 home_efs_file_system: Optional[str] = None):
+        """
+        :param str home_efs_file_system: The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        """
+        if home_efs_file_system is not None:
+            pulumi.set(__self__, "home_efs_file_system", home_efs_file_system)
+
+    @property
+    @pulumi.getter(name="homeEfsFileSystem")
+    def home_efs_file_system(self) -> Optional[str]:
+        """
+        The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        """
+        return pulumi.get(self, "home_efs_file_system")
 
 
 @pulumi.output_type

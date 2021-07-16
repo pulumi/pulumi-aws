@@ -45,6 +45,44 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// }
     /// ```
+    /// ## Multiple Region Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+    ///         var exampleRegions = Output.Create(Aws.GetRegions.InvokeAsync());
+    ///         var exampleReplicationConfiguration = new Aws.Ecr.ReplicationConfiguration("exampleReplicationConfiguration", new Aws.Ecr.ReplicationConfigurationArgs
+    ///         {
+    ///             ReplicationConfiguration = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationArgs
+    ///             {
+    ///                 Rule = new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleArgs
+    ///                 {
+    ///                     Destinations = 
+    ///                     {
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[0]),
+    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                         },
+    ///                         new Aws.Ecr.Inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs
+    ///                         {
+    ///                             Region = exampleRegions.Apply(exampleRegions =&gt; exampleRegions.Names?[1]),
+    ///                             RegistryId = current.Apply(current =&gt; current.AccountId),
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

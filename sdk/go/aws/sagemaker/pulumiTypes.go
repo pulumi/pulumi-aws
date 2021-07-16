@@ -2218,6 +2218,137 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainRetentionPolicy struct {
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+	HomeEfsFileSystem *string `pulumi:"homeEfsFileSystem"`
+}
+
+// DomainRetentionPolicyInput is an input type that accepts DomainRetentionPolicyArgs and DomainRetentionPolicyOutput values.
+// You can construct a concrete instance of `DomainRetentionPolicyInput` via:
+//
+//          DomainRetentionPolicyArgs{...}
+type DomainRetentionPolicyInput interface {
+	pulumi.Input
+
+	ToDomainRetentionPolicyOutput() DomainRetentionPolicyOutput
+	ToDomainRetentionPolicyOutputWithContext(context.Context) DomainRetentionPolicyOutput
+}
+
+type DomainRetentionPolicyArgs struct {
+	// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+	HomeEfsFileSystem pulumi.StringPtrInput `pulumi:"homeEfsFileSystem"`
+}
+
+func (DomainRetentionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRetentionPolicy)(nil)).Elem()
+}
+
+func (i DomainRetentionPolicyArgs) ToDomainRetentionPolicyOutput() DomainRetentionPolicyOutput {
+	return i.ToDomainRetentionPolicyOutputWithContext(context.Background())
+}
+
+func (i DomainRetentionPolicyArgs) ToDomainRetentionPolicyOutputWithContext(ctx context.Context) DomainRetentionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRetentionPolicyOutput)
+}
+
+func (i DomainRetentionPolicyArgs) ToDomainRetentionPolicyPtrOutput() DomainRetentionPolicyPtrOutput {
+	return i.ToDomainRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i DomainRetentionPolicyArgs) ToDomainRetentionPolicyPtrOutputWithContext(ctx context.Context) DomainRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRetentionPolicyOutput).ToDomainRetentionPolicyPtrOutputWithContext(ctx)
+}
+
+// DomainRetentionPolicyPtrInput is an input type that accepts DomainRetentionPolicyArgs, DomainRetentionPolicyPtr and DomainRetentionPolicyPtrOutput values.
+// You can construct a concrete instance of `DomainRetentionPolicyPtrInput` via:
+//
+//          DomainRetentionPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainRetentionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToDomainRetentionPolicyPtrOutput() DomainRetentionPolicyPtrOutput
+	ToDomainRetentionPolicyPtrOutputWithContext(context.Context) DomainRetentionPolicyPtrOutput
+}
+
+type domainRetentionPolicyPtrType DomainRetentionPolicyArgs
+
+func DomainRetentionPolicyPtr(v *DomainRetentionPolicyArgs) DomainRetentionPolicyPtrInput {
+	return (*domainRetentionPolicyPtrType)(v)
+}
+
+func (*domainRetentionPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRetentionPolicy)(nil)).Elem()
+}
+
+func (i *domainRetentionPolicyPtrType) ToDomainRetentionPolicyPtrOutput() DomainRetentionPolicyPtrOutput {
+	return i.ToDomainRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *domainRetentionPolicyPtrType) ToDomainRetentionPolicyPtrOutputWithContext(ctx context.Context) DomainRetentionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainRetentionPolicyPtrOutput)
+}
+
+type DomainRetentionPolicyOutput struct{ *pulumi.OutputState }
+
+func (DomainRetentionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRetentionPolicy)(nil)).Elem()
+}
+
+func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyOutput() DomainRetentionPolicyOutput {
+	return o
+}
+
+func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyOutputWithContext(ctx context.Context) DomainRetentionPolicyOutput {
+	return o
+}
+
+func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutput() DomainRetentionPolicyPtrOutput {
+	return o.ToDomainRetentionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutputWithContext(ctx context.Context) DomainRetentionPolicyPtrOutput {
+	return o.ApplyT(func(v DomainRetentionPolicy) *DomainRetentionPolicy {
+		return &v
+	}).(DomainRetentionPolicyPtrOutput)
+}
+
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+func (o DomainRetentionPolicyOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainRetentionPolicy) *string { return v.HomeEfsFileSystem }).(pulumi.StringPtrOutput)
+}
+
+type DomainRetentionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRetentionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRetentionPolicy)(nil)).Elem()
+}
+
+func (o DomainRetentionPolicyPtrOutput) ToDomainRetentionPolicyPtrOutput() DomainRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DomainRetentionPolicyPtrOutput) ToDomainRetentionPolicyPtrOutputWithContext(ctx context.Context) DomainRetentionPolicyPtrOutput {
+	return o
+}
+
+func (o DomainRetentionPolicyPtrOutput) Elem() DomainRetentionPolicyOutput {
+	return o.ApplyT(func(v *DomainRetentionPolicy) DomainRetentionPolicy { return *v }).(DomainRetentionPolicyOutput)
+}
+
+// The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainRetentionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HomeEfsFileSystem
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigurationDataCaptureConfig struct {
 	// The content type headers to capture. Fields are documented below.
 	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
@@ -5947,6 +6078,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainRetentionPolicyOutput{})
+	pulumi.RegisterOutputType(DomainRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput{})

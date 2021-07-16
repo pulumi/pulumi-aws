@@ -36,6 +36,9 @@ class GetUserPoolsResult:
     @property
     @pulumi.getter
     def arns(self) -> Sequence[str]:
+        """
+        The set of cognito user pool Amazon Resource Names (ARNs).
+        """
         return pulumi.get(self, "arns")
 
     @property
@@ -50,7 +53,7 @@ class GetUserPoolsResult:
     @pulumi.getter
     def ids(self) -> Sequence[str]:
         """
-        The list of cognito user pool ids.
+        The set of cognito user pool ids.
         """
         return pulumi.get(self, "ids")
 

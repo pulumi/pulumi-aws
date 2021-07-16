@@ -241,7 +241,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<bool> ClusterEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Output("clusterMode")]
         public Output<Outputs.ReplicationGroupClusterMode> ClusterMode { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
         /// </summary>
         [Output("globalReplicationGroupId")]
         public Output<string> GlobalReplicationGroupId { get; private set; } = null!;
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeArgs>? ClusterMode { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }
@@ -736,7 +736,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? ClusterEnabled { get; set; }
 
         /// <summary>
-        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. One of `number_cache_clusters` or `cluster_mode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        /// Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         /// </summary>
         [Input("clusterMode")]
         public Input<Inputs.ReplicationGroupClusterModeGetArgs>? ClusterMode { get; set; }
@@ -772,7 +772,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+        /// The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `global_replication_group_id` is set, the `num_node_groups` parameter of the `cluster_mode` block cannot be set.
         /// </summary>
         [Input("globalReplicationGroupId")]
         public Input<string>? GlobalReplicationGroupId { get; set; }

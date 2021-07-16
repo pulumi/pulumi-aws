@@ -31,7 +31,7 @@ class VpcEndpointArgs:
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -102,7 +102,7 @@ class VpcEndpointArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
         return pulumi.get(self, "policy")
 
@@ -226,7 +226,7 @@ class _VpcEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC endpoint.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
@@ -356,7 +356,7 @@ class _VpcEndpointState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
         return pulumi.get(self, "policy")
 
@@ -603,7 +603,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: One or more route table IDs. Applicable for endpoints of type `Gateway`.
@@ -797,7 +797,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointDnsEntryArgs']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC endpoint.
-        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[str] prefix_list_id: The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
@@ -889,7 +889,7 @@ class VpcEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        A policy to attach to the endpoint that controls access to the service. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
+        A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         """
         return pulumi.get(self, "policy")
 

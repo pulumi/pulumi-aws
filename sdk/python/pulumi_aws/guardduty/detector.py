@@ -7,23 +7,29 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['DetectorArgs', 'Detector']
 
 @pulumi.input_type
 class DetectorArgs:
     def __init__(__self__, *,
+                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Detector resource.
-        :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param pulumi.Input['DetectorDatasourcesArgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        :param pulumi.Input[bool] enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
+        if datasources is not None:
+            pulumi.set(__self__, "datasources", datasources)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if finding_publishing_frequency is not None:
@@ -35,9 +41,21 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
+    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+        """
+        Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        """
+        return pulumi.get(self, "datasources")
+
+    @datasources.setter
+    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+        pulumi.set(self, "datasources", value)
+
+    @property
+    @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -61,7 +79,7 @@ class DetectorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -87,6 +105,7 @@ class _DetectorState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -95,15 +114,18 @@ class _DetectorState:
         Input properties used for looking up and filtering Detector resources.
         :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
-        :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param pulumi.Input['DetectorDatasourcesArgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        :param pulumi.Input[bool] enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if datasources is not None:
+            pulumi.set(__self__, "datasources", datasources)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if finding_publishing_frequency is not None:
@@ -139,9 +161,21 @@ class _DetectorState:
 
     @property
     @pulumi.getter
+    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+        """
+        Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        """
+        return pulumi.get(self, "datasources")
+
+    @datasources.setter
+    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+        pulumi.set(self, "datasources", value)
+
+    @property
+    @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -165,7 +199,7 @@ class _DetectorState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -191,6 +225,7 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -207,7 +242,13 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector", enable=True)
+        my_detector = aws.guardduty.Detector("myDetector",
+            datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
+            ),
+            enable=True)
         ```
 
         ## Import
@@ -220,9 +261,10 @@ class Detector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        :param pulumi.Input[bool] enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
@@ -242,7 +284,13 @@ class Detector(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        my_detector = aws.guardduty.Detector("myDetector", enable=True)
+        my_detector = aws.guardduty.Detector("myDetector",
+            datasources=aws.guardduty.DetectorDatasourcesArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                    enable=True,
+                ),
+            ),
+            enable=True)
         ```
 
         ## Import
@@ -268,6 +316,7 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -284,6 +333,7 @@ class Detector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DetectorArgs.__new__(DetectorArgs)
 
+            __props__.__dict__["datasources"] = datasources
             __props__.__dict__["enable"] = enable
             __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
             __props__.__dict__["tags"] = tags
@@ -302,6 +352,7 @@ class Detector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
             enable: Optional[pulumi.Input[bool]] = None,
             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -315,9 +366,10 @@ class Detector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
-        :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        :param pulumi.Input[bool] enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -326,6 +378,7 @@ class Detector(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["datasources"] = datasources
         __props__.__dict__["enable"] = enable
         __props__.__dict__["finding_publishing_frequency"] = finding_publishing_frequency
         __props__.__dict__["tags"] = tags
@@ -350,9 +403,17 @@ class Detector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def datasources(self) -> pulumi.Output['outputs.DetectorDatasources']:
+        """
+        Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        """
+        return pulumi.get(self, "datasources")
+
+    @property
+    @pulumi.getter
     def enable(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 
@@ -368,7 +429,7 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

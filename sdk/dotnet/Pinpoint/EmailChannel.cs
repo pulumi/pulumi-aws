@@ -25,10 +25,6 @@ namespace Pulumi.Aws.Pinpoint
     ///         var app = new Aws.Pinpoint.App("app", new Aws.Pinpoint.AppArgs
     ///         {
     ///         });
-    ///         var identity = new Aws.Ses.DomainIdentity("identity", new Aws.Ses.DomainIdentityArgs
-    ///         {
-    ///             Domain = "example.com",
-    ///         });
     ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
     ///         {
     ///             AssumeRolePolicy = @"{
@@ -50,8 +46,11 @@ namespace Pulumi.Aws.Pinpoint
     ///         {
     ///             ApplicationId = app.ApplicationId,
     ///             FromAddress = "user@example.com",
-    ///             Identity = identity.Arn,
     ///             RoleArn = role.Arn,
+    ///         });
+    ///         var identity = new Aws.Ses.DomainIdentity("identity", new Aws.Ses.DomainIdentityArgs
+    ///         {
+    ///             Domain = "example.com",
     ///         });
     ///         var rolePolicy = new Aws.Iam.RolePolicy("rolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
@@ -106,7 +105,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The email address used to send emails from.
+        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Output("fromAddress")]
         public Output<string> FromAddress { get; private set; } = null!;
@@ -194,7 +193,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The email address used to send emails from.
+        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Input("fromAddress", required: true)]
         public Input<string> FromAddress { get; set; } = null!;
@@ -237,7 +236,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The email address used to send emails from.
+        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Input("fromAddress")]
         public Input<string>? FromAddress { get; set; }

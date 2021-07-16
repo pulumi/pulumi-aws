@@ -112,6 +112,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> ActiveDirectoryId { get; private set; } = null!;
 
         /// <summary>
+        /// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        /// </summary>
+        [Output("aliases")]
+        public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name of the file system.
         /// </summary>
         [Output("arn")]
@@ -307,6 +313,18 @@ namespace Pulumi.Aws.Fsx
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
 
+        [Input("aliases")]
+        private InputList<string>? _aliases;
+
+        /// <summary>
+        /// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        /// </summary>
+        public InputList<string> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<string>());
+            set => _aliases = value;
+        }
+
         /// <summary>
         /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         /// </summary>
@@ -445,6 +463,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("activeDirectoryId")]
         public Input<string>? ActiveDirectoryId { get; set; }
+
+        [Input("aliases")]
+        private InputList<string>? _aliases;
+
+        /// <summary>
+        /// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        /// </summary>
+        public InputList<string> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<string>());
+            set => _aliases = value;
+        }
 
         /// <summary>
         /// Amazon Resource Name of the file system.

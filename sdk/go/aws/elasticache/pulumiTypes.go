@@ -235,8 +235,8 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 type ReplicationGroupClusterMode struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-	NumNodeGroups int `pulumi:"numNodeGroups"`
+	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	NumNodeGroups *int `pulumi:"numNodeGroups"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup int `pulumi:"replicasPerNodeGroup"`
 }
@@ -253,8 +253,8 @@ type ReplicationGroupClusterModeInput interface {
 }
 
 type ReplicationGroupClusterModeArgs struct {
-	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-	NumNodeGroups pulumi.IntInput `pulumi:"numNodeGroups"`
+	// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+	NumNodeGroups pulumi.IntPtrInput `pulumi:"numNodeGroups"`
 	// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
 	ReplicasPerNodeGroup pulumi.IntInput `pulumi:"replicasPerNodeGroup"`
 }
@@ -336,9 +336,9 @@ func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutpu
 	}).(ReplicationGroupClusterModePtrOutput)
 }
 
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
-func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) int { return v.NumNodeGroups }).(pulumi.IntOutput)
+// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
+func (o ReplicationGroupClusterModeOutput) NumNodeGroups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ReplicationGroupClusterMode) *int { return v.NumNodeGroups }).(pulumi.IntPtrOutput)
 }
 
 // Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
@@ -364,13 +364,13 @@ func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterMode
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode { return *v }).(ReplicationGroupClusterModeOutput)
 }
 
-// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
 func (o ReplicationGroupClusterModePtrOutput) NumNodeGroups() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroupClusterMode) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.NumNodeGroups
+		return v.NumNodeGroups
 	}).(pulumi.IntPtrOutput)
 }
 

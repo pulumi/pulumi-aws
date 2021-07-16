@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 
@@ -14,14 +16,18 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
                  auto_enable: pulumi.Input[bool],
-                 detector_id: pulumi.Input[str]):
+                 detector_id: pulumi.Input[str],
+                 datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
         :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "detector_id", detector_id)
+        if datasources is not None:
+            pulumi.set(__self__, "datasources", datasources)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -47,19 +53,35 @@ class OrganizationConfigurationArgs:
     def detector_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "detector_id", value)
 
+    @property
+    @pulumi.getter
+    def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
+        """
+        Configuration for the collected datasources.
+        """
+        return pulumi.get(self, "datasources")
+
+    @datasources.setter
+    def datasources(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]):
+        pulumi.set(self, "datasources", value)
+
 
 @pulumi.input_type
 class _OrganizationConfigurationState:
     def __init__(__self__, *,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
+                 datasources: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']] = None,
                  detector_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
         :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param pulumi.Input['OrganizationConfigurationDatasourcesArgs'] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
+        if datasources is not None:
+            pulumi.set(__self__, "datasources", datasources)
         if detector_id is not None:
             pulumi.set(__self__, "detector_id", detector_id)
 
@@ -74,6 +96,18 @@ class _OrganizationConfigurationState:
     @auto_enable.setter
     def auto_enable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_enable", value)
+
+    @property
+    @pulumi.getter
+    def datasources(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]:
+        """
+        Configuration for the collected datasources.
+        """
+        return pulumi.get(self, "datasources")
+
+    @datasources.setter
+    def datasources(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesArgs']]):
+        pulumi.set(self, "datasources", value)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -94,6 +128,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -110,7 +145,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
             auto_enable=True,
-            detector_id=example_detector.id)
+            detector_id=example_detector.id,
+            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
+                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
+                    auto_enable=True,
+                ),
+            ))
         ```
 
         ## Import
@@ -124,6 +164,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
         ...
@@ -146,7 +187,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_detector = aws.guardduty.Detector("exampleDetector", enable=True)
         example_organization_configuration = aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration",
             auto_enable=True,
-            detector_id=example_detector.id)
+            detector_id=example_detector.id,
+            datasources=aws.guardduty.OrganizationConfigurationDatasourcesArgs(
+                s3_logs=aws.guardduty.OrganizationConfigurationDatasourcesS3LogsArgs(
+                    auto_enable=True,
+                ),
+            ))
         ```
 
         ## Import
@@ -173,6 +219,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[bool]] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -189,6 +236,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             if auto_enable is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_enable'")
             __props__.__dict__["auto_enable"] = auto_enable
+            __props__.__dict__["datasources"] = datasources
             if detector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
@@ -203,6 +251,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable: Optional[pulumi.Input[bool]] = None,
+            datasources: Optional[pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']]] = None,
             detector_id: Optional[pulumi.Input[str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
@@ -212,6 +261,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        :param pulumi.Input[pulumi.InputType['OrganizationConfigurationDatasourcesArgs']] datasources: Configuration for the collected datasources.
         :param pulumi.Input[str] detector_id: The detector ID of the GuardDuty account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -219,6 +269,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         __props__ = _OrganizationConfigurationState.__new__(_OrganizationConfigurationState)
 
         __props__.__dict__["auto_enable"] = auto_enable
+        __props__.__dict__["datasources"] = datasources
         __props__.__dict__["detector_id"] = detector_id
         return OrganizationConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -229,6 +280,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
         When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
         """
         return pulumi.get(self, "auto_enable")
+
+    @property
+    @pulumi.getter
+    def datasources(self) -> pulumi.Output['outputs.OrganizationConfigurationDatasources']:
+        """
+        Configuration for the collected datasources.
+        """
+        return pulumi.get(self, "datasources")
 
     @property
     @pulumi.getter(name="detectorId")

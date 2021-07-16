@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a KMS customer master key.
+ * Provides a KMS single-Region customer master key (CMK).
  *
  * ## Example Usage
  *

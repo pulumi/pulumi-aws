@@ -31,6 +31,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        /// </summary>
+        [Input("scopeDownStatement")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>? ScopeDownStatement { get; set; }
+
+        /// <summary>
         /// The name of the managed rule group vendor.
         /// </summary>
         [Input("vendorName", required: true)]

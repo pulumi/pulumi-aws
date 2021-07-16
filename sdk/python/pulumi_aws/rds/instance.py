@@ -72,7 +72,7 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance type of the RDS instance.
-        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
                the change is asynchronously applied as soon as possible.
@@ -326,7 +326,7 @@ class InstanceArgs:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
-        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -1093,7 +1093,7 @@ class _InstanceState:
         """
         Input properties used for looking up and filtering Instance resources.
         :param pulumi.Input[str] address: The hostname of the RDS instance. See also `endpoint` and `port`.
-        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
                the change is asynchronously applied as soon as possible.
@@ -1372,7 +1372,7 @@ class _InstanceState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> Optional[pulumi.Input[int]]:
         """
-        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -2290,7 +2290,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
                the change is asynchronously applied as soon as possible.
@@ -2714,7 +2714,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: The hostname of the RDS instance. See also `endpoint` and `port`.
-        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        :param pulumi.Input[int] allocated_storage: The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version
                upgrades are allowed. Changing this parameter does not result in an outage and
                the change is asynchronously applied as soon as possible.
@@ -2933,7 +2933,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[int]:
         """
-        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         """
         return pulumi.get(self, "allocated_storage")
 

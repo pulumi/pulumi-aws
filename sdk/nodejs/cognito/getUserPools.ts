@@ -54,13 +54,16 @@ export interface GetUserPoolsArgs {
  * A collection of values returned by getUserPools.
  */
 export interface GetUserPoolsResult {
+    /**
+     * The set of cognito user pool Amazon Resource Names (ARNs).
+     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The list of cognito user pool ids.
+     * The set of cognito user pool ids.
      */
     readonly ids: string[];
     readonly name: string;

@@ -151,6 +151,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
+     * Enables or disables token revocation.
+     */
+    public readonly enableTokenRevocation!: pulumi.Output<boolean>;
+    /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
     public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
@@ -220,6 +224,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["callbackUrls"] = state ? state.callbackUrls : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;
             inputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
+            inputs["enableTokenRevocation"] = state ? state.enableTokenRevocation : undefined;
             inputs["explicitAuthFlows"] = state ? state.explicitAuthFlows : undefined;
             inputs["generateSecret"] = state ? state.generateSecret : undefined;
             inputs["idTokenValidity"] = state ? state.idTokenValidity : undefined;
@@ -244,6 +249,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             inputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
             inputs["callbackUrls"] = args ? args.callbackUrls : undefined;
             inputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
+            inputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
             inputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
             inputs["generateSecret"] = args ? args.generateSecret : undefined;
             inputs["idTokenValidity"] = args ? args.idTokenValidity : undefined;
@@ -301,6 +307,10 @@ export interface UserPoolClientState {
      * Default redirect URI. Must be in the list of callback URLs.
      */
     defaultRedirectUri?: pulumi.Input<string>;
+    /**
+     * Enables or disables token revocation.
+     */
+    enableTokenRevocation?: pulumi.Input<boolean>;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */
@@ -383,6 +393,10 @@ export interface UserPoolClientArgs {
      * Default redirect URI. Must be in the list of callback URLs.
      */
     defaultRedirectUri?: pulumi.Input<string>;
+    /**
+     * Enables or disables token revocation.
+     */
+    enableTokenRevocation?: pulumi.Input<boolean>;
     /**
      * List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
      */

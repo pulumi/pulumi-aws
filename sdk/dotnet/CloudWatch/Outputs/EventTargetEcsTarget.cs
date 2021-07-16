@@ -14,6 +14,14 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventTargetEcsTarget
     {
         /// <summary>
+        /// Specifies whether to enable Amazon ECS managed tags for the task.
+        /// </summary>
+        public readonly bool? EnableEcsManagedTags;
+        /// <summary>
+        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        /// </summary>
+        public readonly bool? EnableExecuteCommand;
+        /// <summary>
         /// Specifies an ECS task group for the task. The maximum length is 255 characters.
         /// </summary>
         public readonly string? Group;
@@ -26,9 +34,21 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly Outputs.EventTargetEcsTargetNetworkConfiguration? NetworkConfiguration;
         /// <summary>
+        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventTargetEcsTargetPlacementConstraint> PlacementConstraints;
+        /// <summary>
         /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         public readonly string? PlatformVersion;
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        /// </summary>
+        public readonly string? PropagateTags;
+        /// <summary>
+        /// A map of tags to assign to ecs resources.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The number of tasks to create based on the TaskDefinition. The default is 1.
         /// </summary>
@@ -40,22 +60,37 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
         [OutputConstructor]
         private EventTargetEcsTarget(
+            bool? enableEcsManagedTags,
+
+            bool? enableExecuteCommand,
+
             string? group,
 
             string? launchType,
 
             Outputs.EventTargetEcsTargetNetworkConfiguration? networkConfiguration,
 
+            ImmutableArray<Outputs.EventTargetEcsTargetPlacementConstraint> placementConstraints,
+
             string? platformVersion,
+
+            string? propagateTags,
+
+            ImmutableDictionary<string, string>? tags,
 
             int? taskCount,
 
             string taskDefinitionArn)
         {
+            EnableEcsManagedTags = enableEcsManagedTags;
+            EnableExecuteCommand = enableExecuteCommand;
             Group = group;
             LaunchType = launchType;
             NetworkConfiguration = networkConfiguration;
+            PlacementConstraints = placementConstraints;
             PlatformVersion = platformVersion;
+            PropagateTags = propagateTags;
+            Tags = tags;
             TaskCount = taskCount;
             TaskDefinitionArn = taskDefinitionArn;
         }

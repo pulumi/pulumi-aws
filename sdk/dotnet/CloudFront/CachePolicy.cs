@@ -69,6 +69,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Cloudfront Cache Policies can be imported using the `id`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/cachePolicy:CachePolicy")]
     public partial class CachePolicy : Pulumi.CustomResource

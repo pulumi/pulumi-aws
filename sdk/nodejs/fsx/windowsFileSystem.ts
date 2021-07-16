@@ -107,6 +107,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly activeDirectoryId!: pulumi.Output<string | undefined>;
     /**
+     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     */
+    public readonly aliases!: pulumi.Output<string[] | undefined>;
+    /**
      * Amazon Resource Name of the file system.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -217,6 +221,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WindowsFileSystemState | undefined;
             inputs["activeDirectoryId"] = state ? state.activeDirectoryId : undefined;
+            inputs["aliases"] = state ? state.aliases : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
@@ -253,6 +258,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
             inputs["activeDirectoryId"] = args ? args.activeDirectoryId : undefined;
+            inputs["aliases"] = args ? args.aliases : undefined;
             inputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
@@ -293,6 +299,10 @@ export interface WindowsFileSystemState {
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     activeDirectoryId?: pulumi.Input<string>;
+    /**
+     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     */
+    aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name of the file system.
      */
@@ -399,6 +409,10 @@ export interface WindowsFileSystemArgs {
      * The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
      */
     activeDirectoryId?: pulumi.Input<string>;
+    /**
+     * An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+     */
+    aliases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
      */

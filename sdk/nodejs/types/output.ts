@@ -1521,6 +1521,31 @@ export namespace appautoscaling {
 
 }
 
+export namespace appconfig {
+    export interface ConfigurationProfileValidator {
+        /**
+         * Either the JSON Schema content or the Amazon Resource Name (ARN) of an AWS Lambda function.
+         */
+        content?: string;
+        /**
+         * The type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+         */
+        type: string;
+    }
+
+    export interface EnvironmentMonitor {
+        /**
+         * ARN of the Amazon CloudWatch alarm.
+         */
+        alarmArn: string;
+        /**
+         * ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
+         */
+        alarmRoleArn?: string;
+    }
+
+}
+
 export namespace applicationloadbalancing {
     export interface GetListenerDefaultAction {
         authenticateCognitos: outputs.applicationloadbalancing.GetListenerDefaultActionAuthenticateCognito[];
@@ -5532,6 +5557,17 @@ export namespace cfg {
         deliveryFrequency?: string;
     }
 
+    export interface OrganizationConformancePackInputParameter {
+        /**
+         * The input key.
+         */
+        parameterName: string;
+        /**
+         * The input value.
+         */
+        parameterValue: string;
+    }
+
     export interface RecorderRecordingGroup {
         /**
          * Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
@@ -6808,6 +6844,14 @@ export namespace cloudwatch {
 
     export interface EventTargetEcsTarget {
         /**
+         * Specifies whether to enable Amazon ECS managed tags for the task.
+         */
+        enableEcsManagedTags?: boolean;
+        /**
+         * Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+         */
+        enableExecuteCommand?: boolean;
+        /**
          * Specifies an ECS task group for the task. The maximum length is 255 characters.
          */
         group?: string;
@@ -6820,9 +6864,21 @@ export namespace cloudwatch {
          */
         networkConfiguration?: outputs.cloudwatch.EventTargetEcsTargetNetworkConfiguration;
         /**
+         * An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+         */
+        placementConstraints?: outputs.cloudwatch.EventTargetEcsTargetPlacementConstraint[];
+        /**
          * Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
          */
         platformVersion?: string;
+        /**
+         * Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+         */
+        propagateTags?: string;
+        /**
+         * A map of tags to assign to ecs resources.
+         */
+        tags?: {[key: string]: string};
         /**
          * The number of tasks to create based on the TaskDefinition. The default is 1.
          */
@@ -6846,6 +6902,17 @@ export namespace cloudwatch {
          * The subnets associated with the task or service.
          */
         subnets: string[];
+    }
+
+    export interface EventTargetEcsTargetPlacementConstraint {
+        /**
+         * Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+         */
+        expression?: string;
+        /**
+         * Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+         */
+        type: string;
     }
 
     export interface EventTargetHttpTarget {
@@ -12896,7 +12963,7 @@ export namespace elasticache {
 
     export interface ReplicationGroupClusterMode {
         /**
-         * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+         * Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.
          */
         numNodeGroups: number;
         /**
@@ -15121,7 +15188,7 @@ export namespace fms {
          */
         managedServiceData?: string;
         /**
-         * The service that the policy is using to protect the resources. Valid values are `WAFV2`, `WAF`, `SHIELD_ADVANCED`, `SECURITY_GROUPS_COMMON`, `SECURITY_GROUPS_CONTENT_AUDIT`, and `SECURITY_GROUPS_USAGE_AUDIT`.
+         * The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
          */
         type: string;
     }
@@ -16180,6 +16247,20 @@ export namespace glue {
 }
 
 export namespace guardduty {
+    export interface DetectorDatasources {
+        /**
+         * Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+         */
+        s3Logs: outputs.guardduty.DetectorDatasourcesS3Logs;
+    }
+
+    export interface DetectorDatasourcesS3Logs {
+        /**
+         * If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+         */
+        enable: boolean;
+    }
+
     export interface FilterFindingCriteria {
         criterions: outputs.guardduty.FilterFindingCriteriaCriterion[];
     }
@@ -16213,6 +16294,20 @@ export namespace guardduty {
          * List of string values to be evaluated.
          */
         notEquals?: string[];
+    }
+
+    export interface OrganizationConfigurationDatasources {
+        /**
+         * Configuration for the builds to store logs to S3.
+         */
+        s3Logs: outputs.guardduty.OrganizationConfigurationDatasourcesS3Logs;
+    }
+
+    export interface OrganizationConfigurationDatasourcesS3Logs {
+        /**
+         * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         */
+        autoEnable: boolean;
     }
 
 }
@@ -23290,6 +23385,10 @@ export namespace s3 {
 
     export interface BucketReplicationConfigurationRule {
         /**
+         * Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+         */
+        deleteMarkerReplicationStatus?: string;
+        /**
          * Specifies the destination for the rule (documented below).
          */
         destination: outputs.s3.BucketReplicationConfigurationRuleDestination;
@@ -23773,6 +23872,13 @@ export namespace sagemaker {
          * The ARN of the SageMaker image that the image version belongs to.
          */
         sagemakerImageArn?: string;
+    }
+
+    export interface DomainRetentionPolicy {
+        /**
+         * The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+         */
+        homeEfsFileSystem?: string;
     }
 
     export interface EndpointConfigurationDataCaptureConfig {
@@ -41498,6 +41604,10 @@ export namespace wafv2 {
          */
         name: string;
         /**
+         * Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+         */
+        scopeDownStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
+        /**
          * The name of the managed rule group vendor.
          */
         vendorName: string;
@@ -41508,6 +41618,6755 @@ export namespace wafv2 {
          * The name of the rule to exclude. If the rule group is managed by AWS, see the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
          */
         name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatement;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatement;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatement;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatement {
+        /**
+         * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+         */
+        andStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatement;
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement;
+        /**
+         * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+         */
+        notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement;
+        /**
+         * A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+         */
+        orStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatement {
+        /**
+         * The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement {
+        /**
+         * The statement to negate. You can use any statement that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatement {
+        /**
+         * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
+         */
+        statements: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatement[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatement {
+        /**
+         * A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+         */
+        byteMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatement;
+        /**
+         * A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+         */
+        geoMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatement;
+        /**
+         * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+         */
+        ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+         */
+        regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
+        /**
+         * A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+         */
+        sizeConstraintStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatement;
+        /**
+         * An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+         */
+        sqliMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatement;
+        /**
+         * A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+         */
+        xssMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatement;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatch;
+        /**
+         * The area within the portion of a web request that you want AWS WAF to search for `searchString`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
+         */
+        positionalConstraint: string;
+        /**
+         * A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `fieldToMatch`. The maximum length of the value is 50 bytes.
+         */
+        searchString: string;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementByteMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatement {
+        /**
+         * An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
+         */
+        countryCodes: string[];
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+         */
+        forwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementGeoMatchStatementForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+         */
+        ipSetForwardedIpConfig?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatementIpSetForwardedIpConfig {
+        /**
+         * - The match status to assign to the web request if the request doesn't have a valid IP address in the specified position. Valid values include: `MATCH` or `NO_MATCH`.
+         */
+        fallbackBehavior: string;
+        /**
+         * - The name of the HTTP header to use for the IP address.
+         */
+        headerName: string;
+        /**
+         * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
+         */
+        position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement {
+        /**
+         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         */
+        arn: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement {
+        /**
+         * The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
+         */
+        comparisonOperator: string;
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch;
+        /**
+         * The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
+         */
+        size: number;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement {
+        /**
+         * The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+         */
+        fieldToMatch?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch;
+        /**
+         * Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. See Text Transformation below for details.
+         */
+        textTransformations: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation[];
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch {
+        /**
+         * Inspect all query arguments.
+         */
+        allQueryArguments?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments;
+        /**
+         * Inspect the request body, which immediately follows the request headers.
+         */
+        body?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody;
+        /**
+         * Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+         */
+        method?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod;
+        /**
+         * Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+         */
+        queryString?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString;
+        /**
+         * Inspect a single header. See Single Header below for details.
+         */
+        singleHeader?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader;
+        /**
+         * Inspect a single query argument. See Single Query Argument below for details.
+         */
+        singleQueryArgument?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument;
+        /**
+         * Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+         */
+        uriPath?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
+        /**
+         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         */
+        name: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath {
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation {
+        /**
+         * The relative processing order for multiple transformations that are defined for a rule statement. AWS WAF processes all transformations, from lowest priority to highest, before inspecting the transformed content.
+         */
+        priority: number;
+        /**
+         * The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+         */
+        type: string;
     }
 
     export interface WebAclRuleStatementNotStatement {
@@ -62188,7 +69047,6 @@ export namespace wafv2 {
          */
         sampledRequestsEnabled: boolean;
     }
-
 }
 
 export namespace worklink {

@@ -201,7 +201,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -225,7 +225,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
      */
     public readonly globalReplicationGroupId!: pulumi.Output<string>;
     /**
@@ -454,7 +454,7 @@ export interface ReplicationGroupState {
      */
     clusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -478,7 +478,7 @@ export interface ReplicationGroupState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**
@@ -598,7 +598,7 @@ export interface ReplicationGroupArgs {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. One of `numberCacheClusters` or `clusterMode` is required. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -614,7 +614,7 @@ export interface ReplicationGroupArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group.
+     * The ID of the global replication group to which this replication group should belong. If this parameter is specified, the replication group is added to the specified global replication group as a secondary replication group; otherwise, the replication group is not part of any global replication group. If `globalReplicationGroupId` is set, the `numNodeGroups` parameter of the `clusterMode` block cannot be set.
      */
     globalReplicationGroupId?: pulumi.Input<string>;
     /**

@@ -10,9 +10,67 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DetectorDatasources',
+    'DetectorDatasourcesS3Logs',
     'FilterFindingCriteria',
     'FilterFindingCriteriaCriterion',
+    'OrganizationConfigurationDatasources',
+    'OrganizationConfigurationDatasourcesS3Logs',
 ]
+
+@pulumi.output_type
+class DetectorDatasources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Logs":
+            suggest = "s3_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorDatasources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorDatasources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorDatasources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_logs: Optional['outputs.DetectorDatasourcesS3Logs'] = None):
+        """
+        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        """
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional['outputs.DetectorDatasourcesS3Logs']:
+        """
+        Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        """
+        return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class DetectorDatasourcesS3Logs(dict):
+    def __init__(__self__, *,
+                 enable: bool):
+        """
+        :param bool enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        """
+        return pulumi.get(self, "enable")
+
 
 @pulumi.output_type
 class FilterFindingCriteria(dict):
@@ -139,5 +197,76 @@ class FilterFindingCriteriaCriterion(dict):
         List of string values to be evaluated.
         """
         return pulumi.get(self, "not_equals")
+
+
+@pulumi.output_type
+class OrganizationConfigurationDatasources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Logs":
+            suggest = "s3_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationDatasources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigurationDatasources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigurationDatasources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_logs: Optional['outputs.OrganizationConfigurationDatasourcesS3Logs'] = None):
+        """
+        :param 'OrganizationConfigurationDatasourcesS3LogsArgs' s3_logs: Configuration for the builds to store logs to S3.
+        """
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional['outputs.OrganizationConfigurationDatasourcesS3Logs']:
+        """
+        Configuration for the builds to store logs to S3.
+        """
+        return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class OrganizationConfigurationDatasourcesS3Logs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoEnable":
+            suggest = "auto_enable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationDatasourcesS3Logs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConfigurationDatasourcesS3Logs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConfigurationDatasourcesS3Logs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_enable: bool):
+        """
+        :param bool auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        """
+        pulumi.set(__self__, "auto_enable", auto_enable)
+
+    @property
+    @pulumi.getter(name="autoEnable")
+    def auto_enable(self) -> bool:
+        """
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        """
+        return pulumi.get(self, "auto_enable")
 
 

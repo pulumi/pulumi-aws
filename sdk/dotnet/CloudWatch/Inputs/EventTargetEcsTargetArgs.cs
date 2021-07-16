@@ -13,6 +13,18 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventTargetEcsTargetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether to enable Amazon ECS managed tags for the task.
+        /// </summary>
+        [Input("enableEcsManagedTags")]
+        public Input<bool>? EnableEcsManagedTags { get; set; }
+
+        /// <summary>
+        /// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        /// </summary>
+        [Input("enableExecuteCommand")]
+        public Input<bool>? EnableExecuteCommand { get; set; }
+
+        /// <summary>
         /// Specifies an ECS task group for the task. The maximum length is 255 characters.
         /// </summary>
         [Input("group")]
@@ -30,11 +42,41 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         [Input("networkConfiguration")]
         public Input<Inputs.EventTargetEcsTargetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
+        [Input("placementConstraints")]
+        private InputList<Inputs.EventTargetEcsTargetPlacementConstraintArgs>? _placementConstraints;
+
+        /// <summary>
+        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        /// </summary>
+        public InputList<Inputs.EventTargetEcsTargetPlacementConstraintArgs> PlacementConstraints
+        {
+            get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.EventTargetEcsTargetPlacementConstraintArgs>());
+            set => _placementConstraints = value;
+        }
+
         /// <summary>
         /// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
+
+        /// <summary>
+        /// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        /// </summary>
+        [Input("propagateTags")]
+        public Input<string>? PropagateTags { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to ecs resources.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The number of tasks to create based on the TaskDefinition. The default is 1.

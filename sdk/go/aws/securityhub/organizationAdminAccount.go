@@ -47,6 +47,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }

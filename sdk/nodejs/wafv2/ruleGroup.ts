@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * });
  * const testRegexPatternSet = new aws.wafv2.RegexPatternSet("testRegexPatternSet", {
  *     scope: "REGIONAL",
- *     regularExpressionList: [{
+ *     regularExpressions: [{
  *         regexString: "one",
  *     }],
  * });

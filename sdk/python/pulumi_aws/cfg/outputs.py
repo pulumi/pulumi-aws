@@ -14,6 +14,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSource',
     'ConformancePackInputParameter',
     'DeliveryChannelSnapshotDeliveryProperties',
+    'OrganizationConformancePackInputParameter',
     'RecorderRecordingGroup',
     'RemediationConfigurationParameter',
     'RuleScope',
@@ -225,6 +226,54 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
         - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
         return pulumi.get(self, "delivery_frequency")
+
+
+@pulumi.output_type
+class OrganizationConformancePackInputParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OrganizationConformancePackInputParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OrganizationConformancePackInputParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OrganizationConformancePackInputParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parameter_name: str,
+                 parameter_value: str):
+        """
+        :param str parameter_name: The input key.
+        :param str parameter_value: The input value.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> str:
+        """
+        The input key.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> str:
+        """
+        The input value.
+        """
+        return pulumi.get(self, "parameter_value")
 
 
 @pulumi.output_type

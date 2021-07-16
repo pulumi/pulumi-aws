@@ -23,6 +23,7 @@ __all__ = [
     'DomainDefaultUserSettingsSharingSettingsArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsArgs',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
+    'DomainRetentionPolicyArgs',
     'EndpointConfigurationDataCaptureConfigArgs',
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs',
     'EndpointConfigurationDataCaptureConfigCaptureOptionArgs',
@@ -683,6 +684,29 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+
+@pulumi.input_type
+class DomainRetentionPolicyArgs:
+    def __init__(__self__, *,
+                 home_efs_file_system: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] home_efs_file_system: The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        """
+        if home_efs_file_system is not None:
+            pulumi.set(__self__, "home_efs_file_system", home_efs_file_system)
+
+    @property
+    @pulumi.getter(name="homeEfsFileSystem")
+    def home_efs_file_system(self) -> Optional[pulumi.Input[str]]:
+        """
+        The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
+        """
+        return pulumi.get(self, "home_efs_file_system")
+
+    @home_efs_file_system.setter
+    def home_efs_file_system(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "home_efs_file_system", value)
 
 
 @pulumi.input_type

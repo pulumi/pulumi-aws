@@ -32,6 +32,13 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             AutoEnable = true,
     ///             DetectorId = exampleDetector.Id,
+    ///             Datasources = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesArgs
+    ///             {
+    ///                 S3Logs = new Aws.GuardDuty.Inputs.OrganizationConfigurationDatasourcesS3LogsArgs
+    ///                 {
+    ///                     AutoEnable = true,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -54,6 +61,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("autoEnable")]
         public Output<bool> AutoEnable { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for the collected datasources.
+        /// </summary>
+        [Output("datasources")]
+        public Output<Outputs.OrganizationConfigurationDatasources> Datasources { get; private set; } = null!;
 
         /// <summary>
         /// The detector ID of the GuardDuty account.
@@ -114,6 +127,12 @@ namespace Pulumi.Aws.GuardDuty
         public Input<bool> AutoEnable { get; set; } = null!;
 
         /// <summary>
+        /// Configuration for the collected datasources.
+        /// </summary>
+        [Input("datasources")]
+        public Input<Inputs.OrganizationConfigurationDatasourcesArgs>? Datasources { get; set; }
+
+        /// <summary>
         /// The detector ID of the GuardDuty account.
         /// </summary>
         [Input("detectorId", required: true)]
@@ -131,6 +150,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("autoEnable")]
         public Input<bool>? AutoEnable { get; set; }
+
+        /// <summary>
+        /// Configuration for the collected datasources.
+        /// </summary>
+        [Input("datasources")]
+        public Input<Inputs.OrganizationConfigurationDatasourcesGetArgs>? Datasources { get; set; }
 
         /// <summary>
         /// The detector ID of the GuardDuty account.

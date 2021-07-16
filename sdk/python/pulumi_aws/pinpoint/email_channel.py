@@ -22,7 +22,7 @@ class EmailChannelArgs:
         """
         The set of arguments for constructing a EmailChannel resource.
         :param pulumi.Input[str] application_id: The application ID.
-        :param pulumi.Input[str] from_address: The email address used to send emails from.
+        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
@@ -54,7 +54,7 @@ class EmailChannelArgs:
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Input[str]:
         """
-        The email address used to send emails from.
+        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         """
         return pulumi.get(self, "from_address")
 
@@ -126,7 +126,7 @@ class _EmailChannelState:
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from.
+        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
@@ -186,7 +186,7 @@ class _EmailChannelState:
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The email address used to send emails from.
+        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         """
         return pulumi.get(self, "from_address")
 
@@ -253,7 +253,6 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -271,8 +270,8 @@ class EmailChannel(pulumi.CustomResource):
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
-            identity=identity.arn,
             role_arn=role.arn)
+        identity = aws.ses.DomainIdentity("identity", domain="example.com")
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=\"\"\"{
@@ -304,7 +303,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from.
+        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
@@ -324,7 +323,6 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        identity = aws.ses.DomainIdentity("identity", domain="example.com")
         role = aws.iam.Role("role", assume_role_policy=\"\"\"{
           "Version": "2012-10-17",
           "Statement": [
@@ -342,8 +340,8 @@ class EmailChannel(pulumi.CustomResource):
         email = aws.pinpoint.EmailChannel("email",
             application_id=app.application_id,
             from_address="user@example.com",
-            identity=identity.arn,
             role_arn=role.arn)
+        identity = aws.ses.DomainIdentity("identity", domain="example.com")
         role_policy = aws.iam.RolePolicy("rolePolicy",
             role=role.id,
             policy=\"\"\"{
@@ -443,7 +441,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
-        :param pulumi.Input[str] from_address: The email address used to send emails from.
+        :param pulumi.Input[str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[int] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[str] role_arn: The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
@@ -489,7 +487,7 @@ class EmailChannel(pulumi.CustomResource):
     @pulumi.getter(name="fromAddress")
     def from_address(self) -> pulumi.Output[str]:
         """
-        The email address used to send emails from.
+        The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         """
         return pulumi.get(self, "from_address")
 

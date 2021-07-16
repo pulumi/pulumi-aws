@@ -334,7 +334,7 @@ import (
 type EventTarget struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the target.
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrOutput `pulumi:"batchTarget"`
@@ -403,7 +403,7 @@ func GetEventTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventTarget resources.
 type eventTargetState struct {
-	// The Amazon Resource Name (ARN) of the target.
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn *string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -438,7 +438,7 @@ type eventTargetState struct {
 }
 
 type EventTargetState struct {
-	// The Amazon Resource Name (ARN) of the target.
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput
@@ -477,7 +477,7 @@ func (EventTargetState) ElementType() reflect.Type {
 }
 
 type eventTargetArgs struct {
-	// The Amazon Resource Name (ARN) of the target.
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn string `pulumi:"arn"`
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget *EventTargetBatchTarget `pulumi:"batchTarget"`
@@ -513,7 +513,7 @@ type eventTargetArgs struct {
 
 // The set of arguments for constructing a EventTarget resource.
 type EventTargetArgs struct {
-	// The Amazon Resource Name (ARN) of the target.
+	// - ARN of the SQS queue specified as the target for the dead-letter queue.
 	Arn pulumi.StringInput
 	// Parameters used when you are using the rule to invoke an Amazon Batch Job. Documented below. A maximum of 1 are allowed.
 	BatchTarget EventTargetBatchTargetPtrInput

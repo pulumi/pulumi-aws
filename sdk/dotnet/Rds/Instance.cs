@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Address { get; private set; } = null!;
 
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Output("allocatedStorage")]
         public Output<int> AllocatedStorage { get; private set; } = null!;
@@ -583,7 +583,7 @@ namespace Pulumi.Aws.Rds
     public sealed class InstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }
@@ -1023,7 +1023,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs.
+        /// The allocated storage in gibibytes. If `max_allocated_storage` is configured, this argument represents the initial storage allocation and differences from the configuration will be ignored automatically when Storage Autoscaling occurs. If `replicate_source_db` is set, the value is ignored during the creation of the instance.
         /// </summary>
         [Input("allocatedStorage")]
         public Input<int>? AllocatedStorage { get; set; }

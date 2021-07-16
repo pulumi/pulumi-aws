@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  *     fulfillmentActivity: {
  *         type: "ReturnIntent",
  *     },
+ *     name: "OrderFlowers",
  *     rejectionStatement: {
  *         messages: [{
  *             content: "Okay, I will not place your order.",

@@ -618,6 +618,7 @@ class Intent(pulumi.CustomResource):
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
+            name="OrderFlowers",
             rejection_statement=aws.lex.IntentRejectionStatementArgs(
                 messages=[aws.lex.IntentRejectionStatementMessageArgs(
                     content="Okay, I will not place your order.",
@@ -753,6 +754,7 @@ class Intent(pulumi.CustomResource):
             fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
                 type="ReturnIntent",
             ),
+            name="OrderFlowers",
             rejection_statement=aws.lex.IntentRejectionStatementArgs(
                 messages=[aws.lex.IntentRejectionStatementMessageArgs(
                     content="Okay, I will not place your order.",

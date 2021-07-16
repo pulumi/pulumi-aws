@@ -22,6 +22,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? ScopeDownStatement;
+        /// <summary>
         /// The name of the managed rule group vendor.
         /// </summary>
         public readonly string VendorName;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             string name,
 
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement? scopeDownStatement,
+
             string vendorName)
         {
             ExcludedRules = excludedRules;
             Name = name;
+            ScopeDownStatement = scopeDownStatement;
             VendorName = vendorName;
         }
     }
