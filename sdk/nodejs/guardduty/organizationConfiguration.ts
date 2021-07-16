@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -19,6 +20,11 @@ import * as utilities from "../utilities";
  * const exampleOrganizationConfiguration = new aws.guardduty.OrganizationConfiguration("exampleOrganizationConfiguration", {
  *     autoEnable: true,
  *     detectorId: exampleDetector.id,
+ *     datasources: {
+ *         s3Logs: {
+ *             autoEnable: true,
+ *         },
+ *     },
  * });
  * ```
  *
@@ -63,6 +69,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      */
     public readonly autoEnable!: pulumi.Output<boolean>;
     /**
+     * Configuration for the collected datasources.
+     */
+    public readonly datasources!: pulumi.Output<outputs.guardduty.OrganizationConfigurationDatasources>;
+    /**
      * The detector ID of the GuardDuty account.
      */
     public readonly detectorId!: pulumi.Output<string>;
@@ -81,6 +91,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             inputs["autoEnable"] = state ? state.autoEnable : undefined;
+            inputs["datasources"] = state ? state.datasources : undefined;
             inputs["detectorId"] = state ? state.detectorId : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
@@ -91,6 +102,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'detectorId'");
             }
             inputs["autoEnable"] = args ? args.autoEnable : undefined;
+            inputs["datasources"] = args ? args.datasources : undefined;
             inputs["detectorId"] = args ? args.detectorId : undefined;
         }
         if (!opts.version) {
@@ -109,6 +121,10 @@ export interface OrganizationConfigurationState {
      */
     autoEnable?: pulumi.Input<boolean>;
     /**
+     * Configuration for the collected datasources.
+     */
+    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
+    /**
      * The detector ID of the GuardDuty account.
      */
     detectorId?: pulumi.Input<string>;
@@ -122,6 +138,10 @@ export interface OrganizationConfigurationArgs {
      * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      */
     autoEnable: pulumi.Input<boolean>;
+    /**
+     * Configuration for the collected datasources.
+     */
+    datasources?: pulumi.Input<inputs.guardduty.OrganizationConfigurationDatasources>;
     /**
      * The detector ID of the GuardDuty account.
      */

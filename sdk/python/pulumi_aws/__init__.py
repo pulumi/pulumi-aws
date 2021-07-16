@@ -37,6 +37,7 @@ if typing.TYPE_CHECKING:
     import pulumi_aws.apigateway as apigateway
     import pulumi_aws.apigatewayv2 as apigatewayv2
     import pulumi_aws.appautoscaling as appautoscaling
+    import pulumi_aws.appconfig as appconfig
     import pulumi_aws.applicationloadbalancing as applicationloadbalancing
     import pulumi_aws.appmesh as appmesh
     import pulumi_aws.apprunner as apprunner
@@ -176,6 +177,7 @@ else:
     apigateway = _utilities.lazy_import('pulumi_aws.apigateway')
     apigatewayv2 = _utilities.lazy_import('pulumi_aws.apigatewayv2')
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
+    appconfig = _utilities.lazy_import('pulumi_aws.appconfig')
     applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
@@ -767,6 +769,46 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appconfig/application",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/configurationProfile",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/configurationProfile:ConfigurationProfile": "ConfigurationProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/deploymentStrategy",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/deploymentStrategy:DeploymentStrategy": "DeploymentStrategy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/environment",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appconfig/hostedConfigurationVersion",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion": "HostedConfigurationVersion"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "applicationloadbalancing/listener",
   "fqn": "pulumi_aws.applicationloadbalancing",
   "classes": {
@@ -1147,6 +1189,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/deliveryChannel:DeliveryChannel": "DeliveryChannel"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cfg/organizationConformancePack",
+  "fqn": "pulumi_aws.cfg",
+  "classes": {
+   "aws:cfg/organizationConformancePack:OrganizationConformancePack": "OrganizationConformancePack"
   }
  },
  {
@@ -5575,10 +5625,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/organizationConfiguration",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/productSubscription",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/productSubscription:ProductSubscription": "ProductSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/standardsControl",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/standardsControl:StandardsControl": "StandardsControl"
   }
  },
  {

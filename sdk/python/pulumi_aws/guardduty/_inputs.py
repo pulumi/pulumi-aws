@@ -9,9 +9,58 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DetectorDatasourcesArgs',
+    'DetectorDatasourcesS3LogsArgs',
     'FilterFindingCriteriaArgs',
     'FilterFindingCriteriaCriterionArgs',
+    'OrganizationConfigurationDatasourcesArgs',
+    'OrganizationConfigurationDatasourcesS3LogsArgs',
 ]
+
+@pulumi.input_type
+class DetectorDatasourcesArgs:
+    def __init__(__self__, *,
+                 s3_logs: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']] = None):
+        """
+        :param pulumi.Input['DetectorDatasourcesS3LogsArgs'] s3_logs: Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        """
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]:
+        """
+        Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        """
+        return pulumi.get(self, "s3_logs")
+
+    @s3_logs.setter
+    def s3_logs(self, value: Optional[pulumi.Input['DetectorDatasourcesS3LogsArgs']]):
+        pulumi.set(self, "s3_logs", value)
+
+
+@pulumi.input_type
+class DetectorDatasourcesS3LogsArgs:
+    def __init__(__self__, *,
+                 enable: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
+        """
+        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
+
 
 @pulumi.input_type
 class FilterFindingCriteriaArgs:
@@ -145,5 +194,50 @@ class FilterFindingCriteriaCriterionArgs:
     @not_equals.setter
     def not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "not_equals", value)
+
+
+@pulumi.input_type
+class OrganizationConfigurationDatasourcesArgs:
+    def __init__(__self__, *,
+                 s3_logs: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']] = None):
+        """
+        :param pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs'] s3_logs: Configuration for the builds to store logs to S3.
+        """
+        if s3_logs is not None:
+            pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter(name="s3Logs")
+    def s3_logs(self) -> Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]:
+        """
+        Configuration for the builds to store logs to S3.
+        """
+        return pulumi.get(self, "s3_logs")
+
+    @s3_logs.setter
+    def s3_logs(self, value: Optional[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgs']]):
+        pulumi.set(self, "s3_logs", value)
+
+
+@pulumi.input_type
+class OrganizationConfigurationDatasourcesS3LogsArgs:
+    def __init__(__self__, *,
+                 auto_enable: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] auto_enable: When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        """
+        pulumi.set(__self__, "auto_enable", auto_enable)
+
+    @property
+    @pulumi.getter(name="autoEnable")
+    def auto_enable(self) -> pulumi.Input[bool]:
+        """
+        When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        """
+        return pulumi.get(self, "auto_enable")
+
+    @auto_enable.setter
+    def auto_enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "auto_enable", value)
 
 

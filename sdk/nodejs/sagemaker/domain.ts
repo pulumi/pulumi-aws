@@ -142,6 +142,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     */
+    public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
+    /**
      * The SSO managed application instance ID.
      */
     public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
@@ -186,6 +190,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["domainName"] = state ? state.domainName : undefined;
             inputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             inputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
             inputs["subnetIds"] = state ? state.subnetIds : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -214,6 +219,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
             inputs["domainName"] = args ? args.domainName : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
@@ -262,6 +268,10 @@ export interface DomainState {
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     */
+    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**
      * The SSO managed application instance ID.
      */
@@ -312,6 +322,10 @@ export interface DomainArgs {
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+     */
+    retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
     /**
      * The VPC subnets that Studio uses for communication.
      */

@@ -27,6 +27,7 @@ __all__ = [
     'EventTargetDeadLetterConfigArgs',
     'EventTargetEcsTargetArgs',
     'EventTargetEcsTargetNetworkConfigurationArgs',
+    'EventTargetEcsTargetPlacementConstraintArgs',
     'EventTargetHttpTargetArgs',
     'EventTargetInputTransformerArgs',
     'EventTargetKinesisTargetArgs',
@@ -878,28 +879,48 @@ class EventTargetDeadLetterConfigArgs:
 class EventTargetEcsTargetArgs:
     def __init__(__self__, *,
                  task_definition_arn: pulumi.Input[str],
+                 enable_ecs_managed_tags: Optional[pulumi.Input[bool]] = None,
+                 enable_execute_command: Optional[pulumi.Input[bool]] = None,
                  group: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs']] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
+                 propagate_tags: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+        :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
+        :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
         :param pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgs'] network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to ecs resources.
         :param pulumi.Input[int] task_count: The number of tasks to create based on the TaskDefinition. The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        if enable_ecs_managed_tags is not None:
+            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if group is not None:
             pulumi.set(__self__, "group", group)
         if launch_type is not None:
             pulumi.set(__self__, "launch_type", launch_type)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if placement_constraints is not None:
+            pulumi.set(__self__, "placement_constraints", placement_constraints)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if task_count is not None:
             pulumi.set(__self__, "task_count", task_count)
 
@@ -914,6 +935,30 @@ class EventTargetEcsTargetArgs:
     @task_definition_arn.setter
     def task_definition_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "task_definition_arn", value)
+
+    @property
+    @pulumi.getter(name="enableEcsManagedTags")
+    def enable_ecs_managed_tags(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable Amazon ECS managed tags for the task.
+        """
+        return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @enable_ecs_managed_tags.setter
+    def enable_ecs_managed_tags(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_ecs_managed_tags", value)
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        """
+        return pulumi.get(self, "enable_execute_command")
+
+    @enable_execute_command.setter
+    def enable_execute_command(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_execute_command", value)
 
     @property
     @pulumi.getter
@@ -952,6 +997,18 @@ class EventTargetEcsTargetArgs:
         pulumi.set(self, "network_configuration", value)
 
     @property
+    @pulumi.getter(name="placementConstraints")
+    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]]:
+        """
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        """
+        return pulumi.get(self, "placement_constraints")
+
+    @placement_constraints.setter
+    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]]):
+        pulumi.set(self, "placement_constraints", value)
+
+    @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -962,6 +1019,30 @@ class EventTargetEcsTargetArgs:
     @platform_version.setter
     def platform_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "platform_version", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to ecs resources.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="taskCount")
@@ -1028,6 +1109,44 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class EventTargetEcsTargetPlacementConstraintArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        :param pulumi.Input[str] expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+        pulumi.set(__self__, "type", type)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
 
 
 @pulumi.input_type

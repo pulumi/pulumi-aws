@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const app = new aws.pinpoint.App("app", {});
- * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
  * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
  *   "Version": "2012-10-17",
  *   "Statement": [
@@ -32,9 +31,9 @@ import * as utilities from "../utilities";
  * const email = new aws.pinpoint.EmailChannel("email", {
  *     applicationId: app.applicationId,
  *     fromAddress: "user@example.com",
- *     identity: identity.arn,
  *     roleArn: role.arn,
  * });
+ * const identity = new aws.ses.DomainIdentity("identity", {domain: "example.com"});
  * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
  *     role: role.id,
  *     policy: `{
@@ -103,7 +102,7 @@ export class EmailChannel extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The email address used to send emails from.
+     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
     public readonly fromAddress!: pulumi.Output<string>;
     /**
@@ -182,7 +181,7 @@ export interface EmailChannelState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The email address used to send emails from.
+     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
     fromAddress?: pulumi.Input<string>;
     /**
@@ -216,7 +215,7 @@ export interface EmailChannelArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * The email address used to send emails from.
+     * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      */
     fromAddress: pulumi.Input<string>;
     /**

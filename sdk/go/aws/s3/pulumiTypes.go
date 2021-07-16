@@ -3471,6 +3471,8 @@ func (o BucketReplicationConfigurationPtrOutput) Rules() BucketReplicationConfig
 }
 
 type BucketReplicationConfigurationRule struct {
+	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+	DeleteMarkerReplicationStatus *string `pulumi:"deleteMarkerReplicationStatus"`
 	// Specifies the destination for the rule (documented below).
 	Destination BucketReplicationConfigurationRuleDestination `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
@@ -3499,6 +3501,8 @@ type BucketReplicationConfigurationRuleInput interface {
 }
 
 type BucketReplicationConfigurationRuleArgs struct {
+	// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+	DeleteMarkerReplicationStatus pulumi.StringPtrInput `pulumi:"deleteMarkerReplicationStatus"`
 	// Specifies the destination for the rule (documented below).
 	Destination BucketReplicationConfigurationRuleDestinationInput `pulumi:"destination"`
 	// Filter that identifies subset of objects to which the replication rule applies (documented below).
@@ -3564,6 +3568,11 @@ func (o BucketReplicationConfigurationRuleOutput) ToBucketReplicationConfigurati
 
 func (o BucketReplicationConfigurationRuleOutput) ToBucketReplicationConfigurationRuleOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleOutput {
 	return o
+}
+
+// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+func (o BucketReplicationConfigurationRuleOutput) DeleteMarkerReplicationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRule) *string { return v.DeleteMarkerReplicationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the destination for the rule (documented below).

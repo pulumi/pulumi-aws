@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", {adminAccountId: "123456789012"}, {
  *     dependsOn: [exampleOrganization],
  * });
+ * // Auto enable security hub in organization member accounts
+ * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {});
  * ```
  *
  * ## Import

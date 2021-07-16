@@ -14,6 +14,10 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketReplicationConfigurationRule
     {
         /// <summary>
+        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        /// </summary>
+        public readonly string? DeleteMarkerReplicationStatus;
+        /// <summary>
         /// Specifies the destination for the rule (documented below).
         /// </summary>
         public readonly Outputs.BucketReplicationConfigurationRuleDestination Destination;
@@ -44,6 +48,8 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketReplicationConfigurationRule(
+            string? deleteMarkerReplicationStatus,
+
             Outputs.BucketReplicationConfigurationRuleDestination destination,
 
             Outputs.BucketReplicationConfigurationRuleFilter? filter,
@@ -58,6 +64,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             string status)
         {
+            DeleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
             Destination = destination;
             Filter = filter;
             Id = id;

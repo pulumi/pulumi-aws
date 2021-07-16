@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConformancePack{}
 	case "aws:cfg/deliveryChannel:DeliveryChannel":
 		r = &DeliveryChannel{}
+	case "aws:cfg/organizationConformancePack:OrganizationConformancePack":
+		r = &OrganizationConformancePack{}
 	case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
 		r = &OrganizationCustomRule{}
 	case "aws:cfg/organizationManagedRule:OrganizationManagedRule":
@@ -72,6 +74,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cfg/deliveryChannel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cfg/organizationConformancePack",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

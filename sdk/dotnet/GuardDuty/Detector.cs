@@ -26,6 +26,13 @@ namespace Pulumi.Aws.GuardDuty
     ///     {
     ///         var myDetector = new Aws.GuardDuty.Detector("myDetector", new Aws.GuardDuty.DetectorArgs
     ///         {
+    ///             Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
+    ///             {
+    ///                 S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
+    ///                 {
+    ///                     Enable = true,
+    ///                 },
+    ///             },
     ///             Enable = true,
     ///         });
     ///     }
@@ -57,7 +64,13 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// </summary>
+        [Output("datasources")]
+        public Output<Outputs.DetectorDatasources> Datasources { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -69,7 +82,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> FindingPublishingFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -127,7 +140,13 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class DetectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// </summary>
+        [Input("datasources")]
+        public Input<Inputs.DetectorDatasourcesArgs>? Datasources { get; set; }
+
+        /// <summary>
+        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -142,7 +161,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -182,7 +201,13 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
+        /// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
+        /// </summary>
+        [Input("datasources")]
+        public Input<Inputs.DetectorDatasourcesGetArgs>? Datasources { get; set; }
+
+        /// <summary>
+        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -197,7 +222,7 @@ namespace Pulumi.Aws.GuardDuty
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

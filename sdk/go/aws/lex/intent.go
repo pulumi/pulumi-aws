@@ -43,6 +43,7 @@ import (
 // 			FulfillmentActivity: &lex.IntentFulfillmentActivityArgs{
 // 				Type: pulumi.String("ReturnIntent"),
 // 			},
+// 			Name: pulumi.String("OrderFlowers"),
 // 			RejectionStatement: &lex.IntentRejectionStatementArgs{
 // 				Messages: lex.IntentRejectionStatementMessageArray{
 // 					&lex.IntentRejectionStatementMessageArgs{

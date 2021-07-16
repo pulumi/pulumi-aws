@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
     ///  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
     /// ```
     /// 
-    ///  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, and `ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+    ///  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
     /// </summary>
     [AwsResourceType("aws:iam/accessKey:AccessKey")]
     public partial class AccessKey : Pulumi.CustomResource
@@ -102,41 +102,41 @@ namespace Pulumi.Aws.Iam
         [Output("encryptedSecret")]
         public Output<string> EncryptedSecret { get; private set; } = null!;
 
+        [Output("encryptedSesSmtpPasswordV4")]
+        public Output<string> EncryptedSesSmtpPasswordV4 { get; private set; } = null!;
+
         /// <summary>
-        /// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
+        /// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         /// </summary>
         [Output("keyFingerprint")]
         public Output<string> KeyFingerprint { get; private set; } = null!;
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`, for use
-        /// in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
         /// </summary>
         [Output("pgpKey")]
         public Output<string?> PgpKey { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         [Output("secret")]
         public Output<string> Secret { get; private set; } = null!;
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
+        /// Secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         /// </summary>
         [Output("sesSmtpPasswordV4")]
         public Output<string> SesSmtpPasswordV4 { get; private set; } = null!;
 
         /// <summary>
-        /// The access key status to apply. Defaults to `Active`.
-        /// Valid values are `Active` and `Inactive`.
+        /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM user to associate with this access key.
+        /// IAM user to associate with this access key.
         /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
@@ -188,22 +188,19 @@ namespace Pulumi.Aws.Iam
     public sealed class AccessKeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`, for use
-        /// in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
         /// <summary>
-        /// The access key status to apply. Defaults to `Active`.
-        /// Valid values are `Active` and `Inactive`.
+        /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The IAM user to associate with this access key.
+        /// IAM user to associate with this access key.
         /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;
@@ -224,41 +221,41 @@ namespace Pulumi.Aws.Iam
         [Input("encryptedSecret")]
         public Input<string>? EncryptedSecret { get; set; }
 
+        [Input("encryptedSesSmtpPasswordV4")]
+        public Input<string>? EncryptedSesSmtpPasswordV4 { get; set; }
+
         /// <summary>
-        /// The fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
+        /// Fingerprint of the PGP key used to encrypt the secret. This attribute is not available for imported resources.
         /// </summary>
         [Input("keyFingerprint")]
         public Input<string>? KeyFingerprint { get; set; }
 
         /// <summary>
-        /// Either a base-64 encoded PGP public key, or a
-        /// keybase username in the form `keybase:some_person_that_exists`, for use
-        /// in the `encrypted_secret` output attribute.
+        /// Either a base-64 encoded PGP public key, or a keybase username in the form `keybase:some_person_that_exists`, for use in the `encrypted_secret` output attribute.
         /// </summary>
         [Input("pgpKey")]
         public Input<string>? PgpKey { get; set; }
 
         /// <summary>
-        /// The secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
+        /// Secret access key. This attribute is not available for imported resources. Note that this will be written to the state file. If you use this, please protect your backend state file judiciously. Alternatively, you may supply a `pgp_key` instead, which will prevent the secret from being stored in plaintext, at the cost of preventing the use of the secret key in automation.
         /// </summary>
         [Input("secret")]
         public Input<string>? Secret { get; set; }
 
         /// <summary>
-        /// The secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
+        /// Secret access key converted into an SES SMTP password by applying [AWS's documented Sigv4 conversion algorithm](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html#smtp-credentials-convert). This attribute is not available for imported resources. As SigV4 is region specific, valid Provider regions are `ap-south-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, `us-east-1` and `us-west-2`. See current [AWS SES regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region).
         /// </summary>
         [Input("sesSmtpPasswordV4")]
         public Input<string>? SesSmtpPasswordV4 { get; set; }
 
         /// <summary>
-        /// The access key status to apply. Defaults to `Active`.
-        /// Valid values are `Active` and `Inactive`.
+        /// Access key status to apply. Defaults to `Active`. Valid values are `Active` and `Inactive`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
         /// <summary>
-        /// The IAM user to associate with this access key.
+        /// IAM user to associate with this access key.
         /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }

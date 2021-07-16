@@ -10,6 +10,268 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DetectorDatasources struct {
+	// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+	S3Logs *DetectorDatasourcesS3Logs `pulumi:"s3Logs"`
+}
+
+// DetectorDatasourcesInput is an input type that accepts DetectorDatasourcesArgs and DetectorDatasourcesOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesInput` via:
+//
+//          DetectorDatasourcesArgs{...}
+type DetectorDatasourcesInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesOutput() DetectorDatasourcesOutput
+	ToDetectorDatasourcesOutputWithContext(context.Context) DetectorDatasourcesOutput
+}
+
+type DetectorDatasourcesArgs struct {
+	// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+	S3Logs DetectorDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
+}
+
+func (DetectorDatasourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasources)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesArgs) ToDetectorDatasourcesOutput() DetectorDatasourcesOutput {
+	return i.ToDetectorDatasourcesOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesArgs) ToDetectorDatasourcesOutputWithContext(ctx context.Context) DetectorDatasourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesOutput)
+}
+
+func (i DetectorDatasourcesArgs) ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput {
+	return i.ToDetectorDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesArgs) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesOutput).ToDetectorDatasourcesPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesPtrInput is an input type that accepts DetectorDatasourcesArgs, DetectorDatasourcesPtr and DetectorDatasourcesPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesPtrInput` via:
+//
+//          DetectorDatasourcesArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorDatasourcesPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput
+	ToDetectorDatasourcesPtrOutputWithContext(context.Context) DetectorDatasourcesPtrOutput
+}
+
+type detectorDatasourcesPtrType DetectorDatasourcesArgs
+
+func DetectorDatasourcesPtr(v *DetectorDatasourcesArgs) DetectorDatasourcesPtrInput {
+	return (*detectorDatasourcesPtrType)(v)
+}
+
+func (*detectorDatasourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasources)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesPtrType) ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput {
+	return i.ToDetectorDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesPtrType) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesPtrOutput)
+}
+
+type DetectorDatasourcesOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasources)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesOutput) ToDetectorDatasourcesOutput() DetectorDatasourcesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesOutput) ToDetectorDatasourcesOutputWithContext(ctx context.Context) DetectorDatasourcesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput {
+	return o.ToDetectorDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
+	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasources {
+		return &v
+	}).(DetectorDatasourcesPtrOutput)
+}
+
+// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+func (o DetectorDatasourcesOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesS3Logs { return v.S3Logs }).(DetectorDatasourcesS3LogsPtrOutput)
+}
+
+type DetectorDatasourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasources)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesPtrOutput) ToDetectorDatasourcesPtrOutput() DetectorDatasourcesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesPtrOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesPtrOutput) Elem() DetectorDatasourcesOutput {
+	return o.ApplyT(func(v *DetectorDatasources) DetectorDatasources { return *v }).(DetectorDatasourcesOutput)
+}
+
+// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesS3Logs {
+		if v == nil {
+			return nil
+		}
+		return v.S3Logs
+	}).(DetectorDatasourcesS3LogsPtrOutput)
+}
+
+type DetectorDatasourcesS3Logs struct {
+	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	Enable bool `pulumi:"enable"`
+}
+
+// DetectorDatasourcesS3LogsInput is an input type that accepts DetectorDatasourcesS3LogsArgs and DetectorDatasourcesS3LogsOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesS3LogsInput` via:
+//
+//          DetectorDatasourcesS3LogsArgs{...}
+type DetectorDatasourcesS3LogsInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesS3LogsOutput() DetectorDatasourcesS3LogsOutput
+	ToDetectorDatasourcesS3LogsOutputWithContext(context.Context) DetectorDatasourcesS3LogsOutput
+}
+
+type DetectorDatasourcesS3LogsArgs struct {
+	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+}
+
+func (DetectorDatasourcesS3LogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsOutput() DetectorDatasourcesS3LogsOutput {
+	return i.ToDetectorDatasourcesS3LogsOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesS3LogsOutput)
+}
+
+func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput {
+	return i.ToDetectorDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesS3LogsArgs) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesS3LogsOutput).ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesS3LogsPtrInput is an input type that accepts DetectorDatasourcesS3LogsArgs, DetectorDatasourcesS3LogsPtr and DetectorDatasourcesS3LogsPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesS3LogsPtrInput` via:
+//
+//          DetectorDatasourcesS3LogsArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorDatasourcesS3LogsPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput
+	ToDetectorDatasourcesS3LogsPtrOutputWithContext(context.Context) DetectorDatasourcesS3LogsPtrOutput
+}
+
+type detectorDatasourcesS3LogsPtrType DetectorDatasourcesS3LogsArgs
+
+func DetectorDatasourcesS3LogsPtr(v *DetectorDatasourcesS3LogsArgs) DetectorDatasourcesS3LogsPtrInput {
+	return (*detectorDatasourcesS3LogsPtrType)(v)
+}
+
+func (*detectorDatasourcesS3LogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesS3LogsPtrType) ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput {
+	return i.ToDetectorDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesS3LogsPtrType) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesS3LogsPtrOutput)
+}
+
+type DetectorDatasourcesS3LogsOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesS3LogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsOutput() DetectorDatasourcesS3LogsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput {
+	return o.ToDetectorDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v DetectorDatasourcesS3Logs) *DetectorDatasourcesS3Logs {
+		return &v
+	}).(DetectorDatasourcesS3LogsPtrOutput)
+}
+
+// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+type DetectorDatasourcesS3LogsPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesS3LogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesS3LogsPtrOutput) ToDetectorDatasourcesS3LogsPtrOutput() DetectorDatasourcesS3LogsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesS3LogsPtrOutput) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) DetectorDatasourcesS3Logs { return *v }).(DetectorDatasourcesS3LogsOutput)
+}
+
+// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FilterFindingCriteria struct {
 	Criterions []FilterFindingCriteriaCriterion `pulumi:"criterions"`
 }
@@ -287,9 +549,283 @@ func (o FilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) Filt
 	}).(FilterFindingCriteriaCriterionOutput)
 }
 
+type OrganizationConfigurationDatasources struct {
+	// Configuration for the builds to store logs to S3.
+	S3Logs *OrganizationConfigurationDatasourcesS3Logs `pulumi:"s3Logs"`
+}
+
+// OrganizationConfigurationDatasourcesInput is an input type that accepts OrganizationConfigurationDatasourcesArgs and OrganizationConfigurationDatasourcesOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesInput` via:
+//
+//          OrganizationConfigurationDatasourcesArgs{...}
+type OrganizationConfigurationDatasourcesInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesOutput() OrganizationConfigurationDatasourcesOutput
+	ToOrganizationConfigurationDatasourcesOutputWithContext(context.Context) OrganizationConfigurationDatasourcesOutput
+}
+
+type OrganizationConfigurationDatasourcesArgs struct {
+	// Configuration for the builds to store logs to S3.
+	S3Logs OrganizationConfigurationDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
+}
+
+func (OrganizationConfigurationDatasourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasources)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDatasourcesOutput() OrganizationConfigurationDatasourcesOutput {
+	return i.ToOrganizationConfigurationDatasourcesOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDatasourcesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesArgs) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesOutput).ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesPtrInput is an input type that accepts OrganizationConfigurationDatasourcesArgs, OrganizationConfigurationDatasourcesPtr and OrganizationConfigurationDatasourcesPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesPtrInput` via:
+//
+//          OrganizationConfigurationDatasourcesArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigurationDatasourcesPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput
+	ToOrganizationConfigurationDatasourcesPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesPtrOutput
+}
+
+type organizationConfigurationDatasourcesPtrType OrganizationConfigurationDatasourcesArgs
+
+func OrganizationConfigurationDatasourcesPtr(v *OrganizationConfigurationDatasourcesArgs) OrganizationConfigurationDatasourcesPtrInput {
+	return (*organizationConfigurationDatasourcesPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasources)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesPtrType) ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesPtrType) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasources)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationDatasourcesOutput() OrganizationConfigurationDatasourcesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationDatasourcesOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasources {
+		return &v
+	}).(OrganizationConfigurationDatasourcesPtrOutput)
+}
+
+// Configuration for the builds to store logs to S3.
+func (o OrganizationConfigurationDatasourcesOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
+		return v.S3Logs
+	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasources)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesPtrOutput) ToOrganizationConfigurationDatasourcesPtrOutput() OrganizationConfigurationDatasourcesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesPtrOutput) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesPtrOutput) Elem() OrganizationConfigurationDatasourcesOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasources) OrganizationConfigurationDatasources { return *v }).(OrganizationConfigurationDatasourcesOutput)
+}
+
+// Configuration for the builds to store logs to S3.
+func (o OrganizationConfigurationDatasourcesPtrOutput) S3Logs() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasources) *OrganizationConfigurationDatasourcesS3Logs {
+		if v == nil {
+			return nil
+		}
+		return v.S3Logs
+	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesS3Logs struct {
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	AutoEnable bool `pulumi:"autoEnable"`
+}
+
+// OrganizationConfigurationDatasourcesS3LogsInput is an input type that accepts OrganizationConfigurationDatasourcesS3LogsArgs and OrganizationConfigurationDatasourcesS3LogsOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesS3LogsInput` via:
+//
+//          OrganizationConfigurationDatasourcesS3LogsArgs{...}
+type OrganizationConfigurationDatasourcesS3LogsInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesS3LogsOutput() OrganizationConfigurationDatasourcesS3LogsOutput
+	ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(context.Context) OrganizationConfigurationDatasourcesS3LogsOutput
+}
+
+type OrganizationConfigurationDatasourcesS3LogsArgs struct {
+	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	AutoEnable pulumi.BoolInput `pulumi:"autoEnable"`
+}
+
+func (OrganizationConfigurationDatasourcesS3LogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsOutput() OrganizationConfigurationDatasourcesS3LogsOutput {
+	return i.ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesS3LogsOutput)
+}
+
+func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationDatasourcesS3LogsArgs) ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesS3LogsOutput).ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationDatasourcesS3LogsPtrInput is an input type that accepts OrganizationConfigurationDatasourcesS3LogsArgs, OrganizationConfigurationDatasourcesS3LogsPtr and OrganizationConfigurationDatasourcesS3LogsPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationDatasourcesS3LogsPtrInput` via:
+//
+//          OrganizationConfigurationDatasourcesS3LogsArgs{...}
+//
+//  or:
+//
+//          nil
+type OrganizationConfigurationDatasourcesS3LogsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput
+	ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput
+}
+
+type organizationConfigurationDatasourcesS3LogsPtrType OrganizationConfigurationDatasourcesS3LogsArgs
+
+func OrganizationConfigurationDatasourcesS3LogsPtr(v *OrganizationConfigurationDatasourcesS3LogsArgs) OrganizationConfigurationDatasourcesS3LogsPtrInput {
+	return (*organizationConfigurationDatasourcesS3LogsPtrType)(v)
+}
+
+func (*organizationConfigurationDatasourcesS3LogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (i *organizationConfigurationDatasourcesS3LogsPtrType) ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return i.ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationDatasourcesS3LogsPtrType) ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
+}
+
+type OrganizationConfigurationDatasourcesS3LogsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesS3LogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigurationDatasourcesS3LogsOutput() OrganizationConfigurationDatasourcesS3LogsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigurationDatasourcesS3LogsOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o.ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) *OrganizationConfigurationDatasourcesS3Logs {
+		return &v
+	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
+}
+
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+func (o OrganizationConfigurationDatasourcesS3LogsOutput) AutoEnable() pulumi.BoolOutput {
+	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) bool { return v.AutoEnable }).(pulumi.BoolOutput)
+}
+
+type OrganizationConfigurationDatasourcesS3LogsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationDatasourcesS3LogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationDatasourcesS3Logs)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) ToOrganizationConfigurationDatasourcesS3LogsPtrOutput() OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() OrganizationConfigurationDatasourcesS3LogsOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) OrganizationConfigurationDatasourcesS3Logs {
+		return *v
+	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
+}
+
+// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.AutoEnable
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaCriterionArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationDatasourcesS3LogsPtrOutput{})
 }

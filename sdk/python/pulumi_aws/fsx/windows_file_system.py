@@ -19,6 +19,7 @@ class WindowsFileSystemArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  throughput_capacity: pulumi.Input[int],
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
@@ -39,6 +40,7 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -59,6 +61,8 @@ class WindowsFileSystemArgs:
         pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
         if audit_log_configuration is not None:
             pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
@@ -135,6 +139,18 @@ class WindowsFileSystemArgs:
     @active_directory_id.setter
     def active_directory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "active_directory_id", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aliases", value)
 
     @property
     @pulumi.getter(name="auditLogConfiguration")
@@ -309,6 +325,7 @@ class WindowsFileSystemArgs:
 class _WindowsFileSystemState:
     def __init__(__self__, *,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -336,6 +353,7 @@ class _WindowsFileSystemState:
         """
         Input properties used for looking up and filtering WindowsFileSystem resources.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -363,6 +381,8 @@ class _WindowsFileSystemState:
         """
         if active_directory_id is not None:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if audit_log_configuration is not None:
@@ -423,6 +443,18 @@ class _WindowsFileSystemState:
     @active_directory_id.setter
     def active_directory_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "active_directory_id", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "aliases", value)
 
     @property
     @pulumi.getter
@@ -719,6 +751,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
@@ -807,6 +840,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -914,6 +948,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
@@ -944,6 +979,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__ = WindowsFileSystemArgs.__new__(WindowsFileSystemArgs)
 
             __props__.__dict__["active_directory_id"] = active_directory_id
+            __props__.__dict__["aliases"] = aliases
             __props__.__dict__["audit_log_configuration"] = audit_log_configuration
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
@@ -985,6 +1021,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             active_directory_id: Optional[pulumi.Input[str]] = None,
+            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -1017,6 +1054,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -1047,6 +1085,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__ = _WindowsFileSystemState.__new__(_WindowsFileSystemState)
 
         __props__.__dict__["active_directory_id"] = active_directory_id
+        __props__.__dict__["aliases"] = aliases
         __props__.__dict__["arn"] = arn
         __props__.__dict__["audit_log_configuration"] = audit_log_configuration
         __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
@@ -1080,6 +1119,14 @@ class WindowsFileSystem(pulumi.CustomResource):
         The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         """
         return pulumi.get(self, "active_directory_id")
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+        """
+        return pulumi.get(self, "aliases")
 
     @property
     @pulumi.getter

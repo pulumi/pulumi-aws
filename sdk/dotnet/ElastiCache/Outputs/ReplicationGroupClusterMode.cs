@@ -14,9 +14,9 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     public sealed class ReplicationGroupClusterMode
     {
         /// <summary>
-        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications.
+        /// Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `global_replication_group_id` is set.
         /// </summary>
-        public readonly int NumNodeGroups;
+        public readonly int? NumNodeGroups;
         /// <summary>
         /// Number of replica nodes in each node group. Valid values are 0 to 5. Changing this number will trigger an online resizing operation before other settings modifications.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
 
         [OutputConstructor]
         private ReplicationGroupClusterMode(
-            int numNodeGroups,
+            int? numNodeGroups,
 
             int replicasPerNodeGroup)
         {

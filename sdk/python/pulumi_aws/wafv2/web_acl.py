@@ -373,6 +373,14 @@ class WebAcl(pulumi.CustomResource):
                             },
                         ],
                         name="AWSManagedRulesCommonRuleSet",
+                        scope_down_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs(
+                            geo_match_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs(
+                                country_codes=[
+                                    "US",
+                                    "NL",
+                                ],
+                            ),
+                        ),
                         vendor_name="AWS",
                     ),
                 ),
@@ -608,6 +616,14 @@ class WebAcl(pulumi.CustomResource):
                             },
                         ],
                         name="AWSManagedRulesCommonRuleSet",
+                        scope_down_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs(
+                            geo_match_statement=aws.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs(
+                                country_codes=[
+                                    "US",
+                                    "NL",
+                                ],
+                            ),
+                        ),
                         vendor_name="AWS",
                     ),
                 ),

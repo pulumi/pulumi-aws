@@ -11,7 +11,9 @@ export * from "./insight";
 export * from "./inviteAccepter";
 export * from "./member";
 export * from "./organizationAdminAccount";
+export * from "./organizationConfiguration";
 export * from "./productSubscription";
+export * from "./standardsControl";
 export * from "./standardsSubscription";
 
 // Import resources to register:
@@ -21,7 +23,9 @@ import { Insight } from "./insight";
 import { InviteAccepter } from "./inviteAccepter";
 import { Member } from "./member";
 import { OrganizationAdminAccount } from "./organizationAdminAccount";
+import { OrganizationConfiguration } from "./organizationConfiguration";
 import { ProductSubscription } from "./productSubscription";
+import { StandardsControl } from "./standardsControl";
 import { StandardsSubscription } from "./standardsSubscription";
 
 const _module = {
@@ -40,8 +44,12 @@ const _module = {
                 return new Member(name, <any>undefined, { urn })
             case "aws:securityhub/organizationAdminAccount:OrganizationAdminAccount":
                 return new OrganizationAdminAccount(name, <any>undefined, { urn })
+            case "aws:securityhub/organizationConfiguration:OrganizationConfiguration":
+                return new OrganizationConfiguration(name, <any>undefined, { urn })
             case "aws:securityhub/productSubscription:ProductSubscription":
                 return new ProductSubscription(name, <any>undefined, { urn })
+            case "aws:securityhub/standardsControl:StandardsControl":
+                return new StandardsControl(name, <any>undefined, { urn })
             case "aws:securityhub/standardsSubscription:StandardsSubscription":
                 return new StandardsSubscription(name, <any>undefined, { urn })
             default:
@@ -55,5 +63,7 @@ pulumi.runtime.registerResourceModule("aws", "securityhub/insight", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/inviteAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/member", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/organizationAdminAccount", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/organizationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/productSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/standardsControl", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/standardsSubscription", _module)

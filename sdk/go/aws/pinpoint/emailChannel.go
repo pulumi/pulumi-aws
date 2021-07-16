@@ -33,12 +33,6 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		identity, err := ses.NewDomainIdentity(ctx, "identity", &ses.DomainIdentityArgs{
-// 			Domain: pulumi.String("example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"pinpoint.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
@@ -48,8 +42,13 @@ import (
 // 		_, err = pinpoint.NewEmailChannel(ctx, "email", &pinpoint.EmailChannelArgs{
 // 			ApplicationId: app.ApplicationId,
 // 			FromAddress:   pulumi.String("user@example.com"),
-// 			Identity:      identity.Arn,
 // 			RoleArn:       role.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ses.NewDomainIdentity(ctx, "identity", &ses.DomainIdentityArgs{
+// 			Domain: pulumi.String("example.com"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -82,7 +81,7 @@ type EmailChannel struct {
 	ConfigurationSet pulumi.StringPtrOutput `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// The email address used to send emails from.
+	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 	FromAddress pulumi.StringOutput `pulumi:"fromAddress"`
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringOutput `pulumi:"identity"`
@@ -136,7 +135,7 @@ type emailChannelState struct {
 	ConfigurationSet *string `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The email address used to send emails from.
+	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 	FromAddress *string `pulumi:"fromAddress"`
 	// The ARN of an identity verified with SES.
 	Identity *string `pulumi:"identity"`
@@ -153,7 +152,7 @@ type EmailChannelState struct {
 	ConfigurationSet pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The email address used to send emails from.
+	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 	FromAddress pulumi.StringPtrInput
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringPtrInput
@@ -174,7 +173,7 @@ type emailChannelArgs struct {
 	ConfigurationSet *string `pulumi:"configurationSet"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// The email address used to send emails from.
+	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 	FromAddress string `pulumi:"fromAddress"`
 	// The ARN of an identity verified with SES.
 	Identity string `pulumi:"identity"`
@@ -190,7 +189,7 @@ type EmailChannelArgs struct {
 	ConfigurationSet pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
-	// The email address used to send emails from.
+	// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
 	FromAddress pulumi.StringInput
 	// The ARN of an identity verified with SES.
 	Identity pulumi.StringInput

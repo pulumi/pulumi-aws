@@ -9,6 +9,7 @@ export * from "./aggregateAuthorization";
 export * from "./configurationAggregator";
 export * from "./conformancePack";
 export * from "./deliveryChannel";
+export * from "./organizationConformancePack";
 export * from "./organizationCustomRule";
 export * from "./organizationManagedRule";
 export * from "./recorder";
@@ -21,6 +22,7 @@ import { AggregateAuthorization } from "./aggregateAuthorization";
 import { ConfigurationAggregator } from "./configurationAggregator";
 import { ConformancePack } from "./conformancePack";
 import { DeliveryChannel } from "./deliveryChannel";
+import { OrganizationConformancePack } from "./organizationConformancePack";
 import { OrganizationCustomRule } from "./organizationCustomRule";
 import { OrganizationManagedRule } from "./organizationManagedRule";
 import { Recorder } from "./recorder";
@@ -40,6 +42,8 @@ const _module = {
                 return new ConformancePack(name, <any>undefined, { urn })
             case "aws:cfg/deliveryChannel:DeliveryChannel":
                 return new DeliveryChannel(name, <any>undefined, { urn })
+            case "aws:cfg/organizationConformancePack:OrganizationConformancePack":
+                return new OrganizationConformancePack(name, <any>undefined, { urn })
             case "aws:cfg/organizationCustomRule:OrganizationCustomRule":
                 return new OrganizationCustomRule(name, <any>undefined, { urn })
             case "aws:cfg/organizationManagedRule:OrganizationManagedRule":
@@ -61,6 +65,7 @@ pulumi.runtime.registerResourceModule("aws", "cfg/aggregateAuthorization", _modu
 pulumi.runtime.registerResourceModule("aws", "cfg/configurationAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/conformancePack", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/deliveryChannel", _module)
+pulumi.runtime.registerResourceModule("aws", "cfg/organizationConformancePack", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationCustomRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/organizationManagedRule", _module)
 pulumi.runtime.registerResourceModule("aws", "cfg/recorder", _module)

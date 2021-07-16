@@ -43,6 +43,7 @@ namespace Pulumi.Aws.Lex
     ///             {
     ///                 Type = "ReturnIntent",
     ///             },
+    ///             Name = "OrderFlowers",
     ///             RejectionStatement = new Aws.Lex.Inputs.IntentRejectionStatementArgs
     ///             {
     ///                 Messages = 

@@ -39,6 +39,14 @@ import * as utilities from "../utilities";
  *                     },
  *                 ],
  *                 name: "AWSManagedRulesCommonRuleSet",
+ *                 scopeDownStatement: {
+ *                     geoMatchStatement: {
+ *                         countryCodes: [
+ *                             "US",
+ *                             "NL",
+ *                         ],
+ *                     },
+ *                 },
  *                 vendorName: "AWS",
  *             },
  *         },

@@ -63,10 +63,11 @@ type GetUserPoolsArgs struct {
 
 // A collection of values returned by getUserPools.
 type GetUserPoolsResult struct {
+	// The set of cognito user pool Amazon Resource Names (ARNs).
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The list of cognito user pool ids.
+	// The set of cognito user pool ids.
 	Ids  []string `pulumi:"ids"`
 	Name string   `pulumi:"name"`
 }

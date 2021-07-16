@@ -50,7 +50,15 @@ import (
 // 									"name": "NoUserAgent_HEADER",
 // 								},
 // 							},
-// 							Name:       pulumi.String("AWSManagedRulesCommonRuleSet"),
+// 							Name: pulumi.String("AWSManagedRulesCommonRuleSet"),
+// 							ScopeDownStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs{
+// 								GeoMatchStatement: &wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs{
+// 									CountryCodes: pulumi.StringArray{
+// 										pulumi.String("US"),
+// 										pulumi.String("NL"),
+// 									},
+// 								},
+// 							},
 // 							VendorName: pulumi.String("AWS"),
 // 						},
 // 					},

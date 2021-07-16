@@ -2377,14 +2377,24 @@ func (o EventTargetDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type EventTargetEcsTarget struct {
+	// Specifies whether to enable Amazon ECS managed tags for the task.
+	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
+	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group *string `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
 	LaunchType *string `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+	PlacementConstraints []EventTargetEcsTargetPlacementConstraint `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	PropagateTags *string `pulumi:"propagateTags"`
+	// A map of tags to assign to ecs resources.
+	Tags map[string]string `pulumi:"tags"`
 	// The number of tasks to create based on the TaskDefinition. The default is 1.
 	TaskCount *int `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
@@ -2403,14 +2413,24 @@ type EventTargetEcsTargetInput interface {
 }
 
 type EventTargetEcsTargetArgs struct {
+	// Specifies whether to enable Amazon ECS managed tags for the task.
+	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
+	// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group pulumi.StringPtrInput `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+	PlacementConstraints EventTargetEcsTargetPlacementConstraintArrayInput `pulumi:"placementConstraints"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
+	// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
+	// A map of tags to assign to ecs resources.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The number of tasks to create based on the TaskDefinition. The default is 1.
 	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
 	// The ARN of the task definition to use if the event target is an Amazon ECS cluster.
@@ -2494,6 +2514,16 @@ func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutputWithContext(c
 	}).(EventTargetEcsTargetPtrOutput)
 }
 
+// Specifies whether to enable Amazon ECS managed tags for the task.
+func (o EventTargetEcsTargetOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) *bool { return v.EnableEcsManagedTags }).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+func (o EventTargetEcsTargetOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) *bool { return v.EnableExecuteCommand }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies an ECS task group for the task. The maximum length is 255 characters.
 func (o EventTargetEcsTargetOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.Group }).(pulumi.StringPtrOutput)
@@ -2509,9 +2539,24 @@ func (o EventTargetEcsTargetOutput) NetworkConfiguration() EventTargetEcsTargetN
 	return o.ApplyT(func(v EventTargetEcsTarget) *EventTargetEcsTargetNetworkConfiguration { return v.NetworkConfiguration }).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+func (o EventTargetEcsTargetOutput) PlacementConstraints() EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint { return v.PlacementConstraints }).(EventTargetEcsTargetPlacementConstraintArrayOutput)
+}
+
 // Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+func (o EventTargetEcsTargetOutput) PropagateTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.PropagateTags }).(pulumi.StringPtrOutput)
+}
+
+// A map of tags to assign to ecs resources.
+func (o EventTargetEcsTargetOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v EventTargetEcsTarget) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The number of tasks to create based on the TaskDefinition. The default is 1.
@@ -2540,6 +2585,26 @@ func (o EventTargetEcsTargetPtrOutput) ToEventTargetEcsTargetPtrOutputWithContex
 
 func (o EventTargetEcsTargetPtrOutput) Elem() EventTargetEcsTargetOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) EventTargetEcsTarget { return *v }).(EventTargetEcsTargetOutput)
+}
+
+// Specifies whether to enable Amazon ECS managed tags for the task.
+func (o EventTargetEcsTargetPtrOutput) EnableEcsManagedTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEcsManagedTags
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+func (o EventTargetEcsTargetPtrOutput) EnableExecuteCommand() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableExecuteCommand
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specifies an ECS task group for the task. The maximum length is 255 characters.
@@ -2572,6 +2637,16 @@ func (o EventTargetEcsTargetPtrOutput) NetworkConfiguration() EventTargetEcsTarg
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
 
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+func (o EventTargetEcsTargetPtrOutput) PlacementConstraints() EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) []EventTargetEcsTargetPlacementConstraint {
+		if v == nil {
+			return nil
+		}
+		return v.PlacementConstraints
+	}).(EventTargetEcsTargetPlacementConstraintArrayOutput)
+}
+
 // Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
@@ -2580,6 +2655,26 @@ func (o EventTargetEcsTargetPtrOutput) PlatformVersion() pulumi.StringPtrOutput 
 		}
 		return v.PlatformVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+func (o EventTargetEcsTargetPtrOutput) PropagateTags() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PropagateTags
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of tags to assign to ecs resources.
+func (o EventTargetEcsTargetPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EventTargetEcsTarget) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
 }
 
 // The number of tasks to create based on the TaskDefinition. The default is 1.
@@ -2769,6 +2864,112 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Subnets() pulumi.Stri
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type EventTargetEcsTargetPlacementConstraint struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	Expression *string `pulumi:"expression"`
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type string `pulumi:"type"`
+}
+
+// EventTargetEcsTargetPlacementConstraintInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArgs and EventTargetEcsTargetPlacementConstraintOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetPlacementConstraintInput` via:
+//
+//          EventTargetEcsTargetPlacementConstraintArgs{...}
+type EventTargetEcsTargetPlacementConstraintInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetPlacementConstraintOutput() EventTargetEcsTargetPlacementConstraintOutput
+	ToEventTargetEcsTargetPlacementConstraintOutputWithContext(context.Context) EventTargetEcsTargetPlacementConstraintOutput
+}
+
+type EventTargetEcsTargetPlacementConstraintArgs struct {
+	// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (EventTargetEcsTargetPlacementConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetPlacementConstraint)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetPlacementConstraintArgs) ToEventTargetEcsTargetPlacementConstraintOutput() EventTargetEcsTargetPlacementConstraintOutput {
+	return i.ToEventTargetEcsTargetPlacementConstraintOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetPlacementConstraintArgs) ToEventTargetEcsTargetPlacementConstraintOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetPlacementConstraintOutput)
+}
+
+// EventTargetEcsTargetPlacementConstraintArrayInput is an input type that accepts EventTargetEcsTargetPlacementConstraintArray and EventTargetEcsTargetPlacementConstraintArrayOutput values.
+// You can construct a concrete instance of `EventTargetEcsTargetPlacementConstraintArrayInput` via:
+//
+//          EventTargetEcsTargetPlacementConstraintArray{ EventTargetEcsTargetPlacementConstraintArgs{...} }
+type EventTargetEcsTargetPlacementConstraintArrayInput interface {
+	pulumi.Input
+
+	ToEventTargetEcsTargetPlacementConstraintArrayOutput() EventTargetEcsTargetPlacementConstraintArrayOutput
+	ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(context.Context) EventTargetEcsTargetPlacementConstraintArrayOutput
+}
+
+type EventTargetEcsTargetPlacementConstraintArray []EventTargetEcsTargetPlacementConstraintInput
+
+func (EventTargetEcsTargetPlacementConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetPlacementConstraint)(nil)).Elem()
+}
+
+func (i EventTargetEcsTargetPlacementConstraintArray) ToEventTargetEcsTargetPlacementConstraintArrayOutput() EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return i.ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i EventTargetEcsTargetPlacementConstraintArray) ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetEcsTargetPlacementConstraintArrayOutput)
+}
+
+type EventTargetEcsTargetPlacementConstraintOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetPlacementConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetEcsTargetPlacementConstraint)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetPlacementConstraintOutput) ToEventTargetEcsTargetPlacementConstraintOutput() EventTargetEcsTargetPlacementConstraintOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetPlacementConstraintOutput) ToEventTargetEcsTargetPlacementConstraintOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintOutput {
+	return o
+}
+
+// Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+func (o EventTargetEcsTargetPlacementConstraintOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetPlacementConstraint) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+func (o EventTargetEcsTargetPlacementConstraintOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetEcsTargetPlacementConstraint) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type EventTargetEcsTargetPlacementConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTargetEcsTargetPlacementConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTargetEcsTargetPlacementConstraint)(nil)).Elem()
+}
+
+func (o EventTargetEcsTargetPlacementConstraintArrayOutput) ToEventTargetEcsTargetPlacementConstraintArrayOutput() EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetPlacementConstraintArrayOutput) ToEventTargetEcsTargetPlacementConstraintArrayOutputWithContext(ctx context.Context) EventTargetEcsTargetPlacementConstraintArrayOutput {
+	return o
+}
+
+func (o EventTargetEcsTargetPlacementConstraintArrayOutput) Index(i pulumi.IntInput) EventTargetEcsTargetPlacementConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTargetEcsTargetPlacementConstraint {
+		return vs[0].([]EventTargetEcsTargetPlacementConstraint)[vs[1].(int)]
+	}).(EventTargetEcsTargetPlacementConstraintOutput)
 }
 
 type EventTargetHttpTarget struct {
@@ -4448,6 +4649,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetEcsTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(EventTargetEcsTargetNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetPlacementConstraintOutput{})
+	pulumi.RegisterOutputType(EventTargetEcsTargetPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(EventTargetHttpTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetHttpTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetInputTransformerOutput{})

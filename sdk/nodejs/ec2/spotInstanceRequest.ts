@@ -150,9 +150,15 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string>;
     /**
-     * Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
      */
-    public readonly instanceInterruptionBehaviour!: pulumi.Output<string | undefined>;
+    public readonly instanceInterruptionBehavior!: pulumi.Output<string>;
+    /**
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+     *
+     * @deprecated Use the parameter "instance_interruption_behavior" instead.
+     */
+    public readonly instanceInterruptionBehaviour!: pulumi.Output<string>;
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
      * Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
@@ -332,6 +338,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["hostId"] = state ? state.hostId : undefined;
             inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
+            inputs["instanceInterruptionBehavior"] = state ? state.instanceInterruptionBehavior : undefined;
             inputs["instanceInterruptionBehaviour"] = state ? state.instanceInterruptionBehaviour : undefined;
             inputs["instanceState"] = state ? state.instanceState : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
@@ -396,6 +403,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["hostId"] = args ? args.hostId : undefined;
             inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
             inputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
+            inputs["instanceInterruptionBehavior"] = args ? args.instanceInterruptionBehavior : undefined;
             inputs["instanceInterruptionBehaviour"] = args ? args.instanceInterruptionBehaviour : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
@@ -523,7 +531,13 @@ export interface SpotInstanceRequestState {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     */
+    instanceInterruptionBehavior?: pulumi.Input<string>;
+    /**
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+     *
+     * @deprecated Use the parameter "instance_interruption_behavior" instead.
      */
     instanceInterruptionBehaviour?: pulumi.Input<string>;
     instanceState?: pulumi.Input<string>;
@@ -753,7 +767,13 @@ export interface SpotInstanceRequestArgs {
      */
     instanceInitiatedShutdownBehavior?: pulumi.Input<string>;
     /**
-     * Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+     */
+    instanceInterruptionBehavior?: pulumi.Input<string>;
+    /**
+     * Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instanceInterruptionBehavior` instead.
+     *
+     * @deprecated Use the parameter "instance_interruption_behavior" instead.
      */
     instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**

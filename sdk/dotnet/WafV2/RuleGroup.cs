@@ -67,6 +67,290 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// }
     /// ```
+    /// ### Complex
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testIpSet = new Aws.WafV2.IpSet("testIpSet", new Aws.WafV2.IpSetArgs
+    ///         {
+    ///             Scope = "REGIONAL",
+    ///             IpAddressVersion = "IPV4",
+    ///             Addresses = 
+    ///             {
+    ///                 "1.1.1.1/32",
+    ///                 "2.2.2.2/32",
+    ///             },
+    ///         });
+    ///         var testRegexPatternSet = new Aws.WafV2.RegexPatternSet("testRegexPatternSet", new Aws.WafV2.RegexPatternSetArgs
+    ///         {
+    ///             Scope = "REGIONAL",
+    ///             RegularExpressions = 
+    ///             {
+    ///                 new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
+    ///                 {
+    ///                     RegexString = "one",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var example = new Aws.WafV2.RuleGroup("example", new Aws.WafV2.RuleGroupArgs
+    ///         {
+    ///             Description = "An rule group containing all statements",
+    ///             Scope = "REGIONAL",
+    ///             Capacity = 500,
+    ///             Rules = 
+    ///             {
+    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 {
+    ///                     Name = "rule-1",
+    ///                     Priority = 1,
+    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                     {
+    ///                         Block = ,
+    ///                     },
+    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                     {
+    ///                         NotStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementArgs
+    ///                         {
+    ///                             Statements = 
+    ///                             {
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementArgs
+    ///                                 {
+    ///                                     AndStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementArgs
+    ///                                     {
+    ///                                         Statements = 
+    ///                                         {
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs
+    ///                                             {
+    ///                                                 GeoMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementGeoMatchStatementArgs
+    ///                                                 {
+    ///                                                     CountryCodes = 
+    ///                                                     {
+    ///                                                         "US",
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementArgs
+    ///                                             {
+    ///                                                 ByteMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementArgs
+    ///                                                 {
+    ///                                                     PositionalConstraint = "CONTAINS",
+    ///                                                     SearchString = "word",
+    ///                                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementFieldToMatchArgs
+    ///                                                     {
+    ///                                                         AllQueryArguments = ,
+    ///                                                     },
+    ///                                                     TextTransformations = 
+    ///                                                     {
+    ///                                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs
+    ///                                                         {
+    ///                                                             Priority = 5,
+    ///                                                             Type = "CMD_LINE",
+    ///                                                         },
+    ///                                                         new Aws.WafV2.Inputs.RuleGroupRuleStatementNotStatementStatementAndStatementStatementByteMatchStatementTextTransformationArgs
+    ///                                                         {
+    ///                                                             Priority = 2,
+    ///                                                             Type = "LOWERCASE",
+    ///                                                         },
+    ///                                                     },
+    ///                                                 },
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                     {
+    ///                         CloudwatchMetricsEnabled = false,
+    ///                         MetricName = "rule-1",
+    ///                         SampledRequestsEnabled = false,
+    ///                     },
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 {
+    ///                     Name = "rule-2",
+    ///                     Priority = 2,
+    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                     {
+    ///                         Count = ,
+    ///                     },
+    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                     {
+    ///                         OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
+    ///                         {
+    ///                             Statements = 
+    ///                             {
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
+    ///                                 {
+    ///                                     SqliMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementArgs
+    ///                                     {
+    ///                                         FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementFieldToMatchArgs
+    ///                                         {
+    ///                                             Body = ,
+    ///                                         },
+    ///                                         TextTransformations = 
+    ///                                         {
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
+    ///                                             {
+    ///                                                 Priority = 5,
+    ///                                                 Type = "URL_DECODE",
+    ///                                             },
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
+    ///                                             {
+    ///                                                 Priority = 4,
+    ///                                                 Type = "HTML_ENTITY_DECODE",
+    ///                                             },
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementSqliMatchStatementTextTransformationArgs
+    ///                                             {
+    ///                                                 Priority = 3,
+    ///                                                 Type = "COMPRESS_WHITE_SPACE",
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
+    ///                                 {
+    ///                                     XssMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementArgs
+    ///                                     {
+    ///                                         FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementFieldToMatchArgs
+    ///                                         {
+    ///                                             Method = ,
+    ///                                         },
+    ///                                         TextTransformations = 
+    ///                                         {
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementXssMatchStatementTextTransformationArgs
+    ///                                             {
+    ///                                                 Priority = 2,
+    ///                                                 Type = "NONE",
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                     {
+    ///                         CloudwatchMetricsEnabled = false,
+    ///                         MetricName = "rule-2",
+    ///                         SampledRequestsEnabled = false,
+    ///                     },
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 {
+    ///                     Name = "rule-3",
+    ///                     Priority = 3,
+    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                     {
+    ///                         Block = ,
+    ///                     },
+    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                     {
+    ///                         SizeConstraintStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs
+    ///                         {
+    ///                             ComparisonOperator = "GT",
+    ///                             Size = 100,
+    ///                             FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
+    ///                             {
+    ///                                 SingleQueryArgument = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs
+    ///                                 {
+    ///                                     Name = "username",
+    ///                                 },
+    ///                             },
+    ///                             TextTransformations = 
+    ///                             {
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs
+    ///                                 {
+    ///                                     Priority = 5,
+    ///                                     Type = "NONE",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                     {
+    ///                         CloudwatchMetricsEnabled = false,
+    ///                         MetricName = "rule-3",
+    ///                         SampledRequestsEnabled = false,
+    ///                     },
+    ///                 },
+    ///                 new Aws.WafV2.Inputs.RuleGroupRuleArgs
+    ///                 {
+    ///                     Name = "rule-4",
+    ///                     Priority = 4,
+    ///                     Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
+    ///                     {
+    ///                         Block = ,
+    ///                     },
+    ///                     Statement = new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
+    ///                     {
+    ///                         OrStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementArgs
+    ///                         {
+    ///                             Statements = 
+    ///                             {
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
+    ///                                 {
+    ///                                     IpSetReferenceStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatementArgs
+    ///                                     {
+    ///                                         Arn = testIpSet.Arn,
+    ///                                     },
+    ///                                 },
+    ///                                 new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementArgs
+    ///                                 {
+    ///                                     RegexPatternSetReferenceStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementArgs
+    ///                                     {
+    ///                                         Arn = testRegexPatternSet.Arn,
+    ///                                         FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchArgs
+    ///                                         {
+    ///                                             SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs
+    ///                                             {
+    ///                                                 Name = "referer",
+    ///                                             },
+    ///                                         },
+    ///                                         TextTransformations = 
+    ///                                         {
+    ///                                             new Aws.WafV2.Inputs.RuleGroupRuleStatementOrStatementStatementRegexPatternSetReferenceStatementTextTransformationArgs
+    ///                                             {
+    ///                                                 Priority = 2,
+    ///                                                 Type = "NONE",
+    ///                                             },
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
+    ///                     {
+    ///                         CloudwatchMetricsEnabled = false,
+    ///                         MetricName = "rule-4",
+    ///                         SampledRequestsEnabled = false,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///             {
+    ///                 CloudwatchMetricsEnabled = false,
+    ///                 MetricName = "friendly-metric-name",
+    ///                 SampledRequestsEnabled = false,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-and-statement" },
+    ///                 { "Code", "123456" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

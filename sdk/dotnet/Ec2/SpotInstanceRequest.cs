@@ -176,10 +176,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// </summary>
+        [Output("instanceInterruptionBehavior")]
+        public Output<string> InstanceInterruptionBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         /// </summary>
         [Output("instanceInterruptionBehaviour")]
-        public Output<string?> InstanceInterruptionBehaviour { get; private set; } = null!;
+        public Output<string> InstanceInterruptionBehaviour { get; private set; } = null!;
 
         [Output("instanceState")]
         public Output<string> InstanceState { get; private set; } = null!;
@@ -570,7 +576,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// </summary>
+        [Input("instanceInterruptionBehavior")]
+        public Input<string>? InstanceInterruptionBehavior { get; set; }
+
+        /// <summary>
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         /// </summary>
         [Input("instanceInterruptionBehaviour")]
         public Input<string>? InstanceInterruptionBehaviour { get; set; }
@@ -922,7 +934,13 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Indicates whether a Spot instance stops or terminates when it is interrupted. Default is `terminate` as this is the current AWS behaviour.
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
+        /// </summary>
+        [Input("instanceInterruptionBehavior")]
+        public Input<string>? InstanceInterruptionBehavior { get; set; }
+
+        /// <summary>
+        /// Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
         /// </summary>
         [Input("instanceInterruptionBehaviour")]
         public Input<string>? InstanceInterruptionBehaviour { get; set; }

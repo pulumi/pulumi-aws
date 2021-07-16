@@ -13,6 +13,7 @@ __all__ = [
     'ConfigurationAggregatorOrganizationAggregationSourceArgs',
     'ConformancePackInputParameterArgs',
     'DeliveryChannelSnapshotDeliveryPropertiesArgs',
+    'OrganizationConformancePackInputParameterArgs',
     'RecorderRecordingGroupArgs',
     'RemediationConfigurationParameterArgs',
     'RuleScopeArgs',
@@ -186,6 +187,43 @@ class DeliveryChannelSnapshotDeliveryPropertiesArgs:
     @delivery_frequency.setter
     def delivery_frequency(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "delivery_frequency", value)
+
+
+@pulumi.input_type
+class OrganizationConformancePackInputParameterArgs:
+    def __init__(__self__, *,
+                 parameter_name: pulumi.Input[str],
+                 parameter_value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] parameter_name: The input key.
+        :param pulumi.Input[str] parameter_value: The input value.
+        """
+        pulumi.set(__self__, "parameter_name", parameter_name)
+        pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> pulumi.Input[str]:
+        """
+        The input key.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> pulumi.Input[str]:
+        """
+        The input value.
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parameter_value", value)
 
 
 @pulumi.input_type

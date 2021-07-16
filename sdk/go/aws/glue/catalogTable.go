@@ -133,7 +133,7 @@ type CatalogTable struct {
 	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrOutput `pulumi:"storageDescriptor"`
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrOutput `pulumi:"tableType"`
@@ -197,7 +197,7 @@ type catalogTableState struct {
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
@@ -230,7 +230,7 @@ type CatalogTableState struct {
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput
@@ -265,7 +265,7 @@ type catalogTableArgs struct {
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor *CatalogTableStorageDescriptor `pulumi:"storageDescriptor"`
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType *string `pulumi:"tableType"`
@@ -297,7 +297,7 @@ type CatalogTableArgs struct {
 	PartitionKeys CatalogTablePartitionKeyArrayInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
-	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
+	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
 	StorageDescriptor CatalogTableStorageDescriptorPtrInput
 	// Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
 	TableType pulumi.StringPtrInput

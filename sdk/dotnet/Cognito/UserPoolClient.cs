@@ -193,6 +193,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> DefaultRedirectUri { get; private set; } = null!;
 
         /// <summary>
+        /// Enables or disables token revocation.
+        /// </summary>
+        [Output("enableTokenRevocation")]
+        public Output<bool> EnableTokenRevocation { get; private set; } = null!;
+
+        /// <summary>
         /// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         /// </summary>
         [Output("explicitAuthFlows")]
@@ -370,6 +376,12 @@ namespace Pulumi.Aws.Cognito
         [Input("defaultRedirectUri")]
         public Input<string>? DefaultRedirectUri { get; set; }
 
+        /// <summary>
+        /// Enables or disables token revocation.
+        /// </summary>
+        [Input("enableTokenRevocation")]
+        public Input<bool>? EnableTokenRevocation { get; set; }
+
         [Input("explicitAuthFlows")]
         private InputList<string>? _explicitAuthFlows;
 
@@ -544,6 +556,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("defaultRedirectUri")]
         public Input<string>? DefaultRedirectUri { get; set; }
+
+        /// <summary>
+        /// Enables or disables token revocation.
+        /// </summary>
+        [Input("enableTokenRevocation")]
+        public Input<bool>? EnableTokenRevocation { get; set; }
 
         [Input("explicitAuthFlows")]
         private InputList<string>? _explicitAuthFlows;

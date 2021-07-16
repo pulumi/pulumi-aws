@@ -58,6 +58,17 @@ namespace Pulumi.Aws.WafV2
     ///                                 },
     ///                             },
     ///                             Name = "AWSManagedRulesCommonRuleSet",
+    ///                             ScopeDownStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs
+    ///                             {
+    ///                                 GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs
+    ///                                 {
+    ///                                     CountryCodes = 
+    ///                                     {
+    ///                                         "US",
+    ///                                         "NL",
+    ///                                     },
+    ///                                 },
+    ///                             },
     ///                             VendorName = "AWS",
     ///                         },
     ///                     },

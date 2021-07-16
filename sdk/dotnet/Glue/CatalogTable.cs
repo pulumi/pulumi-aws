@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Glue
         public Output<int?> Retention { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Output("storageDescriptor")]
         public Output<Outputs.CatalogTableStorageDescriptor?> StorageDescriptor { get; private set; } = null!;
@@ -324,7 +324,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorArgs>? StorageDescriptor { get; set; }
@@ -439,7 +439,7 @@ namespace Pulumi.Aws.Glue
         public Input<int>? Retention { get; set; }
 
         /// <summary>
-        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables. html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        /// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         /// </summary>
         [Input("storageDescriptor")]
         public Input<Inputs.CatalogTableStorageDescriptorGetArgs>? StorageDescriptor { get; set; }

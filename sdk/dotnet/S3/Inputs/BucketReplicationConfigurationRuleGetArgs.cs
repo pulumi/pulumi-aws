@@ -13,6 +13,12 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketReplicationConfigurationRuleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        /// </summary>
+        [Input("deleteMarkerReplicationStatus")]
+        public Input<string>? DeleteMarkerReplicationStatus { get; set; }
+
+        /// <summary>
         /// Specifies the destination for the rule (documented below).
         /// </summary>
         [Input("destination", required: true)]

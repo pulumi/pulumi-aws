@@ -28,6 +28,7 @@ __all__ = [
     'EventTargetDeadLetterConfig',
     'EventTargetEcsTarget',
     'EventTargetEcsTargetNetworkConfiguration',
+    'EventTargetEcsTargetPlacementConstraint',
     'EventTargetHttpTarget',
     'EventTargetInputTransformer',
     'EventTargetKinesisTarget',
@@ -918,12 +919,20 @@ class EventTargetEcsTarget(dict):
         suggest = None
         if key == "taskDefinitionArn":
             suggest = "task_definition_arn"
+        elif key == "enableEcsManagedTags":
+            suggest = "enable_ecs_managed_tags"
+        elif key == "enableExecuteCommand":
+            suggest = "enable_execute_command"
         elif key == "launchType":
             suggest = "launch_type"
         elif key == "networkConfiguration":
             suggest = "network_configuration"
+        elif key == "placementConstraints":
+            suggest = "placement_constraints"
         elif key == "platformVersion":
             suggest = "platform_version"
+        elif key == "propagateTags":
+            suggest = "propagate_tags"
         elif key == "taskCount":
             suggest = "task_count"
 
@@ -940,28 +949,48 @@ class EventTargetEcsTarget(dict):
 
     def __init__(__self__, *,
                  task_definition_arn: str,
+                 enable_ecs_managed_tags: Optional[bool] = None,
+                 enable_execute_command: Optional[bool] = None,
                  group: Optional[str] = None,
                  launch_type: Optional[str] = None,
                  network_configuration: Optional['outputs.EventTargetEcsTargetNetworkConfiguration'] = None,
+                 placement_constraints: Optional[Sequence['outputs.EventTargetEcsTargetPlacementConstraint']] = None,
                  platform_version: Optional[str] = None,
+                 propagate_tags: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
                  task_count: Optional[int] = None):
         """
         :param str task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+        :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
+        :param bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
         :param 'EventTargetEcsTargetNetworkConfigurationArgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
+        :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        :param Mapping[str, str] tags: A map of tags to assign to ecs resources.
         :param int task_count: The number of tasks to create based on the TaskDefinition. The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
+        if enable_ecs_managed_tags is not None:
+            pulumi.set(__self__, "enable_ecs_managed_tags", enable_ecs_managed_tags)
+        if enable_execute_command is not None:
+            pulumi.set(__self__, "enable_execute_command", enable_execute_command)
         if group is not None:
             pulumi.set(__self__, "group", group)
         if launch_type is not None:
             pulumi.set(__self__, "launch_type", launch_type)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if placement_constraints is not None:
+            pulumi.set(__self__, "placement_constraints", placement_constraints)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if task_count is not None:
             pulumi.set(__self__, "task_count", task_count)
 
@@ -972,6 +1001,22 @@ class EventTargetEcsTarget(dict):
         The ARN of the task definition to use if the event target is an Amazon ECS cluster.
         """
         return pulumi.get(self, "task_definition_arn")
+
+    @property
+    @pulumi.getter(name="enableEcsManagedTags")
+    def enable_ecs_managed_tags(self) -> Optional[bool]:
+        """
+        Specifies whether to enable Amazon ECS managed tags for the task.
+        """
+        return pulumi.get(self, "enable_ecs_managed_tags")
+
+    @property
+    @pulumi.getter(name="enableExecuteCommand")
+    def enable_execute_command(self) -> Optional[bool]:
+        """
+        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+        """
+        return pulumi.get(self, "enable_execute_command")
 
     @property
     @pulumi.getter
@@ -998,12 +1043,36 @@ class EventTargetEcsTarget(dict):
         return pulumi.get(self, "network_configuration")
 
     @property
+    @pulumi.getter(name="placementConstraints")
+    def placement_constraints(self) -> Optional[Sequence['outputs.EventTargetEcsTargetPlacementConstraint']]:
+        """
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        """
+        return pulumi.get(self, "placement_constraints")
+
+    @property
     @pulumi.getter(name="platformVersion")
     def platform_version(self) -> Optional[str]:
         """
         Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         """
         return pulumi.get(self, "platform_version")
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[str]:
+        """
+        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation.
+        """
+        return pulumi.get(self, "propagate_tags")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags to assign to ecs resources.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="taskCount")
@@ -1073,6 +1142,36 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
         The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
         """
         return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class EventTargetEcsTargetPlacementConstraint(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 expression: Optional[str] = None):
+        """
+        :param str type: Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        :param str expression: Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+        pulumi.set(__self__, "type", type)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+        """
+        return pulumi.get(self, "expression")
 
 
 @pulumi.output_type

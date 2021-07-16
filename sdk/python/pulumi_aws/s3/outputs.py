@@ -1397,7 +1397,9 @@ class BucketReplicationConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceSelectionCriteria":
+        if key == "deleteMarkerReplicationStatus":
+            suggest = "delete_marker_replication_status"
+        elif key == "sourceSelectionCriteria":
             suggest = "source_selection_criteria"
 
         if suggest:
@@ -1414,6 +1416,7 @@ class BucketReplicationConfigurationRule(dict):
     def __init__(__self__, *,
                  destination: 'outputs.BucketReplicationConfigurationRuleDestination',
                  status: str,
+                 delete_marker_replication_status: Optional[str] = None,
                  filter: Optional['outputs.BucketReplicationConfigurationRuleFilter'] = None,
                  id: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -1422,6 +1425,7 @@ class BucketReplicationConfigurationRule(dict):
         """
         :param 'BucketReplicationConfigurationRuleDestinationArgs' destination: Specifies the destination for the rule (documented below).
         :param str status: The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
+        :param str delete_marker_replication_status: Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
         :param 'BucketReplicationConfigurationRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies (documented below).
         :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         :param str prefix: Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
@@ -1430,6 +1434,8 @@ class BucketReplicationConfigurationRule(dict):
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "status", status)
+        if delete_marker_replication_status is not None:
+            pulumi.set(__self__, "delete_marker_replication_status", delete_marker_replication_status)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if id is not None:
@@ -1456,6 +1462,14 @@ class BucketReplicationConfigurationRule(dict):
         The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="deleteMarkerReplicationStatus")
+    def delete_marker_replication_status(self) -> Optional[str]:
+        """
+        Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
+        """
+        return pulumi.get(self, "delete_marker_replication_status")
 
     @property
     @pulumi.getter

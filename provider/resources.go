@@ -46,6 +46,7 @@ const (
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
+	appConfigMod                = "AppConfig"                // AppConfig
 	appsyncMod                  = "AppSync"                  // AppSync
 	appmeshMod                  = "AppMesh"                  // AppMesh
 	apigatewayMod               = "ApiGateway"               // API Gateway
@@ -830,6 +831,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_codepipeline_webhook": {Tok: awsResource(codepipelineMod, "Webhook")},
+
 			// Cognito
 			"aws_cognito_identity_pool":                  {Tok: awsResource(cognitoMod, "IdentityPool")},
 			"aws_cognito_identity_pool_roles_attachment": {Tok: awsResource(cognitoMod, "IdentityPoolRoleAttachment")},
@@ -840,6 +842,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
 			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
 			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
+
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
@@ -851,8 +854,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_organization_managed_rule":     {Tok: awsResource(cfgMod, "OrganizationManagedRule")},
 			"aws_config_remediation_configuration":     {Tok: awsResource(cfgMod, "RemediationConfiguration")},
 			"aws_config_conformance_pack":              {Tok: awsResource(cfgMod, "ConformancePack")},
+			"aws_config_organization_conformance_pack": {Tok: awsResource(cfgMod, "OrganizationConformancePack")},
+
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
+
 			// DataSync
 			"aws_datasync_agent": {Tok: awsResource(datasyncMod, "Agent")},
 			"aws_datasync_location_efs": {
@@ -2173,6 +2179,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
 			"aws_securityhub_invite_accepter":            {Tok: awsResource(securityhubMod, "InviteAccepter")},
 			"aws_securityhub_insight":                    {Tok: awsResource(securityhubMod, "Insight")},
+			"aws_securityhub_organization_configuration": {Tok: awsResource(securityhubMod, "OrganizationConfiguration")},
+			"aws_securityhub_standards_control":          {Tok: awsResource(securityhubMod, "StandardsControl")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -2667,6 +2675,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_amplify_branch":              {Tok: awsResource(amplifyMod, "Branch")},
 			"aws_amplify_domain_association":  {Tok: awsResource(amplifyMod, "DomainAssociation")},
 			"aws_amplify_webhook":             {Tok: awsResource(amplifyMod, "Webhook")},
+
+			// appconfig
+			"aws_appconfig_application":                  {Tok: awsResource(appConfigMod, "Application")},
+			"aws_appconfig_configuration_profile":        {Tok: awsResource(appConfigMod, "ConfigurationProfile")},
+			"aws_appconfig_deployment_strategy":          {Tok: awsResource(appConfigMod, "DeploymentStrategy")},
+			"aws_appconfig_environment":                  {Tok: awsResource(appConfigMod, "Environment")},
+			"aws_appconfig_hosted_configuration_version": {Tok: awsResource(appConfigMod, "HostedConfigurationVersion")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},

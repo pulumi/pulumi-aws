@@ -43,6 +43,10 @@ namespace Pulumi.Aws.SecurityHub
     ///                 exampleOrganization,
     ///             },
     ///         });
+    ///         // Auto enable security hub in organization member accounts
+    ///         var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new Aws.SecurityHub.OrganizationConfigurationArgs
+    ///         {
+    ///         });
     ///     }
     /// 
     /// }

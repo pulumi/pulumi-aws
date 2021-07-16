@@ -185,6 +185,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// </summary>
+        [Output("retentionPolicy")]
+        public Output<Outputs.DomainRetentionPolicy?> RetentionPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
@@ -296,6 +302,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// </summary>
+        [Input("retentionPolicy")]
+        public Input<Inputs.DomainRetentionPolicyArgs>? RetentionPolicy { get; set; }
+
         [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
@@ -386,6 +398,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See Retention Policy below.
+        /// </summary>
+        [Input("retentionPolicy")]
+        public Input<Inputs.DomainRetentionPolicyGetArgs>? RetentionPolicy { get; set; }
 
         /// <summary>
         /// The SSO managed application instance ID.

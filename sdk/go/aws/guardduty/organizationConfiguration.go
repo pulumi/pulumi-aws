@@ -36,6 +36,11 @@ import (
 // 		_, err = guardduty.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &guardduty.OrganizationConfigurationArgs{
 // 			AutoEnable: pulumi.Bool(true),
 // 			DetectorId: exampleDetector.ID(),
+// 			Datasources: &guardduty.OrganizationConfigurationDatasourcesArgs{
+// 				S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
+// 					AutoEnable: pulumi.Bool(true),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -57,6 +62,8 @@ type OrganizationConfiguration struct {
 
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
+	// Configuration for the collected datasources.
+	Datasources OrganizationConfigurationDatasourcesOutput `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 }
@@ -98,6 +105,8 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 type organizationConfigurationState struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable *bool `pulumi:"autoEnable"`
+	// Configuration for the collected datasources.
+	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId *string `pulumi:"detectorId"`
 }
@@ -105,6 +114,8 @@ type organizationConfigurationState struct {
 type OrganizationConfigurationState struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolPtrInput
+	// Configuration for the collected datasources.
+	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringPtrInput
 }
@@ -116,6 +127,8 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 type organizationConfigurationArgs struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
+	// Configuration for the collected datasources.
+	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
 	// The detector ID of the GuardDuty account.
 	DetectorId string `pulumi:"detectorId"`
 }
@@ -124,6 +137,8 @@ type organizationConfigurationArgs struct {
 type OrganizationConfigurationArgs struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput
+	// Configuration for the collected datasources.
+	Datasources OrganizationConfigurationDatasourcesPtrInput
 	// The detector ID of the GuardDuty account.
 	DetectorId pulumi.StringInput
 }

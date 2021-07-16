@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms
 {
     /// <summary>
-    /// Provides a KMS customer master key.
+    /// Provides a KMS single-Region customer master key (CMK).
     /// 
     /// ## Example Usage
     /// 

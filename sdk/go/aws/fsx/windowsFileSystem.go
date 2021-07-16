@@ -111,6 +111,8 @@ type WindowsFileSystem struct {
 
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId pulumi.StringPtrOutput `pulumi:"activeDirectoryId"`
+	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
@@ -201,6 +203,8 @@ func GetWindowsFileSystem(ctx *pulumi.Context,
 type windowsFileSystemState struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+	Aliases []string `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
@@ -254,6 +258,8 @@ type windowsFileSystemState struct {
 type WindowsFileSystemState struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId pulumi.StringPtrInput
+	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+	Aliases pulumi.StringArrayInput
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
@@ -311,6 +317,8 @@ func (WindowsFileSystemState) ElementType() reflect.Type {
 type windowsFileSystemArgs struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
+	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+	Aliases []string `pulumi:"aliases"`
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
@@ -351,6 +359,8 @@ type windowsFileSystemArgs struct {
 type WindowsFileSystemArgs struct {
 	// The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `selfManagedActiveDirectory`.
 	ActiveDirectoryId pulumi.StringPtrInput
+	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
+	Aliases pulumi.StringArrayInput
 	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.

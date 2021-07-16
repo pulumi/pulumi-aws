@@ -301,6 +301,14 @@ class CachePolicy(pulumi.CustomResource):
             ))
         ```
 
+        ## Import
+
+        Cloudfront Cache Policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment to describe the cache policy.
@@ -351,6 +359,14 @@ class CachePolicy(pulumi.CustomResource):
                     },
                 },
             ))
+        ```
+
+        ## Import
+
+        Cloudfront Cache Policies can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
         ```
 
         :param str resource_name: The name of the resource.
