@@ -15,8 +15,7 @@ __all__ = ['SpotInstanceRequestArgs', 'SpotInstanceRequest']
 @pulumi.input_type
 class SpotInstanceRequestArgs:
     def __init__(__self__, *,
-                 ami: pulumi.Input[str],
-                 instance_type: pulumi.Input[str],
+                 ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
@@ -36,10 +35,12 @@ class SpotInstanceRequestArgs:
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behaviour: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']] = None,
                  metadata_options: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
@@ -64,8 +65,7 @@ class SpotInstanceRequestArgs:
                  wait_for_fulfillment: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SpotInstanceRequest resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
-        :param pulumi.Input[str] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -87,11 +87,14 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
+        :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input['SpotInstanceRequestLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -118,8 +121,8 @@ class SpotInstanceRequestArgs:
                wait for the Spot Request to be fulfilled, and will throw an error if the
                timeout of 10m is reached.
         """
-        pulumi.set(__self__, "ami", ami)
-        pulumi.set(__self__, "instance_type", instance_type)
+        if ami is not None:
+            pulumi.set(__self__, "ami", ami)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
@@ -161,6 +164,8 @@ class SpotInstanceRequestArgs:
             pulumi.log.warn("""instance_interruption_behaviour is deprecated: Use the parameter \"instance_interruption_behavior\" instead.""")
         if instance_interruption_behaviour is not None:
             pulumi.set(__self__, "instance_interruption_behaviour", instance_interruption_behaviour)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
@@ -169,6 +174,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "key_name", key_name)
         if launch_group is not None:
             pulumi.set(__self__, "launch_group", launch_group)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -216,27 +223,15 @@ class SpotInstanceRequestArgs:
 
     @property
     @pulumi.getter
-    def ami(self) -> pulumi.Input[str]:
+    def ami(self) -> Optional[pulumi.Input[str]]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
     @ami.setter
-    def ami(self, value: pulumi.Input[str]):
+    def ami(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ami", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[str]:
-        """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
@@ -469,6 +464,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "instance_interruption_behaviour", value)
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -516,6 +523,19 @@ class SpotInstanceRequestArgs:
     @launch_group.setter
     def launch_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_group", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']]):
+        pulumi.set(self, "launch_template", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -815,6 +835,7 @@ class _SpotInstanceRequestState:
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']] = None,
                  metadata_options: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
@@ -848,7 +869,7 @@ class _SpotInstanceRequestState:
                  wait_for_fulfillment: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SpotInstanceRequest resources.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -870,12 +891,14 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        :param pulumi.Input[str] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input['SpotInstanceRequestLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -973,6 +996,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "key_name", key_name)
         if launch_group is not None:
             pulumi.set(__self__, "launch_group", launch_group)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -1040,7 +1065,7 @@ class _SpotInstanceRequestState:
     @pulumi.getter
     def ami(self) -> Optional[pulumi.Input[str]]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -1300,7 +1325,7 @@ class _SpotInstanceRequestState:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1356,6 +1381,19 @@ class _SpotInstanceRequestState:
     @launch_group.setter
     def launch_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_group", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']]):
+        pulumi.set(self, "launch_template", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -1760,6 +1798,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -1825,7 +1864,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -1847,12 +1886,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        :param pulumi.Input[str] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1883,7 +1924,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpotInstanceRequestArgs,
+                 args: Optional[SpotInstanceRequestArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 Spot Instance Request resource. This allows instances to be
@@ -1965,6 +2006,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -1999,8 +2041,6 @@ class SpotInstanceRequest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpotInstanceRequestArgs.__new__(SpotInstanceRequestArgs)
 
-            if ami is None and not opts.urn:
-                raise TypeError("Missing required property 'ami'")
             __props__.__dict__["ami"] = ami
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
@@ -2024,13 +2064,12 @@ class SpotInstanceRequest(pulumi.CustomResource):
                 warnings.warn("""Use the parameter \"instance_interruption_behavior\" instead.""", DeprecationWarning)
                 pulumi.log.warn("""instance_interruption_behaviour is deprecated: Use the parameter \"instance_interruption_behavior\" instead.""")
             __props__.__dict__["instance_interruption_behaviour"] = instance_interruption_behaviour
-            if instance_type is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_group"] = launch_group
+            __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
@@ -2101,6 +2140,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             launch_group: Optional[pulumi.Input[str]] = None,
+            launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[bool]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -2139,7 +2179,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[int] block_duration_minutes: The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
@@ -2161,12 +2201,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_interruption_behavior: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`.
         :param pulumi.Input[str] instance_interruption_behaviour: Indicates Spot instance behavior when it is interrupted. Valid values are `terminate`, `stop`, or `hibernate`. Default value is `terminate`. Use the argument `instance_interruption_behavior` instead.
-        :param pulumi.Input[str] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[str] launch_group: A launch group is a group of spot instances that launch together and terminate together.
                If left empty instances are launched and terminated individually.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -2238,6 +2280,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["launch_group"] = launch_group
+        __props__.__dict__["launch_template"] = launch_template
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -2275,7 +2318,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter
     def ami(self) -> pulumi.Output[str]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -2344,7 +2387,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
+    def disable_api_termination(self) -> pulumi.Output[bool]:
         """
         If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         """
@@ -2360,7 +2403,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
+    def ebs_optimized(self) -> pulumi.Output[bool]:
         """
         If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
@@ -2447,7 +2490,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2485,6 +2528,15 @@ class SpotInstanceRequest(pulumi.CustomResource):
         return pulumi.get(self, "launch_group")
 
     @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> pulumi.Output[Optional['outputs.SpotInstanceRequestLaunchTemplate']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> pulumi.Output['outputs.SpotInstanceRequestMetadataOptions']:
         """
@@ -2494,7 +2546,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitoring(self) -> pulumi.Output[Optional[bool]]:
+    def monitoring(self) -> pulumi.Output[bool]:
         """
         If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         """
@@ -2676,7 +2728,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> pulumi.Output[Optional[str]]:
+    def user_data(self) -> pulumi.Output[str]:
         """
         User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         """
@@ -2684,7 +2736,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
+    def user_data_base64(self) -> pulumi.Output[str]:
         """
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """

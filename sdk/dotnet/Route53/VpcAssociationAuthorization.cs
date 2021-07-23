@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53
 {
     /// <summary>
-    /// Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
+    /// Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
     /// 
     /// ## Example Usage
     /// 

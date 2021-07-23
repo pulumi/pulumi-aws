@@ -184,6 +184,8 @@ github.com/aws/aws-sdk-go v1.39.0 h1:74BBwkEmiqBbi2CGflEh34l0YNtIibTjZsibGarkNjo
 github.com/aws/aws-sdk-go v1.39.0/go.mod h1:hcU610XS61/+aQV88ixoOzUoG7v3b31pl2zKMmprdro=
 github.com/aws/aws-sdk-go v1.39.5 h1:yoJEE1NJxbpZ3CtPxvOSFJ9ByxiXmBTKk8J+XU5ldtg=
 github.com/aws/aws-sdk-go v1.39.5/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
+github.com/aws/aws-sdk-go v1.40.5 h1:VpJdcoOBq/BgyWAG+P8Ski8MpTUAIQdsqJK10+623AE=
+github.com/aws/aws-sdk-go v1.40.5/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -866,6 +868,8 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20210709102402-badaf9536d8b h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210709102402-badaf9536d8b/go.mod h1:yRl7s5HpWCYM3TG5G4prAlmU6rV7mqwOXeU6iiatCOM=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210716110013-5bce7db032ff h1:hdh5bUOM0U0AK55k9ZNiIG8nuGNIPvSE+cMOT8V02Ss=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210716110013-5bce7db032ff/go.mod h1:NXKFxn2t8Ms39UyoQ4WrBPk307SV522tTV4SnxJKYKc=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210723110508-2d7eff9f5891 h1:HxxHx8i3OZ7cTz+VURqbgJat/6NRcWq5ZpkF2UIGKkM=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210723110508-2d7eff9f5891/go.mod h1:ZG+GlwUDCwg4Qo5baeiGnlcQPJLvvgLJf2N/Ii/agA8=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=
@@ -1043,6 +1047,7 @@ golang.org/x/crypto v0.0.0-20200728195943-123391ffb6de/go.mod h1:LzIPMQfyMNhhGPh
 golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20201002170205-7f63de1d35b0/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad/go.mod h1:jdWPYTVW3xRLrWPugEBEK3UY2ZEsg3UU495nc5E+M+I=
+golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf h1:B2n+Zi5QeYRDAEodEu72OS36gmTWjgpXr2+cWcBW90o=
 golang.org/x/crypto v0.0.0-20210506145944-38f3c27a63bf/go.mod h1:P+XmwS30IXTQdn5tA2iutPOUgjI07+tq3H3K9MVA1s8=
 golang.org/x/exp v0.0.0-20190121172915-509febef88a4/go.mod h1:CJ0aWSM057203Lf6IL+f9T1iT9GByDxfZKAQTCR3kQA=

@@ -3396,6 +3396,8 @@ type CrawlerS3Target struct {
 	Exclusions []string `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path string `pulumi:"path"`
+	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+	SampleSize *int `pulumi:"sampleSize"`
 }
 
 // CrawlerS3TargetInput is an input type that accepts CrawlerS3TargetArgs and CrawlerS3TargetOutput values.
@@ -3416,6 +3418,8 @@ type CrawlerS3TargetArgs struct {
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
 	Path pulumi.StringInput `pulumi:"path"`
+	// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+	SampleSize pulumi.IntPtrInput `pulumi:"sampleSize"`
 }
 
 func (CrawlerS3TargetArgs) ElementType() reflect.Type {
@@ -3482,6 +3486,11 @@ func (o CrawlerS3TargetOutput) Exclusions() pulumi.StringArrayOutput {
 // The path of the Amazon DocumentDB or MongoDB target (database/collection).
 func (o CrawlerS3TargetOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v CrawlerS3Target) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+func (o CrawlerS3TargetOutput) SampleSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *int { return v.SampleSize }).(pulumi.IntPtrOutput)
 }
 
 type CrawlerS3TargetArrayOutput struct{ *pulumi.OutputState }

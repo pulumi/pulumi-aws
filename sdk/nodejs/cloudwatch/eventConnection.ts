@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
- *     authorizationType: "BASIC",
+ *     authorizationType: "OAUTH_CLIENT_CREDENTIALS",
  *     description: "A connection description",
  * });
  * ```

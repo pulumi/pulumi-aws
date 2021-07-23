@@ -928,7 +928,7 @@ func (o ReceiptRuleBounceActionArrayOutput) Index(i pulumi.IntInput) ReceiptRule
 type ReceiptRuleLambdaAction struct {
 	// The ARN of the Lambda function to invoke
 	FunctionArn string `pulumi:"functionArn"`
-	// Event or RequestResponse
+	// `Event` or `RequestResponse`
 	InvocationType *string `pulumi:"invocationType"`
 	// The position of the action in the receipt rule
 	Position int `pulumi:"position"`
@@ -950,7 +950,7 @@ type ReceiptRuleLambdaActionInput interface {
 type ReceiptRuleLambdaActionArgs struct {
 	// The ARN of the Lambda function to invoke
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
-	// Event or RequestResponse
+	// `Event` or `RequestResponse`
 	InvocationType pulumi.StringPtrInput `pulumi:"invocationType"`
 	// The position of the action in the receipt rule
 	Position pulumi.IntInput `pulumi:"position"`
@@ -1014,7 +1014,7 @@ func (o ReceiptRuleLambdaActionOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) string { return v.FunctionArn }).(pulumi.StringOutput)
 }
 
-// Event or RequestResponse
+// `Event` or `RequestResponse`
 func (o ReceiptRuleLambdaActionOutput) InvocationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReceiptRuleLambdaAction) *string { return v.InvocationType }).(pulumi.StringPtrOutput)
 }

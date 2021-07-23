@@ -16,8 +16,7 @@ __all__ = ['InstanceArgs', 'Instance']
 @pulumi.input_type
 class InstanceArgs:
     def __init__(__self__, *,
-                 ami: pulumi.Input[str],
-                 instance_type: pulumi.Input[Union[str, 'InstanceType']],
+                 ami: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_specification: Optional[pulumi.Input['InstanceCapacityReservationSpecificationArgs']] = None,
@@ -34,9 +33,11 @@ class InstanceArgs:
                  host_id: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
                  metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
@@ -56,8 +57,7 @@ class InstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input['InstanceCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -74,9 +74,12 @@ class InstanceArgs:
         :param pulumi.Input[str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -95,8 +98,8 @@ class InstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
         """
-        pulumi.set(__self__, "ami", ami)
-        pulumi.set(__self__, "instance_type", instance_type)
+        if ami is not None:
+            pulumi.set(__self__, "ami", ami)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
         if availability_zone is not None:
@@ -129,12 +132,16 @@ class InstanceArgs:
             pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
         if instance_initiated_shutdown_behavior is not None:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
         if ipv6_address_count is not None:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -175,27 +182,15 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
-    def ami(self) -> pulumi.Input[str]:
+    def ami(self) -> Optional[pulumi.Input[str]]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
     @ami.setter
-    def ami(self, value: pulumi.Input[str]):
+    def ami(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ami", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[Union[str, 'InstanceType']]:
-        """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[Union[str, 'InstanceType']]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="associatePublicIpAddress")
@@ -390,6 +385,18 @@ class InstanceArgs:
         pulumi.set(self, "instance_initiated_shutdown_behavior", value)
 
     @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[Union[str, 'InstanceType']]]:
+        """
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[Union[str, 'InstanceType']]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
     @pulumi.getter(name="ipv6AddressCount")
     def ipv6_address_count(self) -> Optional[pulumi.Input[int]]:
         """
@@ -424,6 +431,19 @@ class InstanceArgs:
     @key_name.setter
     def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['InstanceLaunchTemplateArgs']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['InstanceLaunchTemplateArgs']]):
+        pulumi.set(self, "launch_template", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -656,6 +676,7 @@ class _InstanceState:
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
                  metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
@@ -681,7 +702,7 @@ class _InstanceState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[str] arn: The ARN of the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
@@ -700,10 +721,12 @@ class _InstanceState:
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_state: The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -774,6 +797,8 @@ class _InstanceState:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -828,7 +853,7 @@ class _InstanceState:
     @pulumi.getter
     def ami(self) -> Optional[pulumi.Input[str]]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -1056,7 +1081,7 @@ class _InstanceState:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[Union[str, 'InstanceType']]]:
         """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1099,6 +1124,19 @@ class _InstanceState:
     @key_name.setter
     def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional[pulumi.Input['InstanceLaunchTemplateArgs']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @launch_template.setter
+    def launch_template(self, value: Optional[pulumi.Input['InstanceLaunchTemplateArgs']]):
+        pulumi.set(self, "launch_template", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -1403,6 +1441,7 @@ class Instance(pulumi.CustomResource):
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1496,7 +1535,7 @@ class Instance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
         :param pulumi.Input[pulumi.InputType['InstanceCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
@@ -1513,10 +1552,12 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] host_id: ID of a dedicated host that the instance will be assigned to. Use when an instance is to be launched on a specific dedicated host.
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1539,7 +1580,7 @@ class Instance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceArgs,
+                 args: Optional[InstanceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
@@ -1650,6 +1691,7 @@ class Instance(pulumi.CustomResource):
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1679,8 +1721,6 @@ class Instance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
-            if ami is None and not opts.urn:
-                raise TypeError("Missing required property 'ami'")
             __props__.__dict__["ami"] = ami
             __props__.__dict__["associate_public_ip_address"] = associate_public_ip_address
             __props__.__dict__["availability_zone"] = availability_zone
@@ -1698,12 +1738,11 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["host_id"] = host_id
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
-            if instance_type is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ipv6_address_count"] = ipv6_address_count
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["key_name"] = key_name
+            __props__.__dict__["launch_template"] = launch_template
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
@@ -1765,6 +1804,7 @@ class Instance(pulumi.CustomResource):
             ipv6_address_count: Optional[pulumi.Input[int]] = None,
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
+            launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[bool]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1795,7 +1835,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] ami: AMI to use for the instance.
+        :param pulumi.Input[str] ami: AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         :param pulumi.Input[str] arn: The ARN of the instance.
         :param pulumi.Input[bool] associate_public_ip_address: Whether to associate a public IP address with an instance in a VPC.
         :param pulumi.Input[str] availability_zone: AZ to start the instance in.
@@ -1814,10 +1854,12 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] iam_instance_profile: IAM Instance Profile to launch the instance with. Specified as the name of the Instance Profile. Ensure your credentials have the correct permission to assign the instance profile according to the [EC2 documentation](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html#roles-usingrole-ec2instance-permissions), notably `iam:PassRole`.
         :param pulumi.Input[str] instance_initiated_shutdown_behavior: Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
         :param pulumi.Input[str] instance_state: The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
-        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[Union[str, 'InstanceType']] instance_type: The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
+        :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+               See Launch Template Specification below for more details.
         :param pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1869,6 +1911,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["ipv6_address_count"] = ipv6_address_count
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["key_name"] = key_name
+        __props__.__dict__["launch_template"] = launch_template
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -1898,7 +1941,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def ami(self) -> pulumi.Output[str]:
         """
-        AMI to use for the instance.
+        AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         """
         return pulumi.get(self, "ami")
 
@@ -1960,7 +2003,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="disableApiTermination")
-    def disable_api_termination(self) -> pulumi.Output[Optional[bool]]:
+    def disable_api_termination(self) -> pulumi.Output[bool]:
         """
         If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         """
@@ -1976,7 +2019,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ebsOptimized")
-    def ebs_optimized(self) -> pulumi.Output[Optional[bool]]:
+    def ebs_optimized(self) -> pulumi.Output[bool]:
         """
         If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         """
@@ -2050,7 +2093,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
-        Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         """
         return pulumi.get(self, "instance_type")
 
@@ -2079,6 +2122,15 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "key_name")
 
     @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> pulumi.Output[Optional['outputs.InstanceLaunchTemplate']]:
+        """
+        Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        See Launch Template Specification below for more details.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> pulumi.Output['outputs.InstanceMetadataOptions']:
         """
@@ -2088,7 +2140,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitoring(self) -> pulumi.Output[Optional[bool]]:
+    def monitoring(self) -> pulumi.Output[bool]:
         """
         If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         """
@@ -2232,7 +2284,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userData")
-    def user_data(self) -> pulumi.Output[Optional[str]]:
+    def user_data(self) -> pulumi.Output[str]:
         """
         User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         """
@@ -2240,7 +2292,7 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="userDataBase64")
-    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
+    def user_data_base64(self) -> pulumi.Output[str]:
         """
         Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         """

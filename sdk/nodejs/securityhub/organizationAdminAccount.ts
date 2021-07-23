@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleOrganization],
  * });
  * // Auto enable security hub in organization member accounts
- * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {});
+ * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", {autoEnable: true});
  * ```
  *
  * ## Import

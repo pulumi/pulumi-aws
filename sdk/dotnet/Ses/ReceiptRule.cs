@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Ses
         public Output<ImmutableArray<Outputs.ReceiptRuleStopAction>> StopActions { get; private set; } = null!;
 
         /// <summary>
-        /// Require or Optional
+        /// `Require` or `Optional`
         /// </summary>
         [Output("tlsPolicy")]
         public Output<string> TlsPolicy { get; private set; } = null!;
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// Require or Optional
+        /// `Require` or `Optional`
         /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.Ses
         }
 
         /// <summary>
-        /// Require or Optional
+        /// `Require` or `Optional`
         /// </summary>
         [Input("tlsPolicy")]
         public Input<string>? TlsPolicy { get; set; }

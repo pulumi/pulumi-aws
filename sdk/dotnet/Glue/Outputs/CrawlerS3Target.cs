@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Glue.Outputs
         /// The path of the Amazon DocumentDB or MongoDB target (database/collection).
         /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        /// </summary>
+        public readonly int? SampleSize;
 
         [OutputConstructor]
         private CrawlerS3Target(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Glue.Outputs
 
             ImmutableArray<string> exclusions,
 
-            string path)
+            string path,
+
+            int? sampleSize)
         {
             ConnectionName = connectionName;
             Exclusions = exclusions;
             Path = path;
+            SampleSize = sampleSize;
         }
     }
 }

@@ -8,10 +8,13 @@ import typing
 from .cluster import *
 from .get_cluster import *
 from .get_replication_group import *
+from .get_user import *
 from .global_replication_group import *
 from .parameter_group import *
 from .replication_group import *
 from .security_group import *
 from .subnet_group import *
+from .user import *
+from .user_group import *
 from ._inputs import *
 from . import outputs

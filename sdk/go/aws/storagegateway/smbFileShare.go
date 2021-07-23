@@ -89,6 +89,8 @@ type SmbFileShare struct {
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrOutput `pulumi:"authentication"`
+	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes SmbFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -115,6 +117,8 @@ type SmbFileShare struct {
 	NotificationPolicy pulumi.StringPtrOutput `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
+	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+	OplocksEnabled pulumi.BoolPtrOutput `pulumi:"oplocksEnabled"`
 	// File share path used by the NFS client to identify the mount point.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -131,6 +135,8 @@ type SmbFileShare struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayOutput `pulumi:"validUserLists"`
+	// The DNS name of the VPC endpoint for S3 private link.
+	VpcEndpointDnsName pulumi.StringPtrOutput `pulumi:"vpcEndpointDnsName"`
 }
 
 // NewSmbFileShare registers a new resource with the given unique name, arguments, and options.
@@ -181,6 +187,8 @@ type smbFileShareState struct {
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
+	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -207,6 +215,8 @@ type smbFileShareState struct {
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
+	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+	OplocksEnabled *bool `pulumi:"oplocksEnabled"`
 	// File share path used by the NFS client to identify the mount point.
 	Path *string `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -223,6 +233,8 @@ type smbFileShareState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
+	// The DNS name of the VPC endpoint for S3 private link.
+	VpcEndpointDnsName *string `pulumi:"vpcEndpointDnsName"`
 }
 
 type SmbFileShareState struct {
@@ -236,6 +248,8 @@ type SmbFileShareState struct {
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
+	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -262,6 +276,8 @@ type SmbFileShareState struct {
 	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
+	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+	OplocksEnabled pulumi.BoolPtrInput
 	// File share path used by the NFS client to identify the mount point.
 	Path pulumi.StringPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
@@ -278,6 +294,8 @@ type SmbFileShareState struct {
 	TagsAll pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
+	// The DNS name of the VPC endpoint for S3 private link.
+	VpcEndpointDnsName pulumi.StringPtrInput
 }
 
 func (SmbFileShareState) ElementType() reflect.Type {
@@ -293,6 +311,8 @@ type smbFileShareArgs struct {
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
+	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -317,6 +337,8 @@ type smbFileShareArgs struct {
 	NotificationPolicy *string `pulumi:"notificationPolicy"`
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl *string `pulumi:"objectAcl"`
+	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+	OplocksEnabled *bool `pulumi:"oplocksEnabled"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly *bool `pulumi:"readOnly"`
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -331,6 +353,8 @@ type smbFileShareArgs struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists []string `pulumi:"validUserLists"`
+	// The DNS name of the VPC endpoint for S3 private link.
+	VpcEndpointDnsName *string `pulumi:"vpcEndpointDnsName"`
 }
 
 // The set of arguments for constructing a SmbFileShare resource.
@@ -343,6 +367,8 @@ type SmbFileShareArgs struct {
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
+	// The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
@@ -367,6 +393,8 @@ type SmbFileShareArgs struct {
 	NotificationPolicy pulumi.StringPtrInput
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrInput
+	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+	OplocksEnabled pulumi.BoolPtrInput
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
 	ReadOnly pulumi.BoolPtrInput
 	// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -381,6 +409,8 @@ type SmbFileShareArgs struct {
 	TagsAll pulumi.StringMapInput
 	// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	ValidUserLists pulumi.StringArrayInput
+	// The DNS name of the VPC endpoint for S3 private link.
+	VpcEndpointDnsName pulumi.StringPtrInput
 }
 
 func (SmbFileShareArgs) ElementType() reflect.Type {

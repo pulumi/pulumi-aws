@@ -75,7 +75,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     }
 
     /**
-     * AMI to use for the instance.
+     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
     public readonly ami!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -112,7 +112,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
-    public readonly disableApiTermination!: pulumi.Output<boolean | undefined>;
+    public readonly disableApiTermination!: pulumi.Output<boolean>;
     /**
      * One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
      */
@@ -120,7 +120,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
      */
-    public readonly ebsOptimized!: pulumi.Output<boolean | undefined>;
+    public readonly ebsOptimized!: pulumi.Output<boolean>;
     /**
      * Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
      */
@@ -161,7 +161,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly instanceInterruptionBehaviour!: pulumi.Output<string>;
     public /*out*/ readonly instanceState!: pulumi.Output<string>;
     /**
-     * Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -182,13 +182,18 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly launchGroup!: pulumi.Output<string | undefined>;
     /**
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+     * See Launch Template Specification below for more details.
+     */
+    public readonly launchTemplate!: pulumi.Output<outputs.ec2.SpotInstanceRequestLaunchTemplate | undefined>;
+    /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
     public readonly metadataOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestMetadataOptions>;
     /**
      * If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
      */
-    public readonly monitoring!: pulumi.Output<boolean | undefined>;
+    public readonly monitoring!: pulumi.Output<boolean>;
     /**
      * Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
      */
@@ -278,11 +283,11 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    public readonly userData!: pulumi.Output<string>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
      */
-    public readonly userDataBase64!: pulumi.Output<string | undefined>;
+    public readonly userDataBase64!: pulumi.Output<string>;
     /**
      * The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
      */
@@ -313,7 +318,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: SpotInstanceRequestArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpotInstanceRequestArgs | SpotInstanceRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -346,6 +351,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             inputs["keyName"] = state ? state.keyName : undefined;
             inputs["launchGroup"] = state ? state.launchGroup : undefined;
+            inputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             inputs["monitoring"] = state ? state.monitoring : undefined;
             inputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
@@ -379,12 +385,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = state ? state.waitForFulfillment : undefined;
         } else {
             const args = argsOrState as SpotInstanceRequestArgs | undefined;
-            if ((!args || args.ami === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ami'");
-            }
-            if ((!args || args.instanceType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instanceType'");
-            }
             inputs["ami"] = args ? args.ami : undefined;
             inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
@@ -410,6 +410,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             inputs["keyName"] = args ? args.keyName : undefined;
             inputs["launchGroup"] = args ? args.launchGroup : undefined;
+            inputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
@@ -456,7 +457,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
  */
 export interface SpotInstanceRequestState {
     /**
-     * AMI to use for the instance.
+     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
     ami?: pulumi.Input<string>;
     arn?: pulumi.Input<string>;
@@ -542,7 +543,7 @@ export interface SpotInstanceRequestState {
     instanceInterruptionBehaviour?: pulumi.Input<string>;
     instanceState?: pulumi.Input<string>;
     /**
-     * Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -562,6 +563,11 @@ export interface SpotInstanceRequestState {
      * If left empty instances are launched and terminated individually.
      */
     launchGroup?: pulumi.Input<string>;
+    /**
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+     * See Launch Template Specification below for more details.
+     */
+    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
@@ -693,9 +699,9 @@ export interface SpotInstanceRequestState {
  */
 export interface SpotInstanceRequestArgs {
     /**
-     * AMI to use for the instance.
+     * AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
      */
-    ami: pulumi.Input<string>;
+    ami?: pulumi.Input<string>;
     /**
      * Whether to associate a public IP address with an instance in a VPC.
      */
@@ -777,9 +783,9 @@ export interface SpotInstanceRequestArgs {
      */
     instanceInterruptionBehaviour?: pulumi.Input<string>;
     /**
-     * Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+     * The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
      */
-    instanceType: pulumi.Input<string>;
+    instanceType?: pulumi.Input<string>;
     /**
      * A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
      */
@@ -797,6 +803,11 @@ export interface SpotInstanceRequestArgs {
      * If left empty instances are launched and terminated individually.
      */
     launchGroup?: pulumi.Input<string>;
+    /**
+     * Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+     * See Launch Template Specification below for more details.
+     */
+    launchTemplate?: pulumi.Input<inputs.ec2.SpotInstanceRequestLaunchTemplate>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */

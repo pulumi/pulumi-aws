@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EngineName { get; private set; } = null!;
 
         /// <summary>
-        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         /// </summary>
         [Output("extraConnectionAttributes")]
         public Output<string> ExtraConnectionAttributes { get; private set; } = null!;
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EngineName { get; set; } = null!;
 
         /// <summary>
-        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         /// </summary>
         [Input("extraConnectionAttributes")]
         public Input<string>? ExtraConnectionAttributes { get; set; }
@@ -412,7 +412,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EngineName { get; set; }
 
         /// <summary>
-        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        /// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         /// </summary>
         [Input("extraConnectionAttributes")]
         public Input<string>? ExtraConnectionAttributes { get; set; }

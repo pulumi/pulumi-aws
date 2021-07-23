@@ -425,7 +425,7 @@ class ReceiptRuleLambdaAction(dict):
         """
         :param str function_arn: The ARN of the Lambda function to invoke
         :param int position: The position of the action in the receipt rule
-        :param str invocation_type: Event or RequestResponse
+        :param str invocation_type: `Event` or `RequestResponse`
         :param str topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "function_arn", function_arn)
@@ -455,7 +455,7 @@ class ReceiptRuleLambdaAction(dict):
     @pulumi.getter(name="invocationType")
     def invocation_type(self) -> Optional[str]:
         """
-        Event or RequestResponse
+        `Event` or `RequestResponse`
         """
         return pulumi.get(self, "invocation_type")
 

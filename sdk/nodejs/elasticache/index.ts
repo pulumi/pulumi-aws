@@ -8,11 +8,14 @@ import * as utilities from "../utilities";
 export * from "./cluster";
 export * from "./getCluster";
 export * from "./getReplicationGroup";
+export * from "./getUser";
 export * from "./globalReplicationGroup";
 export * from "./parameterGroup";
 export * from "./replicationGroup";
 export * from "./securityGroup";
 export * from "./subnetGroup";
+export * from "./user";
+export * from "./userGroup";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
@@ -21,6 +24,8 @@ import { ParameterGroup } from "./parameterGroup";
 import { ReplicationGroup } from "./replicationGroup";
 import { SecurityGroup } from "./securityGroup";
 import { SubnetGroup } from "./subnetGroup";
+import { User } from "./user";
+import { UserGroup } from "./userGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,6 +43,10 @@ const _module = {
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws:elasticache/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
+            case "aws:elasticache/user:User":
+                return new User(name, <any>undefined, { urn })
+            case "aws:elasticache/userGroup:UserGroup":
+                return new UserGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -49,3 +58,5 @@ pulumi.runtime.registerResourceModule("aws", "elasticache/parameterGroup", _modu
 pulumi.runtime.registerResourceModule("aws", "elasticache/replicationGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "elasticache/subnetGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticache/user", _module)
+pulumi.runtime.registerResourceModule("aws", "elasticache/userGroup", _module)

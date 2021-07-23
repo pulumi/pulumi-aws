@@ -3823,6 +3823,175 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 	}).(InstanceEphemeralBlockDeviceOutput)
 }
 
+type InstanceLaunchTemplate struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name *string `pulumi:"name"`
+	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+	Version *string `pulumi:"version"`
+}
+
+// InstanceLaunchTemplateInput is an input type that accepts InstanceLaunchTemplateArgs and InstanceLaunchTemplateOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplateInput` via:
+//
+//          InstanceLaunchTemplateArgs{...}
+type InstanceLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplateOutput() InstanceLaunchTemplateOutput
+	ToInstanceLaunchTemplateOutputWithContext(context.Context) InstanceLaunchTemplateOutput
+}
+
+type InstanceLaunchTemplateArgs struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (InstanceLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i InstanceLaunchTemplateArgs) ToInstanceLaunchTemplateOutput() InstanceLaunchTemplateOutput {
+	return i.ToInstanceLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateArgs) ToInstanceLaunchTemplateOutputWithContext(ctx context.Context) InstanceLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateOutput)
+}
+
+func (i InstanceLaunchTemplateArgs) ToInstanceLaunchTemplatePtrOutput() InstanceLaunchTemplatePtrOutput {
+	return i.ToInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceLaunchTemplateArgs) ToInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) InstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplateOutput).ToInstanceLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// InstanceLaunchTemplatePtrInput is an input type that accepts InstanceLaunchTemplateArgs, InstanceLaunchTemplatePtr and InstanceLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `InstanceLaunchTemplatePtrInput` via:
+//
+//          InstanceLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToInstanceLaunchTemplatePtrOutput() InstanceLaunchTemplatePtrOutput
+	ToInstanceLaunchTemplatePtrOutputWithContext(context.Context) InstanceLaunchTemplatePtrOutput
+}
+
+type instanceLaunchTemplatePtrType InstanceLaunchTemplateArgs
+
+func InstanceLaunchTemplatePtr(v *InstanceLaunchTemplateArgs) InstanceLaunchTemplatePtrInput {
+	return (*instanceLaunchTemplatePtrType)(v)
+}
+
+func (*instanceLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (i *instanceLaunchTemplatePtrType) ToInstanceLaunchTemplatePtrOutput() InstanceLaunchTemplatePtrOutput {
+	return i.ToInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceLaunchTemplatePtrType) ToInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) InstanceLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceLaunchTemplatePtrOutput)
+}
+
+type InstanceLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplateOutput() InstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplateOutputWithContext(ctx context.Context) InstanceLaunchTemplateOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplatePtrOutput() InstanceLaunchTemplatePtrOutput {
+	return o.ToInstanceLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) InstanceLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplate) *InstanceLaunchTemplate {
+		return &v
+	}).(InstanceLaunchTemplatePtrOutput)
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o InstanceLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o InstanceLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+func (o InstanceLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type InstanceLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceLaunchTemplate)(nil)).Elem()
+}
+
+func (o InstanceLaunchTemplatePtrOutput) ToInstanceLaunchTemplatePtrOutput() InstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplatePtrOutput) ToInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) InstanceLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o InstanceLaunchTemplatePtrOutput) Elem() InstanceLaunchTemplateOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplate) InstanceLaunchTemplate { return *v }).(InstanceLaunchTemplateOutput)
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o InstanceLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o InstanceLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+func (o InstanceLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
@@ -11528,6 +11697,175 @@ func (o SpotInstanceRequestEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotInstanceRequestEphemeralBlockDevice {
 		return vs[0].([]SpotInstanceRequestEphemeralBlockDevice)[vs[1].(int)]
 	}).(SpotInstanceRequestEphemeralBlockDeviceOutput)
+}
+
+type SpotInstanceRequestLaunchTemplate struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id *string `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name *string `pulumi:"name"`
+	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+	Version *string `pulumi:"version"`
+}
+
+// SpotInstanceRequestLaunchTemplateInput is an input type that accepts SpotInstanceRequestLaunchTemplateArgs and SpotInstanceRequestLaunchTemplateOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestLaunchTemplateInput` via:
+//
+//          SpotInstanceRequestLaunchTemplateArgs{...}
+type SpotInstanceRequestLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestLaunchTemplateOutput() SpotInstanceRequestLaunchTemplateOutput
+	ToSpotInstanceRequestLaunchTemplateOutputWithContext(context.Context) SpotInstanceRequestLaunchTemplateOutput
+}
+
+type SpotInstanceRequestLaunchTemplateArgs struct {
+	// The ID of the launch template. Conflicts with `name`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the launch template. Conflicts with `id`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (SpotInstanceRequestLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestLaunchTemplate)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestLaunchTemplateArgs) ToSpotInstanceRequestLaunchTemplateOutput() SpotInstanceRequestLaunchTemplateOutput {
+	return i.ToSpotInstanceRequestLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestLaunchTemplateArgs) ToSpotInstanceRequestLaunchTemplateOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestLaunchTemplateOutput)
+}
+
+func (i SpotInstanceRequestLaunchTemplateArgs) ToSpotInstanceRequestLaunchTemplatePtrOutput() SpotInstanceRequestLaunchTemplatePtrOutput {
+	return i.ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestLaunchTemplateArgs) ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestLaunchTemplateOutput).ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestLaunchTemplatePtrInput is an input type that accepts SpotInstanceRequestLaunchTemplateArgs, SpotInstanceRequestLaunchTemplatePtr and SpotInstanceRequestLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestLaunchTemplatePtrInput` via:
+//
+//          SpotInstanceRequestLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestLaunchTemplatePtrOutput() SpotInstanceRequestLaunchTemplatePtrOutput
+	ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(context.Context) SpotInstanceRequestLaunchTemplatePtrOutput
+}
+
+type spotInstanceRequestLaunchTemplatePtrType SpotInstanceRequestLaunchTemplateArgs
+
+func SpotInstanceRequestLaunchTemplatePtr(v *SpotInstanceRequestLaunchTemplateArgs) SpotInstanceRequestLaunchTemplatePtrInput {
+	return (*spotInstanceRequestLaunchTemplatePtrType)(v)
+}
+
+func (*spotInstanceRequestLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestLaunchTemplate)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestLaunchTemplatePtrType) ToSpotInstanceRequestLaunchTemplatePtrOutput() SpotInstanceRequestLaunchTemplatePtrOutput {
+	return i.ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestLaunchTemplatePtrType) ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestLaunchTemplatePtrOutput)
+}
+
+type SpotInstanceRequestLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestLaunchTemplate)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemplateOutput() SpotInstanceRequestLaunchTemplateOutput {
+	return o
+}
+
+func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemplateOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplateOutput {
+	return o
+}
+
+func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemplatePtrOutput() SpotInstanceRequestLaunchTemplatePtrOutput {
+	return o.ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *SpotInstanceRequestLaunchTemplate {
+		return &v
+	}).(SpotInstanceRequestLaunchTemplatePtrOutput)
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o SpotInstanceRequestLaunchTemplateOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o SpotInstanceRequestLaunchTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+func (o SpotInstanceRequestLaunchTemplateOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestLaunchTemplate)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) ToSpotInstanceRequestLaunchTemplatePtrOutput() SpotInstanceRequestLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) Elem() SpotInstanceRequestLaunchTemplateOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) SpotInstanceRequestLaunchTemplate { return *v }).(SpotInstanceRequestLaunchTemplateOutput)
+}
+
+// The ID of the launch template. Conflicts with `name`.
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template. Conflicts with `id`.
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+func (o SpotInstanceRequestLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
 }
 
 type SpotInstanceRequestMetadataOptions struct {
@@ -22872,6 +23210,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(InstanceLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
@@ -22971,6 +23311,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceArrayOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceOutput{})

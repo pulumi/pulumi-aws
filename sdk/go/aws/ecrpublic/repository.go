@@ -13,6 +13,8 @@ import (
 
 // Provides a Public Elastic Container Registry Repository.
 //
+// > **NOTE:** This resource can only be used with `us-east-1` region.
+//
 // ## Import
 //
 // ECR Public Repositories can be imported using the `repository_name`, e.g.

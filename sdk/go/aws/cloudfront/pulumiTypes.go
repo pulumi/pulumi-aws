@@ -5391,8 +5391,10 @@ type DistributionViewerCertificate struct {
 	IamCertificateId *string `pulumi:"iamCertificateId"`
 	// The minimum version of the SSL protocol that
 	// you want CloudFront to use for HTTPS connections. Can only be set if
-	// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-	// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+	// `cloudfrontDefaultCertificate = false`. See all possible values in
+	// [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+	// table under "Security policy." Some examples include: `TLSv1.2_2019` and
+	// `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
 	// If you are using a custom certificate (specified with `acmCertificateArn`
 	// or `iamCertificateId`), and have specified `sni-only` in
 	// `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -5430,8 +5432,10 @@ type DistributionViewerCertificateArgs struct {
 	IamCertificateId pulumi.StringPtrInput `pulumi:"iamCertificateId"`
 	// The minimum version of the SSL protocol that
 	// you want CloudFront to use for HTTPS connections. Can only be set if
-	// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-	// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+	// `cloudfrontDefaultCertificate = false`. See all possible values in
+	// [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+	// table under "Security policy." Some examples include: `TLSv1.2_2019` and
+	// `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
 	// If you are using a custom certificate (specified with `acmCertificateArn`
 	// or `iamCertificateId`), and have specified `sni-only` in
 	// `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -5543,8 +5547,10 @@ func (o DistributionViewerCertificateOutput) IamCertificateId() pulumi.StringPtr
 
 // The minimum version of the SSL protocol that
 // you want CloudFront to use for HTTPS connections. Can only be set if
-// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+// `cloudfrontDefaultCertificate = false`. See all possible values in
+// [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+// table under "Security policy." Some examples include: `TLSv1.2_2019` and
+// `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
 // If you are using a custom certificate (specified with `acmCertificateArn`
 // or `iamCertificateId`), and have specified `sni-only` in
 // `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -5616,8 +5622,10 @@ func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.String
 
 // The minimum version of the SSL protocol that
 // you want CloudFront to use for HTTPS connections. Can only be set if
-// `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-// `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+// `cloudfrontDefaultCertificate = false`. See all possible values in
+// [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+// table under "Security policy." Some examples include: `TLSv1.2_2019` and
+// `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
 // If you are using a custom certificate (specified with `acmCertificateArn`
 // or `iamCertificateId`), and have specified `sni-only` in
 // `sslSupportMethod`, `TLSv1` or later must be specified. If you have

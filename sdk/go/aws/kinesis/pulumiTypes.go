@@ -5258,7 +5258,7 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
@@ -5300,7 +5300,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
@@ -5421,7 +5421,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CloudwatchLoggingOp
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
@@ -5534,7 +5534,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CloudwatchLoggin
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *string {
 		if v == nil {
@@ -8080,7 +8080,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration struct {
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -8112,7 +8112,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs stru
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -8225,7 +8225,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		return v.CompressionFormat
@@ -8309,7 +8309,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -10732,7 +10732,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration struct {
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -10764,7 +10764,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs struct
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -10875,7 +10875,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		return v.CompressionFormat
@@ -10959,7 +10959,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *string {
 		if v == nil {
@@ -11187,7 +11187,7 @@ type FirehoseDeliveryStreamS3Configuration struct {
 	BufferSize *int `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -11219,7 +11219,7 @@ type FirehoseDeliveryStreamS3ConfigurationArgs struct {
 	BufferSize pulumi.IntPtrInput `pulumi:"bufferSize"`
 	// The CloudWatch Logging Options for the delivery stream. More details are given below
 	CloudwatchLoggingOptions FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrInput `pulumi:"cloudwatchLoggingOptions"`
-	// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+	// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
 	// be used.
@@ -11330,7 +11330,7 @@ func (o FirehoseDeliveryStreamS3ConfigurationOutput) CloudwatchLoggingOptions() 
 	}).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamS3ConfigurationOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamS3Configuration) *string { return v.CompressionFormat }).(pulumi.StringPtrOutput)
 }
@@ -11410,7 +11410,7 @@ func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) CloudwatchLoggingOptions
 	}).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
 
-// The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+// The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
 func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) CompressionFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamS3Configuration) *string {
 		if v == nil {

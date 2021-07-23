@@ -1023,7 +1023,7 @@ func (o EventConnectionAuthParametersInvocationHttpParametersQueryStringArrayOut
 }
 
 type EventConnectionAuthParametersOauth struct {
-	// A username for the authorization.
+	// The URL to the authorization endpoint.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
 	ClientParameters *EventConnectionAuthParametersOauthClientParameters `pulumi:"clientParameters"`
@@ -1045,7 +1045,7 @@ type EventConnectionAuthParametersOauthInput interface {
 }
 
 type EventConnectionAuthParametersOauthArgs struct {
-	// A username for the authorization.
+	// The URL to the authorization endpoint.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// Contains the client parameters for OAuth authorization. Contains the following two parameters.
 	ClientParameters EventConnectionAuthParametersOauthClientParametersPtrInput `pulumi:"clientParameters"`
@@ -1132,7 +1132,7 @@ func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParameter
 	}).(EventConnectionAuthParametersOauthPtrOutput)
 }
 
-// A username for the authorization.
+// The URL to the authorization endpoint.
 func (o EventConnectionAuthParametersOauthOutput) AuthorizationEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v EventConnectionAuthParametersOauth) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
@@ -1174,7 +1174,7 @@ func (o EventConnectionAuthParametersOauthPtrOutput) Elem() EventConnectionAuthP
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauth { return *v }).(EventConnectionAuthParametersOauthOutput)
 }
 
-// A username for the authorization.
+// The URL to the authorization endpoint.
 func (o EventConnectionAuthParametersOauthPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) *string {
 		if v == nil {
@@ -3434,6 +3434,232 @@ func (o EventTargetKinesisTargetPtrOutput) PartitionKeyPath() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type EventTargetRedshiftTarget struct {
+	// The name of the database.
+	Database string `pulumi:"database"`
+	// The database user name.
+	DbUser *string `pulumi:"dbUser"`
+	// The name or ARN of the secret that enables access to the database.
+	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
+	// The SQL statement text to run.
+	Sql *string `pulumi:"sql"`
+	// The name of the SQL statement.
+	StatementName *string `pulumi:"statementName"`
+	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+	WithEvent *bool `pulumi:"withEvent"`
+}
+
+// EventTargetRedshiftTargetInput is an input type that accepts EventTargetRedshiftTargetArgs and EventTargetRedshiftTargetOutput values.
+// You can construct a concrete instance of `EventTargetRedshiftTargetInput` via:
+//
+//          EventTargetRedshiftTargetArgs{...}
+type EventTargetRedshiftTargetInput interface {
+	pulumi.Input
+
+	ToEventTargetRedshiftTargetOutput() EventTargetRedshiftTargetOutput
+	ToEventTargetRedshiftTargetOutputWithContext(context.Context) EventTargetRedshiftTargetOutput
+}
+
+type EventTargetRedshiftTargetArgs struct {
+	// The name of the database.
+	Database pulumi.StringInput `pulumi:"database"`
+	// The database user name.
+	DbUser pulumi.StringPtrInput `pulumi:"dbUser"`
+	// The name or ARN of the secret that enables access to the database.
+	SecretsManagerArn pulumi.StringPtrInput `pulumi:"secretsManagerArn"`
+	// The SQL statement text to run.
+	Sql pulumi.StringPtrInput `pulumi:"sql"`
+	// The name of the SQL statement.
+	StatementName pulumi.StringPtrInput `pulumi:"statementName"`
+	// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+	WithEvent pulumi.BoolPtrInput `pulumi:"withEvent"`
+}
+
+func (EventTargetRedshiftTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetRedshiftTarget)(nil)).Elem()
+}
+
+func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetOutput() EventTargetRedshiftTargetOutput {
+	return i.ToEventTargetRedshiftTargetOutputWithContext(context.Background())
+}
+
+func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetOutputWithContext(ctx context.Context) EventTargetRedshiftTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRedshiftTargetOutput)
+}
+
+func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput {
+	return i.ToEventTargetRedshiftTargetPtrOutputWithContext(context.Background())
+}
+
+func (i EventTargetRedshiftTargetArgs) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRedshiftTargetOutput).ToEventTargetRedshiftTargetPtrOutputWithContext(ctx)
+}
+
+// EventTargetRedshiftTargetPtrInput is an input type that accepts EventTargetRedshiftTargetArgs, EventTargetRedshiftTargetPtr and EventTargetRedshiftTargetPtrOutput values.
+// You can construct a concrete instance of `EventTargetRedshiftTargetPtrInput` via:
+//
+//          EventTargetRedshiftTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type EventTargetRedshiftTargetPtrInput interface {
+	pulumi.Input
+
+	ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput
+	ToEventTargetRedshiftTargetPtrOutputWithContext(context.Context) EventTargetRedshiftTargetPtrOutput
+}
+
+type eventTargetRedshiftTargetPtrType EventTargetRedshiftTargetArgs
+
+func EventTargetRedshiftTargetPtr(v *EventTargetRedshiftTargetArgs) EventTargetRedshiftTargetPtrInput {
+	return (*eventTargetRedshiftTargetPtrType)(v)
+}
+
+func (*eventTargetRedshiftTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetRedshiftTarget)(nil)).Elem()
+}
+
+func (i *eventTargetRedshiftTargetPtrType) ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput {
+	return i.ToEventTargetRedshiftTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTargetRedshiftTargetPtrType) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTargetRedshiftTargetPtrOutput)
+}
+
+type EventTargetRedshiftTargetOutput struct{ *pulumi.OutputState }
+
+func (EventTargetRedshiftTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTargetRedshiftTarget)(nil)).Elem()
+}
+
+func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetOutput() EventTargetRedshiftTargetOutput {
+	return o
+}
+
+func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetOutputWithContext(ctx context.Context) EventTargetRedshiftTargetOutput {
+	return o
+}
+
+func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput {
+	return o.ToEventTargetRedshiftTargetPtrOutputWithContext(context.Background())
+}
+
+func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *EventTargetRedshiftTarget {
+		return &v
+	}).(EventTargetRedshiftTargetPtrOutput)
+}
+
+// The name of the database.
+func (o EventTargetRedshiftTargetOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) string { return v.Database }).(pulumi.StringOutput)
+}
+
+// The database user name.
+func (o EventTargetRedshiftTargetOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.DbUser }).(pulumi.StringPtrOutput)
+}
+
+// The name or ARN of the secret that enables access to the database.
+func (o EventTargetRedshiftTargetOutput) SecretsManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
+}
+
+// The SQL statement text to run.
+func (o EventTargetRedshiftTargetOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.Sql }).(pulumi.StringPtrOutput)
+}
+
+// The name of the SQL statement.
+func (o EventTargetRedshiftTargetOutput) StatementName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *string { return v.StatementName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+func (o EventTargetRedshiftTargetOutput) WithEvent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventTargetRedshiftTarget) *bool { return v.WithEvent }).(pulumi.BoolPtrOutput)
+}
+
+type EventTargetRedshiftTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTargetRedshiftTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTargetRedshiftTarget)(nil)).Elem()
+}
+
+func (o EventTargetRedshiftTargetPtrOutput) ToEventTargetRedshiftTargetPtrOutput() EventTargetRedshiftTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetRedshiftTargetPtrOutput) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
+	return o
+}
+
+func (o EventTargetRedshiftTargetPtrOutput) Elem() EventTargetRedshiftTargetOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) EventTargetRedshiftTarget { return *v }).(EventTargetRedshiftTargetOutput)
+}
+
+// The name of the database.
+func (o EventTargetRedshiftTargetPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// The database user name.
+func (o EventTargetRedshiftTargetPtrOutput) DbUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DbUser
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name or ARN of the secret that enables access to the database.
+func (o EventTargetRedshiftTargetPtrOutput) SecretsManagerArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SQL statement text to run.
+func (o EventTargetRedshiftTargetPtrOutput) Sql() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sql
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the SQL statement.
+func (o EventTargetRedshiftTargetPtrOutput) StatementName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatementName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to send an event back to EventBridge after the SQL statement runs.
+func (o EventTargetRedshiftTargetPtrOutput) WithEvent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.WithEvent
+	}).(pulumi.BoolPtrOutput)
+}
+
 type EventTargetRetryPolicy struct {
 	// The age in seconds to continue to make retry attempts.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -4657,6 +4883,8 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetInputTransformerPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetKinesisTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetKinesisTargetPtrOutput{})
+	pulumi.RegisterOutputType(EventTargetRedshiftTargetOutput{})
+	pulumi.RegisterOutputType(EventTargetRedshiftTargetPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetRetryPolicyOutput{})
 	pulumi.RegisterOutputType(EventTargetRetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventTargetRunCommandTargetOutput{})

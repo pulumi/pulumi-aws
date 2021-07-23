@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class EventConnectionAuthParametersOauthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A username for the authorization.
+        /// The URL to the authorization endpoint.
         /// </summary>
         [Input("authorizationEndpoint", required: true)]
         public Input<string> AuthorizationEndpoint { get; set; } = null!;

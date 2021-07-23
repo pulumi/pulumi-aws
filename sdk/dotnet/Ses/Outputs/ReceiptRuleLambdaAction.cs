@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ses.Outputs
         /// </summary>
         public readonly string FunctionArn;
         /// <summary>
-        /// Event or RequestResponse
+        /// `Event` or `RequestResponse`
         /// </summary>
         public readonly string? InvocationType;
         /// <summary>

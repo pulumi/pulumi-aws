@@ -74,7 +74,7 @@ type Endpoint struct {
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
 	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
-	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
 	// Configuration block with Kafka settings. Detailed below.
 	KafkaSettings EndpointKafkaSettingsPtrOutput `pulumi:"kafkaSettings"`
@@ -156,7 +156,7 @@ type endpointState struct {
 	EndpointType *string `pulumi:"endpointType"`
 	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName *string `pulumi:"engineName"`
-	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
 	// Configuration block with Kafka settings. Detailed below.
 	KafkaSettings *EndpointKafkaSettings `pulumi:"kafkaSettings"`
@@ -201,7 +201,7 @@ type EndpointState struct {
 	EndpointType pulumi.StringPtrInput
 	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringPtrInput
-	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
 	ExtraConnectionAttributes pulumi.StringPtrInput
 	// Configuration block with Kafka settings. Detailed below.
 	KafkaSettings EndpointKafkaSettingsPtrInput
@@ -248,7 +248,7 @@ type endpointArgs struct {
 	EndpointType string `pulumi:"endpointType"`
 	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName string `pulumi:"engineName"`
-	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
 	// Configuration block with Kafka settings. Detailed below.
 	KafkaSettings *EndpointKafkaSettings `pulumi:"kafkaSettings"`
@@ -292,7 +292,7 @@ type EndpointArgs struct {
 	EndpointType pulumi.StringInput
 	// The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
 	EngineName pulumi.StringInput
-	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+	// Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
 	ExtraConnectionAttributes pulumi.StringPtrInput
 	// Configuration block with Kafka settings. Detailed below.
 	KafkaSettings EndpointKafkaSettingsPtrInput

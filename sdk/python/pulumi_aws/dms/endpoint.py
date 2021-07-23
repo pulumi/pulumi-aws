@@ -43,7 +43,7 @@ class EndpointArgs:
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[str] database_name: The name of the endpoint database.
         :param pulumi.Input['EndpointElasticsearchSettingsArgs'] elasticsearch_settings: Configuration block with Elasticsearch settings. Detailed below.
-        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input['EndpointKafkaSettingsArgs'] kafka_settings: Configuration block with Kafka settings. Detailed below.
         :param pulumi.Input['EndpointKinesisSettingsArgs'] kinesis_settings: Configuration block with Kinesis settings. Detailed below.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -172,7 +172,7 @@ class EndpointArgs:
     @pulumi.getter(name="extraConnectionAttributes")
     def extra_connection_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         """
         return pulumi.get(self, "extra_connection_attributes")
 
@@ -370,7 +370,7 @@ class _EndpointState:
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
         :param pulumi.Input[str] endpoint_type: The type of endpoint. Can be one of `source | target`.
         :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input['EndpointKafkaSettingsArgs'] kafka_settings: Configuration block with Kafka settings. Detailed below.
         :param pulumi.Input['EndpointKinesisSettingsArgs'] kinesis_settings: Configuration block with Kinesis settings. Detailed below.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -516,7 +516,7 @@ class _EndpointState:
     @pulumi.getter(name="extraConnectionAttributes")
     def extra_connection_attributes(self) -> Optional[pulumi.Input[str]]:
         """
-        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         """
         return pulumi.get(self, "extra_connection_attributes")
 
@@ -751,7 +751,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
         :param pulumi.Input[str] endpoint_type: The type of endpoint. Can be one of `source | target`.
         :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block with Kafka settings. Detailed below.
         :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block with Kinesis settings. Detailed below.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -927,7 +927,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_id: The database endpoint identifier.
         :param pulumi.Input[str] endpoint_type: The type of endpoint. Can be one of `source | target`.
         :param pulumi.Input[str] engine_name: The type of engine for the endpoint. Can be one of `aurora | aurora-postgresql| azuredb | db2 | docdb | dynamodb | elasticsearch | kafka | kinesis | mariadb | mongodb | mysql | oracle | postgres | redshift | s3 | sqlserver | sybase`.
-        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block with Kafka settings. Detailed below.
         :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block with Kinesis settings. Detailed below.
         :param pulumi.Input[str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -1029,7 +1029,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="extraConnectionAttributes")
     def extra_connection_attributes(self) -> pulumi.Output[str]:
         """
-        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+        Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         """
         return pulumi.get(self, "extra_connection_attributes")
 

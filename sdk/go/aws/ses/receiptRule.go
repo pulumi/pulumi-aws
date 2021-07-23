@@ -90,7 +90,7 @@ type ReceiptRule struct {
 	SnsActions ReceiptRuleSnsActionArrayOutput `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
 	StopActions ReceiptRuleStopActionArrayOutput `pulumi:"stopActions"`
-	// Require or Optional
+	// `Require` or `Optional`
 	TlsPolicy pulumi.StringOutput `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayOutput `pulumi:"workmailActions"`
@@ -154,7 +154,7 @@ type receiptRuleState struct {
 	SnsActions []ReceiptRuleSnsAction `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
 	StopActions []ReceiptRuleStopAction `pulumi:"stopActions"`
-	// Require or Optional
+	// `Require` or `Optional`
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions []ReceiptRuleWorkmailAction `pulumi:"workmailActions"`
@@ -187,7 +187,7 @@ type ReceiptRuleState struct {
 	SnsActions ReceiptRuleSnsActionArrayInput
 	// A list of Stop Action blocks. Documented below.
 	StopActions ReceiptRuleStopActionArrayInput
-	// Require or Optional
+	// `Require` or `Optional`
 	TlsPolicy pulumi.StringPtrInput
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayInput
@@ -222,7 +222,7 @@ type receiptRuleArgs struct {
 	SnsActions []ReceiptRuleSnsAction `pulumi:"snsActions"`
 	// A list of Stop Action blocks. Documented below.
 	StopActions []ReceiptRuleStopAction `pulumi:"stopActions"`
-	// Require or Optional
+	// `Require` or `Optional`
 	TlsPolicy *string `pulumi:"tlsPolicy"`
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions []ReceiptRuleWorkmailAction `pulumi:"workmailActions"`
@@ -254,7 +254,7 @@ type ReceiptRuleArgs struct {
 	SnsActions ReceiptRuleSnsActionArrayInput
 	// A list of Stop Action blocks. Documented below.
 	StopActions ReceiptRuleStopActionArrayInput
-	// Require or Optional
+	// `Require` or `Optional`
 	TlsPolicy pulumi.StringPtrInput
 	// A list of WorkMail Action blocks. Documented below.
 	WorkmailActions ReceiptRuleWorkmailActionArrayInput

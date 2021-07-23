@@ -377,6 +377,8 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary_cluster.id,
             instance_class="db.r4.large",
@@ -390,6 +392,8 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary_cluster.id,
             instance_class="db.r4.large",
@@ -527,6 +531,8 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["primary"]))
         primary_cluster_instance = aws.rds.ClusterInstance("primaryClusterInstance",
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary_cluster.id,
             instance_class="db.r4.large",
@@ -540,6 +546,8 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts=pulumi.ResourceOptions(provider=aws["secondary"]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondaryClusterInstance",
+            engine=example.engine,
+            engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary_cluster.id,
             instance_class="db.r4.large",

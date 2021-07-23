@@ -36,6 +36,8 @@ import * as utilities from "../utilities";
  *     provider: aws.primary,
  * });
  * const primaryClusterInstance = new aws.rds.ClusterInstance("primaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
  *     clusterIdentifier: primaryCluster.id,
  *     instanceClass: "db.r4.large",
@@ -53,6 +55,8 @@ import * as utilities from "../utilities";
  *     provider: aws.secondary,
  * });
  * const secondaryClusterInstance = new aws.rds.ClusterInstance("secondaryClusterInstance", {
+ *     engine: example.engine,
+ *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
  *     clusterIdentifier: secondaryCluster.id,
  *     instanceClass: "db.r4.large",

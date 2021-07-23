@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .application import *
 from .configuration_profile import *
+from .deployment import *
 from .deployment_strategy import *
 from .environment import *
 from .hosted_configuration_version import *

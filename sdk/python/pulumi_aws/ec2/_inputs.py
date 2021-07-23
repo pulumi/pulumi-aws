@@ -35,6 +35,7 @@ __all__ = [
     'InstanceEbsBlockDeviceArgs',
     'InstanceEnclaveOptionsArgs',
     'InstanceEphemeralBlockDeviceArgs',
+    'InstanceLaunchTemplateArgs',
     'InstanceMetadataOptionsArgs',
     'InstanceNetworkInterfaceArgs',
     'InstanceRootBlockDeviceArgs',
@@ -85,6 +86,7 @@ __all__ = [
     'SpotInstanceRequestEbsBlockDeviceArgs',
     'SpotInstanceRequestEnclaveOptionsArgs',
     'SpotInstanceRequestEphemeralBlockDeviceArgs',
+    'SpotInstanceRequestLaunchTemplateArgs',
     'SpotInstanceRequestMetadataOptionsArgs',
     'SpotInstanceRequestNetworkInterfaceArgs',
     'SpotInstanceRequestRootBlockDeviceArgs',
@@ -2223,6 +2225,61 @@ class InstanceEphemeralBlockDeviceArgs:
     @virtual_name.setter
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class InstanceLaunchTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
+        :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
+        :param pulumi.Input[str] version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template. Conflicts with `name`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. Conflicts with `id`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -5981,6 +6038,61 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
     @virtual_name.setter
     def virtual_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_name", value)
+
+
+@pulumi.input_type
+class SpotInstanceRequestLaunchTemplateArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
+        :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
+        :param pulumi.Input[str] version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the launch template. Conflicts with `name`.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the launch template. Conflicts with `id`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

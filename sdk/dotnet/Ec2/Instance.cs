@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Ec2
     public partial class Instance : Pulumi.CustomResource
     {
         /// <summary>
-        /// AMI to use for the instance.
+        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Output("ami")]
         public Output<string> Ami { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Ec2
         /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         /// </summary>
         [Output("disableApiTermination")]
-        public Output<bool?> DisableApiTermination { get; private set; } = null!;
+        public Output<bool> DisableApiTermination { get; private set; } = null!;
 
         /// <summary>
         /// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2
         /// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
         /// </summary>
         [Output("ebsOptimized")]
-        public Output<bool?> EbsOptimized { get; private set; } = null!;
+        public Output<bool> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -275,6 +275,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KeyName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        /// See Launch Template Specification below for more details.
+        /// </summary>
+        [Output("launchTemplate")]
+        public Output<Outputs.InstanceLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
+
+        /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.
         /// </summary>
         [Output("metadataOptions")]
@@ -284,7 +291,7 @@ namespace Pulumi.Aws.Ec2
         /// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         /// </summary>
         [Output("monitoring")]
-        public Output<bool?> Monitoring { get; private set; } = null!;
+        public Output<bool> Monitoring { get; private set; } = null!;
 
         /// <summary>
         /// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -392,13 +399,13 @@ namespace Pulumi.Aws.Ec2
         /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead.
         /// </summary>
         [Output("userData")]
-        public Output<string?> UserData { get; private set; } = null!;
+        public Output<string> UserData { get; private set; } = null!;
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
         /// </summary>
         [Output("userDataBase64")]
-        public Output<string?> UserDataBase64 { get; private set; } = null!;
+        public Output<string> UserDataBase64 { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign, at instance-creation time, to root and EBS volumes.
@@ -420,7 +427,7 @@ namespace Pulumi.Aws.Ec2
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Instance(string name, InstanceArgs args, CustomResourceOptions? options = null)
+        public Instance(string name, InstanceArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:ec2/instance:Instance", name, args ?? new InstanceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -459,10 +466,10 @@ namespace Pulumi.Aws.Ec2
     public sealed class InstanceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance.
+        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         /// </summary>
-        [Input("ami", required: true)]
-        public Input<string> Ami { get; set; } = null!;
+        [Input("ami")]
+        public Input<string>? Ami { get; set; }
 
         /// <summary>
         /// Whether to associate a public IP address with an instance in a VPC.
@@ -573,10 +580,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceInitiatedShutdownBehavior { get; set; }
 
         /// <summary>
-        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
-        [Input("instanceType", required: true)]
-        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
 
         /// <summary>
         /// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
@@ -601,6 +608,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
+
+        /// <summary>
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        /// See Launch Template Specification below for more details.
+        /// </summary>
+        [Input("launchTemplate")]
+        public Input<Inputs.InstanceLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.
@@ -755,7 +769,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class InstanceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AMI to use for the instance.
+        /// AMI to use for the instance. Required unless `launch_template` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
         /// </summary>
         [Input("ami")]
         public Input<string>? Ami { get; set; }
@@ -881,7 +895,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? State { get; set; }
 
         /// <summary>
-        /// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+        /// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
         /// </summary>
         [Input("instanceType")]
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
@@ -909,6 +923,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
+
+        /// <summary>
+        /// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+        /// See Launch Template Specification below for more details.
+        /// </summary>
+        [Input("launchTemplate")]
+        public Input<Inputs.InstanceLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.

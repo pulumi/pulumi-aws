@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Glue.Inputs
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        /// </summary>
+        [Input("sampleSize")]
+        public Input<int>? SampleSize { get; set; }
+
         public CrawlerS3TargetArgs()
         {
         }

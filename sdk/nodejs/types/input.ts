@@ -6189,8 +6189,10 @@ export namespace cloudfront {
         /**
          * The minimum version of the SSL protocol that
          * you want CloudFront to use for HTTPS connections. Can only be set if
-         * `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-         * `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+         * `cloudfrontDefaultCertificate = false`. See all possible values in
+         * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+         * table under "Security policy." Some examples include: `TLSv1.2_2019` and
+         * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
          * If you are using a custom certificate (specified with `acmCertificateArn`
          * or `iamCertificateId`), and have specified `sni-only` in
          * `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -6417,7 +6419,7 @@ export namespace cloudwatch {
 
     export interface EventConnectionAuthParametersOauth {
         /**
-         * A username for the authorization.
+         * The URL to the authorization endpoint.
          */
         authorizationEndpoint: pulumi.Input<string>;
         /**
@@ -6655,6 +6657,33 @@ export namespace cloudwatch {
         partitionKeyPath?: pulumi.Input<string>;
     }
 
+    export interface EventTargetRedshiftTarget {
+        /**
+         * The name of the database.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The database user name.
+         */
+        dbUser?: pulumi.Input<string>;
+        /**
+         * The name or ARN of the secret that enables access to the database.
+         */
+        secretsManagerArn?: pulumi.Input<string>;
+        /**
+         * The SQL statement text to run.
+         */
+        sql?: pulumi.Input<string>;
+        /**
+         * The name of the SQL statement.
+         */
+        statementName?: pulumi.Input<string>;
+        /**
+         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         */
+        withEvent?: pulumi.Input<boolean>;
+    }
+
     export interface EventTargetRetryPolicy {
         /**
          * The age in seconds to continue to make retry attempts.
@@ -6777,7 +6806,6 @@ export namespace cloudwatch {
          */
         namespace: pulumi.Input<string>;
     }
-
 }
 
 export namespace codeartifact {
@@ -9722,6 +9750,21 @@ export namespace ec2 {
         virtualName?: pulumi.Input<string>;
     }
 
+    export interface InstanceLaunchTemplate {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface InstanceMetadataOptions {
         /**
          * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -10645,6 +10688,21 @@ export namespace ec2 {
         virtualName?: pulumi.Input<string>;
     }
 
+    export interface SpotInstanceRequestLaunchTemplate {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface SpotInstanceRequestMetadataOptions {
         /**
          * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -10860,6 +10918,7 @@ export namespace ec2 {
         status?: pulumi.Input<string>;
         statusMessage?: pulumi.Input<string>;
     }
+
 }
 
 export namespace ec2clientvpn {
@@ -14200,6 +14259,10 @@ export namespace glue {
          * The path of the Amazon DocumentDB or MongoDB target (database/collection).
          */
         path: pulumi.Input<string>;
+        /**
+         * Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+         */
+        sampleSize?: pulumi.Input<number>;
     }
 
     export interface CrawlerSchemaChangePolicy {
@@ -16054,7 +16117,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions>;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: pulumi.Input<string>;
         /**
@@ -16333,7 +16396,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: pulumi.Input<string>;
         /**
@@ -16612,7 +16675,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions>;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: pulumi.Input<string>;
         /**
@@ -16664,7 +16727,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions>;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: pulumi.Input<string>;
         /**
@@ -21164,7 +21227,7 @@ export namespace s3 {
          */
         prefix?: pulumi.Input<string>;
         /**
-         * is optional (with a default value of `0`) but must be unique between multiple rules
+         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
         priority?: pulumi.Input<number>;
         /**
@@ -23737,7 +23800,7 @@ export namespace ses {
          */
         functionArn: pulumi.Input<string>;
         /**
-         * Event or RequestResponse
+         * `Event` or `RequestResponse`
          */
         invocationType?: pulumi.Input<string>;
         /**

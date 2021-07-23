@@ -130,7 +130,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
                  zone_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
+        Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
 
         ## Example Usage
 
@@ -182,7 +182,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
                  args: VpcAssociationAuthorizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
+        Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
 
         ## Example Usage
 
