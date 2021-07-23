@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -139,7 +138,7 @@ import (
 type Instance struct {
 	pulumi.CustomResourceState
 
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringOutput `pulumi:"ami"`
 	// The ARN of the instance.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -156,11 +155,11 @@ type Instance struct {
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
+	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices InstanceEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
+	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions InstanceEnclaveOptionsOutput `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
@@ -177,7 +176,7 @@ type Instance struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringOutput `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringOutput `pulumi:"instanceState"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
@@ -185,10 +184,13 @@ type Instance struct {
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate InstanceLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
+	Monitoring pulumi.BoolOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces InstanceNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// The ARN of the Outpost the instance is assigned to.
@@ -226,9 +228,9 @@ type Instance struct {
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-	UserData pulumi.StringPtrOutput `pulumi:"userData"`
+	UserData pulumi.StringOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
+	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// A map of tags to assign, at instance-creation time, to root and EBS volumes.
 	VolumeTags pulumi.StringMapOutput `pulumi:"volumeTags"`
 	// A list of security group IDs to associate with.
@@ -239,15 +241,9 @@ type Instance struct {
 func NewInstance(ctx *pulumi.Context,
 	name string, args *InstanceArgs, opts ...pulumi.ResourceOption) (*Instance, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &InstanceArgs{}
 	}
 
-	if args.Ami == nil {
-		return nil, errors.New("invalid value for required argument 'Ami'")
-	}
-	if args.InstanceType == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceType'")
-	}
 	var resource Instance
 	err := ctx.RegisterResource("aws:ec2/instance:Instance", name, args, &resource, opts...)
 	if err != nil {
@@ -270,7 +266,7 @@ func GetInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Instance resources.
 type instanceState struct {
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami *string `pulumi:"ami"`
 	// The ARN of the instance.
 	Arn *string `pulumi:"arn"`
@@ -308,7 +304,7 @@ type instanceState struct {
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState *string `pulumi:"instanceState"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
@@ -316,6 +312,9 @@ type instanceState struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate *InstanceLaunchTemplate `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -367,7 +366,7 @@ type instanceState struct {
 }
 
 type InstanceState struct {
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringPtrInput
 	// The ARN of the instance.
 	Arn pulumi.StringPtrInput
@@ -405,7 +404,7 @@ type InstanceState struct {
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
 	// The state of the instance. One of: `pending`, `running`, `shutting-down`, `terminated`, `stopping`, `stopped`. See [Instance Lifecycle](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html) for more information.
 	InstanceState pulumi.StringPtrInput
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
@@ -413,6 +412,9 @@ type InstanceState struct {
 	Ipv6Addresses pulumi.StringArrayInput
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate InstanceLaunchTemplatePtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -468,8 +470,8 @@ func (InstanceState) ElementType() reflect.Type {
 }
 
 type instanceArgs struct {
-	// AMI to use for the instance.
-	Ami string `pulumi:"ami"`
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	Ami *string `pulumi:"ami"`
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
@@ -502,14 +504,17 @@ type instanceArgs struct {
 	IamInstanceProfile interface{} `pulumi:"iamInstanceProfile"`
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior *string `pulumi:"instanceInitiatedShutdownBehavior"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType string `pulumi:"instanceType"`
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName *string `pulumi:"keyName"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate *InstanceLaunchTemplate `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -550,8 +555,8 @@ type instanceArgs struct {
 
 // The set of arguments for constructing a Instance resource.
 type InstanceArgs struct {
-	// AMI to use for the instance.
-	Ami pulumi.StringInput
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	Ami pulumi.StringPtrInput
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// AZ to start the instance in.
@@ -584,14 +589,17 @@ type InstanceArgs struct {
 	IamInstanceProfile pulumi.Input
 	// Shutdown behavior for the instance. Amazon defaults this to `stop` for EBS-backed instances and `terminate` for instance-store instances. Cannot be set on instance-store instances. See [Shutdown Behavior](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingInstanceInitiatedShutdownBehavior) for more information.
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrInput
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringInput
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
 	Ipv6Addresses pulumi.StringArrayInput
 	// Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
 	KeyName pulumi.StringPtrInput
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate InstanceLaunchTemplatePtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)

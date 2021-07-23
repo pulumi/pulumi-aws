@@ -119,7 +119,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			AuthorizationType: pulumi.String("BASIC"),
+// 			AuthorizationType: pulumi.String("OAUTH_CLIENT_CREDENTIALS"),
 // 			Description:       pulumi.String("A connection description"),
 // 		})
 // 		if err != nil {

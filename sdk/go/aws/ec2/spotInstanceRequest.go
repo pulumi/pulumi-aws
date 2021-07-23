@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,7 +63,7 @@ import (
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringOutput `pulumi:"ami"`
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -84,11 +83,11 @@ type SpotInstanceRequest struct {
 	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
-	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
+	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
 	EbsBlockDevices SpotInstanceRequestEbsBlockDeviceArrayOutput `pulumi:"ebsBlockDevices"`
 	// If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
-	EbsOptimized pulumi.BoolPtrOutput `pulumi:"ebsOptimized"`
+	EbsOptimized pulumi.BoolOutput `pulumi:"ebsOptimized"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions SpotInstanceRequestEnclaveOptionsOutput `pulumi:"enclaveOptions"`
 	// One or more configuration blocks to customize Ephemeral (also known as "Instance Store") volumes on the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a set of objects.
@@ -110,7 +109,7 @@ type SpotInstanceRequest struct {
 	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour pulumi.StringOutput `pulumi:"instanceInterruptionBehaviour"`
 	InstanceState                 pulumi.StringOutput `pulumi:"instanceState"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
@@ -121,10 +120,13 @@ type SpotInstanceRequest struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrOutput `pulumi:"launchGroup"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
-	Monitoring pulumi.BoolPtrOutput `pulumi:"monitoring"`
+	Monitoring pulumi.BoolOutput `pulumi:"monitoring"`
 	// Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
 	NetworkInterfaces SpotInstanceRequestNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	OutpostArn        pulumi.StringOutput                            `pulumi:"outpostArn"`
@@ -176,9 +178,9 @@ type SpotInstanceRequest struct {
 	// Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
 	Tenancy pulumi.StringOutput `pulumi:"tenancy"`
 	// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead.
-	UserData pulumi.StringPtrOutput `pulumi:"userData"`
+	UserData pulumi.StringOutput `pulumi:"userData"`
 	// Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption.
-	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
+	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
 	ValidFrom pulumi.StringOutput `pulumi:"validFrom"`
 	// The end date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). At this point, no new Spot instance requests are placed or enabled to fulfill the request. The default end date is 7 days from the current date.
@@ -197,15 +199,9 @@ type SpotInstanceRequest struct {
 func NewSpotInstanceRequest(ctx *pulumi.Context,
 	name string, args *SpotInstanceRequestArgs, opts ...pulumi.ResourceOption) (*SpotInstanceRequest, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SpotInstanceRequestArgs{}
 	}
 
-	if args.Ami == nil {
-		return nil, errors.New("invalid value for required argument 'Ami'")
-	}
-	if args.InstanceType == nil {
-		return nil, errors.New("invalid value for required argument 'InstanceType'")
-	}
 	var resource SpotInstanceRequest
 	err := ctx.RegisterResource("aws:ec2/spotInstanceRequest:SpotInstanceRequest", name, args, &resource, opts...)
 	if err != nil {
@@ -228,7 +224,7 @@ func GetSpotInstanceRequest(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpotInstanceRequest resources.
 type spotInstanceRequestState struct {
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami *string `pulumi:"ami"`
 	Arn *string `pulumi:"arn"`
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -274,7 +270,7 @@ type spotInstanceRequestState struct {
 	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
 	InstanceState                 *string `pulumi:"instanceState"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
@@ -285,6 +281,9 @@ type spotInstanceRequestState struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup *string `pulumi:"launchGroup"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *SpotInstanceRequestMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -358,7 +357,7 @@ type spotInstanceRequestState struct {
 }
 
 type SpotInstanceRequestState struct {
-	// AMI to use for the instance.
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
 	Ami pulumi.StringPtrInput
 	Arn pulumi.StringPtrInput
 	// Whether to associate a public IP address with an instance in a VPC.
@@ -404,7 +403,7 @@ type SpotInstanceRequestState struct {
 	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
 	InstanceState                 pulumi.StringPtrInput
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
 	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
@@ -415,6 +414,9 @@ type SpotInstanceRequestState struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrInput
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -492,8 +494,8 @@ func (SpotInstanceRequestState) ElementType() reflect.Type {
 }
 
 type spotInstanceRequestArgs struct {
-	// AMI to use for the instance.
-	Ami string `pulumi:"ami"`
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	Ami *string `pulumi:"ami"`
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
 	// AZ to start the instance in.
@@ -536,8 +538,8 @@ type spotInstanceRequestArgs struct {
 	//
 	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour *string `pulumi:"instanceInterruptionBehaviour"`
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType string `pulumi:"instanceType"`
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	InstanceType *string `pulumi:"instanceType"`
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -547,6 +549,9 @@ type spotInstanceRequestArgs struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup *string `pulumi:"launchGroup"`
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *SpotInstanceRequestMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -598,8 +603,8 @@ type spotInstanceRequestArgs struct {
 
 // The set of arguments for constructing a SpotInstanceRequest resource.
 type SpotInstanceRequestArgs struct {
-	// AMI to use for the instance.
-	Ami pulumi.StringInput
+	// AMI to use for the instance. Required unless `launchTemplate` is specified and the Launch Template specifes an AMI. If an AMI is specified in the Launch Template, setting `ami` will override the AMI specified in the Launch Template.
+	Ami pulumi.StringPtrInput
 	// Whether to associate a public IP address with an instance in a VPC.
 	AssociatePublicIpAddress pulumi.BoolPtrInput
 	// AZ to start the instance in.
@@ -642,8 +647,8 @@ type SpotInstanceRequestArgs struct {
 	//
 	// Deprecated: Use the parameter "instance_interruption_behavior" instead.
 	InstanceInterruptionBehaviour pulumi.StringPtrInput
-	// Type of instance to start. Updates to this field will trigger a stop/start of the EC2 instance.
-	InstanceType pulumi.StringInput
+	// The instance type to use for the instance. Updates to this field will trigger a stop/start of the EC2 instance.
+	InstanceType pulumi.StringPtrInput
 	// A number of IPv6 addresses to associate with the primary network interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// Specify one or more IPv6 addresses from the range of the subnet to associate with the primary network interface
@@ -653,6 +658,9 @@ type SpotInstanceRequestArgs struct {
 	// A launch group is a group of spot instances that launch together and terminate together.
 	// If left empty instances are launched and terminated individually.
 	LaunchGroup pulumi.StringPtrInput
+	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
+	// See Launch Template Specification below for more details.
+	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)

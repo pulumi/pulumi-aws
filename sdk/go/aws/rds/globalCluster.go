@@ -51,6 +51,8 @@ import (
 // 			return err
 // 		}
 // 		primaryClusterInstance, err := rds.NewClusterInstance(ctx, "primaryClusterInstance", &rds.ClusterInstanceArgs{
+// 			Engine:            example.Engine,
+// 			EngineVersion:     example.EngineVersion,
 // 			Identifier:        pulumi.String("test-primary-cluster-instance"),
 // 			ClusterIdentifier: primaryCluster.ID(),
 // 			InstanceClass:     pulumi.String("db.r4.large"),
@@ -70,6 +72,8 @@ import (
 // 			return err
 // 		}
 // 		_, err = rds.NewClusterInstance(ctx, "secondaryClusterInstance", &rds.ClusterInstanceArgs{
+// 			Engine:            example.Engine,
+// 			EngineVersion:     example.EngineVersion,
 // 			Identifier:        pulumi.String("test-secondary-cluster-instance"),
 // 			ClusterIdentifier: secondaryCluster.ID(),
 // 			InstanceClass:     pulumi.String("db.r4.large"),

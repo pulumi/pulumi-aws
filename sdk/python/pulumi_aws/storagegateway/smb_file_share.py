@@ -22,6 +22,7 @@ class SmbFileShareArgs:
                  admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -32,12 +33,14 @@ class SmbFileShareArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
+                 oplocks_enabled: Optional[pulumi.Input[bool]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SmbFileShare resource.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -47,6 +50,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -57,12 +61,14 @@ class SmbFileShareArgs:
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[bool] smb_acl_enabled: Set this value to `true` to enable ACL (access control list) on the SMB fileshare. Set it to `false` to map file and directory permissions to the POSIX permissions. This setting applies only to `ActiveDirectory` authentication type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         pulumi.set(__self__, "location_arn", location_arn)
@@ -75,6 +81,8 @@ class SmbFileShareArgs:
             pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if case_sensitivity is not None:
@@ -95,6 +103,8 @@ class SmbFileShareArgs:
             pulumi.set(__self__, "notification_policy", notification_policy)
         if object_acl is not None:
             pulumi.set(__self__, "object_acl", object_acl)
+        if oplocks_enabled is not None:
+            pulumi.set(__self__, "oplocks_enabled", oplocks_enabled)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
         if requester_pays is not None:
@@ -107,6 +117,8 @@ class SmbFileShareArgs:
             pulumi.set(__self__, "tags_all", tags_all)
         if valid_user_lists is not None:
             pulumi.set(__self__, "valid_user_lists", valid_user_lists)
+        if vpc_endpoint_dns_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="gatewayArn")
@@ -191,6 +203,18 @@ class SmbFileShareArgs:
     @authentication.setter
     def authentication(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_region", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -313,6 +337,18 @@ class SmbFileShareArgs:
         pulumi.set(self, "object_acl", value)
 
     @property
+    @pulumi.getter(name="oplocksEnabled")
+    def oplocks_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        """
+        return pulumi.get(self, "oplocks_enabled")
+
+    @oplocks_enabled.setter
+    def oplocks_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "oplocks_enabled", value)
+
+    @property
     @pulumi.getter(name="readOnly")
     def read_only(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -384,6 +420,18 @@ class SmbFileShareArgs:
     def valid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "valid_user_lists", value)
 
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 private link.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @vpc_endpoint_dns_name.setter
+    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_dns_name", value)
+
 
 @pulumi.input_type
 class _SmbFileShareState:
@@ -393,6 +441,7 @@ class _SmbFileShareState:
                  arn: Optional[pulumi.Input[str]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['SmbFileShareCacheAttributesArgs']] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -406,6 +455,7 @@ class _SmbFileShareState:
                  location_arn: Optional[pulumi.Input[str]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
+                 oplocks_enabled: Optional[pulumi.Input[bool]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
@@ -413,7 +463,8 @@ class _SmbFileShareState:
                  smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SmbFileShare resources.
         :param pulumi.Input[bool] access_based_enumeration: The files and folders on this share will only be visible to users with read access. Default value is `false`.
@@ -421,6 +472,7 @@ class _SmbFileShareState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -434,6 +486,7 @@ class _SmbFileShareState:
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -442,6 +495,7 @@ class _SmbFileShareState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
         if access_based_enumeration is not None:
             pulumi.set(__self__, "access_based_enumeration", access_based_enumeration)
@@ -453,6 +507,8 @@ class _SmbFileShareState:
             pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if case_sensitivity is not None:
@@ -479,6 +535,8 @@ class _SmbFileShareState:
             pulumi.set(__self__, "notification_policy", notification_policy)
         if object_acl is not None:
             pulumi.set(__self__, "object_acl", object_acl)
+        if oplocks_enabled is not None:
+            pulumi.set(__self__, "oplocks_enabled", oplocks_enabled)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if read_only is not None:
@@ -495,6 +553,8 @@ class _SmbFileShareState:
             pulumi.set(__self__, "tags_all", tags_all)
         if valid_user_lists is not None:
             pulumi.set(__self__, "valid_user_lists", valid_user_lists)
+        if vpc_endpoint_dns_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="accessBasedEnumeration")
@@ -555,6 +615,18 @@ class _SmbFileShareState:
     @authentication.setter
     def authentication(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication", value)
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_region", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -713,6 +785,18 @@ class _SmbFileShareState:
         pulumi.set(self, "object_acl", value)
 
     @property
+    @pulumi.getter(name="oplocksEnabled")
+    def oplocks_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        """
+        return pulumi.get(self, "oplocks_enabled")
+
+    @oplocks_enabled.setter
+    def oplocks_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "oplocks_enabled", value)
+
+    @property
     @pulumi.getter
     def path(self) -> Optional[pulumi.Input[str]]:
         """
@@ -808,6 +892,18 @@ class _SmbFileShareState:
     def valid_user_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "valid_user_lists", value)
 
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 private link.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @vpc_endpoint_dns_name.setter
+    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_dns_name", value)
+
 
 class SmbFileShare(pulumi.CustomResource):
     @overload
@@ -818,6 +914,7 @@ class SmbFileShare(pulumi.CustomResource):
                  admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -830,6 +927,7 @@ class SmbFileShare(pulumi.CustomResource):
                  location_arn: Optional[pulumi.Input[str]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
+                 oplocks_enabled: Optional[pulumi.Input[bool]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -837,6 +935,7 @@ class SmbFileShare(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway SMB File Share.
@@ -885,6 +984,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_user_lists: A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -897,6 +997,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
@@ -904,6 +1005,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
         ...
     @overload
@@ -971,6 +1073,7 @@ class SmbFileShare(pulumi.CustomResource):
                  admin_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  authentication: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
                  case_sensitivity: Optional[pulumi.Input[str]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -983,6 +1086,7 @@ class SmbFileShare(pulumi.CustomResource):
                  location_arn: Optional[pulumi.Input[str]] = None,
                  notification_policy: Optional[pulumi.Input[str]] = None,
                  object_acl: Optional[pulumi.Input[str]] = None,
+                 oplocks_enabled: Optional[pulumi.Input[bool]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -990,6 +1094,7 @@ class SmbFileShare(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1006,6 +1111,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["admin_user_lists"] = admin_user_lists
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
             __props__.__dict__["authentication"] = authentication
+            __props__.__dict__["bucket_region"] = bucket_region
             __props__.__dict__["cache_attributes"] = cache_attributes
             __props__.__dict__["case_sensitivity"] = case_sensitivity
             __props__.__dict__["default_storage_class"] = default_storage_class
@@ -1022,6 +1128,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["location_arn"] = location_arn
             __props__.__dict__["notification_policy"] = notification_policy
             __props__.__dict__["object_acl"] = object_acl
+            __props__.__dict__["oplocks_enabled"] = oplocks_enabled
             __props__.__dict__["read_only"] = read_only
             __props__.__dict__["requester_pays"] = requester_pays
             if role_arn is None and not opts.urn:
@@ -1031,6 +1138,7 @@ class SmbFileShare(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["valid_user_lists"] = valid_user_lists
+            __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["fileshare_id"] = None
             __props__.__dict__["path"] = None
@@ -1049,6 +1157,7 @@ class SmbFileShare(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
             authentication: Optional[pulumi.Input[str]] = None,
+            bucket_region: Optional[pulumi.Input[str]] = None,
             cache_attributes: Optional[pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']]] = None,
             case_sensitivity: Optional[pulumi.Input[str]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -1062,6 +1171,7 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn: Optional[pulumi.Input[str]] = None,
             notification_policy: Optional[pulumi.Input[str]] = None,
             object_acl: Optional[pulumi.Input[str]] = None,
+            oplocks_enabled: Optional[pulumi.Input[bool]] = None,
             path: Optional[pulumi.Input[str]] = None,
             read_only: Optional[pulumi.Input[bool]] = None,
             requester_pays: Optional[pulumi.Input[bool]] = None,
@@ -1069,7 +1179,8 @@ class SmbFileShare(pulumi.CustomResource):
             smb_acl_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'SmbFileShare':
+            valid_user_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None) -> 'SmbFileShare':
         """
         Get an existing SmbFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1082,6 +1193,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the SMB File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
         :param pulumi.Input[str] authentication: The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
+        :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -1095,6 +1207,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[str] object_acl: Access Control List permission for S3 bucket objects. Defaults to `private`.
+        :param pulumi.Input[bool] oplocks_enabled: Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         :param pulumi.Input[str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
@@ -1103,6 +1216,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] valid_user_lists: A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 private link.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1113,6 +1227,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["audit_destination_arn"] = audit_destination_arn
         __props__.__dict__["authentication"] = authentication
+        __props__.__dict__["bucket_region"] = bucket_region
         __props__.__dict__["cache_attributes"] = cache_attributes
         __props__.__dict__["case_sensitivity"] = case_sensitivity
         __props__.__dict__["default_storage_class"] = default_storage_class
@@ -1126,6 +1241,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__.__dict__["location_arn"] = location_arn
         __props__.__dict__["notification_policy"] = notification_policy
         __props__.__dict__["object_acl"] = object_acl
+        __props__.__dict__["oplocks_enabled"] = oplocks_enabled
         __props__.__dict__["path"] = path
         __props__.__dict__["read_only"] = read_only
         __props__.__dict__["requester_pays"] = requester_pays
@@ -1134,6 +1250,7 @@ class SmbFileShare(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["valid_user_lists"] = valid_user_lists
+        __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
         return SmbFileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1175,6 +1292,14 @@ class SmbFileShare(pulumi.CustomResource):
         The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -1281,6 +1406,14 @@ class SmbFileShare(pulumi.CustomResource):
         return pulumi.get(self, "object_acl")
 
     @property
+    @pulumi.getter(name="oplocksEnabled")
+    def oplocks_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        """
+        return pulumi.get(self, "oplocks_enabled")
+
+    @property
     @pulumi.getter
     def path(self) -> pulumi.Output[str]:
         """
@@ -1343,4 +1476,12 @@ class SmbFileShare(pulumi.CustomResource):
         A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
         """
         return pulumi.get(self, "valid_user_lists")
+
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 private link.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
 

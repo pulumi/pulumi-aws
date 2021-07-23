@@ -431,6 +431,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetKinesisTarget?> KinesisTarget { get; private set; } = null!;
 
         /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Output("redshiftTarget")]
+        public Output<Outputs.EventTargetRedshiftTarget?> RedshiftTarget { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Output("retryPolicy")]
@@ -573,6 +579,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetKinesisTargetArgs>? KinesisTarget { get; set; }
 
         /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("redshiftTarget")]
+        public Input<Inputs.EventTargetRedshiftTargetArgs>? RedshiftTarget { get; set; }
+
+        /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("retryPolicy")]
@@ -680,6 +692,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("kinesisTarget")]
         public Input<Inputs.EventTargetKinesisTargetGetArgs>? KinesisTarget { get; set; }
+
+        /// <summary>
+        /// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        /// </summary>
+        [Input("redshiftTarget")]
+        public Input<Inputs.EventTargetRedshiftTargetGetArgs>? RedshiftTarget { get; set; }
 
         /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.

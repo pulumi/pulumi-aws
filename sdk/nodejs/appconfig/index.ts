@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./application";
 export * from "./configurationProfile";
+export * from "./deployment";
 export * from "./deploymentStrategy";
 export * from "./environment";
 export * from "./hostedConfigurationVersion";
@@ -14,6 +15,7 @@ export * from "./hostedConfigurationVersion";
 // Import resources to register:
 import { Application } from "./application";
 import { ConfigurationProfile } from "./configurationProfile";
+import { Deployment } from "./deployment";
 import { DeploymentStrategy } from "./deploymentStrategy";
 import { Environment } from "./environment";
 import { HostedConfigurationVersion } from "./hostedConfigurationVersion";
@@ -26,6 +28,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws:appconfig/configurationProfile:ConfigurationProfile":
                 return new ConfigurationProfile(name, <any>undefined, { urn })
+            case "aws:appconfig/deployment:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws:appconfig/deploymentStrategy:DeploymentStrategy":
                 return new DeploymentStrategy(name, <any>undefined, { urn })
             case "aws:appconfig/environment:Environment":
@@ -39,6 +43,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "appconfig/application", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/configurationProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "appconfig/deployment", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/deploymentStrategy", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/environment", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/hostedConfigurationVersion", _module)

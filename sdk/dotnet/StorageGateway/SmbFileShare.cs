@@ -102,6 +102,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> Authentication { get; private set; } = null!;
 
         /// <summary>
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Output("bucketRegion")]
+        public Output<string?> BucketRegion { get; private set; } = null!;
+
+        /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
         [Output("cacheAttributes")]
@@ -180,6 +186,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> ObjectAcl { get; private set; } = null!;
 
         /// <summary>
+        /// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        /// </summary>
+        [Output("oplocksEnabled")]
+        public Output<bool?> OplocksEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// File share path used by the NFS client to identify the mount point.
         /// </summary>
         [Output("path")]
@@ -226,6 +238,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("validUserLists")]
         public Output<ImmutableArray<string>> ValidUserLists { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 private link.
+        /// </summary>
+        [Output("vpcEndpointDnsName")]
+        public Output<string?> VpcEndpointDnsName { get; private set; } = null!;
 
 
         /// <summary>
@@ -302,6 +320,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("authentication")]
         public Input<string>? Authentication { get; set; }
+
+        /// <summary>
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Input("bucketRegion")]
+        public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
@@ -382,6 +406,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? ObjectAcl { get; set; }
 
         /// <summary>
+        /// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        /// </summary>
+        [Input("oplocksEnabled")]
+        public Input<bool>? OplocksEnabled { get; set; }
+
+        /// <summary>
         /// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
         /// </summary>
         [Input("readOnly")]
@@ -441,6 +471,12 @@ namespace Pulumi.Aws.StorageGateway
             set => _validUserLists = value;
         }
 
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 private link.
+        /// </summary>
+        [Input("vpcEndpointDnsName")]
+        public Input<string>? VpcEndpointDnsName { get; set; }
+
         public SmbFileShareArgs()
         {
         }
@@ -483,6 +519,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("authentication")]
         public Input<string>? Authentication { get; set; }
+
+        /// <summary>
+        /// The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
+        /// </summary>
+        [Input("bucketRegion")]
+        public Input<string>? BucketRegion { get; set; }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
@@ -569,6 +611,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? ObjectAcl { get; set; }
 
         /// <summary>
+        /// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+        /// </summary>
+        [Input("oplocksEnabled")]
+        public Input<bool>? OplocksEnabled { get; set; }
+
+        /// <summary>
         /// File share path used by the NFS client to identify the mount point.
         /// </summary>
         [Input("path")]
@@ -633,6 +681,12 @@ namespace Pulumi.Aws.StorageGateway
             get => _validUserLists ?? (_validUserLists = new InputList<string>());
             set => _validUserLists = value;
         }
+
+        /// <summary>
+        /// The DNS name of the VPC endpoint for S3 private link.
+        /// </summary>
+        [Input("vpcEndpointDnsName")]
+        public Input<string>? VpcEndpointDnsName { get; set; }
 
         public SmbFileShareState()
         {

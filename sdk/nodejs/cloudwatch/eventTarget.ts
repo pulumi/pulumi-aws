@@ -293,6 +293,10 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly kinesisTarget!: pulumi.Output<outputs.cloudwatch.EventTargetKinesisTarget | undefined>;
     /**
+     * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly redshiftTarget!: pulumi.Output<outputs.cloudwatch.EventTargetRedshiftTarget | undefined>;
+    /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
     public readonly retryPolicy!: pulumi.Output<outputs.cloudwatch.EventTargetRetryPolicy | undefined>;
@@ -340,6 +344,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["inputPath"] = state ? state.inputPath : undefined;
             inputs["inputTransformer"] = state ? state.inputTransformer : undefined;
             inputs["kinesisTarget"] = state ? state.kinesisTarget : undefined;
+            inputs["redshiftTarget"] = state ? state.redshiftTarget : undefined;
             inputs["retryPolicy"] = state ? state.retryPolicy : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["rule"] = state ? state.rule : undefined;
@@ -364,6 +369,7 @@ export class EventTarget extends pulumi.CustomResource {
             inputs["inputPath"] = args ? args.inputPath : undefined;
             inputs["inputTransformer"] = args ? args.inputTransformer : undefined;
             inputs["kinesisTarget"] = args ? args.kinesisTarget : undefined;
+            inputs["redshiftTarget"] = args ? args.redshiftTarget : undefined;
             inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["rule"] = args ? args.rule : undefined;
@@ -422,6 +428,10 @@ export interface EventTargetState {
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
     kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+     */
+    redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */
@@ -492,6 +502,10 @@ export interface EventTargetArgs {
      * Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
      */
     kinesisTarget?: pulumi.Input<inputs.cloudwatch.EventTargetKinesisTarget>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+     */
+    redshiftTarget?: pulumi.Input<inputs.cloudwatch.EventTargetRedshiftTarget>;
     /**
      * Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
      */

@@ -2481,8 +2481,10 @@ class DistributionViewerCertificate(dict):
                this, `acm_certificate_arn`, or `cloudfront_default_certificate`.
         :param str minimum_protocol_version: The minimum version of the SSL protocol that
                you want CloudFront to use for HTTPS connections. Can only be set if
-               `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
-               `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+               `cloudfront_default_certificate = false`. See all possible values in
+               [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+               table under "Security policy." Some examples include: `TLSv1.2_2019` and
+               `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
                If you are using a custom certificate (specified with `acm_certificate_arn`
                or `iam_certificate_id`), and have specified `sni-only` in
                `ssl_support_method`, `TLSv1` or later must be specified. If you have
@@ -2538,8 +2540,10 @@ class DistributionViewerCertificate(dict):
         """
         The minimum version of the SSL protocol that
         you want CloudFront to use for HTTPS connections. Can only be set if
-        `cloudfront_default_certificate = false`. One of `SSLv3`, `TLSv1`,
-        `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+        `cloudfront_default_certificate = false`. See all possible values in
+        [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+        table under "Security policy." Some examples include: `TLSv1.2_2019` and
+        `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
         If you are using a custom certificate (specified with `acm_certificate_arn`
         or `iam_certificate_id`), and have specified `sni-only` in
         `ssl_support_method`, `TLSv1` or later must be specified. If you have

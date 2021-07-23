@@ -99,7 +99,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
      */
     public readonly extraConnectionAttributes!: pulumi.Output<string>;
     /**
@@ -262,7 +262,7 @@ export interface EndpointState {
      */
     engineName?: pulumi.Input<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface EndpointArgs {
      */
     engineName: pulumi.Input<string>;
     /**
-     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.ConnectionAttributes.html).
+     * Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
      */
     extraConnectionAttributes?: pulumi.Input<string>;
     /**

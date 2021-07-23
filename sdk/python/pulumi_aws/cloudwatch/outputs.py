@@ -32,6 +32,7 @@ __all__ = [
     'EventTargetHttpTarget',
     'EventTargetInputTransformer',
     'EventTargetKinesisTarget',
+    'EventTargetRedshiftTarget',
     'EventTargetRetryPolicy',
     'EventTargetRunCommandTarget',
     'EventTargetSqsTarget',
@@ -445,7 +446,7 @@ class EventConnectionAuthParametersOauth(dict):
                  oauth_http_parameters: 'outputs.EventConnectionAuthParametersOauthOauthHttpParameters',
                  client_parameters: Optional['outputs.EventConnectionAuthParametersOauthClientParameters'] = None):
         """
-        :param str authorization_endpoint: A username for the authorization.
+        :param str authorization_endpoint: The URL to the authorization endpoint.
         :param str http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
         :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
         :param 'EventConnectionAuthParametersOauthClientParametersArgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
@@ -460,7 +461,7 @@ class EventConnectionAuthParametersOauth(dict):
     @pulumi.getter(name="authorizationEndpoint")
     def authorization_endpoint(self) -> str:
         """
-        A username for the authorization.
+        The URL to the authorization endpoint.
         """
         return pulumi.get(self, "authorization_endpoint")
 
@@ -1327,6 +1328,107 @@ class EventTargetKinesisTarget(dict):
         The JSON path to be extracted from the event and used as the partition key.
         """
         return pulumi.get(self, "partition_key_path")
+
+
+@pulumi.output_type
+class EventTargetRedshiftTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbUser":
+            suggest = "db_user"
+        elif key == "secretsManagerArn":
+            suggest = "secrets_manager_arn"
+        elif key == "statementName":
+            suggest = "statement_name"
+        elif key == "withEvent":
+            suggest = "with_event"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTargetRedshiftTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTargetRedshiftTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTargetRedshiftTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database: str,
+                 db_user: Optional[str] = None,
+                 secrets_manager_arn: Optional[str] = None,
+                 sql: Optional[str] = None,
+                 statement_name: Optional[str] = None,
+                 with_event: Optional[bool] = None):
+        """
+        :param str database: The name of the database.
+        :param str db_user: The database user name.
+        :param str secrets_manager_arn: The name or ARN of the secret that enables access to the database.
+        :param str sql: The SQL statement text to run.
+        :param str statement_name: The name of the SQL statement.
+        :param bool with_event: Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        """
+        pulumi.set(__self__, "database", database)
+        if db_user is not None:
+            pulumi.set(__self__, "db_user", db_user)
+        if secrets_manager_arn is not None:
+            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
+        if sql is not None:
+            pulumi.set(__self__, "sql", sql)
+        if statement_name is not None:
+            pulumi.set(__self__, "statement_name", statement_name)
+        if with_event is not None:
+            pulumi.set(__self__, "with_event", with_event)
+
+    @property
+    @pulumi.getter
+    def database(self) -> str:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="dbUser")
+    def db_user(self) -> Optional[str]:
+        """
+        The database user name.
+        """
+        return pulumi.get(self, "db_user")
+
+    @property
+    @pulumi.getter(name="secretsManagerArn")
+    def secrets_manager_arn(self) -> Optional[str]:
+        """
+        The name or ARN of the secret that enables access to the database.
+        """
+        return pulumi.get(self, "secrets_manager_arn")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> Optional[str]:
+        """
+        The SQL statement text to run.
+        """
+        return pulumi.get(self, "sql")
+
+    @property
+    @pulumi.getter(name="statementName")
+    def statement_name(self) -> Optional[str]:
+        """
+        The name of the SQL statement.
+        """
+        return pulumi.get(self, "statement_name")
+
+    @property
+    @pulumi.getter(name="withEvent")
+    def with_event(self) -> Optional[bool]:
+        """
+        Indicates whether to send an event back to EventBridge after the SQL statement runs.
+        """
+        return pulumi.get(self, "with_event")
 
 
 @pulumi.output_type

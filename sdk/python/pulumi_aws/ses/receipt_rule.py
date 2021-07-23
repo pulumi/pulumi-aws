@@ -43,7 +43,7 @@ class ReceiptRuleArgs:
         :param pulumi.Input[bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]] sns_actions: A list of SNS Action blocks. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleStopActionArgs']]] stop_actions: A list of Stop Action blocks. Documented below.
-        :param pulumi.Input[str] tls_policy: Require or Optional
+        :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
         pulumi.set(__self__, "rule_set_name", rule_set_name)
@@ -222,7 +222,7 @@ class ReceiptRuleArgs:
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Require or Optional
+        `Require` or `Optional`
         """
         return pulumi.get(self, "tls_policy")
 
@@ -276,7 +276,7 @@ class _ReceiptRuleState:
         :param pulumi.Input[bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]] sns_actions: A list of SNS Action blocks. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleStopActionArgs']]] stop_actions: A list of Stop Action blocks. Documented below.
-        :param pulumi.Input[str] tls_policy: Require or Optional
+        :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleWorkmailActionArgs']]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
         if add_header_actions is not None:
@@ -470,7 +470,7 @@ class _ReceiptRuleState:
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        Require or Optional
+        `Require` or `Optional`
         """
         return pulumi.get(self, "tls_policy")
 
@@ -559,7 +559,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.Input[bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleSnsActionArgs']]]] sns_actions: A list of SNS Action blocks. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleStopActionArgs']]]] stop_actions: A list of Stop Action blocks. Documented below.
-        :param pulumi.Input[str] tls_policy: Require or Optional
+        :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleWorkmailActionArgs']]]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
         ...
@@ -705,7 +705,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.Input[bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleSnsActionArgs']]]] sns_actions: A list of SNS Action blocks. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleStopActionArgs']]]] stop_actions: A list of Stop Action blocks. Documented below.
-        :param pulumi.Input[str] tls_policy: Require or Optional
+        :param pulumi.Input[str] tls_policy: `Require` or `Optional`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReceiptRuleWorkmailActionArgs']]]] workmail_actions: A list of WorkMail Action blocks. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -837,7 +837,7 @@ class ReceiptRule(pulumi.CustomResource):
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> pulumi.Output[str]:
         """
-        Require or Optional
+        `Require` or `Optional`
         """
         return pulumi.get(self, "tls_policy")
 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     public sealed class EventConnectionAuthParametersOauth
     {
         /// <summary>
-        /// A username for the authorization.
+        /// The URL to the authorization endpoint.
         /// </summary>
         public readonly string AuthorizationEndpoint;
         /// <summary>

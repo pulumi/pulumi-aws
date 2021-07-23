@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws:appconfig/configurationProfile:ConfigurationProfile":
 		r = &ConfigurationProfile{}
+	case "aws:appconfig/deployment:Deployment":
+		r = &Deployment{}
 	case "aws:appconfig/deploymentStrategy:DeploymentStrategy":
 		r = &DeploymentStrategy{}
 	case "aws:appconfig/environment:Environment":
@@ -52,6 +54,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appconfig/configurationProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appconfig/deployment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

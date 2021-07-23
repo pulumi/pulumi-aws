@@ -47,7 +47,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", nil)
+// 		_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
+// 			AutoEnable: pulumi.Bool(true),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}

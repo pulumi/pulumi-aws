@@ -121,7 +121,7 @@ export class ReceiptRule extends pulumi.CustomResource {
      */
     public readonly stopActions!: pulumi.Output<outputs.ses.ReceiptRuleStopAction[] | undefined>;
     /**
-     * Require or Optional
+     * `Require` or `Optional`
      */
     public readonly tlsPolicy!: pulumi.Output<string>;
     /**
@@ -242,7 +242,7 @@ export interface ReceiptRuleState {
      */
     stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[]>;
     /**
-     * Require or Optional
+     * `Require` or `Optional`
      */
     tlsPolicy?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface ReceiptRuleArgs {
      */
     stopActions?: pulumi.Input<pulumi.Input<inputs.ses.ReceiptRuleStopAction>[]>;
     /**
-     * Require or Optional
+     * `Require` or `Optional`
      */
     tlsPolicy?: pulumi.Input<string>;
     /**

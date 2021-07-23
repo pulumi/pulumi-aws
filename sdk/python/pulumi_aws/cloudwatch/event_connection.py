@@ -267,7 +267,7 @@ class EventConnection(pulumi.CustomResource):
                     ),
                 ),
             ),
-            authorization_type="BASIC",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             description="A connection description")
         ```
         ### Invocation Http Parameters
@@ -403,7 +403,7 @@ class EventConnection(pulumi.CustomResource):
                     ),
                 ),
             ),
-            authorization_type="BASIC",
+            authorization_type="OAUTH_CLIENT_CREDENTIALS",
             description="A connection description")
         ```
         ### Invocation Http Parameters

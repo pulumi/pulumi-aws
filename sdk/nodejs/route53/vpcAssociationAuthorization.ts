@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Authorizes a VPC in a peer account to be associated with a local Route53 Hosted Zone.
+ * Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
  *
  * ## Example Usage
  *

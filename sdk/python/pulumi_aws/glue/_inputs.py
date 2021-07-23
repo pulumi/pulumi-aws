@@ -1313,17 +1313,21 @@ class CrawlerS3TargetArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sample_size: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
+        :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
         pulumi.set(__self__, "path", path)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
+        if sample_size is not None:
+            pulumi.set(__self__, "sample_size", sample_size)
 
     @property
     @pulumi.getter
@@ -1360,6 +1364,18 @@ class CrawlerS3TargetArgs:
     @exclusions.setter
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter(name="sampleSize")
+    def sample_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+        """
+        return pulumi.get(self, "sample_size")
+
+    @sample_size.setter
+    def sample_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sample_size", value)
 
 
 @pulumi.input_type

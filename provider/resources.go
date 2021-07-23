@@ -1032,6 +1032,8 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_elasticache_global_replication_group": {Tok: awsResource(elasticacheMod, "GlobalReplicationGroup")},
+			"aws_elasticache_user":                     {Tok: awsResource(elasticacheMod, "User")},
+			"aws_elasticache_user_group":               {Tok: awsResource(elasticacheMod, "UserGroup")},
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsResource(ec2Mod, "Ami"),
@@ -2682,6 +2684,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_deployment_strategy":          {Tok: awsResource(appConfigMod, "DeploymentStrategy")},
 			"aws_appconfig_environment":                  {Tok: awsResource(appConfigMod, "Environment")},
 			"aws_appconfig_hosted_configuration_version": {Tok: awsResource(appConfigMod, "HostedConfigurationVersion")},
+			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3897,6 +3900,7 @@ func Provider() tfbridge.ProviderInfo {
 			// ElastiCache
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
+			"aws_elasticache_user":              {Tok: awsDataSource(elasticacheMod, "getUser")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsDataSource(globalacceleratorMod, "getAccelerator")},
 			// Glue

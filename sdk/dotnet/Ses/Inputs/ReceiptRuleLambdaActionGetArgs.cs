@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ses.Inputs
         public Input<string> FunctionArn { get; set; } = null!;
 
         /// <summary>
-        /// Event or RequestResponse
+        /// `Event` or `RequestResponse`
         /// </summary>
         [Input("invocationType")]
         public Input<string>? InvocationType { get; set; }

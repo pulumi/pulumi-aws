@@ -123,7 +123,7 @@ namespace Pulumi.Aws.CloudWatch
     ///                     },
     ///                 },
     ///             },
-    ///             AuthorizationType = "BASIC",
+    ///             AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///             Description = "A connection description",
     ///         });
     ///     }

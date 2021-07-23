@@ -785,6 +785,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appconfig/deployment",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/deployment:Deployment": "Deployment"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appconfig/deploymentStrategy",
   "fqn": "pulumi_aws.appconfig",
   "classes": {
@@ -3069,6 +3077,22 @@ _utilities.register(
   "fqn": "pulumi_aws.elasticache",
   "classes": {
    "aws:elasticache/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "elasticache/user",
+  "fqn": "pulumi_aws.elasticache",
+  "classes": {
+   "aws:elasticache/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "elasticache/userGroup",
+  "fqn": "pulumi_aws.elasticache",
+  "classes": {
+   "aws:elasticache/userGroup:UserGroup": "UserGroup"
   }
  },
  {

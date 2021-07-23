@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityGroup{}
 	case "aws:elasticache/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
+	case "aws:elasticache/user:User":
+		r = &User{}
+	case "aws:elasticache/userGroup:UserGroup":
+		r = &UserGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +78,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"elasticache/subnetGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"elasticache/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"elasticache/userGroup",
 		&module{version},
 	)
 }

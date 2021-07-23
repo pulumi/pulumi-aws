@@ -48,6 +48,8 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var primaryClusterInstance = new Aws.Rds.ClusterInstance("primaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
     ///             Identifier = "test-primary-cluster-instance",
     ///             ClusterIdentifier = primaryCluster.Id,
     ///             InstanceClass = "db.r4.large",
@@ -69,6 +71,8 @@ namespace Pulumi.Aws.Rds
     ///         });
     ///         var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondaryClusterInstance", new Aws.Rds.ClusterInstanceArgs
     ///         {
+    ///             Engine = example.Engine,
+    ///             EngineVersion = example.EngineVersion,
     ///             Identifier = "test-secondary-cluster-instance",
     ///             ClusterIdentifier = secondaryCluster.Id,
     ///             InstanceClass = "db.r4.large",

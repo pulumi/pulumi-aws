@@ -43,7 +43,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
-        /// is optional (with a default value of `0`) but must be unique between multiple rules
+        /// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

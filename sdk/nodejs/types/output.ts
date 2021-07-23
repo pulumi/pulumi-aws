@@ -6372,8 +6372,10 @@ export namespace cloudfront {
         /**
          * The minimum version of the SSL protocol that
          * you want CloudFront to use for HTTPS connections. Can only be set if
-         * `cloudfrontDefaultCertificate = false`. One of `SSLv3`, `TLSv1`,
-         * `TLSv1_2016`, `TLSv1.1_2016`, `TLSv1.2_2018` or `TLSv1.2_2019`. Default: `TLSv1`. **NOTE**:
+         * `cloudfrontDefaultCertificate = false`. See all possible values in
+         * [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
+         * table under "Security policy." Some examples include: `TLSv1.2_2019` and
+         * `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
          * If you are using a custom certificate (specified with `acmCertificateArn`
          * or `iamCertificateId`), and have specified `sni-only` in
          * `sslSupportMethod`, `TLSv1` or later must be specified. If you have
@@ -6713,7 +6715,7 @@ export namespace cloudwatch {
 
     export interface EventConnectionAuthParametersOauth {
         /**
-         * A username for the authorization.
+         * The URL to the authorization endpoint.
          */
         authorizationEndpoint: string;
         /**
@@ -6949,6 +6951,33 @@ export namespace cloudwatch {
          * The JSON path to be extracted from the event and used as the partition key.
          */
         partitionKeyPath?: string;
+    }
+
+    export interface EventTargetRedshiftTarget {
+        /**
+         * The name of the database.
+         */
+        database: string;
+        /**
+         * The database user name.
+         */
+        dbUser?: string;
+        /**
+         * The name or ARN of the secret that enables access to the database.
+         */
+        secretsManagerArn?: string;
+        /**
+         * The SQL statement text to run.
+         */
+        sql?: string;
+        /**
+         * The name of the SQL statement.
+         */
+        statementName?: string;
+        /**
+         * Indicates whether to send an event back to EventBridge after the SQL statement runs.
+         */
+        withEvent?: boolean;
     }
 
     export interface EventTargetRetryPolicy {
@@ -10824,6 +10853,21 @@ export namespace ec2 {
         virtualName?: string;
     }
 
+    export interface InstanceLaunchTemplate {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id: string;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name: string;
+        /**
+         * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+         */
+        version?: string;
+    }
+
     export interface InstanceMetadataOptions {
         /**
          * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -11745,6 +11789,21 @@ export namespace ec2 {
          * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
          */
         virtualName?: string;
+    }
+
+    export interface SpotInstanceRequestLaunchTemplate {
+        /**
+         * The ID of the launch template. Conflicts with `name`.
+         */
+        id: string;
+        /**
+         * The name of the launch template. Conflicts with `id`.
+         */
+        name: string;
+        /**
+         * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+         */
+        version?: string;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
@@ -15793,6 +15852,10 @@ export namespace glue {
          * The path of the Amazon DocumentDB or MongoDB target (database/collection).
          */
         path: string;
+        /**
+         * Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
+         */
+        sampleSize?: number;
     }
 
     export interface CrawlerSchemaChangePolicy {
@@ -17901,7 +17964,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -18180,7 +18243,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -18459,7 +18522,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -18511,7 +18574,7 @@ export namespace kinesis {
          */
         cloudwatchLoggingOptions: outputs.kinesis.FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions;
         /**
-         * The compression format. If no value is specified, the default is UNCOMPRESSED. Other supported values are GZIP, ZIP & Snappy. If the destination is redshift you cannot use ZIP or Snappy.
+         * The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
          */
         compressionFormat?: string;
         /**
@@ -23405,7 +23468,7 @@ export namespace s3 {
          */
         prefix?: string;
         /**
-         * is optional (with a default value of `0`) but must be unique between multiple rules
+         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
         priority?: number;
         /**
@@ -26047,7 +26110,7 @@ export namespace ses {
          */
         functionArn: string;
         /**
-         * Event or RequestResponse
+         * `Event` or `RequestResponse`
          */
         invocationType?: string;
         /**

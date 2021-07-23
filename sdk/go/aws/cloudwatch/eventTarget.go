@@ -354,6 +354,8 @@ type EventTarget struct {
 	InputTransformer EventTargetInputTransformerPtrOutput `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrOutput `pulumi:"kinesisTarget"`
+	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+	RedshiftTarget EventTargetRedshiftTargetPtrOutput `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrOutput `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
@@ -423,6 +425,8 @@ type eventTargetState struct {
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
+	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
@@ -458,6 +462,8 @@ type EventTargetState struct {
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput
+	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+	RedshiftTarget EventTargetRedshiftTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
@@ -497,6 +503,8 @@ type eventTargetArgs struct {
 	InputTransformer *EventTargetInputTransformer `pulumi:"inputTransformer"`
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget *EventTargetKinesisTarget `pulumi:"kinesisTarget"`
+	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+	RedshiftTarget *EventTargetRedshiftTarget `pulumi:"redshiftTarget"`
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy *EventTargetRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.
@@ -533,6 +541,8 @@ type EventTargetArgs struct {
 	InputTransformer EventTargetInputTransformerPtrInput
 	// Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
 	KinesisTarget EventTargetKinesisTargetPtrInput
+	// Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+	RedshiftTarget EventTargetRedshiftTargetPtrInput
 	// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
 	RetryPolicy EventTargetRetryPolicyPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecsTarget` is used or target in `arn` is EC2 instance, Kinesis data stream or Step Functions state machine.

@@ -97,6 +97,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly authentication!: pulumi.Output<string | undefined>;
     /**
+     * The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+     */
+    public readonly bucketRegion!: pulumi.Output<string | undefined>;
+    /**
      * Refresh cache information. see Cache Attributes for more details.
      */
     public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
@@ -149,6 +153,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly objectAcl!: pulumi.Output<string | undefined>;
     /**
+     * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+     */
+    public readonly oplocksEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * File share path used by the NFS client to identify the mount point.
      */
     public /*out*/ readonly path!: pulumi.Output<string>;
@@ -180,6 +188,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     public readonly validUserLists!: pulumi.Output<string[] | undefined>;
+    /**
+     * The DNS name of the VPC endpoint for S3 private link.
+     */
+    public readonly vpcEndpointDnsName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SmbFileShare resource with the given unique name, arguments, and options.
@@ -199,6 +211,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
             inputs["authentication"] = state ? state.authentication : undefined;
+            inputs["bucketRegion"] = state ? state.bucketRegion : undefined;
             inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
             inputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
@@ -212,6 +225,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["locationArn"] = state ? state.locationArn : undefined;
             inputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
             inputs["objectAcl"] = state ? state.objectAcl : undefined;
+            inputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["readOnly"] = state ? state.readOnly : undefined;
             inputs["requesterPays"] = state ? state.requesterPays : undefined;
@@ -220,6 +234,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["validUserLists"] = state ? state.validUserLists : undefined;
+            inputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
         } else {
             const args = argsOrState as SmbFileShareArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
@@ -235,6 +250,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["adminUserLists"] = args ? args.adminUserLists : undefined;
             inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["authentication"] = args ? args.authentication : undefined;
+            inputs["bucketRegion"] = args ? args.bucketRegion : undefined;
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             inputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
@@ -247,6 +263,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["locationArn"] = args ? args.locationArn : undefined;
             inputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
             inputs["objectAcl"] = args ? args.objectAcl : undefined;
+            inputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
             inputs["readOnly"] = args ? args.readOnly : undefined;
             inputs["requesterPays"] = args ? args.requesterPays : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
@@ -254,6 +271,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["validUserLists"] = args ? args.validUserLists : undefined;
+            inputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileshareId"] = undefined /*out*/;
             inputs["path"] = undefined /*out*/;
@@ -289,6 +307,10 @@ export interface SmbFileShareState {
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     authentication?: pulumi.Input<string>;
+    /**
+     * The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+     */
+    bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -342,6 +364,10 @@ export interface SmbFileShareState {
      */
     objectAcl?: pulumi.Input<string>;
     /**
+     * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+     */
+    oplocksEnabled?: pulumi.Input<boolean>;
+    /**
      * File share path used by the NFS client to identify the mount point.
      */
     path?: pulumi.Input<string>;
@@ -373,6 +399,10 @@ export interface SmbFileShareState {
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The DNS name of the VPC endpoint for S3 private link.
+     */
+    vpcEndpointDnsName?: pulumi.Input<string>;
 }
 
 /**
@@ -395,6 +425,10 @@ export interface SmbFileShareArgs {
      * The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
      */
     authentication?: pulumi.Input<string>;
+    /**
+     * The region of the S3 buck used by the file share. Required when specifying a `vpcEndpointDnsName`.
+     */
+    bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -444,6 +478,10 @@ export interface SmbFileShareArgs {
      */
     objectAcl?: pulumi.Input<string>;
     /**
+     * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
+     */
+    oplocksEnabled?: pulumi.Input<boolean>;
+    /**
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     readOnly?: pulumi.Input<boolean>;
@@ -471,4 +509,8 @@ export interface SmbFileShareArgs {
      * A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
      */
     validUserLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The DNS name of the VPC endpoint for S3 private link.
+     */
+    vpcEndpointDnsName?: pulumi.Input<string>;
 }

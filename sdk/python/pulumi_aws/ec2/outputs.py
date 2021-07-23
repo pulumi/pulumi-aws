@@ -36,6 +36,7 @@ __all__ = [
     'InstanceEbsBlockDevice',
     'InstanceEnclaveOptions',
     'InstanceEphemeralBlockDevice',
+    'InstanceLaunchTemplate',
     'InstanceMetadataOptions',
     'InstanceNetworkInterface',
     'InstanceRootBlockDevice',
@@ -86,6 +87,7 @@ __all__ = [
     'SpotInstanceRequestEbsBlockDevice',
     'SpotInstanceRequestEnclaveOptions',
     'SpotInstanceRequestEphemeralBlockDevice',
+    'SpotInstanceRequestLaunchTemplate',
     'SpotInstanceRequestMetadataOptions',
     'SpotInstanceRequestNetworkInterface',
     'SpotInstanceRequestRootBlockDevice',
@@ -2330,6 +2332,49 @@ class InstanceEphemeralBlockDevice(dict):
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class InstanceLaunchTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str id: The ID of the launch template. Conflicts with `name`.
+        :param str name: The name of the launch template. Conflicts with `id`.
+        :param str version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the launch template. Conflicts with `name`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the launch template. Conflicts with `id`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -6137,6 +6182,49 @@ class SpotInstanceRequestEphemeralBlockDevice(dict):
         [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
         """
         return pulumi.get(self, "virtual_name")
+
+
+@pulumi.output_type
+class SpotInstanceRequestLaunchTemplate(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param str id: The ID of the launch template. Conflicts with `name`.
+        :param str name: The name of the launch template. Conflicts with `id`.
+        :param str version: Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the launch template. Conflicts with `name`.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the launch template. Conflicts with `id`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
