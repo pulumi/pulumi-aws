@@ -39,16 +39,15 @@ let music = new aws.dynamodb.Table("music", {
   ],
 }, providerOpts);
 
-let hello = "Hello, world!";
-let lambda = new aws.serverless.Function(
-  "mylambda",
-  { },
-  (event, context, callback) => {
+const hello = "Hello, world!";
+
+const lambda = new aws.lambda.CallbackFunction("mylambda", {
+  callback: (event, context, callback) => {
     console.log("Music table hash key is: " + music.hashKey);
     console.log("Invoked function: " + context.invokedFunctionArn);
     callback(null, {
       statusCode: 200,
       body: hello + "\n\nSucceeed with " + context.getRemainingTimeInMillis() + "ms remaining.\n",
     });
-  },
-  providerOpts);
+  }
+}, providerOpts);

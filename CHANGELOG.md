@@ -10,7 +10,7 @@ _(none)_
 * Upgrade to v3.63.0 of the AWS Terraform Provider
 
 ## 4.24.1 (2021-10-11)
-* Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and 
+* Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and
  `aws.applicationloadbalancing.TargetGroup` have their `deregistrationDelay` parameter set to the correct type of `int` not `string`
 
 ## 4.24.0 (2021-10-08)
@@ -19,7 +19,7 @@ _(none)_
 
 ## 4.23.0 (2021-10-06)
 * Upgrade to v3.61.0 of the AWS Terraform Provider
-  * **Please note**, `aws.ec2.getDedicatedHost` no longer supports the `instanceState` output. 
+  * **Please note**, `aws.ec2.getDedicatedHost` no longer supports the `instanceState` output.
 * Add the ability to set `maximumBatchingWindowInSeconds` as part of `aws.sqs.QueueEventSubscription` in NodeJS SDK
 * Add the ability to set `functionResponseTypes` as part of `aws.dynamodb.TableEventSubscription` in NodeJS SDK
 

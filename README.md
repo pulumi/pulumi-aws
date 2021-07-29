@@ -58,7 +58,7 @@ added to make development easier and to help avoid common mistakes, and to get s
 
 ### Serverless Functions
 
-The `aws.serverless.Function` class allows you to create an AWS lambda function directly out of a JavaScript/TypeScript
+The `aws.lambda.CallbackFunction` class allows you to create an AWS lambda function directly out of a JavaScript/TypeScript
 function object of the right signature.  This allows a Pulumi program to simply define a lambda using a simple lambda in
 the language of choice, while having Pulumi itself do the appropriate transformation into the final AWS Lambda resource.
 
