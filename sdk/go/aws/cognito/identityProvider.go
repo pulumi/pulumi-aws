@@ -250,7 +250,7 @@ type IdentityProviderArrayInput interface {
 type IdentityProviderArray []IdentityProviderInput
 
 func (IdentityProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityProvider)(nil))
+	return reflect.TypeOf((*[]*IdentityProvider)(nil)).Elem()
 }
 
 func (i IdentityProviderArray) ToIdentityProviderArrayOutput() IdentityProviderArrayOutput {
@@ -275,7 +275,7 @@ type IdentityProviderMapInput interface {
 type IdentityProviderMap map[string]IdentityProviderInput
 
 func (IdentityProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityProvider)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProvider)(nil)).Elem()
 }
 
 func (i IdentityProviderMap) ToIdentityProviderMapOutput() IdentityProviderMapOutput {

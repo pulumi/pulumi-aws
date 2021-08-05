@@ -266,7 +266,7 @@ type RateBasedRuleArrayInput interface {
 type RateBasedRuleArray []RateBasedRuleInput
 
 func (RateBasedRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RateBasedRule)(nil))
+	return reflect.TypeOf((*[]*RateBasedRule)(nil)).Elem()
 }
 
 func (i RateBasedRuleArray) ToRateBasedRuleArrayOutput() RateBasedRuleArrayOutput {
@@ -291,7 +291,7 @@ type RateBasedRuleMapInput interface {
 type RateBasedRuleMap map[string]RateBasedRuleInput
 
 func (RateBasedRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RateBasedRule)(nil))
+	return reflect.TypeOf((*map[string]*RateBasedRule)(nil)).Elem()
 }
 
 func (i RateBasedRuleMap) ToRateBasedRuleMapOutput() RateBasedRuleMapOutput {

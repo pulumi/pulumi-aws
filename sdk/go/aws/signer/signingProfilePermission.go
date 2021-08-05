@@ -264,7 +264,7 @@ type SigningProfilePermissionArrayInput interface {
 type SigningProfilePermissionArray []SigningProfilePermissionInput
 
 func (SigningProfilePermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SigningProfilePermission)(nil))
+	return reflect.TypeOf((*[]*SigningProfilePermission)(nil)).Elem()
 }
 
 func (i SigningProfilePermissionArray) ToSigningProfilePermissionArrayOutput() SigningProfilePermissionArrayOutput {
@@ -289,7 +289,7 @@ type SigningProfilePermissionMapInput interface {
 type SigningProfilePermissionMap map[string]SigningProfilePermissionInput
 
 func (SigningProfilePermissionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SigningProfilePermission)(nil))
+	return reflect.TypeOf((*map[string]*SigningProfilePermission)(nil)).Elem()
 }
 
 func (i SigningProfilePermissionMap) ToSigningProfilePermissionMapOutput() SigningProfilePermissionMapOutput {

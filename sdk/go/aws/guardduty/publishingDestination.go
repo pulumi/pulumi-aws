@@ -299,7 +299,7 @@ type PublishingDestinationArrayInput interface {
 type PublishingDestinationArray []PublishingDestinationInput
 
 func (PublishingDestinationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PublishingDestination)(nil))
+	return reflect.TypeOf((*[]*PublishingDestination)(nil)).Elem()
 }
 
 func (i PublishingDestinationArray) ToPublishingDestinationArrayOutput() PublishingDestinationArrayOutput {
@@ -324,7 +324,7 @@ type PublishingDestinationMapInput interface {
 type PublishingDestinationMap map[string]PublishingDestinationInput
 
 func (PublishingDestinationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PublishingDestination)(nil))
+	return reflect.TypeOf((*map[string]*PublishingDestination)(nil)).Elem()
 }
 
 func (i PublishingDestinationMap) ToPublishingDestinationMapOutput() PublishingDestinationMapOutput {

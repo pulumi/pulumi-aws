@@ -215,7 +215,7 @@ type AdmChannelArrayInput interface {
 type AdmChannelArray []AdmChannelInput
 
 func (AdmChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AdmChannel)(nil))
+	return reflect.TypeOf((*[]*AdmChannel)(nil)).Elem()
 }
 
 func (i AdmChannelArray) ToAdmChannelArrayOutput() AdmChannelArrayOutput {
@@ -240,7 +240,7 @@ type AdmChannelMapInput interface {
 type AdmChannelMap map[string]AdmChannelInput
 
 func (AdmChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AdmChannel)(nil))
+	return reflect.TypeOf((*map[string]*AdmChannel)(nil)).Elem()
 }
 
 func (i AdmChannelMap) ToAdmChannelMapOutput() AdmChannelMapOutput {

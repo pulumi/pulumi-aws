@@ -234,7 +234,7 @@ type AuthorizerArrayInput interface {
 type AuthorizerArray []AuthorizerInput
 
 func (AuthorizerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Authorizer)(nil))
+	return reflect.TypeOf((*[]*Authorizer)(nil)).Elem()
 }
 
 func (i AuthorizerArray) ToAuthorizerArrayOutput() AuthorizerArrayOutput {
@@ -259,7 +259,7 @@ type AuthorizerMapInput interface {
 type AuthorizerMap map[string]AuthorizerInput
 
 func (AuthorizerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Authorizer)(nil))
+	return reflect.TypeOf((*map[string]*Authorizer)(nil)).Elem()
 }
 
 func (i AuthorizerMap) ToAuthorizerMapOutput() AuthorizerMapOutput {

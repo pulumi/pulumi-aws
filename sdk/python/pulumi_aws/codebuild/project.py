@@ -855,15 +855,15 @@ class Project(pulumi.CustomResource):
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
-                    {
-                        "name": "SOME_KEY1",
-                        "value": "SOME_VALUE1",
-                    },
-                    {
-                        "name": "SOME_KEY2",
-                        "value": "SOME_VALUE2",
-                        "type": "PARAMETER_STORE",
-                    },
+                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                        name="SOME_KEY1",
+                        value="SOME_VALUE1",
+                    ),
+                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                        name="SOME_KEY2",
+                        value="SOME_VALUE2",
+                        type="PARAMETER_STORE",
+                    ),
                 ],
             ),
             logs_config=aws.codebuild.ProjectLogsConfigArgs(
@@ -919,10 +919,10 @@ class Project(pulumi.CustomResource):
                 image="aws/codebuild/standard:1.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
-                environment_variables=[{
-                    "name": "SOME_KEY1",
-                    "value": "SOME_VALUE1",
-                }],
+                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                    name="SOME_KEY1",
+                    value="SOME_VALUE1",
+                )],
             ),
             source=aws.codebuild.ProjectSourceArgs(
                 type="GITHUB",
@@ -1072,15 +1072,15 @@ class Project(pulumi.CustomResource):
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
                 environment_variables=[
-                    {
-                        "name": "SOME_KEY1",
-                        "value": "SOME_VALUE1",
-                    },
-                    {
-                        "name": "SOME_KEY2",
-                        "value": "SOME_VALUE2",
-                        "type": "PARAMETER_STORE",
-                    },
+                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                        name="SOME_KEY1",
+                        value="SOME_VALUE1",
+                    ),
+                    aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                        name="SOME_KEY2",
+                        value="SOME_VALUE2",
+                        type="PARAMETER_STORE",
+                    ),
                 ],
             ),
             logs_config=aws.codebuild.ProjectLogsConfigArgs(
@@ -1136,10 +1136,10 @@ class Project(pulumi.CustomResource):
                 image="aws/codebuild/standard:1.0",
                 type="LINUX_CONTAINER",
                 image_pull_credentials_type="CODEBUILD",
-                environment_variables=[{
-                    "name": "SOME_KEY1",
-                    "value": "SOME_VALUE1",
-                }],
+                environment_variables=[aws.codebuild.ProjectEnvironmentEnvironmentVariableArgs(
+                    name="SOME_KEY1",
+                    value="SOME_VALUE1",
+                )],
             ),
             source=aws.codebuild.ProjectSourceArgs(
                 type="GITHUB",

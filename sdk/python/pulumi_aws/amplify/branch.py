@@ -759,8 +759,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
-                    "job_id": "$.detail.jobId",
-                    "app_id": "$.detail.appId",
+                    "jobId": "$.detail.jobId",
+                    "appId": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",
@@ -873,8 +873,8 @@ class Branch(pulumi.CustomResource):
             arn=amplify_app_master_topic.arn,
             input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
                 input_paths={
-                    "job_id": "$.detail.jobId",
-                    "app_id": "$.detail.appId",
+                    "jobId": "$.detail.jobId",
+                    "appId": "$.detail.appId",
                     "region": "$.region",
                     "branch": "$.detail.branchName",
                     "status": "$.detail.jobStatus",

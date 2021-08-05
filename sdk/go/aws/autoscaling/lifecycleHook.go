@@ -284,7 +284,7 @@ type LifecycleHookArrayInput interface {
 type LifecycleHookArray []LifecycleHookInput
 
 func (LifecycleHookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LifecycleHook)(nil))
+	return reflect.TypeOf((*[]*LifecycleHook)(nil)).Elem()
 }
 
 func (i LifecycleHookArray) ToLifecycleHookArrayOutput() LifecycleHookArrayOutput {
@@ -309,7 +309,7 @@ type LifecycleHookMapInput interface {
 type LifecycleHookMap map[string]LifecycleHookInput
 
 func (LifecycleHookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LifecycleHook)(nil))
+	return reflect.TypeOf((*map[string]*LifecycleHook)(nil)).Elem()
 }
 
 func (i LifecycleHookMap) ToLifecycleHookMapOutput() LifecycleHookMapOutput {

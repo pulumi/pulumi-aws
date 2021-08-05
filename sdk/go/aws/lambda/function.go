@@ -633,7 +633,7 @@ type FunctionArrayInput interface {
 type FunctionArray []FunctionInput
 
 func (FunctionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Function)(nil))
+	return reflect.TypeOf((*[]*Function)(nil)).Elem()
 }
 
 func (i FunctionArray) ToFunctionArrayOutput() FunctionArrayOutput {
@@ -658,7 +658,7 @@ type FunctionMapInput interface {
 type FunctionMap map[string]FunctionInput
 
 func (FunctionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Function)(nil))
+	return reflect.TypeOf((*map[string]*Function)(nil)).Elem()
 }
 
 func (i FunctionMap) ToFunctionMapOutput() FunctionMapOutput {

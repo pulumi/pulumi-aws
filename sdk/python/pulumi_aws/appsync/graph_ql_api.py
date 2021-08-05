@@ -523,11 +523,11 @@ class GraphQLApi(pulumi.CustomResource):
                         vendor_name="AWS",
                     ),
                 ),
-                visibility_config={
-                    "cloudwatchMetricsEnabled": False,
-                    "metric_name": "friendly-rule-metric-name",
-                    "sampledRequestsEnabled": False,
-                },
+                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
             )],
             visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
                 cloudwatch_metrics_enabled=False,
@@ -694,11 +694,11 @@ class GraphQLApi(pulumi.CustomResource):
                         vendor_name="AWS",
                     ),
                 ),
-                visibility_config={
-                    "cloudwatchMetricsEnabled": False,
-                    "metric_name": "friendly-rule-metric-name",
-                    "sampledRequestsEnabled": False,
-                },
+                visibility_config=aws.wafv2.WebAclRuleVisibilityConfigArgs(
+                    cloudwatch_metrics_enabled=False,
+                    metric_name="friendly-rule-metric-name",
+                    sampled_requests_enabled=False,
+                ),
             )],
             visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
                 cloudwatch_metrics_enabled=False,

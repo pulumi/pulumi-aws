@@ -212,7 +212,7 @@ type ResourceArrayInput interface {
 type ResourceArray []ResourceInput
 
 func (ResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Resource)(nil))
+	return reflect.TypeOf((*[]*Resource)(nil)).Elem()
 }
 
 func (i ResourceArray) ToResourceArrayOutput() ResourceArrayOutput {
@@ -237,7 +237,7 @@ type ResourceMapInput interface {
 type ResourceMap map[string]ResourceInput
 
 func (ResourceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Resource)(nil))
+	return reflect.TypeOf((*map[string]*Resource)(nil)).Elem()
 }
 
 func (i ResourceMap) ToResourceMapOutput() ResourceMapOutput {

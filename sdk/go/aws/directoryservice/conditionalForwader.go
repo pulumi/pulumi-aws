@@ -203,7 +203,7 @@ type ConditionalForwaderArrayInput interface {
 type ConditionalForwaderArray []ConditionalForwaderInput
 
 func (ConditionalForwaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConditionalForwader)(nil))
+	return reflect.TypeOf((*[]*ConditionalForwader)(nil)).Elem()
 }
 
 func (i ConditionalForwaderArray) ToConditionalForwaderArrayOutput() ConditionalForwaderArrayOutput {
@@ -228,7 +228,7 @@ type ConditionalForwaderMapInput interface {
 type ConditionalForwaderMap map[string]ConditionalForwaderInput
 
 func (ConditionalForwaderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConditionalForwader)(nil))
+	return reflect.TypeOf((*map[string]*ConditionalForwader)(nil)).Elem()
 }
 
 func (i ConditionalForwaderMap) ToConditionalForwaderMapOutput() ConditionalForwaderMapOutput {

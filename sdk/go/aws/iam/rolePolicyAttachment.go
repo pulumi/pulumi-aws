@@ -206,7 +206,7 @@ type RolePolicyAttachmentArrayInput interface {
 type RolePolicyAttachmentArray []RolePolicyAttachmentInput
 
 func (RolePolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RolePolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*RolePolicyAttachment)(nil)).Elem()
 }
 
 func (i RolePolicyAttachmentArray) ToRolePolicyAttachmentArrayOutput() RolePolicyAttachmentArrayOutput {
@@ -231,7 +231,7 @@ type RolePolicyAttachmentMapInput interface {
 type RolePolicyAttachmentMap map[string]RolePolicyAttachmentInput
 
 func (RolePolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RolePolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*RolePolicyAttachment)(nil)).Elem()
 }
 
 func (i RolePolicyAttachmentMap) ToRolePolicyAttachmentMapOutput() RolePolicyAttachmentMapOutput {

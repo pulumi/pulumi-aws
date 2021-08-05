@@ -208,7 +208,7 @@ type SmsPreferencesArrayInput interface {
 type SmsPreferencesArray []SmsPreferencesInput
 
 func (SmsPreferencesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SmsPreferences)(nil))
+	return reflect.TypeOf((*[]*SmsPreferences)(nil)).Elem()
 }
 
 func (i SmsPreferencesArray) ToSmsPreferencesArrayOutput() SmsPreferencesArrayOutput {
@@ -233,7 +233,7 @@ type SmsPreferencesMapInput interface {
 type SmsPreferencesMap map[string]SmsPreferencesInput
 
 func (SmsPreferencesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SmsPreferences)(nil))
+	return reflect.TypeOf((*map[string]*SmsPreferences)(nil)).Elem()
 }
 
 func (i SmsPreferencesMap) ToSmsPreferencesMapOutput() SmsPreferencesMapOutput {

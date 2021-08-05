@@ -221,7 +221,7 @@ type UsagePlanArrayInput interface {
 type UsagePlanArray []UsagePlanInput
 
 func (UsagePlanArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UsagePlan)(nil))
+	return reflect.TypeOf((*[]*UsagePlan)(nil)).Elem()
 }
 
 func (i UsagePlanArray) ToUsagePlanArrayOutput() UsagePlanArrayOutput {
@@ -246,7 +246,7 @@ type UsagePlanMapInput interface {
 type UsagePlanMap map[string]UsagePlanInput
 
 func (UsagePlanMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UsagePlan)(nil))
+	return reflect.TypeOf((*map[string]*UsagePlan)(nil)).Elem()
 }
 
 func (i UsagePlanMap) ToUsagePlanMapOutput() UsagePlanMapOutput {

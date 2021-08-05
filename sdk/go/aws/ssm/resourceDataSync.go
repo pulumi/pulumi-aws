@@ -200,7 +200,7 @@ type ResourceDataSyncArrayInput interface {
 type ResourceDataSyncArray []ResourceDataSyncInput
 
 func (ResourceDataSyncArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceDataSync)(nil))
+	return reflect.TypeOf((*[]*ResourceDataSync)(nil)).Elem()
 }
 
 func (i ResourceDataSyncArray) ToResourceDataSyncArrayOutput() ResourceDataSyncArrayOutput {
@@ -225,7 +225,7 @@ type ResourceDataSyncMapInput interface {
 type ResourceDataSyncMap map[string]ResourceDataSyncInput
 
 func (ResourceDataSyncMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceDataSync)(nil))
+	return reflect.TypeOf((*map[string]*ResourceDataSync)(nil)).Elem()
 }
 
 func (i ResourceDataSyncMap) ToResourceDataSyncMapOutput() ResourceDataSyncMapOutput {

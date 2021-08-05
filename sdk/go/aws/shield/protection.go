@@ -237,7 +237,7 @@ type ProtectionArrayInput interface {
 type ProtectionArray []ProtectionInput
 
 func (ProtectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Protection)(nil))
+	return reflect.TypeOf((*[]*Protection)(nil)).Elem()
 }
 
 func (i ProtectionArray) ToProtectionArrayOutput() ProtectionArrayOutput {
@@ -262,7 +262,7 @@ type ProtectionMapInput interface {
 type ProtectionMap map[string]ProtectionInput
 
 func (ProtectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Protection)(nil))
+	return reflect.TypeOf((*map[string]*Protection)(nil)).Elem()
 }
 
 func (i ProtectionMap) ToProtectionMapOutput() ProtectionMapOutput {

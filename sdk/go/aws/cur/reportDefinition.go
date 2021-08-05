@@ -312,7 +312,7 @@ type ReportDefinitionArrayInput interface {
 type ReportDefinitionArray []ReportDefinitionInput
 
 func (ReportDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReportDefinition)(nil))
+	return reflect.TypeOf((*[]*ReportDefinition)(nil)).Elem()
 }
 
 func (i ReportDefinitionArray) ToReportDefinitionArrayOutput() ReportDefinitionArrayOutput {
@@ -337,7 +337,7 @@ type ReportDefinitionMapInput interface {
 type ReportDefinitionMap map[string]ReportDefinitionInput
 
 func (ReportDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReportDefinition)(nil))
+	return reflect.TypeOf((*map[string]*ReportDefinition)(nil)).Elem()
 }
 
 func (i ReportDefinitionMap) ToReportDefinitionMapOutput() ReportDefinitionMapOutput {

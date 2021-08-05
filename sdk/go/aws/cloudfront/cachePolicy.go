@@ -257,7 +257,7 @@ type CachePolicyArrayInput interface {
 type CachePolicyArray []CachePolicyInput
 
 func (CachePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CachePolicy)(nil))
+	return reflect.TypeOf((*[]*CachePolicy)(nil)).Elem()
 }
 
 func (i CachePolicyArray) ToCachePolicyArrayOutput() CachePolicyArrayOutput {
@@ -282,7 +282,7 @@ type CachePolicyMapInput interface {
 type CachePolicyMap map[string]CachePolicyInput
 
 func (CachePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CachePolicy)(nil))
+	return reflect.TypeOf((*map[string]*CachePolicy)(nil)).Elem()
 }
 
 func (i CachePolicyMap) ToCachePolicyMapOutput() CachePolicyMapOutput {

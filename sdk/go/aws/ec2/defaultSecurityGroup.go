@@ -314,7 +314,7 @@ type DefaultSecurityGroupArrayInput interface {
 type DefaultSecurityGroupArray []DefaultSecurityGroupInput
 
 func (DefaultSecurityGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultSecurityGroup)(nil))
+	return reflect.TypeOf((*[]*DefaultSecurityGroup)(nil)).Elem()
 }
 
 func (i DefaultSecurityGroupArray) ToDefaultSecurityGroupArrayOutput() DefaultSecurityGroupArrayOutput {
@@ -339,7 +339,7 @@ type DefaultSecurityGroupMapInput interface {
 type DefaultSecurityGroupMap map[string]DefaultSecurityGroupInput
 
 func (DefaultSecurityGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultSecurityGroup)(nil))
+	return reflect.TypeOf((*map[string]*DefaultSecurityGroup)(nil)).Elem()
 }
 
 func (i DefaultSecurityGroupMap) ToDefaultSecurityGroupMapOutput() DefaultSecurityGroupMapOutput {

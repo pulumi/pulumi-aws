@@ -331,7 +331,7 @@ type TransitVirtualInterfaceArrayInput interface {
 type TransitVirtualInterfaceArray []TransitVirtualInterfaceInput
 
 func (TransitVirtualInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TransitVirtualInterface)(nil))
+	return reflect.TypeOf((*[]*TransitVirtualInterface)(nil)).Elem()
 }
 
 func (i TransitVirtualInterfaceArray) ToTransitVirtualInterfaceArrayOutput() TransitVirtualInterfaceArrayOutput {
@@ -356,7 +356,7 @@ type TransitVirtualInterfaceMapInput interface {
 type TransitVirtualInterfaceMap map[string]TransitVirtualInterfaceInput
 
 func (TransitVirtualInterfaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TransitVirtualInterface)(nil))
+	return reflect.TypeOf((*map[string]*TransitVirtualInterface)(nil)).Elem()
 }
 
 func (i TransitVirtualInterfaceMap) ToTransitVirtualInterfaceMapOutput() TransitVirtualInterfaceMapOutput {

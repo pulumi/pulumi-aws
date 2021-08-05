@@ -253,7 +253,7 @@ type MeshArrayInput interface {
 type MeshArray []MeshInput
 
 func (MeshArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Mesh)(nil))
+	return reflect.TypeOf((*[]*Mesh)(nil)).Elem()
 }
 
 func (i MeshArray) ToMeshArrayOutput() MeshArrayOutput {
@@ -278,7 +278,7 @@ type MeshMapInput interface {
 type MeshMap map[string]MeshInput
 
 func (MeshMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Mesh)(nil))
+	return reflect.TypeOf((*map[string]*Mesh)(nil)).Elem()
 }
 
 func (i MeshMap) ToMeshMapOutput() MeshMapOutput {

@@ -244,7 +244,7 @@ type OriginRequestPolicyArrayInput interface {
 type OriginRequestPolicyArray []OriginRequestPolicyInput
 
 func (OriginRequestPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OriginRequestPolicy)(nil))
+	return reflect.TypeOf((*[]*OriginRequestPolicy)(nil)).Elem()
 }
 
 func (i OriginRequestPolicyArray) ToOriginRequestPolicyArrayOutput() OriginRequestPolicyArrayOutput {
@@ -269,7 +269,7 @@ type OriginRequestPolicyMapInput interface {
 type OriginRequestPolicyMap map[string]OriginRequestPolicyInput
 
 func (OriginRequestPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OriginRequestPolicy)(nil))
+	return reflect.TypeOf((*map[string]*OriginRequestPolicy)(nil)).Elem()
 }
 
 func (i OriginRequestPolicyMap) ToOriginRequestPolicyMapOutput() OriginRequestPolicyMapOutput {

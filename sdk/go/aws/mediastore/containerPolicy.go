@@ -203,7 +203,7 @@ type ContainerPolicyArrayInput interface {
 type ContainerPolicyArray []ContainerPolicyInput
 
 func (ContainerPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ContainerPolicy)(nil))
+	return reflect.TypeOf((*[]*ContainerPolicy)(nil)).Elem()
 }
 
 func (i ContainerPolicyArray) ToContainerPolicyArrayOutput() ContainerPolicyArrayOutput {
@@ -228,7 +228,7 @@ type ContainerPolicyMapInput interface {
 type ContainerPolicyMap map[string]ContainerPolicyInput
 
 func (ContainerPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ContainerPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ContainerPolicy)(nil)).Elem()
 }
 
 func (i ContainerPolicyMap) ToContainerPolicyMapOutput() ContainerPolicyMapOutput {

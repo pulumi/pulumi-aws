@@ -414,7 +414,7 @@ type AmiCopyArrayInput interface {
 type AmiCopyArray []AmiCopyInput
 
 func (AmiCopyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AmiCopy)(nil))
+	return reflect.TypeOf((*[]*AmiCopy)(nil)).Elem()
 }
 
 func (i AmiCopyArray) ToAmiCopyArrayOutput() AmiCopyArrayOutput {
@@ -439,7 +439,7 @@ type AmiCopyMapInput interface {
 type AmiCopyMap map[string]AmiCopyInput
 
 func (AmiCopyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AmiCopy)(nil))
+	return reflect.TypeOf((*map[string]*AmiCopy)(nil)).Elem()
 }
 
 func (i AmiCopyMap) ToAmiCopyMapOutput() AmiCopyMapOutput {

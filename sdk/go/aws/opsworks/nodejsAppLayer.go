@@ -365,7 +365,7 @@ type NodejsAppLayerArrayInput interface {
 type NodejsAppLayerArray []NodejsAppLayerInput
 
 func (NodejsAppLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NodejsAppLayer)(nil))
+	return reflect.TypeOf((*[]*NodejsAppLayer)(nil)).Elem()
 }
 
 func (i NodejsAppLayerArray) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOutput {
@@ -390,7 +390,7 @@ type NodejsAppLayerMapInput interface {
 type NodejsAppLayerMap map[string]NodejsAppLayerInput
 
 func (NodejsAppLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NodejsAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*NodejsAppLayer)(nil)).Elem()
 }
 
 func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOutput {

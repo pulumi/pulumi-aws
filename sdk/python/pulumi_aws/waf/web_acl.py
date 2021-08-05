@@ -328,17 +328,17 @@ class WebAcl(pulumi.CustomResource):
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
             log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields={
-                "fieldToMatches": [
-                    {
-                        "type": "URI",
-                    },
-                    {
-                        "data": "referer",
-                        "type": "HEADER",
-                    },
+            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
+                field_to_matches=[
+                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        type="URI",
+                    ),
+                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        data="referer",
+                        type="HEADER",
+                    ),
                 ],
-            },
+            ),
         ))
         ```
 
@@ -415,17 +415,17 @@ class WebAcl(pulumi.CustomResource):
 
         example = aws.waf.WebAcl("example", logging_configuration=aws.waf.WebAclLoggingConfigurationArgs(
             log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields={
-                "fieldToMatches": [
-                    {
-                        "type": "URI",
-                    },
-                    {
-                        "data": "referer",
-                        "type": "HEADER",
-                    },
+            redacted_fields=aws.waf.WebAclLoggingConfigurationRedactedFieldsArgs(
+                field_to_matches=[
+                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        type="URI",
+                    ),
+                    aws.waf.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        data="referer",
+                        type="HEADER",
+                    ),
                 ],
-            },
+            ),
         ))
         ```
 

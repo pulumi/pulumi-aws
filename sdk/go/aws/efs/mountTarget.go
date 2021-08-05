@@ -273,7 +273,7 @@ type MountTargetArrayInput interface {
 type MountTargetArray []MountTargetInput
 
 func (MountTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MountTarget)(nil))
+	return reflect.TypeOf((*[]*MountTarget)(nil)).Elem()
 }
 
 func (i MountTargetArray) ToMountTargetArrayOutput() MountTargetArrayOutput {
@@ -298,7 +298,7 @@ type MountTargetMapInput interface {
 type MountTargetMap map[string]MountTargetInput
 
 func (MountTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MountTarget)(nil))
+	return reflect.TypeOf((*map[string]*MountTarget)(nil)).Elem()
 }
 
 func (i MountTargetMap) ToMountTargetMapOutput() MountTargetMapOutput {

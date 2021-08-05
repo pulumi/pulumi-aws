@@ -280,7 +280,7 @@ type ThreatIntelSetArrayInput interface {
 type ThreatIntelSetArray []ThreatIntelSetInput
 
 func (ThreatIntelSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ThreatIntelSet)(nil))
+	return reflect.TypeOf((*[]*ThreatIntelSet)(nil)).Elem()
 }
 
 func (i ThreatIntelSetArray) ToThreatIntelSetArrayOutput() ThreatIntelSetArrayOutput {
@@ -305,7 +305,7 @@ type ThreatIntelSetMapInput interface {
 type ThreatIntelSetMap map[string]ThreatIntelSetInput
 
 func (ThreatIntelSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ThreatIntelSet)(nil))
+	return reflect.TypeOf((*map[string]*ThreatIntelSet)(nil)).Elem()
 }
 
 func (i ThreatIntelSetMap) ToThreatIntelSetMapOutput() ThreatIntelSetMapOutput {

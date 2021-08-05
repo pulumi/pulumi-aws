@@ -245,7 +245,7 @@ type ClusterParameterGroupArrayInput interface {
 type ClusterParameterGroupArray []ClusterParameterGroupInput
 
 func (ClusterParameterGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClusterParameterGroup)(nil))
+	return reflect.TypeOf((*[]*ClusterParameterGroup)(nil)).Elem()
 }
 
 func (i ClusterParameterGroupArray) ToClusterParameterGroupArrayOutput() ClusterParameterGroupArrayOutput {
@@ -270,7 +270,7 @@ type ClusterParameterGroupMapInput interface {
 type ClusterParameterGroupMap map[string]ClusterParameterGroupInput
 
 func (ClusterParameterGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClusterParameterGroup)(nil))
+	return reflect.TypeOf((*map[string]*ClusterParameterGroup)(nil)).Elem()
 }
 
 func (i ClusterParameterGroupMap) ToClusterParameterGroupMapOutput() ClusterParameterGroupMapOutput {

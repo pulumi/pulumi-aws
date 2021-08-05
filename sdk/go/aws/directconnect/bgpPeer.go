@@ -250,7 +250,7 @@ type BgpPeerArrayInput interface {
 type BgpPeerArray []BgpPeerInput
 
 func (BgpPeerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BgpPeer)(nil))
+	return reflect.TypeOf((*[]*BgpPeer)(nil)).Elem()
 }
 
 func (i BgpPeerArray) ToBgpPeerArrayOutput() BgpPeerArrayOutput {
@@ -275,7 +275,7 @@ type BgpPeerMapInput interface {
 type BgpPeerMap map[string]BgpPeerInput
 
 func (BgpPeerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BgpPeer)(nil))
+	return reflect.TypeOf((*map[string]*BgpPeer)(nil)).Elem()
 }
 
 func (i BgpPeerMap) ToBgpPeerMapOutput() BgpPeerMapOutput {

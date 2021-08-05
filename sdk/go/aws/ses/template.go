@@ -208,7 +208,7 @@ type TemplateArrayInput interface {
 type TemplateArray []TemplateInput
 
 func (TemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Template)(nil))
+	return reflect.TypeOf((*[]*Template)(nil)).Elem()
 }
 
 func (i TemplateArray) ToTemplateArrayOutput() TemplateArrayOutput {
@@ -233,7 +233,7 @@ type TemplateMapInput interface {
 type TemplateMap map[string]TemplateInput
 
 func (TemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Template)(nil))
+	return reflect.TypeOf((*map[string]*Template)(nil)).Elem()
 }
 
 func (i TemplateMap) ToTemplateMapOutput() TemplateMapOutput {

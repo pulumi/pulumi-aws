@@ -200,7 +200,7 @@ type LocalGatewayRouteArrayInput interface {
 type LocalGatewayRouteArray []LocalGatewayRouteInput
 
 func (LocalGatewayRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LocalGatewayRoute)(nil))
+	return reflect.TypeOf((*[]*LocalGatewayRoute)(nil)).Elem()
 }
 
 func (i LocalGatewayRouteArray) ToLocalGatewayRouteArrayOutput() LocalGatewayRouteArrayOutput {
@@ -225,7 +225,7 @@ type LocalGatewayRouteMapInput interface {
 type LocalGatewayRouteMap map[string]LocalGatewayRouteInput
 
 func (LocalGatewayRouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LocalGatewayRoute)(nil))
+	return reflect.TypeOf((*map[string]*LocalGatewayRoute)(nil)).Elem()
 }
 
 func (i LocalGatewayRouteMap) ToLocalGatewayRouteMapOutput() LocalGatewayRouteMapOutput {

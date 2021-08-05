@@ -205,7 +205,7 @@ type StandardsControlArrayInput interface {
 type StandardsControlArray []StandardsControlInput
 
 func (StandardsControlArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StandardsControl)(nil))
+	return reflect.TypeOf((*[]*StandardsControl)(nil)).Elem()
 }
 
 func (i StandardsControlArray) ToStandardsControlArrayOutput() StandardsControlArrayOutput {
@@ -230,7 +230,7 @@ type StandardsControlMapInput interface {
 type StandardsControlMap map[string]StandardsControlInput
 
 func (StandardsControlMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StandardsControl)(nil))
+	return reflect.TypeOf((*map[string]*StandardsControl)(nil)).Elem()
 }
 
 func (i StandardsControlMap) ToStandardsControlMapOutput() StandardsControlMapOutput {

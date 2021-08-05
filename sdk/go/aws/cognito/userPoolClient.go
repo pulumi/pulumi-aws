@@ -463,7 +463,7 @@ type UserPoolClientArrayInput interface {
 type UserPoolClientArray []UserPoolClientInput
 
 func (UserPoolClientArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPoolClient)(nil))
+	return reflect.TypeOf((*[]*UserPoolClient)(nil)).Elem()
 }
 
 func (i UserPoolClientArray) ToUserPoolClientArrayOutput() UserPoolClientArrayOutput {
@@ -488,7 +488,7 @@ type UserPoolClientMapInput interface {
 type UserPoolClientMap map[string]UserPoolClientInput
 
 func (UserPoolClientMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPoolClient)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolClient)(nil)).Elem()
 }
 
 func (i UserPoolClientMap) ToUserPoolClientMapOutput() UserPoolClientMapOutput {

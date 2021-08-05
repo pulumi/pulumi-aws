@@ -236,7 +236,7 @@ type ReplicationConfigurationArrayInput interface {
 type ReplicationConfigurationArray []ReplicationConfigurationInput
 
 func (ReplicationConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((*[]*ReplicationConfiguration)(nil)).Elem()
 }
 
 func (i ReplicationConfigurationArray) ToReplicationConfigurationArrayOutput() ReplicationConfigurationArrayOutput {
@@ -261,7 +261,7 @@ type ReplicationConfigurationMapInput interface {
 type ReplicationConfigurationMap map[string]ReplicationConfigurationInput
 
 func (ReplicationConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationConfiguration)(nil)).Elem()
 }
 
 func (i ReplicationConfigurationMap) ToReplicationConfigurationMapOutput() ReplicationConfigurationMapOutput {

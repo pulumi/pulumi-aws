@@ -259,7 +259,7 @@ type PeeringAttachmentArrayInput interface {
 type PeeringAttachmentArray []PeeringAttachmentInput
 
 func (PeeringAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PeeringAttachment)(nil))
+	return reflect.TypeOf((*[]*PeeringAttachment)(nil)).Elem()
 }
 
 func (i PeeringAttachmentArray) ToPeeringAttachmentArrayOutput() PeeringAttachmentArrayOutput {
@@ -284,7 +284,7 @@ type PeeringAttachmentMapInput interface {
 type PeeringAttachmentMap map[string]PeeringAttachmentInput
 
 func (PeeringAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PeeringAttachment)(nil))
+	return reflect.TypeOf((*map[string]*PeeringAttachment)(nil)).Elem()
 }
 
 func (i PeeringAttachmentMap) ToPeeringAttachmentMapOutput() PeeringAttachmentMapOutput {

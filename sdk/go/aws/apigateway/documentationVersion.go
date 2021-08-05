@@ -213,7 +213,7 @@ type DocumentationVersionArrayInput interface {
 type DocumentationVersionArray []DocumentationVersionInput
 
 func (DocumentationVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DocumentationVersion)(nil))
+	return reflect.TypeOf((*[]*DocumentationVersion)(nil)).Elem()
 }
 
 func (i DocumentationVersionArray) ToDocumentationVersionArrayOutput() DocumentationVersionArrayOutput {
@@ -238,7 +238,7 @@ type DocumentationVersionMapInput interface {
 type DocumentationVersionMap map[string]DocumentationVersionInput
 
 func (DocumentationVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DocumentationVersion)(nil))
+	return reflect.TypeOf((*map[string]*DocumentationVersion)(nil)).Elem()
 }
 
 func (i DocumentationVersionMap) ToDocumentationVersionMapOutput() DocumentationVersionMapOutput {

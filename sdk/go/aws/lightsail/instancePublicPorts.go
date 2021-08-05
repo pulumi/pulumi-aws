@@ -196,7 +196,7 @@ type InstancePublicPortsArrayInput interface {
 type InstancePublicPortsArray []InstancePublicPortsInput
 
 func (InstancePublicPortsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InstancePublicPorts)(nil))
+	return reflect.TypeOf((*[]*InstancePublicPorts)(nil)).Elem()
 }
 
 func (i InstancePublicPortsArray) ToInstancePublicPortsArrayOutput() InstancePublicPortsArrayOutput {
@@ -221,7 +221,7 @@ type InstancePublicPortsMapInput interface {
 type InstancePublicPortsMap map[string]InstancePublicPortsInput
 
 func (InstancePublicPortsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InstancePublicPorts)(nil))
+	return reflect.TypeOf((*map[string]*InstancePublicPorts)(nil)).Elem()
 }
 
 func (i InstancePublicPortsMap) ToInstancePublicPortsMapOutput() InstancePublicPortsMapOutput {

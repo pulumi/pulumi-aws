@@ -241,7 +241,7 @@ type VpcEndpointConnectionNotificationArrayInput interface {
 type VpcEndpointConnectionNotificationArray []VpcEndpointConnectionNotificationInput
 
 func (VpcEndpointConnectionNotificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpointConnectionNotification)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointConnectionNotification)(nil)).Elem()
 }
 
 func (i VpcEndpointConnectionNotificationArray) ToVpcEndpointConnectionNotificationArrayOutput() VpcEndpointConnectionNotificationArrayOutput {
@@ -266,7 +266,7 @@ type VpcEndpointConnectionNotificationMapInput interface {
 type VpcEndpointConnectionNotificationMap map[string]VpcEndpointConnectionNotificationInput
 
 func (VpcEndpointConnectionNotificationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpointConnectionNotification)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointConnectionNotification)(nil)).Elem()
 }
 
 func (i VpcEndpointConnectionNotificationMap) ToVpcEndpointConnectionNotificationMapOutput() VpcEndpointConnectionNotificationMapOutput {

@@ -220,7 +220,7 @@ type HostArrayInput interface {
 type HostArray []HostInput
 
 func (HostArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Host)(nil))
+	return reflect.TypeOf((*[]*Host)(nil)).Elem()
 }
 
 func (i HostArray) ToHostArrayOutput() HostArrayOutput {
@@ -245,7 +245,7 @@ type HostMapInput interface {
 type HostMap map[string]HostInput
 
 func (HostMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Host)(nil))
+	return reflect.TypeOf((*map[string]*Host)(nil)).Elem()
 }
 
 func (i HostMap) ToHostMapOutput() HostMapOutput {

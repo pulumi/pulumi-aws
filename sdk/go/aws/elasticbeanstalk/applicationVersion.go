@@ -268,7 +268,7 @@ type ApplicationVersionArrayInput interface {
 type ApplicationVersionArray []ApplicationVersionInput
 
 func (ApplicationVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationVersion)(nil))
+	return reflect.TypeOf((*[]*ApplicationVersion)(nil)).Elem()
 }
 
 func (i ApplicationVersionArray) ToApplicationVersionArrayOutput() ApplicationVersionArrayOutput {
@@ -293,7 +293,7 @@ type ApplicationVersionMapInput interface {
 type ApplicationVersionMap map[string]ApplicationVersionInput
 
 func (ApplicationVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationVersion)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationVersion)(nil)).Elem()
 }
 
 func (i ApplicationVersionMap) ToApplicationVersionMapOutput() ApplicationVersionMapOutput {

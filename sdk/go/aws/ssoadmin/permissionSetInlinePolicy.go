@@ -178,7 +178,7 @@ type PermissionSetInlinePolicyArrayInput interface {
 type PermissionSetInlinePolicyArray []PermissionSetInlinePolicyInput
 
 func (PermissionSetInlinePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((*[]*PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (i PermissionSetInlinePolicyArray) ToPermissionSetInlinePolicyArrayOutput() PermissionSetInlinePolicyArrayOutput {
@@ -203,7 +203,7 @@ type PermissionSetInlinePolicyMapInput interface {
 type PermissionSetInlinePolicyMap map[string]PermissionSetInlinePolicyInput
 
 func (PermissionSetInlinePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((*map[string]*PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutput() PermissionSetInlinePolicyMapOutput {

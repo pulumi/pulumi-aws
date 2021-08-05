@@ -206,7 +206,7 @@ type RdsDbInstanceArrayInput interface {
 type RdsDbInstanceArray []RdsDbInstanceInput
 
 func (RdsDbInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RdsDbInstance)(nil))
+	return reflect.TypeOf((*[]*RdsDbInstance)(nil)).Elem()
 }
 
 func (i RdsDbInstanceArray) ToRdsDbInstanceArrayOutput() RdsDbInstanceArrayOutput {
@@ -231,7 +231,7 @@ type RdsDbInstanceMapInput interface {
 type RdsDbInstanceMap map[string]RdsDbInstanceInput
 
 func (RdsDbInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RdsDbInstance)(nil))
+	return reflect.TypeOf((*map[string]*RdsDbInstance)(nil)).Elem()
 }
 
 func (i RdsDbInstanceMap) ToRdsDbInstanceMapOutput() RdsDbInstanceMapOutput {

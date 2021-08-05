@@ -478,7 +478,7 @@ type IntegrationArrayInput interface {
 type IntegrationArray []IntegrationInput
 
 func (IntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Integration)(nil))
+	return reflect.TypeOf((*[]*Integration)(nil)).Elem()
 }
 
 func (i IntegrationArray) ToIntegrationArrayOutput() IntegrationArrayOutput {
@@ -503,7 +503,7 @@ type IntegrationMapInput interface {
 type IntegrationMap map[string]IntegrationInput
 
 func (IntegrationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Integration)(nil))
+	return reflect.TypeOf((*map[string]*Integration)(nil)).Elem()
 }
 
 func (i IntegrationMap) ToIntegrationMapOutput() IntegrationMapOutput {

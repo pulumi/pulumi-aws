@@ -542,7 +542,7 @@ type TopicSubscriptionArrayInput interface {
 type TopicSubscriptionArray []TopicSubscriptionInput
 
 func (TopicSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TopicSubscription)(nil))
+	return reflect.TypeOf((*[]*TopicSubscription)(nil)).Elem()
 }
 
 func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutput() TopicSubscriptionArrayOutput {
@@ -567,7 +567,7 @@ type TopicSubscriptionMapInput interface {
 type TopicSubscriptionMap map[string]TopicSubscriptionInput
 
 func (TopicSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TopicSubscription)(nil))
+	return reflect.TypeOf((*map[string]*TopicSubscription)(nil)).Elem()
 }
 
 func (i TopicSubscriptionMap) ToTopicSubscriptionMapOutput() TopicSubscriptionMapOutput {

@@ -200,7 +200,7 @@ type GroupPolicyAttachmentArrayInput interface {
 type GroupPolicyAttachmentArray []GroupPolicyAttachmentInput
 
 func (GroupPolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupPolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*GroupPolicyAttachment)(nil)).Elem()
 }
 
 func (i GroupPolicyAttachmentArray) ToGroupPolicyAttachmentArrayOutput() GroupPolicyAttachmentArrayOutput {
@@ -225,7 +225,7 @@ type GroupPolicyAttachmentMapInput interface {
 type GroupPolicyAttachmentMap map[string]GroupPolicyAttachmentInput
 
 func (GroupPolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupPolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*GroupPolicyAttachment)(nil)).Elem()
 }
 
 func (i GroupPolicyAttachmentMap) ToGroupPolicyAttachmentMapOutput() GroupPolicyAttachmentMapOutput {

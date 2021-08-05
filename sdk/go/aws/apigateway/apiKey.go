@@ -239,7 +239,7 @@ type ApiKeyArrayInput interface {
 type ApiKeyArray []ApiKeyInput
 
 func (ApiKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiKey)(nil))
+	return reflect.TypeOf((*[]*ApiKey)(nil)).Elem()
 }
 
 func (i ApiKeyArray) ToApiKeyArrayOutput() ApiKeyArrayOutput {
@@ -264,7 +264,7 @@ type ApiKeyMapInput interface {
 type ApiKeyMap map[string]ApiKeyInput
 
 func (ApiKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiKey)(nil))
+	return reflect.TypeOf((*map[string]*ApiKey)(nil)).Elem()
 }
 
 func (i ApiKeyMap) ToApiKeyMapOutput() ApiKeyMapOutput {

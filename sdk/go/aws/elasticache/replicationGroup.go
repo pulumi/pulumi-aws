@@ -661,7 +661,7 @@ type ReplicationGroupArrayInput interface {
 type ReplicationGroupArray []ReplicationGroupInput
 
 func (ReplicationGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicationGroup)(nil))
+	return reflect.TypeOf((*[]*ReplicationGroup)(nil)).Elem()
 }
 
 func (i ReplicationGroupArray) ToReplicationGroupArrayOutput() ReplicationGroupArrayOutput {
@@ -686,7 +686,7 @@ type ReplicationGroupMapInput interface {
 type ReplicationGroupMap map[string]ReplicationGroupInput
 
 func (ReplicationGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicationGroup)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationGroup)(nil)).Elem()
 }
 
 func (i ReplicationGroupMap) ToReplicationGroupMapOutput() ReplicationGroupMapOutput {

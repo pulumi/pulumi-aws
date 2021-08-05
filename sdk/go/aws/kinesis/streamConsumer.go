@@ -206,7 +206,7 @@ type StreamConsumerArrayInput interface {
 type StreamConsumerArray []StreamConsumerInput
 
 func (StreamConsumerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StreamConsumer)(nil))
+	return reflect.TypeOf((*[]*StreamConsumer)(nil)).Elem()
 }
 
 func (i StreamConsumerArray) ToStreamConsumerArrayOutput() StreamConsumerArrayOutput {
@@ -231,7 +231,7 @@ type StreamConsumerMapInput interface {
 type StreamConsumerMap map[string]StreamConsumerInput
 
 func (StreamConsumerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StreamConsumer)(nil))
+	return reflect.TypeOf((*map[string]*StreamConsumer)(nil)).Elem()
 }
 
 func (i StreamConsumerMap) ToStreamConsumerMapOutput() StreamConsumerMapOutput {

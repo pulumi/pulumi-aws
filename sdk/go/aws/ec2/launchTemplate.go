@@ -532,7 +532,7 @@ type LaunchTemplateArrayInput interface {
 type LaunchTemplateArray []LaunchTemplateInput
 
 func (LaunchTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LaunchTemplate)(nil))
+	return reflect.TypeOf((*[]*LaunchTemplate)(nil)).Elem()
 }
 
 func (i LaunchTemplateArray) ToLaunchTemplateArrayOutput() LaunchTemplateArrayOutput {
@@ -557,7 +557,7 @@ type LaunchTemplateMapInput interface {
 type LaunchTemplateMap map[string]LaunchTemplateInput
 
 func (LaunchTemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LaunchTemplate)(nil))
+	return reflect.TypeOf((*map[string]*LaunchTemplate)(nil)).Elem()
 }
 
 func (i LaunchTemplateMap) ToLaunchTemplateMapOutput() LaunchTemplateMapOutput {

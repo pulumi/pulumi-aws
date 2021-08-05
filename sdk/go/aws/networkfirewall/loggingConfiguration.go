@@ -264,7 +264,7 @@ type LoggingConfigurationArrayInput interface {
 type LoggingConfigurationArray []LoggingConfigurationInput
 
 func (LoggingConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LoggingConfiguration)(nil))
+	return reflect.TypeOf((*[]*LoggingConfiguration)(nil)).Elem()
 }
 
 func (i LoggingConfigurationArray) ToLoggingConfigurationArrayOutput() LoggingConfigurationArrayOutput {
@@ -289,7 +289,7 @@ type LoggingConfigurationMapInput interface {
 type LoggingConfigurationMap map[string]LoggingConfigurationInput
 
 func (LoggingConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LoggingConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*LoggingConfiguration)(nil)).Elem()
 }
 
 func (i LoggingConfigurationMap) ToLoggingConfigurationMapOutput() LoggingConfigurationMapOutput {

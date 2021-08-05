@@ -268,7 +268,7 @@ type InstanceGroupArrayInput interface {
 type InstanceGroupArray []InstanceGroupInput
 
 func (InstanceGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InstanceGroup)(nil))
+	return reflect.TypeOf((*[]*InstanceGroup)(nil)).Elem()
 }
 
 func (i InstanceGroupArray) ToInstanceGroupArrayOutput() InstanceGroupArrayOutput {
@@ -293,7 +293,7 @@ type InstanceGroupMapInput interface {
 type InstanceGroupMap map[string]InstanceGroupInput
 
 func (InstanceGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InstanceGroup)(nil))
+	return reflect.TypeOf((*map[string]*InstanceGroup)(nil)).Elem()
 }
 
 func (i InstanceGroupMap) ToInstanceGroupMapOutput() InstanceGroupMapOutput {

@@ -372,7 +372,7 @@ type MethodArrayInput interface {
 type MethodArray []MethodInput
 
 func (MethodArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Method)(nil))
+	return reflect.TypeOf((*[]*Method)(nil)).Elem()
 }
 
 func (i MethodArray) ToMethodArrayOutput() MethodArrayOutput {
@@ -397,7 +397,7 @@ type MethodMapInput interface {
 type MethodMap map[string]MethodInput
 
 func (MethodMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Method)(nil))
+	return reflect.TypeOf((*map[string]*Method)(nil)).Elem()
 }
 
 func (i MethodMap) ToMethodMapOutput() MethodMapOutput {

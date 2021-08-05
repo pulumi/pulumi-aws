@@ -191,7 +191,7 @@ type ProductSubscriptionArrayInput interface {
 type ProductSubscriptionArray []ProductSubscriptionInput
 
 func (ProductSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProductSubscription)(nil))
+	return reflect.TypeOf((*[]*ProductSubscription)(nil)).Elem()
 }
 
 func (i ProductSubscriptionArray) ToProductSubscriptionArrayOutput() ProductSubscriptionArrayOutput {
@@ -216,7 +216,7 @@ type ProductSubscriptionMapInput interface {
 type ProductSubscriptionMap map[string]ProductSubscriptionInput
 
 func (ProductSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProductSubscription)(nil))
+	return reflect.TypeOf((*map[string]*ProductSubscription)(nil)).Elem()
 }
 
 func (i ProductSubscriptionMap) ToProductSubscriptionMapOutput() ProductSubscriptionMapOutput {

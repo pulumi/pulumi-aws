@@ -318,7 +318,7 @@ type PresetArrayInput interface {
 type PresetArray []PresetInput
 
 func (PresetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Preset)(nil))
+	return reflect.TypeOf((*[]*Preset)(nil)).Elem()
 }
 
 func (i PresetArray) ToPresetArrayOutput() PresetArrayOutput {
@@ -343,7 +343,7 @@ type PresetMapInput interface {
 type PresetMap map[string]PresetInput
 
 func (PresetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Preset)(nil))
+	return reflect.TypeOf((*map[string]*Preset)(nil)).Elem()
 }
 
 func (i PresetMap) ToPresetMapOutput() PresetMapOutput {

@@ -352,7 +352,7 @@ type JobDefinitionArrayInput interface {
 type JobDefinitionArray []JobDefinitionInput
 
 func (JobDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JobDefinition)(nil))
+	return reflect.TypeOf((*[]*JobDefinition)(nil)).Elem()
 }
 
 func (i JobDefinitionArray) ToJobDefinitionArrayOutput() JobDefinitionArrayOutput {
@@ -377,7 +377,7 @@ type JobDefinitionMapInput interface {
 type JobDefinitionMap map[string]JobDefinitionInput
 
 func (JobDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JobDefinition)(nil))
+	return reflect.TypeOf((*map[string]*JobDefinition)(nil)).Elem()
 }
 
 func (i JobDefinitionMap) ToJobDefinitionMapOutput() JobDefinitionMapOutput {

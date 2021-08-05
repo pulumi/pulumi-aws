@@ -195,7 +195,7 @@ type EgressOnlyInternetGatewayArrayInput interface {
 type EgressOnlyInternetGatewayArray []EgressOnlyInternetGatewayInput
 
 func (EgressOnlyInternetGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EgressOnlyInternetGateway)(nil))
+	return reflect.TypeOf((*[]*EgressOnlyInternetGateway)(nil)).Elem()
 }
 
 func (i EgressOnlyInternetGatewayArray) ToEgressOnlyInternetGatewayArrayOutput() EgressOnlyInternetGatewayArrayOutput {
@@ -220,7 +220,7 @@ type EgressOnlyInternetGatewayMapInput interface {
 type EgressOnlyInternetGatewayMap map[string]EgressOnlyInternetGatewayInput
 
 func (EgressOnlyInternetGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EgressOnlyInternetGateway)(nil))
+	return reflect.TypeOf((*map[string]*EgressOnlyInternetGateway)(nil)).Elem()
 }
 
 func (i EgressOnlyInternetGatewayMap) ToEgressOnlyInternetGatewayMapOutput() EgressOnlyInternetGatewayMapOutput {

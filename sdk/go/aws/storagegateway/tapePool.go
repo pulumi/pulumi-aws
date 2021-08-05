@@ -232,7 +232,7 @@ type TapePoolArrayInput interface {
 type TapePoolArray []TapePoolInput
 
 func (TapePoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TapePool)(nil))
+	return reflect.TypeOf((*[]*TapePool)(nil)).Elem()
 }
 
 func (i TapePoolArray) ToTapePoolArrayOutput() TapePoolArrayOutput {
@@ -257,7 +257,7 @@ type TapePoolMapInput interface {
 type TapePoolMap map[string]TapePoolInput
 
 func (TapePoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TapePool)(nil))
+	return reflect.TypeOf((*map[string]*TapePool)(nil)).Elem()
 }
 
 func (i TapePoolMap) ToTapePoolMapOutput() TapePoolMapOutput {

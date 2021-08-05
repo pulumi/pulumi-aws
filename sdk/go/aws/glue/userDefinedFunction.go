@@ -263,7 +263,7 @@ type UserDefinedFunctionArrayInput interface {
 type UserDefinedFunctionArray []UserDefinedFunctionInput
 
 func (UserDefinedFunctionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserDefinedFunction)(nil))
+	return reflect.TypeOf((*[]*UserDefinedFunction)(nil)).Elem()
 }
 
 func (i UserDefinedFunctionArray) ToUserDefinedFunctionArrayOutput() UserDefinedFunctionArrayOutput {
@@ -288,7 +288,7 @@ type UserDefinedFunctionMapInput interface {
 type UserDefinedFunctionMap map[string]UserDefinedFunctionInput
 
 func (UserDefinedFunctionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserDefinedFunction)(nil))
+	return reflect.TypeOf((*map[string]*UserDefinedFunction)(nil)).Elem()
 }
 
 func (i UserDefinedFunctionMap) ToUserDefinedFunctionMapOutput() UserDefinedFunctionMapOutput {

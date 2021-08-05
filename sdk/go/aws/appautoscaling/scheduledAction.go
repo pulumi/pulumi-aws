@@ -319,7 +319,7 @@ type ScheduledActionArrayInput interface {
 type ScheduledActionArray []ScheduledActionInput
 
 func (ScheduledActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScheduledAction)(nil))
+	return reflect.TypeOf((*[]*ScheduledAction)(nil)).Elem()
 }
 
 func (i ScheduledActionArray) ToScheduledActionArrayOutput() ScheduledActionArrayOutput {
@@ -344,7 +344,7 @@ type ScheduledActionMapInput interface {
 type ScheduledActionMap map[string]ScheduledActionInput
 
 func (ScheduledActionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScheduledAction)(nil))
+	return reflect.TypeOf((*map[string]*ScheduledAction)(nil)).Elem()
 }
 
 func (i ScheduledActionMap) ToScheduledActionMapOutput() ScheduledActionMapOutput {

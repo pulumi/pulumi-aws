@@ -368,7 +368,7 @@ type EventConnectionArrayInput interface {
 type EventConnectionArray []EventConnectionInput
 
 func (EventConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventConnection)(nil))
+	return reflect.TypeOf((*[]*EventConnection)(nil)).Elem()
 }
 
 func (i EventConnectionArray) ToEventConnectionArrayOutput() EventConnectionArrayOutput {
@@ -393,7 +393,7 @@ type EventConnectionMapInput interface {
 type EventConnectionMap map[string]EventConnectionInput
 
 func (EventConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventConnection)(nil))
+	return reflect.TypeOf((*map[string]*EventConnection)(nil)).Elem()
 }
 
 func (i EventConnectionMap) ToEventConnectionMapOutput() EventConnectionMapOutput {

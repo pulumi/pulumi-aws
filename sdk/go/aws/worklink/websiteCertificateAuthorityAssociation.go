@@ -176,7 +176,7 @@ type WebsiteCertificateAuthorityAssociationArrayInput interface {
 type WebsiteCertificateAuthorityAssociationArray []WebsiteCertificateAuthorityAssociationInput
 
 func (WebsiteCertificateAuthorityAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebsiteCertificateAuthorityAssociation)(nil))
+	return reflect.TypeOf((*[]*WebsiteCertificateAuthorityAssociation)(nil)).Elem()
 }
 
 func (i WebsiteCertificateAuthorityAssociationArray) ToWebsiteCertificateAuthorityAssociationArrayOutput() WebsiteCertificateAuthorityAssociationArrayOutput {
@@ -201,7 +201,7 @@ type WebsiteCertificateAuthorityAssociationMapInput interface {
 type WebsiteCertificateAuthorityAssociationMap map[string]WebsiteCertificateAuthorityAssociationInput
 
 func (WebsiteCertificateAuthorityAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebsiteCertificateAuthorityAssociation)(nil))
+	return reflect.TypeOf((*map[string]*WebsiteCertificateAuthorityAssociation)(nil)).Elem()
 }
 
 func (i WebsiteCertificateAuthorityAssociationMap) ToWebsiteCertificateAuthorityAssociationMapOutput() WebsiteCertificateAuthorityAssociationMapOutput {

@@ -247,7 +247,7 @@ type GlobalTableArrayInput interface {
 type GlobalTableArray []GlobalTableInput
 
 func (GlobalTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GlobalTable)(nil))
+	return reflect.TypeOf((*[]*GlobalTable)(nil)).Elem()
 }
 
 func (i GlobalTableArray) ToGlobalTableArrayOutput() GlobalTableArrayOutput {
@@ -272,7 +272,7 @@ type GlobalTableMapInput interface {
 type GlobalTableMap map[string]GlobalTableInput
 
 func (GlobalTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GlobalTable)(nil))
+	return reflect.TypeOf((*map[string]*GlobalTable)(nil)).Elem()
 }
 
 func (i GlobalTableMap) ToGlobalTableMapOutput() GlobalTableMapOutput {

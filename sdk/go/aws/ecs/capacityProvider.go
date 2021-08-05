@@ -222,7 +222,7 @@ type CapacityProviderArrayInput interface {
 type CapacityProviderArray []CapacityProviderInput
 
 func (CapacityProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CapacityProvider)(nil))
+	return reflect.TypeOf((*[]*CapacityProvider)(nil)).Elem()
 }
 
 func (i CapacityProviderArray) ToCapacityProviderArrayOutput() CapacityProviderArrayOutput {
@@ -247,7 +247,7 @@ type CapacityProviderMapInput interface {
 type CapacityProviderMap map[string]CapacityProviderInput
 
 func (CapacityProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CapacityProvider)(nil))
+	return reflect.TypeOf((*map[string]*CapacityProvider)(nil)).Elem()
 }
 
 func (i CapacityProviderMap) ToCapacityProviderMapOutput() CapacityProviderMapOutput {

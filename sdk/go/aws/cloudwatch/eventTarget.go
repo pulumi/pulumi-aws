@@ -623,7 +623,7 @@ type EventTargetArrayInput interface {
 type EventTargetArray []EventTargetInput
 
 func (EventTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventTarget)(nil))
+	return reflect.TypeOf((*[]*EventTarget)(nil)).Elem()
 }
 
 func (i EventTargetArray) ToEventTargetArrayOutput() EventTargetArrayOutput {
@@ -648,7 +648,7 @@ type EventTargetMapInput interface {
 type EventTargetMap map[string]EventTargetInput
 
 func (EventTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventTarget)(nil))
+	return reflect.TypeOf((*map[string]*EventTarget)(nil)).Elem()
 }
 
 func (i EventTargetMap) ToEventTargetMapOutput() EventTargetMapOutput {

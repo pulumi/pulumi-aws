@@ -322,7 +322,7 @@ type TrafficMirrorFilterRuleArrayInput interface {
 type TrafficMirrorFilterRuleArray []TrafficMirrorFilterRuleInput
 
 func (TrafficMirrorFilterRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TrafficMirrorFilterRule)(nil))
+	return reflect.TypeOf((*[]*TrafficMirrorFilterRule)(nil)).Elem()
 }
 
 func (i TrafficMirrorFilterRuleArray) ToTrafficMirrorFilterRuleArrayOutput() TrafficMirrorFilterRuleArrayOutput {
@@ -347,7 +347,7 @@ type TrafficMirrorFilterRuleMapInput interface {
 type TrafficMirrorFilterRuleMap map[string]TrafficMirrorFilterRuleInput
 
 func (TrafficMirrorFilterRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TrafficMirrorFilterRule)(nil))
+	return reflect.TypeOf((*map[string]*TrafficMirrorFilterRule)(nil)).Elem()
 }
 
 func (i TrafficMirrorFilterRuleMap) ToTrafficMirrorFilterRuleMapOutput() TrafficMirrorFilterRuleMapOutput {

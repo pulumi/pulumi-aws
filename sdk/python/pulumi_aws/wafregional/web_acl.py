@@ -345,17 +345,17 @@ class WebAcl(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
             log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields={
-                "fieldToMatches": [
-                    {
-                        "type": "URI",
-                    },
-                    {
-                        "data": "referer",
-                        "type": "HEADER",
-                    },
+            redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
+                field_to_matches=[
+                    aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        type="URI",
+                    ),
+                    aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        data="referer",
+                        type="HEADER",
+                    ),
                 ],
-            },
+            ),
         ))
         ```
 
@@ -449,17 +449,17 @@ class WebAcl(pulumi.CustomResource):
         # ... other configuration ...
         example = aws.wafregional.WebAcl("example", logging_configuration=aws.wafregional.WebAclLoggingConfigurationArgs(
             log_destination=aws_kinesis_firehose_delivery_stream["example"]["arn"],
-            redacted_fields={
-                "fieldToMatches": [
-                    {
-                        "type": "URI",
-                    },
-                    {
-                        "data": "referer",
-                        "type": "HEADER",
-                    },
+            redacted_fields=aws.wafregional.WebAclLoggingConfigurationRedactedFieldsArgs(
+                field_to_matches=[
+                    aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        type="URI",
+                    ),
+                    aws.wafregional.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs(
+                        data="referer",
+                        type="HEADER",
+                    ),
                 ],
-            },
+            ),
         ))
         ```
 

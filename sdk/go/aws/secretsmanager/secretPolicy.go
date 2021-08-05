@@ -203,7 +203,7 @@ type SecretPolicyArrayInput interface {
 type SecretPolicyArray []SecretPolicyInput
 
 func (SecretPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecretPolicy)(nil))
+	return reflect.TypeOf((*[]*SecretPolicy)(nil)).Elem()
 }
 
 func (i SecretPolicyArray) ToSecretPolicyArrayOutput() SecretPolicyArrayOutput {
@@ -228,7 +228,7 @@ type SecretPolicyMapInput interface {
 type SecretPolicyMap map[string]SecretPolicyInput
 
 func (SecretPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecretPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SecretPolicy)(nil)).Elem()
 }
 
 func (i SecretPolicyMap) ToSecretPolicyMapOutput() SecretPolicyMapOutput {

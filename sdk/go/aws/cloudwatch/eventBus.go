@@ -232,7 +232,7 @@ type EventBusArrayInput interface {
 type EventBusArray []EventBusInput
 
 func (EventBusArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventBus)(nil))
+	return reflect.TypeOf((*[]*EventBus)(nil)).Elem()
 }
 
 func (i EventBusArray) ToEventBusArrayOutput() EventBusArrayOutput {
@@ -257,7 +257,7 @@ type EventBusMapInput interface {
 type EventBusMap map[string]EventBusInput
 
 func (EventBusMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventBus)(nil))
+	return reflect.TypeOf((*map[string]*EventBus)(nil)).Elem()
 }
 
 func (i EventBusMap) ToEventBusMapOutput() EventBusMapOutput {

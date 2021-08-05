@@ -200,7 +200,7 @@ type DatabaseArrayInput interface {
 type DatabaseArray []DatabaseInput
 
 func (DatabaseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Database)(nil))
+	return reflect.TypeOf((*[]*Database)(nil)).Elem()
 }
 
 func (i DatabaseArray) ToDatabaseArrayOutput() DatabaseArrayOutput {
@@ -225,7 +225,7 @@ type DatabaseMapInput interface {
 type DatabaseMap map[string]DatabaseInput
 
 func (DatabaseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Database)(nil))
+	return reflect.TypeOf((*map[string]*Database)(nil)).Elem()
 }
 
 func (i DatabaseMap) ToDatabaseMapOutput() DatabaseMapOutput {

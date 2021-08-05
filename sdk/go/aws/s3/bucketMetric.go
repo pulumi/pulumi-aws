@@ -230,7 +230,7 @@ type BucketMetricArrayInput interface {
 type BucketMetricArray []BucketMetricInput
 
 func (BucketMetricArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketMetric)(nil))
+	return reflect.TypeOf((*[]*BucketMetric)(nil)).Elem()
 }
 
 func (i BucketMetricArray) ToBucketMetricArrayOutput() BucketMetricArrayOutput {
@@ -255,7 +255,7 @@ type BucketMetricMapInput interface {
 type BucketMetricMap map[string]BucketMetricInput
 
 func (BucketMetricMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketMetric)(nil))
+	return reflect.TypeOf((*map[string]*BucketMetric)(nil)).Elem()
 }
 
 func (i BucketMetricMap) ToBucketMetricMapOutput() BucketMetricMapOutput {

@@ -227,7 +227,7 @@ type FleetArrayInput interface {
 type FleetArray []FleetInput
 
 func (FleetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Fleet)(nil))
+	return reflect.TypeOf((*[]*Fleet)(nil)).Elem()
 }
 
 func (i FleetArray) ToFleetArrayOutput() FleetArrayOutput {
@@ -252,7 +252,7 @@ type FleetMapInput interface {
 type FleetMap map[string]FleetInput
 
 func (FleetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Fleet)(nil))
+	return reflect.TypeOf((*map[string]*Fleet)(nil)).Elem()
 }
 
 func (i FleetMap) ToFleetMapOutput() FleetMapOutput {

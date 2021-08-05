@@ -390,7 +390,7 @@ type BotArrayInput interface {
 type BotArray []BotInput
 
 func (BotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Bot)(nil))
+	return reflect.TypeOf((*[]*Bot)(nil)).Elem()
 }
 
 func (i BotArray) ToBotArrayOutput() BotArrayOutput {
@@ -415,7 +415,7 @@ type BotMapInput interface {
 type BotMap map[string]BotInput
 
 func (BotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Bot)(nil))
+	return reflect.TypeOf((*map[string]*Bot)(nil)).Elem()
 }
 
 func (i BotMap) ToBotMapOutput() BotMapOutput {

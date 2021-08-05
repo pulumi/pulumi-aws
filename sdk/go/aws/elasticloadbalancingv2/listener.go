@@ -552,7 +552,7 @@ type ListenerArrayInput interface {
 type ListenerArray []ListenerInput
 
 func (ListenerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Listener)(nil))
+	return reflect.TypeOf((*[]*Listener)(nil)).Elem()
 }
 
 func (i ListenerArray) ToListenerArrayOutput() ListenerArrayOutput {
@@ -577,7 +577,7 @@ type ListenerMapInput interface {
 type ListenerMap map[string]ListenerInput
 
 func (ListenerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Listener)(nil))
+	return reflect.TypeOf((*map[string]*Listener)(nil)).Elem()
 }
 
 func (i ListenerMap) ToListenerMapOutput() ListenerMapOutput {

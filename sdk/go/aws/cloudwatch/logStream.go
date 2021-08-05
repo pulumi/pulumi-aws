@@ -192,7 +192,7 @@ type LogStreamArrayInput interface {
 type LogStreamArray []LogStreamInput
 
 func (LogStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogStream)(nil))
+	return reflect.TypeOf((*[]*LogStream)(nil)).Elem()
 }
 
 func (i LogStreamArray) ToLogStreamArrayOutput() LogStreamArrayOutput {
@@ -217,7 +217,7 @@ type LogStreamMapInput interface {
 type LogStreamMap map[string]LogStreamInput
 
 func (LogStreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogStream)(nil))
+	return reflect.TypeOf((*map[string]*LogStream)(nil)).Elem()
 }
 
 func (i LogStreamMap) ToLogStreamMapOutput() LogStreamMapOutput {

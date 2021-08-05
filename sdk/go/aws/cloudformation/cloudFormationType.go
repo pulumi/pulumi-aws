@@ -262,7 +262,7 @@ type CloudFormationTypeArrayInput interface {
 type CloudFormationTypeArray []CloudFormationTypeInput
 
 func (CloudFormationTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CloudFormationType)(nil))
+	return reflect.TypeOf((*[]*CloudFormationType)(nil)).Elem()
 }
 
 func (i CloudFormationTypeArray) ToCloudFormationTypeArrayOutput() CloudFormationTypeArrayOutput {
@@ -287,7 +287,7 @@ type CloudFormationTypeMapInput interface {
 type CloudFormationTypeMap map[string]CloudFormationTypeInput
 
 func (CloudFormationTypeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CloudFormationType)(nil))
+	return reflect.TypeOf((*map[string]*CloudFormationType)(nil)).Elem()
 }
 
 func (i CloudFormationTypeMap) ToCloudFormationTypeMapOutput() CloudFormationTypeMapOutput {

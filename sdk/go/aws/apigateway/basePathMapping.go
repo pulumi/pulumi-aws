@@ -190,7 +190,7 @@ type BasePathMappingArrayInput interface {
 type BasePathMappingArray []BasePathMappingInput
 
 func (BasePathMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BasePathMapping)(nil))
+	return reflect.TypeOf((*[]*BasePathMapping)(nil)).Elem()
 }
 
 func (i BasePathMappingArray) ToBasePathMappingArrayOutput() BasePathMappingArrayOutput {
@@ -215,7 +215,7 @@ type BasePathMappingMapInput interface {
 type BasePathMappingMap map[string]BasePathMappingInput
 
 func (BasePathMappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BasePathMapping)(nil))
+	return reflect.TypeOf((*map[string]*BasePathMapping)(nil)).Elem()
 }
 
 func (i BasePathMappingMap) ToBasePathMappingMapOutput() BasePathMappingMapOutput {

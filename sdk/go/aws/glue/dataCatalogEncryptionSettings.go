@@ -191,7 +191,7 @@ type DataCatalogEncryptionSettingsArrayInput interface {
 type DataCatalogEncryptionSettingsArray []DataCatalogEncryptionSettingsInput
 
 func (DataCatalogEncryptionSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((*[]*DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (i DataCatalogEncryptionSettingsArray) ToDataCatalogEncryptionSettingsArrayOutput() DataCatalogEncryptionSettingsArrayOutput {
@@ -216,7 +216,7 @@ type DataCatalogEncryptionSettingsMapInput interface {
 type DataCatalogEncryptionSettingsMap map[string]DataCatalogEncryptionSettingsInput
 
 func (DataCatalogEncryptionSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataCatalogEncryptionSettings)(nil))
+	return reflect.TypeOf((*map[string]*DataCatalogEncryptionSettings)(nil)).Elem()
 }
 
 func (i DataCatalogEncryptionSettingsMap) ToDataCatalogEncryptionSettingsMapOutput() DataCatalogEncryptionSettingsMapOutput {

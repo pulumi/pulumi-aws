@@ -240,7 +240,7 @@ type AnalyzerArrayInput interface {
 type AnalyzerArray []AnalyzerInput
 
 func (AnalyzerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Analyzer)(nil))
+	return reflect.TypeOf((*[]*Analyzer)(nil)).Elem()
 }
 
 func (i AnalyzerArray) ToAnalyzerArrayOutput() AnalyzerArrayOutput {
@@ -265,7 +265,7 @@ type AnalyzerMapInput interface {
 type AnalyzerMap map[string]AnalyzerInput
 
 func (AnalyzerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Analyzer)(nil))
+	return reflect.TypeOf((*map[string]*Analyzer)(nil)).Elem()
 }
 
 func (i AnalyzerMap) ToAnalyzerMapOutput() AnalyzerMapOutput {

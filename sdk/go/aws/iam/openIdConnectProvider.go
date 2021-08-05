@@ -228,7 +228,7 @@ type OpenIdConnectProviderArrayInput interface {
 type OpenIdConnectProviderArray []OpenIdConnectProviderInput
 
 func (OpenIdConnectProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OpenIdConnectProvider)(nil))
+	return reflect.TypeOf((*[]*OpenIdConnectProvider)(nil)).Elem()
 }
 
 func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutput() OpenIdConnectProviderArrayOutput {
@@ -253,7 +253,7 @@ type OpenIdConnectProviderMapInput interface {
 type OpenIdConnectProviderMap map[string]OpenIdConnectProviderInput
 
 func (OpenIdConnectProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OpenIdConnectProvider)(nil))
+	return reflect.TypeOf((*map[string]*OpenIdConnectProvider)(nil)).Elem()
 }
 
 func (i OpenIdConnectProviderMap) ToOpenIdConnectProviderMapOutput() OpenIdConnectProviderMapOutput {

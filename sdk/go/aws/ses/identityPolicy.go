@@ -205,7 +205,7 @@ type IdentityPolicyArrayInput interface {
 type IdentityPolicyArray []IdentityPolicyInput
 
 func (IdentityPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityPolicy)(nil))
+	return reflect.TypeOf((*[]*IdentityPolicy)(nil)).Elem()
 }
 
 func (i IdentityPolicyArray) ToIdentityPolicyArrayOutput() IdentityPolicyArrayOutput {
@@ -230,7 +230,7 @@ type IdentityPolicyMapInput interface {
 type IdentityPolicyMap map[string]IdentityPolicyInput
 
 func (IdentityPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityPolicy)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPolicy)(nil)).Elem()
 }
 
 func (i IdentityPolicyMap) ToIdentityPolicyMapOutput() IdentityPolicyMapOutput {

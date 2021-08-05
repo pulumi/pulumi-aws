@@ -312,7 +312,7 @@ type OrganizationConformancePackArrayInput interface {
 type OrganizationConformancePackArray []OrganizationConformancePackInput
 
 func (OrganizationConformancePackArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationConformancePack)(nil))
+	return reflect.TypeOf((*[]*OrganizationConformancePack)(nil)).Elem()
 }
 
 func (i OrganizationConformancePackArray) ToOrganizationConformancePackArrayOutput() OrganizationConformancePackArrayOutput {
@@ -337,7 +337,7 @@ type OrganizationConformancePackMapInput interface {
 type OrganizationConformancePackMap map[string]OrganizationConformancePackInput
 
 func (OrganizationConformancePackMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationConformancePack)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationConformancePack)(nil)).Elem()
 }
 
 func (i OrganizationConformancePackMap) ToOrganizationConformancePackMapOutput() OrganizationConformancePackMapOutput {

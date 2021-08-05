@@ -369,7 +369,7 @@ type NotebookInstanceArrayInput interface {
 type NotebookInstanceArray []NotebookInstanceInput
 
 func (NotebookInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotebookInstance)(nil))
+	return reflect.TypeOf((*[]*NotebookInstance)(nil)).Elem()
 }
 
 func (i NotebookInstanceArray) ToNotebookInstanceArrayOutput() NotebookInstanceArrayOutput {
@@ -394,7 +394,7 @@ type NotebookInstanceMapInput interface {
 type NotebookInstanceMap map[string]NotebookInstanceInput
 
 func (NotebookInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotebookInstance)(nil))
+	return reflect.TypeOf((*map[string]*NotebookInstance)(nil)).Elem()
 }
 
 func (i NotebookInstanceMap) ToNotebookInstanceMapOutput() NotebookInstanceMapOutput {

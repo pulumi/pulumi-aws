@@ -193,7 +193,7 @@ type AssessmentTargetArrayInput interface {
 type AssessmentTargetArray []AssessmentTargetInput
 
 func (AssessmentTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssessmentTarget)(nil))
+	return reflect.TypeOf((*[]*AssessmentTarget)(nil)).Elem()
 }
 
 func (i AssessmentTargetArray) ToAssessmentTargetArrayOutput() AssessmentTargetArrayOutput {
@@ -218,7 +218,7 @@ type AssessmentTargetMapInput interface {
 type AssessmentTargetMap map[string]AssessmentTargetInput
 
 func (AssessmentTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssessmentTarget)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentTarget)(nil)).Elem()
 }
 
 func (i AssessmentTargetMap) ToAssessmentTargetMapOutput() AssessmentTargetMapOutput {

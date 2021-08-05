@@ -208,7 +208,7 @@ type DocumentationPartArrayInput interface {
 type DocumentationPartArray []DocumentationPartInput
 
 func (DocumentationPartArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DocumentationPart)(nil))
+	return reflect.TypeOf((*[]*DocumentationPart)(nil)).Elem()
 }
 
 func (i DocumentationPartArray) ToDocumentationPartArrayOutput() DocumentationPartArrayOutput {
@@ -233,7 +233,7 @@ type DocumentationPartMapInput interface {
 type DocumentationPartMap map[string]DocumentationPartInput
 
 func (DocumentationPartMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DocumentationPart)(nil))
+	return reflect.TypeOf((*map[string]*DocumentationPart)(nil)).Elem()
 }
 
 func (i DocumentationPartMap) ToDocumentationPartMapOutput() DocumentationPartMapOutput {

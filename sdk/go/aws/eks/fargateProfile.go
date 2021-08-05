@@ -267,7 +267,7 @@ type FargateProfileArrayInput interface {
 type FargateProfileArray []FargateProfileInput
 
 func (FargateProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FargateProfile)(nil))
+	return reflect.TypeOf((*[]*FargateProfile)(nil)).Elem()
 }
 
 func (i FargateProfileArray) ToFargateProfileArrayOutput() FargateProfileArrayOutput {
@@ -292,7 +292,7 @@ type FargateProfileMapInput interface {
 type FargateProfileMap map[string]FargateProfileInput
 
 func (FargateProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FargateProfile)(nil))
+	return reflect.TypeOf((*map[string]*FargateProfile)(nil)).Elem()
 }
 
 func (i FargateProfileMap) ToFargateProfileMapOutput() FargateProfileMapOutput {

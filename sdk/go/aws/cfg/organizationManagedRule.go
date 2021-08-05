@@ -284,7 +284,7 @@ type OrganizationManagedRuleArrayInput interface {
 type OrganizationManagedRuleArray []OrganizationManagedRuleInput
 
 func (OrganizationManagedRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationManagedRule)(nil))
+	return reflect.TypeOf((*[]*OrganizationManagedRule)(nil)).Elem()
 }
 
 func (i OrganizationManagedRuleArray) ToOrganizationManagedRuleArrayOutput() OrganizationManagedRuleArrayOutput {
@@ -309,7 +309,7 @@ type OrganizationManagedRuleMapInput interface {
 type OrganizationManagedRuleMap map[string]OrganizationManagedRuleInput
 
 func (OrganizationManagedRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationManagedRule)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationManagedRule)(nil)).Elem()
 }
 
 func (i OrganizationManagedRuleMap) ToOrganizationManagedRuleMapOutput() OrganizationManagedRuleMapOutput {

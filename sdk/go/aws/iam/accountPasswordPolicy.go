@@ -263,7 +263,7 @@ type AccountPasswordPolicyArrayInput interface {
 type AccountPasswordPolicyArray []AccountPasswordPolicyInput
 
 func (AccountPasswordPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountPasswordPolicy)(nil))
+	return reflect.TypeOf((*[]*AccountPasswordPolicy)(nil)).Elem()
 }
 
 func (i AccountPasswordPolicyArray) ToAccountPasswordPolicyArrayOutput() AccountPasswordPolicyArrayOutput {
@@ -288,7 +288,7 @@ type AccountPasswordPolicyMapInput interface {
 type AccountPasswordPolicyMap map[string]AccountPasswordPolicyInput
 
 func (AccountPasswordPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountPasswordPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AccountPasswordPolicy)(nil)).Elem()
 }
 
 func (i AccountPasswordPolicyMap) ToAccountPasswordPolicyMapOutput() AccountPasswordPolicyMapOutput {

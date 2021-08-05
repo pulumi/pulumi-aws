@@ -270,7 +270,7 @@ type StreamArrayInput interface {
 type StreamArray []StreamInput
 
 func (StreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Stream)(nil))
+	return reflect.TypeOf((*[]*Stream)(nil)).Elem()
 }
 
 func (i StreamArray) ToStreamArrayOutput() StreamArrayOutput {
@@ -295,7 +295,7 @@ type StreamMapInput interface {
 type StreamMap map[string]StreamInput
 
 func (StreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Stream)(nil))
+	return reflect.TypeOf((*map[string]*Stream)(nil)).Elem()
 }
 
 func (i StreamMap) ToStreamMapOutput() StreamMapOutput {

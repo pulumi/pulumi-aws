@@ -300,7 +300,7 @@ type ImageRecipeArrayInput interface {
 type ImageRecipeArray []ImageRecipeInput
 
 func (ImageRecipeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ImageRecipe)(nil))
+	return reflect.TypeOf((*[]*ImageRecipe)(nil)).Elem()
 }
 
 func (i ImageRecipeArray) ToImageRecipeArrayOutput() ImageRecipeArrayOutput {
@@ -325,7 +325,7 @@ type ImageRecipeMapInput interface {
 type ImageRecipeMap map[string]ImageRecipeInput
 
 func (ImageRecipeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ImageRecipe)(nil))
+	return reflect.TypeOf((*map[string]*ImageRecipe)(nil)).Elem()
 }
 
 func (i ImageRecipeMap) ToImageRecipeMapOutput() ImageRecipeMapOutput {

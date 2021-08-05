@@ -259,7 +259,7 @@ type JobQueueArrayInput interface {
 type JobQueueArray []JobQueueInput
 
 func (JobQueueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JobQueue)(nil))
+	return reflect.TypeOf((*[]*JobQueue)(nil)).Elem()
 }
 
 func (i JobQueueArray) ToJobQueueArrayOutput() JobQueueArrayOutput {
@@ -284,7 +284,7 @@ type JobQueueMapInput interface {
 type JobQueueMap map[string]JobQueueInput
 
 func (JobQueueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JobQueue)(nil))
+	return reflect.TypeOf((*map[string]*JobQueue)(nil)).Elem()
 }
 
 func (i JobQueueMap) ToJobQueueMapOutput() JobQueueMapOutput {

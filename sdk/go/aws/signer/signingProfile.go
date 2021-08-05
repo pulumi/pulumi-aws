@@ -273,7 +273,7 @@ type SigningProfileArrayInput interface {
 type SigningProfileArray []SigningProfileInput
 
 func (SigningProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SigningProfile)(nil))
+	return reflect.TypeOf((*[]*SigningProfile)(nil)).Elem()
 }
 
 func (i SigningProfileArray) ToSigningProfileArrayOutput() SigningProfileArrayOutput {
@@ -298,7 +298,7 @@ type SigningProfileMapInput interface {
 type SigningProfileMap map[string]SigningProfileInput
 
 func (SigningProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SigningProfile)(nil))
+	return reflect.TypeOf((*map[string]*SigningProfile)(nil)).Elem()
 }
 
 func (i SigningProfileMap) ToSigningProfileMapOutput() SigningProfileMapOutput {

@@ -340,7 +340,7 @@ type MetricStreamArrayInput interface {
 type MetricStreamArray []MetricStreamInput
 
 func (MetricStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MetricStream)(nil))
+	return reflect.TypeOf((*[]*MetricStream)(nil)).Elem()
 }
 
 func (i MetricStreamArray) ToMetricStreamArrayOutput() MetricStreamArrayOutput {
@@ -365,7 +365,7 @@ type MetricStreamMapInput interface {
 type MetricStreamMap map[string]MetricStreamInput
 
 func (MetricStreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MetricStream)(nil))
+	return reflect.TypeOf((*map[string]*MetricStream)(nil)).Elem()
 }
 
 func (i MetricStreamMap) ToMetricStreamMapOutput() MetricStreamMapOutput {

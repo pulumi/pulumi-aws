@@ -439,7 +439,7 @@ type EipArrayInput interface {
 type EipArray []EipInput
 
 func (EipArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Eip)(nil))
+	return reflect.TypeOf((*[]*Eip)(nil)).Elem()
 }
 
 func (i EipArray) ToEipArrayOutput() EipArrayOutput {
@@ -464,7 +464,7 @@ type EipMapInput interface {
 type EipMap map[string]EipInput
 
 func (EipMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Eip)(nil))
+	return reflect.TypeOf((*map[string]*Eip)(nil)).Elem()
 }
 
 func (i EipMap) ToEipMapOutput() EipMapOutput {

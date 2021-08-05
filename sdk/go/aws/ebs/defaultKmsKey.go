@@ -179,7 +179,7 @@ type DefaultKmsKeyArrayInput interface {
 type DefaultKmsKeyArray []DefaultKmsKeyInput
 
 func (DefaultKmsKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultKmsKey)(nil))
+	return reflect.TypeOf((*[]*DefaultKmsKey)(nil)).Elem()
 }
 
 func (i DefaultKmsKeyArray) ToDefaultKmsKeyArrayOutput() DefaultKmsKeyArrayOutput {
@@ -204,7 +204,7 @@ type DefaultKmsKeyMapInput interface {
 type DefaultKmsKeyMap map[string]DefaultKmsKeyInput
 
 func (DefaultKmsKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultKmsKey)(nil))
+	return reflect.TypeOf((*map[string]*DefaultKmsKey)(nil)).Elem()
 }
 
 func (i DefaultKmsKeyMap) ToDefaultKmsKeyMapOutput() DefaultKmsKeyMapOutput {

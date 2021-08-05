@@ -235,7 +235,7 @@ type PrefixListReferenceArrayInput interface {
 type PrefixListReferenceArray []PrefixListReferenceInput
 
 func (PrefixListReferenceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrefixListReference)(nil))
+	return reflect.TypeOf((*[]*PrefixListReference)(nil)).Elem()
 }
 
 func (i PrefixListReferenceArray) ToPrefixListReferenceArrayOutput() PrefixListReferenceArrayOutput {
@@ -260,7 +260,7 @@ type PrefixListReferenceMapInput interface {
 type PrefixListReferenceMap map[string]PrefixListReferenceInput
 
 func (PrefixListReferenceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrefixListReference)(nil))
+	return reflect.TypeOf((*map[string]*PrefixListReference)(nil)).Elem()
 }
 
 func (i PrefixListReferenceMap) ToPrefixListReferenceMapOutput() PrefixListReferenceMapOutput {

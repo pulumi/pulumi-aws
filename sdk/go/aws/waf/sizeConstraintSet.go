@@ -193,7 +193,7 @@ type SizeConstraintSetArrayInput interface {
 type SizeConstraintSetArray []SizeConstraintSetInput
 
 func (SizeConstraintSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SizeConstraintSet)(nil))
+	return reflect.TypeOf((*[]*SizeConstraintSet)(nil)).Elem()
 }
 
 func (i SizeConstraintSetArray) ToSizeConstraintSetArrayOutput() SizeConstraintSetArrayOutput {
@@ -218,7 +218,7 @@ type SizeConstraintSetMapInput interface {
 type SizeConstraintSetMap map[string]SizeConstraintSetInput
 
 func (SizeConstraintSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SizeConstraintSet)(nil))
+	return reflect.TypeOf((*map[string]*SizeConstraintSet)(nil)).Elem()
 }
 
 func (i SizeConstraintSetMap) ToSizeConstraintSetMapOutput() SizeConstraintSetMapOutput {

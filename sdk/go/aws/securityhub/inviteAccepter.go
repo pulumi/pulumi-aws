@@ -198,7 +198,7 @@ type InviteAccepterArrayInput interface {
 type InviteAccepterArray []InviteAccepterInput
 
 func (InviteAccepterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InviteAccepter)(nil))
+	return reflect.TypeOf((*[]*InviteAccepter)(nil)).Elem()
 }
 
 func (i InviteAccepterArray) ToInviteAccepterArrayOutput() InviteAccepterArrayOutput {
@@ -223,7 +223,7 @@ type InviteAccepterMapInput interface {
 type InviteAccepterMap map[string]InviteAccepterInput
 
 func (InviteAccepterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InviteAccepter)(nil))
+	return reflect.TypeOf((*map[string]*InviteAccepter)(nil)).Elem()
 }
 
 func (i InviteAccepterMap) ToInviteAccepterMapOutput() InviteAccepterMapOutput {

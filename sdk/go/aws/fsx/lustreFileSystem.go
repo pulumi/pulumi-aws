@@ -411,7 +411,7 @@ type LustreFileSystemArrayInput interface {
 type LustreFileSystemArray []LustreFileSystemInput
 
 func (LustreFileSystemArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LustreFileSystem)(nil))
+	return reflect.TypeOf((*[]*LustreFileSystem)(nil)).Elem()
 }
 
 func (i LustreFileSystemArray) ToLustreFileSystemArrayOutput() LustreFileSystemArrayOutput {
@@ -436,7 +436,7 @@ type LustreFileSystemMapInput interface {
 type LustreFileSystemMap map[string]LustreFileSystemInput
 
 func (LustreFileSystemMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LustreFileSystem)(nil))
+	return reflect.TypeOf((*map[string]*LustreFileSystem)(nil)).Elem()
 }
 
 func (i LustreFileSystemMap) ToLustreFileSystemMapOutput() LustreFileSystemMapOutput {

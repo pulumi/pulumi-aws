@@ -446,7 +446,7 @@ type NodeGroupArrayInput interface {
 type NodeGroupArray []NodeGroupInput
 
 func (NodeGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NodeGroup)(nil))
+	return reflect.TypeOf((*[]*NodeGroup)(nil)).Elem()
 }
 
 func (i NodeGroupArray) ToNodeGroupArrayOutput() NodeGroupArrayOutput {
@@ -471,7 +471,7 @@ type NodeGroupMapInput interface {
 type NodeGroupMap map[string]NodeGroupInput
 
 func (NodeGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NodeGroup)(nil))
+	return reflect.TypeOf((*map[string]*NodeGroup)(nil)).Elem()
 }
 
 func (i NodeGroupMap) ToNodeGroupMapOutput() NodeGroupMapOutput {

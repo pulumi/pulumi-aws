@@ -326,7 +326,7 @@ type FileSystemArrayInput interface {
 type FileSystemArray []FileSystemInput
 
 func (FileSystemArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FileSystem)(nil))
+	return reflect.TypeOf((*[]*FileSystem)(nil)).Elem()
 }
 
 func (i FileSystemArray) ToFileSystemArrayOutput() FileSystemArrayOutput {
@@ -351,7 +351,7 @@ type FileSystemMapInput interface {
 type FileSystemMap map[string]FileSystemInput
 
 func (FileSystemMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FileSystem)(nil))
+	return reflect.TypeOf((*map[string]*FileSystem)(nil)).Elem()
 }
 
 func (i FileSystemMap) ToFileSystemMapOutput() FileSystemMapOutput {

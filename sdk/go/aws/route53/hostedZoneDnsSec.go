@@ -252,7 +252,7 @@ type HostedZoneDnsSecArrayInput interface {
 type HostedZoneDnsSecArray []HostedZoneDnsSecInput
 
 func (HostedZoneDnsSecArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HostedZoneDnsSec)(nil))
+	return reflect.TypeOf((*[]*HostedZoneDnsSec)(nil)).Elem()
 }
 
 func (i HostedZoneDnsSecArray) ToHostedZoneDnsSecArrayOutput() HostedZoneDnsSecArrayOutput {
@@ -277,7 +277,7 @@ type HostedZoneDnsSecMapInput interface {
 type HostedZoneDnsSecMap map[string]HostedZoneDnsSecInput
 
 func (HostedZoneDnsSecMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HostedZoneDnsSec)(nil))
+	return reflect.TypeOf((*map[string]*HostedZoneDnsSec)(nil)).Elem()
 }
 
 func (i HostedZoneDnsSecMap) ToHostedZoneDnsSecMapOutput() HostedZoneDnsSecMapOutput {

@@ -439,7 +439,7 @@ type ListenerRuleArrayInput interface {
 type ListenerRuleArray []ListenerRuleInput
 
 func (ListenerRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ListenerRule)(nil))
+	return reflect.TypeOf((*[]*ListenerRule)(nil)).Elem()
 }
 
 func (i ListenerRuleArray) ToListenerRuleArrayOutput() ListenerRuleArrayOutput {
@@ -464,7 +464,7 @@ type ListenerRuleMapInput interface {
 type ListenerRuleMap map[string]ListenerRuleInput
 
 func (ListenerRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ListenerRule)(nil))
+	return reflect.TypeOf((*map[string]*ListenerRule)(nil)).Elem()
 }
 
 func (i ListenerRuleMap) ToListenerRuleMapOutput() ListenerRuleMapOutput {

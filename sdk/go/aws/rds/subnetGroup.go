@@ -237,7 +237,7 @@ type SubnetGroupArrayInput interface {
 type SubnetGroupArray []SubnetGroupInput
 
 func (SubnetGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SubnetGroup)(nil))
+	return reflect.TypeOf((*[]*SubnetGroup)(nil)).Elem()
 }
 
 func (i SubnetGroupArray) ToSubnetGroupArrayOutput() SubnetGroupArrayOutput {
@@ -262,7 +262,7 @@ type SubnetGroupMapInput interface {
 type SubnetGroupMap map[string]SubnetGroupInput
 
 func (SubnetGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SubnetGroup)(nil))
+	return reflect.TypeOf((*map[string]*SubnetGroup)(nil)).Elem()
 }
 
 func (i SubnetGroupMap) ToSubnetGroupMapOutput() SubnetGroupMapOutput {

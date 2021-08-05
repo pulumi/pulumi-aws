@@ -189,7 +189,7 @@ type DomainPolicyArrayInput interface {
 type DomainPolicyArray []DomainPolicyInput
 
 func (DomainPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainPolicy)(nil))
+	return reflect.TypeOf((*[]*DomainPolicy)(nil)).Elem()
 }
 
 func (i DomainPolicyArray) ToDomainPolicyArrayOutput() DomainPolicyArrayOutput {
@@ -214,7 +214,7 @@ type DomainPolicyMapInput interface {
 type DomainPolicyMap map[string]DomainPolicyInput
 
 func (DomainPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainPolicy)(nil))
+	return reflect.TypeOf((*map[string]*DomainPolicy)(nil)).Elem()
 }
 
 func (i DomainPolicyMap) ToDomainPolicyMapOutput() DomainPolicyMapOutput {

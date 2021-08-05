@@ -199,7 +199,7 @@ type ApplicationSnapshotArrayInput interface {
 type ApplicationSnapshotArray []ApplicationSnapshotInput
 
 func (ApplicationSnapshotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApplicationSnapshot)(nil))
+	return reflect.TypeOf((*[]*ApplicationSnapshot)(nil)).Elem()
 }
 
 func (i ApplicationSnapshotArray) ToApplicationSnapshotArrayOutput() ApplicationSnapshotArrayOutput {
@@ -224,7 +224,7 @@ type ApplicationSnapshotMapInput interface {
 type ApplicationSnapshotMap map[string]ApplicationSnapshotInput
 
 func (ApplicationSnapshotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApplicationSnapshot)(nil))
+	return reflect.TypeOf((*map[string]*ApplicationSnapshot)(nil)).Elem()
 }
 
 func (i ApplicationSnapshotMap) ToApplicationSnapshotMapOutput() ApplicationSnapshotMapOutput {

@@ -280,24 +280,24 @@ class CachePolicy(pulumi.CustomResource):
             max_ttl=100,
             min_ttl=1,
             parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config={
-                    "cookieBehavior": "whitelist",
-                    "cookies": {
-                        "items": ["example"],
-                    },
-                },
-                headers_config={
-                    "headerBehavior": "whitelist",
-                    "headers": {
-                        "items": ["example"],
-                    },
-                },
-                query_strings_config={
-                    "queryStringBehavior": "whitelist",
-                    "queryStrings": {
-                        "items": ["example"],
-                    },
-                },
+                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
+                    cookie_behavior="whitelist",
+                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
+                        items=["example"],
+                    ),
+                ),
+                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
+                    header_behavior="whitelist",
+                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
+                        items=["example"],
+                    ),
+                ),
+                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
+                    query_string_behavior="whitelist",
+                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
+                        items=["example"],
+                    ),
+                ),
             ))
         ```
 
@@ -340,24 +340,24 @@ class CachePolicy(pulumi.CustomResource):
             max_ttl=100,
             min_ttl=1,
             parameters_in_cache_key_and_forwarded_to_origin=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs(
-                cookies_config={
-                    "cookieBehavior": "whitelist",
-                    "cookies": {
-                        "items": ["example"],
-                    },
-                },
-                headers_config={
-                    "headerBehavior": "whitelist",
-                    "headers": {
-                        "items": ["example"],
-                    },
-                },
-                query_strings_config={
-                    "queryStringBehavior": "whitelist",
-                    "queryStrings": {
-                        "items": ["example"],
-                    },
-                },
+                cookies_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs(
+                    cookie_behavior="whitelist",
+                    cookies=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs(
+                        items=["example"],
+                    ),
+                ),
+                headers_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs(
+                    header_behavior="whitelist",
+                    headers=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs(
+                        items=["example"],
+                    ),
+                ),
+                query_strings_config=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs(
+                    query_string_behavior="whitelist",
+                    query_strings=aws.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs(
+                        items=["example"],
+                    ),
+                ),
             ))
         ```
 

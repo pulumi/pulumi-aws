@@ -314,7 +314,7 @@ type NetworkInterfaceArrayInput interface {
 type NetworkInterfaceArray []NetworkInterfaceInput
 
 func (NetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkInterface)(nil))
+	return reflect.TypeOf((*[]*NetworkInterface)(nil)).Elem()
 }
 
 func (i NetworkInterfaceArray) ToNetworkInterfaceArrayOutput() NetworkInterfaceArrayOutput {
@@ -339,7 +339,7 @@ type NetworkInterfaceMapInput interface {
 type NetworkInterfaceMap map[string]NetworkInterfaceInput
 
 func (NetworkInterfaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkInterface)(nil))
+	return reflect.TypeOf((*map[string]*NetworkInterface)(nil)).Elem()
 }
 
 func (i NetworkInterfaceMap) ToNetworkInterfaceMapOutput() NetworkInterfaceMapOutput {

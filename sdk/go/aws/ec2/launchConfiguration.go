@@ -627,7 +627,7 @@ type LaunchConfigurationArrayInput interface {
 type LaunchConfigurationArray []LaunchConfigurationInput
 
 func (LaunchConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LaunchConfiguration)(nil))
+	return reflect.TypeOf((*[]*LaunchConfiguration)(nil)).Elem()
 }
 
 func (i LaunchConfigurationArray) ToLaunchConfigurationArrayOutput() LaunchConfigurationArrayOutput {
@@ -652,7 +652,7 @@ type LaunchConfigurationMapInput interface {
 type LaunchConfigurationMap map[string]LaunchConfigurationInput
 
 func (LaunchConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LaunchConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*LaunchConfiguration)(nil)).Elem()
 }
 
 func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutput() LaunchConfigurationMapOutput {

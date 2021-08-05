@@ -193,7 +193,7 @@ type TriggerArrayInput interface {
 type TriggerArray []TriggerInput
 
 func (TriggerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Trigger)(nil))
+	return reflect.TypeOf((*[]*Trigger)(nil)).Elem()
 }
 
 func (i TriggerArray) ToTriggerArrayOutput() TriggerArrayOutput {
@@ -218,7 +218,7 @@ type TriggerMapInput interface {
 type TriggerMap map[string]TriggerInput
 
 func (TriggerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Trigger)(nil))
+	return reflect.TypeOf((*map[string]*Trigger)(nil)).Elem()
 }
 
 func (i TriggerMap) ToTriggerMapOutput() TriggerMapOutput {

@@ -304,7 +304,7 @@ type AddonArrayInput interface {
 type AddonArray []AddonInput
 
 func (AddonArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Addon)(nil))
+	return reflect.TypeOf((*[]*Addon)(nil)).Elem()
 }
 
 func (i AddonArray) ToAddonArrayOutput() AddonArrayOutput {
@@ -329,7 +329,7 @@ type AddonMapInput interface {
 type AddonMap map[string]AddonInput
 
 func (AddonMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Addon)(nil))
+	return reflect.TypeOf((*map[string]*Addon)(nil)).Elem()
 }
 
 func (i AddonMap) ToAddonMapOutput() AddonMapOutput {

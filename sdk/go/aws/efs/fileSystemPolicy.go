@@ -192,7 +192,7 @@ type FileSystemPolicyArrayInput interface {
 type FileSystemPolicyArray []FileSystemPolicyInput
 
 func (FileSystemPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FileSystemPolicy)(nil))
+	return reflect.TypeOf((*[]*FileSystemPolicy)(nil)).Elem()
 }
 
 func (i FileSystemPolicyArray) ToFileSystemPolicyArrayOutput() FileSystemPolicyArrayOutput {
@@ -217,7 +217,7 @@ type FileSystemPolicyMapInput interface {
 type FileSystemPolicyMap map[string]FileSystemPolicyInput
 
 func (FileSystemPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FileSystemPolicy)(nil))
+	return reflect.TypeOf((*map[string]*FileSystemPolicy)(nil)).Elem()
 }
 
 func (i FileSystemPolicyMap) ToFileSystemPolicyMapOutput() FileSystemPolicyMapOutput {

@@ -493,7 +493,7 @@ type TopicArrayInput interface {
 type TopicArray []TopicInput
 
 func (TopicArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Topic)(nil))
+	return reflect.TypeOf((*[]*Topic)(nil)).Elem()
 }
 
 func (i TopicArray) ToTopicArrayOutput() TopicArrayOutput {
@@ -518,7 +518,7 @@ type TopicMapInput interface {
 type TopicMap map[string]TopicInput
 
 func (TopicMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Topic)(nil))
+	return reflect.TypeOf((*map[string]*Topic)(nil)).Elem()
 }
 
 func (i TopicMap) ToTopicMapOutput() TopicMapOutput {

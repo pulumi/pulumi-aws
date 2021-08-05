@@ -224,7 +224,7 @@ type StackSetInstanceArrayInput interface {
 type StackSetInstanceArray []StackSetInstanceInput
 
 func (StackSetInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StackSetInstance)(nil))
+	return reflect.TypeOf((*[]*StackSetInstance)(nil)).Elem()
 }
 
 func (i StackSetInstanceArray) ToStackSetInstanceArrayOutput() StackSetInstanceArrayOutput {
@@ -249,7 +249,7 @@ type StackSetInstanceMapInput interface {
 type StackSetInstanceMap map[string]StackSetInstanceInput
 
 func (StackSetInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StackSetInstance)(nil))
+	return reflect.TypeOf((*map[string]*StackSetInstance)(nil)).Elem()
 }
 
 func (i StackSetInstanceMap) ToStackSetInstanceMapOutput() StackSetInstanceMapOutput {

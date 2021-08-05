@@ -201,7 +201,7 @@ type DomainIdentityVerificationArrayInput interface {
 type DomainIdentityVerificationArray []DomainIdentityVerificationInput
 
 func (DomainIdentityVerificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainIdentityVerification)(nil))
+	return reflect.TypeOf((*[]*DomainIdentityVerification)(nil)).Elem()
 }
 
 func (i DomainIdentityVerificationArray) ToDomainIdentityVerificationArrayOutput() DomainIdentityVerificationArrayOutput {
@@ -226,7 +226,7 @@ type DomainIdentityVerificationMapInput interface {
 type DomainIdentityVerificationMap map[string]DomainIdentityVerificationInput
 
 func (DomainIdentityVerificationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainIdentityVerification)(nil))
+	return reflect.TypeOf((*map[string]*DomainIdentityVerification)(nil)).Elem()
 }
 
 func (i DomainIdentityVerificationMap) ToDomainIdentityVerificationMapOutput() DomainIdentityVerificationMapOutput {

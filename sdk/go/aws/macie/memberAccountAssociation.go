@@ -168,7 +168,7 @@ type MemberAccountAssociationArrayInput interface {
 type MemberAccountAssociationArray []MemberAccountAssociationInput
 
 func (MemberAccountAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MemberAccountAssociation)(nil))
+	return reflect.TypeOf((*[]*MemberAccountAssociation)(nil)).Elem()
 }
 
 func (i MemberAccountAssociationArray) ToMemberAccountAssociationArrayOutput() MemberAccountAssociationArrayOutput {
@@ -193,7 +193,7 @@ type MemberAccountAssociationMapInput interface {
 type MemberAccountAssociationMap map[string]MemberAccountAssociationInput
 
 func (MemberAccountAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MemberAccountAssociation)(nil))
+	return reflect.TypeOf((*map[string]*MemberAccountAssociation)(nil)).Elem()
 }
 
 func (i MemberAccountAssociationMap) ToMemberAccountAssociationMapOutput() MemberAccountAssociationMapOutput {

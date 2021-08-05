@@ -261,7 +261,7 @@ type LogResourcePolicyArrayInput interface {
 type LogResourcePolicyArray []LogResourcePolicyInput
 
 func (LogResourcePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogResourcePolicy)(nil))
+	return reflect.TypeOf((*[]*LogResourcePolicy)(nil)).Elem()
 }
 
 func (i LogResourcePolicyArray) ToLogResourcePolicyArrayOutput() LogResourcePolicyArrayOutput {
@@ -286,7 +286,7 @@ type LogResourcePolicyMapInput interface {
 type LogResourcePolicyMap map[string]LogResourcePolicyInput
 
 func (LogResourcePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogResourcePolicy)(nil))
+	return reflect.TypeOf((*map[string]*LogResourcePolicy)(nil)).Elem()
 }
 
 func (i LogResourcePolicyMap) ToLogResourcePolicyMapOutput() LogResourcePolicyMapOutput {

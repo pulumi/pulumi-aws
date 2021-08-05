@@ -597,7 +597,7 @@ type ObjectCopyArrayInput interface {
 type ObjectCopyArray []ObjectCopyInput
 
 func (ObjectCopyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ObjectCopy)(nil))
+	return reflect.TypeOf((*[]*ObjectCopy)(nil)).Elem()
 }
 
 func (i ObjectCopyArray) ToObjectCopyArrayOutput() ObjectCopyArrayOutput {
@@ -622,7 +622,7 @@ type ObjectCopyMapInput interface {
 type ObjectCopyMap map[string]ObjectCopyInput
 
 func (ObjectCopyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ObjectCopy)(nil))
+	return reflect.TypeOf((*map[string]*ObjectCopy)(nil)).Elem()
 }
 
 func (i ObjectCopyMap) ToObjectCopyMapOutput() ObjectCopyMapOutput {

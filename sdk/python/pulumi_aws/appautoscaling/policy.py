@@ -327,10 +327,10 @@ class Policy(pulumi.CustomResource):
                 adjustment_type="ChangeInCapacity",
                 cooldown=60,
                 metric_aggregation_type="Maximum",
-                step_adjustments=[{
-                    "metricIntervalUpperBound": 0,
-                    "scaling_adjustment": -1,
-                }],
+                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                    metric_interval_upper_bound="0",
+                    scaling_adjustment=-1,
+                )],
             ))
         ```
         ### Preserve desired count when updating an autoscaled ECS Service
@@ -468,10 +468,10 @@ class Policy(pulumi.CustomResource):
                 adjustment_type="ChangeInCapacity",
                 cooldown=60,
                 metric_aggregation_type="Maximum",
-                step_adjustments=[{
-                    "metricIntervalUpperBound": 0,
-                    "scaling_adjustment": -1,
-                }],
+                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                    metric_interval_upper_bound="0",
+                    scaling_adjustment=-1,
+                )],
             ))
         ```
         ### Preserve desired count when updating an autoscaled ECS Service

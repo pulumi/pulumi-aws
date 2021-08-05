@@ -161,7 +161,7 @@ type DomainSamlOptionsArrayInput interface {
 type DomainSamlOptionsArray []DomainSamlOptionsInput
 
 func (DomainSamlOptionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainSamlOptions)(nil))
+	return reflect.TypeOf((*[]*DomainSamlOptions)(nil)).Elem()
 }
 
 func (i DomainSamlOptionsArray) ToDomainSamlOptionsArrayOutput() DomainSamlOptionsArrayOutput {
@@ -186,7 +186,7 @@ type DomainSamlOptionsMapInput interface {
 type DomainSamlOptionsMap map[string]DomainSamlOptionsInput
 
 func (DomainSamlOptionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainSamlOptions)(nil))
+	return reflect.TypeOf((*map[string]*DomainSamlOptions)(nil)).Elem()
 }
 
 func (i DomainSamlOptionsMap) ToDomainSamlOptionsMapOutput() DomainSamlOptionsMapOutput {

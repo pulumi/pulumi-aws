@@ -248,7 +248,7 @@ type TableArrayInput interface {
 type TableArray []TableInput
 
 func (TableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Table)(nil))
+	return reflect.TypeOf((*[]*Table)(nil)).Elem()
 }
 
 func (i TableArray) ToTableArrayOutput() TableArrayOutput {
@@ -273,7 +273,7 @@ type TableMapInput interface {
 type TableMap map[string]TableInput
 
 func (TableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Table)(nil))
+	return reflect.TypeOf((*map[string]*Table)(nil)).Elem()
 }
 
 func (i TableMap) ToTableMapOutput() TableMapOutput {

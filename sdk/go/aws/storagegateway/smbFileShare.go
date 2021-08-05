@@ -479,7 +479,7 @@ type SmbFileShareArrayInput interface {
 type SmbFileShareArray []SmbFileShareInput
 
 func (SmbFileShareArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SmbFileShare)(nil))
+	return reflect.TypeOf((*[]*SmbFileShare)(nil)).Elem()
 }
 
 func (i SmbFileShareArray) ToSmbFileShareArrayOutput() SmbFileShareArrayOutput {
@@ -504,7 +504,7 @@ type SmbFileShareMapInput interface {
 type SmbFileShareMap map[string]SmbFileShareInput
 
 func (SmbFileShareMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SmbFileShare)(nil))
+	return reflect.TypeOf((*map[string]*SmbFileShare)(nil)).Elem()
 }
 
 func (i SmbFileShareMap) ToSmbFileShareMapOutput() SmbFileShareMapOutput {

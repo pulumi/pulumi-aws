@@ -241,7 +241,7 @@ type LoadBalancerCookieStickinessPolicyArrayInput interface {
 type LoadBalancerCookieStickinessPolicyArray []LoadBalancerCookieStickinessPolicyInput
 
 func (LoadBalancerCookieStickinessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LoadBalancerCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*[]*LoadBalancerCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (i LoadBalancerCookieStickinessPolicyArray) ToLoadBalancerCookieStickinessPolicyArrayOutput() LoadBalancerCookieStickinessPolicyArrayOutput {
@@ -266,7 +266,7 @@ type LoadBalancerCookieStickinessPolicyMapInput interface {
 type LoadBalancerCookieStickinessPolicyMap map[string]LoadBalancerCookieStickinessPolicyInput
 
 func (LoadBalancerCookieStickinessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LoadBalancerCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancerCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (i LoadBalancerCookieStickinessPolicyMap) ToLoadBalancerCookieStickinessPolicyMapOutput() LoadBalancerCookieStickinessPolicyMapOutput {

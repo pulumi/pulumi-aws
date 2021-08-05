@@ -237,7 +237,7 @@ type GameSessionQueueArrayInput interface {
 type GameSessionQueueArray []GameSessionQueueInput
 
 func (GameSessionQueueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GameSessionQueue)(nil))
+	return reflect.TypeOf((*[]*GameSessionQueue)(nil)).Elem()
 }
 
 func (i GameSessionQueueArray) ToGameSessionQueueArrayOutput() GameSessionQueueArrayOutput {
@@ -262,7 +262,7 @@ type GameSessionQueueMapInput interface {
 type GameSessionQueueMap map[string]GameSessionQueueInput
 
 func (GameSessionQueueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GameSessionQueue)(nil))
+	return reflect.TypeOf((*map[string]*GameSessionQueue)(nil)).Elem()
 }
 
 func (i GameSessionQueueMap) ToGameSessionQueueMapOutput() GameSessionQueueMapOutput {

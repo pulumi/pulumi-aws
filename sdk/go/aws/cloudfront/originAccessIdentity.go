@@ -260,7 +260,7 @@ type OriginAccessIdentityArrayInput interface {
 type OriginAccessIdentityArray []OriginAccessIdentityInput
 
 func (OriginAccessIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OriginAccessIdentity)(nil))
+	return reflect.TypeOf((*[]*OriginAccessIdentity)(nil)).Elem()
 }
 
 func (i OriginAccessIdentityArray) ToOriginAccessIdentityArrayOutput() OriginAccessIdentityArrayOutput {
@@ -285,7 +285,7 @@ type OriginAccessIdentityMapInput interface {
 type OriginAccessIdentityMap map[string]OriginAccessIdentityInput
 
 func (OriginAccessIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OriginAccessIdentity)(nil))
+	return reflect.TypeOf((*map[string]*OriginAccessIdentity)(nil)).Elem()
 }
 
 func (i OriginAccessIdentityMap) ToOriginAccessIdentityMapOutput() OriginAccessIdentityMapOutput {

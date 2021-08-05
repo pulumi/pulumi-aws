@@ -277,7 +277,7 @@ type WebAclLoggingConfigurationArrayInput interface {
 type WebAclLoggingConfigurationArray []WebAclLoggingConfigurationInput
 
 func (WebAclLoggingConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebAclLoggingConfiguration)(nil))
+	return reflect.TypeOf((*[]*WebAclLoggingConfiguration)(nil)).Elem()
 }
 
 func (i WebAclLoggingConfigurationArray) ToWebAclLoggingConfigurationArrayOutput() WebAclLoggingConfigurationArrayOutput {
@@ -302,7 +302,7 @@ type WebAclLoggingConfigurationMapInput interface {
 type WebAclLoggingConfigurationMap map[string]WebAclLoggingConfigurationInput
 
 func (WebAclLoggingConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebAclLoggingConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*WebAclLoggingConfiguration)(nil)).Elem()
 }
 
 func (i WebAclLoggingConfigurationMap) ToWebAclLoggingConfigurationMapOutput() WebAclLoggingConfigurationMapOutput {

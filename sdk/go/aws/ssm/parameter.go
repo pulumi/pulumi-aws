@@ -343,7 +343,7 @@ type ParameterArrayInput interface {
 type ParameterArray []ParameterInput
 
 func (ParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Parameter)(nil))
+	return reflect.TypeOf((*[]*Parameter)(nil)).Elem()
 }
 
 func (i ParameterArray) ToParameterArrayOutput() ParameterArrayOutput {
@@ -368,7 +368,7 @@ type ParameterMapInput interface {
 type ParameterMap map[string]ParameterInput
 
 func (ParameterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Parameter)(nil))
+	return reflect.TypeOf((*map[string]*Parameter)(nil)).Elem()
 }
 
 func (i ParameterMap) ToParameterMapOutput() ParameterMapOutput {

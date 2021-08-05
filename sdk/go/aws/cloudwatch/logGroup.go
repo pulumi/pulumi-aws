@@ -247,7 +247,7 @@ type LogGroupArrayInput interface {
 type LogGroupArray []LogGroupInput
 
 func (LogGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogGroup)(nil))
+	return reflect.TypeOf((*[]*LogGroup)(nil)).Elem()
 }
 
 func (i LogGroupArray) ToLogGroupArrayOutput() LogGroupArrayOutput {
@@ -272,7 +272,7 @@ type LogGroupMapInput interface {
 type LogGroupMap map[string]LogGroupInput
 
 func (LogGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogGroup)(nil))
+	return reflect.TypeOf((*map[string]*LogGroup)(nil)).Elem()
 }
 
 func (i LogGroupMap) ToLogGroupMapOutput() LogGroupMapOutput {

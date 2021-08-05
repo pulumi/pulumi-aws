@@ -246,7 +246,7 @@ type WorkgroupArrayInput interface {
 type WorkgroupArray []WorkgroupInput
 
 func (WorkgroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Workgroup)(nil))
+	return reflect.TypeOf((*[]*Workgroup)(nil)).Elem()
 }
 
 func (i WorkgroupArray) ToWorkgroupArrayOutput() WorkgroupArrayOutput {
@@ -271,7 +271,7 @@ type WorkgroupMapInput interface {
 type WorkgroupMap map[string]WorkgroupInput
 
 func (WorkgroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Workgroup)(nil))
+	return reflect.TypeOf((*map[string]*Workgroup)(nil)).Elem()
 }
 
 func (i WorkgroupMap) ToWorkgroupMapOutput() WorkgroupMapOutput {

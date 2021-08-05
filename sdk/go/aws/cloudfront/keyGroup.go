@@ -166,7 +166,7 @@ type KeyGroupArrayInput interface {
 type KeyGroupArray []KeyGroupInput
 
 func (KeyGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KeyGroup)(nil))
+	return reflect.TypeOf((*[]*KeyGroup)(nil)).Elem()
 }
 
 func (i KeyGroupArray) ToKeyGroupArrayOutput() KeyGroupArrayOutput {
@@ -191,7 +191,7 @@ type KeyGroupMapInput interface {
 type KeyGroupMap map[string]KeyGroupInput
 
 func (KeyGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KeyGroup)(nil))
+	return reflect.TypeOf((*map[string]*KeyGroup)(nil)).Elem()
 }
 
 func (i KeyGroupMap) ToKeyGroupMapOutput() KeyGroupMapOutput {

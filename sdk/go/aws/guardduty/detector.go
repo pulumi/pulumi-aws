@@ -227,7 +227,7 @@ type DetectorArrayInput interface {
 type DetectorArray []DetectorInput
 
 func (DetectorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Detector)(nil))
+	return reflect.TypeOf((*[]*Detector)(nil)).Elem()
 }
 
 func (i DetectorArray) ToDetectorArrayOutput() DetectorArrayOutput {
@@ -252,7 +252,7 @@ type DetectorMapInput interface {
 type DetectorMap map[string]DetectorInput
 
 func (DetectorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Detector)(nil))
+	return reflect.TypeOf((*map[string]*Detector)(nil)).Elem()
 }
 
 func (i DetectorMap) ToDetectorMapOutput() DetectorMapOutput {

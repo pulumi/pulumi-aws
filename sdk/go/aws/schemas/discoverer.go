@@ -206,7 +206,7 @@ type DiscovererArrayInput interface {
 type DiscovererArray []DiscovererInput
 
 func (DiscovererArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Discoverer)(nil))
+	return reflect.TypeOf((*[]*Discoverer)(nil)).Elem()
 }
 
 func (i DiscovererArray) ToDiscovererArrayOutput() DiscovererArrayOutput {
@@ -231,7 +231,7 @@ type DiscovererMapInput interface {
 type DiscovererMap map[string]DiscovererInput
 
 func (DiscovererMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Discoverer)(nil))
+	return reflect.TypeOf((*map[string]*Discoverer)(nil)).Elem()
 }
 
 func (i DiscovererMap) ToDiscovererMapOutput() DiscovererMapOutput {

@@ -194,7 +194,7 @@ type DelegationSetArrayInput interface {
 type DelegationSetArray []DelegationSetInput
 
 func (DelegationSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DelegationSet)(nil))
+	return reflect.TypeOf((*[]*DelegationSet)(nil)).Elem()
 }
 
 func (i DelegationSetArray) ToDelegationSetArrayOutput() DelegationSetArrayOutput {
@@ -219,7 +219,7 @@ type DelegationSetMapInput interface {
 type DelegationSetMap map[string]DelegationSetInput
 
 func (DelegationSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DelegationSet)(nil))
+	return reflect.TypeOf((*map[string]*DelegationSet)(nil)).Elem()
 }
 
 func (i DelegationSetMap) ToDelegationSetMapOutput() DelegationSetMapOutput {

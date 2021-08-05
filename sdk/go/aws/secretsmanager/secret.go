@@ -326,7 +326,7 @@ type SecretArrayInput interface {
 type SecretArray []SecretInput
 
 func (SecretArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Secret)(nil))
+	return reflect.TypeOf((*[]*Secret)(nil)).Elem()
 }
 
 func (i SecretArray) ToSecretArrayOutput() SecretArrayOutput {
@@ -351,7 +351,7 @@ type SecretMapInput interface {
 type SecretMap map[string]SecretInput
 
 func (SecretMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Secret)(nil))
+	return reflect.TypeOf((*map[string]*Secret)(nil)).Elem()
 }
 
 func (i SecretMap) ToSecretMapOutput() SecretMapOutput {

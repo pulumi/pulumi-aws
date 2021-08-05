@@ -295,10 +295,10 @@ class Workgroup(pulumi.CustomResource):
             publish_cloudwatch_metrics_enabled=True,
             result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration={
-                    "encryptionOption": "SSE_KMS",
-                    "kms_key_arn": aws_kms_key["example"]["arn"],
-                },
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                    encryption_option="SSE_KMS",
+                    kms_key_arn=aws_kms_key["example"]["arn"],
+                ),
             ),
         ))
         ```
@@ -341,10 +341,10 @@ class Workgroup(pulumi.CustomResource):
             publish_cloudwatch_metrics_enabled=True,
             result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration={
-                    "encryptionOption": "SSE_KMS",
-                    "kms_key_arn": aws_kms_key["example"]["arn"],
-                },
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                    encryption_option="SSE_KMS",
+                    kms_key_arn=aws_kms_key["example"]["arn"],
+                ),
             ),
         ))
         ```

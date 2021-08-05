@@ -222,7 +222,7 @@ type AppImageConfigArrayInput interface {
 type AppImageConfigArray []AppImageConfigInput
 
 func (AppImageConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppImageConfig)(nil))
+	return reflect.TypeOf((*[]*AppImageConfig)(nil)).Elem()
 }
 
 func (i AppImageConfigArray) ToAppImageConfigArrayOutput() AppImageConfigArrayOutput {
@@ -247,7 +247,7 @@ type AppImageConfigMapInput interface {
 type AppImageConfigMap map[string]AppImageConfigInput
 
 func (AppImageConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppImageConfig)(nil))
+	return reflect.TypeOf((*map[string]*AppImageConfig)(nil)).Elem()
 }
 
 func (i AppImageConfigMap) ToAppImageConfigMapOutput() AppImageConfigMapOutput {

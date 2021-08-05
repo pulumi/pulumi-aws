@@ -170,7 +170,7 @@ type ActiveReceiptRuleSetArrayInput interface {
 type ActiveReceiptRuleSetArray []ActiveReceiptRuleSetInput
 
 func (ActiveReceiptRuleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((*[]*ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (i ActiveReceiptRuleSetArray) ToActiveReceiptRuleSetArrayOutput() ActiveReceiptRuleSetArrayOutput {
@@ -195,7 +195,7 @@ type ActiveReceiptRuleSetMapInput interface {
 type ActiveReceiptRuleSetMap map[string]ActiveReceiptRuleSetInput
 
 func (ActiveReceiptRuleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActiveReceiptRuleSet)(nil))
+	return reflect.TypeOf((*map[string]*ActiveReceiptRuleSet)(nil)).Elem()
 }
 
 func (i ActiveReceiptRuleSetMap) ToActiveReceiptRuleSetMapOutput() ActiveReceiptRuleSetMapOutput {

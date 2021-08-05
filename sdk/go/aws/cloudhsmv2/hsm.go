@@ -229,7 +229,7 @@ type HsmArrayInput interface {
 type HsmArray []HsmInput
 
 func (HsmArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Hsm)(nil))
+	return reflect.TypeOf((*[]*Hsm)(nil)).Elem()
 }
 
 func (i HsmArray) ToHsmArrayOutput() HsmArrayOutput {
@@ -254,7 +254,7 @@ type HsmMapInput interface {
 type HsmMap map[string]HsmInput
 
 func (HsmMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Hsm)(nil))
+	return reflect.TypeOf((*map[string]*Hsm)(nil)).Elem()
 }
 
 func (i HsmMap) ToHsmMapOutput() HsmMapOutput {

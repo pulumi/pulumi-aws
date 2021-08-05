@@ -243,7 +243,7 @@ type BotAliasArrayInput interface {
 type BotAliasArray []BotAliasInput
 
 func (BotAliasArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BotAlias)(nil))
+	return reflect.TypeOf((*[]*BotAlias)(nil)).Elem()
 }
 
 func (i BotAliasArray) ToBotAliasArrayOutput() BotAliasArrayOutput {
@@ -268,7 +268,7 @@ type BotAliasMapInput interface {
 type BotAliasMap map[string]BotAliasInput
 
 func (BotAliasMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BotAlias)(nil))
+	return reflect.TypeOf((*map[string]*BotAlias)(nil)).Elem()
 }
 
 func (i BotAliasMap) ToBotAliasMapOutput() BotAliasMapOutput {

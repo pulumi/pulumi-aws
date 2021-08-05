@@ -284,7 +284,7 @@ type ConformancePackArrayInput interface {
 type ConformancePackArray []ConformancePackInput
 
 func (ConformancePackArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConformancePack)(nil))
+	return reflect.TypeOf((*[]*ConformancePack)(nil)).Elem()
 }
 
 func (i ConformancePackArray) ToConformancePackArrayOutput() ConformancePackArrayOutput {
@@ -309,7 +309,7 @@ type ConformancePackMapInput interface {
 type ConformancePackMap map[string]ConformancePackInput
 
 func (ConformancePackMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConformancePack)(nil))
+	return reflect.TypeOf((*map[string]*ConformancePack)(nil)).Elem()
 }
 
 func (i ConformancePackMap) ToConformancePackMapOutput() ConformancePackMapOutput {

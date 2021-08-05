@@ -375,7 +375,7 @@ type CatalogTableArrayInput interface {
 type CatalogTableArray []CatalogTableInput
 
 func (CatalogTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CatalogTable)(nil))
+	return reflect.TypeOf((*[]*CatalogTable)(nil)).Elem()
 }
 
 func (i CatalogTableArray) ToCatalogTableArrayOutput() CatalogTableArrayOutput {
@@ -400,7 +400,7 @@ type CatalogTableMapInput interface {
 type CatalogTableMap map[string]CatalogTableInput
 
 func (CatalogTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CatalogTable)(nil))
+	return reflect.TypeOf((*map[string]*CatalogTable)(nil)).Elem()
 }
 
 func (i CatalogTableMap) ToCatalogTableMapOutput() CatalogTableMapOutput {

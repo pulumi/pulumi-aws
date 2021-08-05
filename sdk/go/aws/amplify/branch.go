@@ -385,7 +385,7 @@ type BranchArrayInput interface {
 type BranchArray []BranchInput
 
 func (BranchArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Branch)(nil))
+	return reflect.TypeOf((*[]*Branch)(nil)).Elem()
 }
 
 func (i BranchArray) ToBranchArrayOutput() BranchArrayOutput {
@@ -410,7 +410,7 @@ type BranchMapInput interface {
 type BranchMap map[string]BranchInput
 
 func (BranchMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Branch)(nil))
+	return reflect.TypeOf((*map[string]*Branch)(nil)).Elem()
 }
 
 func (i BranchMap) ToBranchMapOutput() BranchMapOutput {

@@ -412,7 +412,7 @@ type MaintenanceWindowTaskArrayInput interface {
 type MaintenanceWindowTaskArray []MaintenanceWindowTaskInput
 
 func (MaintenanceWindowTaskArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((*[]*MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (i MaintenanceWindowTaskArray) ToMaintenanceWindowTaskArrayOutput() MaintenanceWindowTaskArrayOutput {
@@ -437,7 +437,7 @@ type MaintenanceWindowTaskMapInput interface {
 type MaintenanceWindowTaskMap map[string]MaintenanceWindowTaskInput
 
 func (MaintenanceWindowTaskMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaintenanceWindowTask)(nil))
+	return reflect.TypeOf((*map[string]*MaintenanceWindowTask)(nil)).Elem()
 }
 
 func (i MaintenanceWindowTaskMap) ToMaintenanceWindowTaskMapOutput() MaintenanceWindowTaskMapOutput {

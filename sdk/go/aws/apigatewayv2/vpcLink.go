@@ -230,7 +230,7 @@ type VpcLinkArrayInput interface {
 type VpcLinkArray []VpcLinkInput
 
 func (VpcLinkArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcLink)(nil))
+	return reflect.TypeOf((*[]*VpcLink)(nil)).Elem()
 }
 
 func (i VpcLinkArray) ToVpcLinkArrayOutput() VpcLinkArrayOutput {
@@ -255,7 +255,7 @@ type VpcLinkMapInput interface {
 type VpcLinkMap map[string]VpcLinkInput
 
 func (VpcLinkMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcLink)(nil))
+	return reflect.TypeOf((*map[string]*VpcLink)(nil)).Elem()
 }
 
 func (i VpcLinkMap) ToVpcLinkMapOutput() VpcLinkMapOutput {

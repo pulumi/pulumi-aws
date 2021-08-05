@@ -404,14 +404,14 @@ class Route(pulumi.CustomResource):
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
                         prefix="/",
                     ),
-                    retry_policy={
-                        "httpRetryEvents": ["server-error"],
-                        "max_retries": 1,
-                        "perRetryTimeout": {
-                            "unit": "s",
-                            "value": 15,
-                        },
-                    },
+                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
+                        http_retry_events=["server-error"],
+                        max_retries=1,
+                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
+                            unit="s",
+                            value=15,
+                        ),
+                    ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
                             virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],
@@ -546,14 +546,14 @@ class Route(pulumi.CustomResource):
                     match=aws.appmesh.RouteSpecHttpRouteMatchArgs(
                         prefix="/",
                     ),
-                    retry_policy={
-                        "httpRetryEvents": ["server-error"],
-                        "max_retries": 1,
-                        "perRetryTimeout": {
-                            "unit": "s",
-                            "value": 15,
-                        },
-                    },
+                    retry_policy=aws.appmesh.RouteSpecHttpRouteRetryPolicyArgs(
+                        http_retry_events=["server-error"],
+                        max_retries=1,
+                        per_retry_timeout=aws.appmesh.RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs(
+                            unit="s",
+                            value=15,
+                        ),
+                    ),
                     action=aws.appmesh.RouteSpecHttpRouteActionArgs(
                         weighted_targets=[aws.appmesh.RouteSpecHttpRouteActionWeightedTargetArgs(
                             virtual_node=aws_appmesh_virtual_node["serviceb"]["name"],

@@ -317,7 +317,7 @@ type ZoneArrayInput interface {
 type ZoneArray []ZoneInput
 
 func (ZoneArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Zone)(nil))
+	return reflect.TypeOf((*[]*Zone)(nil)).Elem()
 }
 
 func (i ZoneArray) ToZoneArrayOutput() ZoneArrayOutput {
@@ -342,7 +342,7 @@ type ZoneMapInput interface {
 type ZoneMap map[string]ZoneInput
 
 func (ZoneMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Zone)(nil))
+	return reflect.TypeOf((*map[string]*Zone)(nil)).Elem()
 }
 
 func (i ZoneMap) ToZoneMapOutput() ZoneMapOutput {

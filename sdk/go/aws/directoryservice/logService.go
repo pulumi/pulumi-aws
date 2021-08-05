@@ -162,7 +162,7 @@ type LogServiceArrayInput interface {
 type LogServiceArray []LogServiceInput
 
 func (LogServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogService)(nil))
+	return reflect.TypeOf((*[]*LogService)(nil)).Elem()
 }
 
 func (i LogServiceArray) ToLogServiceArrayOutput() LogServiceArrayOutput {
@@ -187,7 +187,7 @@ type LogServiceMapInput interface {
 type LogServiceMap map[string]LogServiceInput
 
 func (LogServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogService)(nil))
+	return reflect.TypeOf((*map[string]*LogService)(nil)).Elem()
 }
 
 func (i LogServiceMap) ToLogServiceMapOutput() LogServiceMapOutput {

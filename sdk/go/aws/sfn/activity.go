@@ -192,7 +192,7 @@ type ActivityArrayInput interface {
 type ActivityArray []ActivityInput
 
 func (ActivityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Activity)(nil))
+	return reflect.TypeOf((*[]*Activity)(nil)).Elem()
 }
 
 func (i ActivityArray) ToActivityArrayOutput() ActivityArrayOutput {
@@ -217,7 +217,7 @@ type ActivityMapInput interface {
 type ActivityMap map[string]ActivityInput
 
 func (ActivityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Activity)(nil))
+	return reflect.TypeOf((*map[string]*Activity)(nil)).Elem()
 }
 
 func (i ActivityMap) ToActivityMapOutput() ActivityMapOutput {

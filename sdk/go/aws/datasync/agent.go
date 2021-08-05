@@ -256,7 +256,7 @@ type AgentArrayInput interface {
 type AgentArray []AgentInput
 
 func (AgentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Agent)(nil))
+	return reflect.TypeOf((*[]*Agent)(nil)).Elem()
 }
 
 func (i AgentArray) ToAgentArrayOutput() AgentArrayOutput {
@@ -281,7 +281,7 @@ type AgentMapInput interface {
 type AgentMap map[string]AgentInput
 
 func (AgentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Agent)(nil))
+	return reflect.TypeOf((*map[string]*Agent)(nil)).Elem()
 }
 
 func (i AgentMap) ToAgentMapOutput() AgentMapOutput {

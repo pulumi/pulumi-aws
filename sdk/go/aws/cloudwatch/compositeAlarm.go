@@ -269,7 +269,7 @@ type CompositeAlarmArrayInput interface {
 type CompositeAlarmArray []CompositeAlarmInput
 
 func (CompositeAlarmArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CompositeAlarm)(nil))
+	return reflect.TypeOf((*[]*CompositeAlarm)(nil)).Elem()
 }
 
 func (i CompositeAlarmArray) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOutput {
@@ -294,7 +294,7 @@ type CompositeAlarmMapInput interface {
 type CompositeAlarmMap map[string]CompositeAlarmInput
 
 func (CompositeAlarmMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CompositeAlarm)(nil))
+	return reflect.TypeOf((*map[string]*CompositeAlarm)(nil)).Elem()
 }
 
 func (i CompositeAlarmMap) ToCompositeAlarmMapOutput() CompositeAlarmMapOutput {

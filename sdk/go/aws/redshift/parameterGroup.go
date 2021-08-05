@@ -245,7 +245,7 @@ type ParameterGroupArrayInput interface {
 type ParameterGroupArray []ParameterGroupInput
 
 func (ParameterGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ParameterGroup)(nil))
+	return reflect.TypeOf((*[]*ParameterGroup)(nil)).Elem()
 }
 
 func (i ParameterGroupArray) ToParameterGroupArrayOutput() ParameterGroupArrayOutput {
@@ -270,7 +270,7 @@ type ParameterGroupMapInput interface {
 type ParameterGroupMap map[string]ParameterGroupInput
 
 func (ParameterGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ParameterGroup)(nil))
+	return reflect.TypeOf((*map[string]*ParameterGroup)(nil)).Elem()
 }
 
 func (i ParameterGroupMap) ToParameterGroupMapOutput() ParameterGroupMapOutput {

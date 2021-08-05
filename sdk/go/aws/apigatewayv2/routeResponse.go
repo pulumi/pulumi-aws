@@ -224,7 +224,7 @@ type RouteResponseArrayInput interface {
 type RouteResponseArray []RouteResponseInput
 
 func (RouteResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RouteResponse)(nil))
+	return reflect.TypeOf((*[]*RouteResponse)(nil)).Elem()
 }
 
 func (i RouteResponseArray) ToRouteResponseArrayOutput() RouteResponseArrayOutput {
@@ -249,7 +249,7 @@ type RouteResponseMapInput interface {
 type RouteResponseMap map[string]RouteResponseInput
 
 func (RouteResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RouteResponse)(nil))
+	return reflect.TypeOf((*map[string]*RouteResponse)(nil)).Elem()
 }
 
 func (i RouteResponseMap) ToRouteResponseMapOutput() RouteResponseMapOutput {

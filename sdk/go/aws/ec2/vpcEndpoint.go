@@ -435,7 +435,7 @@ type VpcEndpointArrayInput interface {
 type VpcEndpointArray []VpcEndpointInput
 
 func (VpcEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpoint)(nil))
+	return reflect.TypeOf((*[]*VpcEndpoint)(nil)).Elem()
 }
 
 func (i VpcEndpointArray) ToVpcEndpointArrayOutput() VpcEndpointArrayOutput {
@@ -460,7 +460,7 @@ type VpcEndpointMapInput interface {
 type VpcEndpointMap map[string]VpcEndpointInput
 
 func (VpcEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpoint)(nil)).Elem()
 }
 
 func (i VpcEndpointMap) ToVpcEndpointMapOutput() VpcEndpointMapOutput {

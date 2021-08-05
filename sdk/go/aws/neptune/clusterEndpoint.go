@@ -247,7 +247,7 @@ type ClusterEndpointArrayInput interface {
 type ClusterEndpointArray []ClusterEndpointInput
 
 func (ClusterEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClusterEndpoint)(nil))
+	return reflect.TypeOf((*[]*ClusterEndpoint)(nil)).Elem()
 }
 
 func (i ClusterEndpointArray) ToClusterEndpointArrayOutput() ClusterEndpointArrayOutput {
@@ -272,7 +272,7 @@ type ClusterEndpointMapInput interface {
 type ClusterEndpointMap map[string]ClusterEndpointInput
 
 func (ClusterEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClusterEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*ClusterEndpoint)(nil)).Elem()
 }
 
 func (i ClusterEndpointMap) ToClusterEndpointMapOutput() ClusterEndpointMapOutput {

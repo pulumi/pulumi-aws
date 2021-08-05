@@ -244,7 +244,7 @@ type SnapshotScheduleArrayInput interface {
 type SnapshotScheduleArray []SnapshotScheduleInput
 
 func (SnapshotScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnapshotSchedule)(nil))
+	return reflect.TypeOf((*[]*SnapshotSchedule)(nil)).Elem()
 }
 
 func (i SnapshotScheduleArray) ToSnapshotScheduleArrayOutput() SnapshotScheduleArrayOutput {
@@ -269,7 +269,7 @@ type SnapshotScheduleMapInput interface {
 type SnapshotScheduleMap map[string]SnapshotScheduleInput
 
 func (SnapshotScheduleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnapshotSchedule)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotSchedule)(nil)).Elem()
 }
 
 func (i SnapshotScheduleMap) ToSnapshotScheduleMapOutput() SnapshotScheduleMapOutput {

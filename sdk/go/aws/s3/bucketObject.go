@@ -530,7 +530,7 @@ type BucketObjectArrayInput interface {
 type BucketObjectArray []BucketObjectInput
 
 func (BucketObjectArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketObject)(nil))
+	return reflect.TypeOf((*[]*BucketObject)(nil)).Elem()
 }
 
 func (i BucketObjectArray) ToBucketObjectArrayOutput() BucketObjectArrayOutput {
@@ -555,7 +555,7 @@ type BucketObjectMapInput interface {
 type BucketObjectMap map[string]BucketObjectInput
 
 func (BucketObjectMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketObject)(nil))
+	return reflect.TypeOf((*map[string]*BucketObject)(nil)).Elem()
 }
 
 func (i BucketObjectMap) ToBucketObjectMapOutput() BucketObjectMapOutput {

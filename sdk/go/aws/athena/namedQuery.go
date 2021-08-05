@@ -254,7 +254,7 @@ type NamedQueryArrayInput interface {
 type NamedQueryArray []NamedQueryInput
 
 func (NamedQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NamedQuery)(nil))
+	return reflect.TypeOf((*[]*NamedQuery)(nil)).Elem()
 }
 
 func (i NamedQueryArray) ToNamedQueryArrayOutput() NamedQueryArrayOutput {
@@ -279,7 +279,7 @@ type NamedQueryMapInput interface {
 type NamedQueryMap map[string]NamedQueryInput
 
 func (NamedQueryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NamedQuery)(nil))
+	return reflect.TypeOf((*map[string]*NamedQuery)(nil)).Elem()
 }
 
 func (i NamedQueryMap) ToNamedQueryMapOutput() NamedQueryMapOutput {

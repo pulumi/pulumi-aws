@@ -617,13 +617,13 @@ class Application(pulumi.CustomResource):
                     ),
                     code_content_type="ZIPFILE",
                 ),
-                vpc_configuration={
-                    "security_group_ids": [
+                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
+                    security_group_ids=[
                         aws_security_group["example"][0]["id"],
                         aws_security_group["example"][1]["id"],
                     ],
-                    "subnet_ids": [aws_subnet["example"]["id"]],
-                },
+                    subnet_ids=[aws_subnet["example"]["id"]],
+                ),
             ))
         ```
 
@@ -843,13 +843,13 @@ class Application(pulumi.CustomResource):
                     ),
                     code_content_type="ZIPFILE",
                 ),
-                vpc_configuration={
-                    "security_group_ids": [
+                vpc_configuration=aws.kinesisanalyticsv2.ApplicationApplicationConfigurationVpcConfigurationArgs(
+                    security_group_ids=[
                         aws_security_group["example"][0]["id"],
                         aws_security_group["example"][1]["id"],
                     ],
-                    "subnet_ids": [aws_subnet["example"]["id"]],
-                },
+                    subnet_ids=[aws_subnet["example"]["id"]],
+                ),
             ))
         ```
 

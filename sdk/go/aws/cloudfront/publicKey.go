@@ -189,7 +189,7 @@ type PublicKeyArrayInput interface {
 type PublicKeyArray []PublicKeyInput
 
 func (PublicKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PublicKey)(nil))
+	return reflect.TypeOf((*[]*PublicKey)(nil)).Elem()
 }
 
 func (i PublicKeyArray) ToPublicKeyArrayOutput() PublicKeyArrayOutput {
@@ -214,7 +214,7 @@ type PublicKeyMapInput interface {
 type PublicKeyMap map[string]PublicKeyInput
 
 func (PublicKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PublicKey)(nil))
+	return reflect.TypeOf((*map[string]*PublicKey)(nil)).Elem()
 }
 
 func (i PublicKeyMap) ToPublicKeyMapOutput() PublicKeyMapOutput {

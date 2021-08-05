@@ -265,7 +265,7 @@ type CustomDataIdentifierArrayInput interface {
 type CustomDataIdentifierArray []CustomDataIdentifierInput
 
 func (CustomDataIdentifierArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((*[]*CustomDataIdentifier)(nil)).Elem()
 }
 
 func (i CustomDataIdentifierArray) ToCustomDataIdentifierArrayOutput() CustomDataIdentifierArrayOutput {
@@ -290,7 +290,7 @@ type CustomDataIdentifierMapInput interface {
 type CustomDataIdentifierMap map[string]CustomDataIdentifierInput
 
 func (CustomDataIdentifierMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomDataIdentifier)(nil))
+	return reflect.TypeOf((*map[string]*CustomDataIdentifier)(nil)).Elem()
 }
 
 func (i CustomDataIdentifierMap) ToCustomDataIdentifierMapOutput() CustomDataIdentifierMapOutput {

@@ -388,7 +388,7 @@ type EnvironmentArrayInput interface {
 type EnvironmentArray []EnvironmentInput
 
 func (EnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Environment)(nil))
+	return reflect.TypeOf((*[]*Environment)(nil)).Elem()
 }
 
 func (i EnvironmentArray) ToEnvironmentArrayOutput() EnvironmentArrayOutput {
@@ -413,7 +413,7 @@ type EnvironmentMapInput interface {
 type EnvironmentMap map[string]EnvironmentInput
 
 func (EnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Environment)(nil))
+	return reflect.TypeOf((*map[string]*Environment)(nil)).Elem()
 }
 
 func (i EnvironmentMap) ToEnvironmentMapOutput() EnvironmentMapOutput {

@@ -255,7 +255,7 @@ type EventArchiveArrayInput interface {
 type EventArchiveArray []EventArchiveInput
 
 func (EventArchiveArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventArchive)(nil))
+	return reflect.TypeOf((*[]*EventArchive)(nil)).Elem()
 }
 
 func (i EventArchiveArray) ToEventArchiveArrayOutput() EventArchiveArrayOutput {
@@ -280,7 +280,7 @@ type EventArchiveMapInput interface {
 type EventArchiveMap map[string]EventArchiveInput
 
 func (EventArchiveMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventArchive)(nil))
+	return reflect.TypeOf((*map[string]*EventArchive)(nil)).Elem()
 }
 
 func (i EventArchiveMap) ToEventArchiveMapOutput() EventArchiveMapOutput {

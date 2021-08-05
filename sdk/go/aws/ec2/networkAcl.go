@@ -264,7 +264,7 @@ type NetworkAclArrayInput interface {
 type NetworkAclArray []NetworkAclInput
 
 func (NetworkAclArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkAcl)(nil))
+	return reflect.TypeOf((*[]*NetworkAcl)(nil)).Elem()
 }
 
 func (i NetworkAclArray) ToNetworkAclArrayOutput() NetworkAclArrayOutput {
@@ -289,7 +289,7 @@ type NetworkAclMapInput interface {
 type NetworkAclMap map[string]NetworkAclInput
 
 func (NetworkAclMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkAcl)(nil))
+	return reflect.TypeOf((*map[string]*NetworkAcl)(nil)).Elem()
 }
 
 func (i NetworkAclMap) ToNetworkAclMapOutput() NetworkAclMapOutput {

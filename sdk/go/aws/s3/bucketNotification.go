@@ -330,7 +330,7 @@ type BucketNotificationArrayInput interface {
 type BucketNotificationArray []BucketNotificationInput
 
 func (BucketNotificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketNotification)(nil))
+	return reflect.TypeOf((*[]*BucketNotification)(nil)).Elem()
 }
 
 func (i BucketNotificationArray) ToBucketNotificationArrayOutput() BucketNotificationArrayOutput {
@@ -355,7 +355,7 @@ type BucketNotificationMapInput interface {
 type BucketNotificationMap map[string]BucketNotificationInput
 
 func (BucketNotificationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketNotification)(nil))
+	return reflect.TypeOf((*map[string]*BucketNotification)(nil)).Elem()
 }
 
 func (i BucketNotificationMap) ToBucketNotificationMapOutput() BucketNotificationMapOutput {

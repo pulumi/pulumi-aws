@@ -270,7 +270,7 @@ type NetworkInterfaceSecurityGroupAttachmentArrayInput interface {
 type NetworkInterfaceSecurityGroupAttachmentArray []NetworkInterfaceSecurityGroupAttachmentInput
 
 func (NetworkInterfaceSecurityGroupAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkInterfaceSecurityGroupAttachment)(nil))
+	return reflect.TypeOf((*[]*NetworkInterfaceSecurityGroupAttachment)(nil)).Elem()
 }
 
 func (i NetworkInterfaceSecurityGroupAttachmentArray) ToNetworkInterfaceSecurityGroupAttachmentArrayOutput() NetworkInterfaceSecurityGroupAttachmentArrayOutput {
@@ -295,7 +295,7 @@ type NetworkInterfaceSecurityGroupAttachmentMapInput interface {
 type NetworkInterfaceSecurityGroupAttachmentMap map[string]NetworkInterfaceSecurityGroupAttachmentInput
 
 func (NetworkInterfaceSecurityGroupAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkInterfaceSecurityGroupAttachment)(nil))
+	return reflect.TypeOf((*map[string]*NetworkInterfaceSecurityGroupAttachment)(nil)).Elem()
 }
 
 func (i NetworkInterfaceSecurityGroupAttachmentMap) ToNetworkInterfaceSecurityGroupAttachmentMapOutput() NetworkInterfaceSecurityGroupAttachmentMapOutput {

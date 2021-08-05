@@ -240,7 +240,7 @@ type EndpointConfigurationArrayInput interface {
 type EndpointConfigurationArray []EndpointConfigurationInput
 
 func (EndpointConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointConfiguration)(nil))
+	return reflect.TypeOf((*[]*EndpointConfiguration)(nil)).Elem()
 }
 
 func (i EndpointConfigurationArray) ToEndpointConfigurationArrayOutput() EndpointConfigurationArrayOutput {
@@ -265,7 +265,7 @@ type EndpointConfigurationMapInput interface {
 type EndpointConfigurationMap map[string]EndpointConfigurationInput
 
 func (EndpointConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*EndpointConfiguration)(nil)).Elem()
 }
 
 func (i EndpointConfigurationMap) ToEndpointConfigurationMapOutput() EndpointConfigurationMapOutput {

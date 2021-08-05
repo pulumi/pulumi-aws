@@ -355,7 +355,7 @@ type ProvisionedProductArrayInput interface {
 type ProvisionedProductArray []ProvisionedProductInput
 
 func (ProvisionedProductArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProvisionedProduct)(nil))
+	return reflect.TypeOf((*[]*ProvisionedProduct)(nil)).Elem()
 }
 
 func (i ProvisionedProductArray) ToProvisionedProductArrayOutput() ProvisionedProductArrayOutput {
@@ -380,7 +380,7 @@ type ProvisionedProductMapInput interface {
 type ProvisionedProductMap map[string]ProvisionedProductInput
 
 func (ProvisionedProductMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProvisionedProduct)(nil))
+	return reflect.TypeOf((*map[string]*ProvisionedProduct)(nil)).Elem()
 }
 
 func (i ProvisionedProductMap) ToProvisionedProductMapOutput() ProvisionedProductMapOutput {

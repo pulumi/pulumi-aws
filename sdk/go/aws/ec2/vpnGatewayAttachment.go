@@ -205,7 +205,7 @@ type VpnGatewayAttachmentArrayInput interface {
 type VpnGatewayAttachmentArray []VpnGatewayAttachmentInput
 
 func (VpnGatewayAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((*[]*VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (i VpnGatewayAttachmentArray) ToVpnGatewayAttachmentArrayOutput() VpnGatewayAttachmentArrayOutput {
@@ -230,7 +230,7 @@ type VpnGatewayAttachmentMapInput interface {
 type VpnGatewayAttachmentMap map[string]VpnGatewayAttachmentInput
 
 func (VpnGatewayAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnGatewayAttachment)(nil))
+	return reflect.TypeOf((*map[string]*VpnGatewayAttachment)(nil)).Elem()
 }
 
 func (i VpnGatewayAttachmentMap) ToVpnGatewayAttachmentMapOutput() VpnGatewayAttachmentMapOutput {

@@ -273,7 +273,7 @@ type DefaultRouteTableArrayInput interface {
 type DefaultRouteTableArray []DefaultRouteTableInput
 
 func (DefaultRouteTableArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultRouteTable)(nil))
+	return reflect.TypeOf((*[]*DefaultRouteTable)(nil)).Elem()
 }
 
 func (i DefaultRouteTableArray) ToDefaultRouteTableArrayOutput() DefaultRouteTableArrayOutput {
@@ -298,7 +298,7 @@ type DefaultRouteTableMapInput interface {
 type DefaultRouteTableMap map[string]DefaultRouteTableInput
 
 func (DefaultRouteTableMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultRouteTable)(nil))
+	return reflect.TypeOf((*map[string]*DefaultRouteTable)(nil)).Elem()
 }
 
 func (i DefaultRouteTableMap) ToDefaultRouteTableMapOutput() DefaultRouteTableMapOutput {

@@ -167,7 +167,7 @@ type OrganizationsAccessArrayInput interface {
 type OrganizationsAccessArray []OrganizationsAccessInput
 
 func (OrganizationsAccessArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationsAccess)(nil))
+	return reflect.TypeOf((*[]*OrganizationsAccess)(nil)).Elem()
 }
 
 func (i OrganizationsAccessArray) ToOrganizationsAccessArrayOutput() OrganizationsAccessArrayOutput {
@@ -192,7 +192,7 @@ type OrganizationsAccessMapInput interface {
 type OrganizationsAccessMap map[string]OrganizationsAccessInput
 
 func (OrganizationsAccessMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationsAccess)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationsAccess)(nil)).Elem()
 }
 
 func (i OrganizationsAccessMap) ToOrganizationsAccessMapOutput() OrganizationsAccessMapOutput {

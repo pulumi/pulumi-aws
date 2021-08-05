@@ -223,7 +223,7 @@ type ModelArrayInput interface {
 type ModelArray []ModelInput
 
 func (ModelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Model)(nil))
+	return reflect.TypeOf((*[]*Model)(nil)).Elem()
 }
 
 func (i ModelArray) ToModelArrayOutput() ModelArrayOutput {
@@ -248,7 +248,7 @@ type ModelMapInput interface {
 type ModelMap map[string]ModelInput
 
 func (ModelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Model)(nil))
+	return reflect.TypeOf((*map[string]*Model)(nil)).Elem()
 }
 
 func (i ModelMap) ToModelMapOutput() ModelMapOutput {

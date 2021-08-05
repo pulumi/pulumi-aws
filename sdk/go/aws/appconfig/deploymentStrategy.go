@@ -272,7 +272,7 @@ type DeploymentStrategyArrayInput interface {
 type DeploymentStrategyArray []DeploymentStrategyInput
 
 func (DeploymentStrategyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DeploymentStrategy)(nil))
+	return reflect.TypeOf((*[]*DeploymentStrategy)(nil)).Elem()
 }
 
 func (i DeploymentStrategyArray) ToDeploymentStrategyArrayOutput() DeploymentStrategyArrayOutput {
@@ -297,7 +297,7 @@ type DeploymentStrategyMapInput interface {
 type DeploymentStrategyMap map[string]DeploymentStrategyInput
 
 func (DeploymentStrategyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DeploymentStrategy)(nil))
+	return reflect.TypeOf((*map[string]*DeploymentStrategy)(nil)).Elem()
 }
 
 func (i DeploymentStrategyMap) ToDeploymentStrategyMapOutput() DeploymentStrategyMapOutput {

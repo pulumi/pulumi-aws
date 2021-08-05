@@ -231,7 +231,7 @@ type DefaultVpcDhcpOptionsArrayInput interface {
 type DefaultVpcDhcpOptionsArray []DefaultVpcDhcpOptionsInput
 
 func (DefaultVpcDhcpOptionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((*[]*DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (i DefaultVpcDhcpOptionsArray) ToDefaultVpcDhcpOptionsArrayOutput() DefaultVpcDhcpOptionsArrayOutput {
@@ -256,7 +256,7 @@ type DefaultVpcDhcpOptionsMapInput interface {
 type DefaultVpcDhcpOptionsMap map[string]DefaultVpcDhcpOptionsInput
 
 func (DefaultVpcDhcpOptionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultVpcDhcpOptions)(nil))
+	return reflect.TypeOf((*map[string]*DefaultVpcDhcpOptions)(nil)).Elem()
 }
 
 func (i DefaultVpcDhcpOptionsMap) ToDefaultVpcDhcpOptionsMapOutput() DefaultVpcDhcpOptionsMapOutput {

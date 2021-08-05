@@ -185,7 +185,7 @@ type ScalingPlanArrayInput interface {
 type ScalingPlanArray []ScalingPlanInput
 
 func (ScalingPlanArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScalingPlan)(nil))
+	return reflect.TypeOf((*[]*ScalingPlan)(nil)).Elem()
 }
 
 func (i ScalingPlanArray) ToScalingPlanArrayOutput() ScalingPlanArrayOutput {
@@ -210,7 +210,7 @@ type ScalingPlanMapInput interface {
 type ScalingPlanMap map[string]ScalingPlanInput
 
 func (ScalingPlanMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScalingPlan)(nil))
+	return reflect.TypeOf((*map[string]*ScalingPlan)(nil)).Elem()
 }
 
 func (i ScalingPlanMap) ToScalingPlanMapOutput() ScalingPlanMapOutput {

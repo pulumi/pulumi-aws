@@ -203,7 +203,7 @@ type ClusterRoleAssociationArrayInput interface {
 type ClusterRoleAssociationArray []ClusterRoleAssociationInput
 
 func (ClusterRoleAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((*[]*ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (i ClusterRoleAssociationArray) ToClusterRoleAssociationArrayOutput() ClusterRoleAssociationArrayOutput {
@@ -228,7 +228,7 @@ type ClusterRoleAssociationMapInput interface {
 type ClusterRoleAssociationMap map[string]ClusterRoleAssociationInput
 
 func (ClusterRoleAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClusterRoleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ClusterRoleAssociation)(nil)).Elem()
 }
 
 func (i ClusterRoleAssociationMap) ToClusterRoleAssociationMapOutput() ClusterRoleAssociationMapOutput {

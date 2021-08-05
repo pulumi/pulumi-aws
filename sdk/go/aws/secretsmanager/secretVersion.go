@@ -259,7 +259,7 @@ type SecretVersionArrayInput interface {
 type SecretVersionArray []SecretVersionInput
 
 func (SecretVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecretVersion)(nil))
+	return reflect.TypeOf((*[]*SecretVersion)(nil)).Elem()
 }
 
 func (i SecretVersionArray) ToSecretVersionArrayOutput() SecretVersionArrayOutput {
@@ -284,7 +284,7 @@ type SecretVersionMapInput interface {
 type SecretVersionMap map[string]SecretVersionInput
 
 func (SecretVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecretVersion)(nil))
+	return reflect.TypeOf((*map[string]*SecretVersion)(nil)).Elem()
 }
 
 func (i SecretVersionMap) ToSecretVersionMapOutput() SecretVersionMapOutput {

@@ -683,7 +683,7 @@ type SpotFleetRequestArrayInput interface {
 type SpotFleetRequestArray []SpotFleetRequestInput
 
 func (SpotFleetRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpotFleetRequest)(nil))
+	return reflect.TypeOf((*[]*SpotFleetRequest)(nil)).Elem()
 }
 
 func (i SpotFleetRequestArray) ToSpotFleetRequestArrayOutput() SpotFleetRequestArrayOutput {
@@ -708,7 +708,7 @@ type SpotFleetRequestMapInput interface {
 type SpotFleetRequestMap map[string]SpotFleetRequestInput
 
 func (SpotFleetRequestMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpotFleetRequest)(nil))
+	return reflect.TypeOf((*map[string]*SpotFleetRequest)(nil)).Elem()
 }
 
 func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutput() SpotFleetRequestMapOutput {

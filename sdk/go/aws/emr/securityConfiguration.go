@@ -205,7 +205,7 @@ type SecurityConfigurationArrayInput interface {
 type SecurityConfigurationArray []SecurityConfigurationInput
 
 func (SecurityConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityConfiguration)(nil))
+	return reflect.TypeOf((*[]*SecurityConfiguration)(nil)).Elem()
 }
 
 func (i SecurityConfigurationArray) ToSecurityConfigurationArrayOutput() SecurityConfigurationArrayOutput {
@@ -230,7 +230,7 @@ type SecurityConfigurationMapInput interface {
 type SecurityConfigurationMap map[string]SecurityConfigurationInput
 
 func (SecurityConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*SecurityConfiguration)(nil)).Elem()
 }
 
 func (i SecurityConfigurationMap) ToSecurityConfigurationMapOutput() SecurityConfigurationMapOutput {

@@ -300,7 +300,7 @@ type ListenerPolicyArrayInput interface {
 type ListenerPolicyArray []ListenerPolicyInput
 
 func (ListenerPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ListenerPolicy)(nil))
+	return reflect.TypeOf((*[]*ListenerPolicy)(nil)).Elem()
 }
 
 func (i ListenerPolicyArray) ToListenerPolicyArrayOutput() ListenerPolicyArrayOutput {
@@ -325,7 +325,7 @@ type ListenerPolicyMapInput interface {
 type ListenerPolicyMap map[string]ListenerPolicyInput
 
 func (ListenerPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ListenerPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ListenerPolicy)(nil)).Elem()
 }
 
 func (i ListenerPolicyMap) ToListenerPolicyMapOutput() ListenerPolicyMapOutput {

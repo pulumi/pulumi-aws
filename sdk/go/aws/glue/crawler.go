@@ -541,7 +541,7 @@ type CrawlerArrayInput interface {
 type CrawlerArray []CrawlerInput
 
 func (CrawlerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Crawler)(nil))
+	return reflect.TypeOf((*[]*Crawler)(nil)).Elem()
 }
 
 func (i CrawlerArray) ToCrawlerArrayOutput() CrawlerArrayOutput {
@@ -566,7 +566,7 @@ type CrawlerMapInput interface {
 type CrawlerMap map[string]CrawlerInput
 
 func (CrawlerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Crawler)(nil))
+	return reflect.TypeOf((*map[string]*Crawler)(nil)).Elem()
 }
 
 func (i CrawlerMap) ToCrawlerMapOutput() CrawlerMapOutput {

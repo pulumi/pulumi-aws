@@ -256,7 +256,7 @@ type ConstraintArrayInput interface {
 type ConstraintArray []ConstraintInput
 
 func (ConstraintArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Constraint)(nil))
+	return reflect.TypeOf((*[]*Constraint)(nil)).Elem()
 }
 
 func (i ConstraintArray) ToConstraintArrayOutput() ConstraintArrayOutput {
@@ -281,7 +281,7 @@ type ConstraintMapInput interface {
 type ConstraintMap map[string]ConstraintInput
 
 func (ConstraintMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Constraint)(nil))
+	return reflect.TypeOf((*map[string]*Constraint)(nil)).Elem()
 }
 
 func (i ConstraintMap) ToConstraintMapOutput() ConstraintMapOutput {

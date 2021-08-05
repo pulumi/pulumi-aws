@@ -188,7 +188,7 @@ type OrganizationAdminAccountArrayInput interface {
 type OrganizationAdminAccountArray []OrganizationAdminAccountInput
 
 func (OrganizationAdminAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((*[]*OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (i OrganizationAdminAccountArray) ToOrganizationAdminAccountArrayOutput() OrganizationAdminAccountArrayOutput {
@@ -213,7 +213,7 @@ type OrganizationAdminAccountMapInput interface {
 type OrganizationAdminAccountMap map[string]OrganizationAdminAccountInput
 
 func (OrganizationAdminAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (i OrganizationAdminAccountMap) ToOrganizationAdminAccountMapOutput() OrganizationAdminAccountMapOutput {

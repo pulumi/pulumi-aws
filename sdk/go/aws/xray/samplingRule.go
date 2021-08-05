@@ -348,7 +348,7 @@ type SamplingRuleArrayInput interface {
 type SamplingRuleArray []SamplingRuleInput
 
 func (SamplingRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SamplingRule)(nil))
+	return reflect.TypeOf((*[]*SamplingRule)(nil)).Elem()
 }
 
 func (i SamplingRuleArray) ToSamplingRuleArrayOutput() SamplingRuleArrayOutput {
@@ -373,7 +373,7 @@ type SamplingRuleMapInput interface {
 type SamplingRuleMap map[string]SamplingRuleInput
 
 func (SamplingRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SamplingRule)(nil))
+	return reflect.TypeOf((*map[string]*SamplingRule)(nil)).Elem()
 }
 
 func (i SamplingRuleMap) ToSamplingRuleMapOutput() SamplingRuleMapOutput {

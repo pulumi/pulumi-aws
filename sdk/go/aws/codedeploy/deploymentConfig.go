@@ -301,7 +301,7 @@ type DeploymentConfigArrayInput interface {
 type DeploymentConfigArray []DeploymentConfigInput
 
 func (DeploymentConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DeploymentConfig)(nil))
+	return reflect.TypeOf((*[]*DeploymentConfig)(nil)).Elem()
 }
 
 func (i DeploymentConfigArray) ToDeploymentConfigArrayOutput() DeploymentConfigArrayOutput {
@@ -326,7 +326,7 @@ type DeploymentConfigMapInput interface {
 type DeploymentConfigMap map[string]DeploymentConfigInput
 
 func (DeploymentConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DeploymentConfig)(nil))
+	return reflect.TypeOf((*map[string]*DeploymentConfig)(nil)).Elem()
 }
 
 func (i DeploymentConfigMap) ToDeploymentConfigMapOutput() DeploymentConfigMapOutput {

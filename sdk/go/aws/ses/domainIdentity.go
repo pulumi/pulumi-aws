@@ -215,7 +215,7 @@ type DomainIdentityArrayInput interface {
 type DomainIdentityArray []DomainIdentityInput
 
 func (DomainIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainIdentity)(nil))
+	return reflect.TypeOf((*[]*DomainIdentity)(nil)).Elem()
 }
 
 func (i DomainIdentityArray) ToDomainIdentityArrayOutput() DomainIdentityArrayOutput {
@@ -240,7 +240,7 @@ type DomainIdentityMapInput interface {
 type DomainIdentityMap map[string]DomainIdentityInput
 
 func (DomainIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainIdentity)(nil))
+	return reflect.TypeOf((*map[string]*DomainIdentity)(nil)).Elem()
 }
 
 func (i DomainIdentityMap) ToDomainIdentityMapOutput() DomainIdentityMapOutput {

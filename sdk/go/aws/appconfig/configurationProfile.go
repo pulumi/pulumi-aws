@@ -268,7 +268,7 @@ type ConfigurationProfileArrayInput interface {
 type ConfigurationProfileArray []ConfigurationProfileInput
 
 func (ConfigurationProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConfigurationProfile)(nil))
+	return reflect.TypeOf((*[]*ConfigurationProfile)(nil)).Elem()
 }
 
 func (i ConfigurationProfileArray) ToConfigurationProfileArrayOutput() ConfigurationProfileArrayOutput {
@@ -293,7 +293,7 @@ type ConfigurationProfileMapInput interface {
 type ConfigurationProfileMap map[string]ConfigurationProfileInput
 
 func (ConfigurationProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConfigurationProfile)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationProfile)(nil)).Elem()
 }
 
 func (i ConfigurationProfileMap) ToConfigurationProfileMapOutput() ConfigurationProfileMapOutput {

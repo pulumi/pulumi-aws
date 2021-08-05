@@ -197,7 +197,7 @@ type CarrierGatewayArrayInput interface {
 type CarrierGatewayArray []CarrierGatewayInput
 
 func (CarrierGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CarrierGateway)(nil))
+	return reflect.TypeOf((*[]*CarrierGateway)(nil)).Elem()
 }
 
 func (i CarrierGatewayArray) ToCarrierGatewayArrayOutput() CarrierGatewayArrayOutput {
@@ -222,7 +222,7 @@ type CarrierGatewayMapInput interface {
 type CarrierGatewayMap map[string]CarrierGatewayInput
 
 func (CarrierGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CarrierGateway)(nil))
+	return reflect.TypeOf((*map[string]*CarrierGateway)(nil)).Elem()
 }
 
 func (i CarrierGatewayMap) ToCarrierGatewayMapOutput() CarrierGatewayMapOutput {

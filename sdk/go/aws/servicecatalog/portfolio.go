@@ -219,7 +219,7 @@ type PortfolioArrayInput interface {
 type PortfolioArray []PortfolioInput
 
 func (PortfolioArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Portfolio)(nil))
+	return reflect.TypeOf((*[]*Portfolio)(nil)).Elem()
 }
 
 func (i PortfolioArray) ToPortfolioArrayOutput() PortfolioArrayOutput {
@@ -244,7 +244,7 @@ type PortfolioMapInput interface {
 type PortfolioMap map[string]PortfolioInput
 
 func (PortfolioMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Portfolio)(nil))
+	return reflect.TypeOf((*map[string]*Portfolio)(nil)).Elem()
 }
 
 func (i PortfolioMap) ToPortfolioMapOutput() PortfolioMapOutput {

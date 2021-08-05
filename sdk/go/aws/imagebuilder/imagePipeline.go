@@ -315,7 +315,7 @@ type ImagePipelineArrayInput interface {
 type ImagePipelineArray []ImagePipelineInput
 
 func (ImagePipelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ImagePipeline)(nil))
+	return reflect.TypeOf((*[]*ImagePipeline)(nil)).Elem()
 }
 
 func (i ImagePipelineArray) ToImagePipelineArrayOutput() ImagePipelineArrayOutput {
@@ -340,7 +340,7 @@ type ImagePipelineMapInput interface {
 type ImagePipelineMap map[string]ImagePipelineInput
 
 func (ImagePipelineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ImagePipeline)(nil))
+	return reflect.TypeOf((*map[string]*ImagePipeline)(nil)).Elem()
 }
 
 func (i ImagePipelineMap) ToImagePipelineMapOutput() ImagePipelineMapOutput {

@@ -198,7 +198,7 @@ type RouteTablePropagationArrayInput interface {
 type RouteTablePropagationArray []RouteTablePropagationInput
 
 func (RouteTablePropagationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RouteTablePropagation)(nil))
+	return reflect.TypeOf((*[]*RouteTablePropagation)(nil)).Elem()
 }
 
 func (i RouteTablePropagationArray) ToRouteTablePropagationArrayOutput() RouteTablePropagationArrayOutput {
@@ -223,7 +223,7 @@ type RouteTablePropagationMapInput interface {
 type RouteTablePropagationMap map[string]RouteTablePropagationInput
 
 func (RouteTablePropagationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RouteTablePropagation)(nil))
+	return reflect.TypeOf((*map[string]*RouteTablePropagation)(nil)).Elem()
 }
 
 func (i RouteTablePropagationMap) ToRouteTablePropagationMapOutput() RouteTablePropagationMapOutput {

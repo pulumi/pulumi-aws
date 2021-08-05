@@ -482,7 +482,7 @@ type RuleGroupArrayInput interface {
 type RuleGroupArray []RuleGroupInput
 
 func (RuleGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RuleGroup)(nil))
+	return reflect.TypeOf((*[]*RuleGroup)(nil)).Elem()
 }
 
 func (i RuleGroupArray) ToRuleGroupArrayOutput() RuleGroupArrayOutput {
@@ -507,7 +507,7 @@ type RuleGroupMapInput interface {
 type RuleGroupMap map[string]RuleGroupInput
 
 func (RuleGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RuleGroup)(nil))
+	return reflect.TypeOf((*map[string]*RuleGroup)(nil)).Elem()
 }
 
 func (i RuleGroupMap) ToRuleGroupMapOutput() RuleGroupMapOutput {

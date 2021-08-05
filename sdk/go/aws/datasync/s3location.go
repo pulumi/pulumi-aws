@@ -252,7 +252,7 @@ type S3LocationArrayInput interface {
 type S3LocationArray []S3LocationInput
 
 func (S3LocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*S3Location)(nil))
+	return reflect.TypeOf((*[]*S3Location)(nil)).Elem()
 }
 
 func (i S3LocationArray) ToS3LocationArrayOutput() S3LocationArrayOutput {
@@ -277,7 +277,7 @@ type S3LocationMapInput interface {
 type S3LocationMap map[string]S3LocationInput
 
 func (S3LocationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*S3Location)(nil))
+	return reflect.TypeOf((*map[string]*S3Location)(nil)).Elem()
 }
 
 func (i S3LocationMap) ToS3LocationMapOutput() S3LocationMapOutput {

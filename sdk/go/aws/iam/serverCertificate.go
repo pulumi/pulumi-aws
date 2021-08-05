@@ -291,7 +291,7 @@ type ServerCertificateArrayInput interface {
 type ServerCertificateArray []ServerCertificateInput
 
 func (ServerCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServerCertificate)(nil))
+	return reflect.TypeOf((*[]*ServerCertificate)(nil)).Elem()
 }
 
 func (i ServerCertificateArray) ToServerCertificateArrayOutput() ServerCertificateArrayOutput {
@@ -316,7 +316,7 @@ type ServerCertificateMapInput interface {
 type ServerCertificateMap map[string]ServerCertificateInput
 
 func (ServerCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServerCertificate)(nil))
+	return reflect.TypeOf((*map[string]*ServerCertificate)(nil)).Elem()
 }
 
 func (i ServerCertificateMap) ToServerCertificateMapOutput() ServerCertificateMapOutput {

@@ -306,7 +306,7 @@ type CapacityReservationArrayInput interface {
 type CapacityReservationArray []CapacityReservationInput
 
 func (CapacityReservationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CapacityReservation)(nil))
+	return reflect.TypeOf((*[]*CapacityReservation)(nil)).Elem()
 }
 
 func (i CapacityReservationArray) ToCapacityReservationArrayOutput() CapacityReservationArrayOutput {
@@ -331,7 +331,7 @@ type CapacityReservationMapInput interface {
 type CapacityReservationMap map[string]CapacityReservationInput
 
 func (CapacityReservationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CapacityReservation)(nil))
+	return reflect.TypeOf((*map[string]*CapacityReservation)(nil)).Elem()
 }
 
 func (i CapacityReservationMap) ToCapacityReservationMapOutput() CapacityReservationMapOutput {

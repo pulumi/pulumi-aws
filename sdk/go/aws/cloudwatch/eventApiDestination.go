@@ -240,7 +240,7 @@ type EventApiDestinationArrayInput interface {
 type EventApiDestinationArray []EventApiDestinationInput
 
 func (EventApiDestinationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventApiDestination)(nil))
+	return reflect.TypeOf((*[]*EventApiDestination)(nil)).Elem()
 }
 
 func (i EventApiDestinationArray) ToEventApiDestinationArrayOutput() EventApiDestinationArrayOutput {
@@ -265,7 +265,7 @@ type EventApiDestinationMapInput interface {
 type EventApiDestinationMap map[string]EventApiDestinationInput
 
 func (EventApiDestinationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventApiDestination)(nil))
+	return reflect.TypeOf((*map[string]*EventApiDestination)(nil)).Elem()
 }
 
 func (i EventApiDestinationMap) ToEventApiDestinationMapOutput() EventApiDestinationMapOutput {

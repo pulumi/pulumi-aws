@@ -202,7 +202,7 @@ type HttpNamespaceArrayInput interface {
 type HttpNamespaceArray []HttpNamespaceInput
 
 func (HttpNamespaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HttpNamespace)(nil))
+	return reflect.TypeOf((*[]*HttpNamespace)(nil)).Elem()
 }
 
 func (i HttpNamespaceArray) ToHttpNamespaceArrayOutput() HttpNamespaceArrayOutput {
@@ -227,7 +227,7 @@ type HttpNamespaceMapInput interface {
 type HttpNamespaceMap map[string]HttpNamespaceInput
 
 func (HttpNamespaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HttpNamespace)(nil))
+	return reflect.TypeOf((*map[string]*HttpNamespace)(nil)).Elem()
 }
 
 func (i HttpNamespaceMap) ToHttpNamespaceMapOutput() HttpNamespaceMapOutput {

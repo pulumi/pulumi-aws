@@ -776,7 +776,7 @@ type SpotInstanceRequestArrayInput interface {
 type SpotInstanceRequestArray []SpotInstanceRequestInput
 
 func (SpotInstanceRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpotInstanceRequest)(nil))
+	return reflect.TypeOf((*[]*SpotInstanceRequest)(nil)).Elem()
 }
 
 func (i SpotInstanceRequestArray) ToSpotInstanceRequestArrayOutput() SpotInstanceRequestArrayOutput {
@@ -801,7 +801,7 @@ type SpotInstanceRequestMapInput interface {
 type SpotInstanceRequestMap map[string]SpotInstanceRequestInput
 
 func (SpotInstanceRequestMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpotInstanceRequest)(nil))
+	return reflect.TypeOf((*map[string]*SpotInstanceRequest)(nil)).Elem()
 }
 
 func (i SpotInstanceRequestMap) ToSpotInstanceRequestMapOutput() SpotInstanceRequestMapOutput {

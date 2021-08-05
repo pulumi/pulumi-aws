@@ -223,7 +223,7 @@ type PermissionsArrayInput interface {
 type PermissionsArray []PermissionsInput
 
 func (PermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Permissions)(nil))
+	return reflect.TypeOf((*[]*Permissions)(nil)).Elem()
 }
 
 func (i PermissionsArray) ToPermissionsArrayOutput() PermissionsArrayOutput {
@@ -248,7 +248,7 @@ type PermissionsMapInput interface {
 type PermissionsMap map[string]PermissionsInput
 
 func (PermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Permissions)(nil))
+	return reflect.TypeOf((*map[string]*Permissions)(nil)).Elem()
 }
 
 func (i PermissionsMap) ToPermissionsMapOutput() PermissionsMapOutput {

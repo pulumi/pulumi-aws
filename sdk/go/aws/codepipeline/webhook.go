@@ -341,7 +341,7 @@ type WebhookArrayInput interface {
 type WebhookArray []WebhookInput
 
 func (WebhookArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Webhook)(nil))
+	return reflect.TypeOf((*[]*Webhook)(nil)).Elem()
 }
 
 func (i WebhookArray) ToWebhookArrayOutput() WebhookArrayOutput {
@@ -366,7 +366,7 @@ type WebhookMapInput interface {
 type WebhookMap map[string]WebhookInput
 
 func (WebhookMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Webhook)(nil))
+	return reflect.TypeOf((*map[string]*Webhook)(nil)).Elem()
 }
 
 func (i WebhookMap) ToWebhookMapOutput() WebhookMapOutput {

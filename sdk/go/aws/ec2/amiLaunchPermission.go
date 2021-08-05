@@ -186,7 +186,7 @@ type AmiLaunchPermissionArrayInput interface {
 type AmiLaunchPermissionArray []AmiLaunchPermissionInput
 
 func (AmiLaunchPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AmiLaunchPermission)(nil))
+	return reflect.TypeOf((*[]*AmiLaunchPermission)(nil)).Elem()
 }
 
 func (i AmiLaunchPermissionArray) ToAmiLaunchPermissionArrayOutput() AmiLaunchPermissionArrayOutput {
@@ -211,7 +211,7 @@ type AmiLaunchPermissionMapInput interface {
 type AmiLaunchPermissionMap map[string]AmiLaunchPermissionInput
 
 func (AmiLaunchPermissionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AmiLaunchPermission)(nil))
+	return reflect.TypeOf((*map[string]*AmiLaunchPermission)(nil)).Elem()
 }
 
 func (i AmiLaunchPermissionMap) ToAmiLaunchPermissionMapOutput() AmiLaunchPermissionMapOutput {

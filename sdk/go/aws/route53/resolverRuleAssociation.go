@@ -196,7 +196,7 @@ type ResolverRuleAssociationArrayInput interface {
 type ResolverRuleAssociationArray []ResolverRuleAssociationInput
 
 func (ResolverRuleAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((*[]*ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (i ResolverRuleAssociationArray) ToResolverRuleAssociationArrayOutput() ResolverRuleAssociationArrayOutput {
@@ -221,7 +221,7 @@ type ResolverRuleAssociationMapInput interface {
 type ResolverRuleAssociationMap map[string]ResolverRuleAssociationInput
 
 func (ResolverRuleAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (i ResolverRuleAssociationMap) ToResolverRuleAssociationMapOutput() ResolverRuleAssociationMapOutput {

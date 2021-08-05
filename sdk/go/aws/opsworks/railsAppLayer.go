@@ -415,7 +415,7 @@ type RailsAppLayerArrayInput interface {
 type RailsAppLayerArray []RailsAppLayerInput
 
 func (RailsAppLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RailsAppLayer)(nil))
+	return reflect.TypeOf((*[]*RailsAppLayer)(nil)).Elem()
 }
 
 func (i RailsAppLayerArray) ToRailsAppLayerArrayOutput() RailsAppLayerArrayOutput {
@@ -440,7 +440,7 @@ type RailsAppLayerMapInput interface {
 type RailsAppLayerMap map[string]RailsAppLayerInput
 
 func (RailsAppLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RailsAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*RailsAppLayer)(nil)).Elem()
 }
 
 func (i RailsAppLayerMap) ToRailsAppLayerMapOutput() RailsAppLayerMapOutput {

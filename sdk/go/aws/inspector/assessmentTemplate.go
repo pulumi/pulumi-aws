@@ -241,7 +241,7 @@ type AssessmentTemplateArrayInput interface {
 type AssessmentTemplateArray []AssessmentTemplateInput
 
 func (AssessmentTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AssessmentTemplate)(nil))
+	return reflect.TypeOf((*[]*AssessmentTemplate)(nil)).Elem()
 }
 
 func (i AssessmentTemplateArray) ToAssessmentTemplateArrayOutput() AssessmentTemplateArrayOutput {
@@ -266,7 +266,7 @@ type AssessmentTemplateMapInput interface {
 type AssessmentTemplateMap map[string]AssessmentTemplateInput
 
 func (AssessmentTemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AssessmentTemplate)(nil))
+	return reflect.TypeOf((*map[string]*AssessmentTemplate)(nil)).Elem()
 }
 
 func (i AssessmentTemplateMap) ToAssessmentTemplateMapOutput() AssessmentTemplateMapOutput {

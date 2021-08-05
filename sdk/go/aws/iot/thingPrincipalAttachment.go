@@ -154,7 +154,7 @@ type ThingPrincipalAttachmentArrayInput interface {
 type ThingPrincipalAttachmentArray []ThingPrincipalAttachmentInput
 
 func (ThingPrincipalAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((*[]*ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (i ThingPrincipalAttachmentArray) ToThingPrincipalAttachmentArrayOutput() ThingPrincipalAttachmentArrayOutput {
@@ -179,7 +179,7 @@ type ThingPrincipalAttachmentMapInput interface {
 type ThingPrincipalAttachmentMap map[string]ThingPrincipalAttachmentInput
 
 func (ThingPrincipalAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((*map[string]*ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (i ThingPrincipalAttachmentMap) ToThingPrincipalAttachmentMapOutput() ThingPrincipalAttachmentMapOutput {

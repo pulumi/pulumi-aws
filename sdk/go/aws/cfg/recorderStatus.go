@@ -231,7 +231,7 @@ type RecorderStatusArrayInput interface {
 type RecorderStatusArray []RecorderStatusInput
 
 func (RecorderStatusArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RecorderStatus)(nil))
+	return reflect.TypeOf((*[]*RecorderStatus)(nil)).Elem()
 }
 
 func (i RecorderStatusArray) ToRecorderStatusArrayOutput() RecorderStatusArrayOutput {
@@ -256,7 +256,7 @@ type RecorderStatusMapInput interface {
 type RecorderStatusMap map[string]RecorderStatusInput
 
 func (RecorderStatusMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RecorderStatus)(nil))
+	return reflect.TypeOf((*map[string]*RecorderStatus)(nil)).Elem()
 }
 
 func (i RecorderStatusMap) ToRecorderStatusMapOutput() RecorderStatusMapOutput {

@@ -235,7 +235,7 @@ type UploadBufferArrayInput interface {
 type UploadBufferArray []UploadBufferInput
 
 func (UploadBufferArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UploadBuffer)(nil))
+	return reflect.TypeOf((*[]*UploadBuffer)(nil)).Elem()
 }
 
 func (i UploadBufferArray) ToUploadBufferArrayOutput() UploadBufferArrayOutput {
@@ -260,7 +260,7 @@ type UploadBufferMapInput interface {
 type UploadBufferMap map[string]UploadBufferInput
 
 func (UploadBufferMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UploadBuffer)(nil))
+	return reflect.TypeOf((*map[string]*UploadBuffer)(nil)).Elem()
 }
 
 func (i UploadBufferMap) ToUploadBufferMapOutput() UploadBufferMapOutput {

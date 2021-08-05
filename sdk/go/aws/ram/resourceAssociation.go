@@ -188,7 +188,7 @@ type ResourceAssociationArrayInput interface {
 type ResourceAssociationArray []ResourceAssociationInput
 
 func (ResourceAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*ResourceAssociation)(nil)).Elem()
 }
 
 func (i ResourceAssociationArray) ToResourceAssociationArrayOutput() ResourceAssociationArrayOutput {
@@ -213,7 +213,7 @@ type ResourceAssociationMapInput interface {
 type ResourceAssociationMap map[string]ResourceAssociationInput
 
 func (ResourceAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResourceAssociation)(nil)).Elem()
 }
 
 func (i ResourceAssociationMap) ToResourceAssociationMapOutput() ResourceAssociationMapOutput {

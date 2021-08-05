@@ -222,7 +222,7 @@ type IpGroupArrayInput interface {
 type IpGroupArray []IpGroupInput
 
 func (IpGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IpGroup)(nil))
+	return reflect.TypeOf((*[]*IpGroup)(nil)).Elem()
 }
 
 func (i IpGroupArray) ToIpGroupArrayOutput() IpGroupArrayOutput {
@@ -247,7 +247,7 @@ type IpGroupMapInput interface {
 type IpGroupMap map[string]IpGroupInput
 
 func (IpGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IpGroup)(nil))
+	return reflect.TypeOf((*map[string]*IpGroup)(nil)).Elem()
 }
 
 func (i IpGroupMap) ToIpGroupMapOutput() IpGroupMapOutput {

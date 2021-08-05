@@ -191,7 +191,7 @@ type SamlProviderArrayInput interface {
 type SamlProviderArray []SamlProviderInput
 
 func (SamlProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SamlProvider)(nil))
+	return reflect.TypeOf((*[]*SamlProvider)(nil)).Elem()
 }
 
 func (i SamlProviderArray) ToSamlProviderArrayOutput() SamlProviderArrayOutput {
@@ -216,7 +216,7 @@ type SamlProviderMapInput interface {
 type SamlProviderMap map[string]SamlProviderInput
 
 func (SamlProviderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SamlProvider)(nil))
+	return reflect.TypeOf((*map[string]*SamlProvider)(nil)).Elem()
 }
 
 func (i SamlProviderMap) ToSamlProviderMapOutput() SamlProviderMapOutput {

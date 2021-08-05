@@ -188,7 +188,7 @@ type ByteMatchSetArrayInput interface {
 type ByteMatchSetArray []ByteMatchSetInput
 
 func (ByteMatchSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ByteMatchSet)(nil))
+	return reflect.TypeOf((*[]*ByteMatchSet)(nil)).Elem()
 }
 
 func (i ByteMatchSetArray) ToByteMatchSetArrayOutput() ByteMatchSetArrayOutput {
@@ -213,7 +213,7 @@ type ByteMatchSetMapInput interface {
 type ByteMatchSetMap map[string]ByteMatchSetInput
 
 func (ByteMatchSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ByteMatchSet)(nil))
+	return reflect.TypeOf((*map[string]*ByteMatchSet)(nil)).Elem()
 }
 
 func (i ByteMatchSetMap) ToByteMatchSetMapOutput() ByteMatchSetMapOutput {

@@ -387,14 +387,14 @@ class VirtualNode(pulumi.CustomResource):
                         port=8080,
                         protocol="http",
                     ),
-                    health_check={
-                        "protocol": "http",
-                        "path": "/ping",
-                        "healthyThreshold": 2,
-                        "unhealthyThreshold": 2,
-                        "timeoutMillis": 2000,
-                        "intervalMillis": 5000,
-                    },
+                    health_check=aws.appmesh.VirtualNodeSpecListenerHealthCheckArgs(
+                        protocol="http",
+                        path="/ping",
+                        healthy_threshold=2,
+                        unhealthy_threshold=2,
+                        timeout_millis=2000,
+                        interval_millis=5000,
+                    ),
                 ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(
@@ -556,14 +556,14 @@ class VirtualNode(pulumi.CustomResource):
                         port=8080,
                         protocol="http",
                     ),
-                    health_check={
-                        "protocol": "http",
-                        "path": "/ping",
-                        "healthyThreshold": 2,
-                        "unhealthyThreshold": 2,
-                        "timeoutMillis": 2000,
-                        "intervalMillis": 5000,
-                    },
+                    health_check=aws.appmesh.VirtualNodeSpecListenerHealthCheckArgs(
+                        protocol="http",
+                        path="/ping",
+                        healthy_threshold=2,
+                        unhealthy_threshold=2,
+                        timeout_millis=2000,
+                        interval_millis=5000,
+                    ),
                 ),
                 service_discovery=aws.appmesh.VirtualNodeSpecServiceDiscoveryArgs(
                     dns=aws.appmesh.VirtualNodeSpecServiceDiscoveryDnsArgs(

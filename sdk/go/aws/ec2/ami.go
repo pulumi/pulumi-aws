@@ -416,7 +416,7 @@ type AmiArrayInput interface {
 type AmiArray []AmiInput
 
 func (AmiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Ami)(nil))
+	return reflect.TypeOf((*[]*Ami)(nil)).Elem()
 }
 
 func (i AmiArray) ToAmiArrayOutput() AmiArrayOutput {
@@ -441,7 +441,7 @@ type AmiMapInput interface {
 type AmiMap map[string]AmiInput
 
 func (AmiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Ami)(nil))
+	return reflect.TypeOf((*map[string]*Ami)(nil)).Elem()
 }
 
 func (i AmiMap) ToAmiMapOutput() AmiMapOutput {

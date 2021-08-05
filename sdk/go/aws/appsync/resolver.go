@@ -314,7 +314,7 @@ type ResolverArrayInput interface {
 type ResolverArray []ResolverInput
 
 func (ResolverArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Resolver)(nil))
+	return reflect.TypeOf((*[]*Resolver)(nil)).Elem()
 }
 
 func (i ResolverArray) ToResolverArrayOutput() ResolverArrayOutput {
@@ -339,7 +339,7 @@ type ResolverMapInput interface {
 type ResolverMap map[string]ResolverInput
 
 func (ResolverMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Resolver)(nil))
+	return reflect.TypeOf((*map[string]*Resolver)(nil)).Elem()
 }
 
 func (i ResolverMap) ToResolverMapOutput() ResolverMapOutput {

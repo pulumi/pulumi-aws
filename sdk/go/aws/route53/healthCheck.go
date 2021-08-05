@@ -497,7 +497,7 @@ type HealthCheckArrayInput interface {
 type HealthCheckArray []HealthCheckInput
 
 func (HealthCheckArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HealthCheck)(nil))
+	return reflect.TypeOf((*[]*HealthCheck)(nil)).Elem()
 }
 
 func (i HealthCheckArray) ToHealthCheckArrayOutput() HealthCheckArrayOutput {
@@ -522,7 +522,7 @@ type HealthCheckMapInput interface {
 type HealthCheckMap map[string]HealthCheckInput
 
 func (HealthCheckMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HealthCheck)(nil))
+	return reflect.TypeOf((*map[string]*HealthCheck)(nil)).Elem()
 }
 
 func (i HealthCheckMap) ToHealthCheckMapOutput() HealthCheckMapOutput {

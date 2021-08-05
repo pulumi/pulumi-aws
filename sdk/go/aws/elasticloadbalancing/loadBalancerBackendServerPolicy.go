@@ -166,7 +166,7 @@ type LoadBalancerBackendServerPolicyArrayInput interface {
 type LoadBalancerBackendServerPolicyArray []LoadBalancerBackendServerPolicyInput
 
 func (LoadBalancerBackendServerPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LoadBalancerBackendServerPolicy)(nil))
+	return reflect.TypeOf((*[]*LoadBalancerBackendServerPolicy)(nil)).Elem()
 }
 
 func (i LoadBalancerBackendServerPolicyArray) ToLoadBalancerBackendServerPolicyArrayOutput() LoadBalancerBackendServerPolicyArrayOutput {
@@ -191,7 +191,7 @@ type LoadBalancerBackendServerPolicyMapInput interface {
 type LoadBalancerBackendServerPolicyMap map[string]LoadBalancerBackendServerPolicyInput
 
 func (LoadBalancerBackendServerPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LoadBalancerBackendServerPolicy)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancerBackendServerPolicy)(nil)).Elem()
 }
 
 func (i LoadBalancerBackendServerPolicyMap) ToLoadBalancerBackendServerPolicyMapOutput() LoadBalancerBackendServerPolicyMapOutput {

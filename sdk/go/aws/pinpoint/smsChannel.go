@@ -218,7 +218,7 @@ type SmsChannelArrayInput interface {
 type SmsChannelArray []SmsChannelInput
 
 func (SmsChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SmsChannel)(nil))
+	return reflect.TypeOf((*[]*SmsChannel)(nil)).Elem()
 }
 
 func (i SmsChannelArray) ToSmsChannelArrayOutput() SmsChannelArrayOutput {
@@ -243,7 +243,7 @@ type SmsChannelMapInput interface {
 type SmsChannelMap map[string]SmsChannelInput
 
 func (SmsChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SmsChannel)(nil))
+	return reflect.TypeOf((*map[string]*SmsChannel)(nil)).Elem()
 }
 
 func (i SmsChannelMap) ToSmsChannelMapOutput() SmsChannelMapOutput {

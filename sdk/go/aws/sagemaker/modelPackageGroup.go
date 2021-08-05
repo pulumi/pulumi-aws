@@ -209,7 +209,7 @@ type ModelPackageGroupArrayInput interface {
 type ModelPackageGroupArray []ModelPackageGroupInput
 
 func (ModelPackageGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ModelPackageGroup)(nil))
+	return reflect.TypeOf((*[]*ModelPackageGroup)(nil)).Elem()
 }
 
 func (i ModelPackageGroupArray) ToModelPackageGroupArrayOutput() ModelPackageGroupArrayOutput {
@@ -234,7 +234,7 @@ type ModelPackageGroupMapInput interface {
 type ModelPackageGroupMap map[string]ModelPackageGroupInput
 
 func (ModelPackageGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ModelPackageGroup)(nil))
+	return reflect.TypeOf((*map[string]*ModelPackageGroup)(nil)).Elem()
 }
 
 func (i ModelPackageGroupMap) ToModelPackageGroupMapOutput() ModelPackageGroupMapOutput {

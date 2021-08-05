@@ -270,7 +270,7 @@ type RemediationConfigurationArrayInput interface {
 type RemediationConfigurationArray []RemediationConfigurationInput
 
 func (RemediationConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RemediationConfiguration)(nil))
+	return reflect.TypeOf((*[]*RemediationConfiguration)(nil)).Elem()
 }
 
 func (i RemediationConfigurationArray) ToRemediationConfigurationArrayOutput() RemediationConfigurationArrayOutput {
@@ -295,7 +295,7 @@ type RemediationConfigurationMapInput interface {
 type RemediationConfigurationMap map[string]RemediationConfigurationInput
 
 func (RemediationConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RemediationConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*RemediationConfiguration)(nil)).Elem()
 }
 
 func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutput() RemediationConfigurationMapOutput {

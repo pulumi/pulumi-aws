@@ -289,7 +289,7 @@ type LayerVersionArrayInput interface {
 type LayerVersionArray []LayerVersionInput
 
 func (LayerVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LayerVersion)(nil))
+	return reflect.TypeOf((*[]*LayerVersion)(nil)).Elem()
 }
 
 func (i LayerVersionArray) ToLayerVersionArrayOutput() LayerVersionArrayOutput {
@@ -314,7 +314,7 @@ type LayerVersionMapInput interface {
 type LayerVersionMap map[string]LayerVersionInput
 
 func (LayerVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LayerVersion)(nil))
+	return reflect.TypeOf((*map[string]*LayerVersion)(nil)).Elem()
 }
 
 func (i LayerVersionMap) ToLayerVersionMapOutput() LayerVersionMapOutput {

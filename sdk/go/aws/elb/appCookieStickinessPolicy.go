@@ -247,7 +247,7 @@ type AppCookieStickinessPolicyArrayInput interface {
 type AppCookieStickinessPolicyArray []AppCookieStickinessPolicyInput
 
 func (AppCookieStickinessPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*[]*AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (i AppCookieStickinessPolicyArray) ToAppCookieStickinessPolicyArrayOutput() AppCookieStickinessPolicyArrayOutput {
@@ -272,7 +272,7 @@ type AppCookieStickinessPolicyMapInput interface {
 type AppCookieStickinessPolicyMap map[string]AppCookieStickinessPolicyInput
 
 func (AppCookieStickinessPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AppCookieStickinessPolicy)(nil))
+	return reflect.TypeOf((*map[string]*AppCookieStickinessPolicy)(nil)).Elem()
 }
 
 func (i AppCookieStickinessPolicyMap) ToAppCookieStickinessPolicyMapOutput() AppCookieStickinessPolicyMapOutput {

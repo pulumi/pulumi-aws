@@ -335,7 +335,7 @@ type KeySigningKeyArrayInput interface {
 type KeySigningKeyArray []KeySigningKeyInput
 
 func (KeySigningKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KeySigningKey)(nil))
+	return reflect.TypeOf((*[]*KeySigningKey)(nil)).Elem()
 }
 
 func (i KeySigningKeyArray) ToKeySigningKeyArrayOutput() KeySigningKeyArrayOutput {
@@ -360,7 +360,7 @@ type KeySigningKeyMapInput interface {
 type KeySigningKeyMap map[string]KeySigningKeyInput
 
 func (KeySigningKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KeySigningKey)(nil))
+	return reflect.TypeOf((*map[string]*KeySigningKey)(nil)).Elem()
 }
 
 func (i KeySigningKeyMap) ToKeySigningKeyMapOutput() KeySigningKeyMapOutput {

@@ -202,7 +202,7 @@ type S3BucketAssociationArrayInput interface {
 type S3BucketAssociationArray []S3BucketAssociationInput
 
 func (S3BucketAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*S3BucketAssociation)(nil))
+	return reflect.TypeOf((*[]*S3BucketAssociation)(nil)).Elem()
 }
 
 func (i S3BucketAssociationArray) ToS3BucketAssociationArrayOutput() S3BucketAssociationArrayOutput {
@@ -227,7 +227,7 @@ type S3BucketAssociationMapInput interface {
 type S3BucketAssociationMap map[string]S3BucketAssociationInput
 
 func (S3BucketAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*S3BucketAssociation)(nil))
+	return reflect.TypeOf((*map[string]*S3BucketAssociation)(nil)).Elem()
 }
 
 func (i S3BucketAssociationMap) ToS3BucketAssociationMapOutput() S3BucketAssociationMapOutput {

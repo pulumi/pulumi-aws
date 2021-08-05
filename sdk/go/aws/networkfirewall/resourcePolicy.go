@@ -252,7 +252,7 @@ type ResourcePolicyArrayInput interface {
 type ResourcePolicyArray []ResourcePolicyInput
 
 func (ResourcePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourcePolicy)(nil))
+	return reflect.TypeOf((*[]*ResourcePolicy)(nil)).Elem()
 }
 
 func (i ResourcePolicyArray) ToResourcePolicyArrayOutput() ResourcePolicyArrayOutput {
@@ -277,7 +277,7 @@ type ResourcePolicyMapInput interface {
 type ResourcePolicyMap map[string]ResourcePolicyInput
 
 func (ResourcePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourcePolicy)(nil))
+	return reflect.TypeOf((*map[string]*ResourcePolicy)(nil)).Elem()
 }
 
 func (i ResourcePolicyMap) ToResourcePolicyMapOutput() ResourcePolicyMapOutput {

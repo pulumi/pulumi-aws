@@ -233,7 +233,7 @@ type MailFromArrayInput interface {
 type MailFromArray []MailFromInput
 
 func (MailFromArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MailFrom)(nil))
+	return reflect.TypeOf((*[]*MailFrom)(nil)).Elem()
 }
 
 func (i MailFromArray) ToMailFromArrayOutput() MailFromArrayOutput {
@@ -258,7 +258,7 @@ type MailFromMapInput interface {
 type MailFromMap map[string]MailFromInput
 
 func (MailFromMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MailFrom)(nil))
+	return reflect.TypeOf((*map[string]*MailFrom)(nil)).Elem()
 }
 
 func (i MailFromMap) ToMailFromMapOutput() MailFromMapOutput {

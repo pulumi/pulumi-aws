@@ -218,7 +218,7 @@ type BackendEnvironmentArrayInput interface {
 type BackendEnvironmentArray []BackendEnvironmentInput
 
 func (BackendEnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackendEnvironment)(nil))
+	return reflect.TypeOf((*[]*BackendEnvironment)(nil)).Elem()
 }
 
 func (i BackendEnvironmentArray) ToBackendEnvironmentArrayOutput() BackendEnvironmentArrayOutput {
@@ -243,7 +243,7 @@ type BackendEnvironmentMapInput interface {
 type BackendEnvironmentMap map[string]BackendEnvironmentInput
 
 func (BackendEnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackendEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*BackendEnvironment)(nil)).Elem()
 }
 
 func (i BackendEnvironmentMap) ToBackendEnvironmentMapOutput() BackendEnvironmentMapOutput {

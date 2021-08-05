@@ -325,10 +325,10 @@ class Webhook(pulumi.CustomResource):
             artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
                 location=aws_s3_bucket["bar"]["bucket"],
                 type="S3",
-                encryption_key={
-                    "id": data["aws_kms_alias"]["s3kmskey"]["arn"],
-                    "type": "KMS",
-                },
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    type="KMS",
+                ),
             ),
             stages=[
                 aws.codepipeline.PipelineStageArgs(
@@ -426,10 +426,10 @@ class Webhook(pulumi.CustomResource):
             artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
                 location=aws_s3_bucket["bar"]["bucket"],
                 type="S3",
-                encryption_key={
-                    "id": data["aws_kms_alias"]["s3kmskey"]["arn"],
-                    "type": "KMS",
-                },
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=data["aws_kms_alias"]["s3kmskey"]["arn"],
+                    type="KMS",
+                ),
             ),
             stages=[
                 aws.codepipeline.PipelineStageArgs(

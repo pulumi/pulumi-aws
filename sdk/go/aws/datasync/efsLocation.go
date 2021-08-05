@@ -233,7 +233,7 @@ type EfsLocationArrayInput interface {
 type EfsLocationArray []EfsLocationInput
 
 func (EfsLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EfsLocation)(nil))
+	return reflect.TypeOf((*[]*EfsLocation)(nil)).Elem()
 }
 
 func (i EfsLocationArray) ToEfsLocationArrayOutput() EfsLocationArrayOutput {
@@ -258,7 +258,7 @@ type EfsLocationMapInput interface {
 type EfsLocationMap map[string]EfsLocationInput
 
 func (EfsLocationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EfsLocation)(nil))
+	return reflect.TypeOf((*map[string]*EfsLocation)(nil)).Elem()
 }
 
 func (i EfsLocationMap) ToEfsLocationMapOutput() EfsLocationMapOutput {

@@ -190,7 +190,7 @@ type MethodSettingsArrayInput interface {
 type MethodSettingsArray []MethodSettingsInput
 
 func (MethodSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MethodSettings)(nil))
+	return reflect.TypeOf((*[]*MethodSettings)(nil)).Elem()
 }
 
 func (i MethodSettingsArray) ToMethodSettingsArrayOutput() MethodSettingsArrayOutput {
@@ -215,7 +215,7 @@ type MethodSettingsMapInput interface {
 type MethodSettingsMap map[string]MethodSettingsInput
 
 func (MethodSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MethodSettings)(nil))
+	return reflect.TypeOf((*map[string]*MethodSettings)(nil)).Elem()
 }
 
 func (i MethodSettingsMap) ToMethodSettingsMapOutput() MethodSettingsMapOutput {

@@ -250,7 +250,7 @@ type MemberArrayInput interface {
 type MemberArray []MemberInput
 
 func (MemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Member)(nil))
+	return reflect.TypeOf((*[]*Member)(nil)).Elem()
 }
 
 func (i MemberArray) ToMemberArrayOutput() MemberArrayOutput {
@@ -275,7 +275,7 @@ type MemberMapInput interface {
 type MemberMap map[string]MemberInput
 
 func (MemberMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Member)(nil))
+	return reflect.TypeOf((*map[string]*Member)(nil)).Elem()
 }
 
 func (i MemberMap) ToMemberMapOutput() MemberMapOutput {

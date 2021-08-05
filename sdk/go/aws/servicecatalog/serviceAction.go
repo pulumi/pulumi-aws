@@ -206,7 +206,7 @@ type ServiceActionArrayInput interface {
 type ServiceActionArray []ServiceActionInput
 
 func (ServiceActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceAction)(nil))
+	return reflect.TypeOf((*[]*ServiceAction)(nil)).Elem()
 }
 
 func (i ServiceActionArray) ToServiceActionArrayOutput() ServiceActionArrayOutput {
@@ -231,7 +231,7 @@ type ServiceActionMapInput interface {
 type ServiceActionMap map[string]ServiceActionInput
 
 func (ServiceActionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceAction)(nil))
+	return reflect.TypeOf((*map[string]*ServiceAction)(nil)).Elem()
 }
 
 func (i ServiceActionMap) ToServiceActionMapOutput() ServiceActionMapOutput {

@@ -286,7 +286,7 @@ type OptionGroupArrayInput interface {
 type OptionGroupArray []OptionGroupInput
 
 func (OptionGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OptionGroup)(nil))
+	return reflect.TypeOf((*[]*OptionGroup)(nil)).Elem()
 }
 
 func (i OptionGroupArray) ToOptionGroupArrayOutput() OptionGroupArrayOutput {
@@ -311,7 +311,7 @@ type OptionGroupMapInput interface {
 type OptionGroupMap map[string]OptionGroupInput
 
 func (OptionGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OptionGroup)(nil))
+	return reflect.TypeOf((*map[string]*OptionGroup)(nil)).Elem()
 }
 
 func (i OptionGroupMap) ToOptionGroupMapOutput() OptionGroupMapOutput {

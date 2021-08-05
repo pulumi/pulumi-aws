@@ -294,7 +294,7 @@ type SlotTypeArrayInput interface {
 type SlotTypeArray []SlotTypeInput
 
 func (SlotTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SlotType)(nil))
+	return reflect.TypeOf((*[]*SlotType)(nil)).Elem()
 }
 
 func (i SlotTypeArray) ToSlotTypeArrayOutput() SlotTypeArrayOutput {
@@ -319,7 +319,7 @@ type SlotTypeMapInput interface {
 type SlotTypeMap map[string]SlotTypeInput
 
 func (SlotTypeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SlotType)(nil))
+	return reflect.TypeOf((*map[string]*SlotType)(nil)).Elem()
 }
 
 func (i SlotTypeMap) ToSlotTypeMapOutput() SlotTypeMapOutput {

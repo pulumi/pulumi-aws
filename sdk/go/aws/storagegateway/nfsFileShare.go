@@ -374,7 +374,7 @@ type NfsFileShareArrayInput interface {
 type NfsFileShareArray []NfsFileShareInput
 
 func (NfsFileShareArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NfsFileShare)(nil))
+	return reflect.TypeOf((*[]*NfsFileShare)(nil)).Elem()
 }
 
 func (i NfsFileShareArray) ToNfsFileShareArrayOutput() NfsFileShareArrayOutput {
@@ -399,7 +399,7 @@ type NfsFileShareMapInput interface {
 type NfsFileShareMap map[string]NfsFileShareInput
 
 func (NfsFileShareMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NfsFileShare)(nil))
+	return reflect.TypeOf((*map[string]*NfsFileShare)(nil)).Elem()
 }
 
 func (i NfsFileShareMap) ToNfsFileShareMapOutput() NfsFileShareMapOutput {

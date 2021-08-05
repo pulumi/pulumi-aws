@@ -32,12 +32,12 @@ ignoreTags: Optional[str]
 Configuration block with settings to ignore resource tags across all resources.
 """
 
-insecure: Optional[str]
+insecure: Optional[bool]
 """
 Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
 """
 
-maxRetries: Optional[str]
+maxRetries: Optional[int]
 """
 The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 """
@@ -47,12 +47,12 @@ profile: Optional[str]
 The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 """
 
-region: str
+region: Optional[str]
 """
 The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
 """
 
-s3ForcePathStyle: Optional[str]
+s3ForcePathStyle: Optional[bool]
 """
 Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
 default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
@@ -69,26 +69,26 @@ sharedCredentialsFile: Optional[str]
 The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
 """
 
-skipCredentialsValidation: Optional[str]
+skipCredentialsValidation: bool
 """
 Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
 available/implemented.
 """
 
-skipGetEc2Platforms: Optional[str]
+skipGetEc2Platforms: bool
 """
 Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 """
 
-skipMetadataApiCheck: Optional[str]
+skipMetadataApiCheck: bool
 
-skipRegionValidation: Optional[str]
+skipRegionValidation: bool
 """
 Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 not public (yet).
 """
 
-skipRequestingAccountId: Optional[str]
+skipRequestingAccountId: Optional[bool]
 """
 Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
 """

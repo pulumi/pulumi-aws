@@ -383,7 +383,7 @@ type DocumentArrayInput interface {
 type DocumentArray []DocumentInput
 
 func (DocumentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Document)(nil))
+	return reflect.TypeOf((*[]*Document)(nil)).Elem()
 }
 
 func (i DocumentArray) ToDocumentArrayOutput() DocumentArrayOutput {
@@ -408,7 +408,7 @@ type DocumentMapInput interface {
 type DocumentMap map[string]DocumentInput
 
 func (DocumentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Document)(nil))
+	return reflect.TypeOf((*map[string]*Document)(nil)).Elem()
 }
 
 func (i DocumentMap) ToDocumentMapOutput() DocumentMapOutput {

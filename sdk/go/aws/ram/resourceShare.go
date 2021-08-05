@@ -207,7 +207,7 @@ type ResourceShareArrayInput interface {
 type ResourceShareArray []ResourceShareInput
 
 func (ResourceShareArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceShare)(nil))
+	return reflect.TypeOf((*[]*ResourceShare)(nil)).Elem()
 }
 
 func (i ResourceShareArray) ToResourceShareArrayOutput() ResourceShareArrayOutput {
@@ -232,7 +232,7 @@ type ResourceShareMapInput interface {
 type ResourceShareMap map[string]ResourceShareInput
 
 func (ResourceShareMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceShare)(nil))
+	return reflect.TypeOf((*map[string]*ResourceShare)(nil)).Elem()
 }
 
 func (i ResourceShareMap) ToResourceShareMapOutput() ResourceShareMapOutput {

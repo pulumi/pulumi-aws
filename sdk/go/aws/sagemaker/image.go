@@ -233,7 +233,7 @@ type ImageArrayInput interface {
 type ImageArray []ImageInput
 
 func (ImageArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Image)(nil))
+	return reflect.TypeOf((*[]*Image)(nil)).Elem()
 }
 
 func (i ImageArray) ToImageArrayOutput() ImageArrayOutput {
@@ -258,7 +258,7 @@ type ImageMapInput interface {
 type ImageMap map[string]ImageInput
 
 func (ImageMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Image)(nil))
+	return reflect.TypeOf((*map[string]*Image)(nil)).Elem()
 }
 
 func (i ImageMap) ToImageMapOutput() ImageMapOutput {

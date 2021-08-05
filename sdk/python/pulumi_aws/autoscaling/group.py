@@ -1337,21 +1337,21 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c3.large",
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c3.large",
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
@@ -1379,21 +1379,21 @@ class Group(pulumi.CustomResource):
                     on_demand_percentage_above_base_capacity=25,
                     spot_allocation_strategy="capacity-optimized",
                 ),
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c3.large",
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c3.large",
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
@@ -1417,24 +1417,24 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c6g.large",
-                            "launchTemplateSpecification": {
-                                "launchTemplateId": example2.id,
-                            },
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c6g.large",
+                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
+                                launch_template_id=example2.id,
+                            ),
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Automatically refresh all instances after the group is updated
@@ -1688,21 +1688,21 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c3.large",
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c3.large",
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
@@ -1730,21 +1730,21 @@ class Group(pulumi.CustomResource):
                     on_demand_percentage_above_base_capacity=25,
                     spot_allocation_strategy="capacity-optimized",
                 ),
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c3.large",
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c3.large",
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
@@ -1768,24 +1768,24 @@ class Group(pulumi.CustomResource):
             max_size=1,
             min_size=1,
             mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template={
-                    "launchTemplateSpecification": {
-                        "launchTemplateId": example_launch_template.id,
-                    },
-                    "overrides": [
-                        {
-                            "instance_type": "c4.large",
-                            "weightedCapacity": "3",
-                        },
-                        {
-                            "instance_type": "c6g.large",
-                            "launchTemplateSpecification": {
-                                "launchTemplateId": example2.id,
-                            },
-                            "weightedCapacity": "2",
-                        },
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c4.large",
+                            weighted_capacity="3",
+                        ),
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                            instance_type="c6g.large",
+                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
+                                launch_template_id=example2.id,
+                            ),
+                            weighted_capacity="2",
+                        ),
                     ],
-                },
+                ),
             ))
         ```
         ### Automatically refresh all instances after the group is updated

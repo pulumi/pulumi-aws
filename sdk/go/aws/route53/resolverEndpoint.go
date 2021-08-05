@@ -271,7 +271,7 @@ type ResolverEndpointArrayInput interface {
 type ResolverEndpointArray []ResolverEndpointInput
 
 func (ResolverEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverEndpoint)(nil))
+	return reflect.TypeOf((*[]*ResolverEndpoint)(nil)).Elem()
 }
 
 func (i ResolverEndpointArray) ToResolverEndpointArrayOutput() ResolverEndpointArrayOutput {
@@ -296,7 +296,7 @@ type ResolverEndpointMapInput interface {
 type ResolverEndpointMap map[string]ResolverEndpointInput
 
 func (ResolverEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*ResolverEndpoint)(nil)).Elem()
 }
 
 func (i ResolverEndpointMap) ToResolverEndpointMapOutput() ResolverEndpointMapOutput {

@@ -228,7 +228,7 @@ type DelegatedAdministratorArrayInput interface {
 type DelegatedAdministratorArray []DelegatedAdministratorInput
 
 func (DelegatedAdministratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DelegatedAdministrator)(nil))
+	return reflect.TypeOf((*[]*DelegatedAdministrator)(nil)).Elem()
 }
 
 func (i DelegatedAdministratorArray) ToDelegatedAdministratorArrayOutput() DelegatedAdministratorArrayOutput {
@@ -253,7 +253,7 @@ type DelegatedAdministratorMapInput interface {
 type DelegatedAdministratorMap map[string]DelegatedAdministratorInput
 
 func (DelegatedAdministratorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DelegatedAdministrator)(nil))
+	return reflect.TypeOf((*map[string]*DelegatedAdministrator)(nil)).Elem()
 }
 
 func (i DelegatedAdministratorMap) ToDelegatedAdministratorMapOutput() DelegatedAdministratorMapOutput {

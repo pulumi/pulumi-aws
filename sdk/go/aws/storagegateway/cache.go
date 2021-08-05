@@ -188,7 +188,7 @@ type CacheArrayInput interface {
 type CacheArray []CacheInput
 
 func (CacheArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Cache)(nil))
+	return reflect.TypeOf((*[]*Cache)(nil)).Elem()
 }
 
 func (i CacheArray) ToCacheArrayOutput() CacheArrayOutput {
@@ -213,7 +213,7 @@ type CacheMapInput interface {
 type CacheMap map[string]CacheInput
 
 func (CacheMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Cache)(nil))
+	return reflect.TypeOf((*map[string]*Cache)(nil)).Elem()
 }
 
 func (i CacheMap) ToCacheMapOutput() CacheMapOutput {

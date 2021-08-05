@@ -365,7 +365,7 @@ type MemcachedLayerArrayInput interface {
 type MemcachedLayerArray []MemcachedLayerInput
 
 func (MemcachedLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MemcachedLayer)(nil))
+	return reflect.TypeOf((*[]*MemcachedLayer)(nil)).Elem()
 }
 
 func (i MemcachedLayerArray) ToMemcachedLayerArrayOutput() MemcachedLayerArrayOutput {
@@ -390,7 +390,7 @@ type MemcachedLayerMapInput interface {
 type MemcachedLayerMap map[string]MemcachedLayerInput
 
 func (MemcachedLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MemcachedLayer)(nil))
+	return reflect.TypeOf((*map[string]*MemcachedLayer)(nil)).Elem()
 }
 
 func (i MemcachedLayerMap) ToMemcachedLayerMapOutput() MemcachedLayerMapOutput {

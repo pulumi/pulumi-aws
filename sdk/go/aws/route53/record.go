@@ -484,7 +484,7 @@ type RecordArrayInput interface {
 type RecordArray []RecordInput
 
 func (RecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Record)(nil))
+	return reflect.TypeOf((*[]*Record)(nil)).Elem()
 }
 
 func (i RecordArray) ToRecordArrayOutput() RecordArrayOutput {
@@ -509,7 +509,7 @@ type RecordMapInput interface {
 type RecordMap map[string]RecordInput
 
 func (RecordMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Record)(nil))
+	return reflect.TypeOf((*map[string]*Record)(nil)).Elem()
 }
 
 func (i RecordMap) ToRecordMapOutput() RecordMapOutput {

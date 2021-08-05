@@ -228,7 +228,7 @@ type SshKeyArrayInput interface {
 type SshKeyArray []SshKeyInput
 
 func (SshKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SshKey)(nil))
+	return reflect.TypeOf((*[]*SshKey)(nil)).Elem()
 }
 
 func (i SshKeyArray) ToSshKeyArrayOutput() SshKeyArrayOutput {
@@ -253,7 +253,7 @@ type SshKeyMapInput interface {
 type SshKeyMap map[string]SshKeyInput
 
 func (SshKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SshKey)(nil))
+	return reflect.TypeOf((*map[string]*SshKey)(nil)).Elem()
 }
 
 func (i SshKeyMap) ToSshKeyMapOutput() SshKeyMapOutput {

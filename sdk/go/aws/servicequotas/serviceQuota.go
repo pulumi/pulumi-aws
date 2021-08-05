@@ -238,7 +238,7 @@ type ServiceQuotaArrayInput interface {
 type ServiceQuotaArray []ServiceQuotaInput
 
 func (ServiceQuotaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceQuota)(nil))
+	return reflect.TypeOf((*[]*ServiceQuota)(nil)).Elem()
 }
 
 func (i ServiceQuotaArray) ToServiceQuotaArrayOutput() ServiceQuotaArrayOutput {
@@ -263,7 +263,7 @@ type ServiceQuotaMapInput interface {
 type ServiceQuotaMap map[string]ServiceQuotaInput
 
 func (ServiceQuotaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceQuota)(nil))
+	return reflect.TypeOf((*map[string]*ServiceQuota)(nil)).Elem()
 }
 
 func (i ServiceQuotaMap) ToServiceQuotaMapOutput() ServiceQuotaMapOutput {

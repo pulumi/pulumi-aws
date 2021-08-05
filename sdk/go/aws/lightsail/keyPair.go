@@ -271,7 +271,7 @@ type KeyPairArrayInput interface {
 type KeyPairArray []KeyPairInput
 
 func (KeyPairArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KeyPair)(nil))
+	return reflect.TypeOf((*[]*KeyPair)(nil)).Elem()
 }
 
 func (i KeyPairArray) ToKeyPairArrayOutput() KeyPairArrayOutput {
@@ -296,7 +296,7 @@ type KeyPairMapInput interface {
 type KeyPairMap map[string]KeyPairInput
 
 func (KeyPairMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KeyPair)(nil))
+	return reflect.TypeOf((*map[string]*KeyPair)(nil)).Elem()
 }
 
 func (i KeyPairMap) ToKeyPairMapOutput() KeyPairMapOutput {

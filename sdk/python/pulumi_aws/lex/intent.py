@@ -642,7 +642,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "What type of flowers would you like to order?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),
@@ -658,7 +658,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "What day do you want the {FlowerType} to be picked up?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),
@@ -674,7 +674,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),
@@ -778,7 +778,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "What type of flowers would you like to order?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),
@@ -794,7 +794,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "What day do you want the {FlowerType} to be picked up?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),
@@ -810,7 +810,7 @@ class Intent(pulumi.CustomResource):
                         max_attempts=2,
                         message=[{
                             "content": "Pick up the {FlowerType} at what time on {PickupDate}?",
-                            "content_type": "PlainText",
+                            "contentType": "PlainText",
                         }],
                     ),
                 ),

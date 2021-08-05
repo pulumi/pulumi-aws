@@ -279,7 +279,7 @@ type EndpointGroupArrayInput interface {
 type EndpointGroupArray []EndpointGroupInput
 
 func (EndpointGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EndpointGroup)(nil))
+	return reflect.TypeOf((*[]*EndpointGroup)(nil)).Elem()
 }
 
 func (i EndpointGroupArray) ToEndpointGroupArrayOutput() EndpointGroupArrayOutput {
@@ -304,7 +304,7 @@ type EndpointGroupMapInput interface {
 type EndpointGroupMap map[string]EndpointGroupInput
 
 func (EndpointGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EndpointGroup)(nil))
+	return reflect.TypeOf((*map[string]*EndpointGroup)(nil)).Elem()
 }
 
 func (i EndpointGroupMap) ToEndpointGroupMapOutput() EndpointGroupMapOutput {

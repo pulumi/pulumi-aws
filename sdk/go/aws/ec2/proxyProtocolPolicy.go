@@ -214,7 +214,7 @@ type ProxyProtocolPolicyArrayInput interface {
 type ProxyProtocolPolicyArray []ProxyProtocolPolicyInput
 
 func (ProxyProtocolPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((*[]*ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (i ProxyProtocolPolicyArray) ToProxyProtocolPolicyArrayOutput() ProxyProtocolPolicyArrayOutput {
@@ -239,7 +239,7 @@ type ProxyProtocolPolicyMapInput interface {
 type ProxyProtocolPolicyMap map[string]ProxyProtocolPolicyInput
 
 func (ProxyProtocolPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProxyProtocolPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ProxyProtocolPolicy)(nil)).Elem()
 }
 
 func (i ProxyProtocolPolicyMap) ToProxyProtocolPolicyMapOutput() ProxyProtocolPolicyMapOutput {

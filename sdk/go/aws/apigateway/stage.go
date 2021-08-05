@@ -349,7 +349,7 @@ type StageArrayInput interface {
 type StageArray []StageInput
 
 func (StageArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Stage)(nil))
+	return reflect.TypeOf((*[]*Stage)(nil)).Elem()
 }
 
 func (i StageArray) ToStageArrayOutput() StageArrayOutput {
@@ -374,7 +374,7 @@ type StageMapInput interface {
 type StageMap map[string]StageInput
 
 func (StageMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Stage)(nil))
+	return reflect.TypeOf((*map[string]*Stage)(nil)).Elem()
 }
 
 func (i StageMap) ToStageMapOutput() StageMapOutput {

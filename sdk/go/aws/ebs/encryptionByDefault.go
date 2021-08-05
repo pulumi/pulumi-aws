@@ -162,7 +162,7 @@ type EncryptionByDefaultArrayInput interface {
 type EncryptionByDefaultArray []EncryptionByDefaultInput
 
 func (EncryptionByDefaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EncryptionByDefault)(nil))
+	return reflect.TypeOf((*[]*EncryptionByDefault)(nil)).Elem()
 }
 
 func (i EncryptionByDefaultArray) ToEncryptionByDefaultArrayOutput() EncryptionByDefaultArrayOutput {
@@ -187,7 +187,7 @@ type EncryptionByDefaultMapInput interface {
 type EncryptionByDefaultMap map[string]EncryptionByDefaultInput
 
 func (EncryptionByDefaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EncryptionByDefault)(nil))
+	return reflect.TypeOf((*map[string]*EncryptionByDefault)(nil)).Elem()
 }
 
 func (i EncryptionByDefaultMap) ToEncryptionByDefaultMapOutput() EncryptionByDefaultMapOutput {

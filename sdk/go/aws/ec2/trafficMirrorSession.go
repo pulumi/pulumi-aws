@@ -285,7 +285,7 @@ type TrafficMirrorSessionArrayInput interface {
 type TrafficMirrorSessionArray []TrafficMirrorSessionInput
 
 func (TrafficMirrorSessionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((*[]*TrafficMirrorSession)(nil)).Elem()
 }
 
 func (i TrafficMirrorSessionArray) ToTrafficMirrorSessionArrayOutput() TrafficMirrorSessionArrayOutput {
@@ -310,7 +310,7 @@ type TrafficMirrorSessionMapInput interface {
 type TrafficMirrorSessionMap map[string]TrafficMirrorSessionInput
 
 func (TrafficMirrorSessionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TrafficMirrorSession)(nil))
+	return reflect.TypeOf((*map[string]*TrafficMirrorSession)(nil)).Elem()
 }
 
 func (i TrafficMirrorSessionMap) ToTrafficMirrorSessionMapOutput() TrafficMirrorSessionMapOutput {

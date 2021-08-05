@@ -511,7 +511,7 @@ type IntentArrayInput interface {
 type IntentArray []IntentInput
 
 func (IntentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Intent)(nil))
+	return reflect.TypeOf((*[]*Intent)(nil)).Elem()
 }
 
 func (i IntentArray) ToIntentArrayOutput() IntentArrayOutput {
@@ -536,7 +536,7 @@ type IntentMapInput interface {
 type IntentMap map[string]IntentInput
 
 func (IntentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Intent)(nil))
+	return reflect.TypeOf((*map[string]*Intent)(nil)).Elem()
 }
 
 func (i IntentMap) ToIntentMapOutput() IntentMapOutput {

@@ -285,7 +285,7 @@ type FilterArrayInput interface {
 type FilterArray []FilterInput
 
 func (FilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Filter)(nil))
+	return reflect.TypeOf((*[]*Filter)(nil)).Elem()
 }
 
 func (i FilterArray) ToFilterArrayOutput() FilterArrayOutput {
@@ -310,7 +310,7 @@ type FilterMapInput interface {
 type FilterMap map[string]FilterInput
 
 func (FilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Filter)(nil))
+	return reflect.TypeOf((*map[string]*Filter)(nil)).Elem()
 }
 
 func (i FilterMap) ToFilterMapOutput() FilterMapOutput {

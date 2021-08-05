@@ -333,7 +333,7 @@ type RuleArrayInput interface {
 type RuleArray []RuleInput
 
 func (RuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Rule)(nil))
+	return reflect.TypeOf((*[]*Rule)(nil)).Elem()
 }
 
 func (i RuleArray) ToRuleArrayOutput() RuleArrayOutput {
@@ -358,7 +358,7 @@ type RuleMapInput interface {
 type RuleMap map[string]RuleInput
 
 func (RuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Rule)(nil))
+	return reflect.TypeOf((*map[string]*Rule)(nil)).Elem()
 }
 
 func (i RuleMap) ToRuleMapOutput() RuleMapOutput {

@@ -433,7 +433,7 @@ type VirtualNodeArrayInput interface {
 type VirtualNodeArray []VirtualNodeInput
 
 func (VirtualNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualNode)(nil))
+	return reflect.TypeOf((*[]*VirtualNode)(nil)).Elem()
 }
 
 func (i VirtualNodeArray) ToVirtualNodeArrayOutput() VirtualNodeArrayOutput {
@@ -458,7 +458,7 @@ type VirtualNodeMapInput interface {
 type VirtualNodeMap map[string]VirtualNodeInput
 
 func (VirtualNodeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualNode)(nil))
+	return reflect.TypeOf((*map[string]*VirtualNode)(nil)).Elem()
 }
 
 func (i VirtualNodeMap) ToVirtualNodeMapOutput() VirtualNodeMapOutput {

@@ -240,7 +240,7 @@ type ConnectionArrayInput interface {
 type ConnectionArray []ConnectionInput
 
 func (ConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Connection)(nil))
+	return reflect.TypeOf((*[]*Connection)(nil)).Elem()
 }
 
 func (i ConnectionArray) ToConnectionArrayOutput() ConnectionArrayOutput {
@@ -265,7 +265,7 @@ type ConnectionMapInput interface {
 type ConnectionMap map[string]ConnectionInput
 
 func (ConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Connection)(nil))
+	return reflect.TypeOf((*map[string]*Connection)(nil)).Elem()
 }
 
 func (i ConnectionMap) ToConnectionMapOutput() ConnectionMapOutput {

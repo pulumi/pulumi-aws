@@ -226,7 +226,7 @@ type PrincipalAssociationArrayInput interface {
 type PrincipalAssociationArray []PrincipalAssociationInput
 
 func (PrincipalAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrincipalAssociation)(nil))
+	return reflect.TypeOf((*[]*PrincipalAssociation)(nil)).Elem()
 }
 
 func (i PrincipalAssociationArray) ToPrincipalAssociationArrayOutput() PrincipalAssociationArrayOutput {
@@ -251,7 +251,7 @@ type PrincipalAssociationMapInput interface {
 type PrincipalAssociationMap map[string]PrincipalAssociationInput
 
 func (PrincipalAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrincipalAssociation)(nil))
+	return reflect.TypeOf((*map[string]*PrincipalAssociation)(nil)).Elem()
 }
 
 func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutput() PrincipalAssociationMapOutput {

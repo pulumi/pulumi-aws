@@ -234,11 +234,11 @@ class Insight(pulumi.CustomResource):
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
             filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[{
-                    "comparison": "EQUALS",
-                    "key": "Environment",
-                    "value": "Production",
-                }],
+                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
+                    comparison="EQUALS",
+                    key="Environment",
+                    value="Production",
+                )],
             ),
             group_by_attribute="ResourceTags",
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
@@ -351,11 +351,11 @@ class Insight(pulumi.CustomResource):
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
             filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[{
-                    "comparison": "EQUALS",
-                    "key": "Environment",
-                    "value": "Production",
-                }],
+                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
+                    comparison="EQUALS",
+                    key="Environment",
+                    value="Production",
+                )],
             ),
             group_by_attribute="ResourceTags",
             opts=pulumi.ResourceOptions(depends_on=[example_account]))

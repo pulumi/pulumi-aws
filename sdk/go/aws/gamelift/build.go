@@ -234,7 +234,7 @@ type BuildArrayInput interface {
 type BuildArray []BuildInput
 
 func (BuildArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Build)(nil))
+	return reflect.TypeOf((*[]*Build)(nil)).Elem()
 }
 
 func (i BuildArray) ToBuildArrayOutput() BuildArrayOutput {
@@ -259,7 +259,7 @@ type BuildMapInput interface {
 type BuildMap map[string]BuildInput
 
 func (BuildMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Build)(nil))
+	return reflect.TypeOf((*map[string]*Build)(nil)).Elem()
 }
 
 func (i BuildMap) ToBuildMapOutput() BuildMapOutput {

@@ -203,7 +203,7 @@ type RegistryArrayInput interface {
 type RegistryArray []RegistryInput
 
 func (RegistryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Registry)(nil))
+	return reflect.TypeOf((*[]*Registry)(nil)).Elem()
 }
 
 func (i RegistryArray) ToRegistryArrayOutput() RegistryArrayOutput {
@@ -228,7 +228,7 @@ type RegistryMapInput interface {
 type RegistryMap map[string]RegistryInput
 
 func (RegistryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Registry)(nil))
+	return reflect.TypeOf((*map[string]*Registry)(nil)).Elem()
 }
 
 func (i RegistryMap) ToRegistryMapOutput() RegistryMapOutput {

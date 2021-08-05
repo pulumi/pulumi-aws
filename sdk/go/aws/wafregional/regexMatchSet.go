@@ -196,7 +196,7 @@ type RegexMatchSetArrayInput interface {
 type RegexMatchSetArray []RegexMatchSetInput
 
 func (RegexMatchSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegexMatchSet)(nil))
+	return reflect.TypeOf((*[]*RegexMatchSet)(nil)).Elem()
 }
 
 func (i RegexMatchSetArray) ToRegexMatchSetArrayOutput() RegexMatchSetArrayOutput {
@@ -221,7 +221,7 @@ type RegexMatchSetMapInput interface {
 type RegexMatchSetMap map[string]RegexMatchSetInput
 
 func (RegexMatchSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegexMatchSet)(nil))
+	return reflect.TypeOf((*map[string]*RegexMatchSet)(nil)).Elem()
 }
 
 func (i RegexMatchSetMap) ToRegexMatchSetMapOutput() RegexMatchSetMapOutput {

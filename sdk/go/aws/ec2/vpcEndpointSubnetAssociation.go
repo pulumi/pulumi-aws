@@ -186,7 +186,7 @@ type VpcEndpointSubnetAssociationArrayInput interface {
 type VpcEndpointSubnetAssociationArray []VpcEndpointSubnetAssociationInput
 
 func (VpcEndpointSubnetAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpointSubnetAssociation)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointSubnetAssociation)(nil)).Elem()
 }
 
 func (i VpcEndpointSubnetAssociationArray) ToVpcEndpointSubnetAssociationArrayOutput() VpcEndpointSubnetAssociationArrayOutput {
@@ -211,7 +211,7 @@ type VpcEndpointSubnetAssociationMapInput interface {
 type VpcEndpointSubnetAssociationMap map[string]VpcEndpointSubnetAssociationInput
 
 func (VpcEndpointSubnetAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpointSubnetAssociation)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointSubnetAssociation)(nil)).Elem()
 }
 
 func (i VpcEndpointSubnetAssociationMap) ToVpcEndpointSubnetAssociationMapOutput() VpcEndpointSubnetAssociationMapOutput {

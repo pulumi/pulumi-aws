@@ -210,7 +210,7 @@ type PublicDnsNamespaceArrayInput interface {
 type PublicDnsNamespaceArray []PublicDnsNamespaceInput
 
 func (PublicDnsNamespaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((*[]*PublicDnsNamespace)(nil)).Elem()
 }
 
 func (i PublicDnsNamespaceArray) ToPublicDnsNamespaceArrayOutput() PublicDnsNamespaceArrayOutput {
@@ -235,7 +235,7 @@ type PublicDnsNamespaceMapInput interface {
 type PublicDnsNamespaceMap map[string]PublicDnsNamespaceInput
 
 func (PublicDnsNamespaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PublicDnsNamespace)(nil))
+	return reflect.TypeOf((*map[string]*PublicDnsNamespace)(nil)).Elem()
 }
 
 func (i PublicDnsNamespaceMap) ToPublicDnsNamespaceMapOutput() PublicDnsNamespaceMapOutput {

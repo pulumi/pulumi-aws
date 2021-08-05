@@ -178,7 +178,7 @@ type EmailIdentityArrayInput interface {
 type EmailIdentityArray []EmailIdentityInput
 
 func (EmailIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EmailIdentity)(nil))
+	return reflect.TypeOf((*[]*EmailIdentity)(nil)).Elem()
 }
 
 func (i EmailIdentityArray) ToEmailIdentityArrayOutput() EmailIdentityArrayOutput {
@@ -203,7 +203,7 @@ type EmailIdentityMapInput interface {
 type EmailIdentityMap map[string]EmailIdentityInput
 
 func (EmailIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EmailIdentity)(nil))
+	return reflect.TypeOf((*map[string]*EmailIdentity)(nil)).Elem()
 }
 
 func (i EmailIdentityMap) ToEmailIdentityMapOutput() EmailIdentityMapOutput {

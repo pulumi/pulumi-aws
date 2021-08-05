@@ -240,7 +240,7 @@ type GroupPolicyArrayInput interface {
 type GroupPolicyArray []GroupPolicyInput
 
 func (GroupPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupPolicy)(nil))
+	return reflect.TypeOf((*[]*GroupPolicy)(nil)).Elem()
 }
 
 func (i GroupPolicyArray) ToGroupPolicyArrayOutput() GroupPolicyArrayOutput {
@@ -265,7 +265,7 @@ type GroupPolicyMapInput interface {
 type GroupPolicyMap map[string]GroupPolicyInput
 
 func (GroupPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupPolicy)(nil))
+	return reflect.TypeOf((*map[string]*GroupPolicy)(nil)).Elem()
 }
 
 func (i GroupPolicyMap) ToGroupPolicyMapOutput() GroupPolicyMapOutput {

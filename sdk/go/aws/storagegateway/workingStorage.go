@@ -188,7 +188,7 @@ type WorkingStorageArrayInput interface {
 type WorkingStorageArray []WorkingStorageInput
 
 func (WorkingStorageArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WorkingStorage)(nil))
+	return reflect.TypeOf((*[]*WorkingStorage)(nil)).Elem()
 }
 
 func (i WorkingStorageArray) ToWorkingStorageArrayOutput() WorkingStorageArrayOutput {
@@ -213,7 +213,7 @@ type WorkingStorageMapInput interface {
 type WorkingStorageMap map[string]WorkingStorageInput
 
 func (WorkingStorageMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WorkingStorage)(nil))
+	return reflect.TypeOf((*map[string]*WorkingStorage)(nil)).Elem()
 }
 
 func (i WorkingStorageMap) ToWorkingStorageMapOutput() WorkingStorageMapOutput {

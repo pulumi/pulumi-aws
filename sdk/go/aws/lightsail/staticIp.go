@@ -178,7 +178,7 @@ type StaticIpArrayInput interface {
 type StaticIpArray []StaticIpInput
 
 func (StaticIpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StaticIp)(nil))
+	return reflect.TypeOf((*[]*StaticIp)(nil)).Elem()
 }
 
 func (i StaticIpArray) ToStaticIpArrayOutput() StaticIpArrayOutput {
@@ -203,7 +203,7 @@ type StaticIpMapInput interface {
 type StaticIpMap map[string]StaticIpInput
 
 func (StaticIpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StaticIp)(nil))
+	return reflect.TypeOf((*map[string]*StaticIp)(nil)).Elem()
 }
 
 func (i StaticIpMap) ToStaticIpMapOutput() StaticIpMapOutput {

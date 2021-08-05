@@ -274,21 +274,21 @@ class InstanceFleet(pulumi.CustomResource):
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumesPerInstance": 1,
-                    }],
+                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
+                        size=100,
+                        type="gp2",
+                        volumes_per_instance=1,
+                    )],
                     instance_type="m4.xlarge",
                     weighted_capacity=1,
                 ),
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumesPerInstance": 1,
-                    }],
+                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
+                        size=100,
+                        type="gp2",
+                        volumes_per_instance=1,
+                    )],
                     instance_type="m4.2xlarge",
                     weighted_capacity=2,
                 ),
@@ -347,21 +347,21 @@ class InstanceFleet(pulumi.CustomResource):
             instance_type_configs=[
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumesPerInstance": 1,
-                    }],
+                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
+                        size=100,
+                        type="gp2",
+                        volumes_per_instance=1,
+                    )],
                     instance_type="m4.xlarge",
                     weighted_capacity=1,
                 ),
                 aws.emr.InstanceFleetInstanceTypeConfigArgs(
                     bid_price_as_percentage_of_on_demand_price=100,
-                    ebs_configs=[{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumesPerInstance": 1,
-                    }],
+                    ebs_configs=[aws.emr.InstanceFleetInstanceTypeConfigEbsConfigArgs(
+                        size=100,
+                        type="gp2",
+                        volumes_per_instance=1,
+                    )],
                     instance_type="m4.2xlarge",
                     weighted_capacity=2,
                 ),

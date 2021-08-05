@@ -245,7 +245,7 @@ type NfsLocationArrayInput interface {
 type NfsLocationArray []NfsLocationInput
 
 func (NfsLocationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NfsLocation)(nil))
+	return reflect.TypeOf((*[]*NfsLocation)(nil)).Elem()
 }
 
 func (i NfsLocationArray) ToNfsLocationArrayOutput() NfsLocationArrayOutput {
@@ -270,7 +270,7 @@ type NfsLocationMapInput interface {
 type NfsLocationMap map[string]NfsLocationInput
 
 func (NfsLocationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NfsLocation)(nil))
+	return reflect.TypeOf((*map[string]*NfsLocation)(nil)).Elem()
 }
 
 func (i NfsLocationMap) ToNfsLocationMapOutput() NfsLocationMapOutput {

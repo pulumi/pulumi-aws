@@ -335,7 +335,7 @@ type PeeringConnectionOptionsArrayInput interface {
 type PeeringConnectionOptionsArray []PeeringConnectionOptionsInput
 
 func (PeeringConnectionOptionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PeeringConnectionOptions)(nil))
+	return reflect.TypeOf((*[]*PeeringConnectionOptions)(nil)).Elem()
 }
 
 func (i PeeringConnectionOptionsArray) ToPeeringConnectionOptionsArrayOutput() PeeringConnectionOptionsArrayOutput {
@@ -360,7 +360,7 @@ type PeeringConnectionOptionsMapInput interface {
 type PeeringConnectionOptionsMap map[string]PeeringConnectionOptionsInput
 
 func (PeeringConnectionOptionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PeeringConnectionOptions)(nil))
+	return reflect.TypeOf((*map[string]*PeeringConnectionOptions)(nil)).Elem()
 }
 
 func (i PeeringConnectionOptionsMap) ToPeeringConnectionOptionsMapOutput() PeeringConnectionOptionsMapOutput {

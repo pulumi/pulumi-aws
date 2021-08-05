@@ -264,7 +264,7 @@ type DefaultSubnetArrayInput interface {
 type DefaultSubnetArray []DefaultSubnetInput
 
 func (DefaultSubnetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultSubnet)(nil))
+	return reflect.TypeOf((*[]*DefaultSubnet)(nil)).Elem()
 }
 
 func (i DefaultSubnetArray) ToDefaultSubnetArrayOutput() DefaultSubnetArrayOutput {
@@ -289,7 +289,7 @@ type DefaultSubnetMapInput interface {
 type DefaultSubnetMap map[string]DefaultSubnetInput
 
 func (DefaultSubnetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultSubnet)(nil))
+	return reflect.TypeOf((*map[string]*DefaultSubnet)(nil)).Elem()
 }
 
 func (i DefaultSubnetMap) ToDefaultSubnetMapOutput() DefaultSubnetMapOutput {

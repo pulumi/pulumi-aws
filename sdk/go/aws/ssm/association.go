@@ -301,7 +301,7 @@ type AssociationArrayInput interface {
 type AssociationArray []AssociationInput
 
 func (AssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Association)(nil))
+	return reflect.TypeOf((*[]*Association)(nil)).Elem()
 }
 
 func (i AssociationArray) ToAssociationArrayOutput() AssociationArrayOutput {
@@ -326,7 +326,7 @@ type AssociationMapInput interface {
 type AssociationMap map[string]AssociationInput
 
 func (AssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Association)(nil))
+	return reflect.TypeOf((*map[string]*Association)(nil)).Elem()
 }
 
 func (i AssociationMap) ToAssociationMapOutput() AssociationMapOutput {

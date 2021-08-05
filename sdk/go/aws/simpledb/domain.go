@@ -166,7 +166,7 @@ type DomainArrayInput interface {
 type DomainArray []DomainInput
 
 func (DomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Domain)(nil))
+	return reflect.TypeOf((*[]*Domain)(nil)).Elem()
 }
 
 func (i DomainArray) ToDomainArrayOutput() DomainArrayOutput {
@@ -191,7 +191,7 @@ type DomainMapInput interface {
 type DomainMap map[string]DomainInput
 
 func (DomainMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Domain)(nil))
+	return reflect.TypeOf((*map[string]*Domain)(nil)).Elem()
 }
 
 func (i DomainMap) ToDomainMapOutput() DomainMapOutput {

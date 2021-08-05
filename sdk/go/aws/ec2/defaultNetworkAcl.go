@@ -378,7 +378,7 @@ type DefaultNetworkAclArrayInput interface {
 type DefaultNetworkAclArray []DefaultNetworkAclInput
 
 func (DefaultNetworkAclArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultNetworkAcl)(nil))
+	return reflect.TypeOf((*[]*DefaultNetworkAcl)(nil)).Elem()
 }
 
 func (i DefaultNetworkAclArray) ToDefaultNetworkAclArrayOutput() DefaultNetworkAclArrayOutput {
@@ -403,7 +403,7 @@ type DefaultNetworkAclMapInput interface {
 type DefaultNetworkAclMap map[string]DefaultNetworkAclInput
 
 func (DefaultNetworkAclMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultNetworkAcl)(nil))
+	return reflect.TypeOf((*map[string]*DefaultNetworkAcl)(nil)).Elem()
 }
 
 func (i DefaultNetworkAclMap) ToDefaultNetworkAclMapOutput() DefaultNetworkAclMapOutput {

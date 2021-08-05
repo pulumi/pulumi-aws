@@ -364,7 +364,7 @@ type GatewayAssociationArrayInput interface {
 type GatewayAssociationArray []GatewayAssociationInput
 
 func (GatewayAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GatewayAssociation)(nil))
+	return reflect.TypeOf((*[]*GatewayAssociation)(nil)).Elem()
 }
 
 func (i GatewayAssociationArray) ToGatewayAssociationArrayOutput() GatewayAssociationArrayOutput {
@@ -389,7 +389,7 @@ type GatewayAssociationMapInput interface {
 type GatewayAssociationMap map[string]GatewayAssociationInput
 
 func (GatewayAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GatewayAssociation)(nil))
+	return reflect.TypeOf((*map[string]*GatewayAssociation)(nil)).Elem()
 }
 
 func (i GatewayAssociationMap) ToGatewayAssociationMapOutput() GatewayAssociationMapOutput {

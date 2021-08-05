@@ -221,7 +221,7 @@ type DedicatedHostArrayInput interface {
 type DedicatedHostArray []DedicatedHostInput
 
 func (DedicatedHostArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DedicatedHost)(nil))
+	return reflect.TypeOf((*[]*DedicatedHost)(nil)).Elem()
 }
 
 func (i DedicatedHostArray) ToDedicatedHostArrayOutput() DedicatedHostArrayOutput {
@@ -246,7 +246,7 @@ type DedicatedHostMapInput interface {
 type DedicatedHostMap map[string]DedicatedHostInput
 
 func (DedicatedHostMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DedicatedHost)(nil))
+	return reflect.TypeOf((*map[string]*DedicatedHost)(nil)).Elem()
 }
 
 func (i DedicatedHostMap) ToDedicatedHostMapOutput() DedicatedHostMapOutput {

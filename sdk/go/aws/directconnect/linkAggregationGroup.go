@@ -247,7 +247,7 @@ type LinkAggregationGroupArrayInput interface {
 type LinkAggregationGroupArray []LinkAggregationGroupInput
 
 func (LinkAggregationGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LinkAggregationGroup)(nil))
+	return reflect.TypeOf((*[]*LinkAggregationGroup)(nil)).Elem()
 }
 
 func (i LinkAggregationGroupArray) ToLinkAggregationGroupArrayOutput() LinkAggregationGroupArrayOutput {
@@ -272,7 +272,7 @@ type LinkAggregationGroupMapInput interface {
 type LinkAggregationGroupMap map[string]LinkAggregationGroupInput
 
 func (LinkAggregationGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LinkAggregationGroup)(nil))
+	return reflect.TypeOf((*map[string]*LinkAggregationGroup)(nil)).Elem()
 }
 
 func (i LinkAggregationGroupMap) ToLinkAggregationGroupMapOutput() LinkAggregationGroupMapOutput {

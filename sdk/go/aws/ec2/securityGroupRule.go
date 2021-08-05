@@ -384,7 +384,7 @@ type SecurityGroupRuleArrayInput interface {
 type SecurityGroupRuleArray []SecurityGroupRuleInput
 
 func (SecurityGroupRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecurityGroupRule)(nil))
+	return reflect.TypeOf((*[]*SecurityGroupRule)(nil)).Elem()
 }
 
 func (i SecurityGroupRuleArray) ToSecurityGroupRuleArrayOutput() SecurityGroupRuleArrayOutput {
@@ -409,7 +409,7 @@ type SecurityGroupRuleMapInput interface {
 type SecurityGroupRuleMap map[string]SecurityGroupRuleInput
 
 func (SecurityGroupRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecurityGroupRule)(nil))
+	return reflect.TypeOf((*map[string]*SecurityGroupRule)(nil)).Elem()
 }
 
 func (i SecurityGroupRuleMap) ToSecurityGroupRuleMapOutput() SecurityGroupRuleMapOutput {

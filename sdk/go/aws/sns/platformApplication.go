@@ -307,7 +307,7 @@ type PlatformApplicationArrayInput interface {
 type PlatformApplicationArray []PlatformApplicationInput
 
 func (PlatformApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PlatformApplication)(nil))
+	return reflect.TypeOf((*[]*PlatformApplication)(nil)).Elem()
 }
 
 func (i PlatformApplicationArray) ToPlatformApplicationArrayOutput() PlatformApplicationArrayOutput {
@@ -332,7 +332,7 @@ type PlatformApplicationMapInput interface {
 type PlatformApplicationMap map[string]PlatformApplicationInput
 
 func (PlatformApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PlatformApplication)(nil))
+	return reflect.TypeOf((*map[string]*PlatformApplication)(nil)).Elem()
 }
 
 func (i PlatformApplicationMap) ToPlatformApplicationMapOutput() PlatformApplicationMapOutput {

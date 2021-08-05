@@ -295,7 +295,7 @@ type SelectionArrayInput interface {
 type SelectionArray []SelectionInput
 
 func (SelectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Selection)(nil))
+	return reflect.TypeOf((*[]*Selection)(nil)).Elem()
 }
 
 func (i SelectionArray) ToSelectionArrayOutput() SelectionArrayOutput {
@@ -320,7 +320,7 @@ type SelectionMapInput interface {
 type SelectionMap map[string]SelectionInput
 
 func (SelectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Selection)(nil))
+	return reflect.TypeOf((*map[string]*Selection)(nil)).Elem()
 }
 
 func (i SelectionMap) ToSelectionMapOutput() SelectionMapOutput {

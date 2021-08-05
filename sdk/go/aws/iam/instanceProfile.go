@@ -245,7 +245,7 @@ type InstanceProfileArrayInput interface {
 type InstanceProfileArray []InstanceProfileInput
 
 func (InstanceProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InstanceProfile)(nil))
+	return reflect.TypeOf((*[]*InstanceProfile)(nil)).Elem()
 }
 
 func (i InstanceProfileArray) ToInstanceProfileArrayOutput() InstanceProfileArrayOutput {
@@ -270,7 +270,7 @@ type InstanceProfileMapInput interface {
 type InstanceProfileMap map[string]InstanceProfileInput
 
 func (InstanceProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InstanceProfile)(nil))
+	return reflect.TypeOf((*map[string]*InstanceProfile)(nil)).Elem()
 }
 
 func (i InstanceProfileMap) ToInstanceProfileMapOutput() InstanceProfileMapOutput {
