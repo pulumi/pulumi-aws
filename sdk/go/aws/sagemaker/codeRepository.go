@@ -245,7 +245,7 @@ type CodeRepositoryArrayInput interface {
 type CodeRepositoryArray []CodeRepositoryInput
 
 func (CodeRepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CodeRepository)(nil))
+	return reflect.TypeOf((*[]*CodeRepository)(nil)).Elem()
 }
 
 func (i CodeRepositoryArray) ToCodeRepositoryArrayOutput() CodeRepositoryArrayOutput {
@@ -270,7 +270,7 @@ type CodeRepositoryMapInput interface {
 type CodeRepositoryMap map[string]CodeRepositoryInput
 
 func (CodeRepositoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CodeRepository)(nil))
+	return reflect.TypeOf((*map[string]*CodeRepository)(nil)).Elem()
 }
 
 func (i CodeRepositoryMap) ToCodeRepositoryMapOutput() CodeRepositoryMapOutput {

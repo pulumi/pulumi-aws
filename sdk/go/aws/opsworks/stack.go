@@ -447,7 +447,7 @@ type StackArrayInput interface {
 type StackArray []StackInput
 
 func (StackArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Stack)(nil))
+	return reflect.TypeOf((*[]*Stack)(nil)).Elem()
 }
 
 func (i StackArray) ToStackArrayOutput() StackArrayOutput {
@@ -472,7 +472,7 @@ type StackMapInput interface {
 type StackMap map[string]StackInput
 
 func (StackMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Stack)(nil))
+	return reflect.TypeOf((*map[string]*Stack)(nil)).Elem()
 }
 
 func (i StackMap) ToStackMapOutput() StackMapOutput {

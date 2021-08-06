@@ -291,7 +291,7 @@ type GrantArrayInput interface {
 type GrantArray []GrantInput
 
 func (GrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Grant)(nil))
+	return reflect.TypeOf((*[]*Grant)(nil)).Elem()
 }
 
 func (i GrantArray) ToGrantArrayOutput() GrantArrayOutput {
@@ -316,7 +316,7 @@ type GrantMapInput interface {
 type GrantMap map[string]GrantInput
 
 func (GrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Grant)(nil))
+	return reflect.TypeOf((*map[string]*Grant)(nil)).Elem()
 }
 
 func (i GrantMap) ToGrantMapOutput() GrantMapOutput {

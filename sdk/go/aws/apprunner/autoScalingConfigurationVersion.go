@@ -252,7 +252,7 @@ type AutoScalingConfigurationVersionArrayInput interface {
 type AutoScalingConfigurationVersionArray []AutoScalingConfigurationVersionInput
 
 func (AutoScalingConfigurationVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((*[]*AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (i AutoScalingConfigurationVersionArray) ToAutoScalingConfigurationVersionArrayOutput() AutoScalingConfigurationVersionArrayOutput {
@@ -277,7 +277,7 @@ type AutoScalingConfigurationVersionMapInput interface {
 type AutoScalingConfigurationVersionMap map[string]AutoScalingConfigurationVersionInput
 
 func (AutoScalingConfigurationVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AutoScalingConfigurationVersion)(nil))
+	return reflect.TypeOf((*map[string]*AutoScalingConfigurationVersion)(nil)).Elem()
 }
 
 func (i AutoScalingConfigurationVersionMap) ToAutoScalingConfigurationVersionMapOutput() AutoScalingConfigurationVersionMapOutput {

@@ -280,7 +280,7 @@ type IPSetArrayInput interface {
 type IPSetArray []IPSetInput
 
 func (IPSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IPSet)(nil))
+	return reflect.TypeOf((*[]*IPSet)(nil)).Elem()
 }
 
 func (i IPSetArray) ToIPSetArrayOutput() IPSetArrayOutput {
@@ -305,7 +305,7 @@ type IPSetMapInput interface {
 type IPSetMap map[string]IPSetInput
 
 func (IPSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IPSet)(nil))
+	return reflect.TypeOf((*map[string]*IPSet)(nil)).Elem()
 }
 
 func (i IPSetMap) ToIPSetMapOutput() IPSetMapOutput {

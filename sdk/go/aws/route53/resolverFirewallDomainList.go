@@ -202,7 +202,7 @@ type ResolverFirewallDomainListArrayInput interface {
 type ResolverFirewallDomainListArray []ResolverFirewallDomainListInput
 
 func (ResolverFirewallDomainListArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (i ResolverFirewallDomainListArray) ToResolverFirewallDomainListArrayOutput() ResolverFirewallDomainListArrayOutput {
@@ -227,7 +227,7 @@ type ResolverFirewallDomainListMapInput interface {
 type ResolverFirewallDomainListMap map[string]ResolverFirewallDomainListInput
 
 func (ResolverFirewallDomainListMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverFirewallDomainList)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallDomainList)(nil)).Elem()
 }
 
 func (i ResolverFirewallDomainListMap) ToResolverFirewallDomainListMapOutput() ResolverFirewallDomainListMapOutput {

@@ -389,7 +389,7 @@ type GangliaLayerArrayInput interface {
 type GangliaLayerArray []GangliaLayerInput
 
 func (GangliaLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GangliaLayer)(nil))
+	return reflect.TypeOf((*[]*GangliaLayer)(nil)).Elem()
 }
 
 func (i GangliaLayerArray) ToGangliaLayerArrayOutput() GangliaLayerArrayOutput {
@@ -414,7 +414,7 @@ type GangliaLayerMapInput interface {
 type GangliaLayerMap map[string]GangliaLayerInput
 
 func (GangliaLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GangliaLayer)(nil))
+	return reflect.TypeOf((*map[string]*GangliaLayer)(nil)).Elem()
 }
 
 func (i GangliaLayerMap) ToGangliaLayerMapOutput() GangliaLayerMapOutput {

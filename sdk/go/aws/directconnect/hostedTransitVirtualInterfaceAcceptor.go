@@ -246,7 +246,7 @@ type HostedTransitVirtualInterfaceAcceptorArrayInput interface {
 type HostedTransitVirtualInterfaceAcceptorArray []HostedTransitVirtualInterfaceAcceptorInput
 
 func (HostedTransitVirtualInterfaceAcceptorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HostedTransitVirtualInterfaceAcceptor)(nil))
+	return reflect.TypeOf((*[]*HostedTransitVirtualInterfaceAcceptor)(nil)).Elem()
 }
 
 func (i HostedTransitVirtualInterfaceAcceptorArray) ToHostedTransitVirtualInterfaceAcceptorArrayOutput() HostedTransitVirtualInterfaceAcceptorArrayOutput {
@@ -271,7 +271,7 @@ type HostedTransitVirtualInterfaceAcceptorMapInput interface {
 type HostedTransitVirtualInterfaceAcceptorMap map[string]HostedTransitVirtualInterfaceAcceptorInput
 
 func (HostedTransitVirtualInterfaceAcceptorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HostedTransitVirtualInterfaceAcceptor)(nil))
+	return reflect.TypeOf((*map[string]*HostedTransitVirtualInterfaceAcceptor)(nil)).Elem()
 }
 
 func (i HostedTransitVirtualInterfaceAcceptorMap) ToHostedTransitVirtualInterfaceAcceptorMapOutput() HostedTransitVirtualInterfaceAcceptorMapOutput {

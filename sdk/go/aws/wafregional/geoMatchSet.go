@@ -187,7 +187,7 @@ type GeoMatchSetArrayInput interface {
 type GeoMatchSetArray []GeoMatchSetInput
 
 func (GeoMatchSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GeoMatchSet)(nil))
+	return reflect.TypeOf((*[]*GeoMatchSet)(nil)).Elem()
 }
 
 func (i GeoMatchSetArray) ToGeoMatchSetArrayOutput() GeoMatchSetArrayOutput {
@@ -212,7 +212,7 @@ type GeoMatchSetMapInput interface {
 type GeoMatchSetMap map[string]GeoMatchSetInput
 
 func (GeoMatchSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GeoMatchSet)(nil))
+	return reflect.TypeOf((*map[string]*GeoMatchSet)(nil)).Elem()
 }
 
 func (i GeoMatchSetMap) ToGeoMatchSetMapOutput() GeoMatchSetMapOutput {

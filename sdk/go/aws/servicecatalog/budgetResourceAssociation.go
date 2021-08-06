@@ -189,7 +189,7 @@ type BudgetResourceAssociationArrayInput interface {
 type BudgetResourceAssociationArray []BudgetResourceAssociationInput
 
 func (BudgetResourceAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (i BudgetResourceAssociationArray) ToBudgetResourceAssociationArrayOutput() BudgetResourceAssociationArrayOutput {
@@ -214,7 +214,7 @@ type BudgetResourceAssociationMapInput interface {
 type BudgetResourceAssociationMap map[string]BudgetResourceAssociationInput
 
 func (BudgetResourceAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BudgetResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*BudgetResourceAssociation)(nil)).Elem()
 }
 
 func (i BudgetResourceAssociationMap) ToBudgetResourceAssociationMapOutput() BudgetResourceAssociationMapOutput {

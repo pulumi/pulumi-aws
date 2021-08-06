@@ -246,7 +246,7 @@ type AppArrayInput interface {
 type AppArray []AppInput
 
 func (AppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*App)(nil))
+	return reflect.TypeOf((*[]*App)(nil)).Elem()
 }
 
 func (i AppArray) ToAppArrayOutput() AppArrayOutput {
@@ -271,7 +271,7 @@ type AppMapInput interface {
 type AppMap map[string]AppInput
 
 func (AppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*App)(nil))
+	return reflect.TypeOf((*map[string]*App)(nil)).Elem()
 }
 
 func (i AppMap) ToAppMapOutput() AppMapOutput {

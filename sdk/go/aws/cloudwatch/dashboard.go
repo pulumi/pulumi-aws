@@ -194,7 +194,7 @@ type DashboardArrayInput interface {
 type DashboardArray []DashboardInput
 
 func (DashboardArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Dashboard)(nil))
+	return reflect.TypeOf((*[]*Dashboard)(nil)).Elem()
 }
 
 func (i DashboardArray) ToDashboardArrayOutput() DashboardArrayOutput {
@@ -219,7 +219,7 @@ type DashboardMapInput interface {
 type DashboardMap map[string]DashboardInput
 
 func (DashboardMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Dashboard)(nil))
+	return reflect.TypeOf((*map[string]*Dashboard)(nil)).Elem()
 }
 
 func (i DashboardMap) ToDashboardMapOutput() DashboardMapOutput {

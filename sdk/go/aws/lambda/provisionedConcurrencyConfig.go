@@ -225,7 +225,7 @@ type ProvisionedConcurrencyConfigArrayInput interface {
 type ProvisionedConcurrencyConfigArray []ProvisionedConcurrencyConfigInput
 
 func (ProvisionedConcurrencyConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((*[]*ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (i ProvisionedConcurrencyConfigArray) ToProvisionedConcurrencyConfigArrayOutput() ProvisionedConcurrencyConfigArrayOutput {
@@ -250,7 +250,7 @@ type ProvisionedConcurrencyConfigMapInput interface {
 type ProvisionedConcurrencyConfigMap map[string]ProvisionedConcurrencyConfigInput
 
 func (ProvisionedConcurrencyConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProvisionedConcurrencyConfig)(nil))
+	return reflect.TypeOf((*map[string]*ProvisionedConcurrencyConfig)(nil)).Elem()
 }
 
 func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput() ProvisionedConcurrencyConfigMapOutput {

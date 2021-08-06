@@ -363,7 +363,7 @@ type PhpAppLayerArrayInput interface {
 type PhpAppLayerArray []PhpAppLayerInput
 
 func (PhpAppLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PhpAppLayer)(nil))
+	return reflect.TypeOf((*[]*PhpAppLayer)(nil)).Elem()
 }
 
 func (i PhpAppLayerArray) ToPhpAppLayerArrayOutput() PhpAppLayerArrayOutput {
@@ -388,7 +388,7 @@ type PhpAppLayerMapInput interface {
 type PhpAppLayerMap map[string]PhpAppLayerInput
 
 func (PhpAppLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PhpAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*PhpAppLayer)(nil)).Elem()
 }
 
 func (i PhpAppLayerMap) ToPhpAppLayerMapOutput() PhpAppLayerMapOutput {

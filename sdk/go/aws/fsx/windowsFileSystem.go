@@ -463,7 +463,7 @@ type WindowsFileSystemArrayInput interface {
 type WindowsFileSystemArray []WindowsFileSystemInput
 
 func (WindowsFileSystemArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WindowsFileSystem)(nil))
+	return reflect.TypeOf((*[]*WindowsFileSystem)(nil)).Elem()
 }
 
 func (i WindowsFileSystemArray) ToWindowsFileSystemArrayOutput() WindowsFileSystemArrayOutput {
@@ -488,7 +488,7 @@ type WindowsFileSystemMapInput interface {
 type WindowsFileSystemMap map[string]WindowsFileSystemInput
 
 func (WindowsFileSystemMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WindowsFileSystem)(nil))
+	return reflect.TypeOf((*map[string]*WindowsFileSystem)(nil)).Elem()
 }
 
 func (i WindowsFileSystemMap) ToWindowsFileSystemMapOutput() WindowsFileSystemMapOutput {

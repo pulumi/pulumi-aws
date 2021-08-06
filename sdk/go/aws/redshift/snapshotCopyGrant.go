@@ -219,7 +219,7 @@ type SnapshotCopyGrantArrayInput interface {
 type SnapshotCopyGrantArray []SnapshotCopyGrantInput
 
 func (SnapshotCopyGrantArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnapshotCopyGrant)(nil))
+	return reflect.TypeOf((*[]*SnapshotCopyGrant)(nil)).Elem()
 }
 
 func (i SnapshotCopyGrantArray) ToSnapshotCopyGrantArrayOutput() SnapshotCopyGrantArrayOutput {
@@ -244,7 +244,7 @@ type SnapshotCopyGrantMapInput interface {
 type SnapshotCopyGrantMap map[string]SnapshotCopyGrantInput
 
 func (SnapshotCopyGrantMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnapshotCopyGrant)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotCopyGrant)(nil)).Elem()
 }
 
 func (i SnapshotCopyGrantMap) ToSnapshotCopyGrantMapOutput() SnapshotCopyGrantMapOutput {

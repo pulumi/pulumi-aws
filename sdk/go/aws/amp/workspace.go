@@ -182,7 +182,7 @@ type WorkspaceArrayInput interface {
 type WorkspaceArray []WorkspaceInput
 
 func (WorkspaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Workspace)(nil))
+	return reflect.TypeOf((*[]*Workspace)(nil)).Elem()
 }
 
 func (i WorkspaceArray) ToWorkspaceArrayOutput() WorkspaceArrayOutput {
@@ -207,7 +207,7 @@ type WorkspaceMapInput interface {
 type WorkspaceMap map[string]WorkspaceInput
 
 func (WorkspaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Workspace)(nil))
+	return reflect.TypeOf((*map[string]*Workspace)(nil)).Elem()
 }
 
 func (i WorkspaceMap) ToWorkspaceMapOutput() WorkspaceMapOutput {

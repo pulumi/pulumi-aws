@@ -312,7 +312,7 @@ type ComponentArrayInput interface {
 type ComponentArray []ComponentInput
 
 func (ComponentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Component)(nil))
+	return reflect.TypeOf((*[]*Component)(nil)).Elem()
 }
 
 func (i ComponentArray) ToComponentArrayOutput() ComponentArrayOutput {
@@ -337,7 +337,7 @@ type ComponentMapInput interface {
 type ComponentMap map[string]ComponentInput
 
 func (ComponentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Component)(nil))
+	return reflect.TypeOf((*map[string]*Component)(nil)).Elem()
 }
 
 func (i ComponentMap) ToComponentMapOutput() ComponentMapOutput {

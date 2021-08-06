@@ -202,7 +202,7 @@ type LogDestinationArrayInput interface {
 type LogDestinationArray []LogDestinationInput
 
 func (LogDestinationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogDestination)(nil))
+	return reflect.TypeOf((*[]*LogDestination)(nil)).Elem()
 }
 
 func (i LogDestinationArray) ToLogDestinationArrayOutput() LogDestinationArrayOutput {
@@ -227,7 +227,7 @@ type LogDestinationMapInput interface {
 type LogDestinationMap map[string]LogDestinationInput
 
 func (LogDestinationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogDestination)(nil))
+	return reflect.TypeOf((*map[string]*LogDestination)(nil)).Elem()
 }
 
 func (i LogDestinationMap) ToLogDestinationMapOutput() LogDestinationMapOutput {

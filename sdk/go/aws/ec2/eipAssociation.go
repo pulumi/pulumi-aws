@@ -287,7 +287,7 @@ type EipAssociationArrayInput interface {
 type EipAssociationArray []EipAssociationInput
 
 func (EipAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EipAssociation)(nil))
+	return reflect.TypeOf((*[]*EipAssociation)(nil)).Elem()
 }
 
 func (i EipAssociationArray) ToEipAssociationArrayOutput() EipAssociationArrayOutput {
@@ -312,7 +312,7 @@ type EipAssociationMapInput interface {
 type EipAssociationMap map[string]EipAssociationInput
 
 func (EipAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EipAssociation)(nil))
+	return reflect.TypeOf((*map[string]*EipAssociation)(nil)).Elem()
 }
 
 func (i EipAssociationMap) ToEipAssociationMapOutput() EipAssociationMapOutput {

@@ -456,7 +456,7 @@ type GatewayArrayInput interface {
 type GatewayArray []GatewayInput
 
 func (GatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Gateway)(nil))
+	return reflect.TypeOf((*[]*Gateway)(nil)).Elem()
 }
 
 func (i GatewayArray) ToGatewayArrayOutput() GatewayArrayOutput {
@@ -481,7 +481,7 @@ type GatewayMapInput interface {
 type GatewayMap map[string]GatewayInput
 
 func (GatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Gateway)(nil))
+	return reflect.TypeOf((*map[string]*Gateway)(nil)).Elem()
 }
 
 func (i GatewayMap) ToGatewayMapOutput() GatewayMapOutput {

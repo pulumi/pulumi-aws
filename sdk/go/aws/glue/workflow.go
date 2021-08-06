@@ -251,7 +251,7 @@ type WorkflowArrayInput interface {
 type WorkflowArray []WorkflowInput
 
 func (WorkflowArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Workflow)(nil))
+	return reflect.TypeOf((*[]*Workflow)(nil)).Elem()
 }
 
 func (i WorkflowArray) ToWorkflowArrayOutput() WorkflowArrayOutput {
@@ -276,7 +276,7 @@ type WorkflowMapInput interface {
 type WorkflowMap map[string]WorkflowInput
 
 func (WorkflowMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Workflow)(nil))
+	return reflect.TypeOf((*map[string]*Workflow)(nil)).Elem()
 }
 
 func (i WorkflowMap) ToWorkflowMapOutput() WorkflowMapOutput {

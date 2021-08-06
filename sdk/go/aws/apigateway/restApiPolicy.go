@@ -197,7 +197,7 @@ type RestApiPolicyArrayInput interface {
 type RestApiPolicyArray []RestApiPolicyInput
 
 func (RestApiPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RestApiPolicy)(nil))
+	return reflect.TypeOf((*[]*RestApiPolicy)(nil)).Elem()
 }
 
 func (i RestApiPolicyArray) ToRestApiPolicyArrayOutput() RestApiPolicyArrayOutput {
@@ -222,7 +222,7 @@ type RestApiPolicyMapInput interface {
 type RestApiPolicyMap map[string]RestApiPolicyInput
 
 func (RestApiPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RestApiPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RestApiPolicy)(nil)).Elem()
 }
 
 func (i RestApiPolicyMap) ToRestApiPolicyMapOutput() RestApiPolicyMapOutput {

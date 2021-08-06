@@ -302,7 +302,7 @@ type MaintenanceWindowArrayInput interface {
 type MaintenanceWindowArray []MaintenanceWindowInput
 
 func (MaintenanceWindowArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MaintenanceWindow)(nil))
+	return reflect.TypeOf((*[]*MaintenanceWindow)(nil)).Elem()
 }
 
 func (i MaintenanceWindowArray) ToMaintenanceWindowArrayOutput() MaintenanceWindowArrayOutput {
@@ -327,7 +327,7 @@ type MaintenanceWindowMapInput interface {
 type MaintenanceWindowMap map[string]MaintenanceWindowInput
 
 func (MaintenanceWindowMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MaintenanceWindow)(nil))
+	return reflect.TypeOf((*map[string]*MaintenanceWindow)(nil)).Elem()
 }
 
 func (i MaintenanceWindowMap) ToMaintenanceWindowMapOutput() MaintenanceWindowMapOutput {

@@ -494,7 +494,7 @@ type PatchBaselineArrayInput interface {
 type PatchBaselineArray []PatchBaselineInput
 
 func (PatchBaselineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PatchBaseline)(nil))
+	return reflect.TypeOf((*[]*PatchBaseline)(nil)).Elem()
 }
 
 func (i PatchBaselineArray) ToPatchBaselineArrayOutput() PatchBaselineArrayOutput {
@@ -519,7 +519,7 @@ type PatchBaselineMapInput interface {
 type PatchBaselineMap map[string]PatchBaselineInput
 
 func (PatchBaselineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PatchBaseline)(nil))
+	return reflect.TypeOf((*map[string]*PatchBaseline)(nil)).Elem()
 }
 
 func (i PatchBaselineMap) ToPatchBaselineMapOutput() PatchBaselineMapOutput {

@@ -312,7 +312,7 @@ type SigningJobArrayInput interface {
 type SigningJobArray []SigningJobInput
 
 func (SigningJobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SigningJob)(nil))
+	return reflect.TypeOf((*[]*SigningJob)(nil)).Elem()
 }
 
 func (i SigningJobArray) ToSigningJobArrayOutput() SigningJobArrayOutput {
@@ -337,7 +337,7 @@ type SigningJobMapInput interface {
 type SigningJobMap map[string]SigningJobInput
 
 func (SigningJobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SigningJob)(nil))
+	return reflect.TypeOf((*map[string]*SigningJob)(nil)).Elem()
 }
 
 func (i SigningJobMap) ToSigningJobMapOutput() SigningJobMapOutput {

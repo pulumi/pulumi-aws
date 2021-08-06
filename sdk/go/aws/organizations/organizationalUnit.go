@@ -214,7 +214,7 @@ type OrganizationalUnitArrayInput interface {
 type OrganizationalUnitArray []OrganizationalUnitInput
 
 func (OrganizationalUnitArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationalUnit)(nil))
+	return reflect.TypeOf((*[]*OrganizationalUnit)(nil)).Elem()
 }
 
 func (i OrganizationalUnitArray) ToOrganizationalUnitArrayOutput() OrganizationalUnitArrayOutput {
@@ -239,7 +239,7 @@ type OrganizationalUnitMapInput interface {
 type OrganizationalUnitMap map[string]OrganizationalUnitInput
 
 func (OrganizationalUnitMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationalUnit)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationalUnit)(nil)).Elem()
 }
 
 func (i OrganizationalUnitMap) ToOrganizationalUnitMapOutput() OrganizationalUnitMapOutput {

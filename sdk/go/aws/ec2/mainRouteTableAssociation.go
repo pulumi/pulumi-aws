@@ -164,7 +164,7 @@ type MainRouteTableAssociationArrayInput interface {
 type MainRouteTableAssociationArray []MainRouteTableAssociationInput
 
 func (MainRouteTableAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MainRouteTableAssociation)(nil))
+	return reflect.TypeOf((*[]*MainRouteTableAssociation)(nil)).Elem()
 }
 
 func (i MainRouteTableAssociationArray) ToMainRouteTableAssociationArrayOutput() MainRouteTableAssociationArrayOutput {
@@ -189,7 +189,7 @@ type MainRouteTableAssociationMapInput interface {
 type MainRouteTableAssociationMap map[string]MainRouteTableAssociationInput
 
 func (MainRouteTableAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MainRouteTableAssociation)(nil))
+	return reflect.TypeOf((*map[string]*MainRouteTableAssociation)(nil)).Elem()
 }
 
 func (i MainRouteTableAssociationMap) ToMainRouteTableAssociationMapOutput() MainRouteTableAssociationMapOutput {

@@ -183,7 +183,7 @@ type ManagedPolicyAttachmentArrayInput interface {
 type ManagedPolicyAttachmentArray []ManagedPolicyAttachmentInput
 
 func (ManagedPolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (i ManagedPolicyAttachmentArray) ToManagedPolicyAttachmentArrayOutput() ManagedPolicyAttachmentArrayOutput {
@@ -208,7 +208,7 @@ type ManagedPolicyAttachmentMapInput interface {
 type ManagedPolicyAttachmentMap map[string]ManagedPolicyAttachmentInput
 
 func (ManagedPolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedPolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*ManagedPolicyAttachment)(nil)).Elem()
 }
 
 func (i ManagedPolicyAttachmentMap) ToManagedPolicyAttachmentMapOutput() ManagedPolicyAttachmentMapOutput {

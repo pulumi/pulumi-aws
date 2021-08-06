@@ -704,7 +704,7 @@ type InstanceArrayInput interface {
 type InstanceArray []InstanceInput
 
 func (InstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Instance)(nil))
+	return reflect.TypeOf((*[]*Instance)(nil)).Elem()
 }
 
 func (i InstanceArray) ToInstanceArrayOutput() InstanceArrayOutput {
@@ -729,7 +729,7 @@ type InstanceMapInput interface {
 type InstanceMap map[string]InstanceInput
 
 func (InstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Instance)(nil))
+	return reflect.TypeOf((*map[string]*Instance)(nil)).Elem()
 }
 
 func (i InstanceMap) ToInstanceMapOutput() InstanceMapOutput {

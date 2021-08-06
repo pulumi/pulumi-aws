@@ -206,7 +206,7 @@ type TransitGatewayPeeringAttachmentAccepterArrayInput interface {
 type TransitGatewayPeeringAttachmentAccepterArray []TransitGatewayPeeringAttachmentAccepterInput
 
 func (TransitGatewayPeeringAttachmentAccepterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TransitGatewayPeeringAttachmentAccepter)(nil))
+	return reflect.TypeOf((*[]*TransitGatewayPeeringAttachmentAccepter)(nil)).Elem()
 }
 
 func (i TransitGatewayPeeringAttachmentAccepterArray) ToTransitGatewayPeeringAttachmentAccepterArrayOutput() TransitGatewayPeeringAttachmentAccepterArrayOutput {
@@ -231,7 +231,7 @@ type TransitGatewayPeeringAttachmentAccepterMapInput interface {
 type TransitGatewayPeeringAttachmentAccepterMap map[string]TransitGatewayPeeringAttachmentAccepterInput
 
 func (TransitGatewayPeeringAttachmentAccepterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TransitGatewayPeeringAttachmentAccepter)(nil))
+	return reflect.TypeOf((*map[string]*TransitGatewayPeeringAttachmentAccepter)(nil)).Elem()
 }
 
 func (i TransitGatewayPeeringAttachmentAccepterMap) ToTransitGatewayPeeringAttachmentAccepterMapOutput() TransitGatewayPeeringAttachmentAccepterMapOutput {

@@ -238,7 +238,7 @@ type PlanArrayInput interface {
 type PlanArray []PlanInput
 
 func (PlanArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Plan)(nil))
+	return reflect.TypeOf((*[]*Plan)(nil)).Elem()
 }
 
 func (i PlanArray) ToPlanArrayOutput() PlanArrayOutput {
@@ -263,7 +263,7 @@ type PlanMapInput interface {
 type PlanMap map[string]PlanInput
 
 func (PlanMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Plan)(nil))
+	return reflect.TypeOf((*map[string]*Plan)(nil)).Elem()
 }
 
 func (i PlanMap) ToPlanMapOutput() PlanMapOutput {

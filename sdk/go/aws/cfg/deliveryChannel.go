@@ -249,7 +249,7 @@ type DeliveryChannelArrayInput interface {
 type DeliveryChannelArray []DeliveryChannelInput
 
 func (DeliveryChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DeliveryChannel)(nil))
+	return reflect.TypeOf((*[]*DeliveryChannel)(nil)).Elem()
 }
 
 func (i DeliveryChannelArray) ToDeliveryChannelArrayOutput() DeliveryChannelArrayOutput {
@@ -274,7 +274,7 @@ type DeliveryChannelMapInput interface {
 type DeliveryChannelMap map[string]DeliveryChannelInput
 
 func (DeliveryChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DeliveryChannel)(nil))
+	return reflect.TypeOf((*map[string]*DeliveryChannel)(nil)).Elem()
 }
 
 func (i DeliveryChannelMap) ToDeliveryChannelMapOutput() DeliveryChannelMapOutput {

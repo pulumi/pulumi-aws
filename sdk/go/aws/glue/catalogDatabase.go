@@ -224,7 +224,7 @@ type CatalogDatabaseArrayInput interface {
 type CatalogDatabaseArray []CatalogDatabaseInput
 
 func (CatalogDatabaseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CatalogDatabase)(nil))
+	return reflect.TypeOf((*[]*CatalogDatabase)(nil)).Elem()
 }
 
 func (i CatalogDatabaseArray) ToCatalogDatabaseArrayOutput() CatalogDatabaseArrayOutput {
@@ -249,7 +249,7 @@ type CatalogDatabaseMapInput interface {
 type CatalogDatabaseMap map[string]CatalogDatabaseInput
 
 func (CatalogDatabaseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CatalogDatabase)(nil))
+	return reflect.TypeOf((*map[string]*CatalogDatabase)(nil)).Elem()
 }
 
 func (i CatalogDatabaseMap) ToCatalogDatabaseMapOutput() CatalogDatabaseMapOutput {

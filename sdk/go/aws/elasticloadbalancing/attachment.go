@@ -187,7 +187,7 @@ type AttachmentArrayInput interface {
 type AttachmentArray []AttachmentInput
 
 func (AttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Attachment)(nil))
+	return reflect.TypeOf((*[]*Attachment)(nil)).Elem()
 }
 
 func (i AttachmentArray) ToAttachmentArrayOutput() AttachmentArrayOutput {
@@ -212,7 +212,7 @@ type AttachmentMapInput interface {
 type AttachmentMap map[string]AttachmentInput
 
 func (AttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Attachment)(nil))
+	return reflect.TypeOf((*map[string]*Attachment)(nil)).Elem()
 }
 
 func (i AttachmentMap) ToAttachmentMapOutput() AttachmentMapOutput {

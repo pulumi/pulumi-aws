@@ -190,7 +190,7 @@ type MonitoringSubscriptionArrayInput interface {
 type MonitoringSubscriptionArray []MonitoringSubscriptionInput
 
 func (MonitoringSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MonitoringSubscription)(nil))
+	return reflect.TypeOf((*[]*MonitoringSubscription)(nil)).Elem()
 }
 
 func (i MonitoringSubscriptionArray) ToMonitoringSubscriptionArrayOutput() MonitoringSubscriptionArrayOutput {
@@ -215,7 +215,7 @@ type MonitoringSubscriptionMapInput interface {
 type MonitoringSubscriptionMap map[string]MonitoringSubscriptionInput
 
 func (MonitoringSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MonitoringSubscription)(nil))
+	return reflect.TypeOf((*map[string]*MonitoringSubscription)(nil)).Elem()
 }
 
 func (i MonitoringSubscriptionMap) ToMonitoringSubscriptionMapOutput() MonitoringSubscriptionMapOutput {

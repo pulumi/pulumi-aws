@@ -276,7 +276,7 @@ type UserPoolDomainArrayInput interface {
 type UserPoolDomainArray []UserPoolDomainInput
 
 func (UserPoolDomainArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPoolDomain)(nil))
+	return reflect.TypeOf((*[]*UserPoolDomain)(nil)).Elem()
 }
 
 func (i UserPoolDomainArray) ToUserPoolDomainArrayOutput() UserPoolDomainArrayOutput {
@@ -301,7 +301,7 @@ type UserPoolDomainMapInput interface {
 type UserPoolDomainMap map[string]UserPoolDomainInput
 
 func (UserPoolDomainMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPoolDomain)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolDomain)(nil)).Elem()
 }
 
 func (i UserPoolDomainMap) ToUserPoolDomainMapOutput() UserPoolDomainMapOutput {

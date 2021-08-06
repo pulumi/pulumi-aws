@@ -290,7 +290,7 @@ type NotificationRuleArrayInput interface {
 type NotificationRuleArray []NotificationRuleInput
 
 func (NotificationRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotificationRule)(nil))
+	return reflect.TypeOf((*[]*NotificationRule)(nil)).Elem()
 }
 
 func (i NotificationRuleArray) ToNotificationRuleArrayOutput() NotificationRuleArrayOutput {
@@ -315,7 +315,7 @@ type NotificationRuleMapInput interface {
 type NotificationRuleMap map[string]NotificationRuleInput
 
 func (NotificationRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotificationRule)(nil))
+	return reflect.TypeOf((*map[string]*NotificationRule)(nil)).Elem()
 }
 
 func (i NotificationRuleMap) ToNotificationRuleMapOutput() NotificationRuleMapOutput {

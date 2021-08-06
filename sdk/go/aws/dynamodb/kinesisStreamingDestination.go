@@ -210,7 +210,7 @@ type KinesisStreamingDestinationArrayInput interface {
 type KinesisStreamingDestinationArray []KinesisStreamingDestinationInput
 
 func (KinesisStreamingDestinationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((*[]*KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (i KinesisStreamingDestinationArray) ToKinesisStreamingDestinationArrayOutput() KinesisStreamingDestinationArrayOutput {
@@ -235,7 +235,7 @@ type KinesisStreamingDestinationMapInput interface {
 type KinesisStreamingDestinationMap map[string]KinesisStreamingDestinationInput
 
 func (KinesisStreamingDestinationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((*map[string]*KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (i KinesisStreamingDestinationMap) ToKinesisStreamingDestinationMapOutput() KinesisStreamingDestinationMapOutput {

@@ -676,16 +676,16 @@ class DeploymentGroup(pulumi.CustomResource):
             service_role_arn=example_role.arn,
             ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
                 ec2_tag_filters=[
-                    {
-                        "key": "filterkey1",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                    {
-                        "key": "filterkey2",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
+                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
+                        key="filterkey1",
+                        type="KEY_AND_VALUE",
+                        value="filtervalue",
+                    ),
+                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
+                        key="filterkey2",
+                        type="KEY_AND_VALUE",
+                        value="filtervalue",
+                    ),
                 ],
             )],
             trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
@@ -857,16 +857,16 @@ class DeploymentGroup(pulumi.CustomResource):
             service_role_arn=example_role.arn,
             ec2_tag_sets=[aws.codedeploy.DeploymentGroupEc2TagSetArgs(
                 ec2_tag_filters=[
-                    {
-                        "key": "filterkey1",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
-                    {
-                        "key": "filterkey2",
-                        "type": "KEY_AND_VALUE",
-                        "value": "filtervalue",
-                    },
+                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
+                        key="filterkey1",
+                        type="KEY_AND_VALUE",
+                        value="filtervalue",
+                    ),
+                    aws.codedeploy.DeploymentGroupEc2TagSetEc2TagFilterArgs(
+                        key="filterkey2",
+                        type="KEY_AND_VALUE",
+                        value="filtervalue",
+                    ),
                 ],
             )],
             trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(

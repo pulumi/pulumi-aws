@@ -248,7 +248,7 @@ type AcceleratorArrayInput interface {
 type AcceleratorArray []AcceleratorInput
 
 func (AcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Accelerator)(nil))
+	return reflect.TypeOf((*[]*Accelerator)(nil)).Elem()
 }
 
 func (i AcceleratorArray) ToAcceleratorArrayOutput() AcceleratorArrayOutput {
@@ -273,7 +273,7 @@ type AcceleratorMapInput interface {
 type AcceleratorMap map[string]AcceleratorInput
 
 func (AcceleratorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Accelerator)(nil))
+	return reflect.TypeOf((*map[string]*Accelerator)(nil)).Elem()
 }
 
 func (i AcceleratorMap) ToAcceleratorMapOutput() AcceleratorMapOutput {

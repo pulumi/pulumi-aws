@@ -243,7 +243,7 @@ type BucketPublicAccessBlockArrayInput interface {
 type BucketPublicAccessBlockArray []BucketPublicAccessBlockInput
 
 func (BucketPublicAccessBlockArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((*[]*BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (i BucketPublicAccessBlockArray) ToBucketPublicAccessBlockArrayOutput() BucketPublicAccessBlockArrayOutput {
@@ -268,7 +268,7 @@ type BucketPublicAccessBlockMapInput interface {
 type BucketPublicAccessBlockMap map[string]BucketPublicAccessBlockInput
 
 func (BucketPublicAccessBlockMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((*map[string]*BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutput() BucketPublicAccessBlockMapOutput {

@@ -435,7 +435,7 @@ type LoadBalancerArrayInput interface {
 type LoadBalancerArray []LoadBalancerInput
 
 func (LoadBalancerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LoadBalancer)(nil))
+	return reflect.TypeOf((*[]*LoadBalancer)(nil)).Elem()
 }
 
 func (i LoadBalancerArray) ToLoadBalancerArrayOutput() LoadBalancerArrayOutput {
@@ -460,7 +460,7 @@ type LoadBalancerMapInput interface {
 type LoadBalancerMap map[string]LoadBalancerInput
 
 func (LoadBalancerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LoadBalancer)(nil))
+	return reflect.TypeOf((*map[string]*LoadBalancer)(nil)).Elem()
 }
 
 func (i LoadBalancerMap) ToLoadBalancerMapOutput() LoadBalancerMapOutput {

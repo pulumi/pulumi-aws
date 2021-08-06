@@ -202,7 +202,7 @@ type ReceiptFilterArrayInput interface {
 type ReceiptFilterArray []ReceiptFilterInput
 
 func (ReceiptFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReceiptFilter)(nil))
+	return reflect.TypeOf((*[]*ReceiptFilter)(nil)).Elem()
 }
 
 func (i ReceiptFilterArray) ToReceiptFilterArrayOutput() ReceiptFilterArrayOutput {
@@ -227,7 +227,7 @@ type ReceiptFilterMapInput interface {
 type ReceiptFilterMap map[string]ReceiptFilterInput
 
 func (ReceiptFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReceiptFilter)(nil))
+	return reflect.TypeOf((*map[string]*ReceiptFilter)(nil)).Elem()
 }
 
 func (i ReceiptFilterMap) ToReceiptFilterMapOutput() ReceiptFilterMapOutput {

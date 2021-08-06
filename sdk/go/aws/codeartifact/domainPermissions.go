@@ -230,7 +230,7 @@ type DomainPermissionsArrayInput interface {
 type DomainPermissionsArray []DomainPermissionsInput
 
 func (DomainPermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainPermissions)(nil))
+	return reflect.TypeOf((*[]*DomainPermissions)(nil)).Elem()
 }
 
 func (i DomainPermissionsArray) ToDomainPermissionsArrayOutput() DomainPermissionsArrayOutput {
@@ -255,7 +255,7 @@ type DomainPermissionsMapInput interface {
 type DomainPermissionsMap map[string]DomainPermissionsInput
 
 func (DomainPermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainPermissions)(nil))
+	return reflect.TypeOf((*map[string]*DomainPermissions)(nil)).Elem()
 }
 
 func (i DomainPermissionsMap) ToDomainPermissionsMapOutput() DomainPermissionsMapOutput {

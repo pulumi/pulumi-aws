@@ -291,7 +291,7 @@ type EventRuleArrayInput interface {
 type EventRuleArray []EventRuleInput
 
 func (EventRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventRule)(nil))
+	return reflect.TypeOf((*[]*EventRule)(nil)).Elem()
 }
 
 func (i EventRuleArray) ToEventRuleArrayOutput() EventRuleArrayOutput {
@@ -316,7 +316,7 @@ type EventRuleMapInput interface {
 type EventRuleMap map[string]EventRuleInput
 
 func (EventRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventRule)(nil))
+	return reflect.TypeOf((*map[string]*EventRule)(nil)).Elem()
 }
 
 func (i EventRuleMap) ToEventRuleMapOutput() EventRuleMapOutput {

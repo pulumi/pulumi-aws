@@ -492,7 +492,7 @@ type UserPoolArrayInput interface {
 type UserPoolArray []UserPoolInput
 
 func (UserPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPool)(nil))
+	return reflect.TypeOf((*[]*UserPool)(nil)).Elem()
 }
 
 func (i UserPoolArray) ToUserPoolArrayOutput() UserPoolArrayOutput {
@@ -517,7 +517,7 @@ type UserPoolMapInput interface {
 type UserPoolMap map[string]UserPoolInput
 
 func (UserPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPool)(nil))
+	return reflect.TypeOf((*map[string]*UserPool)(nil)).Elem()
 }
 
 func (i UserPoolMap) ToUserPoolMapOutput() UserPoolMapOutput {

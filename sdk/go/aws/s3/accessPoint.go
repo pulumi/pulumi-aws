@@ -299,7 +299,7 @@ type AccessPointArrayInput interface {
 type AccessPointArray []AccessPointInput
 
 func (AccessPointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccessPoint)(nil))
+	return reflect.TypeOf((*[]*AccessPoint)(nil)).Elem()
 }
 
 func (i AccessPointArray) ToAccessPointArrayOutput() AccessPointArrayOutput {
@@ -324,7 +324,7 @@ type AccessPointMapInput interface {
 type AccessPointMap map[string]AccessPointInput
 
 func (AccessPointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccessPoint)(nil))
+	return reflect.TypeOf((*map[string]*AccessPoint)(nil)).Elem()
 }
 
 func (i AccessPointMap) ToAccessPointMapOutput() AccessPointMapOutput {

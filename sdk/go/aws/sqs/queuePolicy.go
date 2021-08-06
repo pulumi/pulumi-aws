@@ -196,7 +196,7 @@ type QueuePolicyArrayInput interface {
 type QueuePolicyArray []QueuePolicyInput
 
 func (QueuePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*QueuePolicy)(nil))
+	return reflect.TypeOf((*[]*QueuePolicy)(nil)).Elem()
 }
 
 func (i QueuePolicyArray) ToQueuePolicyArrayOutput() QueuePolicyArrayOutput {
@@ -221,7 +221,7 @@ type QueuePolicyMapInput interface {
 type QueuePolicyMap map[string]QueuePolicyInput
 
 func (QueuePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*QueuePolicy)(nil))
+	return reflect.TypeOf((*map[string]*QueuePolicy)(nil)).Elem()
 }
 
 func (i QueuePolicyMap) ToQueuePolicyMapOutput() QueuePolicyMapOutput {

@@ -208,7 +208,7 @@ type GroupArrayInput interface {
 type GroupArray []GroupInput
 
 func (GroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Group)(nil))
+	return reflect.TypeOf((*[]*Group)(nil)).Elem()
 }
 
 func (i GroupArray) ToGroupArrayOutput() GroupArrayOutput {
@@ -233,7 +233,7 @@ type GroupMapInput interface {
 type GroupMap map[string]GroupInput
 
 func (GroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Group)(nil))
+	return reflect.TypeOf((*map[string]*Group)(nil)).Elem()
 }
 
 func (i GroupMap) ToGroupMapOutput() GroupMapOutput {

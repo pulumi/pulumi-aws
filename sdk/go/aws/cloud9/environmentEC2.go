@@ -311,7 +311,7 @@ type EnvironmentEC2ArrayInput interface {
 type EnvironmentEC2Array []EnvironmentEC2Input
 
 func (EnvironmentEC2Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EnvironmentEC2)(nil))
+	return reflect.TypeOf((*[]*EnvironmentEC2)(nil)).Elem()
 }
 
 func (i EnvironmentEC2Array) ToEnvironmentEC2ArrayOutput() EnvironmentEC2ArrayOutput {
@@ -336,7 +336,7 @@ type EnvironmentEC2MapInput interface {
 type EnvironmentEC2Map map[string]EnvironmentEC2Input
 
 func (EnvironmentEC2Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EnvironmentEC2)(nil))
+	return reflect.TypeOf((*map[string]*EnvironmentEC2)(nil)).Elem()
 }
 
 func (i EnvironmentEC2Map) ToEnvironmentEC2MapOutput() EnvironmentEC2MapOutput {

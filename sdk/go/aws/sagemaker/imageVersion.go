@@ -208,7 +208,7 @@ type ImageVersionArrayInput interface {
 type ImageVersionArray []ImageVersionInput
 
 func (ImageVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ImageVersion)(nil))
+	return reflect.TypeOf((*[]*ImageVersion)(nil)).Elem()
 }
 
 func (i ImageVersionArray) ToImageVersionArrayOutput() ImageVersionArrayOutput {
@@ -233,7 +233,7 @@ type ImageVersionMapInput interface {
 type ImageVersionMap map[string]ImageVersionInput
 
 func (ImageVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ImageVersion)(nil))
+	return reflect.TypeOf((*map[string]*ImageVersion)(nil)).Elem()
 }
 
 func (i ImageVersionMap) ToImageVersionMapOutput() ImageVersionMapOutput {

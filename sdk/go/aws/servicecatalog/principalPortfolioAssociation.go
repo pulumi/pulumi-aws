@@ -207,7 +207,7 @@ type PrincipalPortfolioAssociationArrayInput interface {
 type PrincipalPortfolioAssociationArray []PrincipalPortfolioAssociationInput
 
 func (PrincipalPortfolioAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrincipalPortfolioAssociation)(nil))
+	return reflect.TypeOf((*[]*PrincipalPortfolioAssociation)(nil)).Elem()
 }
 
 func (i PrincipalPortfolioAssociationArray) ToPrincipalPortfolioAssociationArrayOutput() PrincipalPortfolioAssociationArrayOutput {
@@ -232,7 +232,7 @@ type PrincipalPortfolioAssociationMapInput interface {
 type PrincipalPortfolioAssociationMap map[string]PrincipalPortfolioAssociationInput
 
 func (PrincipalPortfolioAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrincipalPortfolioAssociation)(nil))
+	return reflect.TypeOf((*map[string]*PrincipalPortfolioAssociation)(nil)).Elem()
 }
 
 func (i PrincipalPortfolioAssociationMap) ToPrincipalPortfolioAssociationMapOutput() PrincipalPortfolioAssociationMapOutput {

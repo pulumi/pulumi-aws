@@ -203,7 +203,7 @@ type InternetGatewayArrayInput interface {
 type InternetGatewayArray []InternetGatewayInput
 
 func (InternetGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InternetGateway)(nil))
+	return reflect.TypeOf((*[]*InternetGateway)(nil)).Elem()
 }
 
 func (i InternetGatewayArray) ToInternetGatewayArrayOutput() InternetGatewayArrayOutput {
@@ -228,7 +228,7 @@ type InternetGatewayMapInput interface {
 type InternetGatewayMap map[string]InternetGatewayInput
 
 func (InternetGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InternetGateway)(nil))
+	return reflect.TypeOf((*map[string]*InternetGateway)(nil)).Elem()
 }
 
 func (i InternetGatewayMap) ToInternetGatewayMapOutput() InternetGatewayMapOutput {

@@ -171,7 +171,7 @@ type NotebookInstanceLifecycleConfigurationArrayInput interface {
 type NotebookInstanceLifecycleConfigurationArray []NotebookInstanceLifecycleConfigurationInput
 
 func (NotebookInstanceLifecycleConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NotebookInstanceLifecycleConfiguration)(nil))
+	return reflect.TypeOf((*[]*NotebookInstanceLifecycleConfiguration)(nil)).Elem()
 }
 
 func (i NotebookInstanceLifecycleConfigurationArray) ToNotebookInstanceLifecycleConfigurationArrayOutput() NotebookInstanceLifecycleConfigurationArrayOutput {
@@ -196,7 +196,7 @@ type NotebookInstanceLifecycleConfigurationMapInput interface {
 type NotebookInstanceLifecycleConfigurationMap map[string]NotebookInstanceLifecycleConfigurationInput
 
 func (NotebookInstanceLifecycleConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NotebookInstanceLifecycleConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*NotebookInstanceLifecycleConfiguration)(nil)).Elem()
 }
 
 func (i NotebookInstanceLifecycleConfigurationMap) ToNotebookInstanceLifecycleConfigurationMapOutput() NotebookInstanceLifecycleConfigurationMapOutput {

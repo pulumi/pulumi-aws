@@ -369,7 +369,7 @@ type FlowLogArrayInput interface {
 type FlowLogArray []FlowLogInput
 
 func (FlowLogArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FlowLog)(nil))
+	return reflect.TypeOf((*[]*FlowLog)(nil)).Elem()
 }
 
 func (i FlowLogArray) ToFlowLogArrayOutput() FlowLogArrayOutput {
@@ -394,7 +394,7 @@ type FlowLogMapInput interface {
 type FlowLogMap map[string]FlowLogInput
 
 func (FlowLogMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FlowLog)(nil))
+	return reflect.TypeOf((*map[string]*FlowLog)(nil)).Elem()
 }
 
 func (i FlowLogMap) ToFlowLogMapOutput() FlowLogMapOutput {

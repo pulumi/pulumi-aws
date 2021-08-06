@@ -306,7 +306,7 @@ type DataSourceArrayInput interface {
 type DataSourceArray []DataSourceInput
 
 func (DataSourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataSource)(nil))
+	return reflect.TypeOf((*[]*DataSource)(nil)).Elem()
 }
 
 func (i DataSourceArray) ToDataSourceArrayOutput() DataSourceArrayOutput {
@@ -331,7 +331,7 @@ type DataSourceMapInput interface {
 type DataSourceMap map[string]DataSourceInput
 
 func (DataSourceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataSource)(nil))
+	return reflect.TypeOf((*map[string]*DataSource)(nil)).Elem()
 }
 
 func (i DataSourceMap) ToDataSourceMapOutput() DataSourceMapOutput {

@@ -212,7 +212,7 @@ type ApiMappingArrayInput interface {
 type ApiMappingArray []ApiMappingInput
 
 func (ApiMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApiMapping)(nil))
+	return reflect.TypeOf((*[]*ApiMapping)(nil)).Elem()
 }
 
 func (i ApiMappingArray) ToApiMappingArrayOutput() ApiMappingArrayOutput {
@@ -237,7 +237,7 @@ type ApiMappingMapInput interface {
 type ApiMappingMap map[string]ApiMappingInput
 
 func (ApiMappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApiMapping)(nil))
+	return reflect.TypeOf((*map[string]*ApiMapping)(nil)).Elem()
 }
 
 func (i ApiMappingMap) ToApiMappingMapOutput() ApiMappingMapOutput {

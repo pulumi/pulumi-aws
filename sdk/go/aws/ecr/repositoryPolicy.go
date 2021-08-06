@@ -201,7 +201,7 @@ type RepositoryPolicyArrayInput interface {
 type RepositoryPolicyArray []RepositoryPolicyInput
 
 func (RepositoryPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicy)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicy)(nil)).Elem()
 }
 
 func (i RepositoryPolicyArray) ToRepositoryPolicyArrayOutput() RepositoryPolicyArrayOutput {
@@ -226,7 +226,7 @@ type RepositoryPolicyMapInput interface {
 type RepositoryPolicyMap map[string]RepositoryPolicyInput
 
 func (RepositoryPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicy)(nil)).Elem()
 }
 
 func (i RepositoryPolicyMap) ToRepositoryPolicyMapOutput() RepositoryPolicyMapOutput {

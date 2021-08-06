@@ -249,7 +249,7 @@ type DataLakeSettingsArrayInput interface {
 type DataLakeSettingsArray []DataLakeSettingsInput
 
 func (DataLakeSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataLakeSettings)(nil))
+	return reflect.TypeOf((*[]*DataLakeSettings)(nil)).Elem()
 }
 
 func (i DataLakeSettingsArray) ToDataLakeSettingsArrayOutput() DataLakeSettingsArrayOutput {
@@ -274,7 +274,7 @@ type DataLakeSettingsMapInput interface {
 type DataLakeSettingsMap map[string]DataLakeSettingsInput
 
 func (DataLakeSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataLakeSettings)(nil))
+	return reflect.TypeOf((*map[string]*DataLakeSettings)(nil)).Elem()
 }
 
 func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutput() DataLakeSettingsMapOutput {

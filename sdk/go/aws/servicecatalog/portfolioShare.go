@@ -245,7 +245,7 @@ type PortfolioShareArrayInput interface {
 type PortfolioShareArray []PortfolioShareInput
 
 func (PortfolioShareArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PortfolioShare)(nil))
+	return reflect.TypeOf((*[]*PortfolioShare)(nil)).Elem()
 }
 
 func (i PortfolioShareArray) ToPortfolioShareArrayOutput() PortfolioShareArrayOutput {
@@ -270,7 +270,7 @@ type PortfolioShareMapInput interface {
 type PortfolioShareMap map[string]PortfolioShareInput
 
 func (PortfolioShareMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PortfolioShare)(nil))
+	return reflect.TypeOf((*map[string]*PortfolioShare)(nil)).Elem()
 }
 
 func (i PortfolioShareMap) ToPortfolioShareMapOutput() PortfolioShareMapOutput {

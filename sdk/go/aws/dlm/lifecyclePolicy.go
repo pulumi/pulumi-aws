@@ -279,7 +279,7 @@ type LifecyclePolicyArrayInput interface {
 type LifecyclePolicyArray []LifecyclePolicyInput
 
 func (LifecyclePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LifecyclePolicy)(nil))
+	return reflect.TypeOf((*[]*LifecyclePolicy)(nil)).Elem()
 }
 
 func (i LifecyclePolicyArray) ToLifecyclePolicyArrayOutput() LifecyclePolicyArrayOutput {
@@ -304,7 +304,7 @@ type LifecyclePolicyMapInput interface {
 type LifecyclePolicyMap map[string]LifecyclePolicyInput
 
 func (LifecyclePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LifecyclePolicy)(nil))
+	return reflect.TypeOf((*map[string]*LifecyclePolicy)(nil)).Elem()
 }
 
 func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutput() LifecyclePolicyMapOutput {

@@ -201,7 +201,7 @@ type TopicPolicyArrayInput interface {
 type TopicPolicyArray []TopicPolicyInput
 
 func (TopicPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TopicPolicy)(nil))
+	return reflect.TypeOf((*[]*TopicPolicy)(nil)).Elem()
 }
 
 func (i TopicPolicyArray) ToTopicPolicyArrayOutput() TopicPolicyArrayOutput {
@@ -226,7 +226,7 @@ type TopicPolicyMapInput interface {
 type TopicPolicyMap map[string]TopicPolicyInput
 
 func (TopicPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TopicPolicy)(nil))
+	return reflect.TypeOf((*map[string]*TopicPolicy)(nil)).Elem()
 }
 
 func (i TopicPolicyMap) ToTopicPolicyMapOutput() TopicPolicyMapOutput {

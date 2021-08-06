@@ -358,7 +358,7 @@ type StaticWebLayerArrayInput interface {
 type StaticWebLayerArray []StaticWebLayerInput
 
 func (StaticWebLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StaticWebLayer)(nil))
+	return reflect.TypeOf((*[]*StaticWebLayer)(nil)).Elem()
 }
 
 func (i StaticWebLayerArray) ToStaticWebLayerArrayOutput() StaticWebLayerArrayOutput {
@@ -383,7 +383,7 @@ type StaticWebLayerMapInput interface {
 type StaticWebLayerMap map[string]StaticWebLayerInput
 
 func (StaticWebLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StaticWebLayer)(nil))
+	return reflect.TypeOf((*map[string]*StaticWebLayer)(nil)).Elem()
 }
 
 func (i StaticWebLayerMap) ToStaticWebLayerMapOutput() StaticWebLayerMapOutput {

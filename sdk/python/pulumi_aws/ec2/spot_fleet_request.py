@@ -934,10 +934,10 @@ class SpotFleetRequest(pulumi.CustomResource):
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
-                    root_block_devices=[{
-                        "volume_size": "300",
-                        "volume_type": "gp2",
-                    }],
+                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
+                        volume_size=300,
+                        volume_type="gp2",
+                    )],
                     tags={
                         "Name": "spot-fleet-example",
                     },
@@ -1127,10 +1127,10 @@ class SpotFleetRequest(pulumi.CustomResource):
                     availability_zone="us-west-1a",
                     subnet_id="subnet-1234",
                     weighted_capacity="35",
-                    root_block_devices=[{
-                        "volume_size": "300",
-                        "volume_type": "gp2",
-                    }],
+                    root_block_devices=[aws.ec2.SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs(
+                        volume_size=300,
+                        volume_type="gp2",
+                    )],
                     tags={
                         "Name": "spot-fleet-example",
                     },

@@ -276,7 +276,7 @@ type MethodResponseArrayInput interface {
 type MethodResponseArray []MethodResponseInput
 
 func (MethodResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MethodResponse)(nil))
+	return reflect.TypeOf((*[]*MethodResponse)(nil)).Elem()
 }
 
 func (i MethodResponseArray) ToMethodResponseArrayOutput() MethodResponseArrayOutput {
@@ -301,7 +301,7 @@ type MethodResponseMapInput interface {
 type MethodResponseMap map[string]MethodResponseInput
 
 func (MethodResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MethodResponse)(nil))
+	return reflect.TypeOf((*map[string]*MethodResponse)(nil)).Elem()
 }
 
 func (i MethodResponseMap) ToMethodResponseMapOutput() MethodResponseMapOutput {

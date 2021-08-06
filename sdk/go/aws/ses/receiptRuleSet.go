@@ -178,7 +178,7 @@ type ReceiptRuleSetArrayInput interface {
 type ReceiptRuleSetArray []ReceiptRuleSetInput
 
 func (ReceiptRuleSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReceiptRuleSet)(nil))
+	return reflect.TypeOf((*[]*ReceiptRuleSet)(nil)).Elem()
 }
 
 func (i ReceiptRuleSetArray) ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOutput {
@@ -203,7 +203,7 @@ type ReceiptRuleSetMapInput interface {
 type ReceiptRuleSetMap map[string]ReceiptRuleSetInput
 
 func (ReceiptRuleSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReceiptRuleSet)(nil))
+	return reflect.TypeOf((*map[string]*ReceiptRuleSet)(nil)).Elem()
 }
 
 func (i ReceiptRuleSetMap) ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOutput {

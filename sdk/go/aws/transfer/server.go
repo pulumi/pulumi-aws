@@ -418,7 +418,7 @@ type ServerArrayInput interface {
 type ServerArray []ServerInput
 
 func (ServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Server)(nil))
+	return reflect.TypeOf((*[]*Server)(nil)).Elem()
 }
 
 func (i ServerArray) ToServerArrayOutput() ServerArrayOutput {
@@ -443,7 +443,7 @@ type ServerMapInput interface {
 type ServerMap map[string]ServerInput
 
 func (ServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Server)(nil))
+	return reflect.TypeOf((*map[string]*Server)(nil)).Elem()
 }
 
 func (i ServerMap) ToServerMapOutput() ServerMapOutput {

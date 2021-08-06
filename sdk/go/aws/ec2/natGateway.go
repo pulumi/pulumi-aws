@@ -260,7 +260,7 @@ type NatGatewayArrayInput interface {
 type NatGatewayArray []NatGatewayInput
 
 func (NatGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NatGateway)(nil))
+	return reflect.TypeOf((*[]*NatGateway)(nil)).Elem()
 }
 
 func (i NatGatewayArray) ToNatGatewayArrayOutput() NatGatewayArrayOutput {
@@ -285,7 +285,7 @@ type NatGatewayMapInput interface {
 type NatGatewayMap map[string]NatGatewayInput
 
 func (NatGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NatGateway)(nil))
+	return reflect.TypeOf((*map[string]*NatGateway)(nil)).Elem()
 }
 
 func (i NatGatewayMap) ToNatGatewayMapOutput() NatGatewayMapOutput {

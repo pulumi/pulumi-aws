@@ -154,7 +154,7 @@ type PolicyAttachmentArrayInput interface {
 type PolicyAttachmentArray []PolicyAttachmentInput
 
 func (PolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*PolicyAttachment)(nil)).Elem()
 }
 
 func (i PolicyAttachmentArray) ToPolicyAttachmentArrayOutput() PolicyAttachmentArrayOutput {
@@ -179,7 +179,7 @@ type PolicyAttachmentMapInput interface {
 type PolicyAttachmentMap map[string]PolicyAttachmentInput
 
 func (PolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*PolicyAttachment)(nil)).Elem()
 }
 
 func (i PolicyAttachmentMap) ToPolicyAttachmentMapOutput() PolicyAttachmentMapOutput {

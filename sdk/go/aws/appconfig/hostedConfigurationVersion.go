@@ -246,7 +246,7 @@ type HostedConfigurationVersionArrayInput interface {
 type HostedConfigurationVersionArray []HostedConfigurationVersionInput
 
 func (HostedConfigurationVersionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HostedConfigurationVersion)(nil))
+	return reflect.TypeOf((*[]*HostedConfigurationVersion)(nil)).Elem()
 }
 
 func (i HostedConfigurationVersionArray) ToHostedConfigurationVersionArrayOutput() HostedConfigurationVersionArrayOutput {
@@ -271,7 +271,7 @@ type HostedConfigurationVersionMapInput interface {
 type HostedConfigurationVersionMap map[string]HostedConfigurationVersionInput
 
 func (HostedConfigurationVersionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HostedConfigurationVersion)(nil))
+	return reflect.TypeOf((*map[string]*HostedConfigurationVersion)(nil)).Elem()
 }
 
 func (i HostedConfigurationVersionMap) ToHostedConfigurationVersionMapOutput() HostedConfigurationVersionMapOutput {

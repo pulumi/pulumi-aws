@@ -243,7 +243,7 @@ type RealtimeLogConfigArrayInput interface {
 type RealtimeLogConfigArray []RealtimeLogConfigInput
 
 func (RealtimeLogConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RealtimeLogConfig)(nil))
+	return reflect.TypeOf((*[]*RealtimeLogConfig)(nil)).Elem()
 }
 
 func (i RealtimeLogConfigArray) ToRealtimeLogConfigArrayOutput() RealtimeLogConfigArrayOutput {
@@ -268,7 +268,7 @@ type RealtimeLogConfigMapInput interface {
 type RealtimeLogConfigMap map[string]RealtimeLogConfigInput
 
 func (RealtimeLogConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RealtimeLogConfig)(nil))
+	return reflect.TypeOf((*map[string]*RealtimeLogConfig)(nil)).Elem()
 }
 
 func (i RealtimeLogConfigMap) ToRealtimeLogConfigMapOutput() RealtimeLogConfigMapOutput {

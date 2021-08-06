@@ -211,7 +211,7 @@ type AccountAssignmentArrayInput interface {
 type AccountAssignmentArray []AccountAssignmentInput
 
 func (AccountAssignmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountAssignment)(nil))
+	return reflect.TypeOf((*[]*AccountAssignment)(nil)).Elem()
 }
 
 func (i AccountAssignmentArray) ToAccountAssignmentArrayOutput() AccountAssignmentArrayOutput {
@@ -236,7 +236,7 @@ type AccountAssignmentMapInput interface {
 type AccountAssignmentMap map[string]AccountAssignmentInput
 
 func (AccountAssignmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountAssignment)(nil))
+	return reflect.TypeOf((*map[string]*AccountAssignment)(nil)).Elem()
 }
 
 func (i AccountAssignmentMap) ToAccountAssignmentMapOutput() AccountAssignmentMapOutput {

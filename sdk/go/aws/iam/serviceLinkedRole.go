@@ -222,7 +222,7 @@ type ServiceLinkedRoleArrayInput interface {
 type ServiceLinkedRoleArray []ServiceLinkedRoleInput
 
 func (ServiceLinkedRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceLinkedRole)(nil))
+	return reflect.TypeOf((*[]*ServiceLinkedRole)(nil)).Elem()
 }
 
 func (i ServiceLinkedRoleArray) ToServiceLinkedRoleArrayOutput() ServiceLinkedRoleArrayOutput {
@@ -247,7 +247,7 @@ type ServiceLinkedRoleMapInput interface {
 type ServiceLinkedRoleMap map[string]ServiceLinkedRoleInput
 
 func (ServiceLinkedRoleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceLinkedRole)(nil))
+	return reflect.TypeOf((*map[string]*ServiceLinkedRole)(nil)).Elem()
 }
 
 func (i ServiceLinkedRoleMap) ToServiceLinkedRoleMapOutput() ServiceLinkedRoleMapOutput {

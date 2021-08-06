@@ -172,7 +172,7 @@ type DomainDkimArrayInput interface {
 type DomainDkimArray []DomainDkimInput
 
 func (DomainDkimArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainDkim)(nil))
+	return reflect.TypeOf((*[]*DomainDkim)(nil)).Elem()
 }
 
 func (i DomainDkimArray) ToDomainDkimArrayOutput() DomainDkimArrayOutput {
@@ -197,7 +197,7 @@ type DomainDkimMapInput interface {
 type DomainDkimMap map[string]DomainDkimInput
 
 func (DomainDkimMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainDkim)(nil))
+	return reflect.TypeOf((*map[string]*DomainDkim)(nil)).Elem()
 }
 
 func (i DomainDkimMap) ToDomainDkimMapOutput() DomainDkimMapOutput {

@@ -186,7 +186,7 @@ type VpcEndpointRouteTableAssociationArrayInput interface {
 type VpcEndpointRouteTableAssociationArray []VpcEndpointRouteTableAssociationInput
 
 func (VpcEndpointRouteTableAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpointRouteTableAssociation)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointRouteTableAssociation)(nil)).Elem()
 }
 
 func (i VpcEndpointRouteTableAssociationArray) ToVpcEndpointRouteTableAssociationArrayOutput() VpcEndpointRouteTableAssociationArrayOutput {
@@ -211,7 +211,7 @@ type VpcEndpointRouteTableAssociationMapInput interface {
 type VpcEndpointRouteTableAssociationMap map[string]VpcEndpointRouteTableAssociationInput
 
 func (VpcEndpointRouteTableAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpointRouteTableAssociation)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointRouteTableAssociation)(nil)).Elem()
 }
 
 func (i VpcEndpointRouteTableAssociationMap) ToVpcEndpointRouteTableAssociationMapOutput() VpcEndpointRouteTableAssociationMapOutput {

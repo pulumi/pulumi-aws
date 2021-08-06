@@ -283,7 +283,7 @@ type ResolverFirewallRuleArrayInput interface {
 type ResolverFirewallRuleArray []ResolverFirewallRuleInput
 
 func (ResolverFirewallRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverFirewallRule)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallRule)(nil)).Elem()
 }
 
 func (i ResolverFirewallRuleArray) ToResolverFirewallRuleArrayOutput() ResolverFirewallRuleArrayOutput {
@@ -308,7 +308,7 @@ type ResolverFirewallRuleMapInput interface {
 type ResolverFirewallRuleMap map[string]ResolverFirewallRuleInput
 
 func (ResolverFirewallRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverFirewallRule)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallRule)(nil)).Elem()
 }
 
 func (i ResolverFirewallRuleMap) ToResolverFirewallRuleMapOutput() ResolverFirewallRuleMapOutput {

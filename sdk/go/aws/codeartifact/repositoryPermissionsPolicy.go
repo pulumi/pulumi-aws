@@ -251,7 +251,7 @@ type RepositoryPermissionsPolicyArrayInput interface {
 type RepositoryPermissionsPolicyArray []RepositoryPermissionsPolicyInput
 
 func (RepositoryPermissionsPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((*[]*RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (i RepositoryPermissionsPolicyArray) ToRepositoryPermissionsPolicyArrayOutput() RepositoryPermissionsPolicyArrayOutput {
@@ -276,7 +276,7 @@ type RepositoryPermissionsPolicyMapInput interface {
 type RepositoryPermissionsPolicyMap map[string]RepositoryPermissionsPolicyInput
 
 func (RepositoryPermissionsPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPermissionsPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPermissionsPolicy)(nil)).Elem()
 }
 
 func (i RepositoryPermissionsPolicyMap) ToRepositoryPermissionsPolicyMapOutput() RepositoryPermissionsPolicyMapOutput {

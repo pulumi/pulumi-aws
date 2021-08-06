@@ -260,7 +260,7 @@ type UserArrayInput interface {
 type UserArray []UserInput
 
 func (UserArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*User)(nil))
+	return reflect.TypeOf((*[]*User)(nil)).Elem()
 }
 
 func (i UserArray) ToUserArrayOutput() UserArrayOutput {
@@ -285,7 +285,7 @@ type UserMapInput interface {
 type UserMap map[string]UserInput
 
 func (UserMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*User)(nil))
+	return reflect.TypeOf((*map[string]*User)(nil)).Elem()
 }
 
 func (i UserMap) ToUserMapOutput() UserMapOutput {

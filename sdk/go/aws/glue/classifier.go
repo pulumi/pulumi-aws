@@ -295,7 +295,7 @@ type ClassifierArrayInput interface {
 type ClassifierArray []ClassifierInput
 
 func (ClassifierArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Classifier)(nil))
+	return reflect.TypeOf((*[]*Classifier)(nil)).Elem()
 }
 
 func (i ClassifierArray) ToClassifierArrayOutput() ClassifierArrayOutput {
@@ -320,7 +320,7 @@ type ClassifierMapInput interface {
 type ClassifierMap map[string]ClassifierInput
 
 func (ClassifierMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Classifier)(nil))
+	return reflect.TypeOf((*map[string]*Classifier)(nil)).Elem()
 }
 
 func (i ClassifierMap) ToClassifierMapOutput() ClassifierMapOutput {

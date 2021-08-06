@@ -234,7 +234,7 @@ type ConfgurationSetArrayInput interface {
 type ConfgurationSetArray []ConfgurationSetInput
 
 func (ConfgurationSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConfgurationSet)(nil))
+	return reflect.TypeOf((*[]*ConfgurationSet)(nil)).Elem()
 }
 
 func (i ConfgurationSetArray) ToConfgurationSetArrayOutput() ConfgurationSetArrayOutput {
@@ -259,7 +259,7 @@ type ConfgurationSetMapInput interface {
 type ConfgurationSetMap map[string]ConfgurationSetInput
 
 func (ConfgurationSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConfgurationSet)(nil))
+	return reflect.TypeOf((*map[string]*ConfgurationSet)(nil)).Elem()
 }
 
 func (i ConfgurationSetMap) ToConfgurationSetMapOutput() ConfgurationSetMapOutput {

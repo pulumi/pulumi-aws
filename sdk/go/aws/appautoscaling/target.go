@@ -353,7 +353,7 @@ type TargetArrayInput interface {
 type TargetArray []TargetInput
 
 func (TargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Target)(nil))
+	return reflect.TypeOf((*[]*Target)(nil)).Elem()
 }
 
 func (i TargetArray) ToTargetArrayOutput() TargetArrayOutput {
@@ -378,7 +378,7 @@ type TargetMapInput interface {
 type TargetMap map[string]TargetInput
 
 func (TargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Target)(nil))
+	return reflect.TypeOf((*map[string]*Target)(nil)).Elem()
 }
 
 func (i TargetMap) ToTargetMapOutput() TargetMapOutput {

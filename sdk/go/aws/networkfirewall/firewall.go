@@ -296,7 +296,7 @@ type FirewallArrayInput interface {
 type FirewallArray []FirewallInput
 
 func (FirewallArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Firewall)(nil))
+	return reflect.TypeOf((*[]*Firewall)(nil)).Elem()
 }
 
 func (i FirewallArray) ToFirewallArrayOutput() FirewallArrayOutput {
@@ -321,7 +321,7 @@ type FirewallMapInput interface {
 type FirewallMap map[string]FirewallInput
 
 func (FirewallMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Firewall)(nil))
+	return reflect.TypeOf((*map[string]*Firewall)(nil)).Elem()
 }
 
 func (i FirewallMap) ToFirewallMapOutput() FirewallMapOutput {

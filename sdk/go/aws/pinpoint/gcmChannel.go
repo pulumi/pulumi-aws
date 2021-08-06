@@ -200,7 +200,7 @@ type GcmChannelArrayInput interface {
 type GcmChannelArray []GcmChannelInput
 
 func (GcmChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GcmChannel)(nil))
+	return reflect.TypeOf((*[]*GcmChannel)(nil)).Elem()
 }
 
 func (i GcmChannelArray) ToGcmChannelArrayOutput() GcmChannelArrayOutput {
@@ -225,7 +225,7 @@ type GcmChannelMapInput interface {
 type GcmChannelMap map[string]GcmChannelInput
 
 func (GcmChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GcmChannel)(nil))
+	return reflect.TypeOf((*map[string]*GcmChannel)(nil)).Elem()
 }
 
 func (i GcmChannelMap) ToGcmChannelMapOutput() GcmChannelMapOutput {

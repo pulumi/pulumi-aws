@@ -200,7 +200,7 @@ type TagOptionArrayInput interface {
 type TagOptionArray []TagOptionInput
 
 func (TagOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TagOption)(nil))
+	return reflect.TypeOf((*[]*TagOption)(nil)).Elem()
 }
 
 func (i TagOptionArray) ToTagOptionArrayOutput() TagOptionArrayOutput {
@@ -225,7 +225,7 @@ type TagOptionMapInput interface {
 type TagOptionMap map[string]TagOptionInput
 
 func (TagOptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TagOption)(nil))
+	return reflect.TypeOf((*map[string]*TagOption)(nil)).Elem()
 }
 
 func (i TagOptionMap) ToTagOptionMapOutput() TagOptionMapOutput {

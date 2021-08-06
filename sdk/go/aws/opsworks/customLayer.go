@@ -377,7 +377,7 @@ type CustomLayerArrayInput interface {
 type CustomLayerArray []CustomLayerInput
 
 func (CustomLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomLayer)(nil))
+	return reflect.TypeOf((*[]*CustomLayer)(nil)).Elem()
 }
 
 func (i CustomLayerArray) ToCustomLayerArrayOutput() CustomLayerArrayOutput {
@@ -402,7 +402,7 @@ type CustomLayerMapInput interface {
 type CustomLayerMap map[string]CustomLayerInput
 
 func (CustomLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomLayer)(nil))
+	return reflect.TypeOf((*map[string]*CustomLayer)(nil)).Elem()
 }
 
 func (i CustomLayerMap) ToCustomLayerMapOutput() CustomLayerMapOutput {

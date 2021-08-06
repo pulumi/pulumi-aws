@@ -7,74 +7,215 @@ import * as utilities from "../utilities";
 
 import {Region} from "..";
 
-let __config = new pulumi.Config("aws");
+declare var exports: any;
+const __config = new pulumi.Config("aws");
 
 /**
  * The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
  */
-export let accessKey: string | undefined = __config.get("accessKey");
-export let allowedAccountIds: string[] | undefined = __config.getObject<string[]>("allowedAccountIds");
-export let assumeRole: outputs.config.AssumeRole | undefined = __config.getObject<outputs.config.AssumeRole>("assumeRole");
+export declare const accessKey: string | undefined;
+Object.defineProperty(exports, "accessKey", {
+    get() {
+        return __config.get("accessKey");
+    },
+    enumerable: true,
+});
+
+export declare const allowedAccountIds: string[] | undefined;
+Object.defineProperty(exports, "allowedAccountIds", {
+    get() {
+        return __config.getObject<string[]>("allowedAccountIds");
+    },
+    enumerable: true,
+});
+
+export declare const assumeRole: outputs.config.AssumeRole | undefined;
+Object.defineProperty(exports, "assumeRole", {
+    get() {
+        return __config.getObject<outputs.config.AssumeRole>("assumeRole");
+    },
+    enumerable: true,
+});
+
 /**
  * Configuration block with settings to default resource tags across all resources.
  */
-export let defaultTags: outputs.config.DefaultTags | undefined = __config.getObject<outputs.config.DefaultTags>("defaultTags");
-export let endpoints: outputs.config.Endpoints[] | undefined = __config.getObject<outputs.config.Endpoints[]>("endpoints");
-export let forbiddenAccountIds: string[] | undefined = __config.getObject<string[]>("forbiddenAccountIds");
+export declare const defaultTags: outputs.config.DefaultTags | undefined;
+Object.defineProperty(exports, "defaultTags", {
+    get() {
+        return __config.getObject<outputs.config.DefaultTags>("defaultTags");
+    },
+    enumerable: true,
+});
+
+export declare const endpoints: outputs.config.Endpoints[] | undefined;
+Object.defineProperty(exports, "endpoints", {
+    get() {
+        return __config.getObject<outputs.config.Endpoints[]>("endpoints");
+    },
+    enumerable: true,
+});
+
+export declare const forbiddenAccountIds: string[] | undefined;
+Object.defineProperty(exports, "forbiddenAccountIds", {
+    get() {
+        return __config.getObject<string[]>("forbiddenAccountIds");
+    },
+    enumerable: true,
+});
+
 /**
  * Configuration block with settings to ignore resource tags across all resources.
  */
-export let ignoreTags: outputs.config.IgnoreTags | undefined = __config.getObject<outputs.config.IgnoreTags>("ignoreTags");
+export declare const ignoreTags: outputs.config.IgnoreTags | undefined;
+Object.defineProperty(exports, "ignoreTags", {
+    get() {
+        return __config.getObject<outputs.config.IgnoreTags>("ignoreTags");
+    },
+    enumerable: true,
+});
+
 /**
  * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
  */
-export let insecure: boolean | undefined = __config.getObject<boolean>("insecure");
+export declare const insecure: boolean | undefined;
+Object.defineProperty(exports, "insecure", {
+    get() {
+        return __config.getObject<boolean>("insecure");
+    },
+    enumerable: true,
+});
+
 /**
  * The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
  */
-export let maxRetries: number | undefined = __config.getObject<number>("maxRetries");
+export declare const maxRetries: number | undefined;
+Object.defineProperty(exports, "maxRetries", {
+    get() {
+        return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
 /**
  * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
  */
-export let profile: string | undefined = __config.get("profile") || utilities.getEnv("AWS_PROFILE");
+export declare const profile: string | undefined;
+Object.defineProperty(exports, "profile", {
+    get() {
+        return __config.get("profile") ?? utilities.getEnv("AWS_PROFILE");
+    },
+    enumerable: true,
+});
+
 /**
  * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
  */
-export let region: Region | undefined = <Region>__config.get("region") || <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+export declare const region: Region | undefined;
+Object.defineProperty(exports, "region", {
+    get() {
+        return <Region>__config.get("region") ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+    },
+    enumerable: true,
+});
+
 /**
  * Set this to true to force the request to use path-style addressing, i.e., http://s3.amazonaws.com/BUCKET/KEY. By
  * default, the S3 client will use virtual hosted bucket addressing when possible (http://BUCKET.s3.amazonaws.com/KEY).
  * Specific to the Amazon S3 service.
  */
-export let s3ForcePathStyle: boolean | undefined = __config.getObject<boolean>("s3ForcePathStyle");
+export declare const s3ForcePathStyle: boolean | undefined;
+Object.defineProperty(exports, "s3ForcePathStyle", {
+    get() {
+        return __config.getObject<boolean>("s3ForcePathStyle");
+    },
+    enumerable: true,
+});
+
 /**
  * The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
  */
-export let secretKey: string | undefined = __config.get("secretKey");
+export declare const secretKey: string | undefined;
+Object.defineProperty(exports, "secretKey", {
+    get() {
+        return __config.get("secretKey");
+    },
+    enumerable: true,
+});
+
 /**
  * The path to the shared credentials file. If not set this defaults to ~/.aws/credentials.
  */
-export let sharedCredentialsFile: string | undefined = __config.get("sharedCredentialsFile");
+export declare const sharedCredentialsFile: string | undefined;
+Object.defineProperty(exports, "sharedCredentialsFile", {
+    get() {
+        return __config.get("sharedCredentialsFile");
+    },
+    enumerable: true,
+});
+
 /**
  * Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
  * available/implemented.
  */
-export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation") || true;
+export declare const skipCredentialsValidation: boolean;
+Object.defineProperty(exports, "skipCredentialsValidation", {
+    get() {
+        return __config.getObject<boolean>("skipCredentialsValidation") ?? true;
+    },
+    enumerable: true,
+});
+
 /**
  * Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
  */
-export let skipGetEc2Platforms: boolean | undefined = __config.getObject<boolean>("skipGetEc2Platforms") || true;
-export let skipMetadataApiCheck: boolean | undefined = __config.getObject<boolean>("skipMetadataApiCheck") || true;
+export declare const skipGetEc2Platforms: boolean;
+Object.defineProperty(exports, "skipGetEc2Platforms", {
+    get() {
+        return __config.getObject<boolean>("skipGetEc2Platforms") ?? true;
+    },
+    enumerable: true,
+});
+
+export declare const skipMetadataApiCheck: boolean;
+Object.defineProperty(exports, "skipMetadataApiCheck", {
+    get() {
+        return __config.getObject<boolean>("skipMetadataApiCheck") ?? true;
+    },
+    enumerable: true,
+});
+
 /**
  * Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
  * not public (yet).
  */
-export let skipRegionValidation: boolean | undefined = __config.getObject<boolean>("skipRegionValidation") || true;
+export declare const skipRegionValidation: boolean;
+Object.defineProperty(exports, "skipRegionValidation", {
+    get() {
+        return __config.getObject<boolean>("skipRegionValidation") ?? true;
+    },
+    enumerable: true,
+});
+
 /**
  * Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
  */
-export let skipRequestingAccountId: boolean | undefined = __config.getObject<boolean>("skipRequestingAccountId");
+export declare const skipRequestingAccountId: boolean | undefined;
+Object.defineProperty(exports, "skipRequestingAccountId", {
+    get() {
+        return __config.getObject<boolean>("skipRequestingAccountId");
+    },
+    enumerable: true,
+});
+
 /**
  * session token. A session token is only required if you are using temporary security credentials.
  */
-export let token: string | undefined = __config.get("token");
+export declare const token: string | undefined;
+Object.defineProperty(exports, "token", {
+    get() {
+        return __config.get("token");
+    },
+    enumerable: true,
+});
+

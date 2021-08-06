@@ -326,7 +326,7 @@ type ProductArrayInput interface {
 type ProductArray []ProductInput
 
 func (ProductArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Product)(nil))
+	return reflect.TypeOf((*[]*Product)(nil)).Elem()
 }
 
 func (i ProductArray) ToProductArrayOutput() ProductArrayOutput {
@@ -351,7 +351,7 @@ type ProductMapInput interface {
 type ProductMap map[string]ProductInput
 
 func (ProductMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Product)(nil))
+	return reflect.TypeOf((*map[string]*Product)(nil)).Elem()
 }
 
 func (i ProductMap) ToProductMapOutput() ProductMapOutput {

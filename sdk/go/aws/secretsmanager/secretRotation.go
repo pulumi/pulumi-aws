@@ -221,7 +221,7 @@ type SecretRotationArrayInput interface {
 type SecretRotationArray []SecretRotationInput
 
 func (SecretRotationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SecretRotation)(nil))
+	return reflect.TypeOf((*[]*SecretRotation)(nil)).Elem()
 }
 
 func (i SecretRotationArray) ToSecretRotationArrayOutput() SecretRotationArrayOutput {
@@ -246,7 +246,7 @@ type SecretRotationMapInput interface {
 type SecretRotationMap map[string]SecretRotationInput
 
 func (SecretRotationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SecretRotation)(nil))
+	return reflect.TypeOf((*map[string]*SecretRotation)(nil)).Elem()
 }
 
 func (i SecretRotationMap) ToSecretRotationMapOutput() SecretRotationMapOutput {

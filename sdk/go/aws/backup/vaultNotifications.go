@@ -224,7 +224,7 @@ type VaultNotificationsArrayInput interface {
 type VaultNotificationsArray []VaultNotificationsInput
 
 func (VaultNotificationsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VaultNotifications)(nil))
+	return reflect.TypeOf((*[]*VaultNotifications)(nil)).Elem()
 }
 
 func (i VaultNotificationsArray) ToVaultNotificationsArrayOutput() VaultNotificationsArrayOutput {
@@ -249,7 +249,7 @@ type VaultNotificationsMapInput interface {
 type VaultNotificationsMap map[string]VaultNotificationsInput
 
 func (VaultNotificationsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VaultNotifications)(nil))
+	return reflect.TypeOf((*map[string]*VaultNotifications)(nil)).Elem()
 }
 
 func (i VaultNotificationsMap) ToVaultNotificationsMapOutput() VaultNotificationsMapOutput {

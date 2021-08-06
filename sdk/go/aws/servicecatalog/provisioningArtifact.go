@@ -279,7 +279,7 @@ type ProvisioningArtifactArrayInput interface {
 type ProvisioningArtifactArray []ProvisioningArtifactInput
 
 func (ProvisioningArtifactArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProvisioningArtifact)(nil))
+	return reflect.TypeOf((*[]*ProvisioningArtifact)(nil)).Elem()
 }
 
 func (i ProvisioningArtifactArray) ToProvisioningArtifactArrayOutput() ProvisioningArtifactArrayOutput {
@@ -304,7 +304,7 @@ type ProvisioningArtifactMapInput interface {
 type ProvisioningArtifactMap map[string]ProvisioningArtifactInput
 
 func (ProvisioningArtifactMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProvisioningArtifact)(nil))
+	return reflect.TypeOf((*map[string]*ProvisioningArtifact)(nil)).Elem()
 }
 
 func (i ProvisioningArtifactMap) ToProvisioningArtifactMapOutput() ProvisioningArtifactMapOutput {

@@ -653,7 +653,7 @@ type MetricAlarmArrayInput interface {
 type MetricAlarmArray []MetricAlarmInput
 
 func (MetricAlarmArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MetricAlarm)(nil))
+	return reflect.TypeOf((*[]*MetricAlarm)(nil)).Elem()
 }
 
 func (i MetricAlarmArray) ToMetricAlarmArrayOutput() MetricAlarmArrayOutput {
@@ -678,7 +678,7 @@ type MetricAlarmMapInput interface {
 type MetricAlarmMap map[string]MetricAlarmInput
 
 func (MetricAlarmMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MetricAlarm)(nil))
+	return reflect.TypeOf((*map[string]*MetricAlarm)(nil)).Elem()
 }
 
 func (i MetricAlarmMap) ToMetricAlarmMapOutput() MetricAlarmMapOutput {

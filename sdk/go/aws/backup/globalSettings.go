@@ -174,7 +174,7 @@ type GlobalSettingsArrayInput interface {
 type GlobalSettingsArray []GlobalSettingsInput
 
 func (GlobalSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GlobalSettings)(nil))
+	return reflect.TypeOf((*[]*GlobalSettings)(nil)).Elem()
 }
 
 func (i GlobalSettingsArray) ToGlobalSettingsArrayOutput() GlobalSettingsArrayOutput {
@@ -199,7 +199,7 @@ type GlobalSettingsMapInput interface {
 type GlobalSettingsMap map[string]GlobalSettingsInput
 
 func (GlobalSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GlobalSettings)(nil))
+	return reflect.TypeOf((*map[string]*GlobalSettings)(nil)).Elem()
 }
 
 func (i GlobalSettingsMap) ToGlobalSettingsMapOutput() GlobalSettingsMapOutput {

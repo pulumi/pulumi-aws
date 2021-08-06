@@ -191,7 +191,7 @@ type SpotDatafeedSubscriptionArrayInput interface {
 type SpotDatafeedSubscriptionArray []SpotDatafeedSubscriptionInput
 
 func (SpotDatafeedSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((*[]*SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (i SpotDatafeedSubscriptionArray) ToSpotDatafeedSubscriptionArrayOutput() SpotDatafeedSubscriptionArrayOutput {
@@ -216,7 +216,7 @@ type SpotDatafeedSubscriptionMapInput interface {
 type SpotDatafeedSubscriptionMap map[string]SpotDatafeedSubscriptionInput
 
 func (SpotDatafeedSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((*map[string]*SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (i SpotDatafeedSubscriptionMap) ToSpotDatafeedSubscriptionMapOutput() SpotDatafeedSubscriptionMapOutput {

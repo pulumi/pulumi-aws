@@ -212,7 +212,7 @@ type LocalGatewayRouteTableVpcAssociationArrayInput interface {
 type LocalGatewayRouteTableVpcAssociationArray []LocalGatewayRouteTableVpcAssociationInput
 
 func (LocalGatewayRouteTableVpcAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LocalGatewayRouteTableVpcAssociation)(nil))
+	return reflect.TypeOf((*[]*LocalGatewayRouteTableVpcAssociation)(nil)).Elem()
 }
 
 func (i LocalGatewayRouteTableVpcAssociationArray) ToLocalGatewayRouteTableVpcAssociationArrayOutput() LocalGatewayRouteTableVpcAssociationArrayOutput {
@@ -237,7 +237,7 @@ type LocalGatewayRouteTableVpcAssociationMapInput interface {
 type LocalGatewayRouteTableVpcAssociationMap map[string]LocalGatewayRouteTableVpcAssociationInput
 
 func (LocalGatewayRouteTableVpcAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LocalGatewayRouteTableVpcAssociation)(nil))
+	return reflect.TypeOf((*map[string]*LocalGatewayRouteTableVpcAssociation)(nil)).Elem()
 }
 
 func (i LocalGatewayRouteTableVpcAssociationMap) ToLocalGatewayRouteTableVpcAssociationMapOutput() LocalGatewayRouteTableVpcAssociationMapOutput {

@@ -173,7 +173,7 @@ type ResourceGroupArrayInput interface {
 type ResourceGroupArray []ResourceGroupInput
 
 func (ResourceGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceGroup)(nil))
+	return reflect.TypeOf((*[]*ResourceGroup)(nil)).Elem()
 }
 
 func (i ResourceGroupArray) ToResourceGroupArrayOutput() ResourceGroupArrayOutput {
@@ -198,7 +198,7 @@ type ResourceGroupMapInput interface {
 type ResourceGroupMap map[string]ResourceGroupInput
 
 func (ResourceGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceGroup)(nil))
+	return reflect.TypeOf((*map[string]*ResourceGroup)(nil)).Elem()
 }
 
 func (i ResourceGroupMap) ToResourceGroupMapOutput() ResourceGroupMapOutput {

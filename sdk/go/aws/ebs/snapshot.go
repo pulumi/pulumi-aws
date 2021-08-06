@@ -252,7 +252,7 @@ type SnapshotArrayInput interface {
 type SnapshotArray []SnapshotInput
 
 func (SnapshotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Snapshot)(nil))
+	return reflect.TypeOf((*[]*Snapshot)(nil)).Elem()
 }
 
 func (i SnapshotArray) ToSnapshotArrayOutput() SnapshotArrayOutput {
@@ -277,7 +277,7 @@ type SnapshotMapInput interface {
 type SnapshotMap map[string]SnapshotInput
 
 func (SnapshotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Snapshot)(nil))
+	return reflect.TypeOf((*map[string]*Snapshot)(nil)).Elem()
 }
 
 func (i SnapshotMap) ToSnapshotMapOutput() SnapshotMapOutput {

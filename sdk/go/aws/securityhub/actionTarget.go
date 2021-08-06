@@ -208,7 +208,7 @@ type ActionTargetArrayInput interface {
 type ActionTargetArray []ActionTargetInput
 
 func (ActionTargetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ActionTarget)(nil))
+	return reflect.TypeOf((*[]*ActionTarget)(nil)).Elem()
 }
 
 func (i ActionTargetArray) ToActionTargetArrayOutput() ActionTargetArrayOutput {
@@ -233,7 +233,7 @@ type ActionTargetMapInput interface {
 type ActionTargetMap map[string]ActionTargetInput
 
 func (ActionTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ActionTarget)(nil))
+	return reflect.TypeOf((*map[string]*ActionTarget)(nil)).Elem()
 }
 
 func (i ActionTargetMap) ToActionTargetMapOutput() ActionTargetMapOutput {

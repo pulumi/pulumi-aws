@@ -185,7 +185,7 @@ type SqlInjectionMatchSetArrayInput interface {
 type SqlInjectionMatchSetArray []SqlInjectionMatchSetInput
 
 func (SqlInjectionMatchSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SqlInjectionMatchSet)(nil))
+	return reflect.TypeOf((*[]*SqlInjectionMatchSet)(nil)).Elem()
 }
 
 func (i SqlInjectionMatchSetArray) ToSqlInjectionMatchSetArrayOutput() SqlInjectionMatchSetArrayOutput {
@@ -210,7 +210,7 @@ type SqlInjectionMatchSetMapInput interface {
 type SqlInjectionMatchSetMap map[string]SqlInjectionMatchSetInput
 
 func (SqlInjectionMatchSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SqlInjectionMatchSet)(nil))
+	return reflect.TypeOf((*map[string]*SqlInjectionMatchSet)(nil)).Elem()
 }
 
 func (i SqlInjectionMatchSetMap) ToSqlInjectionMatchSetMapOutput() SqlInjectionMatchSetMapOutput {

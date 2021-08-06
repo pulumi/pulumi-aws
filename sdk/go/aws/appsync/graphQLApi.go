@@ -510,7 +510,7 @@ type GraphQLApiArrayInput interface {
 type GraphQLApiArray []GraphQLApiInput
 
 func (GraphQLApiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GraphQLApi)(nil))
+	return reflect.TypeOf((*[]*GraphQLApi)(nil)).Elem()
 }
 
 func (i GraphQLApiArray) ToGraphQLApiArrayOutput() GraphQLApiArrayOutput {
@@ -535,7 +535,7 @@ type GraphQLApiMapInput interface {
 type GraphQLApiMap map[string]GraphQLApiInput
 
 func (GraphQLApiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GraphQLApi)(nil))
+	return reflect.TypeOf((*map[string]*GraphQLApi)(nil)).Elem()
 }
 
 func (i GraphQLApiMap) ToGraphQLApiMapOutput() GraphQLApiMapOutput {

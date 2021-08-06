@@ -218,7 +218,7 @@ type CustomDomainAssociationArrayInput interface {
 type CustomDomainAssociationArray []CustomDomainAssociationInput
 
 func (CustomDomainAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomDomainAssociation)(nil))
+	return reflect.TypeOf((*[]*CustomDomainAssociation)(nil)).Elem()
 }
 
 func (i CustomDomainAssociationArray) ToCustomDomainAssociationArrayOutput() CustomDomainAssociationArrayOutput {
@@ -243,7 +243,7 @@ type CustomDomainAssociationMapInput interface {
 type CustomDomainAssociationMap map[string]CustomDomainAssociationInput
 
 func (CustomDomainAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomDomainAssociation)(nil))
+	return reflect.TypeOf((*map[string]*CustomDomainAssociation)(nil)).Elem()
 }
 
 func (i CustomDomainAssociationMap) ToCustomDomainAssociationMapOutput() CustomDomainAssociationMapOutput {

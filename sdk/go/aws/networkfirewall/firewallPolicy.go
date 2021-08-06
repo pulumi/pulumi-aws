@@ -285,7 +285,7 @@ type FirewallPolicyArrayInput interface {
 type FirewallPolicyArray []FirewallPolicyInput
 
 func (FirewallPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FirewallPolicy)(nil))
+	return reflect.TypeOf((*[]*FirewallPolicy)(nil)).Elem()
 }
 
 func (i FirewallPolicyArray) ToFirewallPolicyArrayOutput() FirewallPolicyArrayOutput {
@@ -310,7 +310,7 @@ type FirewallPolicyMapInput interface {
 type FirewallPolicyMap map[string]FirewallPolicyInput
 
 func (FirewallPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FirewallPolicy)(nil))
+	return reflect.TypeOf((*map[string]*FirewallPolicy)(nil)).Elem()
 }
 
 func (i FirewallPolicyMap) ToFirewallPolicyMapOutput() FirewallPolicyMapOutput {

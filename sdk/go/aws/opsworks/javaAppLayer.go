@@ -405,7 +405,7 @@ type JavaAppLayerArrayInput interface {
 type JavaAppLayerArray []JavaAppLayerInput
 
 func (JavaAppLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*JavaAppLayer)(nil))
+	return reflect.TypeOf((*[]*JavaAppLayer)(nil)).Elem()
 }
 
 func (i JavaAppLayerArray) ToJavaAppLayerArrayOutput() JavaAppLayerArrayOutput {
@@ -430,7 +430,7 @@ type JavaAppLayerMapInput interface {
 type JavaAppLayerMap map[string]JavaAppLayerInput
 
 func (JavaAppLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*JavaAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*JavaAppLayer)(nil)).Elem()
 }
 
 func (i JavaAppLayerMap) ToJavaAppLayerMapOutput() JavaAppLayerMapOutput {

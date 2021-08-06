@@ -224,7 +224,7 @@ type EndpointArrayInput interface {
 type EndpointArray []EndpointInput
 
 func (EndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Endpoint)(nil))
+	return reflect.TypeOf((*[]*Endpoint)(nil)).Elem()
 }
 
 func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
@@ -249,7 +249,7 @@ type EndpointMapInput interface {
 type EndpointMap map[string]EndpointInput
 
 func (EndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Endpoint)(nil))
+	return reflect.TypeOf((*map[string]*Endpoint)(nil)).Elem()
 }
 
 func (i EndpointMap) ToEndpointMapOutput() EndpointMapOutput {

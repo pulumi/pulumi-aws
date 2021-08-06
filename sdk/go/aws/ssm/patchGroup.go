@@ -186,7 +186,7 @@ type PatchGroupArrayInput interface {
 type PatchGroupArray []PatchGroupInput
 
 func (PatchGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PatchGroup)(nil))
+	return reflect.TypeOf((*[]*PatchGroup)(nil)).Elem()
 }
 
 func (i PatchGroupArray) ToPatchGroupArrayOutput() PatchGroupArrayOutput {
@@ -211,7 +211,7 @@ type PatchGroupMapInput interface {
 type PatchGroupMap map[string]PatchGroupInput
 
 func (PatchGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PatchGroup)(nil))
+	return reflect.TypeOf((*map[string]*PatchGroup)(nil)).Elem()
 }
 
 func (i PatchGroupMap) ToPatchGroupMapOutput() PatchGroupMapOutput {

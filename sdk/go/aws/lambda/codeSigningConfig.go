@@ -221,7 +221,7 @@ type CodeSigningConfigArrayInput interface {
 type CodeSigningConfigArray []CodeSigningConfigInput
 
 func (CodeSigningConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CodeSigningConfig)(nil))
+	return reflect.TypeOf((*[]*CodeSigningConfig)(nil)).Elem()
 }
 
 func (i CodeSigningConfigArray) ToCodeSigningConfigArrayOutput() CodeSigningConfigArrayOutput {
@@ -246,7 +246,7 @@ type CodeSigningConfigMapInput interface {
 type CodeSigningConfigMap map[string]CodeSigningConfigInput
 
 func (CodeSigningConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CodeSigningConfig)(nil))
+	return reflect.TypeOf((*map[string]*CodeSigningConfig)(nil)).Elem()
 }
 
 func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutput() CodeSigningConfigMapOutput {

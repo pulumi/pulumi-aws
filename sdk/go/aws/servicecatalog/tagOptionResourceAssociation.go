@@ -213,7 +213,7 @@ type TagOptionResourceAssociationArrayInput interface {
 type TagOptionResourceAssociationArray []TagOptionResourceAssociationInput
 
 func (TagOptionResourceAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (i TagOptionResourceAssociationArray) ToTagOptionResourceAssociationArrayOutput() TagOptionResourceAssociationArrayOutput {
@@ -238,7 +238,7 @@ type TagOptionResourceAssociationMapInput interface {
 type TagOptionResourceAssociationMap map[string]TagOptionResourceAssociationInput
 
 func (TagOptionResourceAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TagOptionResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*TagOptionResourceAssociation)(nil)).Elem()
 }
 
 func (i TagOptionResourceAssociationMap) ToTagOptionResourceAssociationMapOutput() TagOptionResourceAssociationMapOutput {

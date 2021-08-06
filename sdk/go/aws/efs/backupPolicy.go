@@ -193,7 +193,7 @@ type BackupPolicyArrayInput interface {
 type BackupPolicyArray []BackupPolicyInput
 
 func (BackupPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BackupPolicy)(nil))
+	return reflect.TypeOf((*[]*BackupPolicy)(nil)).Elem()
 }
 
 func (i BackupPolicyArray) ToBackupPolicyArrayOutput() BackupPolicyArrayOutput {
@@ -218,7 +218,7 @@ type BackupPolicyMapInput interface {
 type BackupPolicyMap map[string]BackupPolicyInput
 
 func (BackupPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BackupPolicy)(nil))
+	return reflect.TypeOf((*map[string]*BackupPolicy)(nil)).Elem()
 }
 
 func (i BackupPolicyMap) ToBackupPolicyMapOutput() BackupPolicyMapOutput {

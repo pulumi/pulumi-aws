@@ -310,7 +310,7 @@ type OrganizationCustomRuleArrayInput interface {
 type OrganizationCustomRuleArray []OrganizationCustomRuleInput
 
 func (OrganizationCustomRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationCustomRule)(nil))
+	return reflect.TypeOf((*[]*OrganizationCustomRule)(nil)).Elem()
 }
 
 func (i OrganizationCustomRuleArray) ToOrganizationCustomRuleArrayOutput() OrganizationCustomRuleArrayOutput {
@@ -335,7 +335,7 @@ type OrganizationCustomRuleMapInput interface {
 type OrganizationCustomRuleMap map[string]OrganizationCustomRuleInput
 
 func (OrganizationCustomRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationCustomRule)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationCustomRule)(nil)).Elem()
 }
 
 func (i OrganizationCustomRuleMap) ToOrganizationCustomRuleMapOutput() OrganizationCustomRuleMapOutput {

@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi sdk + codegen v3.9.1
+* Upgrade to pulumi-terraform-bridge v3.5.0
 
 ---
 

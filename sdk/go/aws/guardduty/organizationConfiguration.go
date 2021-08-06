@@ -209,7 +209,7 @@ type OrganizationConfigurationArrayInput interface {
 type OrganizationConfigurationArray []OrganizationConfigurationInput
 
 func (OrganizationConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*OrganizationConfiguration)(nil))
+	return reflect.TypeOf((*[]*OrganizationConfiguration)(nil)).Elem()
 }
 
 func (i OrganizationConfigurationArray) ToOrganizationConfigurationArrayOutput() OrganizationConfigurationArrayOutput {
@@ -234,7 +234,7 @@ type OrganizationConfigurationMapInput interface {
 type OrganizationConfigurationMap map[string]OrganizationConfigurationInput
 
 func (OrganizationConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*OrganizationConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationConfiguration)(nil)).Elem()
 }
 
 func (i OrganizationConfigurationMap) ToOrganizationConfigurationMapOutput() OrganizationConfigurationMapOutput {

@@ -218,7 +218,7 @@ type PartitionArrayInput interface {
 type PartitionArray []PartitionInput
 
 func (PartitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Partition)(nil))
+	return reflect.TypeOf((*[]*Partition)(nil)).Elem()
 }
 
 func (i PartitionArray) ToPartitionArrayOutput() PartitionArrayOutput {
@@ -243,7 +243,7 @@ type PartitionMapInput interface {
 type PartitionMap map[string]PartitionInput
 
 func (PartitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Partition)(nil))
+	return reflect.TypeOf((*map[string]*Partition)(nil)).Elem()
 }
 
 func (i PartitionMap) ToPartitionMapOutput() PartitionMapOutput {

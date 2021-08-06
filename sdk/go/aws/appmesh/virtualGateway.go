@@ -308,7 +308,7 @@ type VirtualGatewayArrayInput interface {
 type VirtualGatewayArray []VirtualGatewayInput
 
 func (VirtualGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualGateway)(nil))
+	return reflect.TypeOf((*[]*VirtualGateway)(nil)).Elem()
 }
 
 func (i VirtualGatewayArray) ToVirtualGatewayArrayOutput() VirtualGatewayArrayOutput {
@@ -333,7 +333,7 @@ type VirtualGatewayMapInput interface {
 type VirtualGatewayMap map[string]VirtualGatewayInput
 
 func (VirtualGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualGateway)(nil))
+	return reflect.TypeOf((*map[string]*VirtualGateway)(nil)).Elem()
 }
 
 func (i VirtualGatewayMap) ToVirtualGatewayMapOutput() VirtualGatewayMapOutput {

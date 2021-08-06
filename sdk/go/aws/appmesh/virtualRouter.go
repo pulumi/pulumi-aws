@@ -271,7 +271,7 @@ type VirtualRouterArrayInput interface {
 type VirtualRouterArray []VirtualRouterInput
 
 func (VirtualRouterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualRouter)(nil))
+	return reflect.TypeOf((*[]*VirtualRouter)(nil)).Elem()
 }
 
 func (i VirtualRouterArray) ToVirtualRouterArrayOutput() VirtualRouterArrayOutput {
@@ -296,7 +296,7 @@ type VirtualRouterMapInput interface {
 type VirtualRouterMap map[string]VirtualRouterInput
 
 func (VirtualRouterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualRouter)(nil))
+	return reflect.TypeOf((*map[string]*VirtualRouter)(nil)).Elem()
 }
 
 func (i VirtualRouterMap) ToVirtualRouterMapOutput() VirtualRouterMapOutput {

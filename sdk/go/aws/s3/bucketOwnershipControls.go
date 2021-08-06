@@ -192,7 +192,7 @@ type BucketOwnershipControlsArrayInput interface {
 type BucketOwnershipControlsArray []BucketOwnershipControlsInput
 
 func (BucketOwnershipControlsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketOwnershipControls)(nil))
+	return reflect.TypeOf((*[]*BucketOwnershipControls)(nil)).Elem()
 }
 
 func (i BucketOwnershipControlsArray) ToBucketOwnershipControlsArrayOutput() BucketOwnershipControlsArrayOutput {
@@ -217,7 +217,7 @@ type BucketOwnershipControlsMapInput interface {
 type BucketOwnershipControlsMap map[string]BucketOwnershipControlsInput
 
 func (BucketOwnershipControlsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketOwnershipControls)(nil))
+	return reflect.TypeOf((*map[string]*BucketOwnershipControls)(nil)).Elem()
 }
 
 func (i BucketOwnershipControlsMap) ToBucketOwnershipControlsMapOutput() BucketOwnershipControlsMapOutput {

@@ -245,7 +245,7 @@ type ResourceServerArrayInput interface {
 type ResourceServerArray []ResourceServerInput
 
 func (ResourceServerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResourceServer)(nil))
+	return reflect.TypeOf((*[]*ResourceServer)(nil)).Elem()
 }
 
 func (i ResourceServerArray) ToResourceServerArrayOutput() ResourceServerArrayOutput {
@@ -270,7 +270,7 @@ type ResourceServerMapInput interface {
 type ResourceServerMap map[string]ResourceServerInput
 
 func (ResourceServerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResourceServer)(nil))
+	return reflect.TypeOf((*map[string]*ResourceServer)(nil)).Elem()
 }
 
 func (i ResourceServerMap) ToResourceServerMapOutput() ResourceServerMapOutput {

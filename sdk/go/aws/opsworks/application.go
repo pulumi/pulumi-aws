@@ -312,7 +312,7 @@ type ApplicationArrayInput interface {
 type ApplicationArray []ApplicationInput
 
 func (ApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Application)(nil))
+	return reflect.TypeOf((*[]*Application)(nil)).Elem()
 }
 
 func (i ApplicationArray) ToApplicationArrayOutput() ApplicationArrayOutput {
@@ -337,7 +337,7 @@ type ApplicationMapInput interface {
 type ApplicationMap map[string]ApplicationInput
 
 func (ApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Application)(nil))
+	return reflect.TypeOf((*map[string]*Application)(nil)).Elem()
 }
 
 func (i ApplicationMap) ToApplicationMapOutput() ApplicationMapOutput {

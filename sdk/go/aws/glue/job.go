@@ -418,7 +418,7 @@ type JobArrayInput interface {
 type JobArray []JobInput
 
 func (JobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Job)(nil))
+	return reflect.TypeOf((*[]*Job)(nil)).Elem()
 }
 
 func (i JobArray) ToJobArrayOutput() JobArrayOutput {
@@ -443,7 +443,7 @@ type JobMapInput interface {
 type JobMap map[string]JobInput
 
 func (JobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Job)(nil))
+	return reflect.TypeOf((*map[string]*Job)(nil)).Elem()
 }
 
 func (i JobMap) ToJobMapOutput() JobMapOutput {

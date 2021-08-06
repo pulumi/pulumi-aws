@@ -160,7 +160,7 @@ type ScramSecretAssociationArrayInput interface {
 type ScramSecretAssociationArray []ScramSecretAssociationInput
 
 func (ScramSecretAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ScramSecretAssociation)(nil))
+	return reflect.TypeOf((*[]*ScramSecretAssociation)(nil)).Elem()
 }
 
 func (i ScramSecretAssociationArray) ToScramSecretAssociationArrayOutput() ScramSecretAssociationArrayOutput {
@@ -185,7 +185,7 @@ type ScramSecretAssociationMapInput interface {
 type ScramSecretAssociationMap map[string]ScramSecretAssociationInput
 
 func (ScramSecretAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ScramSecretAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ScramSecretAssociation)(nil)).Elem()
 }
 
 func (i ScramSecretAssociationMap) ToScramSecretAssociationMapOutput() ScramSecretAssociationMapOutput {

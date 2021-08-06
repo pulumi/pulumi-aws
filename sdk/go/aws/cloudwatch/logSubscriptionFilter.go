@@ -232,7 +232,7 @@ type LogSubscriptionFilterArrayInput interface {
 type LogSubscriptionFilterArray []LogSubscriptionFilterInput
 
 func (LogSubscriptionFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogSubscriptionFilter)(nil))
+	return reflect.TypeOf((*[]*LogSubscriptionFilter)(nil)).Elem()
 }
 
 func (i LogSubscriptionFilterArray) ToLogSubscriptionFilterArrayOutput() LogSubscriptionFilterArrayOutput {
@@ -257,7 +257,7 @@ type LogSubscriptionFilterMapInput interface {
 type LogSubscriptionFilterMap map[string]LogSubscriptionFilterInput
 
 func (LogSubscriptionFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogSubscriptionFilter)(nil))
+	return reflect.TypeOf((*map[string]*LogSubscriptionFilter)(nil)).Elem()
 }
 
 func (i LogSubscriptionFilterMap) ToLogSubscriptionFilterMapOutput() LogSubscriptionFilterMapOutput {

@@ -263,7 +263,7 @@ type ReportGroupArrayInput interface {
 type ReportGroupArray []ReportGroupInput
 
 func (ReportGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReportGroup)(nil))
+	return reflect.TypeOf((*[]*ReportGroup)(nil)).Elem()
 }
 
 func (i ReportGroupArray) ToReportGroupArrayOutput() ReportGroupArrayOutput {
@@ -288,7 +288,7 @@ type ReportGroupMapInput interface {
 type ReportGroupMap map[string]ReportGroupInput
 
 func (ReportGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReportGroup)(nil))
+	return reflect.TypeOf((*map[string]*ReportGroup)(nil)).Elem()
 }
 
 func (i ReportGroupMap) ToReportGroupMapOutput() ReportGroupMapOutput {

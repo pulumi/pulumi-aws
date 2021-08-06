@@ -283,7 +283,7 @@ type GlobalReplicationGroupArrayInput interface {
 type GlobalReplicationGroupArray []GlobalReplicationGroupInput
 
 func (GlobalReplicationGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((*[]*GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (i GlobalReplicationGroupArray) ToGlobalReplicationGroupArrayOutput() GlobalReplicationGroupArrayOutput {
@@ -308,7 +308,7 @@ type GlobalReplicationGroupMapInput interface {
 type GlobalReplicationGroupMap map[string]GlobalReplicationGroupInput
 
 func (GlobalReplicationGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GlobalReplicationGroup)(nil))
+	return reflect.TypeOf((*map[string]*GlobalReplicationGroup)(nil)).Elem()
 }
 
 func (i GlobalReplicationGroupMap) ToGlobalReplicationGroupMapOutput() GlobalReplicationGroupMapOutput {

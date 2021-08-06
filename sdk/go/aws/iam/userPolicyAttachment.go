@@ -200,7 +200,7 @@ type UserPolicyAttachmentArrayInput interface {
 type UserPolicyAttachmentArray []UserPolicyAttachmentInput
 
 func (UserPolicyAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*UserPolicyAttachment)(nil)).Elem()
 }
 
 func (i UserPolicyAttachmentArray) ToUserPolicyAttachmentArrayOutput() UserPolicyAttachmentArrayOutput {
@@ -225,7 +225,7 @@ type UserPolicyAttachmentMapInput interface {
 type UserPolicyAttachmentMap map[string]UserPolicyAttachmentInput
 
 func (UserPolicyAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*UserPolicyAttachment)(nil)).Elem()
 }
 
 func (i UserPolicyAttachmentMap) ToUserPolicyAttachmentMapOutput() UserPolicyAttachmentMapOutput {

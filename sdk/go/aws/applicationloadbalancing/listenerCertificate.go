@@ -205,7 +205,7 @@ type ListenerCertificateArrayInput interface {
 type ListenerCertificateArray []ListenerCertificateInput
 
 func (ListenerCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ListenerCertificate)(nil))
+	return reflect.TypeOf((*[]*ListenerCertificate)(nil)).Elem()
 }
 
 func (i ListenerCertificateArray) ToListenerCertificateArrayOutput() ListenerCertificateArrayOutput {
@@ -230,7 +230,7 @@ type ListenerCertificateMapInput interface {
 type ListenerCertificateMap map[string]ListenerCertificateInput
 
 func (ListenerCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ListenerCertificate)(nil))
+	return reflect.TypeOf((*map[string]*ListenerCertificate)(nil)).Elem()
 }
 
 func (i ListenerCertificateMap) ToListenerCertificateMapOutput() ListenerCertificateMapOutput {

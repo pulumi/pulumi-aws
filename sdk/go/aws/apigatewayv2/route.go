@@ -355,7 +355,7 @@ type RouteArrayInput interface {
 type RouteArray []RouteInput
 
 func (RouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Route)(nil))
+	return reflect.TypeOf((*[]*Route)(nil)).Elem()
 }
 
 func (i RouteArray) ToRouteArrayOutput() RouteArrayOutput {
@@ -380,7 +380,7 @@ type RouteMapInput interface {
 type RouteMap map[string]RouteInput
 
 func (RouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Route)(nil))
+	return reflect.TypeOf((*map[string]*Route)(nil)).Elem()
 }
 
 func (i RouteMap) ToRouteMapOutput() RouteMapOutput {

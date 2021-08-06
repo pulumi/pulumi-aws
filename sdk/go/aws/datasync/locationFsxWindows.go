@@ -274,7 +274,7 @@ type LocationFsxWindowsArrayInput interface {
 type LocationFsxWindowsArray []LocationFsxWindowsInput
 
 func (LocationFsxWindowsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LocationFsxWindows)(nil))
+	return reflect.TypeOf((*[]*LocationFsxWindows)(nil)).Elem()
 }
 
 func (i LocationFsxWindowsArray) ToLocationFsxWindowsArrayOutput() LocationFsxWindowsArrayOutput {
@@ -299,7 +299,7 @@ type LocationFsxWindowsMapInput interface {
 type LocationFsxWindowsMap map[string]LocationFsxWindowsInput
 
 func (LocationFsxWindowsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LocationFsxWindows)(nil))
+	return reflect.TypeOf((*map[string]*LocationFsxWindows)(nil)).Elem()
 }
 
 func (i LocationFsxWindowsMap) ToLocationFsxWindowsMapOutput() LocationFsxWindowsMapOutput {

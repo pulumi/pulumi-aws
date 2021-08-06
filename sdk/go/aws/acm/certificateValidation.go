@@ -191,7 +191,7 @@ type CertificateValidationArrayInput interface {
 type CertificateValidationArray []CertificateValidationInput
 
 func (CertificateValidationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CertificateValidation)(nil))
+	return reflect.TypeOf((*[]*CertificateValidation)(nil)).Elem()
 }
 
 func (i CertificateValidationArray) ToCertificateValidationArrayOutput() CertificateValidationArrayOutput {
@@ -216,7 +216,7 @@ type CertificateValidationMapInput interface {
 type CertificateValidationMap map[string]CertificateValidationInput
 
 func (CertificateValidationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CertificateValidation)(nil))
+	return reflect.TypeOf((*map[string]*CertificateValidation)(nil)).Elem()
 }
 
 func (i CertificateValidationMap) ToCertificateValidationMapOutput() CertificateValidationMapOutput {

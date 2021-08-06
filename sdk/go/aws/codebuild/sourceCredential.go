@@ -244,7 +244,7 @@ type SourceCredentialArrayInput interface {
 type SourceCredentialArray []SourceCredentialInput
 
 func (SourceCredentialArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SourceCredential)(nil))
+	return reflect.TypeOf((*[]*SourceCredential)(nil)).Elem()
 }
 
 func (i SourceCredentialArray) ToSourceCredentialArrayOutput() SourceCredentialArrayOutput {
@@ -269,7 +269,7 @@ type SourceCredentialMapInput interface {
 type SourceCredentialMap map[string]SourceCredentialInput
 
 func (SourceCredentialMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SourceCredential)(nil))
+	return reflect.TypeOf((*map[string]*SourceCredential)(nil)).Elem()
 }
 
 func (i SourceCredentialMap) ToSourceCredentialMapOutput() SourceCredentialMapOutput {

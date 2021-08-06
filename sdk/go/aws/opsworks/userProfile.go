@@ -198,7 +198,7 @@ type UserProfileArrayInput interface {
 type UserProfileArray []UserProfileInput
 
 func (UserProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserProfile)(nil))
+	return reflect.TypeOf((*[]*UserProfile)(nil)).Elem()
 }
 
 func (i UserProfileArray) ToUserProfileArrayOutput() UserProfileArrayOutput {
@@ -223,7 +223,7 @@ type UserProfileMapInput interface {
 type UserProfileMap map[string]UserProfileInput
 
 func (UserProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserProfile)(nil))
+	return reflect.TypeOf((*map[string]*UserProfile)(nil)).Elem()
 }
 
 func (i UserProfileMap) ToUserProfileMapOutput() UserProfileMapOutput {

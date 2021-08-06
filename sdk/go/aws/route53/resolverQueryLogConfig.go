@@ -234,7 +234,7 @@ type ResolverQueryLogConfigArrayInput interface {
 type ResolverQueryLogConfigArray []ResolverQueryLogConfigInput
 
 func (ResolverQueryLogConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverQueryLogConfig)(nil))
+	return reflect.TypeOf((*[]*ResolverQueryLogConfig)(nil)).Elem()
 }
 
 func (i ResolverQueryLogConfigArray) ToResolverQueryLogConfigArrayOutput() ResolverQueryLogConfigArrayOutput {
@@ -259,7 +259,7 @@ type ResolverQueryLogConfigMapInput interface {
 type ResolverQueryLogConfigMap map[string]ResolverQueryLogConfigInput
 
 func (ResolverQueryLogConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverQueryLogConfig)(nil))
+	return reflect.TypeOf((*map[string]*ResolverQueryLogConfig)(nil)).Elem()
 }
 
 func (i ResolverQueryLogConfigMap) ToResolverQueryLogConfigMapOutput() ResolverQueryLogConfigMapOutput {

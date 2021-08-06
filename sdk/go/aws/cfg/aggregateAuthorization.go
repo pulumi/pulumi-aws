@@ -212,7 +212,7 @@ type AggregateAuthorizationArrayInput interface {
 type AggregateAuthorizationArray []AggregateAuthorizationInput
 
 func (AggregateAuthorizationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AggregateAuthorization)(nil))
+	return reflect.TypeOf((*[]*AggregateAuthorization)(nil)).Elem()
 }
 
 func (i AggregateAuthorizationArray) ToAggregateAuthorizationArrayOutput() AggregateAuthorizationArrayOutput {
@@ -237,7 +237,7 @@ type AggregateAuthorizationMapInput interface {
 type AggregateAuthorizationMap map[string]AggregateAuthorizationInput
 
 func (AggregateAuthorizationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AggregateAuthorization)(nil))
+	return reflect.TypeOf((*map[string]*AggregateAuthorization)(nil)).Elem()
 }
 
 func (i AggregateAuthorizationMap) ToAggregateAuthorizationMapOutput() AggregateAuthorizationMapOutput {

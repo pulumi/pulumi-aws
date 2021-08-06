@@ -294,7 +294,7 @@ type CertificateAuthorityCertificateArrayInput interface {
 type CertificateAuthorityCertificateArray []CertificateAuthorityCertificateInput
 
 func (CertificateAuthorityCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CertificateAuthorityCertificate)(nil))
+	return reflect.TypeOf((*[]*CertificateAuthorityCertificate)(nil)).Elem()
 }
 
 func (i CertificateAuthorityCertificateArray) ToCertificateAuthorityCertificateArrayOutput() CertificateAuthorityCertificateArrayOutput {
@@ -319,7 +319,7 @@ type CertificateAuthorityCertificateMapInput interface {
 type CertificateAuthorityCertificateMap map[string]CertificateAuthorityCertificateInput
 
 func (CertificateAuthorityCertificateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CertificateAuthorityCertificate)(nil))
+	return reflect.TypeOf((*map[string]*CertificateAuthorityCertificate)(nil)).Elem()
 }
 
 func (i CertificateAuthorityCertificateMap) ToCertificateAuthorityCertificateMapOutput() CertificateAuthorityCertificateMapOutput {

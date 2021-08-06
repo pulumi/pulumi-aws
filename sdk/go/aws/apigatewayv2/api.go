@@ -399,7 +399,7 @@ type ApiArrayInput interface {
 type ApiArray []ApiInput
 
 func (ApiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Api)(nil))
+	return reflect.TypeOf((*[]*Api)(nil)).Elem()
 }
 
 func (i ApiArray) ToApiArrayOutput() ApiArrayOutput {
@@ -424,7 +424,7 @@ type ApiMapInput interface {
 type ApiMap map[string]ApiInput
 
 func (ApiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Api)(nil))
+	return reflect.TypeOf((*map[string]*Api)(nil)).Elem()
 }
 
 func (i ApiMap) ToApiMapOutput() ApiMapOutput {

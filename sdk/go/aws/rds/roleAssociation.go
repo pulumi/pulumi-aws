@@ -205,7 +205,7 @@ type RoleAssociationArrayInput interface {
 type RoleAssociationArray []RoleAssociationInput
 
 func (RoleAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RoleAssociation)(nil))
+	return reflect.TypeOf((*[]*RoleAssociation)(nil)).Elem()
 }
 
 func (i RoleAssociationArray) ToRoleAssociationArrayOutput() RoleAssociationArrayOutput {
@@ -230,7 +230,7 @@ type RoleAssociationMapInput interface {
 type RoleAssociationMap map[string]RoleAssociationInput
 
 func (RoleAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RoleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*RoleAssociation)(nil)).Elem()
 }
 
 func (i RoleAssociationMap) ToRoleAssociationMapOutput() RoleAssociationMapOutput {

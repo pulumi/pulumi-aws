@@ -295,13 +295,13 @@ class ReportGroup(pulumi.CustomResource):
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",
-                s3_destination={
-                    "bucket": example_bucket.id,
-                    "encryptionDisabled": False,
-                    "encryption_key": example_key.arn,
-                    "packaging": "NONE",
-                    "path": "/some",
-                },
+                s3_destination=aws.codebuild.ReportGroupExportConfigS3DestinationArgs(
+                    bucket=example_bucket.id,
+                    encryption_disabled=False,
+                    encryption_key=example_key.arn,
+                    packaging="NONE",
+                    path="/some",
+                ),
             ))
         ```
 
@@ -361,13 +361,13 @@ class ReportGroup(pulumi.CustomResource):
             type="TEST",
             export_config=aws.codebuild.ReportGroupExportConfigArgs(
                 type="S3",
-                s3_destination={
-                    "bucket": example_bucket.id,
-                    "encryptionDisabled": False,
-                    "encryption_key": example_key.arn,
-                    "packaging": "NONE",
-                    "path": "/some",
-                },
+                s3_destination=aws.codebuild.ReportGroupExportConfigS3DestinationArgs(
+                    bucket=example_bucket.id,
+                    encryption_disabled=False,
+                    encryption_key=example_key.arn,
+                    packaging="NONE",
+                    path="/some",
+                ),
             ))
         ```
 

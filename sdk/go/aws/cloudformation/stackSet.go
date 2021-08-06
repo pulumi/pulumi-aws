@@ -337,7 +337,7 @@ type StackSetArrayInput interface {
 type StackSetArray []StackSetInput
 
 func (StackSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StackSet)(nil))
+	return reflect.TypeOf((*[]*StackSet)(nil)).Elem()
 }
 
 func (i StackSetArray) ToStackSetArrayOutput() StackSetArrayOutput {
@@ -362,7 +362,7 @@ type StackSetMapInput interface {
 type StackSetMap map[string]StackSetInput
 
 func (StackSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StackSet)(nil))
+	return reflect.TypeOf((*map[string]*StackSet)(nil)).Elem()
 }
 
 func (i StackSetMap) ToStackSetMapOutput() StackSetMapOutput {

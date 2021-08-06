@@ -250,7 +250,7 @@ type ResolverFirewallRuleGroupAssociationArrayInput interface {
 type ResolverFirewallRuleGroupAssociationArray []ResolverFirewallRuleGroupAssociationInput
 
 func (ResolverFirewallRuleGroupAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (i ResolverFirewallRuleGroupAssociationArray) ToResolverFirewallRuleGroupAssociationArrayOutput() ResolverFirewallRuleGroupAssociationArrayOutput {
@@ -275,7 +275,7 @@ type ResolverFirewallRuleGroupAssociationMapInput interface {
 type ResolverFirewallRuleGroupAssociationMap map[string]ResolverFirewallRuleGroupAssociationInput
 
 func (ResolverFirewallRuleGroupAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverFirewallRuleGroupAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallRuleGroupAssociation)(nil)).Elem()
 }
 
 func (i ResolverFirewallRuleGroupAssociationMap) ToResolverFirewallRuleGroupAssociationMapOutput() ResolverFirewallRuleGroupAssociationMapOutput {

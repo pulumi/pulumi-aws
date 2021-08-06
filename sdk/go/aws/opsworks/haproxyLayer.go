@@ -419,7 +419,7 @@ type HaproxyLayerArrayInput interface {
 type HaproxyLayerArray []HaproxyLayerInput
 
 func (HaproxyLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HaproxyLayer)(nil))
+	return reflect.TypeOf((*[]*HaproxyLayer)(nil)).Elem()
 }
 
 func (i HaproxyLayerArray) ToHaproxyLayerArrayOutput() HaproxyLayerArrayOutput {
@@ -444,7 +444,7 @@ type HaproxyLayerMapInput interface {
 type HaproxyLayerMap map[string]HaproxyLayerInput
 
 func (HaproxyLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HaproxyLayer)(nil))
+	return reflect.TypeOf((*map[string]*HaproxyLayer)(nil)).Elem()
 }
 
 func (i HaproxyLayerMap) ToHaproxyLayerMapOutput() HaproxyLayerMapOutput {

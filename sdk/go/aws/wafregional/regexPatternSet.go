@@ -181,7 +181,7 @@ type RegexPatternSetArrayInput interface {
 type RegexPatternSetArray []RegexPatternSetInput
 
 func (RegexPatternSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegexPatternSet)(nil))
+	return reflect.TypeOf((*[]*RegexPatternSet)(nil)).Elem()
 }
 
 func (i RegexPatternSetArray) ToRegexPatternSetArrayOutput() RegexPatternSetArrayOutput {
@@ -206,7 +206,7 @@ type RegexPatternSetMapInput interface {
 type RegexPatternSetMap map[string]RegexPatternSetInput
 
 func (RegexPatternSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegexPatternSet)(nil))
+	return reflect.TypeOf((*map[string]*RegexPatternSet)(nil)).Elem()
 }
 
 func (i RegexPatternSetMap) ToRegexPatternSetMapOutput() RegexPatternSetMapOutput {

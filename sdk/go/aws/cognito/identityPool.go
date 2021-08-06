@@ -250,7 +250,7 @@ type IdentityPoolArrayInput interface {
 type IdentityPoolArray []IdentityPoolInput
 
 func (IdentityPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityPool)(nil))
+	return reflect.TypeOf((*[]*IdentityPool)(nil)).Elem()
 }
 
 func (i IdentityPoolArray) ToIdentityPoolArrayOutput() IdentityPoolArrayOutput {
@@ -275,7 +275,7 @@ type IdentityPoolMapInput interface {
 type IdentityPoolMap map[string]IdentityPoolInput
 
 func (IdentityPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityPool)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPool)(nil)).Elem()
 }
 
 func (i IdentityPoolMap) ToIdentityPoolMapOutput() IdentityPoolMapOutput {

@@ -166,7 +166,7 @@ type AdminAccountArrayInput interface {
 type AdminAccountArray []AdminAccountInput
 
 func (AdminAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AdminAccount)(nil))
+	return reflect.TypeOf((*[]*AdminAccount)(nil)).Elem()
 }
 
 func (i AdminAccountArray) ToAdminAccountArrayOutput() AdminAccountArrayOutput {
@@ -191,7 +191,7 @@ type AdminAccountMapInput interface {
 type AdminAccountMap map[string]AdminAccountInput
 
 func (AdminAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AdminAccount)(nil))
+	return reflect.TypeOf((*map[string]*AdminAccount)(nil)).Elem()
 }
 
 func (i AdminAccountMap) ToAdminAccountMapOutput() AdminAccountMapOutput {

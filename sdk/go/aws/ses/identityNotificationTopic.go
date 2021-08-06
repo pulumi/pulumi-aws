@@ -208,7 +208,7 @@ type IdentityNotificationTopicArrayInput interface {
 type IdentityNotificationTopicArray []IdentityNotificationTopicInput
 
 func (IdentityNotificationTopicArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((*[]*IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (i IdentityNotificationTopicArray) ToIdentityNotificationTopicArrayOutput() IdentityNotificationTopicArrayOutput {
@@ -233,7 +233,7 @@ type IdentityNotificationTopicMapInput interface {
 type IdentityNotificationTopicMap map[string]IdentityNotificationTopicInput
 
 func (IdentityNotificationTopicMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityNotificationTopic)(nil))
+	return reflect.TypeOf((*map[string]*IdentityNotificationTopic)(nil)).Elem()
 }
 
 func (i IdentityNotificationTopicMap) ToIdentityNotificationTopicMapOutput() IdentityNotificationTopicMapOutput {

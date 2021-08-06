@@ -293,7 +293,7 @@ type ScheduleArrayInput interface {
 type ScheduleArray []ScheduleInput
 
 func (ScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Schedule)(nil))
+	return reflect.TypeOf((*[]*Schedule)(nil)).Elem()
 }
 
 func (i ScheduleArray) ToScheduleArrayOutput() ScheduleArrayOutput {
@@ -318,7 +318,7 @@ type ScheduleMapInput interface {
 type ScheduleMap map[string]ScheduleInput
 
 func (ScheduleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Schedule)(nil))
+	return reflect.TypeOf((*map[string]*Schedule)(nil)).Elem()
 }
 
 func (i ScheduleMap) ToScheduleMapOutput() ScheduleMapOutput {

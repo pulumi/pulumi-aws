@@ -762,7 +762,7 @@ type BucketArrayInput interface {
 type BucketArray []BucketInput
 
 func (BucketArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Bucket)(nil))
+	return reflect.TypeOf((*[]*Bucket)(nil)).Elem()
 }
 
 func (i BucketArray) ToBucketArrayOutput() BucketArrayOutput {
@@ -787,7 +787,7 @@ type BucketMapInput interface {
 type BucketMap map[string]BucketInput
 
 func (BucketMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Bucket)(nil))
+	return reflect.TypeOf((*map[string]*Bucket)(nil)).Elem()
 }
 
 func (i BucketMap) ToBucketMapOutput() BucketMapOutput {

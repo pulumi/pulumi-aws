@@ -192,7 +192,7 @@ type ThingTypeArrayInput interface {
 type ThingTypeArray []ThingTypeInput
 
 func (ThingTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ThingType)(nil))
+	return reflect.TypeOf((*[]*ThingType)(nil)).Elem()
 }
 
 func (i ThingTypeArray) ToThingTypeArrayOutput() ThingTypeArrayOutput {
@@ -217,7 +217,7 @@ type ThingTypeMapInput interface {
 type ThingTypeMap map[string]ThingTypeInput
 
 func (ThingTypeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ThingType)(nil))
+	return reflect.TypeOf((*map[string]*ThingType)(nil)).Elem()
 }
 
 func (i ThingTypeMap) ToThingTypeMapOutput() ThingTypeMapOutput {

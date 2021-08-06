@@ -408,7 +408,7 @@ type TargetGroupArrayInput interface {
 type TargetGroupArray []TargetGroupInput
 
 func (TargetGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TargetGroup)(nil))
+	return reflect.TypeOf((*[]*TargetGroup)(nil)).Elem()
 }
 
 func (i TargetGroupArray) ToTargetGroupArrayOutput() TargetGroupArrayOutput {
@@ -433,7 +433,7 @@ type TargetGroupMapInput interface {
 type TargetGroupMap map[string]TargetGroupInput
 
 func (TargetGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TargetGroup)(nil))
+	return reflect.TypeOf((*map[string]*TargetGroup)(nil)).Elem()
 }
 
 func (i TargetGroupMap) ToTargetGroupMapOutput() TargetGroupMapOutput {

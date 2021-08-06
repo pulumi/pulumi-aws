@@ -294,7 +294,7 @@ type FeatureGroupArrayInput interface {
 type FeatureGroupArray []FeatureGroupInput
 
 func (FeatureGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FeatureGroup)(nil))
+	return reflect.TypeOf((*[]*FeatureGroup)(nil)).Elem()
 }
 
 func (i FeatureGroupArray) ToFeatureGroupArrayOutput() FeatureGroupArrayOutput {
@@ -319,7 +319,7 @@ type FeatureGroupMapInput interface {
 type FeatureGroupMap map[string]FeatureGroupInput
 
 func (FeatureGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FeatureGroup)(nil))
+	return reflect.TypeOf((*map[string]*FeatureGroup)(nil)).Elem()
 }
 
 func (i FeatureGroupMap) ToFeatureGroupMapOutput() FeatureGroupMapOutput {

@@ -233,7 +233,7 @@ type ProxyDefaultTargetGroupArrayInput interface {
 type ProxyDefaultTargetGroupArray []ProxyDefaultTargetGroupInput
 
 func (ProxyDefaultTargetGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProxyDefaultTargetGroup)(nil))
+	return reflect.TypeOf((*[]*ProxyDefaultTargetGroup)(nil)).Elem()
 }
 
 func (i ProxyDefaultTargetGroupArray) ToProxyDefaultTargetGroupArrayOutput() ProxyDefaultTargetGroupArrayOutput {
@@ -258,7 +258,7 @@ type ProxyDefaultTargetGroupMapInput interface {
 type ProxyDefaultTargetGroupMap map[string]ProxyDefaultTargetGroupInput
 
 func (ProxyDefaultTargetGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProxyDefaultTargetGroup)(nil))
+	return reflect.TypeOf((*map[string]*ProxyDefaultTargetGroup)(nil)).Elem()
 }
 
 func (i ProxyDefaultTargetGroupMap) ToProxyDefaultTargetGroupMapOutput() ProxyDefaultTargetGroupMapOutput {

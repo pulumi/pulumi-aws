@@ -475,16 +475,16 @@ class RuleGroup(pulumi.CustomResource):
                                         "addressDefinition": "124.1.1.5/32",
                                     }],
                                     "destinationPort": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
+                                        "fromPort": 443,
+                                        "toPort": 443,
                                     }],
                                     "protocols": [6],
                                     "source": [{
                                         "addressDefinition": "1.2.3.4/32",
                                     }],
                                     "sourcePort": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
+                                        "fromPort": 443,
+                                        "toPort": 443,
                                     }],
                                     "tcpFlag": [{
                                         "flags": ["SYN"],
@@ -678,16 +678,16 @@ class RuleGroup(pulumi.CustomResource):
                                         "addressDefinition": "124.1.1.5/32",
                                     }],
                                     "destinationPort": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
+                                        "fromPort": 443,
+                                        "toPort": 443,
                                     }],
                                     "protocols": [6],
                                     "source": [{
                                         "addressDefinition": "1.2.3.4/32",
                                     }],
                                     "sourcePort": [{
-                                        "from_port": 443,
-                                        "to_port": 443,
+                                        "fromPort": 443,
+                                        "toPort": 443,
                                     }],
                                     "tcpFlag": [{
                                         "flags": ["SYN"],

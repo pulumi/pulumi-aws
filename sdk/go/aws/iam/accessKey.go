@@ -269,7 +269,7 @@ type AccessKeyArrayInput interface {
 type AccessKeyArray []AccessKeyInput
 
 func (AccessKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccessKey)(nil))
+	return reflect.TypeOf((*[]*AccessKey)(nil)).Elem()
 }
 
 func (i AccessKeyArray) ToAccessKeyArrayOutput() AccessKeyArrayOutput {
@@ -294,7 +294,7 @@ type AccessKeyMapInput interface {
 type AccessKeyMap map[string]AccessKeyInput
 
 func (AccessKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccessKey)(nil))
+	return reflect.TypeOf((*map[string]*AccessKey)(nil)).Elem()
 }
 
 func (i AccessKeyMap) ToAccessKeyMapOutput() AccessKeyMapOutput {

@@ -204,7 +204,7 @@ type NetworkInterfaceAttachmentArrayInput interface {
 type NetworkInterfaceAttachmentArray []NetworkInterfaceAttachmentInput
 
 func (NetworkInterfaceAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkInterfaceAttachment)(nil))
+	return reflect.TypeOf((*[]*NetworkInterfaceAttachment)(nil)).Elem()
 }
 
 func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutput() NetworkInterfaceAttachmentArrayOutput {
@@ -229,7 +229,7 @@ type NetworkInterfaceAttachmentMapInput interface {
 type NetworkInterfaceAttachmentMap map[string]NetworkInterfaceAttachmentInput
 
 func (NetworkInterfaceAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkInterfaceAttachment)(nil))
+	return reflect.TypeOf((*map[string]*NetworkInterfaceAttachment)(nil)).Elem()
 }
 
 func (i NetworkInterfaceAttachmentMap) ToNetworkInterfaceAttachmentMapOutput() NetworkInterfaceAttachmentMapOutput {

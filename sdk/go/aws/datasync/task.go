@@ -295,7 +295,7 @@ type TaskArrayInput interface {
 type TaskArray []TaskInput
 
 func (TaskArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Task)(nil))
+	return reflect.TypeOf((*[]*Task)(nil)).Elem()
 }
 
 func (i TaskArray) ToTaskArrayOutput() TaskArrayOutput {
@@ -320,7 +320,7 @@ type TaskMapInput interface {
 type TaskMap map[string]TaskInput
 
 func (TaskMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Task)(nil))
+	return reflect.TypeOf((*map[string]*Task)(nil)).Elem()
 }
 
 func (i TaskMap) ToTaskMapOutput() TaskMapOutput {

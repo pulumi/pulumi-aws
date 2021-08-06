@@ -259,7 +259,7 @@ type RolePolicyArrayInput interface {
 type RolePolicyArray []RolePolicyInput
 
 func (RolePolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RolePolicy)(nil))
+	return reflect.TypeOf((*[]*RolePolicy)(nil)).Elem()
 }
 
 func (i RolePolicyArray) ToRolePolicyArrayOutput() RolePolicyArrayOutput {
@@ -284,7 +284,7 @@ type RolePolicyMapInput interface {
 type RolePolicyMap map[string]RolePolicyInput
 
 func (RolePolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RolePolicy)(nil))
+	return reflect.TypeOf((*map[string]*RolePolicy)(nil)).Elem()
 }
 
 func (i RolePolicyMap) ToRolePolicyMapOutput() RolePolicyMapOutput {

@@ -199,7 +199,7 @@ type ResolverDnsSecConfigArrayInput interface {
 type ResolverDnsSecConfigArray []ResolverDnsSecConfigInput
 
 func (ResolverDnsSecConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((*[]*ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (i ResolverDnsSecConfigArray) ToResolverDnsSecConfigArrayOutput() ResolverDnsSecConfigArrayOutput {
@@ -224,7 +224,7 @@ type ResolverDnsSecConfigMapInput interface {
 type ResolverDnsSecConfigMap map[string]ResolverDnsSecConfigInput
 
 func (ResolverDnsSecConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((*map[string]*ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (i ResolverDnsSecConfigMap) ToResolverDnsSecConfigMapOutput() ResolverDnsSecConfigMapOutput {

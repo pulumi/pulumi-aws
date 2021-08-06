@@ -229,7 +229,7 @@ type ResponseArrayInput interface {
 type ResponseArray []ResponseInput
 
 func (ResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Response)(nil))
+	return reflect.TypeOf((*[]*Response)(nil)).Elem()
 }
 
 func (i ResponseArray) ToResponseArrayOutput() ResponseArrayOutput {
@@ -254,7 +254,7 @@ type ResponseMapInput interface {
 type ResponseMap map[string]ResponseInput
 
 func (ResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Response)(nil))
+	return reflect.TypeOf((*map[string]*Response)(nil)).Elem()
 }
 
 func (i ResponseMap) ToResponseMapOutput() ResponseMapOutput {

@@ -223,7 +223,7 @@ type TagArrayInput interface {
 type TagArray []TagInput
 
 func (TagArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Tag)(nil))
+	return reflect.TypeOf((*[]*Tag)(nil)).Elem()
 }
 
 func (i TagArray) ToTagArrayOutput() TagArrayOutput {
@@ -248,7 +248,7 @@ type TagMapInput interface {
 type TagMap map[string]TagInput
 
 func (TagMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Tag)(nil))
+	return reflect.TypeOf((*map[string]*Tag)(nil)).Elem()
 }
 
 func (i TagMap) ToTagMapOutput() TagMapOutput {

@@ -284,7 +284,7 @@ type SnapshotCopyArrayInput interface {
 type SnapshotCopyArray []SnapshotCopyInput
 
 func (SnapshotCopyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnapshotCopy)(nil))
+	return reflect.TypeOf((*[]*SnapshotCopy)(nil)).Elem()
 }
 
 func (i SnapshotCopyArray) ToSnapshotCopyArrayOutput() SnapshotCopyArrayOutput {
@@ -309,7 +309,7 @@ type SnapshotCopyMapInput interface {
 type SnapshotCopyMap map[string]SnapshotCopyInput
 
 func (SnapshotCopyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnapshotCopy)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotCopy)(nil)).Elem()
 }
 
 func (i SnapshotCopyMap) ToSnapshotCopyMapOutput() SnapshotCopyMapOutput {

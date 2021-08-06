@@ -262,7 +262,7 @@ type SslNegotiationPolicyArrayInput interface {
 type SslNegotiationPolicyArray []SslNegotiationPolicyInput
 
 func (SslNegotiationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((*[]*SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (i SslNegotiationPolicyArray) ToSslNegotiationPolicyArrayOutput() SslNegotiationPolicyArrayOutput {
@@ -287,7 +287,7 @@ type SslNegotiationPolicyMapInput interface {
 type SslNegotiationPolicyMap map[string]SslNegotiationPolicyInput
 
 func (SslNegotiationPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SslNegotiationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*SslNegotiationPolicy)(nil)).Elem()
 }
 
 func (i SslNegotiationPolicyMap) ToSslNegotiationPolicyMapOutput() SslNegotiationPolicyMapOutput {

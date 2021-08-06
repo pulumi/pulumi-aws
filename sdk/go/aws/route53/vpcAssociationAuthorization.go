@@ -235,7 +235,7 @@ type VpcAssociationAuthorizationArrayInput interface {
 type VpcAssociationAuthorizationArray []VpcAssociationAuthorizationInput
 
 func (VpcAssociationAuthorizationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcAssociationAuthorization)(nil))
+	return reflect.TypeOf((*[]*VpcAssociationAuthorization)(nil)).Elem()
 }
 
 func (i VpcAssociationAuthorizationArray) ToVpcAssociationAuthorizationArrayOutput() VpcAssociationAuthorizationArrayOutput {
@@ -260,7 +260,7 @@ type VpcAssociationAuthorizationMapInput interface {
 type VpcAssociationAuthorizationMap map[string]VpcAssociationAuthorizationInput
 
 func (VpcAssociationAuthorizationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcAssociationAuthorization)(nil))
+	return reflect.TypeOf((*map[string]*VpcAssociationAuthorization)(nil)).Elem()
 }
 
 func (i VpcAssociationAuthorizationMap) ToVpcAssociationAuthorizationMapOutput() VpcAssociationAuthorizationMapOutput {

@@ -295,7 +295,7 @@ type ReplicationTaskArrayInput interface {
 type ReplicationTaskArray []ReplicationTaskInput
 
 func (ReplicationTaskArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicationTask)(nil))
+	return reflect.TypeOf((*[]*ReplicationTask)(nil)).Elem()
 }
 
 func (i ReplicationTaskArray) ToReplicationTaskArrayOutput() ReplicationTaskArrayOutput {
@@ -320,7 +320,7 @@ type ReplicationTaskMapInput interface {
 type ReplicationTaskMap map[string]ReplicationTaskInput
 
 func (ReplicationTaskMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicationTask)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationTask)(nil)).Elem()
 }
 
 func (i ReplicationTaskMap) ToReplicationTaskMapOutput() ReplicationTaskMapOutput {

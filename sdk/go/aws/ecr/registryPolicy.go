@@ -211,7 +211,7 @@ type RegistryPolicyArrayInput interface {
 type RegistryPolicyArray []RegistryPolicyInput
 
 func (RegistryPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegistryPolicy)(nil))
+	return reflect.TypeOf((*[]*RegistryPolicy)(nil)).Elem()
 }
 
 func (i RegistryPolicyArray) ToRegistryPolicyArrayOutput() RegistryPolicyArrayOutput {
@@ -236,7 +236,7 @@ type RegistryPolicyMapInput interface {
 type RegistryPolicyMap map[string]RegistryPolicyInput
 
 func (RegistryPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegistryPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RegistryPolicy)(nil)).Elem()
 }
 
 func (i RegistryPolicyMap) ToRegistryPolicyMapOutput() RegistryPolicyMapOutput {

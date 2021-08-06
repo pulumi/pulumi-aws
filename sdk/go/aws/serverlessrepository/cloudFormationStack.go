@@ -260,7 +260,7 @@ type CloudFormationStackArrayInput interface {
 type CloudFormationStackArray []CloudFormationStackInput
 
 func (CloudFormationStackArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CloudFormationStack)(nil))
+	return reflect.TypeOf((*[]*CloudFormationStack)(nil)).Elem()
 }
 
 func (i CloudFormationStackArray) ToCloudFormationStackArrayOutput() CloudFormationStackArrayOutput {
@@ -285,7 +285,7 @@ type CloudFormationStackMapInput interface {
 type CloudFormationStackMap map[string]CloudFormationStackInput
 
 func (CloudFormationStackMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CloudFormationStack)(nil))
+	return reflect.TypeOf((*map[string]*CloudFormationStack)(nil)).Elem()
 }
 
 func (i CloudFormationStackMap) ToCloudFormationStackMapOutput() CloudFormationStackMapOutput {

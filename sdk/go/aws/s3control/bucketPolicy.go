@@ -209,7 +209,7 @@ type BucketPolicyArrayInput interface {
 type BucketPolicyArray []BucketPolicyInput
 
 func (BucketPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketPolicy)(nil))
+	return reflect.TypeOf((*[]*BucketPolicy)(nil)).Elem()
 }
 
 func (i BucketPolicyArray) ToBucketPolicyArrayOutput() BucketPolicyArrayOutput {
@@ -234,7 +234,7 @@ type BucketPolicyMapInput interface {
 type BucketPolicyMap map[string]BucketPolicyInput
 
 func (BucketPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketPolicy)(nil))
+	return reflect.TypeOf((*map[string]*BucketPolicy)(nil)).Elem()
 }
 
 func (i BucketPolicyMap) ToBucketPolicyMapOutput() BucketPolicyMapOutput {

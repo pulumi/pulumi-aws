@@ -262,7 +262,7 @@ type ExternalKeyArrayInput interface {
 type ExternalKeyArray []ExternalKeyInput
 
 func (ExternalKeyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ExternalKey)(nil))
+	return reflect.TypeOf((*[]*ExternalKey)(nil)).Elem()
 }
 
 func (i ExternalKeyArray) ToExternalKeyArrayOutput() ExternalKeyArrayOutput {
@@ -287,7 +287,7 @@ type ExternalKeyMapInput interface {
 type ExternalKeyMap map[string]ExternalKeyInput
 
 func (ExternalKeyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ExternalKey)(nil))
+	return reflect.TypeOf((*map[string]*ExternalKey)(nil)).Elem()
 }
 
 func (i ExternalKeyMap) ToExternalKeyMapOutput() ExternalKeyMapOutput {

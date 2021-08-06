@@ -181,7 +181,7 @@ type RegionSettingsArrayInput interface {
 type RegionSettingsArray []RegionSettingsInput
 
 func (RegionSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RegionSettings)(nil))
+	return reflect.TypeOf((*[]*RegionSettings)(nil)).Elem()
 }
 
 func (i RegionSettingsArray) ToRegionSettingsArrayOutput() RegionSettingsArrayOutput {
@@ -206,7 +206,7 @@ type RegionSettingsMapInput interface {
 type RegionSettingsMap map[string]RegionSettingsInput
 
 func (RegionSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RegionSettings)(nil))
+	return reflect.TypeOf((*map[string]*RegionSettings)(nil)).Elem()
 }
 
 func (i RegionSettingsMap) ToRegionSettingsMapOutput() RegionSettingsMapOutput {

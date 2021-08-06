@@ -182,7 +182,7 @@ type VpnGatewayRoutePropagationArrayInput interface {
 type VpnGatewayRoutePropagationArray []VpnGatewayRoutePropagationInput
 
 func (VpnGatewayRoutePropagationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnGatewayRoutePropagation)(nil))
+	return reflect.TypeOf((*[]*VpnGatewayRoutePropagation)(nil)).Elem()
 }
 
 func (i VpnGatewayRoutePropagationArray) ToVpnGatewayRoutePropagationArrayOutput() VpnGatewayRoutePropagationArrayOutput {
@@ -207,7 +207,7 @@ type VpnGatewayRoutePropagationMapInput interface {
 type VpnGatewayRoutePropagationMap map[string]VpnGatewayRoutePropagationInput
 
 func (VpnGatewayRoutePropagationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnGatewayRoutePropagation)(nil))
+	return reflect.TypeOf((*map[string]*VpnGatewayRoutePropagation)(nil)).Elem()
 }
 
 func (i VpnGatewayRoutePropagationMap) ToVpnGatewayRoutePropagationMapOutput() VpnGatewayRoutePropagationMapOutput {

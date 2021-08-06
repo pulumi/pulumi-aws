@@ -266,7 +266,7 @@ type ConfigurationAggregatorArrayInput interface {
 type ConfigurationAggregatorArray []ConfigurationAggregatorInput
 
 func (ConfigurationAggregatorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((*[]*ConfigurationAggregator)(nil)).Elem()
 }
 
 func (i ConfigurationAggregatorArray) ToConfigurationAggregatorArrayOutput() ConfigurationAggregatorArrayOutput {
@@ -291,7 +291,7 @@ type ConfigurationAggregatorMapInput interface {
 type ConfigurationAggregatorMap map[string]ConfigurationAggregatorInput
 
 func (ConfigurationAggregatorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConfigurationAggregator)(nil))
+	return reflect.TypeOf((*map[string]*ConfigurationAggregator)(nil)).Elem()
 }
 
 func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutput() ConfigurationAggregatorMapOutput {

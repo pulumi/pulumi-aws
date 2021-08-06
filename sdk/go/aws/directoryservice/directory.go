@@ -466,7 +466,7 @@ type DirectoryArrayInput interface {
 type DirectoryArray []DirectoryInput
 
 func (DirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Directory)(nil))
+	return reflect.TypeOf((*[]*Directory)(nil)).Elem()
 }
 
 func (i DirectoryArray) ToDirectoryArrayOutput() DirectoryArrayOutput {
@@ -491,7 +491,7 @@ type DirectoryMapInput interface {
 type DirectoryMap map[string]DirectoryInput
 
 func (DirectoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Directory)(nil))
+	return reflect.TypeOf((*map[string]*Directory)(nil)).Elem()
 }
 
 func (i DirectoryMap) ToDirectoryMapOutput() DirectoryMapOutput {

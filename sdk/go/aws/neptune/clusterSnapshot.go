@@ -258,7 +258,7 @@ type ClusterSnapshotArrayInput interface {
 type ClusterSnapshotArray []ClusterSnapshotInput
 
 func (ClusterSnapshotArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClusterSnapshot)(nil))
+	return reflect.TypeOf((*[]*ClusterSnapshot)(nil)).Elem()
 }
 
 func (i ClusterSnapshotArray) ToClusterSnapshotArrayOutput() ClusterSnapshotArrayOutput {
@@ -283,7 +283,7 @@ type ClusterSnapshotMapInput interface {
 type ClusterSnapshotMap map[string]ClusterSnapshotInput
 
 func (ClusterSnapshotMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClusterSnapshot)(nil))
+	return reflect.TypeOf((*map[string]*ClusterSnapshot)(nil)).Elem()
 }
 
 func (i ClusterSnapshotMap) ToClusterSnapshotMapOutput() ClusterSnapshotMapOutput {

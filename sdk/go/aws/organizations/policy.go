@@ -230,7 +230,7 @@ type PolicyArrayInput interface {
 type PolicyArray []PolicyInput
 
 func (PolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Policy)(nil))
+	return reflect.TypeOf((*[]*Policy)(nil)).Elem()
 }
 
 func (i PolicyArray) ToPolicyArrayOutput() PolicyArrayOutput {
@@ -255,7 +255,7 @@ type PolicyMapInput interface {
 type PolicyMap map[string]PolicyInput
 
 func (PolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Policy)(nil))
+	return reflect.TypeOf((*map[string]*Policy)(nil)).Elem()
 }
 
 func (i PolicyMap) ToPolicyMapOutput() PolicyMapOutput {

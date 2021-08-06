@@ -421,7 +421,7 @@ type ReplicationInstanceArrayInput interface {
 type ReplicationInstanceArray []ReplicationInstanceInput
 
 func (ReplicationInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ReplicationInstance)(nil))
+	return reflect.TypeOf((*[]*ReplicationInstance)(nil)).Elem()
 }
 
 func (i ReplicationInstanceArray) ToReplicationInstanceArrayOutput() ReplicationInstanceArrayOutput {
@@ -446,7 +446,7 @@ type ReplicationInstanceMapInput interface {
 type ReplicationInstanceMap map[string]ReplicationInstanceInput
 
 func (ReplicationInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ReplicationInstance)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationInstance)(nil)).Elem()
 }
 
 func (i ReplicationInstanceMap) ToReplicationInstanceMapOutput() ReplicationInstanceMapOutput {

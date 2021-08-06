@@ -530,7 +530,7 @@ type EventSourceMappingArrayInput interface {
 type EventSourceMappingArray []EventSourceMappingInput
 
 func (EventSourceMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventSourceMapping)(nil))
+	return reflect.TypeOf((*[]*EventSourceMapping)(nil)).Elem()
 }
 
 func (i EventSourceMappingArray) ToEventSourceMappingArrayOutput() EventSourceMappingArrayOutput {
@@ -555,7 +555,7 @@ type EventSourceMappingMapInput interface {
 type EventSourceMappingMap map[string]EventSourceMappingInput
 
 func (EventSourceMappingMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventSourceMapping)(nil))
+	return reflect.TypeOf((*map[string]*EventSourceMapping)(nil)).Elem()
 }
 
 func (i EventSourceMappingMap) ToEventSourceMappingMapOutput() EventSourceMappingMapOutput {

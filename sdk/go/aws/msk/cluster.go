@@ -468,7 +468,7 @@ type ClusterArrayInput interface {
 type ClusterArray []ClusterInput
 
 func (ClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Cluster)(nil))
+	return reflect.TypeOf((*[]*Cluster)(nil)).Elem()
 }
 
 func (i ClusterArray) ToClusterArrayOutput() ClusterArrayOutput {
@@ -493,7 +493,7 @@ type ClusterMapInput interface {
 type ClusterMap map[string]ClusterInput
 
 func (ClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Cluster)(nil))
+	return reflect.TypeOf((*map[string]*Cluster)(nil)).Elem()
 }
 
 func (i ClusterMap) ToClusterMapOutput() ClusterMapOutput {

@@ -372,7 +372,7 @@ type AmiFromInstanceArrayInput interface {
 type AmiFromInstanceArray []AmiFromInstanceInput
 
 func (AmiFromInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AmiFromInstance)(nil))
+	return reflect.TypeOf((*[]*AmiFromInstance)(nil)).Elem()
 }
 
 func (i AmiFromInstanceArray) ToAmiFromInstanceArrayOutput() AmiFromInstanceArrayOutput {
@@ -397,7 +397,7 @@ type AmiFromInstanceMapInput interface {
 type AmiFromInstanceMap map[string]AmiFromInstanceInput
 
 func (AmiFromInstanceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AmiFromInstance)(nil))
+	return reflect.TypeOf((*map[string]*AmiFromInstance)(nil)).Elem()
 }
 
 func (i AmiFromInstanceMap) ToAmiFromInstanceMapOutput() AmiFromInstanceMapOutput {

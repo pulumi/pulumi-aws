@@ -275,10 +275,10 @@ class Pipeline(pulumi.CustomResource):
             artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
                 type="S3",
-                encryption_key={
-                    "id": s3kmskey.arn,
-                    "type": "KMS",
-                },
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=s3kmskey.arn,
+                    type="KMS",
+                ),
             ),
             stages=[
                 aws.codepipeline.PipelineStageArgs(
@@ -423,10 +423,10 @@ class Pipeline(pulumi.CustomResource):
             artifact_store=aws.codepipeline.PipelineArtifactStoreArgs(
                 location=codepipeline_bucket.bucket,
                 type="S3",
-                encryption_key={
-                    "id": s3kmskey.arn,
-                    "type": "KMS",
-                },
+                encryption_key=aws.codepipeline.PipelineArtifactStoreEncryptionKeyArgs(
+                    id=s3kmskey.arn,
+                    type="KMS",
+                ),
             ),
             stages=[
                 aws.codepipeline.PipelineStageArgs(

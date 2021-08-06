@@ -228,7 +228,7 @@ type HostedPublicVirtualInterfaceAccepterArrayInput interface {
 type HostedPublicVirtualInterfaceAccepterArray []HostedPublicVirtualInterfaceAccepterInput
 
 func (HostedPublicVirtualInterfaceAccepterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HostedPublicVirtualInterfaceAccepter)(nil))
+	return reflect.TypeOf((*[]*HostedPublicVirtualInterfaceAccepter)(nil)).Elem()
 }
 
 func (i HostedPublicVirtualInterfaceAccepterArray) ToHostedPublicVirtualInterfaceAccepterArrayOutput() HostedPublicVirtualInterfaceAccepterArrayOutput {
@@ -253,7 +253,7 @@ type HostedPublicVirtualInterfaceAccepterMapInput interface {
 type HostedPublicVirtualInterfaceAccepterMap map[string]HostedPublicVirtualInterfaceAccepterInput
 
 func (HostedPublicVirtualInterfaceAccepterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HostedPublicVirtualInterfaceAccepter)(nil))
+	return reflect.TypeOf((*map[string]*HostedPublicVirtualInterfaceAccepter)(nil)).Elem()
 }
 
 func (i HostedPublicVirtualInterfaceAccepterMap) ToHostedPublicVirtualInterfaceAccepterMapOutput() HostedPublicVirtualInterfaceAccepterMapOutput {

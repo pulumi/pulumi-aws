@@ -212,7 +212,7 @@ type IdentityProviderConfigArrayInput interface {
 type IdentityProviderConfigArray []IdentityProviderConfigInput
 
 func (IdentityProviderConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityProviderConfig)(nil))
+	return reflect.TypeOf((*[]*IdentityProviderConfig)(nil)).Elem()
 }
 
 func (i IdentityProviderConfigArray) ToIdentityProviderConfigArrayOutput() IdentityProviderConfigArrayOutput {
@@ -237,7 +237,7 @@ type IdentityProviderConfigMapInput interface {
 type IdentityProviderConfigMap map[string]IdentityProviderConfigInput
 
 func (IdentityProviderConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityProviderConfig)(nil))
+	return reflect.TypeOf((*map[string]*IdentityProviderConfig)(nil)).Elem()
 }
 
 func (i IdentityProviderConfigMap) ToIdentityProviderConfigMapOutput() IdentityProviderConfigMapOutput {

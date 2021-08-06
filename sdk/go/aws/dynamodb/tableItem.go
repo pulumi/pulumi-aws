@@ -230,7 +230,7 @@ type TableItemArrayInput interface {
 type TableItemArray []TableItemInput
 
 func (TableItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TableItem)(nil))
+	return reflect.TypeOf((*[]*TableItem)(nil)).Elem()
 }
 
 func (i TableItemArray) ToTableItemArrayOutput() TableItemArrayOutput {
@@ -255,7 +255,7 @@ type TableItemMapInput interface {
 type TableItemMap map[string]TableItemInput
 
 func (TableItemMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TableItem)(nil))
+	return reflect.TypeOf((*map[string]*TableItem)(nil)).Elem()
 }
 
 func (i TableItemMap) ToTableItemMapOutput() TableItemMapOutput {

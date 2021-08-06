@@ -244,7 +244,7 @@ type ApnsSandboxChannelArrayInput interface {
 type ApnsSandboxChannelArray []ApnsSandboxChannelInput
 
 func (ApnsSandboxChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApnsSandboxChannel)(nil))
+	return reflect.TypeOf((*[]*ApnsSandboxChannel)(nil)).Elem()
 }
 
 func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutput() ApnsSandboxChannelArrayOutput {
@@ -269,7 +269,7 @@ type ApnsSandboxChannelMapInput interface {
 type ApnsSandboxChannelMap map[string]ApnsSandboxChannelInput
 
 func (ApnsSandboxChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApnsSandboxChannel)(nil))
+	return reflect.TypeOf((*map[string]*ApnsSandboxChannel)(nil)).Elem()
 }
 
 func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutput() ApnsSandboxChannelMapOutput {

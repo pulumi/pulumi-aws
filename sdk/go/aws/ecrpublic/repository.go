@@ -184,7 +184,7 @@ type RepositoryArrayInput interface {
 type RepositoryArray []RepositoryInput
 
 func (RepositoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Repository)(nil))
+	return reflect.TypeOf((*[]*Repository)(nil)).Elem()
 }
 
 func (i RepositoryArray) ToRepositoryArrayOutput() RepositoryArrayOutput {
@@ -209,7 +209,7 @@ type RepositoryMapInput interface {
 type RepositoryMap map[string]RepositoryInput
 
 func (RepositoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Repository)(nil))
+	return reflect.TypeOf((*map[string]*Repository)(nil)).Elem()
 }
 
 func (i RepositoryMap) ToRepositoryMapOutput() RepositoryMapOutput {

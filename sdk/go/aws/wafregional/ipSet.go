@@ -193,7 +193,7 @@ type IpSetArrayInput interface {
 type IpSetArray []IpSetInput
 
 func (IpSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IpSet)(nil))
+	return reflect.TypeOf((*[]*IpSet)(nil)).Elem()
 }
 
 func (i IpSetArray) ToIpSetArrayOutput() IpSetArrayOutput {
@@ -218,7 +218,7 @@ type IpSetMapInput interface {
 type IpSetMap map[string]IpSetInput
 
 func (IpSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IpSet)(nil))
+	return reflect.TypeOf((*map[string]*IpSet)(nil)).Elem()
 }
 
 func (i IpSetMap) ToIpSetMapOutput() IpSetMapOutput {

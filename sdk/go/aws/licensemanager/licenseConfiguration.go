@@ -276,7 +276,7 @@ type LicenseConfigurationArrayInput interface {
 type LicenseConfigurationArray []LicenseConfigurationInput
 
 func (LicenseConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LicenseConfiguration)(nil))
+	return reflect.TypeOf((*[]*LicenseConfiguration)(nil)).Elem()
 }
 
 func (i LicenseConfigurationArray) ToLicenseConfigurationArrayOutput() LicenseConfigurationArrayOutput {
@@ -301,7 +301,7 @@ type LicenseConfigurationMapInput interface {
 type LicenseConfigurationMap map[string]LicenseConfigurationInput
 
 func (LicenseConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LicenseConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*LicenseConfiguration)(nil)).Elem()
 }
 
 func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutput() LicenseConfigurationMapOutput {

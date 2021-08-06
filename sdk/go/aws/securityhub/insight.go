@@ -365,7 +365,7 @@ type InsightArrayInput interface {
 type InsightArray []InsightInput
 
 func (InsightArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Insight)(nil))
+	return reflect.TypeOf((*[]*Insight)(nil)).Elem()
 }
 
 func (i InsightArray) ToInsightArrayOutput() InsightArrayOutput {
@@ -390,7 +390,7 @@ type InsightMapInput interface {
 type InsightMap map[string]InsightInput
 
 func (InsightMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Insight)(nil))
+	return reflect.TypeOf((*map[string]*Insight)(nil)).Elem()
 }
 
 func (i InsightMap) ToInsightMapOutput() InsightMapOutput {

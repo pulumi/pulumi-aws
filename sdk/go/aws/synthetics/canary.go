@@ -383,7 +383,7 @@ type CanaryArrayInput interface {
 type CanaryArray []CanaryInput
 
 func (CanaryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Canary)(nil))
+	return reflect.TypeOf((*[]*Canary)(nil)).Elem()
 }
 
 func (i CanaryArray) ToCanaryArrayOutput() CanaryArrayOutput {
@@ -408,7 +408,7 @@ type CanaryMapInput interface {
 type CanaryMap map[string]CanaryInput
 
 func (CanaryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Canary)(nil))
+	return reflect.TypeOf((*map[string]*Canary)(nil)).Elem()
 }
 
 func (i CanaryMap) ToCanaryMapOutput() CanaryMapOutput {

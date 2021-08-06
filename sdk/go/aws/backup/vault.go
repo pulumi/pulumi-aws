@@ -210,7 +210,7 @@ type VaultArrayInput interface {
 type VaultArray []VaultInput
 
 func (VaultArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Vault)(nil))
+	return reflect.TypeOf((*[]*Vault)(nil)).Elem()
 }
 
 func (i VaultArray) ToVaultArrayOutput() VaultArrayOutput {
@@ -235,7 +235,7 @@ type VaultMapInput interface {
 type VaultMap map[string]VaultInput
 
 func (VaultMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Vault)(nil))
+	return reflect.TypeOf((*map[string]*Vault)(nil)).Elem()
 }
 
 func (i VaultMap) ToVaultMapOutput() VaultMapOutput {

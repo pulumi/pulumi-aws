@@ -209,10 +209,10 @@ class EventConnection(pulumi.CustomResource):
 
         test = aws.cloudwatch.EventConnection("test",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key={
-                    "key": "x-signature",
-                    "value": "1234",
-                },
+                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
+                    key="x-signature",
+                    value="1234",
+                ),
             ),
             authorization_type="API_KEY",
             description="A connection description")
@@ -345,10 +345,10 @@ class EventConnection(pulumi.CustomResource):
 
         test = aws.cloudwatch.EventConnection("test",
             auth_parameters=aws.cloudwatch.EventConnectionAuthParametersArgs(
-                api_key={
-                    "key": "x-signature",
-                    "value": "1234",
-                },
+                api_key=aws.cloudwatch.EventConnectionAuthParametersApiKeyArgs(
+                    key="x-signature",
+                    value="1234",
+                ),
             ),
             authorization_type="API_KEY",
             description="A connection description")

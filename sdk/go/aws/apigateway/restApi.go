@@ -289,7 +289,7 @@ type RestApiArrayInput interface {
 type RestApiArray []RestApiInput
 
 func (RestApiArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RestApi)(nil))
+	return reflect.TypeOf((*[]*RestApi)(nil)).Elem()
 }
 
 func (i RestApiArray) ToRestApiArrayOutput() RestApiArrayOutput {
@@ -314,7 +314,7 @@ type RestApiMapInput interface {
 type RestApiMap map[string]RestApiInput
 
 func (RestApiMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RestApi)(nil))
+	return reflect.TypeOf((*map[string]*RestApi)(nil)).Elem()
 }
 
 func (i RestApiMap) ToRestApiMapOutput() RestApiMapOutput {

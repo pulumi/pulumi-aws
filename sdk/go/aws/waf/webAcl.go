@@ -320,7 +320,7 @@ type WebAclArrayInput interface {
 type WebAclArray []WebAclInput
 
 func (WebAclArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebAcl)(nil))
+	return reflect.TypeOf((*[]*WebAcl)(nil)).Elem()
 }
 
 func (i WebAclArray) ToWebAclArrayOutput() WebAclArrayOutput {
@@ -345,7 +345,7 @@ type WebAclMapInput interface {
 type WebAclMap map[string]WebAclInput
 
 func (WebAclMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebAcl)(nil))
+	return reflect.TypeOf((*map[string]*WebAcl)(nil)).Elem()
 }
 
 func (i WebAclMap) ToWebAclMapOutput() WebAclMapOutput {

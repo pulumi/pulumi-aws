@@ -319,7 +319,7 @@ type InventoryArrayInput interface {
 type InventoryArray []InventoryInput
 
 func (InventoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Inventory)(nil))
+	return reflect.TypeOf((*[]*Inventory)(nil)).Elem()
 }
 
 func (i InventoryArray) ToInventoryArrayOutput() InventoryArrayOutput {
@@ -344,7 +344,7 @@ type InventoryMapInput interface {
 type InventoryMap map[string]InventoryInput
 
 func (InventoryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Inventory)(nil))
+	return reflect.TypeOf((*map[string]*Inventory)(nil)).Elem()
 }
 
 func (i InventoryMap) ToInventoryMapOutput() InventoryMapOutput {

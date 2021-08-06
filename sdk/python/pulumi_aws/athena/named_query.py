@@ -210,10 +210,10 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
             result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration={
-                    "encryptionOption": "SSE_KMS",
-                    "kms_key_arn": test_key.arn,
-                },
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                    encryption_option="SSE_KMS",
+                    kms_key_arn=test_key.arn,
+                ),
             ),
         ))
         hoge_database = aws.athena.Database("hogeDatabase",
@@ -262,10 +262,10 @@ class NamedQuery(pulumi.CustomResource):
             description="Athena KMS Key")
         test_workgroup = aws.athena.Workgroup("testWorkgroup", configuration=aws.athena.WorkgroupConfigurationArgs(
             result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
-                encryption_configuration={
-                    "encryptionOption": "SSE_KMS",
-                    "kms_key_arn": test_key.arn,
-                },
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                    encryption_option="SSE_KMS",
+                    kms_key_arn=test_key.arn,
+                ),
             ),
         ))
         hoge_database = aws.athena.Database("hogeDatabase",

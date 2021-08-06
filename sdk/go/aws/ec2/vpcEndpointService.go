@@ -316,7 +316,7 @@ type VpcEndpointServiceArrayInput interface {
 type VpcEndpointServiceArray []VpcEndpointServiceInput
 
 func (VpcEndpointServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpointService)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointService)(nil)).Elem()
 }
 
 func (i VpcEndpointServiceArray) ToVpcEndpointServiceArrayOutput() VpcEndpointServiceArrayOutput {
@@ -341,7 +341,7 @@ type VpcEndpointServiceMapInput interface {
 type VpcEndpointServiceMap map[string]VpcEndpointServiceInput
 
 func (VpcEndpointServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpointService)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointService)(nil)).Elem()
 }
 
 func (i VpcEndpointServiceMap) ToVpcEndpointServiceMapOutput() VpcEndpointServiceMapOutput {

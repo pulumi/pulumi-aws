@@ -196,7 +196,7 @@ type LogDestinationPolicyArrayInput interface {
 type LogDestinationPolicyArray []LogDestinationPolicyInput
 
 func (LogDestinationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogDestinationPolicy)(nil))
+	return reflect.TypeOf((*[]*LogDestinationPolicy)(nil)).Elem()
 }
 
 func (i LogDestinationPolicyArray) ToLogDestinationPolicyArrayOutput() LogDestinationPolicyArrayOutput {
@@ -221,7 +221,7 @@ type LogDestinationPolicyMapInput interface {
 type LogDestinationPolicyMap map[string]LogDestinationPolicyInput
 
 func (LogDestinationPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogDestinationPolicy)(nil))
+	return reflect.TypeOf((*map[string]*LogDestinationPolicy)(nil)).Elem()
 }
 
 func (i LogDestinationPolicyMap) ToLogDestinationPolicyMapOutput() LogDestinationPolicyMapOutput {

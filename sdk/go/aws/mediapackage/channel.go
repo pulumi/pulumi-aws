@@ -218,7 +218,7 @@ type ChannelArrayInput interface {
 type ChannelArray []ChannelInput
 
 func (ChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Channel)(nil))
+	return reflect.TypeOf((*[]*Channel)(nil)).Elem()
 }
 
 func (i ChannelArray) ToChannelArrayOutput() ChannelArrayOutput {
@@ -243,7 +243,7 @@ type ChannelMapInput interface {
 type ChannelMap map[string]ChannelInput
 
 func (ChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Channel)(nil))
+	return reflect.TypeOf((*map[string]*Channel)(nil)).Elem()
 }
 
 func (i ChannelMap) ToChannelMapOutput() ChannelMapOutput {

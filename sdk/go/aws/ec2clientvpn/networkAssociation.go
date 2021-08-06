@@ -243,7 +243,7 @@ type NetworkAssociationArrayInput interface {
 type NetworkAssociationArray []NetworkAssociationInput
 
 func (NetworkAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkAssociation)(nil))
+	return reflect.TypeOf((*[]*NetworkAssociation)(nil)).Elem()
 }
 
 func (i NetworkAssociationArray) ToNetworkAssociationArrayOutput() NetworkAssociationArrayOutput {
@@ -268,7 +268,7 @@ type NetworkAssociationMapInput interface {
 type NetworkAssociationMap map[string]NetworkAssociationInput
 
 func (NetworkAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkAssociation)(nil))
+	return reflect.TypeOf((*map[string]*NetworkAssociation)(nil)).Elem()
 }
 
 func (i NetworkAssociationMap) ToNetworkAssociationMapOutput() NetworkAssociationMapOutput {

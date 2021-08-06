@@ -195,7 +195,7 @@ type VpcIpv4CidrBlockAssociationArrayInput interface {
 type VpcIpv4CidrBlockAssociationArray []VpcIpv4CidrBlockAssociationInput
 
 func (VpcIpv4CidrBlockAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((*[]*VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (i VpcIpv4CidrBlockAssociationArray) ToVpcIpv4CidrBlockAssociationArrayOutput() VpcIpv4CidrBlockAssociationArrayOutput {
@@ -220,7 +220,7 @@ type VpcIpv4CidrBlockAssociationMapInput interface {
 type VpcIpv4CidrBlockAssociationMap map[string]VpcIpv4CidrBlockAssociationInput
 
 func (VpcIpv4CidrBlockAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcIpv4CidrBlockAssociation)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpv4CidrBlockAssociation)(nil)).Elem()
 }
 
 func (i VpcIpv4CidrBlockAssociationMap) ToVpcIpv4CidrBlockAssociationMapOutput() VpcIpv4CidrBlockAssociationMapOutput {

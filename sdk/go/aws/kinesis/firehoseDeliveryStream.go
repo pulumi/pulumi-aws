@@ -636,7 +636,7 @@ type FirehoseDeliveryStreamArrayInput interface {
 type FirehoseDeliveryStreamArray []FirehoseDeliveryStreamInput
 
 func (FirehoseDeliveryStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FirehoseDeliveryStream)(nil))
+	return reflect.TypeOf((*[]*FirehoseDeliveryStream)(nil)).Elem()
 }
 
 func (i FirehoseDeliveryStreamArray) ToFirehoseDeliveryStreamArrayOutput() FirehoseDeliveryStreamArrayOutput {
@@ -661,7 +661,7 @@ type FirehoseDeliveryStreamMapInput interface {
 type FirehoseDeliveryStreamMap map[string]FirehoseDeliveryStreamInput
 
 func (FirehoseDeliveryStreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FirehoseDeliveryStream)(nil))
+	return reflect.TypeOf((*map[string]*FirehoseDeliveryStream)(nil)).Elem()
 }
 
 func (i FirehoseDeliveryStreamMap) ToFirehoseDeliveryStreamMapOutput() FirehoseDeliveryStreamMapOutput {

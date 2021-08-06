@@ -227,7 +227,7 @@ type EventStreamArrayInput interface {
 type EventStreamArray []EventStreamInput
 
 func (EventStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventStream)(nil))
+	return reflect.TypeOf((*[]*EventStream)(nil)).Elem()
 }
 
 func (i EventStreamArray) ToEventStreamArrayOutput() EventStreamArrayOutput {
@@ -252,7 +252,7 @@ type EventStreamMapInput interface {
 type EventStreamMap map[string]EventStreamInput
 
 func (EventStreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventStream)(nil))
+	return reflect.TypeOf((*map[string]*EventStream)(nil)).Elem()
 }
 
 func (i EventStreamMap) ToEventStreamMapOutput() EventStreamMapOutput {

@@ -190,7 +190,7 @@ type VpcDhcpOptionsAssociationArrayInput interface {
 type VpcDhcpOptionsAssociationArray []VpcDhcpOptionsAssociationInput
 
 func (VpcDhcpOptionsAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcDhcpOptionsAssociation)(nil))
+	return reflect.TypeOf((*[]*VpcDhcpOptionsAssociation)(nil)).Elem()
 }
 
 func (i VpcDhcpOptionsAssociationArray) ToVpcDhcpOptionsAssociationArrayOutput() VpcDhcpOptionsAssociationArrayOutput {
@@ -215,7 +215,7 @@ type VpcDhcpOptionsAssociationMapInput interface {
 type VpcDhcpOptionsAssociationMap map[string]VpcDhcpOptionsAssociationInput
 
 func (VpcDhcpOptionsAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcDhcpOptionsAssociation)(nil))
+	return reflect.TypeOf((*map[string]*VpcDhcpOptionsAssociation)(nil)).Elem()
 }
 
 func (i VpcDhcpOptionsAssociationMap) ToVpcDhcpOptionsAssociationMapOutput() VpcDhcpOptionsAssociationMapOutput {

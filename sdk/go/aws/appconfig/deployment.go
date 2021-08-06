@@ -274,7 +274,7 @@ type DeploymentArrayInput interface {
 type DeploymentArray []DeploymentInput
 
 func (DeploymentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Deployment)(nil))
+	return reflect.TypeOf((*[]*Deployment)(nil)).Elem()
 }
 
 func (i DeploymentArray) ToDeploymentArrayOutput() DeploymentArrayOutput {
@@ -299,7 +299,7 @@ type DeploymentMapInput interface {
 type DeploymentMap map[string]DeploymentInput
 
 func (DeploymentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Deployment)(nil))
+	return reflect.TypeOf((*map[string]*Deployment)(nil)).Elem()
 }
 
 func (i DeploymentMap) ToDeploymentMapOutput() DeploymentMapOutput {

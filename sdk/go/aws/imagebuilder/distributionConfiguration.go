@@ -245,7 +245,7 @@ type DistributionConfigurationArrayInput interface {
 type DistributionConfigurationArray []DistributionConfigurationInput
 
 func (DistributionConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DistributionConfiguration)(nil))
+	return reflect.TypeOf((*[]*DistributionConfiguration)(nil)).Elem()
 }
 
 func (i DistributionConfigurationArray) ToDistributionConfigurationArrayOutput() DistributionConfigurationArrayOutput {
@@ -270,7 +270,7 @@ type DistributionConfigurationMapInput interface {
 type DistributionConfigurationMap map[string]DistributionConfigurationInput
 
 func (DistributionConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DistributionConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*DistributionConfiguration)(nil)).Elem()
 }
 
 func (i DistributionConfigurationMap) ToDistributionConfigurationMapOutput() DistributionConfigurationMapOutput {

@@ -322,7 +322,7 @@ type VpcPeeringConnectionAccepterArrayInput interface {
 type VpcPeeringConnectionAccepterArray []VpcPeeringConnectionAccepterInput
 
 func (VpcPeeringConnectionAccepterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((*[]*VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOutput() VpcPeeringConnectionAccepterArrayOutput {
@@ -347,7 +347,7 @@ type VpcPeeringConnectionAccepterMapInput interface {
 type VpcPeeringConnectionAccepterMap map[string]VpcPeeringConnectionAccepterInput
 
 func (VpcPeeringConnectionAccepterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcPeeringConnectionAccepter)(nil))
+	return reflect.TypeOf((*map[string]*VpcPeeringConnectionAccepter)(nil)).Elem()
 }
 
 func (i VpcPeeringConnectionAccepterMap) ToVpcPeeringConnectionAccepterMapOutput() VpcPeeringConnectionAccepterMapOutput {

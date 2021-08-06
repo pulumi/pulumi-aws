@@ -279,7 +279,7 @@ type VolumeArrayInput interface {
 type VolumeArray []VolumeInput
 
 func (VolumeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Volume)(nil))
+	return reflect.TypeOf((*[]*Volume)(nil)).Elem()
 }
 
 func (i VolumeArray) ToVolumeArrayOutput() VolumeArrayOutput {
@@ -304,7 +304,7 @@ type VolumeMapInput interface {
 type VolumeMap map[string]VolumeInput
 
 func (VolumeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Volume)(nil))
+	return reflect.TypeOf((*map[string]*Volume)(nil)).Elem()
 }
 
 func (i VolumeMap) ToVolumeMapOutput() VolumeMapOutput {

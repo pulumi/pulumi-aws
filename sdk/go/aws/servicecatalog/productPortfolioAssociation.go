@@ -207,7 +207,7 @@ type ProductPortfolioAssociationArrayInput interface {
 type ProductPortfolioAssociationArray []ProductPortfolioAssociationInput
 
 func (ProductPortfolioAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((*[]*ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (i ProductPortfolioAssociationArray) ToProductPortfolioAssociationArrayOutput() ProductPortfolioAssociationArrayOutput {
@@ -232,7 +232,7 @@ type ProductPortfolioAssociationMapInput interface {
 type ProductPortfolioAssociationMap map[string]ProductPortfolioAssociationInput
 
 func (ProductPortfolioAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProductPortfolioAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ProductPortfolioAssociation)(nil)).Elem()
 }
 
 func (i ProductPortfolioAssociationMap) ToProductPortfolioAssociationMapOutput() ProductPortfolioAssociationMapOutput {

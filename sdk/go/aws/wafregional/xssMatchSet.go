@@ -191,7 +191,7 @@ type XssMatchSetArrayInput interface {
 type XssMatchSetArray []XssMatchSetInput
 
 func (XssMatchSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*XssMatchSet)(nil))
+	return reflect.TypeOf((*[]*XssMatchSet)(nil)).Elem()
 }
 
 func (i XssMatchSetArray) ToXssMatchSetArrayOutput() XssMatchSetArrayOutput {
@@ -216,7 +216,7 @@ type XssMatchSetMapInput interface {
 type XssMatchSetMap map[string]XssMatchSetInput
 
 func (XssMatchSetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*XssMatchSet)(nil))
+	return reflect.TypeOf((*map[string]*XssMatchSet)(nil)).Elem()
 }
 
 func (i XssMatchSetMap) ToXssMatchSetMapOutput() XssMatchSetMapOutput {

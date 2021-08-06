@@ -281,7 +281,7 @@ type LocationSmbArrayInput interface {
 type LocationSmbArray []LocationSmbInput
 
 func (LocationSmbArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LocationSmb)(nil))
+	return reflect.TypeOf((*[]*LocationSmb)(nil)).Elem()
 }
 
 func (i LocationSmbArray) ToLocationSmbArrayOutput() LocationSmbArrayOutput {
@@ -306,7 +306,7 @@ type LocationSmbMapInput interface {
 type LocationSmbMap map[string]LocationSmbInput
 
 func (LocationSmbMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LocationSmb)(nil))
+	return reflect.TypeOf((*map[string]*LocationSmb)(nil)).Elem()
 }
 
 func (i LocationSmbMap) ToLocationSmbMapOutput() LocationSmbMapOutput {

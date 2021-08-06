@@ -247,7 +247,7 @@ type EventPermissionArrayInput interface {
 type EventPermissionArray []EventPermissionInput
 
 func (EventPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventPermission)(nil))
+	return reflect.TypeOf((*[]*EventPermission)(nil)).Elem()
 }
 
 func (i EventPermissionArray) ToEventPermissionArrayOutput() EventPermissionArrayOutput {
@@ -272,7 +272,7 @@ type EventPermissionMapInput interface {
 type EventPermissionMap map[string]EventPermissionInput
 
 func (EventPermissionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventPermission)(nil))
+	return reflect.TypeOf((*map[string]*EventPermission)(nil)).Elem()
 }
 
 func (i EventPermissionMap) ToEventPermissionMapOutput() EventPermissionMapOutput {

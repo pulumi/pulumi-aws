@@ -241,7 +241,7 @@ type IdentityPoolRoleAttachmentArrayInput interface {
 type IdentityPoolRoleAttachmentArray []IdentityPoolRoleAttachmentInput
 
 func (IdentityPoolRoleAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((*[]*IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (i IdentityPoolRoleAttachmentArray) ToIdentityPoolRoleAttachmentArrayOutput() IdentityPoolRoleAttachmentArrayOutput {
@@ -266,7 +266,7 @@ type IdentityPoolRoleAttachmentMapInput interface {
 type IdentityPoolRoleAttachmentMap map[string]IdentityPoolRoleAttachmentInput
 
 func (IdentityPoolRoleAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IdentityPoolRoleAttachment)(nil))
+	return reflect.TypeOf((*map[string]*IdentityPoolRoleAttachment)(nil)).Elem()
 }
 
 func (i IdentityPoolRoleAttachmentMap) ToIdentityPoolRoleAttachmentMapOutput() IdentityPoolRoleAttachmentMapOutput {

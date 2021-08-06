@@ -210,7 +210,7 @@ type GroupMembershipArrayInput interface {
 type GroupMembershipArray []GroupMembershipInput
 
 func (GroupMembershipArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GroupMembership)(nil))
+	return reflect.TypeOf((*[]*GroupMembership)(nil)).Elem()
 }
 
 func (i GroupMembershipArray) ToGroupMembershipArrayOutput() GroupMembershipArrayOutput {
@@ -235,7 +235,7 @@ type GroupMembershipMapInput interface {
 type GroupMembershipMap map[string]GroupMembershipInput
 
 func (GroupMembershipMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GroupMembership)(nil))
+	return reflect.TypeOf((*map[string]*GroupMembership)(nil)).Elem()
 }
 
 func (i GroupMembershipMap) ToGroupMembershipMapOutput() GroupMembershipMapOutput {

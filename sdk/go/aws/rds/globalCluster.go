@@ -444,7 +444,7 @@ type GlobalClusterArrayInput interface {
 type GlobalClusterArray []GlobalClusterInput
 
 func (GlobalClusterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GlobalCluster)(nil))
+	return reflect.TypeOf((*[]*GlobalCluster)(nil)).Elem()
 }
 
 func (i GlobalClusterArray) ToGlobalClusterArrayOutput() GlobalClusterArrayOutput {
@@ -469,7 +469,7 @@ type GlobalClusterMapInput interface {
 type GlobalClusterMap map[string]GlobalClusterInput
 
 func (GlobalClusterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GlobalCluster)(nil))
+	return reflect.TypeOf((*map[string]*GlobalCluster)(nil)).Elem()
 }
 
 func (i GlobalClusterMap) ToGlobalClusterMapOutput() GlobalClusterMapOutput {

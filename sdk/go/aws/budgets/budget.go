@@ -446,7 +446,7 @@ type BudgetArrayInput interface {
 type BudgetArray []BudgetInput
 
 func (BudgetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Budget)(nil))
+	return reflect.TypeOf((*[]*Budget)(nil)).Elem()
 }
 
 func (i BudgetArray) ToBudgetArrayOutput() BudgetArrayOutput {
@@ -471,7 +471,7 @@ type BudgetMapInput interface {
 type BudgetMap map[string]BudgetInput
 
 func (BudgetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Budget)(nil))
+	return reflect.TypeOf((*map[string]*Budget)(nil)).Elem()
 }
 
 func (i BudgetMap) ToBudgetMapOutput() BudgetMapOutput {

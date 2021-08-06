@@ -483,7 +483,7 @@ type BrokerArrayInput interface {
 type BrokerArray []BrokerInput
 
 func (BrokerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Broker)(nil))
+	return reflect.TypeOf((*[]*Broker)(nil)).Elem()
 }
 
 func (i BrokerArray) ToBrokerArrayOutput() BrokerArrayOutput {
@@ -508,7 +508,7 @@ type BrokerMapInput interface {
 type BrokerMap map[string]BrokerInput
 
 func (BrokerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Broker)(nil))
+	return reflect.TypeOf((*map[string]*Broker)(nil)).Elem()
 }
 
 func (i BrokerMap) ToBrokerMapOutput() BrokerMapOutput {

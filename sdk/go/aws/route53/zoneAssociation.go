@@ -239,7 +239,7 @@ type ZoneAssociationArrayInput interface {
 type ZoneAssociationArray []ZoneAssociationInput
 
 func (ZoneAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ZoneAssociation)(nil))
+	return reflect.TypeOf((*[]*ZoneAssociation)(nil)).Elem()
 }
 
 func (i ZoneAssociationArray) ToZoneAssociationArrayOutput() ZoneAssociationArrayOutput {
@@ -264,7 +264,7 @@ type ZoneAssociationMapInput interface {
 type ZoneAssociationMap map[string]ZoneAssociationInput
 
 func (ZoneAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ZoneAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ZoneAssociation)(nil)).Elem()
 }
 
 func (i ZoneAssociationMap) ToZoneAssociationMapOutput() ZoneAssociationMapOutput {

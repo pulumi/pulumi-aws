@@ -408,7 +408,7 @@ type MLTransformArrayInput interface {
 type MLTransformArray []MLTransformInput
 
 func (MLTransformArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MLTransform)(nil))
+	return reflect.TypeOf((*[]*MLTransform)(nil)).Elem()
 }
 
 func (i MLTransformArray) ToMLTransformArrayOutput() MLTransformArrayOutput {
@@ -433,7 +433,7 @@ type MLTransformMapInput interface {
 type MLTransformMap map[string]MLTransformInput
 
 func (MLTransformMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MLTransform)(nil))
+	return reflect.TypeOf((*map[string]*MLTransform)(nil)).Elem()
 }
 
 func (i MLTransformMap) ToMLTransformMapOutput() MLTransformMapOutput {

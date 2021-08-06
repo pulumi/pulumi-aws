@@ -547,7 +547,7 @@ type DeploymentGroupArrayInput interface {
 type DeploymentGroupArray []DeploymentGroupInput
 
 func (DeploymentGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DeploymentGroup)(nil))
+	return reflect.TypeOf((*[]*DeploymentGroup)(nil)).Elem()
 }
 
 func (i DeploymentGroupArray) ToDeploymentGroupArrayOutput() DeploymentGroupArrayOutput {
@@ -572,7 +572,7 @@ type DeploymentGroupMapInput interface {
 type DeploymentGroupMap map[string]DeploymentGroupInput
 
 func (DeploymentGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DeploymentGroup)(nil))
+	return reflect.TypeOf((*map[string]*DeploymentGroup)(nil)).Elem()
 }
 
 func (i DeploymentGroupMap) ToDeploymentGroupMapOutput() DeploymentGroupMapOutput {

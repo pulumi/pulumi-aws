@@ -375,7 +375,7 @@ type CachesIscsiVolumeArrayInput interface {
 type CachesIscsiVolumeArray []CachesIscsiVolumeInput
 
 func (CachesIscsiVolumeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CachesIscsiVolume)(nil))
+	return reflect.TypeOf((*[]*CachesIscsiVolume)(nil)).Elem()
 }
 
 func (i CachesIscsiVolumeArray) ToCachesIscsiVolumeArrayOutput() CachesIscsiVolumeArrayOutput {
@@ -400,7 +400,7 @@ type CachesIscsiVolumeMapInput interface {
 type CachesIscsiVolumeMap map[string]CachesIscsiVolumeInput
 
 func (CachesIscsiVolumeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CachesIscsiVolume)(nil))
+	return reflect.TypeOf((*map[string]*CachesIscsiVolume)(nil)).Elem()
 }
 
 func (i CachesIscsiVolumeMap) ToCachesIscsiVolumeMapOutput() CachesIscsiVolumeMapOutput {

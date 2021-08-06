@@ -263,7 +263,7 @@ type EmailChannelArrayInput interface {
 type EmailChannelArray []EmailChannelInput
 
 func (EmailChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EmailChannel)(nil))
+	return reflect.TypeOf((*[]*EmailChannel)(nil)).Elem()
 }
 
 func (i EmailChannelArray) ToEmailChannelArrayOutput() EmailChannelArrayOutput {
@@ -288,7 +288,7 @@ type EmailChannelMapInput interface {
 type EmailChannelMap map[string]EmailChannelInput
 
 func (EmailChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EmailChannel)(nil))
+	return reflect.TypeOf((*map[string]*EmailChannel)(nil)).Elem()
 }
 
 func (i EmailChannelMap) ToEmailChannelMapOutput() EmailChannelMapOutput {

@@ -309,7 +309,7 @@ type DefaultVpcArrayInput interface {
 type DefaultVpcArray []DefaultVpcInput
 
 func (DefaultVpcArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DefaultVpc)(nil))
+	return reflect.TypeOf((*[]*DefaultVpc)(nil)).Elem()
 }
 
 func (i DefaultVpcArray) ToDefaultVpcArrayOutput() DefaultVpcArrayOutput {
@@ -334,7 +334,7 @@ type DefaultVpcMapInput interface {
 type DefaultVpcMap map[string]DefaultVpcInput
 
 func (DefaultVpcMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DefaultVpc)(nil))
+	return reflect.TypeOf((*map[string]*DefaultVpc)(nil)).Elem()
 }
 
 func (i DefaultVpcMap) ToDefaultVpcMapOutput() DefaultVpcMapOutput {

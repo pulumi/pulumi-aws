@@ -250,7 +250,7 @@ type DomainAssociationArrayInput interface {
 type DomainAssociationArray []DomainAssociationInput
 
 func (DomainAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DomainAssociation)(nil))
+	return reflect.TypeOf((*[]*DomainAssociation)(nil)).Elem()
 }
 
 func (i DomainAssociationArray) ToDomainAssociationArrayOutput() DomainAssociationArrayOutput {
@@ -275,7 +275,7 @@ type DomainAssociationMapInput interface {
 type DomainAssociationMap map[string]DomainAssociationInput
 
 func (DomainAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DomainAssociation)(nil))
+	return reflect.TypeOf((*map[string]*DomainAssociation)(nil)).Elem()
 }
 
 func (i DomainAssociationMap) ToDomainAssociationMapOutput() DomainAssociationMapOutput {

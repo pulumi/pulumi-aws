@@ -244,7 +244,7 @@ type CustomerGatewayArrayInput interface {
 type CustomerGatewayArray []CustomerGatewayInput
 
 func (CustomerGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CustomerGateway)(nil))
+	return reflect.TypeOf((*[]*CustomerGateway)(nil)).Elem()
 }
 
 func (i CustomerGatewayArray) ToCustomerGatewayArrayOutput() CustomerGatewayArrayOutput {
@@ -269,7 +269,7 @@ type CustomerGatewayMapInput interface {
 type CustomerGatewayMap map[string]CustomerGatewayInput
 
 func (CustomerGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CustomerGateway)(nil))
+	return reflect.TypeOf((*map[string]*CustomerGateway)(nil)).Elem()
 }
 
 func (i CustomerGatewayMap) ToCustomerGatewayMapOutput() CustomerGatewayMapOutput {

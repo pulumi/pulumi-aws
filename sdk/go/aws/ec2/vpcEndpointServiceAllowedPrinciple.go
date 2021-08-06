@@ -191,7 +191,7 @@ type VpcEndpointServiceAllowedPrincipleArrayInput interface {
 type VpcEndpointServiceAllowedPrincipleArray []VpcEndpointServiceAllowedPrincipleInput
 
 func (VpcEndpointServiceAllowedPrincipleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcEndpointServiceAllowedPrinciple)(nil))
+	return reflect.TypeOf((*[]*VpcEndpointServiceAllowedPrinciple)(nil)).Elem()
 }
 
 func (i VpcEndpointServiceAllowedPrincipleArray) ToVpcEndpointServiceAllowedPrincipleArrayOutput() VpcEndpointServiceAllowedPrincipleArrayOutput {
@@ -216,7 +216,7 @@ type VpcEndpointServiceAllowedPrincipleMapInput interface {
 type VpcEndpointServiceAllowedPrincipleMap map[string]VpcEndpointServiceAllowedPrincipleInput
 
 func (VpcEndpointServiceAllowedPrincipleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcEndpointServiceAllowedPrinciple)(nil))
+	return reflect.TypeOf((*map[string]*VpcEndpointServiceAllowedPrinciple)(nil)).Elem()
 }
 
 func (i VpcEndpointServiceAllowedPrincipleMap) ToVpcEndpointServiceAllowedPrincipleMapOutput() VpcEndpointServiceAllowedPrincipleMapOutput {

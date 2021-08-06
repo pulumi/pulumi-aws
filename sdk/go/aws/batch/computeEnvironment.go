@@ -396,7 +396,7 @@ type ComputeEnvironmentArrayInput interface {
 type ComputeEnvironmentArray []ComputeEnvironmentInput
 
 func (ComputeEnvironmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ComputeEnvironment)(nil))
+	return reflect.TypeOf((*[]*ComputeEnvironment)(nil)).Elem()
 }
 
 func (i ComputeEnvironmentArray) ToComputeEnvironmentArrayOutput() ComputeEnvironmentArrayOutput {
@@ -421,7 +421,7 @@ type ComputeEnvironmentMapInput interface {
 type ComputeEnvironmentMap map[string]ComputeEnvironmentInput
 
 func (ComputeEnvironmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ComputeEnvironment)(nil))
+	return reflect.TypeOf((*map[string]*ComputeEnvironment)(nil)).Elem()
 }
 
 func (i ComputeEnvironmentMap) ToComputeEnvironmentMapOutput() ComputeEnvironmentMapOutput {

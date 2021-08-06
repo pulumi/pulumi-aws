@@ -206,7 +206,7 @@ type ManagedScalingPolicyArrayInput interface {
 type ManagedScalingPolicyArray []ManagedScalingPolicyInput
 
 func (ManagedScalingPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((*[]*ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (i ManagedScalingPolicyArray) ToManagedScalingPolicyArrayOutput() ManagedScalingPolicyArrayOutput {
@@ -231,7 +231,7 @@ type ManagedScalingPolicyMapInput interface {
 type ManagedScalingPolicyMap map[string]ManagedScalingPolicyInput
 
 func (ManagedScalingPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedScalingPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ManagedScalingPolicy)(nil)).Elem()
 }
 
 func (i ManagedScalingPolicyMap) ToManagedScalingPolicyMapOutput() ManagedScalingPolicyMapOutput {

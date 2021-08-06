@@ -204,7 +204,7 @@ type QueryDefinitionArrayInput interface {
 type QueryDefinitionArray []QueryDefinitionInput
 
 func (QueryDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*QueryDefinition)(nil))
+	return reflect.TypeOf((*[]*QueryDefinition)(nil)).Elem()
 }
 
 func (i QueryDefinitionArray) ToQueryDefinitionArrayOutput() QueryDefinitionArrayOutput {
@@ -229,7 +229,7 @@ type QueryDefinitionMapInput interface {
 type QueryDefinitionMap map[string]QueryDefinitionInput
 
 func (QueryDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*QueryDefinition)(nil))
+	return reflect.TypeOf((*map[string]*QueryDefinition)(nil)).Elem()
 }
 
 func (i QueryDefinitionMap) ToQueryDefinitionMapOutput() QueryDefinitionMapOutput {

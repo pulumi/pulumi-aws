@@ -369,7 +369,7 @@ type TopicRuleArrayInput interface {
 type TopicRuleArray []TopicRuleInput
 
 func (TopicRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TopicRule)(nil))
+	return reflect.TypeOf((*[]*TopicRule)(nil)).Elem()
 }
 
 func (i TopicRuleArray) ToTopicRuleArrayOutput() TopicRuleArrayOutput {
@@ -394,7 +394,7 @@ type TopicRuleMapInput interface {
 type TopicRuleMap map[string]TopicRuleInput
 
 func (TopicRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TopicRule)(nil))
+	return reflect.TypeOf((*map[string]*TopicRule)(nil)).Elem()
 }
 
 func (i TopicRuleMap) ToTopicRuleMapOutput() TopicRuleMapOutput {

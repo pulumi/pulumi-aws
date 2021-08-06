@@ -325,7 +325,7 @@ type StateMachineArrayInput interface {
 type StateMachineArray []StateMachineInput
 
 func (StateMachineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StateMachine)(nil))
+	return reflect.TypeOf((*[]*StateMachine)(nil)).Elem()
 }
 
 func (i StateMachineArray) ToStateMachineArrayOutput() StateMachineArrayOutput {
@@ -350,7 +350,7 @@ type StateMachineMapInput interface {
 type StateMachineMap map[string]StateMachineInput
 
 func (StateMachineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StateMachine)(nil))
+	return reflect.TypeOf((*map[string]*StateMachine)(nil)).Elem()
 }
 
 func (i StateMachineMap) ToStateMachineMapOutput() StateMachineMapOutput {

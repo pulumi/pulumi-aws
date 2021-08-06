@@ -347,7 +347,7 @@ type EventBusPolicyArrayInput interface {
 type EventBusPolicyArray []EventBusPolicyInput
 
 func (EventBusPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventBusPolicy)(nil))
+	return reflect.TypeOf((*[]*EventBusPolicy)(nil)).Elem()
 }
 
 func (i EventBusPolicyArray) ToEventBusPolicyArrayOutput() EventBusPolicyArrayOutput {
@@ -372,7 +372,7 @@ type EventBusPolicyMapInput interface {
 type EventBusPolicyMap map[string]EventBusPolicyInput
 
 func (EventBusPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventBusPolicy)(nil))
+	return reflect.TypeOf((*map[string]*EventBusPolicy)(nil)).Elem()
 }
 
 func (i EventBusPolicyMap) ToEventBusPolicyMapOutput() EventBusPolicyMapOutput {

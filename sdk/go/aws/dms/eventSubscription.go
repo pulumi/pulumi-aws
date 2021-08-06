@@ -263,7 +263,7 @@ type EventSubscriptionArrayInput interface {
 type EventSubscriptionArray []EventSubscriptionInput
 
 func (EventSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventSubscription)(nil))
+	return reflect.TypeOf((*[]*EventSubscription)(nil)).Elem()
 }
 
 func (i EventSubscriptionArray) ToEventSubscriptionArrayOutput() EventSubscriptionArrayOutput {
@@ -288,7 +288,7 @@ type EventSubscriptionMapInput interface {
 type EventSubscriptionMap map[string]EventSubscriptionInput
 
 func (EventSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventSubscription)(nil))
+	return reflect.TypeOf((*map[string]*EventSubscription)(nil)).Elem()
 }
 
 func (i EventSubscriptionMap) ToEventSubscriptionMapOutput() EventSubscriptionMapOutput {

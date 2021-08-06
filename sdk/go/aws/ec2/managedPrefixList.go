@@ -255,7 +255,7 @@ type ManagedPrefixListArrayInput interface {
 type ManagedPrefixListArray []ManagedPrefixListInput
 
 func (ManagedPrefixListArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ManagedPrefixList)(nil))
+	return reflect.TypeOf((*[]*ManagedPrefixList)(nil)).Elem()
 }
 
 func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutput() ManagedPrefixListArrayOutput {
@@ -280,7 +280,7 @@ type ManagedPrefixListMapInput interface {
 type ManagedPrefixListMap map[string]ManagedPrefixListInput
 
 func (ManagedPrefixListMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ManagedPrefixList)(nil))
+	return reflect.TypeOf((*map[string]*ManagedPrefixList)(nil)).Elem()
 }
 
 func (i ManagedPrefixListMap) ToManagedPrefixListMapOutput() ManagedPrefixListMapOutput {

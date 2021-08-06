@@ -426,7 +426,7 @@ type AnalyticsApplicationArrayInput interface {
 type AnalyticsApplicationArray []AnalyticsApplicationInput
 
 func (AnalyticsApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsApplication)(nil))
+	return reflect.TypeOf((*[]*AnalyticsApplication)(nil)).Elem()
 }
 
 func (i AnalyticsApplicationArray) ToAnalyticsApplicationArrayOutput() AnalyticsApplicationArrayOutput {
@@ -451,7 +451,7 @@ type AnalyticsApplicationMapInput interface {
 type AnalyticsApplicationMap map[string]AnalyticsApplicationInput
 
 func (AnalyticsApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsApplication)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsApplication)(nil)).Elem()
 }
 
 func (i AnalyticsApplicationMap) ToAnalyticsApplicationMapOutput() AnalyticsApplicationMapOutput {

@@ -308,7 +308,7 @@ type NetworkAclRuleArrayInput interface {
 type NetworkAclRuleArray []NetworkAclRuleInput
 
 func (NetworkAclRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*NetworkAclRule)(nil))
+	return reflect.TypeOf((*[]*NetworkAclRule)(nil)).Elem()
 }
 
 func (i NetworkAclRuleArray) ToNetworkAclRuleArrayOutput() NetworkAclRuleArrayOutput {
@@ -333,7 +333,7 @@ type NetworkAclRuleMapInput interface {
 type NetworkAclRuleMap map[string]NetworkAclRuleInput
 
 func (NetworkAclRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*NetworkAclRule)(nil))
+	return reflect.TypeOf((*map[string]*NetworkAclRule)(nil)).Elem()
 }
 
 func (i NetworkAclRuleMap) ToNetworkAclRuleMapOutput() NetworkAclRuleMapOutput {

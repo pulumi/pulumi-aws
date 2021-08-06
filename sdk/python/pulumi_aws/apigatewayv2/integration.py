@@ -751,13 +751,13 @@ class Integration(pulumi.CustomResource):
             },
             response_parameters=[
                 aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code=403,
+                    status_code="403",
                     mappings={
                         "append:header.auth": "$context.authorizer.authorizerResponse",
                     },
                 ),
                 aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code=200,
+                    status_code="200",
                     mappings={
                         "overwrite:statuscode": "204",
                     },
@@ -885,13 +885,13 @@ class Integration(pulumi.CustomResource):
             },
             response_parameters=[
                 aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code=403,
+                    status_code="403",
                     mappings={
                         "append:header.auth": "$context.authorizer.authorizerResponse",
                     },
                 ),
                 aws.apigatewayv2.IntegrationResponseParameterArgs(
-                    status_code=200,
+                    status_code="200",
                     mappings={
                         "overwrite:statuscode": "204",
                     },

@@ -200,7 +200,7 @@ type VaultPolicyArrayInput interface {
 type VaultPolicyArray []VaultPolicyInput
 
 func (VaultPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VaultPolicy)(nil))
+	return reflect.TypeOf((*[]*VaultPolicy)(nil)).Elem()
 }
 
 func (i VaultPolicyArray) ToVaultPolicyArrayOutput() VaultPolicyArrayOutput {
@@ -225,7 +225,7 @@ type VaultPolicyMapInput interface {
 type VaultPolicyMap map[string]VaultPolicyInput
 
 func (VaultPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VaultPolicy)(nil))
+	return reflect.TypeOf((*map[string]*VaultPolicy)(nil)).Elem()
 }
 
 func (i VaultPolicyMap) ToVaultPolicyMapOutput() VaultPolicyMapOutput {

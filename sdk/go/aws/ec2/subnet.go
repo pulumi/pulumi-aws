@@ -368,7 +368,7 @@ type SubnetArrayInput interface {
 type SubnetArray []SubnetInput
 
 func (SubnetArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Subnet)(nil))
+	return reflect.TypeOf((*[]*Subnet)(nil)).Elem()
 }
 
 func (i SubnetArray) ToSubnetArrayOutput() SubnetArrayOutput {
@@ -393,7 +393,7 @@ type SubnetMapInput interface {
 type SubnetMap map[string]SubnetInput
 
 func (SubnetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Subnet)(nil))
+	return reflect.TypeOf((*map[string]*Subnet)(nil)).Elem()
 }
 
 func (i SubnetMap) ToSubnetMapOutput() SubnetMapOutput {

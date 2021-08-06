@@ -408,7 +408,7 @@ type DevEndpointArrayInput interface {
 type DevEndpointArray []DevEndpointInput
 
 func (DevEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DevEndpoint)(nil))
+	return reflect.TypeOf((*[]*DevEndpoint)(nil)).Elem()
 }
 
 func (i DevEndpointArray) ToDevEndpointArrayOutput() DevEndpointArrayOutput {
@@ -433,7 +433,7 @@ type DevEndpointMapInput interface {
 type DevEndpointMap map[string]DevEndpointInput
 
 func (DevEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DevEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*DevEndpoint)(nil)).Elem()
 }
 
 func (i DevEndpointMap) ToDevEndpointMapOutput() DevEndpointMapOutput {

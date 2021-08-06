@@ -253,7 +253,7 @@ type AnalyticsConfigurationArrayInput interface {
 type AnalyticsConfigurationArray []AnalyticsConfigurationInput
 
 func (AnalyticsConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AnalyticsConfiguration)(nil))
+	return reflect.TypeOf((*[]*AnalyticsConfiguration)(nil)).Elem()
 }
 
 func (i AnalyticsConfigurationArray) ToAnalyticsConfigurationArrayOutput() AnalyticsConfigurationArrayOutput {
@@ -278,7 +278,7 @@ type AnalyticsConfigurationMapInput interface {
 type AnalyticsConfigurationMap map[string]AnalyticsConfigurationInput
 
 func (AnalyticsConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AnalyticsConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*AnalyticsConfiguration)(nil)).Elem()
 }
 
 func (i AnalyticsConfigurationMap) ToAnalyticsConfigurationMapOutput() AnalyticsConfigurationMapOutput {

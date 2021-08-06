@@ -236,7 +236,7 @@ type UserPolicyArrayInput interface {
 type UserPolicyArray []UserPolicyInput
 
 func (UserPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPolicy)(nil))
+	return reflect.TypeOf((*[]*UserPolicy)(nil)).Elem()
 }
 
 func (i UserPolicyArray) ToUserPolicyArrayOutput() UserPolicyArrayOutput {
@@ -261,7 +261,7 @@ type UserPolicyMapInput interface {
 type UserPolicyMap map[string]UserPolicyInput
 
 func (UserPolicyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPolicy)(nil))
+	return reflect.TypeOf((*map[string]*UserPolicy)(nil)).Elem()
 }
 
 func (i UserPolicyMap) ToUserPolicyMapOutput() UserPolicyMapOutput {

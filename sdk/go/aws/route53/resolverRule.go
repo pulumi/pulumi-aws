@@ -300,7 +300,7 @@ type ResolverRuleArrayInput interface {
 type ResolverRuleArray []ResolverRuleInput
 
 func (ResolverRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ResolverRule)(nil))
+	return reflect.TypeOf((*[]*ResolverRule)(nil)).Elem()
 }
 
 func (i ResolverRuleArray) ToResolverRuleArrayOutput() ResolverRuleArrayOutput {
@@ -325,7 +325,7 @@ type ResolverRuleMapInput interface {
 type ResolverRuleMap map[string]ResolverRuleInput
 
 func (ResolverRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ResolverRule)(nil))
+	return reflect.TypeOf((*map[string]*ResolverRule)(nil)).Elem()
 }
 
 func (i ResolverRuleMap) ToResolverRuleMapOutput() ResolverRuleMapOutput {

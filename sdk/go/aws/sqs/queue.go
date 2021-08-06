@@ -427,7 +427,7 @@ type QueueArrayInput interface {
 type QueueArray []QueueInput
 
 func (QueueArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Queue)(nil))
+	return reflect.TypeOf((*[]*Queue)(nil)).Elem()
 }
 
 func (i QueueArray) ToQueueArrayOutput() QueueArrayOutput {
@@ -452,7 +452,7 @@ type QueueMapInput interface {
 type QueueMap map[string]QueueInput
 
 func (QueueMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Queue)(nil))
+	return reflect.TypeOf((*map[string]*Queue)(nil)).Elem()
 }
 
 func (i QueueMap) ToQueueMapOutput() QueueMapOutput {

@@ -803,7 +803,7 @@ type VpnConnectionArrayInput interface {
 type VpnConnectionArray []VpnConnectionInput
 
 func (VpnConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnConnection)(nil))
+	return reflect.TypeOf((*[]*VpnConnection)(nil)).Elem()
 }
 
 func (i VpnConnectionArray) ToVpnConnectionArrayOutput() VpnConnectionArrayOutput {
@@ -828,7 +828,7 @@ type VpnConnectionMapInput interface {
 type VpnConnectionMap map[string]VpnConnectionInput
 
 func (VpnConnectionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnConnection)(nil))
+	return reflect.TypeOf((*map[string]*VpnConnection)(nil)).Elem()
 }
 
 func (i VpnConnectionMap) ToVpnConnectionMapOutput() VpnConnectionMapOutput {

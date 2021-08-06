@@ -299,7 +299,7 @@ type HostedPrivateVirtualInterfaceArrayInput interface {
 type HostedPrivateVirtualInterfaceArray []HostedPrivateVirtualInterfaceInput
 
 func (HostedPrivateVirtualInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*HostedPrivateVirtualInterface)(nil))
+	return reflect.TypeOf((*[]*HostedPrivateVirtualInterface)(nil)).Elem()
 }
 
 func (i HostedPrivateVirtualInterfaceArray) ToHostedPrivateVirtualInterfaceArrayOutput() HostedPrivateVirtualInterfaceArrayOutput {
@@ -324,7 +324,7 @@ type HostedPrivateVirtualInterfaceMapInput interface {
 type HostedPrivateVirtualInterfaceMap map[string]HostedPrivateVirtualInterfaceInput
 
 func (HostedPrivateVirtualInterfaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*HostedPrivateVirtualInterface)(nil))
+	return reflect.TypeOf((*map[string]*HostedPrivateVirtualInterface)(nil)).Elem()
 }
 
 func (i HostedPrivateVirtualInterfaceMap) ToHostedPrivateVirtualInterfaceMapOutput() HostedPrivateVirtualInterfaceMapOutput {

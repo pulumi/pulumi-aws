@@ -244,7 +244,7 @@ type ApnsVoipChannelArrayInput interface {
 type ApnsVoipChannelArray []ApnsVoipChannelInput
 
 func (ApnsVoipChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ApnsVoipChannel)(nil))
+	return reflect.TypeOf((*[]*ApnsVoipChannel)(nil)).Elem()
 }
 
 func (i ApnsVoipChannelArray) ToApnsVoipChannelArrayOutput() ApnsVoipChannelArrayOutput {
@@ -269,7 +269,7 @@ type ApnsVoipChannelMapInput interface {
 type ApnsVoipChannelMap map[string]ApnsVoipChannelInput
 
 func (ApnsVoipChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ApnsVoipChannel)(nil))
+	return reflect.TypeOf((*map[string]*ApnsVoipChannel)(nil)).Elem()
 }
 
 func (i ApnsVoipChannelMap) ToApnsVoipChannelMapOutput() ApnsVoipChannelMapOutput {

@@ -288,7 +288,7 @@ type VirtualServiceArrayInput interface {
 type VirtualServiceArray []VirtualServiceInput
 
 func (VirtualServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualService)(nil))
+	return reflect.TypeOf((*[]*VirtualService)(nil)).Elem()
 }
 
 func (i VirtualServiceArray) ToVirtualServiceArrayOutput() VirtualServiceArrayOutput {
@@ -313,7 +313,7 @@ type VirtualServiceMapInput interface {
 type VirtualServiceMap map[string]VirtualServiceInput
 
 func (VirtualServiceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualService)(nil))
+	return reflect.TypeOf((*map[string]*VirtualService)(nil)).Elem()
 }
 
 func (i VirtualServiceMap) ToVirtualServiceMapOutput() VirtualServiceMapOutput {

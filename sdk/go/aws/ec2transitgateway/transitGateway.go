@@ -262,7 +262,7 @@ type TransitGatewayArrayInput interface {
 type TransitGatewayArray []TransitGatewayInput
 
 func (TransitGatewayArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TransitGateway)(nil))
+	return reflect.TypeOf((*[]*TransitGateway)(nil)).Elem()
 }
 
 func (i TransitGatewayArray) ToTransitGatewayArrayOutput() TransitGatewayArrayOutput {
@@ -287,7 +287,7 @@ type TransitGatewayMapInput interface {
 type TransitGatewayMap map[string]TransitGatewayInput
 
 func (TransitGatewayMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TransitGateway)(nil))
+	return reflect.TypeOf((*map[string]*TransitGateway)(nil)).Elem()
 }
 
 func (i TransitGatewayMap) ToTransitGatewayMapOutput() TransitGatewayMapOutput {

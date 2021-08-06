@@ -204,7 +204,7 @@ type RequestValidatorArrayInput interface {
 type RequestValidatorArray []RequestValidatorInput
 
 func (RequestValidatorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RequestValidator)(nil))
+	return reflect.TypeOf((*[]*RequestValidator)(nil)).Elem()
 }
 
 func (i RequestValidatorArray) ToRequestValidatorArrayOutput() RequestValidatorArrayOutput {
@@ -229,7 +229,7 @@ type RequestValidatorMapInput interface {
 type RequestValidatorMap map[string]RequestValidatorInput
 
 func (RequestValidatorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RequestValidator)(nil))
+	return reflect.TypeOf((*map[string]*RequestValidator)(nil)).Elem()
 }
 
 func (i RequestValidatorMap) ToRequestValidatorMapOutput() RequestValidatorMapOutput {

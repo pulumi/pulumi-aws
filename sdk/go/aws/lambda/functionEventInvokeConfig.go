@@ -336,7 +336,7 @@ type FunctionEventInvokeConfigArrayInput interface {
 type FunctionEventInvokeConfigArray []FunctionEventInvokeConfigInput
 
 func (FunctionEventInvokeConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((*[]*FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (i FunctionEventInvokeConfigArray) ToFunctionEventInvokeConfigArrayOutput() FunctionEventInvokeConfigArrayOutput {
@@ -361,7 +361,7 @@ type FunctionEventInvokeConfigMapInput interface {
 type FunctionEventInvokeConfigMap map[string]FunctionEventInvokeConfigInput
 
 func (FunctionEventInvokeConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FunctionEventInvokeConfig)(nil))
+	return reflect.TypeOf((*map[string]*FunctionEventInvokeConfig)(nil)).Elem()
 }
 
 func (i FunctionEventInvokeConfigMap) ToFunctionEventInvokeConfigMapOutput() FunctionEventInvokeConfigMapOutput {

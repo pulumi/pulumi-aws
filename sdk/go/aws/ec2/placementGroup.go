@@ -215,7 +215,7 @@ type PlacementGroupArrayInput interface {
 type PlacementGroupArray []PlacementGroupInput
 
 func (PlacementGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PlacementGroup)(nil))
+	return reflect.TypeOf((*[]*PlacementGroup)(nil)).Elem()
 }
 
 func (i PlacementGroupArray) ToPlacementGroupArrayOutput() PlacementGroupArrayOutput {
@@ -240,7 +240,7 @@ type PlacementGroupMapInput interface {
 type PlacementGroupMap map[string]PlacementGroupInput
 
 func (PlacementGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PlacementGroup)(nil))
+	return reflect.TypeOf((*map[string]*PlacementGroup)(nil)).Elem()
 }
 
 func (i PlacementGroupMap) ToPlacementGroupMapOutput() PlacementGroupMapOutput {

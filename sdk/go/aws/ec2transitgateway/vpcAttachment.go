@@ -268,7 +268,7 @@ type VpcAttachmentArrayInput interface {
 type VpcAttachmentArray []VpcAttachmentInput
 
 func (VpcAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpcAttachment)(nil))
+	return reflect.TypeOf((*[]*VpcAttachment)(nil)).Elem()
 }
 
 func (i VpcAttachmentArray) ToVpcAttachmentArrayOutput() VpcAttachmentArrayOutput {
@@ -293,7 +293,7 @@ type VpcAttachmentMapInput interface {
 type VpcAttachmentMap map[string]VpcAttachmentInput
 
 func (VpcAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpcAttachment)(nil))
+	return reflect.TypeOf((*map[string]*VpcAttachment)(nil)).Elem()
 }
 
 func (i VpcAttachmentMap) ToVpcAttachmentMapOutput() VpcAttachmentMapOutput {

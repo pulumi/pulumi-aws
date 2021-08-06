@@ -192,7 +192,7 @@ type SnapshotCreateVolumePermissionArrayInput interface {
 type SnapshotCreateVolumePermissionArray []SnapshotCreateVolumePermissionInput
 
 func (SnapshotCreateVolumePermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((*[]*SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (i SnapshotCreateVolumePermissionArray) ToSnapshotCreateVolumePermissionArrayOutput() SnapshotCreateVolumePermissionArrayOutput {
@@ -217,7 +217,7 @@ type SnapshotCreateVolumePermissionMapInput interface {
 type SnapshotCreateVolumePermissionMap map[string]SnapshotCreateVolumePermissionInput
 
 func (SnapshotCreateVolumePermissionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnapshotCreateVolumePermission)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotCreateVolumePermission)(nil)).Elem()
 }
 
 func (i SnapshotCreateVolumePermissionMap) ToSnapshotCreateVolumePermissionMapOutput() SnapshotCreateVolumePermissionMapOutput {

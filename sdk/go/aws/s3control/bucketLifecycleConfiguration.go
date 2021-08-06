@@ -209,7 +209,7 @@ type BucketLifecycleConfigurationArrayInput interface {
 type BucketLifecycleConfigurationArray []BucketLifecycleConfigurationInput
 
 func (BucketLifecycleConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BucketLifecycleConfiguration)(nil))
+	return reflect.TypeOf((*[]*BucketLifecycleConfiguration)(nil)).Elem()
 }
 
 func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOutput() BucketLifecycleConfigurationArrayOutput {
@@ -234,7 +234,7 @@ type BucketLifecycleConfigurationMapInput interface {
 type BucketLifecycleConfigurationMap map[string]BucketLifecycleConfigurationInput
 
 func (BucketLifecycleConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BucketLifecycleConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*BucketLifecycleConfiguration)(nil)).Elem()
 }
 
 func (i BucketLifecycleConfigurationMap) ToBucketLifecycleConfigurationMapOutput() BucketLifecycleConfigurationMapOutput {

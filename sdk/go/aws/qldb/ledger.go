@@ -204,7 +204,7 @@ type LedgerArrayInput interface {
 type LedgerArray []LedgerInput
 
 func (LedgerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Ledger)(nil))
+	return reflect.TypeOf((*[]*Ledger)(nil)).Elem()
 }
 
 func (i LedgerArray) ToLedgerArrayOutput() LedgerArrayOutput {
@@ -229,7 +229,7 @@ type LedgerMapInput interface {
 type LedgerMap map[string]LedgerInput
 
 func (LedgerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Ledger)(nil))
+	return reflect.TypeOf((*map[string]*Ledger)(nil)).Elem()
 }
 
 func (i LedgerMap) ToLedgerMapOutput() LedgerMapOutput {

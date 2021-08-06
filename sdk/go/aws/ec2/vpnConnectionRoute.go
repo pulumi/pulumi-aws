@@ -207,7 +207,7 @@ type VpnConnectionRouteArrayInput interface {
 type VpnConnectionRouteArray []VpnConnectionRouteInput
 
 func (VpnConnectionRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VpnConnectionRoute)(nil))
+	return reflect.TypeOf((*[]*VpnConnectionRoute)(nil)).Elem()
 }
 
 func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutput() VpnConnectionRouteArrayOutput {
@@ -232,7 +232,7 @@ type VpnConnectionRouteMapInput interface {
 type VpnConnectionRouteMap map[string]VpnConnectionRouteInput
 
 func (VpnConnectionRouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VpnConnectionRoute)(nil))
+	return reflect.TypeOf((*map[string]*VpnConnectionRoute)(nil)).Elem()
 }
 
 func (i VpnConnectionRouteMap) ToVpnConnectionRouteMapOutput() VpnConnectionRouteMapOutput {

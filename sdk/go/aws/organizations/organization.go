@@ -236,7 +236,7 @@ type OrganizationArrayInput interface {
 type OrganizationArray []OrganizationInput
 
 func (OrganizationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Organization)(nil))
+	return reflect.TypeOf((*[]*Organization)(nil)).Elem()
 }
 
 func (i OrganizationArray) ToOrganizationArrayOutput() OrganizationArrayOutput {
@@ -261,7 +261,7 @@ type OrganizationMapInput interface {
 type OrganizationMap map[string]OrganizationInput
 
 func (OrganizationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Organization)(nil))
+	return reflect.TypeOf((*map[string]*Organization)(nil)).Elem()
 }
 
 func (i OrganizationMap) ToOrganizationMapOutput() OrganizationMapOutput {

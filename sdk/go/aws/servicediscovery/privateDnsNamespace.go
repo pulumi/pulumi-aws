@@ -232,7 +232,7 @@ type PrivateDnsNamespaceArrayInput interface {
 type PrivateDnsNamespaceArray []PrivateDnsNamespaceInput
 
 func (PrivateDnsNamespaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrivateDnsNamespace)(nil))
+	return reflect.TypeOf((*[]*PrivateDnsNamespace)(nil)).Elem()
 }
 
 func (i PrivateDnsNamespaceArray) ToPrivateDnsNamespaceArrayOutput() PrivateDnsNamespaceArrayOutput {
@@ -257,7 +257,7 @@ type PrivateDnsNamespaceMapInput interface {
 type PrivateDnsNamespaceMap map[string]PrivateDnsNamespaceInput
 
 func (PrivateDnsNamespaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrivateDnsNamespace)(nil))
+	return reflect.TypeOf((*map[string]*PrivateDnsNamespace)(nil)).Elem()
 }
 
 func (i PrivateDnsNamespaceMap) ToPrivateDnsNamespaceMapOutput() PrivateDnsNamespaceMapOutput {

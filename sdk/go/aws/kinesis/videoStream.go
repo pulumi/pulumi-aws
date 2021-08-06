@@ -250,7 +250,7 @@ type VideoStreamArrayInput interface {
 type VideoStreamArray []VideoStreamInput
 
 func (VideoStreamArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VideoStream)(nil))
+	return reflect.TypeOf((*[]*VideoStream)(nil)).Elem()
 }
 
 func (i VideoStreamArray) ToVideoStreamArrayOutput() VideoStreamArrayOutput {
@@ -275,7 +275,7 @@ type VideoStreamMapInput interface {
 type VideoStreamMap map[string]VideoStreamInput
 
 func (VideoStreamMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VideoStream)(nil))
+	return reflect.TypeOf((*map[string]*VideoStream)(nil)).Elem()
 }
 
 func (i VideoStreamMap) ToVideoStreamMapOutput() VideoStreamMapOutput {

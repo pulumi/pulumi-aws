@@ -199,7 +199,7 @@ type StaticIpAttachmentArrayInput interface {
 type StaticIpAttachmentArray []StaticIpAttachmentInput
 
 func (StaticIpAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StaticIpAttachment)(nil))
+	return reflect.TypeOf((*[]*StaticIpAttachment)(nil)).Elem()
 }
 
 func (i StaticIpAttachmentArray) ToStaticIpAttachmentArrayOutput() StaticIpAttachmentArrayOutput {
@@ -224,7 +224,7 @@ type StaticIpAttachmentMapInput interface {
 type StaticIpAttachmentMap map[string]StaticIpAttachmentInput
 
 func (StaticIpAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StaticIpAttachment)(nil))
+	return reflect.TypeOf((*map[string]*StaticIpAttachment)(nil)).Elem()
 }
 
 func (i StaticIpAttachmentMap) ToStaticIpAttachmentMapOutput() StaticIpAttachmentMapOutput {

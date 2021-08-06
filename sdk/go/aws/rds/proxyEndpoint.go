@@ -234,7 +234,7 @@ type ProxyEndpointArrayInput interface {
 type ProxyEndpointArray []ProxyEndpointInput
 
 func (ProxyEndpointArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProxyEndpoint)(nil))
+	return reflect.TypeOf((*[]*ProxyEndpoint)(nil)).Elem()
 }
 
 func (i ProxyEndpointArray) ToProxyEndpointArrayOutput() ProxyEndpointArrayOutput {
@@ -259,7 +259,7 @@ type ProxyEndpointMapInput interface {
 type ProxyEndpointMap map[string]ProxyEndpointInput
 
 func (ProxyEndpointMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProxyEndpoint)(nil))
+	return reflect.TypeOf((*map[string]*ProxyEndpoint)(nil)).Elem()
 }
 
 func (i ProxyEndpointMap) ToProxyEndpointMapOutput() ProxyEndpointMapOutput {

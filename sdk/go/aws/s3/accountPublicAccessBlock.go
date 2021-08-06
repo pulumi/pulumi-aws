@@ -238,7 +238,7 @@ type AccountPublicAccessBlockArrayInput interface {
 type AccountPublicAccessBlockArray []AccountPublicAccessBlockInput
 
 func (AccountPublicAccessBlockArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountPublicAccessBlock)(nil))
+	return reflect.TypeOf((*[]*AccountPublicAccessBlock)(nil)).Elem()
 }
 
 func (i AccountPublicAccessBlockArray) ToAccountPublicAccessBlockArrayOutput() AccountPublicAccessBlockArrayOutput {
@@ -263,7 +263,7 @@ type AccountPublicAccessBlockMapInput interface {
 type AccountPublicAccessBlockMap map[string]AccountPublicAccessBlockInput
 
 func (AccountPublicAccessBlockMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountPublicAccessBlock)(nil))
+	return reflect.TypeOf((*map[string]*AccountPublicAccessBlock)(nil)).Elem()
 }
 
 func (i AccountPublicAccessBlockMap) ToAccountPublicAccessBlockMapOutput() AccountPublicAccessBlockMapOutput {

@@ -222,7 +222,7 @@ type AuthorizationRuleArrayInput interface {
 type AuthorizationRuleArray []AuthorizationRuleInput
 
 func (AuthorizationRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AuthorizationRule)(nil))
+	return reflect.TypeOf((*[]*AuthorizationRule)(nil)).Elem()
 }
 
 func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutput() AuthorizationRuleArrayOutput {
@@ -247,7 +247,7 @@ type AuthorizationRuleMapInput interface {
 type AuthorizationRuleMap map[string]AuthorizationRuleInput
 
 func (AuthorizationRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AuthorizationRule)(nil))
+	return reflect.TypeOf((*map[string]*AuthorizationRule)(nil)).Elem()
 }
 
 func (i AuthorizationRuleMap) ToAuthorizationRuleMapOutput() AuthorizationRuleMapOutput {

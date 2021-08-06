@@ -260,7 +260,7 @@ type FindingsFilterArrayInput interface {
 type FindingsFilterArray []FindingsFilterInput
 
 func (FindingsFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FindingsFilter)(nil))
+	return reflect.TypeOf((*[]*FindingsFilter)(nil)).Elem()
 }
 
 func (i FindingsFilterArray) ToFindingsFilterArrayOutput() FindingsFilterArrayOutput {
@@ -285,7 +285,7 @@ type FindingsFilterMapInput interface {
 type FindingsFilterMap map[string]FindingsFilterInput
 
 func (FindingsFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FindingsFilter)(nil))
+	return reflect.TypeOf((*map[string]*FindingsFilter)(nil)).Elem()
 }
 
 func (i FindingsFilterMap) ToFindingsFilterMapOutput() FindingsFilterMapOutput {

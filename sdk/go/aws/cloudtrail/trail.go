@@ -559,7 +559,7 @@ type TrailArrayInput interface {
 type TrailArray []TrailInput
 
 func (TrailArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Trail)(nil))
+	return reflect.TypeOf((*[]*Trail)(nil)).Elem()
 }
 
 func (i TrailArray) ToTrailArrayOutput() TrailArrayOutput {
@@ -584,7 +584,7 @@ type TrailMapInput interface {
 type TrailMap map[string]TrailInput
 
 func (TrailMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Trail)(nil))
+	return reflect.TypeOf((*map[string]*Trail)(nil)).Elem()
 }
 
 func (i TrailMap) ToTrailMapOutput() TrailMapOutput {

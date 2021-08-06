@@ -375,7 +375,7 @@ type MysqlLayerArrayInput interface {
 type MysqlLayerArray []MysqlLayerInput
 
 func (MysqlLayerArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*MysqlLayer)(nil))
+	return reflect.TypeOf((*[]*MysqlLayer)(nil)).Elem()
 }
 
 func (i MysqlLayerArray) ToMysqlLayerArrayOutput() MysqlLayerArrayOutput {
@@ -400,7 +400,7 @@ type MysqlLayerMapInput interface {
 type MysqlLayerMap map[string]MysqlLayerInput
 
 func (MysqlLayerMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*MysqlLayer)(nil))
+	return reflect.TypeOf((*map[string]*MysqlLayer)(nil)).Elem()
 }
 
 func (i MysqlLayerMap) ToMysqlLayerMapOutput() MysqlLayerMapOutput {

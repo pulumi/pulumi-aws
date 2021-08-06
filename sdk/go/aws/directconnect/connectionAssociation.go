@@ -192,7 +192,7 @@ type ConnectionAssociationArrayInput interface {
 type ConnectionAssociationArray []ConnectionAssociationInput
 
 func (ConnectionAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ConnectionAssociation)(nil))
+	return reflect.TypeOf((*[]*ConnectionAssociation)(nil)).Elem()
 }
 
 func (i ConnectionAssociationArray) ToConnectionAssociationArrayOutput() ConnectionAssociationArrayOutput {
@@ -217,7 +217,7 @@ type ConnectionAssociationMapInput interface {
 type ConnectionAssociationMap map[string]ConnectionAssociationInput
 
 func (ConnectionAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ConnectionAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ConnectionAssociation)(nil)).Elem()
 }
 
 func (i ConnectionAssociationMap) ToConnectionAssociationMapOutput() ConnectionAssociationMapOutput {

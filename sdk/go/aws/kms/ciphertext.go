@@ -206,7 +206,7 @@ type CiphertextArrayInput interface {
 type CiphertextArray []CiphertextInput
 
 func (CiphertextArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Ciphertext)(nil))
+	return reflect.TypeOf((*[]*Ciphertext)(nil)).Elem()
 }
 
 func (i CiphertextArray) ToCiphertextArrayOutput() CiphertextArrayOutput {
@@ -231,7 +231,7 @@ type CiphertextMapInput interface {
 type CiphertextMap map[string]CiphertextInput
 
 func (CiphertextMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Ciphertext)(nil))
+	return reflect.TypeOf((*map[string]*Ciphertext)(nil)).Elem()
 }
 
 func (i CiphertextMap) ToCiphertextMapOutput() CiphertextMapOutput {

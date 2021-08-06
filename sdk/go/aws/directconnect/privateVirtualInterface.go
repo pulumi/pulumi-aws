@@ -330,7 +330,7 @@ type PrivateVirtualInterfaceArrayInput interface {
 type PrivateVirtualInterfaceArray []PrivateVirtualInterfaceInput
 
 func (PrivateVirtualInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*PrivateVirtualInterface)(nil))
+	return reflect.TypeOf((*[]*PrivateVirtualInterface)(nil)).Elem()
 }
 
 func (i PrivateVirtualInterfaceArray) ToPrivateVirtualInterfaceArrayOutput() PrivateVirtualInterfaceArrayOutput {
@@ -355,7 +355,7 @@ type PrivateVirtualInterfaceMapInput interface {
 type PrivateVirtualInterfaceMap map[string]PrivateVirtualInterfaceInput
 
 func (PrivateVirtualInterfaceMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*PrivateVirtualInterface)(nil))
+	return reflect.TypeOf((*map[string]*PrivateVirtualInterface)(nil)).Elem()
 }
 
 func (i PrivateVirtualInterfaceMap) ToPrivateVirtualInterfaceMapOutput() PrivateVirtualInterfaceMapOutput {

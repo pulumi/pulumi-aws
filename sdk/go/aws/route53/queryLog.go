@@ -244,7 +244,7 @@ type QueryLogArrayInput interface {
 type QueryLogArray []QueryLogInput
 
 func (QueryLogArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*QueryLog)(nil))
+	return reflect.TypeOf((*[]*QueryLog)(nil)).Elem()
 }
 
 func (i QueryLogArray) ToQueryLogArrayOutput() QueryLogArrayOutput {
@@ -269,7 +269,7 @@ type QueryLogMapInput interface {
 type QueryLogMap map[string]QueryLogInput
 
 func (QueryLogMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*QueryLog)(nil))
+	return reflect.TypeOf((*map[string]*QueryLog)(nil)).Elem()
 }
 
 func (i QueryLogMap) ToQueryLogMapOutput() QueryLogMapOutput {

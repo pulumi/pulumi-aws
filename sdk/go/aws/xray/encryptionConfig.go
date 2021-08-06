@@ -218,7 +218,7 @@ type EncryptionConfigArrayInput interface {
 type EncryptionConfigArray []EncryptionConfigInput
 
 func (EncryptionConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EncryptionConfig)(nil))
+	return reflect.TypeOf((*[]*EncryptionConfig)(nil)).Elem()
 }
 
 func (i EncryptionConfigArray) ToEncryptionConfigArrayOutput() EncryptionConfigArrayOutput {
@@ -243,7 +243,7 @@ type EncryptionConfigMapInput interface {
 type EncryptionConfigMap map[string]EncryptionConfigInput
 
 func (EncryptionConfigMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EncryptionConfig)(nil))
+	return reflect.TypeOf((*map[string]*EncryptionConfig)(nil)).Elem()
 }
 
 func (i EncryptionConfigMap) ToEncryptionConfigMapOutput() EncryptionConfigMapOutput {

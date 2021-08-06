@@ -222,7 +222,7 @@ type AliasArrayInput interface {
 type AliasArray []AliasInput
 
 func (AliasArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Alias)(nil))
+	return reflect.TypeOf((*[]*Alias)(nil)).Elem()
 }
 
 func (i AliasArray) ToAliasArrayOutput() AliasArrayOutput {
@@ -247,7 +247,7 @@ type AliasMapInput interface {
 type AliasMap map[string]AliasInput
 
 func (AliasMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Alias)(nil))
+	return reflect.TypeOf((*map[string]*Alias)(nil)).Elem()
 }
 
 func (i AliasMap) ToAliasMapOutput() AliasMapOutput {

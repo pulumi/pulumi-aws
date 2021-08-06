@@ -426,7 +426,7 @@ type TaskDefinitionArrayInput interface {
 type TaskDefinitionArray []TaskDefinitionInput
 
 func (TaskDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TaskDefinition)(nil))
+	return reflect.TypeOf((*[]*TaskDefinition)(nil)).Elem()
 }
 
 func (i TaskDefinitionArray) ToTaskDefinitionArrayOutput() TaskDefinitionArrayOutput {
@@ -451,7 +451,7 @@ type TaskDefinitionMapInput interface {
 type TaskDefinitionMap map[string]TaskDefinitionInput
 
 func (TaskDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TaskDefinition)(nil))
+	return reflect.TypeOf((*map[string]*TaskDefinition)(nil)).Elem()
 }
 
 func (i TaskDefinitionMap) ToTaskDefinitionMapOutput() TaskDefinitionMapOutput {

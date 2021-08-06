@@ -284,7 +284,7 @@ type VolumeAttachmentArrayInput interface {
 type VolumeAttachmentArray []VolumeAttachmentInput
 
 func (VolumeAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VolumeAttachment)(nil))
+	return reflect.TypeOf((*[]*VolumeAttachment)(nil)).Elem()
 }
 
 func (i VolumeAttachmentArray) ToVolumeAttachmentArrayOutput() VolumeAttachmentArrayOutput {
@@ -309,7 +309,7 @@ type VolumeAttachmentMapInput interface {
 type VolumeAttachmentMap map[string]VolumeAttachmentInput
 
 func (VolumeAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VolumeAttachment)(nil))
+	return reflect.TypeOf((*map[string]*VolumeAttachment)(nil)).Elem()
 }
 
 func (i VolumeAttachmentMap) ToVolumeAttachmentMapOutput() VolumeAttachmentMapOutput {

@@ -271,7 +271,7 @@ type ActivationArrayInput interface {
 type ActivationArray []ActivationInput
 
 func (ActivationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Activation)(nil))
+	return reflect.TypeOf((*[]*Activation)(nil)).Elem()
 }
 
 func (i ActivationArray) ToActivationArrayOutput() ActivationArrayOutput {
@@ -296,7 +296,7 @@ type ActivationMapInput interface {
 type ActivationMap map[string]ActivationInput
 
 func (ActivationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Activation)(nil))
+	return reflect.TypeOf((*map[string]*Activation)(nil)).Elem()
 }
 
 func (i ActivationMap) ToActivationMapOutput() ActivationMapOutput {

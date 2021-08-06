@@ -167,7 +167,7 @@ type WebAclAssociationArrayInput interface {
 type WebAclAssociationArray []WebAclAssociationInput
 
 func (WebAclAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*WebAclAssociation)(nil))
+	return reflect.TypeOf((*[]*WebAclAssociation)(nil)).Elem()
 }
 
 func (i WebAclAssociationArray) ToWebAclAssociationArrayOutput() WebAclAssociationArrayOutput {
@@ -192,7 +192,7 @@ type WebAclAssociationMapInput interface {
 type WebAclAssociationMap map[string]WebAclAssociationInput
 
 func (WebAclAssociationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*WebAclAssociation)(nil))
+	return reflect.TypeOf((*map[string]*WebAclAssociation)(nil)).Elem()
 }
 
 func (i WebAclAssociationMap) ToWebAclAssociationMapOutput() WebAclAssociationMapOutput {

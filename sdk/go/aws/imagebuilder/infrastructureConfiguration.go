@@ -331,7 +331,7 @@ type InfrastructureConfigurationArrayInput interface {
 type InfrastructureConfigurationArray []InfrastructureConfigurationInput
 
 func (InfrastructureConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*InfrastructureConfiguration)(nil))
+	return reflect.TypeOf((*[]*InfrastructureConfiguration)(nil)).Elem()
 }
 
 func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutput() InfrastructureConfigurationArrayOutput {
@@ -356,7 +356,7 @@ type InfrastructureConfigurationMapInput interface {
 type InfrastructureConfigurationMap map[string]InfrastructureConfigurationInput
 
 func (InfrastructureConfigurationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*InfrastructureConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*InfrastructureConfiguration)(nil)).Elem()
 }
 
 func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutput() InfrastructureConfigurationMapOutput {

@@ -211,7 +211,7 @@ type RoleAliasArrayInput interface {
 type RoleAliasArray []RoleAliasInput
 
 func (RoleAliasArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RoleAlias)(nil))
+	return reflect.TypeOf((*[]*RoleAlias)(nil)).Elem()
 }
 
 func (i RoleAliasArray) ToRoleAliasArrayOutput() RoleAliasArrayOutput {
@@ -236,7 +236,7 @@ type RoleAliasMapInput interface {
 type RoleAliasMap map[string]RoleAliasInput
 
 func (RoleAliasMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RoleAlias)(nil))
+	return reflect.TypeOf((*map[string]*RoleAlias)(nil)).Elem()
 }
 
 func (i RoleAliasMap) ToRoleAliasMapOutput() RoleAliasMapOutput {

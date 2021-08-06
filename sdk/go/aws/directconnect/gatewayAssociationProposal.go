@@ -230,7 +230,7 @@ type GatewayAssociationProposalArrayInput interface {
 type GatewayAssociationProposalArray []GatewayAssociationProposalInput
 
 func (GatewayAssociationProposalArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((*[]*GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (i GatewayAssociationProposalArray) ToGatewayAssociationProposalArrayOutput() GatewayAssociationProposalArrayOutput {
@@ -255,7 +255,7 @@ type GatewayAssociationProposalMapInput interface {
 type GatewayAssociationProposalMap map[string]GatewayAssociationProposalInput
 
 func (GatewayAssociationProposalMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GatewayAssociationProposal)(nil))
+	return reflect.TypeOf((*map[string]*GatewayAssociationProposal)(nil)).Elem()
 }
 
 func (i GatewayAssociationProposalMap) ToGatewayAssociationProposalMapOutput() GatewayAssociationProposalMapOutput {

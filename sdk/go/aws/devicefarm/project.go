@@ -207,7 +207,7 @@ type ProjectArrayInput interface {
 type ProjectArray []ProjectInput
 
 func (ProjectArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Project)(nil))
+	return reflect.TypeOf((*[]*Project)(nil)).Elem()
 }
 
 func (i ProjectArray) ToProjectArrayOutput() ProjectArrayOutput {
@@ -232,7 +232,7 @@ type ProjectMapInput interface {
 type ProjectMap map[string]ProjectInput
 
 func (ProjectMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Project)(nil))
+	return reflect.TypeOf((*map[string]*Project)(nil)).Elem()
 }
 
 func (i ProjectMap) ToProjectMapOutput() ProjectMapOutput {

@@ -265,7 +265,7 @@ type TargetGroupAttachmentArrayInput interface {
 type TargetGroupAttachmentArray []TargetGroupAttachmentInput
 
 func (TargetGroupAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TargetGroupAttachment)(nil))
+	return reflect.TypeOf((*[]*TargetGroupAttachment)(nil)).Elem()
 }
 
 func (i TargetGroupAttachmentArray) ToTargetGroupAttachmentArrayOutput() TargetGroupAttachmentArrayOutput {
@@ -290,7 +290,7 @@ type TargetGroupAttachmentMapInput interface {
 type TargetGroupAttachmentMap map[string]TargetGroupAttachmentInput
 
 func (TargetGroupAttachmentMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TargetGroupAttachment)(nil))
+	return reflect.TypeOf((*map[string]*TargetGroupAttachment)(nil)).Elem()
 }
 
 func (i TargetGroupAttachmentMap) ToTargetGroupAttachmentMapOutput() TargetGroupAttachmentMapOutput {

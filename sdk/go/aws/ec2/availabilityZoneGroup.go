@@ -188,7 +188,7 @@ type AvailabilityZoneGroupArrayInput interface {
 type AvailabilityZoneGroupArray []AvailabilityZoneGroupInput
 
 func (AvailabilityZoneGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AvailabilityZoneGroup)(nil))
+	return reflect.TypeOf((*[]*AvailabilityZoneGroup)(nil)).Elem()
 }
 
 func (i AvailabilityZoneGroupArray) ToAvailabilityZoneGroupArrayOutput() AvailabilityZoneGroupArrayOutput {
@@ -213,7 +213,7 @@ type AvailabilityZoneGroupMapInput interface {
 type AvailabilityZoneGroupMap map[string]AvailabilityZoneGroupInput
 
 func (AvailabilityZoneGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AvailabilityZoneGroup)(nil))
+	return reflect.TypeOf((*map[string]*AvailabilityZoneGroup)(nil)).Elem()
 }
 
 func (i AvailabilityZoneGroupMap) ToAvailabilityZoneGroupMapOutput() AvailabilityZoneGroupMapOutput {

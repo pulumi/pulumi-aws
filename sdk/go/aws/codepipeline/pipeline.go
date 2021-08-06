@@ -349,7 +349,7 @@ type PipelineArrayInput interface {
 type PipelineArray []PipelineInput
 
 func (PipelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Pipeline)(nil))
+	return reflect.TypeOf((*[]*Pipeline)(nil)).Elem()
 }
 
 func (i PipelineArray) ToPipelineArrayOutput() PipelineArrayOutput {
@@ -374,7 +374,7 @@ type PipelineMapInput interface {
 type PipelineMap map[string]PipelineInput
 
 func (PipelineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Pipeline)(nil))
+	return reflect.TypeOf((*map[string]*Pipeline)(nil)).Elem()
 }
 
 func (i PipelineMap) ToPipelineMapOutput() PipelineMapOutput {

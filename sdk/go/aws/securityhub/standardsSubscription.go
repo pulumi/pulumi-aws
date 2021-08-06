@@ -190,7 +190,7 @@ type StandardsSubscriptionArrayInput interface {
 type StandardsSubscriptionArray []StandardsSubscriptionInput
 
 func (StandardsSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StandardsSubscription)(nil))
+	return reflect.TypeOf((*[]*StandardsSubscription)(nil)).Elem()
 }
 
 func (i StandardsSubscriptionArray) ToStandardsSubscriptionArrayOutput() StandardsSubscriptionArrayOutput {
@@ -215,7 +215,7 @@ type StandardsSubscriptionMapInput interface {
 type StandardsSubscriptionMap map[string]StandardsSubscriptionInput
 
 func (StandardsSubscriptionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StandardsSubscription)(nil))
+	return reflect.TypeOf((*map[string]*StandardsSubscription)(nil)).Elem()
 }
 
 func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutput() StandardsSubscriptionMapOutput {

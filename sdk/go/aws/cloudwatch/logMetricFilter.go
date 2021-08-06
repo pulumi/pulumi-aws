@@ -223,7 +223,7 @@ type LogMetricFilterArrayInput interface {
 type LogMetricFilterArray []LogMetricFilterInput
 
 func (LogMetricFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*LogMetricFilter)(nil))
+	return reflect.TypeOf((*[]*LogMetricFilter)(nil)).Elem()
 }
 
 func (i LogMetricFilterArray) ToLogMetricFilterArrayOutput() LogMetricFilterArrayOutput {
@@ -248,7 +248,7 @@ type LogMetricFilterMapInput interface {
 type LogMetricFilterMap map[string]LogMetricFilterInput
 
 func (LogMetricFilterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*LogMetricFilter)(nil))
+	return reflect.TypeOf((*map[string]*LogMetricFilter)(nil)).Elem()
 }
 
 func (i LogMetricFilterMap) ToLogMetricFilterMapOutput() LogMetricFilterMapOutput {

@@ -207,7 +207,7 @@ type UserPoolUICustomizationArrayInput interface {
 type UserPoolUICustomizationArray []UserPoolUICustomizationInput
 
 func (UserPoolUICustomizationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserPoolUICustomization)(nil))
+	return reflect.TypeOf((*[]*UserPoolUICustomization)(nil)).Elem()
 }
 
 func (i UserPoolUICustomizationArray) ToUserPoolUICustomizationArrayOutput() UserPoolUICustomizationArrayOutput {
@@ -232,7 +232,7 @@ type UserPoolUICustomizationMapInput interface {
 type UserPoolUICustomizationMap map[string]UserPoolUICustomizationInput
 
 func (UserPoolUICustomizationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserPoolUICustomization)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolUICustomization)(nil)).Elem()
 }
 
 func (i UserPoolUICustomizationMap) ToUserPoolUICustomizationMapOutput() UserPoolUICustomizationMapOutput {

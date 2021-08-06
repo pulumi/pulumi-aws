@@ -798,7 +798,7 @@ type DistributionArrayInput interface {
 type DistributionArray []DistributionInput
 
 func (DistributionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Distribution)(nil))
+	return reflect.TypeOf((*[]*Distribution)(nil)).Elem()
 }
 
 func (i DistributionArray) ToDistributionArrayOutput() DistributionArrayOutput {
@@ -823,7 +823,7 @@ type DistributionMapInput interface {
 type DistributionMap map[string]DistributionInput
 
 func (DistributionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Distribution)(nil))
+	return reflect.TypeOf((*map[string]*Distribution)(nil)).Elem()
 }
 
 func (i DistributionMap) ToDistributionMapOutput() DistributionMapOutput {

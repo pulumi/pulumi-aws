@@ -228,7 +228,7 @@ type UserGroupArrayInput interface {
 type UserGroupArray []UserGroupInput
 
 func (UserGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*UserGroup)(nil))
+	return reflect.TypeOf((*[]*UserGroup)(nil)).Elem()
 }
 
 func (i UserGroupArray) ToUserGroupArrayOutput() UserGroupArrayOutput {
@@ -253,7 +253,7 @@ type UserGroupMapInput interface {
 type UserGroupMap map[string]UserGroupInput
 
 func (UserGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*UserGroup)(nil))
+	return reflect.TypeOf((*map[string]*UserGroup)(nil)).Elem()
 }
 
 func (i UserGroupMap) ToUserGroupMapOutput() UserGroupMapOutput {

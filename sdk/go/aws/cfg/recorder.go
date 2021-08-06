@@ -203,7 +203,7 @@ type RecorderArrayInput interface {
 type RecorderArray []RecorderInput
 
 func (RecorderArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Recorder)(nil))
+	return reflect.TypeOf((*[]*Recorder)(nil)).Elem()
 }
 
 func (i RecorderArray) ToRecorderArrayOutput() RecorderArrayOutput {
@@ -228,7 +228,7 @@ type RecorderMapInput interface {
 type RecorderMap map[string]RecorderInput
 
 func (RecorderMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Recorder)(nil))
+	return reflect.TypeOf((*map[string]*Recorder)(nil)).Elem()
 }
 
 func (i RecorderMap) ToRecorderMapOutput() RecorderMapOutput {

@@ -309,7 +309,7 @@ type ClassificationJobArrayInput interface {
 type ClassificationJobArray []ClassificationJobInput
 
 func (ClassificationJobArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ClassificationJob)(nil))
+	return reflect.TypeOf((*[]*ClassificationJob)(nil)).Elem()
 }
 
 func (i ClassificationJobArray) ToClassificationJobArrayOutput() ClassificationJobArrayOutput {
@@ -334,7 +334,7 @@ type ClassificationJobMapInput interface {
 type ClassificationJobMap map[string]ClassificationJobInput
 
 func (ClassificationJobMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ClassificationJob)(nil))
+	return reflect.TypeOf((*map[string]*ClassificationJob)(nil)).Elem()
 }
 
 func (i ClassificationJobMap) ToClassificationJobMapOutput() ClassificationJobMapOutput {

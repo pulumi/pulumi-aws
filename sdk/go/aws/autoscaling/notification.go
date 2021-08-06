@@ -222,7 +222,7 @@ type NotificationArrayInput interface {
 type NotificationArray []NotificationInput
 
 func (NotificationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Notification)(nil))
+	return reflect.TypeOf((*[]*Notification)(nil)).Elem()
 }
 
 func (i NotificationArray) ToNotificationArrayOutput() NotificationArrayOutput {
@@ -247,7 +247,7 @@ type NotificationMapInput interface {
 type NotificationMap map[string]NotificationInput
 
 func (NotificationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Notification)(nil))
+	return reflect.TypeOf((*map[string]*Notification)(nil)).Elem()
 }
 
 func (i NotificationMap) ToNotificationMapOutput() NotificationMapOutput {

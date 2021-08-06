@@ -368,7 +368,7 @@ type StoredIscsiVolumeArrayInput interface {
 type StoredIscsiVolumeArray []StoredIscsiVolumeInput
 
 func (StoredIscsiVolumeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*StoredIscsiVolume)(nil))
+	return reflect.TypeOf((*[]*StoredIscsiVolume)(nil)).Elem()
 }
 
 func (i StoredIscsiVolumeArray) ToStoredIscsiVolumeArrayOutput() StoredIscsiVolumeArrayOutput {
@@ -393,7 +393,7 @@ type StoredIscsiVolumeMapInput interface {
 type StoredIscsiVolumeMap map[string]StoredIscsiVolumeInput
 
 func (StoredIscsiVolumeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*StoredIscsiVolume)(nil))
+	return reflect.TypeOf((*map[string]*StoredIscsiVolume)(nil)).Elem()
 }
 
 func (i StoredIscsiVolumeMap) ToStoredIscsiVolumeMapOutput() StoredIscsiVolumeMapOutput {

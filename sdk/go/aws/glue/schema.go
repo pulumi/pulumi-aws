@@ -280,7 +280,7 @@ type SchemaArrayInput interface {
 type SchemaArray []SchemaInput
 
 func (SchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Schema)(nil))
+	return reflect.TypeOf((*[]*Schema)(nil)).Elem()
 }
 
 func (i SchemaArray) ToSchemaArrayOutput() SchemaArrayOutput {
@@ -305,7 +305,7 @@ type SchemaMapInput interface {
 type SchemaMap map[string]SchemaInput
 
 func (SchemaMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Schema)(nil))
+	return reflect.TypeOf((*map[string]*Schema)(nil)).Elem()
 }
 
 func (i SchemaMap) ToSchemaMapOutput() SchemaMapOutput {

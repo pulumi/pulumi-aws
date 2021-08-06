@@ -271,7 +271,7 @@ type AccountArrayInput interface {
 type AccountArray []AccountInput
 
 func (AccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Account)(nil))
+	return reflect.TypeOf((*[]*Account)(nil)).Elem()
 }
 
 func (i AccountArray) ToAccountArrayOutput() AccountArrayOutput {
@@ -296,7 +296,7 @@ type AccountMapInput interface {
 type AccountMap map[string]AccountInput
 
 func (AccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Account)(nil))
+	return reflect.TypeOf((*map[string]*Account)(nil)).Elem()
 }
 
 func (i AccountMap) ToAccountMapOutput() AccountMapOutput {

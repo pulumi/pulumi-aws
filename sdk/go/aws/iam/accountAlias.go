@@ -174,7 +174,7 @@ type AccountAliasArrayInput interface {
 type AccountAliasArray []AccountAliasInput
 
 func (AccountAliasArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AccountAlias)(nil))
+	return reflect.TypeOf((*[]*AccountAlias)(nil)).Elem()
 }
 
 func (i AccountAliasArray) ToAccountAliasArrayOutput() AccountAliasArrayOutput {
@@ -199,7 +199,7 @@ type AccountAliasMapInput interface {
 type AccountAliasMap map[string]AccountAliasInput
 
 func (AccountAliasMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AccountAlias)(nil))
+	return reflect.TypeOf((*map[string]*AccountAlias)(nil)).Elem()
 }
 
 func (i AccountAliasMap) ToAccountAliasMapOutput() AccountAliasMapOutput {

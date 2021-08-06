@@ -214,7 +214,7 @@ type BaiduChannelArrayInput interface {
 type BaiduChannelArray []BaiduChannelInput
 
 func (BaiduChannelArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BaiduChannel)(nil))
+	return reflect.TypeOf((*[]*BaiduChannel)(nil)).Elem()
 }
 
 func (i BaiduChannelArray) ToBaiduChannelArrayOutput() BaiduChannelArrayOutput {
@@ -239,7 +239,7 @@ type BaiduChannelMapInput interface {
 type BaiduChannelMap map[string]BaiduChannelInput
 
 func (BaiduChannelMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BaiduChannel)(nil))
+	return reflect.TypeOf((*map[string]*BaiduChannel)(nil)).Elem()
 }
 
 func (i BaiduChannelMap) ToBaiduChannelMapOutput() BaiduChannelMapOutput {
