@@ -101,9 +101,10 @@ type DefaultRouteTable struct {
 	// ID of the AWS account that owns the route table.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws pulumi.StringArrayOutput          `pulumi:"propagatingVgws"`
-	Routes          DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
+	// Set of objects. Detailed below
+	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -150,9 +151,10 @@ type defaultRouteTableState struct {
 	// ID of the AWS account that owns the route table.
 	OwnerId *string `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws []string                 `pulumi:"propagatingVgws"`
-	Routes          []DefaultRouteTableRoute `pulumi:"routes"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// Set of objects. Detailed below
+	Routes []DefaultRouteTableRoute `pulumi:"routes"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -169,8 +171,9 @@ type DefaultRouteTableState struct {
 	OwnerId pulumi.StringPtrInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	Routes          DefaultRouteTableRouteArrayInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Set of objects. Detailed below
+	Routes DefaultRouteTableRouteArrayInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -186,9 +189,10 @@ type defaultRouteTableArgs struct {
 	// ID of the default route table.
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
-	PropagatingVgws []string                 `pulumi:"propagatingVgws"`
-	Routes          []DefaultRouteTableRoute `pulumi:"routes"`
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// Set of objects. Detailed below
+	Routes []DefaultRouteTableRoute `pulumi:"routes"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -200,8 +204,9 @@ type DefaultRouteTableArgs struct {
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
-	Routes          DefaultRouteTableRouteArrayInput
-	// Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Set of objects. Detailed below
+	Routes DefaultRouteTableRouteArrayInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput

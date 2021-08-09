@@ -83,7 +83,7 @@ export class Deployment extends pulumi.CustomResource {
      */
     public /*out*/ readonly deploymentNumber!: pulumi.Output<number>;
     /**
-     * The deployment strategy ID. Must be between 4 and 7 characters in length.
+     * The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
     public readonly deploymentStrategyId!: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface DeploymentState {
      */
     deploymentNumber?: pulumi.Input<number>;
     /**
-     * The deployment strategy ID. Must be between 4 and 7 characters in length.
+     * The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
     deploymentStrategyId?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface DeploymentArgs {
      */
     configurationVersion: pulumi.Input<string>;
     /**
-     * The deployment strategy ID. Must be between 4 and 7 characters in length.
+     * The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
      */
     deploymentStrategyId: pulumi.Input<string>;
     /**

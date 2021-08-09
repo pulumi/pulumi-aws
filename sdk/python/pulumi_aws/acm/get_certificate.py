@@ -19,7 +19,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, statuses=None, tags=None, types=None):
+    def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, status=None, statuses=None, tags=None, types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetCertificateResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if statuses and not isinstance(statuses, list):
             raise TypeError("Expected argument 'statuses' to be a list")
         pulumi.set(__self__, "statuses", statuses)
@@ -78,6 +81,14 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the found certificate.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
     def statuses(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "statuses")
 
@@ -106,6 +117,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             id=self.id,
             key_types=self.key_types,
             most_recent=self.most_recent,
+            status=self.status,
             statuses=self.statuses,
             tags=self.tags,
             types=self.types)
@@ -167,6 +179,7 @@ def get_certificate(domain: Optional[str] = None,
         id=__ret__.id,
         key_types=__ret__.key_types,
         most_recent=__ret__.most_recent,
+        status=__ret__.status,
         statuses=__ret__.statuses,
         tags=__ret__.tags,
         types=__ret__.types)

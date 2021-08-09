@@ -50,13 +50,13 @@ __all__ = [
     'UserProfileUserSettingsSharingSettings',
     'UserProfileUserSettingsTensorBoardAppSettings',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
-    'WorkForceCognitoConfig',
-    'WorkForceOidcConfig',
-    'WorkForceSourceIpConfig',
-    'WorkTeamMemberDefinition',
-    'WorkTeamMemberDefinitionCognitoMemberDefinition',
-    'WorkTeamMemberDefinitionOidcMemberDefinition',
-    'WorkTeamNotificationConfiguration',
+    'WorkforceCognitoConfig',
+    'WorkforceOidcConfig',
+    'WorkforceSourceIpConfig',
+    'WorkteamMemberDefinition',
+    'WorkteamMemberDefinitionCognitoMemberDefinition',
+    'WorkteamMemberDefinitionOidcMemberDefinition',
+    'WorkteamNotificationConfiguration',
 ]
 
 @pulumi.output_type
@@ -2295,7 +2295,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class WorkForceCognitoConfig(dict):
+class WorkforceCognitoConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2305,14 +2305,14 @@ class WorkForceCognitoConfig(dict):
             suggest = "user_pool"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkForceCognitoConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkforceCognitoConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkForceCognitoConfig.__key_warning(key)
+        WorkforceCognitoConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkForceCognitoConfig.__key_warning(key)
+        WorkforceCognitoConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2343,7 +2343,7 @@ class WorkForceCognitoConfig(dict):
 
 
 @pulumi.output_type
-class WorkForceOidcConfig(dict):
+class WorkforceOidcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2363,14 +2363,14 @@ class WorkForceOidcConfig(dict):
             suggest = "user_info_endpoint"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkForceOidcConfig. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkforceOidcConfig. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkForceOidcConfig.__key_warning(key)
+        WorkforceOidcConfig.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkForceOidcConfig.__key_warning(key)
+        WorkforceOidcConfig.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2467,7 +2467,7 @@ class WorkForceOidcConfig(dict):
 
 
 @pulumi.output_type
-class WorkForceSourceIpConfig(dict):
+class WorkforceSourceIpConfig(dict):
     def __init__(__self__, *,
                  cidrs: Sequence[str]):
         """
@@ -2485,7 +2485,7 @@ class WorkForceSourceIpConfig(dict):
 
 
 @pulumi.output_type
-class WorkTeamMemberDefinition(dict):
+class WorkteamMemberDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2495,22 +2495,22 @@ class WorkTeamMemberDefinition(dict):
             suggest = "oidc_member_definition"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkTeamMemberDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamMemberDefinition. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkTeamMemberDefinition.__key_warning(key)
+        WorkteamMemberDefinition.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkTeamMemberDefinition.__key_warning(key)
+        WorkteamMemberDefinition.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 cognito_member_definition: Optional['outputs.WorkTeamMemberDefinitionCognitoMemberDefinition'] = None,
-                 oidc_member_definition: Optional['outputs.WorkTeamMemberDefinitionOidcMemberDefinition'] = None):
+                 cognito_member_definition: Optional['outputs.WorkteamMemberDefinitionCognitoMemberDefinition'] = None,
+                 oidc_member_definition: Optional['outputs.WorkteamMemberDefinitionOidcMemberDefinition'] = None):
         """
-        :param 'WorkTeamMemberDefinitionCognitoMemberDefinitionArgs' cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-        :param 'WorkTeamMemberDefinitionOidcMemberDefinitionArgs' oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+        :param 'WorkteamMemberDefinitionCognitoMemberDefinitionArgs' cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+        :param 'WorkteamMemberDefinitionOidcMemberDefinitionArgs' oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
         if cognito_member_definition is not None:
             pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
@@ -2519,7 +2519,7 @@ class WorkTeamMemberDefinition(dict):
 
     @property
     @pulumi.getter(name="cognitoMemberDefinition")
-    def cognito_member_definition(self) -> Optional['outputs.WorkTeamMemberDefinitionCognitoMemberDefinition']:
+    def cognito_member_definition(self) -> Optional['outputs.WorkteamMemberDefinitionCognitoMemberDefinition']:
         """
         The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
         """
@@ -2527,7 +2527,7 @@ class WorkTeamMemberDefinition(dict):
 
     @property
     @pulumi.getter(name="oidcMemberDefinition")
-    def oidc_member_definition(self) -> Optional['outputs.WorkTeamMemberDefinitionOidcMemberDefinition']:
+    def oidc_member_definition(self) -> Optional['outputs.WorkteamMemberDefinitionOidcMemberDefinition']:
         """
         A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
@@ -2535,7 +2535,7 @@ class WorkTeamMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkTeamMemberDefinitionCognitoMemberDefinition(dict):
+class WorkteamMemberDefinitionCognitoMemberDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2547,14 +2547,14 @@ class WorkTeamMemberDefinitionCognitoMemberDefinition(dict):
             suggest = "user_pool"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkTeamMemberDefinitionCognitoMemberDefinition. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamMemberDefinitionCognitoMemberDefinition. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkTeamMemberDefinitionCognitoMemberDefinition.__key_warning(key)
+        WorkteamMemberDefinitionCognitoMemberDefinition.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkTeamMemberDefinitionCognitoMemberDefinition.__key_warning(key)
+        WorkteamMemberDefinitionCognitoMemberDefinition.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -2596,7 +2596,7 @@ class WorkTeamMemberDefinitionCognitoMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkTeamMemberDefinitionOidcMemberDefinition(dict):
+class WorkteamMemberDefinitionOidcMemberDefinition(dict):
     def __init__(__self__, *,
                  groups: Sequence[str]):
         """
@@ -2614,7 +2614,7 @@ class WorkTeamMemberDefinitionOidcMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkTeamNotificationConfiguration(dict):
+class WorkteamNotificationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2622,14 +2622,14 @@ class WorkTeamNotificationConfiguration(dict):
             suggest = "notification_topic_arn"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in WorkTeamNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in WorkteamNotificationConfiguration. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        WorkTeamNotificationConfiguration.__key_warning(key)
+        WorkteamNotificationConfiguration.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        WorkTeamNotificationConfiguration.__key_warning(key)
+        WorkteamNotificationConfiguration.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

@@ -160,6 +160,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     */
+    public readonly customerOwnedIpEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -295,6 +299,11 @@ export class Instance extends pulumi.CustomResource {
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+     */
+    public readonly ncharCharacterSetName!: pulumi.Output<string>;
     /**
      * Name of the DB option group to associate.
      */
@@ -445,6 +454,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["caCertIdentifier"] = state ? state.caCertIdentifier : undefined;
             inputs["characterSetName"] = state ? state.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
+            inputs["customerOwnedIpEnabled"] = state ? state.customerOwnedIpEnabled : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             inputs["deleteAutomatedBackups"] = state ? state.deleteAutomatedBackups : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
@@ -470,6 +480,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
             inputs["multiAz"] = state ? state.multiAz : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ncharCharacterSetName"] = state ? state.ncharCharacterSetName : undefined;
             inputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             inputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             inputs["password"] = state ? state.password : undefined;
@@ -509,6 +520,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["caCertIdentifier"] = args ? args.caCertIdentifier : undefined;
             inputs["characterSetName"] = args ? args.characterSetName : undefined;
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            inputs["customerOwnedIpEnabled"] = args ? args.customerOwnedIpEnabled : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
@@ -531,6 +543,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             inputs["multiAz"] = args ? args.multiAz : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["ncharCharacterSetName"] = args ? args.ncharCharacterSetName : undefined;
             inputs["optionGroupName"] = args ? args.optionGroupName : undefined;
             inputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -633,6 +646,10 @@ export interface InstanceState {
      * Copy all Instance `tags` to snapshots. Default is `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     */
+    customerOwnedIpEnabled?: pulumi.Input<boolean>;
     /**
      * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
@@ -769,6 +786,11 @@ export interface InstanceState {
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+     */
+    ncharCharacterSetName?: pulumi.Input<string>;
     /**
      * Name of the DB option group to associate.
      */
@@ -953,6 +975,10 @@ export interface InstanceArgs {
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
+     * Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+     */
+    customerOwnedIpEnabled?: pulumi.Input<boolean>;
+    /**
      * Name of `DB subnet group`. DB instance will
      * be created in the VPC associated with the DB subnet group. If unspecified, will
      * be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -1075,6 +1101,11 @@ export interface InstanceArgs {
      * The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+     * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+     */
+    ncharCharacterSetName?: pulumi.Input<string>;
     /**
      * Name of the DB option group to associate.
      */

@@ -219,6 +219,8 @@ export interface ProviderEndpoint {
     resourcegroupstaggingapi?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
     route53domains?: pulumi.Input<string>;
+    route53recoverycontrolconfig?: pulumi.Input<string>;
+    route53recoveryreadiness?: pulumi.Input<string>;
     route53resolver?: pulumi.Input<string>;
     s3?: pulumi.Input<string>;
     s3control?: pulumi.Input<string>;
@@ -10224,7 +10226,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateTagSpecification {
         /**
-         * The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+         * The type of resource to tag.
          */
         resourceType?: pulumi.Input<string>;
         /**
@@ -22089,7 +22091,7 @@ export namespace sagemaker {
         sagemakerImageArn?: pulumi.Input<string>;
     }
 
-    export interface WorkForceCognitoConfig {
+    export interface WorkforceCognitoConfig {
         /**
          * The OIDC IdP client ID used to configure your private workforce.
          */
@@ -22100,7 +22102,7 @@ export namespace sagemaker {
         userPool: pulumi.Input<string>;
     }
 
-    export interface WorkForceOidcConfig {
+    export interface WorkforceOidcConfig {
         /**
          * The OIDC IdP authorization endpoint used to configure your private workforce.
          */
@@ -22135,25 +22137,25 @@ export namespace sagemaker {
         userInfoEndpoint: pulumi.Input<string>;
     }
 
-    export interface WorkForceSourceIpConfig {
+    export interface WorkforceSourceIpConfig {
         /**
          * A list of up to 10 CIDR values.
          */
         cidrs: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface WorkTeamMemberDefinition {
+    export interface WorkteamMemberDefinition {
         /**
          * The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
          */
-        cognitoMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkTeamMemberDefinitionCognitoMemberDefinition>;
+        cognitoMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinition>;
         /**
          * A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
          */
-        oidcMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkTeamMemberDefinitionOidcMemberDefinition>;
+        oidcMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionOidcMemberDefinition>;
     }
 
-    export interface WorkTeamMemberDefinitionCognitoMemberDefinition {
+    export interface WorkteamMemberDefinitionCognitoMemberDefinition {
         /**
          * An identifier for an application client. You must create the app client ID using Amazon Cognito.
          */
@@ -22168,14 +22170,14 @@ export namespace sagemaker {
         userPool: pulumi.Input<string>;
     }
 
-    export interface WorkTeamMemberDefinitionOidcMemberDefinition {
+    export interface WorkteamMemberDefinitionOidcMemberDefinition {
         /**
          * A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
          */
         groups: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface WorkTeamNotificationConfiguration {
+    export interface WorkteamNotificationConfiguration {
         /**
          * The ARN for the SNS topic to which notifications should be published.
          */

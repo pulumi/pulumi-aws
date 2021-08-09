@@ -27,6 +27,7 @@ class InstanceArgs:
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -48,6 +49,7 @@ class InstanceArgs:
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -95,6 +97,7 @@ class InstanceArgs:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -151,6 +154,8 @@ class InstanceArgs:
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+        :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -225,6 +230,8 @@ class InstanceArgs:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if customer_owned_ip_enabled is not None:
+            pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if delete_automated_backups is not None:
@@ -267,6 +274,8 @@ class InstanceArgs:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if nchar_character_set_name is not None:
+            pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if option_group_name is not None:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if parameter_group_name is not None:
@@ -454,6 +463,18 @@ class InstanceArgs:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpEnabled")
+    def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        """
+        return pulumi.get(self, "customer_owned_ip_enabled")
+
+    @customer_owned_ip_enabled.setter
+    def customer_owned_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_owned_ip_enabled", value)
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
@@ -741,6 +762,19 @@ class InstanceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="ncharCharacterSetName")
+    def nchar_character_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        """
+        return pulumi.get(self, "nchar_character_set_name")
+
+    @nchar_character_set_name.setter
+    def nchar_character_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nchar_character_set_name", value)
 
     @property
     @pulumi.getter(name="optionGroupName")
@@ -1041,6 +1075,7 @@ class _InstanceState:
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -1066,6 +1101,7 @@ class _InstanceState:
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -1117,6 +1153,7 @@ class _InstanceState:
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -1178,6 +1215,8 @@ class _InstanceState:
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+        :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -1257,6 +1296,8 @@ class _InstanceState:
             pulumi.set(__self__, "character_set_name", character_set_name)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if customer_owned_ip_enabled is not None:
+            pulumi.set(__self__, "customer_owned_ip_enabled", customer_owned_ip_enabled)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if delete_automated_backups is not None:
@@ -1307,6 +1348,8 @@ class _InstanceState:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if nchar_character_set_name is not None:
+            pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if option_group_name is not None:
             pulumi.set(__self__, "option_group_name", option_group_name)
         if parameter_group_name is not None:
@@ -1512,6 +1555,18 @@ class _InstanceState:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="customerOwnedIpEnabled")
+    def customer_owned_ip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        """
+        return pulumi.get(self, "customer_owned_ip_enabled")
+
+    @customer_owned_ip_enabled.setter
+    def customer_owned_ip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "customer_owned_ip_enabled", value)
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
@@ -1850,6 +1905,19 @@ class _InstanceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ncharCharacterSetName")
+    def nchar_character_set_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        """
+        return pulumi.get(self, "nchar_character_set_name")
+
+    @nchar_character_set_name.setter
+    def nchar_character_set_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "nchar_character_set_name", value)
+
+    @property
     @pulumi.getter(name="optionGroupName")
     def option_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -2181,6 +2249,7 @@ class Instance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -2203,6 +2272,7 @@ class Instance(pulumi.CustomResource):
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -2313,6 +2383,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -2370,6 +2441,8 @@ class Instance(pulumi.CustomResource):
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+        :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -2517,6 +2590,7 @@ class Instance(pulumi.CustomResource):
                  ca_cert_identifier: Optional[pulumi.Input[str]] = None,
                  character_set_name: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -2539,6 +2613,7 @@ class Instance(pulumi.CustomResource):
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 nchar_character_set_name: Optional[pulumi.Input[str]] = None,
                  option_group_name: Optional[pulumi.Input[str]] = None,
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -2582,6 +2657,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
             __props__.__dict__["character_set_name"] = character_set_name
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
@@ -2606,6 +2682,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
             __props__.__dict__["name"] = name
+            __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["option_group_name"] = option_group_name
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["password"] = password
@@ -2657,6 +2734,7 @@ class Instance(pulumi.CustomResource):
             ca_cert_identifier: Optional[pulumi.Input[str]] = None,
             character_set_name: Optional[pulumi.Input[str]] = None,
             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+            customer_owned_ip_enabled: Optional[pulumi.Input[bool]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             delete_automated_backups: Optional[pulumi.Input[bool]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -2682,6 +2760,7 @@ class Instance(pulumi.CustomResource):
             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
             multi_az: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            nchar_character_set_name: Optional[pulumi.Input[str]] = None,
             option_group_name: Optional[pulumi.Input[str]] = None,
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
@@ -2738,6 +2817,7 @@ class Instance(pulumi.CustomResource):
                Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html)
                or [Server-Level Collation for Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.SQLServer.CommonDBATasks.Collation.html) for more information.
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Instance `tags` to snapshots. Default is `false`.
+        :param pulumi.Input[bool] customer_owned_ip_enabled: Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
         :param pulumi.Input[str] db_subnet_group_name: Name of `DB subnet group`. DB instance will
                be created in the VPC associated with the DB subnet group. If unspecified, will
                be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -2799,6 +2879,8 @@ class Instance(pulumi.CustomResource):
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] multi_az: Specifies if the RDS instance is multi-AZ
         :param pulumi.Input[str] name: The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
+        :param pulumi.Input[str] nchar_character_set_name: The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+               Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
         :param pulumi.Input[str] option_group_name: Name of the DB option group to associate.
         :param pulumi.Input[str] parameter_group_name: Name of the DB parameter group to
                associate.
@@ -2870,6 +2952,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["ca_cert_identifier"] = ca_cert_identifier
         __props__.__dict__["character_set_name"] = character_set_name
         __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+        __props__.__dict__["customer_owned_ip_enabled"] = customer_owned_ip_enabled
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["delete_automated_backups"] = delete_automated_backups
         __props__.__dict__["deletion_protection"] = deletion_protection
@@ -2895,6 +2978,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["multi_az"] = multi_az
         __props__.__dict__["name"] = name
+        __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
         __props__.__dict__["option_group_name"] = option_group_name
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["password"] = password
@@ -3029,6 +3113,14 @@ class Instance(pulumi.CustomResource):
         Copy all Instance `tags` to snapshots. Default is `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="customerOwnedIpEnabled")
+    def customer_owned_ip_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        """
+        return pulumi.get(self, "customer_owned_ip_enabled")
 
     @property
     @pulumi.getter(name="dbSubnetGroupName")
@@ -3265,6 +3357,15 @@ class Instance(pulumi.CustomResource):
         The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ncharCharacterSetName")
+    def nchar_character_set_name(self) -> pulumi.Output[str]:
+        """
+        The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        """
+        return pulumi.get(self, "nchar_character_set_name")
 
     @property
     @pulumi.getter(name="optionGroupName")

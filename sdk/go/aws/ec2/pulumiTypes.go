@@ -8224,7 +8224,7 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 }
 
 type LaunchTemplateTagSpecification struct {
-	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+	// The type of resource to tag.
 	ResourceType *string `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -8242,7 +8242,7 @@ type LaunchTemplateTagSpecificationInput interface {
 }
 
 type LaunchTemplateTagSpecificationArgs struct {
-	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+	// The type of resource to tag.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -8299,7 +8299,7 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
-// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+// The type of resource to tag.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }

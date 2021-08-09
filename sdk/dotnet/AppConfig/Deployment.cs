@@ -82,7 +82,7 @@ namespace Pulumi.Aws.AppConfig
         public Output<int> DeploymentNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The deployment strategy ID. Must be between 4 and 7 characters in length.
+        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Output("deploymentStrategyId")]
         public Output<string> DeploymentStrategyId { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<string> ConfigurationVersion { get; set; } = null!;
 
         /// <summary>
-        /// The deployment strategy ID. Must be between 4 and 7 characters in length.
+        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Input("deploymentStrategyId", required: true)]
         public Input<string> DeploymentStrategyId { get; set; } = null!;
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.AppConfig
         public Input<int>? DeploymentNumber { get; set; }
 
         /// <summary>
-        /// The deployment strategy ID. Must be between 4 and 7 characters in length.
+        /// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         /// </summary>
         [Input("deploymentStrategyId")]
         public Input<string>? DeploymentStrategyId { get; set; }

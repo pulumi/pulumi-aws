@@ -60,6 +60,10 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
      */
@@ -110,6 +114,7 @@ export class Key extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
             inputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -122,6 +127,7 @@ export class Key extends pulumi.CustomResource {
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
+            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             inputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
             inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
             inputs["description"] = args ? args.description : undefined;
@@ -149,6 +155,10 @@ export interface KeyState {
      * The Amazon Resource Name (ARN) of the key.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
@@ -191,6 +201,10 @@ export interface KeyState {
  * The set of arguments for constructing a Key resource.
  */
 export interface KeyArgs {
+    /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
      * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
      * Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).

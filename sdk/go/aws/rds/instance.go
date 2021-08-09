@@ -138,6 +138,8 @@ type Instance struct {
 	CharacterSetName pulumi.StringOutput `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
+	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	CustomerOwnedIpEnabled pulumi.BoolPtrOutput `pulumi:"customerOwnedIpEnabled"`
 	// Name of `DB subnet group`. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -224,6 +226,9 @@ type Instance struct {
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+	NcharCharacterSetName pulumi.StringOutput `pulumi:"ncharCharacterSetName"`
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringOutput `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -373,6 +378,8 @@ type instanceState struct {
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// Name of `DB subnet group`. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -459,6 +466,9 @@ type instanceState struct {
 	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name *string `pulumi:"name"`
+	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -577,6 +587,8 @@ type InstanceState struct {
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// Name of `DB subnet group`. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -663,6 +675,9 @@ type InstanceState struct {
 	MultiAz pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringPtrInput
+	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+	NcharCharacterSetName pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
 	// Name of the DB parameter group to
@@ -781,6 +796,8 @@ type instanceArgs struct {
 	CharacterSetName *string `pulumi:"characterSetName"`
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	CustomerOwnedIpEnabled *bool `pulumi:"customerOwnedIpEnabled"`
 	// Name of `DB subnet group`. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -860,6 +877,9 @@ type instanceArgs struct {
 	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name *string `pulumi:"name"`
+	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+	NcharCharacterSetName *string `pulumi:"ncharCharacterSetName"`
 	// Name of the DB option group to associate.
 	OptionGroupName *string `pulumi:"optionGroupName"`
 	// Name of the DB parameter group to
@@ -970,6 +990,8 @@ type InstanceArgs struct {
 	CharacterSetName pulumi.StringPtrInput
 	// Copy all Instance `tags` to snapshots. Default is `false`.
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+	CustomerOwnedIpEnabled pulumi.BoolPtrInput
 	// Name of `DB subnet group`. DB instance will
 	// be created in the VPC associated with the DB subnet group. If unspecified, will
 	// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -1049,6 +1071,9 @@ type InstanceArgs struct {
 	MultiAz pulumi.BoolPtrInput
 	// The name of the database to create when the DB instance is created. If this parameter is not specified, no database is created in the DB instance. Note that this does not apply for Oracle or SQL Server engines. See the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/create-db-instance.html) for more details on what applies for those engines. If you are providing an Oracle db name, it needs to be in all upper case.
 	Name pulumi.StringPtrInput
+	// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+	// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+	NcharCharacterSetName pulumi.StringPtrInput
 	// Name of the DB option group to associate.
 	OptionGroupName pulumi.StringPtrInput
 	// Name of the DB parameter group to

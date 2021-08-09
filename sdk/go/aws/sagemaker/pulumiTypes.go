@@ -6349,145 +6349,145 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type WorkForceCognitoConfig struct {
+type WorkforceCognitoConfig struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId string `pulumi:"clientId"`
 	// The id for your Amazon Cognito user pool.
 	UserPool string `pulumi:"userPool"`
 }
 
-// WorkForceCognitoConfigInput is an input type that accepts WorkForceCognitoConfigArgs and WorkForceCognitoConfigOutput values.
-// You can construct a concrete instance of `WorkForceCognitoConfigInput` via:
+// WorkforceCognitoConfigInput is an input type that accepts WorkforceCognitoConfigArgs and WorkforceCognitoConfigOutput values.
+// You can construct a concrete instance of `WorkforceCognitoConfigInput` via:
 //
-//          WorkForceCognitoConfigArgs{...}
-type WorkForceCognitoConfigInput interface {
+//          WorkforceCognitoConfigArgs{...}
+type WorkforceCognitoConfigInput interface {
 	pulumi.Input
 
-	ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput
-	ToWorkForceCognitoConfigOutputWithContext(context.Context) WorkForceCognitoConfigOutput
+	ToWorkforceCognitoConfigOutput() WorkforceCognitoConfigOutput
+	ToWorkforceCognitoConfigOutputWithContext(context.Context) WorkforceCognitoConfigOutput
 }
 
-type WorkForceCognitoConfigArgs struct {
+type WorkforceCognitoConfigArgs struct {
 	// The OIDC IdP client ID used to configure your private workforce.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The id for your Amazon Cognito user pool.
 	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
-func (WorkForceCognitoConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceCognitoConfig)(nil)).Elem()
+func (WorkforceCognitoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceCognitoConfig)(nil)).Elem()
 }
 
-func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput {
-	return i.ToWorkForceCognitoConfigOutputWithContext(context.Background())
+func (i WorkforceCognitoConfigArgs) ToWorkforceCognitoConfigOutput() WorkforceCognitoConfigOutput {
+	return i.ToWorkforceCognitoConfigOutputWithContext(context.Background())
 }
 
-func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigOutputWithContext(ctx context.Context) WorkForceCognitoConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigOutput)
+func (i WorkforceCognitoConfigArgs) ToWorkforceCognitoConfigOutputWithContext(ctx context.Context) WorkforceCognitoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceCognitoConfigOutput)
 }
 
-func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
-	return i.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+func (i WorkforceCognitoConfigArgs) ToWorkforceCognitoConfigPtrOutput() WorkforceCognitoConfigPtrOutput {
+	return i.ToWorkforceCognitoConfigPtrOutputWithContext(context.Background())
 }
 
-func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigOutput).ToWorkForceCognitoConfigPtrOutputWithContext(ctx)
+func (i WorkforceCognitoConfigArgs) ToWorkforceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkforceCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceCognitoConfigOutput).ToWorkforceCognitoConfigPtrOutputWithContext(ctx)
 }
 
-// WorkForceCognitoConfigPtrInput is an input type that accepts WorkForceCognitoConfigArgs, WorkForceCognitoConfigPtr and WorkForceCognitoConfigPtrOutput values.
-// You can construct a concrete instance of `WorkForceCognitoConfigPtrInput` via:
+// WorkforceCognitoConfigPtrInput is an input type that accepts WorkforceCognitoConfigArgs, WorkforceCognitoConfigPtr and WorkforceCognitoConfigPtrOutput values.
+// You can construct a concrete instance of `WorkforceCognitoConfigPtrInput` via:
 //
-//          WorkForceCognitoConfigArgs{...}
+//          WorkforceCognitoConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkForceCognitoConfigPtrInput interface {
+type WorkforceCognitoConfigPtrInput interface {
 	pulumi.Input
 
-	ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput
-	ToWorkForceCognitoConfigPtrOutputWithContext(context.Context) WorkForceCognitoConfigPtrOutput
+	ToWorkforceCognitoConfigPtrOutput() WorkforceCognitoConfigPtrOutput
+	ToWorkforceCognitoConfigPtrOutputWithContext(context.Context) WorkforceCognitoConfigPtrOutput
 }
 
-type workForceCognitoConfigPtrType WorkForceCognitoConfigArgs
+type workforceCognitoConfigPtrType WorkforceCognitoConfigArgs
 
-func WorkForceCognitoConfigPtr(v *WorkForceCognitoConfigArgs) WorkForceCognitoConfigPtrInput {
-	return (*workForceCognitoConfigPtrType)(v)
+func WorkforceCognitoConfigPtr(v *WorkforceCognitoConfigArgs) WorkforceCognitoConfigPtrInput {
+	return (*workforceCognitoConfigPtrType)(v)
 }
 
-func (*workForceCognitoConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceCognitoConfig)(nil)).Elem()
+func (*workforceCognitoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceCognitoConfig)(nil)).Elem()
 }
 
-func (i *workForceCognitoConfigPtrType) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
-	return i.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+func (i *workforceCognitoConfigPtrType) ToWorkforceCognitoConfigPtrOutput() WorkforceCognitoConfigPtrOutput {
+	return i.ToWorkforceCognitoConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *workForceCognitoConfigPtrType) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigPtrOutput)
+func (i *workforceCognitoConfigPtrType) ToWorkforceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkforceCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceCognitoConfigPtrOutput)
 }
 
-type WorkForceCognitoConfigOutput struct{ *pulumi.OutputState }
+type WorkforceCognitoConfigOutput struct{ *pulumi.OutputState }
 
-func (WorkForceCognitoConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceCognitoConfig)(nil)).Elem()
+func (WorkforceCognitoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceCognitoConfig)(nil)).Elem()
 }
 
-func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput {
+func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigOutput() WorkforceCognitoConfigOutput {
 	return o
 }
 
-func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigOutputWithContext(ctx context.Context) WorkForceCognitoConfigOutput {
+func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigOutputWithContext(ctx context.Context) WorkforceCognitoConfigOutput {
 	return o
 }
 
-func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
-	return o.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigPtrOutput() WorkforceCognitoConfigPtrOutput {
+	return o.ToWorkforceCognitoConfigPtrOutputWithContext(context.Background())
 }
 
-func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceCognitoConfig) *WorkForceCognitoConfig {
+func (o WorkforceCognitoConfigOutput) ToWorkforceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkforceCognitoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkforceCognitoConfig) *WorkforceCognitoConfig {
 		return &v
-	}).(WorkForceCognitoConfigPtrOutput)
+	}).(WorkforceCognitoConfigPtrOutput)
 }
 
 // The OIDC IdP client ID used to configure your private workforce.
-func (o WorkForceCognitoConfigOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
+func (o WorkforceCognitoConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The id for your Amazon Cognito user pool.
-func (o WorkForceCognitoConfigOutput) UserPool() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
+func (o WorkforceCognitoConfigOutput) UserPool() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
 }
 
-type WorkForceCognitoConfigPtrOutput struct{ *pulumi.OutputState }
+type WorkforceCognitoConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkForceCognitoConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceCognitoConfig)(nil)).Elem()
+func (WorkforceCognitoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceCognitoConfig)(nil)).Elem()
 }
 
-func (o WorkForceCognitoConfigPtrOutput) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
+func (o WorkforceCognitoConfigPtrOutput) ToWorkforceCognitoConfigPtrOutput() WorkforceCognitoConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceCognitoConfigPtrOutput) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
+func (o WorkforceCognitoConfigPtrOutput) ToWorkforceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkforceCognitoConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceCognitoConfigPtrOutput) Elem() WorkForceCognitoConfigOutput {
-	return o.ApplyT(func(v *WorkForceCognitoConfig) WorkForceCognitoConfig {
+func (o WorkforceCognitoConfigPtrOutput) Elem() WorkforceCognitoConfigOutput {
+	return o.ApplyT(func(v *WorkforceCognitoConfig) WorkforceCognitoConfig {
 		if v != nil {
 			return *v
 		}
-		var ret WorkForceCognitoConfig
+		var ret WorkforceCognitoConfig
 		return ret
-	}).(WorkForceCognitoConfigOutput)
+	}).(WorkforceCognitoConfigOutput)
 }
 
 // The OIDC IdP client ID used to configure your private workforce.
-func (o WorkForceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceCognitoConfig) *string {
+func (o WorkforceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6496,8 +6496,8 @@ func (o WorkForceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 }
 
 // The id for your Amazon Cognito user pool.
-func (o WorkForceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceCognitoConfig) *string {
+func (o WorkforceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceCognitoConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6505,7 +6505,7 @@ func (o WorkForceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type WorkForceOidcConfig struct {
+type WorkforceOidcConfig struct {
 	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
 	// The OIDC IdP client ID used to configure your private workforce.
@@ -6524,18 +6524,18 @@ type WorkForceOidcConfig struct {
 	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
 }
 
-// WorkForceOidcConfigInput is an input type that accepts WorkForceOidcConfigArgs and WorkForceOidcConfigOutput values.
-// You can construct a concrete instance of `WorkForceOidcConfigInput` via:
+// WorkforceOidcConfigInput is an input type that accepts WorkforceOidcConfigArgs and WorkforceOidcConfigOutput values.
+// You can construct a concrete instance of `WorkforceOidcConfigInput` via:
 //
-//          WorkForceOidcConfigArgs{...}
-type WorkForceOidcConfigInput interface {
+//          WorkforceOidcConfigArgs{...}
+type WorkforceOidcConfigInput interface {
 	pulumi.Input
 
-	ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput
-	ToWorkForceOidcConfigOutputWithContext(context.Context) WorkForceOidcConfigOutput
+	ToWorkforceOidcConfigOutput() WorkforceOidcConfigOutput
+	ToWorkforceOidcConfigOutputWithContext(context.Context) WorkforceOidcConfigOutput
 }
 
-type WorkForceOidcConfigArgs struct {
+type WorkforceOidcConfigArgs struct {
 	// The OIDC IdP authorization endpoint used to configure your private workforce.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
 	// The OIDC IdP client ID used to configure your private workforce.
@@ -6554,150 +6554,150 @@ type WorkForceOidcConfigArgs struct {
 	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
 }
 
-func (WorkForceOidcConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceOidcConfig)(nil)).Elem()
+func (WorkforceOidcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceOidcConfig)(nil)).Elem()
 }
 
-func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput {
-	return i.ToWorkForceOidcConfigOutputWithContext(context.Background())
+func (i WorkforceOidcConfigArgs) ToWorkforceOidcConfigOutput() WorkforceOidcConfigOutput {
+	return i.ToWorkforceOidcConfigOutputWithContext(context.Background())
 }
 
-func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigOutputWithContext(ctx context.Context) WorkForceOidcConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigOutput)
+func (i WorkforceOidcConfigArgs) ToWorkforceOidcConfigOutputWithContext(ctx context.Context) WorkforceOidcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceOidcConfigOutput)
 }
 
-func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
-	return i.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+func (i WorkforceOidcConfigArgs) ToWorkforceOidcConfigPtrOutput() WorkforceOidcConfigPtrOutput {
+	return i.ToWorkforceOidcConfigPtrOutputWithContext(context.Background())
 }
 
-func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigOutput).ToWorkForceOidcConfigPtrOutputWithContext(ctx)
+func (i WorkforceOidcConfigArgs) ToWorkforceOidcConfigPtrOutputWithContext(ctx context.Context) WorkforceOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceOidcConfigOutput).ToWorkforceOidcConfigPtrOutputWithContext(ctx)
 }
 
-// WorkForceOidcConfigPtrInput is an input type that accepts WorkForceOidcConfigArgs, WorkForceOidcConfigPtr and WorkForceOidcConfigPtrOutput values.
-// You can construct a concrete instance of `WorkForceOidcConfigPtrInput` via:
+// WorkforceOidcConfigPtrInput is an input type that accepts WorkforceOidcConfigArgs, WorkforceOidcConfigPtr and WorkforceOidcConfigPtrOutput values.
+// You can construct a concrete instance of `WorkforceOidcConfigPtrInput` via:
 //
-//          WorkForceOidcConfigArgs{...}
+//          WorkforceOidcConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkForceOidcConfigPtrInput interface {
+type WorkforceOidcConfigPtrInput interface {
 	pulumi.Input
 
-	ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput
-	ToWorkForceOidcConfigPtrOutputWithContext(context.Context) WorkForceOidcConfigPtrOutput
+	ToWorkforceOidcConfigPtrOutput() WorkforceOidcConfigPtrOutput
+	ToWorkforceOidcConfigPtrOutputWithContext(context.Context) WorkforceOidcConfigPtrOutput
 }
 
-type workForceOidcConfigPtrType WorkForceOidcConfigArgs
+type workforceOidcConfigPtrType WorkforceOidcConfigArgs
 
-func WorkForceOidcConfigPtr(v *WorkForceOidcConfigArgs) WorkForceOidcConfigPtrInput {
-	return (*workForceOidcConfigPtrType)(v)
+func WorkforceOidcConfigPtr(v *WorkforceOidcConfigArgs) WorkforceOidcConfigPtrInput {
+	return (*workforceOidcConfigPtrType)(v)
 }
 
-func (*workForceOidcConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceOidcConfig)(nil)).Elem()
+func (*workforceOidcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceOidcConfig)(nil)).Elem()
 }
 
-func (i *workForceOidcConfigPtrType) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
-	return i.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+func (i *workforceOidcConfigPtrType) ToWorkforceOidcConfigPtrOutput() WorkforceOidcConfigPtrOutput {
+	return i.ToWorkforceOidcConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *workForceOidcConfigPtrType) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigPtrOutput)
+func (i *workforceOidcConfigPtrType) ToWorkforceOidcConfigPtrOutputWithContext(ctx context.Context) WorkforceOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceOidcConfigPtrOutput)
 }
 
-type WorkForceOidcConfigOutput struct{ *pulumi.OutputState }
+type WorkforceOidcConfigOutput struct{ *pulumi.OutputState }
 
-func (WorkForceOidcConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceOidcConfig)(nil)).Elem()
+func (WorkforceOidcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceOidcConfig)(nil)).Elem()
 }
 
-func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput {
+func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigOutput() WorkforceOidcConfigOutput {
 	return o
 }
 
-func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigOutputWithContext(ctx context.Context) WorkForceOidcConfigOutput {
+func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigOutputWithContext(ctx context.Context) WorkforceOidcConfigOutput {
 	return o
 }
 
-func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
-	return o.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigPtrOutput() WorkforceOidcConfigPtrOutput {
+	return o.ToWorkforceOidcConfigPtrOutputWithContext(context.Background())
 }
 
-func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceOidcConfig) *WorkForceOidcConfig {
+func (o WorkforceOidcConfigOutput) ToWorkforceOidcConfigPtrOutputWithContext(ctx context.Context) WorkforceOidcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkforceOidcConfig) *WorkforceOidcConfig {
 		return &v
-	}).(WorkForceOidcConfigPtrOutput)
+	}).(WorkforceOidcConfigPtrOutput)
 }
 
 // The OIDC IdP authorization endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP client ID used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP client secret used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) ClientSecret() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP issuer used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) Issuer() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) JwksUri() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.JwksUri }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) JwksUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.JwksUri }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP logout endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) LogoutEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) LogoutEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP token endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
 }
 
 // The OIDC IdP user information endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
+func (o WorkforceOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkforceOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
 }
 
-type WorkForceOidcConfigPtrOutput struct{ *pulumi.OutputState }
+type WorkforceOidcConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkForceOidcConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceOidcConfig)(nil)).Elem()
+func (WorkforceOidcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceOidcConfig)(nil)).Elem()
 }
 
-func (o WorkForceOidcConfigPtrOutput) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
+func (o WorkforceOidcConfigPtrOutput) ToWorkforceOidcConfigPtrOutput() WorkforceOidcConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceOidcConfigPtrOutput) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
+func (o WorkforceOidcConfigPtrOutput) ToWorkforceOidcConfigPtrOutputWithContext(ctx context.Context) WorkforceOidcConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceOidcConfigPtrOutput) Elem() WorkForceOidcConfigOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) WorkForceOidcConfig {
+func (o WorkforceOidcConfigPtrOutput) Elem() WorkforceOidcConfigOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) WorkforceOidcConfig {
 		if v != nil {
 			return *v
 		}
-		var ret WorkForceOidcConfig
+		var ret WorkforceOidcConfig
 		return ret
-	}).(WorkForceOidcConfigOutput)
+	}).(WorkforceOidcConfigOutput)
 }
 
 // The OIDC IdP authorization endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6706,8 +6706,8 @@ func (o WorkForceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOu
 }
 
 // The OIDC IdP client ID used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6716,8 +6716,8 @@ func (o WorkForceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP client secret used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6726,8 +6726,8 @@ func (o WorkForceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP issuer used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6736,8 +6736,8 @@ func (o WorkForceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6746,8 +6746,8 @@ func (o WorkForceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP logout endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6756,8 +6756,8 @@ func (o WorkForceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP token endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6766,8 +6766,8 @@ func (o WorkForceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
 }
 
 // The OIDC IdP user information endpoint used to configure your private workforce.
-func (o WorkForceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+func (o WorkforceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkforceOidcConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -6775,136 +6775,136 @@ func (o WorkForceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-type WorkForceSourceIpConfig struct {
+type WorkforceSourceIpConfig struct {
 	// A list of up to 10 CIDR values.
 	Cidrs []string `pulumi:"cidrs"`
 }
 
-// WorkForceSourceIpConfigInput is an input type that accepts WorkForceSourceIpConfigArgs and WorkForceSourceIpConfigOutput values.
-// You can construct a concrete instance of `WorkForceSourceIpConfigInput` via:
+// WorkforceSourceIpConfigInput is an input type that accepts WorkforceSourceIpConfigArgs and WorkforceSourceIpConfigOutput values.
+// You can construct a concrete instance of `WorkforceSourceIpConfigInput` via:
 //
-//          WorkForceSourceIpConfigArgs{...}
-type WorkForceSourceIpConfigInput interface {
+//          WorkforceSourceIpConfigArgs{...}
+type WorkforceSourceIpConfigInput interface {
 	pulumi.Input
 
-	ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput
-	ToWorkForceSourceIpConfigOutputWithContext(context.Context) WorkForceSourceIpConfigOutput
+	ToWorkforceSourceIpConfigOutput() WorkforceSourceIpConfigOutput
+	ToWorkforceSourceIpConfigOutputWithContext(context.Context) WorkforceSourceIpConfigOutput
 }
 
-type WorkForceSourceIpConfigArgs struct {
+type WorkforceSourceIpConfigArgs struct {
 	// A list of up to 10 CIDR values.
 	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
 }
 
-func (WorkForceSourceIpConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceSourceIpConfig)(nil)).Elem()
+func (WorkforceSourceIpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceSourceIpConfig)(nil)).Elem()
 }
 
-func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput {
-	return i.ToWorkForceSourceIpConfigOutputWithContext(context.Background())
+func (i WorkforceSourceIpConfigArgs) ToWorkforceSourceIpConfigOutput() WorkforceSourceIpConfigOutput {
+	return i.ToWorkforceSourceIpConfigOutputWithContext(context.Background())
 }
 
-func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigOutputWithContext(ctx context.Context) WorkForceSourceIpConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigOutput)
+func (i WorkforceSourceIpConfigArgs) ToWorkforceSourceIpConfigOutputWithContext(ctx context.Context) WorkforceSourceIpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceSourceIpConfigOutput)
 }
 
-func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
-	return i.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+func (i WorkforceSourceIpConfigArgs) ToWorkforceSourceIpConfigPtrOutput() WorkforceSourceIpConfigPtrOutput {
+	return i.ToWorkforceSourceIpConfigPtrOutputWithContext(context.Background())
 }
 
-func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigOutput).ToWorkForceSourceIpConfigPtrOutputWithContext(ctx)
+func (i WorkforceSourceIpConfigArgs) ToWorkforceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkforceSourceIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceSourceIpConfigOutput).ToWorkforceSourceIpConfigPtrOutputWithContext(ctx)
 }
 
-// WorkForceSourceIpConfigPtrInput is an input type that accepts WorkForceSourceIpConfigArgs, WorkForceSourceIpConfigPtr and WorkForceSourceIpConfigPtrOutput values.
-// You can construct a concrete instance of `WorkForceSourceIpConfigPtrInput` via:
+// WorkforceSourceIpConfigPtrInput is an input type that accepts WorkforceSourceIpConfigArgs, WorkforceSourceIpConfigPtr and WorkforceSourceIpConfigPtrOutput values.
+// You can construct a concrete instance of `WorkforceSourceIpConfigPtrInput` via:
 //
-//          WorkForceSourceIpConfigArgs{...}
+//          WorkforceSourceIpConfigArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkForceSourceIpConfigPtrInput interface {
+type WorkforceSourceIpConfigPtrInput interface {
 	pulumi.Input
 
-	ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput
-	ToWorkForceSourceIpConfigPtrOutputWithContext(context.Context) WorkForceSourceIpConfigPtrOutput
+	ToWorkforceSourceIpConfigPtrOutput() WorkforceSourceIpConfigPtrOutput
+	ToWorkforceSourceIpConfigPtrOutputWithContext(context.Context) WorkforceSourceIpConfigPtrOutput
 }
 
-type workForceSourceIpConfigPtrType WorkForceSourceIpConfigArgs
+type workforceSourceIpConfigPtrType WorkforceSourceIpConfigArgs
 
-func WorkForceSourceIpConfigPtr(v *WorkForceSourceIpConfigArgs) WorkForceSourceIpConfigPtrInput {
-	return (*workForceSourceIpConfigPtrType)(v)
+func WorkforceSourceIpConfigPtr(v *WorkforceSourceIpConfigArgs) WorkforceSourceIpConfigPtrInput {
+	return (*workforceSourceIpConfigPtrType)(v)
 }
 
-func (*workForceSourceIpConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceSourceIpConfig)(nil)).Elem()
+func (*workforceSourceIpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceSourceIpConfig)(nil)).Elem()
 }
 
-func (i *workForceSourceIpConfigPtrType) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
-	return i.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+func (i *workforceSourceIpConfigPtrType) ToWorkforceSourceIpConfigPtrOutput() WorkforceSourceIpConfigPtrOutput {
+	return i.ToWorkforceSourceIpConfigPtrOutputWithContext(context.Background())
 }
 
-func (i *workForceSourceIpConfigPtrType) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigPtrOutput)
+func (i *workforceSourceIpConfigPtrType) ToWorkforceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkforceSourceIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkforceSourceIpConfigPtrOutput)
 }
 
-type WorkForceSourceIpConfigOutput struct{ *pulumi.OutputState }
+type WorkforceSourceIpConfigOutput struct{ *pulumi.OutputState }
 
-func (WorkForceSourceIpConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkForceSourceIpConfig)(nil)).Elem()
+func (WorkforceSourceIpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkforceSourceIpConfig)(nil)).Elem()
 }
 
-func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput {
+func (o WorkforceSourceIpConfigOutput) ToWorkforceSourceIpConfigOutput() WorkforceSourceIpConfigOutput {
 	return o
 }
 
-func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigOutputWithContext(ctx context.Context) WorkForceSourceIpConfigOutput {
+func (o WorkforceSourceIpConfigOutput) ToWorkforceSourceIpConfigOutputWithContext(ctx context.Context) WorkforceSourceIpConfigOutput {
 	return o
 }
 
-func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
-	return o.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+func (o WorkforceSourceIpConfigOutput) ToWorkforceSourceIpConfigPtrOutput() WorkforceSourceIpConfigPtrOutput {
+	return o.ToWorkforceSourceIpConfigPtrOutputWithContext(context.Background())
 }
 
-func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceSourceIpConfig) *WorkForceSourceIpConfig {
+func (o WorkforceSourceIpConfigOutput) ToWorkforceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkforceSourceIpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkforceSourceIpConfig) *WorkforceSourceIpConfig {
 		return &v
-	}).(WorkForceSourceIpConfigPtrOutput)
+	}).(WorkforceSourceIpConfigPtrOutput)
 }
 
 // A list of up to 10 CIDR values.
-func (o WorkForceSourceIpConfigOutput) Cidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkForceSourceIpConfig) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+func (o WorkforceSourceIpConfigOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkforceSourceIpConfig) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
 }
 
-type WorkForceSourceIpConfigPtrOutput struct{ *pulumi.OutputState }
+type WorkforceSourceIpConfigPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkForceSourceIpConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkForceSourceIpConfig)(nil)).Elem()
+func (WorkforceSourceIpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkforceSourceIpConfig)(nil)).Elem()
 }
 
-func (o WorkForceSourceIpConfigPtrOutput) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
+func (o WorkforceSourceIpConfigPtrOutput) ToWorkforceSourceIpConfigPtrOutput() WorkforceSourceIpConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceSourceIpConfigPtrOutput) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
+func (o WorkforceSourceIpConfigPtrOutput) ToWorkforceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkforceSourceIpConfigPtrOutput {
 	return o
 }
 
-func (o WorkForceSourceIpConfigPtrOutput) Elem() WorkForceSourceIpConfigOutput {
-	return o.ApplyT(func(v *WorkForceSourceIpConfig) WorkForceSourceIpConfig {
+func (o WorkforceSourceIpConfigPtrOutput) Elem() WorkforceSourceIpConfigOutput {
+	return o.ApplyT(func(v *WorkforceSourceIpConfig) WorkforceSourceIpConfig {
 		if v != nil {
 			return *v
 		}
-		var ret WorkForceSourceIpConfig
+		var ret WorkforceSourceIpConfig
 		return ret
-	}).(WorkForceSourceIpConfigOutput)
+	}).(WorkforceSourceIpConfigOutput)
 }
 
 // A list of up to 10 CIDR values.
-func (o WorkForceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WorkForceSourceIpConfig) []string {
+func (o WorkforceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkforceSourceIpConfig) []string {
 		if v == nil {
 			return nil
 		}
@@ -6912,117 +6912,117 @@ func (o WorkForceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-type WorkTeamMemberDefinition struct {
+type WorkteamMemberDefinition struct {
 	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-	CognitoMemberDefinition *WorkTeamMemberDefinitionCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
+	CognitoMemberDefinition *WorkteamMemberDefinitionCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
 	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-	OidcMemberDefinition *WorkTeamMemberDefinitionOidcMemberDefinition `pulumi:"oidcMemberDefinition"`
+	OidcMemberDefinition *WorkteamMemberDefinitionOidcMemberDefinition `pulumi:"oidcMemberDefinition"`
 }
 
-// WorkTeamMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionArgs and WorkTeamMemberDefinitionOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionInput` via:
+// WorkteamMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionArgs and WorkteamMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionInput` via:
 //
-//          WorkTeamMemberDefinitionArgs{...}
-type WorkTeamMemberDefinitionInput interface {
+//          WorkteamMemberDefinitionArgs{...}
+type WorkteamMemberDefinitionInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput
-	ToWorkTeamMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionOutput
+	ToWorkteamMemberDefinitionOutput() WorkteamMemberDefinitionOutput
+	ToWorkteamMemberDefinitionOutputWithContext(context.Context) WorkteamMemberDefinitionOutput
 }
 
-type WorkTeamMemberDefinitionArgs struct {
+type WorkteamMemberDefinitionArgs struct {
 	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-	CognitoMemberDefinition WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput `pulumi:"cognitoMemberDefinition"`
+	CognitoMemberDefinition WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput `pulumi:"cognitoMemberDefinition"`
 	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-	OidcMemberDefinition WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput `pulumi:"oidcMemberDefinition"`
+	OidcMemberDefinition WorkteamMemberDefinitionOidcMemberDefinitionPtrInput `pulumi:"oidcMemberDefinition"`
 }
 
-func (WorkTeamMemberDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinition)(nil)).Elem()
 }
 
-func (i WorkTeamMemberDefinitionArgs) ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput {
-	return i.ToWorkTeamMemberDefinitionOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionArgs) ToWorkteamMemberDefinitionOutput() WorkteamMemberDefinitionOutput {
+	return i.ToWorkteamMemberDefinitionOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionArgs) ToWorkTeamMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOutput)
+func (i WorkteamMemberDefinitionArgs) ToWorkteamMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionOutput)
 }
 
-// WorkTeamMemberDefinitionArrayInput is an input type that accepts WorkTeamMemberDefinitionArray and WorkTeamMemberDefinitionArrayOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionArrayInput` via:
+// WorkteamMemberDefinitionArrayInput is an input type that accepts WorkteamMemberDefinitionArray and WorkteamMemberDefinitionArrayOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionArrayInput` via:
 //
-//          WorkTeamMemberDefinitionArray{ WorkTeamMemberDefinitionArgs{...} }
-type WorkTeamMemberDefinitionArrayInput interface {
+//          WorkteamMemberDefinitionArray{ WorkteamMemberDefinitionArgs{...} }
+type WorkteamMemberDefinitionArrayInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput
-	ToWorkTeamMemberDefinitionArrayOutputWithContext(context.Context) WorkTeamMemberDefinitionArrayOutput
+	ToWorkteamMemberDefinitionArrayOutput() WorkteamMemberDefinitionArrayOutput
+	ToWorkteamMemberDefinitionArrayOutputWithContext(context.Context) WorkteamMemberDefinitionArrayOutput
 }
 
-type WorkTeamMemberDefinitionArray []WorkTeamMemberDefinitionInput
+type WorkteamMemberDefinitionArray []WorkteamMemberDefinitionInput
 
-func (WorkTeamMemberDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkTeamMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkteamMemberDefinition)(nil)).Elem()
 }
 
-func (i WorkTeamMemberDefinitionArray) ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput {
-	return i.ToWorkTeamMemberDefinitionArrayOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionArray) ToWorkteamMemberDefinitionArrayOutput() WorkteamMemberDefinitionArrayOutput {
+	return i.ToWorkteamMemberDefinitionArrayOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionArray) ToWorkTeamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionArrayOutput)
+func (i WorkteamMemberDefinitionArray) ToWorkteamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkteamMemberDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionArrayOutput)
 }
 
-type WorkTeamMemberDefinitionOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionOutput) ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionOutput) ToWorkteamMemberDefinitionOutput() WorkteamMemberDefinitionOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionOutput) ToWorkTeamMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionOutput) ToWorkteamMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOutput {
 	return o
 }
 
 // The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-func (o WorkTeamMemberDefinitionOutput) CognitoMemberDefinition() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinition) *WorkTeamMemberDefinitionCognitoMemberDefinition {
+func (o WorkteamMemberDefinitionOutput) CognitoMemberDefinition() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamMemberDefinitionCognitoMemberDefinition {
 		return v.CognitoMemberDefinition
-	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+	}).(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput)
 }
 
 // A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
-func (o WorkTeamMemberDefinitionOutput) OidcMemberDefinition() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinition) *WorkTeamMemberDefinitionOidcMemberDefinition {
+func (o WorkteamMemberDefinitionOutput) OidcMemberDefinition() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinition) *WorkteamMemberDefinitionOidcMemberDefinition {
 		return v.OidcMemberDefinition
-	}).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+	}).(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput)
 }
 
-type WorkTeamMemberDefinitionArrayOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionArrayOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkTeamMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkteamMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionArrayOutput) ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput {
+func (o WorkteamMemberDefinitionArrayOutput) ToWorkteamMemberDefinitionArrayOutput() WorkteamMemberDefinitionArrayOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionArrayOutput) ToWorkTeamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionArrayOutput {
+func (o WorkteamMemberDefinitionArrayOutput) ToWorkteamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkteamMemberDefinitionArrayOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionArrayOutput) Index(i pulumi.IntInput) WorkTeamMemberDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkTeamMemberDefinition {
-		return vs[0].([]WorkTeamMemberDefinition)[vs[1].(int)]
-	}).(WorkTeamMemberDefinitionOutput)
+func (o WorkteamMemberDefinitionArrayOutput) Index(i pulumi.IntInput) WorkteamMemberDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkteamMemberDefinition {
+		return vs[0].([]WorkteamMemberDefinition)[vs[1].(int)]
+	}).(WorkteamMemberDefinitionOutput)
 }
 
-type WorkTeamMemberDefinitionCognitoMemberDefinition struct {
+type WorkteamMemberDefinitionCognitoMemberDefinition struct {
 	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
 	ClientId string `pulumi:"clientId"`
 	// An identifier for a user group.
@@ -7031,18 +7031,18 @@ type WorkTeamMemberDefinitionCognitoMemberDefinition struct {
 	UserPool string `pulumi:"userPool"`
 }
 
-// WorkTeamMemberDefinitionCognitoMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionCognitoMemberDefinitionArgs and WorkTeamMemberDefinitionCognitoMemberDefinitionOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionCognitoMemberDefinitionInput` via:
+// WorkteamMemberDefinitionCognitoMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionCognitoMemberDefinitionArgs and WorkteamMemberDefinitionCognitoMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionCognitoMemberDefinitionInput` via:
 //
-//          WorkTeamMemberDefinitionCognitoMemberDefinitionArgs{...}
-type WorkTeamMemberDefinitionCognitoMemberDefinitionInput interface {
+//          WorkteamMemberDefinitionCognitoMemberDefinitionArgs{...}
+type WorkteamMemberDefinitionCognitoMemberDefinitionInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput
-	ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput
+	ToWorkteamMemberDefinitionCognitoMemberDefinitionOutput() WorkteamMemberDefinitionCognitoMemberDefinitionOutput
+	ToWorkteamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionOutput
 }
 
-type WorkTeamMemberDefinitionCognitoMemberDefinitionArgs struct {
+type WorkteamMemberDefinitionCognitoMemberDefinitionArgs struct {
 	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// An identifier for a user group.
@@ -7051,125 +7051,125 @@ type WorkTeamMemberDefinitionCognitoMemberDefinitionArgs struct {
 	UserPool pulumi.StringInput `pulumi:"userPool"`
 }
 
-func (WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
 }
 
-func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
-	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkteamMemberDefinitionCognitoMemberDefinitionOutput() WorkteamMemberDefinitionCognitoMemberDefinitionOutput {
+	return i.ToWorkteamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput)
+func (i WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkteamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionCognitoMemberDefinitionOutput)
 }
 
-func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput).ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx)
+func (i WorkteamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionCognitoMemberDefinitionOutput).ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx)
 }
 
-// WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput is an input type that accepts WorkTeamMemberDefinitionCognitoMemberDefinitionArgs, WorkTeamMemberDefinitionCognitoMemberDefinitionPtr and WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput` via:
+// WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput is an input type that accepts WorkteamMemberDefinitionCognitoMemberDefinitionArgs, WorkteamMemberDefinitionCognitoMemberDefinitionPtr and WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput` via:
 //
-//          WorkTeamMemberDefinitionCognitoMemberDefinitionArgs{...}
+//          WorkteamMemberDefinitionCognitoMemberDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput interface {
+type WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput
-	ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput
+	ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput
+	ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput
 }
 
-type workTeamMemberDefinitionCognitoMemberDefinitionPtrType WorkTeamMemberDefinitionCognitoMemberDefinitionArgs
+type workteamMemberDefinitionCognitoMemberDefinitionPtrType WorkteamMemberDefinitionCognitoMemberDefinitionArgs
 
-func WorkTeamMemberDefinitionCognitoMemberDefinitionPtr(v *WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput {
-	return (*workTeamMemberDefinitionCognitoMemberDefinitionPtrType)(v)
+func WorkteamMemberDefinitionCognitoMemberDefinitionPtr(v *WorkteamMemberDefinitionCognitoMemberDefinitionArgs) WorkteamMemberDefinitionCognitoMemberDefinitionPtrInput {
+	return (*workteamMemberDefinitionCognitoMemberDefinitionPtrType)(v)
 }
 
-func (*workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+func (*workteamMemberDefinitionCognitoMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
 }
 
-func (i *workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+func (i *workteamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+func (i *workteamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput)
 }
 
-type WorkTeamMemberDefinitionCognitoMemberDefinitionOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionCognitoMemberDefinitionOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionOutput() WorkteamMemberDefinitionCognitoMemberDefinitionOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return o.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamMemberDefinitionCognitoMemberDefinition) *WorkTeamMemberDefinitionCognitoMemberDefinition {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamMemberDefinitionCognitoMemberDefinition) *WorkteamMemberDefinitionCognitoMemberDefinition {
 		return &v
-	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+	}).(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput)
 }
 
 // An identifier for an application client. You must create the app client ID using Amazon Cognito.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.ClientId }).(pulumi.StringOutput)
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // An identifier for a user group.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) UserGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.UserGroup }).(pulumi.StringOutput)
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) UserGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.UserGroup }).(pulumi.StringOutput)
 }
 
 // An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) UserPool() pulumi.StringOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.UserPool }).(pulumi.StringOutput)
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionOutput) UserPool() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinitionCognitoMemberDefinition) string { return v.UserPool }).(pulumi.StringOutput)
 }
 
-type WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkteamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) Elem() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) WorkTeamMemberDefinitionCognitoMemberDefinition {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) Elem() WorkteamMemberDefinitionCognitoMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) WorkteamMemberDefinitionCognitoMemberDefinition {
 		if v != nil {
 			return *v
 		}
-		var ret WorkTeamMemberDefinitionCognitoMemberDefinition
+		var ret WorkteamMemberDefinitionCognitoMemberDefinition
 		return ret
-	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput)
+	}).(WorkteamMemberDefinitionCognitoMemberDefinitionOutput)
 }
 
 // An identifier for an application client. You must create the app client ID using Amazon Cognito.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -7178,8 +7178,8 @@ func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pul
 }
 
 // An identifier for a user group.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -7188,8 +7188,8 @@ func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pu
 }
 
 // An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
-func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+func (o WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionCognitoMemberDefinition) *string {
 		if v == nil {
 			return nil
 		}
@@ -7197,136 +7197,136 @@ func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-type WorkTeamMemberDefinitionOidcMemberDefinition struct {
+type WorkteamMemberDefinitionOidcMemberDefinition struct {
 	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 	Groups []string `pulumi:"groups"`
 }
 
-// WorkTeamMemberDefinitionOidcMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionOidcMemberDefinitionArgs and WorkTeamMemberDefinitionOidcMemberDefinitionOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionOidcMemberDefinitionInput` via:
+// WorkteamMemberDefinitionOidcMemberDefinitionInput is an input type that accepts WorkteamMemberDefinitionOidcMemberDefinitionArgs and WorkteamMemberDefinitionOidcMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionOidcMemberDefinitionInput` via:
 //
-//          WorkTeamMemberDefinitionOidcMemberDefinitionArgs{...}
-type WorkTeamMemberDefinitionOidcMemberDefinitionInput interface {
+//          WorkteamMemberDefinitionOidcMemberDefinitionArgs{...}
+type WorkteamMemberDefinitionOidcMemberDefinitionInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput
-	ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput
+	ToWorkteamMemberDefinitionOidcMemberDefinitionOutput() WorkteamMemberDefinitionOidcMemberDefinitionOutput
+	ToWorkteamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Context) WorkteamMemberDefinitionOidcMemberDefinitionOutput
 }
 
-type WorkTeamMemberDefinitionOidcMemberDefinitionArgs struct {
+type WorkteamMemberDefinitionOidcMemberDefinitionArgs struct {
 	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 }
 
-func (WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionOidcMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
 }
 
-func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
-	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionOidcMemberDefinitionArgs) ToWorkteamMemberDefinitionOidcMemberDefinitionOutput() WorkteamMemberDefinitionOidcMemberDefinitionOutput {
+	return i.ToWorkteamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput)
+func (i WorkteamMemberDefinitionOidcMemberDefinitionArgs) ToWorkteamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionOidcMemberDefinitionOutput)
 }
 
-func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+func (i WorkteamMemberDefinitionOidcMemberDefinitionArgs) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return i.ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput).ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx)
+func (i WorkteamMemberDefinitionOidcMemberDefinitionArgs) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionOidcMemberDefinitionOutput).ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx)
 }
 
-// WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput is an input type that accepts WorkTeamMemberDefinitionOidcMemberDefinitionArgs, WorkTeamMemberDefinitionOidcMemberDefinitionPtr and WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput values.
-// You can construct a concrete instance of `WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput` via:
+// WorkteamMemberDefinitionOidcMemberDefinitionPtrInput is an input type that accepts WorkteamMemberDefinitionOidcMemberDefinitionArgs, WorkteamMemberDefinitionOidcMemberDefinitionPtr and WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkteamMemberDefinitionOidcMemberDefinitionPtrInput` via:
 //
-//          WorkTeamMemberDefinitionOidcMemberDefinitionArgs{...}
+//          WorkteamMemberDefinitionOidcMemberDefinitionArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput interface {
+type WorkteamMemberDefinitionOidcMemberDefinitionPtrInput interface {
 	pulumi.Input
 
-	ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput
-	ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput
+	ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput
+	ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Context) WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput
 }
 
-type workTeamMemberDefinitionOidcMemberDefinitionPtrType WorkTeamMemberDefinitionOidcMemberDefinitionArgs
+type workteamMemberDefinitionOidcMemberDefinitionPtrType WorkteamMemberDefinitionOidcMemberDefinitionArgs
 
-func WorkTeamMemberDefinitionOidcMemberDefinitionPtr(v *WorkTeamMemberDefinitionOidcMemberDefinitionArgs) WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput {
-	return (*workTeamMemberDefinitionOidcMemberDefinitionPtrType)(v)
+func WorkteamMemberDefinitionOidcMemberDefinitionPtr(v *WorkteamMemberDefinitionOidcMemberDefinitionArgs) WorkteamMemberDefinitionOidcMemberDefinitionPtrInput {
+	return (*workteamMemberDefinitionOidcMemberDefinitionPtrType)(v)
 }
 
-func (*workTeamMemberDefinitionOidcMemberDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+func (*workteamMemberDefinitionOidcMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
 }
 
-func (i *workTeamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+func (i *workteamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return i.ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (i *workTeamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+func (i *workteamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput)
 }
 
-type WorkTeamMemberDefinitionOidcMemberDefinitionOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionOidcMemberDefinitionOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionOidcMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionOutput() WorkteamMemberDefinitionOidcMemberDefinitionOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return o.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamMemberDefinitionOidcMemberDefinition) *WorkTeamMemberDefinitionOidcMemberDefinition {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamMemberDefinitionOidcMemberDefinition) *WorkteamMemberDefinitionOidcMemberDefinition {
 		return &v
-	}).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+	}).(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput)
 }
 
 // A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkTeamMemberDefinitionOidcMemberDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
+func (o WorkteamMemberDefinitionOidcMemberDefinitionOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkteamMemberDefinitionOidcMemberDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-type WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+type WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+func (WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkteamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput {
 	return o
 }
 
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) Elem() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionOidcMemberDefinition) WorkTeamMemberDefinitionOidcMemberDefinition {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) Elem() WorkteamMemberDefinitionOidcMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionOidcMemberDefinition) WorkteamMemberDefinitionOidcMemberDefinition {
 		if v != nil {
 			return *v
 		}
-		var ret WorkTeamMemberDefinitionOidcMemberDefinition
+		var ret WorkteamMemberDefinitionOidcMemberDefinition
 		return ret
-	}).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput)
+	}).(WorkteamMemberDefinitionOidcMemberDefinitionOutput)
 }
 
 // A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
-func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WorkTeamMemberDefinitionOidcMemberDefinition) []string {
+func (o WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkteamMemberDefinitionOidcMemberDefinition) []string {
 		if v == nil {
 			return nil
 		}
@@ -7334,136 +7334,136 @@ func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-type WorkTeamNotificationConfiguration struct {
+type WorkteamNotificationConfiguration struct {
 	// The ARN for the SNS topic to which notifications should be published.
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 }
 
-// WorkTeamNotificationConfigurationInput is an input type that accepts WorkTeamNotificationConfigurationArgs and WorkTeamNotificationConfigurationOutput values.
-// You can construct a concrete instance of `WorkTeamNotificationConfigurationInput` via:
+// WorkteamNotificationConfigurationInput is an input type that accepts WorkteamNotificationConfigurationArgs and WorkteamNotificationConfigurationOutput values.
+// You can construct a concrete instance of `WorkteamNotificationConfigurationInput` via:
 //
-//          WorkTeamNotificationConfigurationArgs{...}
-type WorkTeamNotificationConfigurationInput interface {
+//          WorkteamNotificationConfigurationArgs{...}
+type WorkteamNotificationConfigurationInput interface {
 	pulumi.Input
 
-	ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput
-	ToWorkTeamNotificationConfigurationOutputWithContext(context.Context) WorkTeamNotificationConfigurationOutput
+	ToWorkteamNotificationConfigurationOutput() WorkteamNotificationConfigurationOutput
+	ToWorkteamNotificationConfigurationOutputWithContext(context.Context) WorkteamNotificationConfigurationOutput
 }
 
-type WorkTeamNotificationConfigurationArgs struct {
+type WorkteamNotificationConfigurationArgs struct {
 	// The ARN for the SNS topic to which notifications should be published.
 	NotificationTopicArn pulumi.StringPtrInput `pulumi:"notificationTopicArn"`
 }
 
-func (WorkTeamNotificationConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamNotificationConfiguration)(nil)).Elem()
+func (WorkteamNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamNotificationConfiguration)(nil)).Elem()
 }
 
-func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput {
-	return i.ToWorkTeamNotificationConfigurationOutputWithContext(context.Background())
+func (i WorkteamNotificationConfigurationArgs) ToWorkteamNotificationConfigurationOutput() WorkteamNotificationConfigurationOutput {
+	return i.ToWorkteamNotificationConfigurationOutputWithContext(context.Background())
 }
 
-func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationOutput)
+func (i WorkteamNotificationConfigurationArgs) ToWorkteamNotificationConfigurationOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamNotificationConfigurationOutput)
 }
 
-func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
-	return i.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+func (i WorkteamNotificationConfigurationArgs) ToWorkteamNotificationConfigurationPtrOutput() WorkteamNotificationConfigurationPtrOutput {
+	return i.ToWorkteamNotificationConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationOutput).ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx)
+func (i WorkteamNotificationConfigurationArgs) ToWorkteamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamNotificationConfigurationOutput).ToWorkteamNotificationConfigurationPtrOutputWithContext(ctx)
 }
 
-// WorkTeamNotificationConfigurationPtrInput is an input type that accepts WorkTeamNotificationConfigurationArgs, WorkTeamNotificationConfigurationPtr and WorkTeamNotificationConfigurationPtrOutput values.
-// You can construct a concrete instance of `WorkTeamNotificationConfigurationPtrInput` via:
+// WorkteamNotificationConfigurationPtrInput is an input type that accepts WorkteamNotificationConfigurationArgs, WorkteamNotificationConfigurationPtr and WorkteamNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkteamNotificationConfigurationPtrInput` via:
 //
-//          WorkTeamNotificationConfigurationArgs{...}
+//          WorkteamNotificationConfigurationArgs{...}
 //
 //  or:
 //
 //          nil
-type WorkTeamNotificationConfigurationPtrInput interface {
+type WorkteamNotificationConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput
-	ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Context) WorkTeamNotificationConfigurationPtrOutput
+	ToWorkteamNotificationConfigurationPtrOutput() WorkteamNotificationConfigurationPtrOutput
+	ToWorkteamNotificationConfigurationPtrOutputWithContext(context.Context) WorkteamNotificationConfigurationPtrOutput
 }
 
-type workTeamNotificationConfigurationPtrType WorkTeamNotificationConfigurationArgs
+type workteamNotificationConfigurationPtrType WorkteamNotificationConfigurationArgs
 
-func WorkTeamNotificationConfigurationPtr(v *WorkTeamNotificationConfigurationArgs) WorkTeamNotificationConfigurationPtrInput {
-	return (*workTeamNotificationConfigurationPtrType)(v)
+func WorkteamNotificationConfigurationPtr(v *WorkteamNotificationConfigurationArgs) WorkteamNotificationConfigurationPtrInput {
+	return (*workteamNotificationConfigurationPtrType)(v)
 }
 
-func (*workTeamNotificationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamNotificationConfiguration)(nil)).Elem()
+func (*workteamNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamNotificationConfiguration)(nil)).Elem()
 }
 
-func (i *workTeamNotificationConfigurationPtrType) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
-	return i.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+func (i *workteamNotificationConfigurationPtrType) ToWorkteamNotificationConfigurationPtrOutput() WorkteamNotificationConfigurationPtrOutput {
+	return i.ToWorkteamNotificationConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *workTeamNotificationConfigurationPtrType) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationPtrOutput)
+func (i *workteamNotificationConfigurationPtrType) ToWorkteamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkteamNotificationConfigurationPtrOutput)
 }
 
-type WorkTeamNotificationConfigurationOutput struct{ *pulumi.OutputState }
+type WorkteamNotificationConfigurationOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamNotificationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkTeamNotificationConfiguration)(nil)).Elem()
+func (WorkteamNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkteamNotificationConfiguration)(nil)).Elem()
 }
 
-func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput {
+func (o WorkteamNotificationConfigurationOutput) ToWorkteamNotificationConfigurationOutput() WorkteamNotificationConfigurationOutput {
 	return o
 }
 
-func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationOutput {
+func (o WorkteamNotificationConfigurationOutput) ToWorkteamNotificationConfigurationOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationOutput {
 	return o
 }
 
-func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
-	return o.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+func (o WorkteamNotificationConfigurationOutput) ToWorkteamNotificationConfigurationPtrOutput() WorkteamNotificationConfigurationPtrOutput {
+	return o.ToWorkteamNotificationConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamNotificationConfiguration) *WorkTeamNotificationConfiguration {
+func (o WorkteamNotificationConfigurationOutput) ToWorkteamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkteamNotificationConfiguration) *WorkteamNotificationConfiguration {
 		return &v
-	}).(WorkTeamNotificationConfigurationPtrOutput)
+	}).(WorkteamNotificationConfigurationPtrOutput)
 }
 
 // The ARN for the SNS topic to which notifications should be published.
-func (o WorkTeamNotificationConfigurationOutput) NotificationTopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkTeamNotificationConfiguration) *string { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
+func (o WorkteamNotificationConfigurationOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkteamNotificationConfiguration) *string { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
 }
 
-type WorkTeamNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+type WorkteamNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
-func (WorkTeamNotificationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkTeamNotificationConfiguration)(nil)).Elem()
+func (WorkteamNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkteamNotificationConfiguration)(nil)).Elem()
 }
 
-func (o WorkTeamNotificationConfigurationPtrOutput) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
+func (o WorkteamNotificationConfigurationPtrOutput) ToWorkteamNotificationConfigurationPtrOutput() WorkteamNotificationConfigurationPtrOutput {
 	return o
 }
 
-func (o WorkTeamNotificationConfigurationPtrOutput) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
+func (o WorkteamNotificationConfigurationPtrOutput) ToWorkteamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkteamNotificationConfigurationPtrOutput {
 	return o
 }
 
-func (o WorkTeamNotificationConfigurationPtrOutput) Elem() WorkTeamNotificationConfigurationOutput {
-	return o.ApplyT(func(v *WorkTeamNotificationConfiguration) WorkTeamNotificationConfiguration {
+func (o WorkteamNotificationConfigurationPtrOutput) Elem() WorkteamNotificationConfigurationOutput {
+	return o.ApplyT(func(v *WorkteamNotificationConfiguration) WorkteamNotificationConfiguration {
 		if v != nil {
 			return *v
 		}
-		var ret WorkTeamNotificationConfiguration
+		var ret WorkteamNotificationConfiguration
 		return ret
-	}).(WorkTeamNotificationConfigurationOutput)
+	}).(WorkteamNotificationConfigurationOutput)
 }
 
 // The ARN for the SNS topic to which notifications should be published.
-func (o WorkTeamNotificationConfigurationPtrOutput) NotificationTopicArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkTeamNotificationConfiguration) *string {
+func (o WorkteamNotificationConfigurationPtrOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkteamNotificationConfiguration) *string {
 		if v == nil {
 			return nil
 		}
@@ -7552,18 +7552,18 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
-	pulumi.RegisterOutputType(WorkForceCognitoConfigOutput{})
-	pulumi.RegisterOutputType(WorkForceCognitoConfigPtrOutput{})
-	pulumi.RegisterOutputType(WorkForceOidcConfigOutput{})
-	pulumi.RegisterOutputType(WorkForceOidcConfigPtrOutput{})
-	pulumi.RegisterOutputType(WorkForceSourceIpConfigOutput{})
-	pulumi.RegisterOutputType(WorkForceSourceIpConfigPtrOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionArrayOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOidcMemberDefinitionOutput{})
-	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(WorkTeamNotificationConfigurationOutput{})
-	pulumi.RegisterOutputType(WorkTeamNotificationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkforceCognitoConfigOutput{})
+	pulumi.RegisterOutputType(WorkforceCognitoConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkforceOidcConfigOutput{})
+	pulumi.RegisterOutputType(WorkforceOidcConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkforceSourceIpConfigOutput{})
+	pulumi.RegisterOutputType(WorkforceSourceIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionCognitoMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionCognitoMemberDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionOidcMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkteamMemberDefinitionOidcMemberDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(WorkteamNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkteamNotificationConfigurationPtrOutput{})
 }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class LaunchTemplateTagSpecification
     {
         /// <summary>
-        /// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+        /// The type of resource to tag.
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>

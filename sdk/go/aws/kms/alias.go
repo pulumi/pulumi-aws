@@ -58,7 +58,7 @@ type Alias struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates an unique alias beginning with the specified prefix.
 	// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
-	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
+	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The Amazon Resource Name (ARN) of the target key identifier.
 	TargetKeyArn pulumi.StringOutput `pulumi:"targetKeyArn"`
 	// Identifier for the key for which the alias is for, can be either an ARN or key_id.

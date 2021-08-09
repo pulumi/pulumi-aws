@@ -94,6 +94,10 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetCoipPoolResult
     {
+        /// <summary>
+        /// ARN of the COIP pool
+        /// </summary>
+        public readonly string Arn;
         public readonly ImmutableArray<Outputs.GetCoipPoolFilterResult> Filters;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -109,6 +113,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetCoipPoolResult(
+            string arn,
+
             ImmutableArray<Outputs.GetCoipPoolFilterResult> filters,
 
             string id,
@@ -121,6 +127,7 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableDictionary<string, string> tags)
         {
+            Arn = arn;
             Filters = filters;
             Id = id;
             LocalGatewayRouteTableId = localGatewayRouteTableId;

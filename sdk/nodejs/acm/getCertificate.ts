@@ -99,6 +99,10 @@ export interface GetCertificateResult {
     readonly id: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
+    /**
+     * Status of the found certificate.
+     */
+    readonly status: string;
     readonly statuses?: string[];
     /**
      * A mapping of tags for the resource.

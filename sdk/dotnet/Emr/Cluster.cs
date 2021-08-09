@@ -331,12 +331,15 @@ namespace Pulumi.Aws.Emr
     ///                 {
     ///                     ActionOnFailure = "TERMINATE_CLUSTER",
     ///                     Name = "Setup Hadoop Debugging",
-    ///                     HadoopJarStep = new Aws.Emr.Inputs.ClusterStepHadoopJarStepArgs
+    ///                     HadoopJarStep = 
     ///                     {
-    ///                         Jar = "command-runner.jar",
-    ///                         Args = 
+    ///                         
     ///                         {
-    ///                             "state-pusher-script",
+    ///                             { "jar", "command-runner.jar" },
+    ///                             { "args", 
+    ///                             {
+    ///                                 "state-pusher-script",
+    ///                             } },
     ///                         },
     ///                     },
     ///                 },

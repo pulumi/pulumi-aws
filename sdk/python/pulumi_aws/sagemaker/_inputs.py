@@ -49,13 +49,13 @@ __all__ = [
     'UserProfileUserSettingsSharingSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
-    'WorkForceCognitoConfigArgs',
-    'WorkForceOidcConfigArgs',
-    'WorkForceSourceIpConfigArgs',
-    'WorkTeamMemberDefinitionArgs',
-    'WorkTeamMemberDefinitionCognitoMemberDefinitionArgs',
-    'WorkTeamMemberDefinitionOidcMemberDefinitionArgs',
-    'WorkTeamNotificationConfigurationArgs',
+    'WorkforceCognitoConfigArgs',
+    'WorkforceOidcConfigArgs',
+    'WorkforceSourceIpConfigArgs',
+    'WorkteamMemberDefinitionArgs',
+    'WorkteamMemberDefinitionCognitoMemberDefinitionArgs',
+    'WorkteamMemberDefinitionOidcMemberDefinitionArgs',
+    'WorkteamNotificationConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -1937,7 +1937,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
 
 
 @pulumi.input_type
-class WorkForceCognitoConfigArgs:
+class WorkforceCognitoConfigArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  user_pool: pulumi.Input[str]):
@@ -1974,7 +1974,7 @@ class WorkForceCognitoConfigArgs:
 
 
 @pulumi.input_type
-class WorkForceOidcConfigArgs:
+class WorkforceOidcConfigArgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -2101,7 +2101,7 @@ class WorkForceOidcConfigArgs:
 
 
 @pulumi.input_type
-class WorkForceSourceIpConfigArgs:
+class WorkforceSourceIpConfigArgs:
     def __init__(__self__, *,
                  cidrs: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -2123,13 +2123,13 @@ class WorkForceSourceIpConfigArgs:
 
 
 @pulumi.input_type
-class WorkTeamMemberDefinitionArgs:
+class WorkteamMemberDefinitionArgs:
     def __init__(__self__, *,
-                 cognito_member_definition: Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']] = None,
-                 oidc_member_definition: Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']] = None):
+                 cognito_member_definition: Optional[pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs']] = None,
+                 oidc_member_definition: Optional[pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs']] = None):
         """
-        :param pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs'] cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-        :param pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs'] oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+        :param pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs'] cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+        :param pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs'] oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
         if cognito_member_definition is not None:
             pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
@@ -2138,31 +2138,31 @@ class WorkTeamMemberDefinitionArgs:
 
     @property
     @pulumi.getter(name="cognitoMemberDefinition")
-    def cognito_member_definition(self) -> Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']]:
+    def cognito_member_definition(self) -> Optional[pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs']]:
         """
         The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
         """
         return pulumi.get(self, "cognito_member_definition")
 
     @cognito_member_definition.setter
-    def cognito_member_definition(self, value: Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']]):
+    def cognito_member_definition(self, value: Optional[pulumi.Input['WorkteamMemberDefinitionCognitoMemberDefinitionArgs']]):
         pulumi.set(self, "cognito_member_definition", value)
 
     @property
     @pulumi.getter(name="oidcMemberDefinition")
-    def oidc_member_definition(self) -> Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']]:
+    def oidc_member_definition(self) -> Optional[pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs']]:
         """
         A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
         return pulumi.get(self, "oidc_member_definition")
 
     @oidc_member_definition.setter
-    def oidc_member_definition(self, value: Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']]):
+    def oidc_member_definition(self, value: Optional[pulumi.Input['WorkteamMemberDefinitionOidcMemberDefinitionArgs']]):
         pulumi.set(self, "oidc_member_definition", value)
 
 
 @pulumi.input_type
-class WorkTeamMemberDefinitionCognitoMemberDefinitionArgs:
+class WorkteamMemberDefinitionCognitoMemberDefinitionArgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  user_group: pulumi.Input[str],
@@ -2214,7 +2214,7 @@ class WorkTeamMemberDefinitionCognitoMemberDefinitionArgs:
 
 
 @pulumi.input_type
-class WorkTeamMemberDefinitionOidcMemberDefinitionArgs:
+class WorkteamMemberDefinitionOidcMemberDefinitionArgs:
     def __init__(__self__, *,
                  groups: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -2236,7 +2236,7 @@ class WorkTeamMemberDefinitionOidcMemberDefinitionArgs:
 
 
 @pulumi.input_type
-class WorkTeamNotificationConfigurationArgs:
+class WorkteamNotificationConfigurationArgs:
     def __init__(__self__, *,
                  notification_topic_arn: Optional[pulumi.Input[str]] = None):
         """

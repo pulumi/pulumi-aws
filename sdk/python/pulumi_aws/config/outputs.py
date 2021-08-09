@@ -224,6 +224,8 @@ class Endpoints(dict):
                  resourcegroupstaggingapi: Optional[str] = None,
                  route53: Optional[str] = None,
                  route53domains: Optional[str] = None,
+                 route53recoverycontrolconfig: Optional[str] = None,
+                 route53recoveryreadiness: Optional[str] = None,
                  route53resolver: Optional[str] = None,
                  s3: Optional[str] = None,
                  s3control: Optional[str] = None,
@@ -506,6 +508,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "route53", route53)
         if route53domains is not None:
             pulumi.set(__self__, "route53domains", route53domains)
+        if route53recoverycontrolconfig is not None:
+            pulumi.set(__self__, "route53recoverycontrolconfig", route53recoverycontrolconfig)
+        if route53recoveryreadiness is not None:
+            pulumi.set(__self__, "route53recoveryreadiness", route53recoveryreadiness)
         if route53resolver is not None:
             pulumi.set(__self__, "route53resolver", route53resolver)
         if s3 is not None:
@@ -1194,6 +1200,16 @@ class Endpoints(dict):
     @pulumi.getter
     def route53domains(self) -> Optional[str]:
         return pulumi.get(self, "route53domains")
+
+    @property
+    @pulumi.getter
+    def route53recoverycontrolconfig(self) -> Optional[str]:
+        return pulumi.get(self, "route53recoverycontrolconfig")
+
+    @property
+    @pulumi.getter
+    def route53recoveryreadiness(self) -> Optional[str]:
+        return pulumi.get(self, "route53recoveryreadiness")
 
     @property
     @pulumi.getter

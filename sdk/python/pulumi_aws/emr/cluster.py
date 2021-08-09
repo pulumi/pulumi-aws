@@ -1183,10 +1183,10 @@ class Cluster(pulumi.CustomResource):
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
-            hadoop_jar_step=aws.emr.ClusterStepHadoopJarStepArgs(
-                jar="command-runner.jar",
-                args=["state-pusher-script"],
-            ),
+            hadoop_jar_step=[{
+                "jar": "command-runner.jar",
+                "args": ["state-pusher-script"],
+            }],
         )])
         ```
 
@@ -1744,10 +1744,10 @@ class Cluster(pulumi.CustomResource):
         example = aws.emr.Cluster("example", steps=[aws.emr.ClusterStepArgs(
             action_on_failure="TERMINATE_CLUSTER",
             name="Setup Hadoop Debugging",
-            hadoop_jar_step=aws.emr.ClusterStepHadoopJarStepArgs(
-                jar="command-runner.jar",
-                args=["state-pusher-script"],
-            ),
+            hadoop_jar_step=[{
+                "jar": "command-runner.jar",
+                "args": ["state-pusher-script"],
+            }],
         )])
         ```
 

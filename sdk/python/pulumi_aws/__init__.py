@@ -5692,18 +5692,18 @@ _utilities.register(
  },
  {
   "pkg": "aws",
-  "mod": "sagemaker/workForce",
+  "mod": "sagemaker/workforce",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
-   "aws:sagemaker/workForce:WorkForce": "WorkForce"
+   "aws:sagemaker/workforce:Workforce": "Workforce"
   }
  },
  {
   "pkg": "aws",
-  "mod": "sagemaker/workTeam",
+  "mod": "sagemaker/workteam",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
-   "aws:sagemaker/workTeam:WorkTeam": "WorkTeam"
+   "aws:sagemaker/workteam:Workteam": "Workteam"
   }
  },
  {

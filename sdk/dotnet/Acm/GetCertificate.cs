@@ -149,6 +149,10 @@ namespace Pulumi.Aws.Acm
         public readonly string Id;
         public readonly ImmutableArray<string> KeyTypes;
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Status of the found certificate.
+        /// </summary>
+        public readonly string Status;
         public readonly ImmutableArray<string> Statuses;
         /// <summary>
         /// A mapping of tags for the resource.
@@ -168,6 +172,8 @@ namespace Pulumi.Aws.Acm
 
             bool? mostRecent,
 
+            string status,
+
             ImmutableArray<string> statuses,
 
             ImmutableDictionary<string, string> tags,
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.Acm
             Id = id;
             KeyTypes = keyTypes;
             MostRecent = mostRecent;
+            Status = status;
             Statuses = statuses;
             Tags = tags;
             Types = types;

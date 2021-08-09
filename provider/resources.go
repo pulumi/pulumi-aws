@@ -2139,8 +2139,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_app_image_config":       {Tok: awsResource(sagemakerMod, "AppImageConfig")},
 			"aws_sagemaker_model_package_group":    {Tok: awsResource(sagemakerMod, "ModelPackageGroup")},
 			"aws_sagemaker_app":                    {Tok: awsResource(sagemakerMod, "App")},
-			"aws_sagemaker_workforce":              {Tok: awsResource(sagemakerMod, "WorkForce")},
-			"aws_sagemaker_workteam":               {Tok: awsResource(sagemakerMod, "WorkTeam")},
+			"aws_sagemaker_workforce":              {Tok: awsResource(sagemakerMod, "Workforce")},
+			"aws_sagemaker_workteam":               {Tok: awsResource(sagemakerMod, "Workteam")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},

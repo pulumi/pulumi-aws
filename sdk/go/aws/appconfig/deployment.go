@@ -64,7 +64,7 @@ type Deployment struct {
 	ConfigurationVersion pulumi.StringOutput `pulumi:"configurationVersion"`
 	// The deployment number.
 	DeploymentNumber pulumi.IntOutput `pulumi:"deploymentNumber"`
-	// The deployment strategy ID. Must be between 4 and 7 characters in length.
+	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringOutput `pulumi:"deploymentStrategyId"`
 	// The description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -130,7 +130,7 @@ type deploymentState struct {
 	ConfigurationVersion *string `pulumi:"configurationVersion"`
 	// The deployment number.
 	DeploymentNumber *int `pulumi:"deploymentNumber"`
-	// The deployment strategy ID. Must be between 4 and 7 characters in length.
+	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId *string `pulumi:"deploymentStrategyId"`
 	// The description of the deployment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
@@ -153,7 +153,7 @@ type DeploymentState struct {
 	ConfigurationVersion pulumi.StringPtrInput
 	// The deployment number.
 	DeploymentNumber pulumi.IntPtrInput
-	// The deployment strategy ID. Must be between 4 and 7 characters in length.
+	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringPtrInput
 	// The description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput
@@ -176,7 +176,7 @@ type deploymentArgs struct {
 	ConfigurationProfileId string `pulumi:"configurationProfileId"`
 	// The configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion string `pulumi:"configurationVersion"`
-	// The deployment strategy ID. Must be between 4 and 7 characters in length.
+	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId string `pulumi:"deploymentStrategyId"`
 	// The description of the deployment. Can be at most 1024 characters.
 	Description *string `pulumi:"description"`
@@ -196,7 +196,7 @@ type DeploymentArgs struct {
 	ConfigurationProfileId pulumi.StringInput
 	// The configuration version to deploy. Can be at most 1024 characters.
 	ConfigurationVersion pulumi.StringInput
-	// The deployment strategy ID. Must be between 4 and 7 characters in length.
+	// The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
 	DeploymentStrategyId pulumi.StringInput
 	// The description of the deployment. Can be at most 1024 characters.
 	Description pulumi.StringPtrInput

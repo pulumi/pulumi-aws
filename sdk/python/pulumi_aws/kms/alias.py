@@ -320,7 +320,7 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         Creates an unique alias beginning with the specified prefix.
         The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.

@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Kms
         /// The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target key identifier.
