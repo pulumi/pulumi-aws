@@ -366,9 +366,7 @@ func (i BucketNotificationMap) ToBucketNotificationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationMapOutput)
 }
 
-type BucketNotificationOutput struct {
-	*pulumi.OutputState
-}
+type BucketNotificationOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketNotification)(nil))
@@ -387,14 +385,12 @@ func (o BucketNotificationOutput) ToBucketNotificationPtrOutput() BucketNotifica
 }
 
 func (o BucketNotificationOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return o.ApplyT(func(v BucketNotification) *BucketNotification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotification) *BucketNotification {
 		return &v
 	}).(BucketNotificationPtrOutput)
 }
 
-type BucketNotificationPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketNotificationPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketNotification)(nil))
@@ -406,6 +402,16 @@ func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutput() BucketNotif
 
 func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
 	return o
+}
+
+func (o BucketNotificationPtrOutput) Elem() BucketNotificationOutput {
+	return o.ApplyT(func(v *BucketNotification) BucketNotification {
+		if v != nil {
+			return *v
+		}
+		var ret BucketNotification
+		return ret
+	}).(BucketNotificationOutput)
 }
 
 type BucketNotificationArrayOutput struct{ *pulumi.OutputState }

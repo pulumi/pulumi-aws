@@ -278,9 +278,7 @@ func (i AttachmentMap) ToAttachmentMapOutputWithContext(ctx context.Context) Att
 	return pulumi.ToOutputWithContext(ctx, i).(AttachmentMapOutput)
 }
 
-type AttachmentOutput struct {
-	*pulumi.OutputState
-}
+type AttachmentOutput struct{ *pulumi.OutputState }
 
 func (AttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Attachment)(nil))
@@ -299,14 +297,12 @@ func (o AttachmentOutput) ToAttachmentPtrOutput() AttachmentPtrOutput {
 }
 
 func (o AttachmentOutput) ToAttachmentPtrOutputWithContext(ctx context.Context) AttachmentPtrOutput {
-	return o.ApplyT(func(v Attachment) *Attachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Attachment) *Attachment {
 		return &v
 	}).(AttachmentPtrOutput)
 }
 
-type AttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type AttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (AttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Attachment)(nil))
@@ -318,6 +314,16 @@ func (o AttachmentPtrOutput) ToAttachmentPtrOutput() AttachmentPtrOutput {
 
 func (o AttachmentPtrOutput) ToAttachmentPtrOutputWithContext(ctx context.Context) AttachmentPtrOutput {
 	return o
+}
+
+func (o AttachmentPtrOutput) Elem() AttachmentOutput {
+	return o.ApplyT(func(v *Attachment) Attachment {
+		if v != nil {
+			return *v
+		}
+		var ret Attachment
+		return ret
+	}).(AttachmentOutput)
 }
 
 type AttachmentArrayOutput struct{ *pulumi.OutputState }

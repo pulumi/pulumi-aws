@@ -316,9 +316,7 @@ func (i SchemaMap) ToSchemaMapOutputWithContext(ctx context.Context) SchemaMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaMapOutput)
 }
 
-type SchemaOutput struct {
-	*pulumi.OutputState
-}
+type SchemaOutput struct{ *pulumi.OutputState }
 
 func (SchemaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Schema)(nil))
@@ -337,14 +335,12 @@ func (o SchemaOutput) ToSchemaPtrOutput() SchemaPtrOutput {
 }
 
 func (o SchemaOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
-	return o.ApplyT(func(v Schema) *Schema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schema) *Schema {
 		return &v
 	}).(SchemaPtrOutput)
 }
 
-type SchemaPtrOutput struct {
-	*pulumi.OutputState
-}
+type SchemaPtrOutput struct{ *pulumi.OutputState }
 
 func (SchemaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Schema)(nil))
@@ -356,6 +352,16 @@ func (o SchemaPtrOutput) ToSchemaPtrOutput() SchemaPtrOutput {
 
 func (o SchemaPtrOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
 	return o
+}
+
+func (o SchemaPtrOutput) Elem() SchemaOutput {
+	return o.ApplyT(func(v *Schema) Schema {
+		if v != nil {
+			return *v
+		}
+		var ret Schema
+		return ret
+	}).(SchemaOutput)
 }
 
 type SchemaArrayOutput struct{ *pulumi.OutputState }

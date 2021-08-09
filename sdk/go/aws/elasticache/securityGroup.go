@@ -248,9 +248,7 @@ func (i SecurityGroupMap) ToSecurityGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupMapOutput)
 }
 
-type SecurityGroupOutput struct {
-	*pulumi.OutputState
-}
+type SecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityGroup)(nil))
@@ -269,14 +267,12 @@ func (o SecurityGroupOutput) ToSecurityGroupPtrOutput() SecurityGroupPtrOutput {
 }
 
 func (o SecurityGroupOutput) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
-	return o.ApplyT(func(v SecurityGroup) *SecurityGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroup) *SecurityGroup {
 		return &v
 	}).(SecurityGroupPtrOutput)
 }
 
-type SecurityGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityGroup)(nil))
@@ -288,6 +284,16 @@ func (o SecurityGroupPtrOutput) ToSecurityGroupPtrOutput() SecurityGroupPtrOutpu
 
 func (o SecurityGroupPtrOutput) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
 	return o
+}
+
+func (o SecurityGroupPtrOutput) Elem() SecurityGroupOutput {
+	return o.ApplyT(func(v *SecurityGroup) SecurityGroup {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityGroup
+		return ret
+	}).(SecurityGroupOutput)
 }
 
 type SecurityGroupArrayOutput struct{ *pulumi.OutputState }

@@ -121,10 +121,11 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutput() Di
 }
 
 func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithContext(ctx context.Context) DirectoryConnectSettingsPtrOutput {
-	return o.ApplyT(func(v DirectoryConnectSettings) *DirectoryConnectSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConnectSettings) *DirectoryConnectSettings {
 		return &v
 	}).(DirectoryConnectSettingsPtrOutput)
 }
+
 func (o DirectoryConnectSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DirectoryConnectSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -169,7 +170,13 @@ func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutputWi
 }
 
 func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput {
-	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings { return *v }).(DirectoryConnectSettingsOutput)
+	return o.ApplyT(func(v *DirectoryConnectSettings) DirectoryConnectSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryConnectSettings
+		return ret
+	}).(DirectoryConnectSettingsOutput)
 }
 
 func (o DirectoryConnectSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -330,10 +337,11 @@ func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutput() DirectoryV
 }
 
 func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutputWithContext(ctx context.Context) DirectoryVpcSettingsPtrOutput {
-	return o.ApplyT(func(v DirectoryVpcSettings) *DirectoryVpcSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryVpcSettings) *DirectoryVpcSettings {
 		return &v
 	}).(DirectoryVpcSettingsPtrOutput)
 }
+
 func (o DirectoryVpcSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DirectoryVpcSettings) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -363,7 +371,13 @@ func (o DirectoryVpcSettingsPtrOutput) ToDirectoryVpcSettingsPtrOutputWithContex
 }
 
 func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
-	return o.ApplyT(func(v *DirectoryVpcSettings) DirectoryVpcSettings { return *v }).(DirectoryVpcSettingsOutput)
+	return o.ApplyT(func(v *DirectoryVpcSettings) DirectoryVpcSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryVpcSettings
+		return ret
+	}).(DirectoryVpcSettingsOutput)
 }
 
 func (o DirectoryVpcSettingsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {

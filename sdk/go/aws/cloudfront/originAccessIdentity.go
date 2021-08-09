@@ -296,9 +296,7 @@ func (i OriginAccessIdentityMap) ToOriginAccessIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginAccessIdentityMapOutput)
 }
 
-type OriginAccessIdentityOutput struct {
-	*pulumi.OutputState
-}
+type OriginAccessIdentityOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OriginAccessIdentity)(nil))
@@ -317,14 +315,12 @@ func (o OriginAccessIdentityOutput) ToOriginAccessIdentityPtrOutput() OriginAcce
 }
 
 func (o OriginAccessIdentityOutput) ToOriginAccessIdentityPtrOutputWithContext(ctx context.Context) OriginAccessIdentityPtrOutput {
-	return o.ApplyT(func(v OriginAccessIdentity) *OriginAccessIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginAccessIdentity) *OriginAccessIdentity {
 		return &v
 	}).(OriginAccessIdentityPtrOutput)
 }
 
-type OriginAccessIdentityPtrOutput struct {
-	*pulumi.OutputState
-}
+type OriginAccessIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (OriginAccessIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OriginAccessIdentity)(nil))
@@ -336,6 +332,16 @@ func (o OriginAccessIdentityPtrOutput) ToOriginAccessIdentityPtrOutput() OriginA
 
 func (o OriginAccessIdentityPtrOutput) ToOriginAccessIdentityPtrOutputWithContext(ctx context.Context) OriginAccessIdentityPtrOutput {
 	return o
+}
+
+func (o OriginAccessIdentityPtrOutput) Elem() OriginAccessIdentityOutput {
+	return o.ApplyT(func(v *OriginAccessIdentity) OriginAccessIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret OriginAccessIdentity
+		return ret
+	}).(OriginAccessIdentityOutput)
 }
 
 type OriginAccessIdentityArrayOutput struct{ *pulumi.OutputState }

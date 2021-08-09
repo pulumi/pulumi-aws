@@ -295,9 +295,7 @@ func (i JobQueueMap) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueu
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueMapOutput)
 }
 
-type JobQueueOutput struct {
-	*pulumi.OutputState
-}
+type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobQueue)(nil))
@@ -316,14 +314,12 @@ func (o JobQueueOutput) ToJobQueuePtrOutput() JobQueuePtrOutput {
 }
 
 func (o JobQueueOutput) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
-	return o.ApplyT(func(v JobQueue) *JobQueue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobQueue) *JobQueue {
 		return &v
 	}).(JobQueuePtrOutput)
 }
 
-type JobQueuePtrOutput struct {
-	*pulumi.OutputState
-}
+type JobQueuePtrOutput struct{ *pulumi.OutputState }
 
 func (JobQueuePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobQueue)(nil))
@@ -335,6 +331,16 @@ func (o JobQueuePtrOutput) ToJobQueuePtrOutput() JobQueuePtrOutput {
 
 func (o JobQueuePtrOutput) ToJobQueuePtrOutputWithContext(ctx context.Context) JobQueuePtrOutput {
 	return o
+}
+
+func (o JobQueuePtrOutput) Elem() JobQueueOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueue {
+		if v != nil {
+			return *v
+		}
+		var ret JobQueue
+		return ret
+	}).(JobQueueOutput)
 }
 
 type JobQueueArrayOutput struct{ *pulumi.OutputState }

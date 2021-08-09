@@ -242,7 +242,7 @@ func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutput() Cl
 }
 
 func (o ClusterCoreInstanceFleetOutput) ToClusterCoreInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetPtrOutput {
-	return o.ApplyT(func(v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceFleet) *ClusterCoreInstanceFleet {
 		return &v
 	}).(ClusterCoreInstanceFleetPtrOutput)
 }
@@ -304,7 +304,13 @@ func (o ClusterCoreInstanceFleetPtrOutput) ToClusterCoreInstanceFleetPtrOutputWi
 }
 
 func (o ClusterCoreInstanceFleetPtrOutput) Elem() ClusterCoreInstanceFleetOutput {
-	return o.ApplyT(func(v *ClusterCoreInstanceFleet) ClusterCoreInstanceFleet { return *v }).(ClusterCoreInstanceFleetOutput)
+	return o.ApplyT(func(v *ClusterCoreInstanceFleet) ClusterCoreInstanceFleet {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCoreInstanceFleet
+		return ret
+	}).(ClusterCoreInstanceFleetOutput)
 }
 
 // The ID of the EMR Cluster
@@ -862,7 +868,7 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanc
 }
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsOutput) ToClusterCoreInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput {
-	return o.ApplyT(func(v ClusterCoreInstanceFleetLaunchSpecifications) *ClusterCoreInstanceFleetLaunchSpecifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceFleetLaunchSpecifications) *ClusterCoreInstanceFleetLaunchSpecifications {
 		return &v
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput)
 }
@@ -897,7 +903,11 @@ func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) ToClusterCoreInst
 
 func (o ClusterCoreInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterCoreInstanceFleetLaunchSpecificationsOutput {
 	return o.ApplyT(func(v *ClusterCoreInstanceFleetLaunchSpecifications) ClusterCoreInstanceFleetLaunchSpecifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCoreInstanceFleetLaunchSpecifications
+		return ret
 	}).(ClusterCoreInstanceFleetLaunchSpecificationsOutput)
 }
 
@@ -1267,7 +1277,7 @@ func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupPtrOutput() Cl
 }
 
 func (o ClusterCoreInstanceGroupOutput) ToClusterCoreInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterCoreInstanceGroupPtrOutput {
-	return o.ApplyT(func(v ClusterCoreInstanceGroup) *ClusterCoreInstanceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCoreInstanceGroup) *ClusterCoreInstanceGroup {
 		return &v
 	}).(ClusterCoreInstanceGroupPtrOutput)
 }
@@ -1322,7 +1332,13 @@ func (o ClusterCoreInstanceGroupPtrOutput) ToClusterCoreInstanceGroupPtrOutputWi
 }
 
 func (o ClusterCoreInstanceGroupPtrOutput) Elem() ClusterCoreInstanceGroupOutput {
-	return o.ApplyT(func(v *ClusterCoreInstanceGroup) ClusterCoreInstanceGroup { return *v }).(ClusterCoreInstanceGroupOutput)
+	return o.ApplyT(func(v *ClusterCoreInstanceGroup) ClusterCoreInstanceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCoreInstanceGroup
+		return ret
+	}).(ClusterCoreInstanceGroupOutput)
 }
 
 // String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
@@ -1644,7 +1660,7 @@ func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesPtrOutput() ClusterEc2
 }
 
 func (o ClusterEc2AttributesOutput) ToClusterEc2AttributesPtrOutputWithContext(ctx context.Context) ClusterEc2AttributesPtrOutput {
-	return o.ApplyT(func(v ClusterEc2Attributes) *ClusterEc2Attributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEc2Attributes) *ClusterEc2Attributes {
 		return &v
 	}).(ClusterEc2AttributesPtrOutput)
 }
@@ -1709,7 +1725,13 @@ func (o ClusterEc2AttributesPtrOutput) ToClusterEc2AttributesPtrOutputWithContex
 }
 
 func (o ClusterEc2AttributesPtrOutput) Elem() ClusterEc2AttributesOutput {
-	return o.ApplyT(func(v *ClusterEc2Attributes) ClusterEc2Attributes { return *v }).(ClusterEc2AttributesOutput)
+	return o.ApplyT(func(v *ClusterEc2Attributes) ClusterEc2Attributes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEc2Attributes
+		return ret
+	}).(ClusterEc2AttributesOutput)
 }
 
 // String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
@@ -1911,7 +1933,7 @@ func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutput() 
 }
 
 func (o ClusterKerberosAttributesOutput) ToClusterKerberosAttributesPtrOutputWithContext(ctx context.Context) ClusterKerberosAttributesPtrOutput {
-	return o.ApplyT(func(v ClusterKerberosAttributes) *ClusterKerberosAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKerberosAttributes) *ClusterKerberosAttributes {
 		return &v
 	}).(ClusterKerberosAttributesPtrOutput)
 }
@@ -1956,7 +1978,13 @@ func (o ClusterKerberosAttributesPtrOutput) ToClusterKerberosAttributesPtrOutput
 }
 
 func (o ClusterKerberosAttributesPtrOutput) Elem() ClusterKerberosAttributesOutput {
-	return o.ApplyT(func(v *ClusterKerberosAttributes) ClusterKerberosAttributes { return *v }).(ClusterKerberosAttributesOutput)
+	return o.ApplyT(func(v *ClusterKerberosAttributes) ClusterKerberosAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKerberosAttributes
+		return ret
+	}).(ClusterKerberosAttributesOutput)
 }
 
 // The Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
@@ -2126,7 +2154,7 @@ func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutput(
 }
 
 func (o ClusterMasterInstanceFleetOutput) ToClusterMasterInstanceFleetPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceFleet) *ClusterMasterInstanceFleet {
 		return &v
 	}).(ClusterMasterInstanceFleetPtrOutput)
 }
@@ -2188,7 +2216,13 @@ func (o ClusterMasterInstanceFleetPtrOutput) ToClusterMasterInstanceFleetPtrOutp
 }
 
 func (o ClusterMasterInstanceFleetPtrOutput) Elem() ClusterMasterInstanceFleetOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceFleet) ClusterMasterInstanceFleet { return *v }).(ClusterMasterInstanceFleetOutput)
+	return o.ApplyT(func(v *ClusterMasterInstanceFleet) ClusterMasterInstanceFleet {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterMasterInstanceFleet
+		return ret
+	}).(ClusterMasterInstanceFleetOutput)
 }
 
 // The ID of the EMR Cluster
@@ -2746,7 +2780,7 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterIns
 }
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsOutput) ToClusterMasterInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceFleetLaunchSpecifications) *ClusterMasterInstanceFleetLaunchSpecifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceFleetLaunchSpecifications) *ClusterMasterInstanceFleetLaunchSpecifications {
 		return &v
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput)
 }
@@ -2781,7 +2815,11 @@ func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) ToClusterMaster
 
 func (o ClusterMasterInstanceFleetLaunchSpecificationsPtrOutput) Elem() ClusterMasterInstanceFleetLaunchSpecificationsOutput {
 	return o.ApplyT(func(v *ClusterMasterInstanceFleetLaunchSpecifications) ClusterMasterInstanceFleetLaunchSpecifications {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterMasterInstanceFleetLaunchSpecifications
+		return ret
 	}).(ClusterMasterInstanceFleetLaunchSpecificationsOutput)
 }
 
@@ -3147,7 +3185,7 @@ func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutput(
 }
 
 func (o ClusterMasterInstanceGroupOutput) ToClusterMasterInstanceGroupPtrOutputWithContext(ctx context.Context) ClusterMasterInstanceGroupPtrOutput {
-	return o.ApplyT(func(v ClusterMasterInstanceGroup) *ClusterMasterInstanceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterMasterInstanceGroup) *ClusterMasterInstanceGroup {
 		return &v
 	}).(ClusterMasterInstanceGroupPtrOutput)
 }
@@ -3197,7 +3235,13 @@ func (o ClusterMasterInstanceGroupPtrOutput) ToClusterMasterInstanceGroupPtrOutp
 }
 
 func (o ClusterMasterInstanceGroupPtrOutput) Elem() ClusterMasterInstanceGroupOutput {
-	return o.ApplyT(func(v *ClusterMasterInstanceGroup) ClusterMasterInstanceGroup { return *v }).(ClusterMasterInstanceGroupOutput)
+	return o.ApplyT(func(v *ClusterMasterInstanceGroup) ClusterMasterInstanceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterMasterInstanceGroup
+		return ret
+	}).(ClusterMasterInstanceGroupOutput)
 }
 
 // The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
@@ -4051,7 +4095,7 @@ func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificat
 }
 
 func (o InstanceFleetLaunchSpecificationsOutput) ToInstanceFleetLaunchSpecificationsPtrOutputWithContext(ctx context.Context) InstanceFleetLaunchSpecificationsPtrOutput {
-	return o.ApplyT(func(v InstanceFleetLaunchSpecifications) *InstanceFleetLaunchSpecifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleetLaunchSpecifications) *InstanceFleetLaunchSpecifications {
 		return &v
 	}).(InstanceFleetLaunchSpecificationsPtrOutput)
 }
@@ -4085,7 +4129,13 @@ func (o InstanceFleetLaunchSpecificationsPtrOutput) ToInstanceFleetLaunchSpecifi
 }
 
 func (o InstanceFleetLaunchSpecificationsPtrOutput) Elem() InstanceFleetLaunchSpecificationsOutput {
-	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) InstanceFleetLaunchSpecifications { return *v }).(InstanceFleetLaunchSpecificationsOutput)
+	return o.ApplyT(func(v *InstanceFleetLaunchSpecifications) InstanceFleetLaunchSpecifications {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleetLaunchSpecifications
+		return ret
+	}).(InstanceFleetLaunchSpecificationsOutput)
 }
 
 // Configuration block for on demand instances launch specifications

@@ -123,7 +123,7 @@ func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifa
 }
 
 func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
-	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *ProductProvisioningArtifactParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductProvisioningArtifactParameters) *ProductProvisioningArtifactParameters {
 		return &v
 	}).(ProductProvisioningArtifactParametersPtrOutput)
 }
@@ -173,7 +173,13 @@ func (o ProductProvisioningArtifactParametersPtrOutput) ToProductProvisioningArt
 }
 
 func (o ProductProvisioningArtifactParametersPtrOutput) Elem() ProductProvisioningArtifactParametersOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) ProductProvisioningArtifactParameters { return *v }).(ProductProvisioningArtifactParametersOutput)
+	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) ProductProvisioningArtifactParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ProductProvisioningArtifactParameters
+		return ret
+	}).(ProductProvisioningArtifactParametersOutput)
 }
 
 // Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
@@ -464,7 +470,7 @@ func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedPr
 }
 
 func (o ProvisionedProductStackSetProvisioningPreferencesOutput) ToProvisionedProductStackSetProvisioningPreferencesPtrOutputWithContext(ctx context.Context) ProvisionedProductStackSetProvisioningPreferencesPtrOutput {
-	return o.ApplyT(func(v ProvisionedProductStackSetProvisioningPreferences) *ProvisionedProductStackSetProvisioningPreferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedProductStackSetProvisioningPreferences) *ProvisionedProductStackSetProvisioningPreferences {
 		return &v
 	}).(ProvisionedProductStackSetProvisioningPreferencesPtrOutput)
 }
@@ -515,7 +521,11 @@ func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) ToProvisione
 
 func (o ProvisionedProductStackSetProvisioningPreferencesPtrOutput) Elem() ProvisionedProductStackSetProvisioningPreferencesOutput {
 	return o.ApplyT(func(v *ProvisionedProductStackSetProvisioningPreferences) ProvisionedProductStackSetProvisioningPreferences {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ProvisionedProductStackSetProvisioningPreferences
+		return ret
 	}).(ProvisionedProductStackSetProvisioningPreferencesOutput)
 }
 
@@ -688,7 +698,7 @@ func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutput() Serv
 }
 
 func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
-	return o.ApplyT(func(v ServiceActionDefinition) *ServiceActionDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceActionDefinition) *ServiceActionDefinition {
 		return &v
 	}).(ServiceActionDefinitionPtrOutput)
 }
@@ -733,7 +743,13 @@ func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutputWith
 }
 
 func (o ServiceActionDefinitionPtrOutput) Elem() ServiceActionDefinitionOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) ServiceActionDefinition { return *v }).(ServiceActionDefinitionOutput)
+	return o.ApplyT(func(v *ServiceActionDefinition) ServiceActionDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceActionDefinition
+		return ret
+	}).(ServiceActionDefinitionOutput)
 }
 
 // ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.

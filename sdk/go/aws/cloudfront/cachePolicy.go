@@ -293,9 +293,7 @@ func (i CachePolicyMap) ToCachePolicyMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyMapOutput)
 }
 
-type CachePolicyOutput struct {
-	*pulumi.OutputState
-}
+type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CachePolicy)(nil))
@@ -314,14 +312,12 @@ func (o CachePolicyOutput) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
 }
 
 func (o CachePolicyOutput) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
-	return o.ApplyT(func(v CachePolicy) *CachePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicy) *CachePolicy {
 		return &v
 	}).(CachePolicyPtrOutput)
 }
 
-type CachePolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type CachePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CachePolicy)(nil))
@@ -333,6 +329,16 @@ func (o CachePolicyPtrOutput) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
 
 func (o CachePolicyPtrOutput) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
 	return o
+}
+
+func (o CachePolicyPtrOutput) Elem() CachePolicyOutput {
+	return o.ApplyT(func(v *CachePolicy) CachePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicy
+		return ret
+	}).(CachePolicyOutput)
 }
 
 type CachePolicyArrayOutput struct{ *pulumi.OutputState }

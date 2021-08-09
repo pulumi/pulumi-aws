@@ -233,9 +233,7 @@ func (i RestApiPolicyMap) ToRestApiPolicyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiPolicyMapOutput)
 }
 
-type RestApiPolicyOutput struct {
-	*pulumi.OutputState
-}
+type RestApiPolicyOutput struct{ *pulumi.OutputState }
 
 func (RestApiPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestApiPolicy)(nil))
@@ -254,14 +252,12 @@ func (o RestApiPolicyOutput) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutput {
 }
 
 func (o RestApiPolicyOutput) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
-	return o.ApplyT(func(v RestApiPolicy) *RestApiPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiPolicy) *RestApiPolicy {
 		return &v
 	}).(RestApiPolicyPtrOutput)
 }
 
-type RestApiPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type RestApiPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RestApiPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RestApiPolicy)(nil))
@@ -273,6 +269,16 @@ func (o RestApiPolicyPtrOutput) ToRestApiPolicyPtrOutput() RestApiPolicyPtrOutpu
 
 func (o RestApiPolicyPtrOutput) ToRestApiPolicyPtrOutputWithContext(ctx context.Context) RestApiPolicyPtrOutput {
 	return o
+}
+
+func (o RestApiPolicyPtrOutput) Elem() RestApiPolicyOutput {
+	return o.ApplyT(func(v *RestApiPolicy) RestApiPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiPolicy
+		return ret
+	}).(RestApiPolicyOutput)
 }
 
 type RestApiPolicyArrayOutput struct{ *pulumi.OutputState }

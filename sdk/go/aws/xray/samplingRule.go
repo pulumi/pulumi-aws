@@ -384,9 +384,7 @@ func (i SamplingRuleMap) ToSamplingRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SamplingRuleMapOutput)
 }
 
-type SamplingRuleOutput struct {
-	*pulumi.OutputState
-}
+type SamplingRuleOutput struct{ *pulumi.OutputState }
 
 func (SamplingRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SamplingRule)(nil))
@@ -405,14 +403,12 @@ func (o SamplingRuleOutput) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
 }
 
 func (o SamplingRuleOutput) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
-	return o.ApplyT(func(v SamplingRule) *SamplingRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SamplingRule) *SamplingRule {
 		return &v
 	}).(SamplingRulePtrOutput)
 }
 
-type SamplingRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SamplingRulePtrOutput struct{ *pulumi.OutputState }
 
 func (SamplingRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SamplingRule)(nil))
@@ -424,6 +420,16 @@ func (o SamplingRulePtrOutput) ToSamplingRulePtrOutput() SamplingRulePtrOutput {
 
 func (o SamplingRulePtrOutput) ToSamplingRulePtrOutputWithContext(ctx context.Context) SamplingRulePtrOutput {
 	return o
+}
+
+func (o SamplingRulePtrOutput) Elem() SamplingRuleOutput {
+	return o.ApplyT(func(v *SamplingRule) SamplingRule {
+		if v != nil {
+			return *v
+		}
+		var ret SamplingRule
+		return ret
+	}).(SamplingRuleOutput)
 }
 
 type SamplingRuleArrayOutput struct{ *pulumi.OutputState }

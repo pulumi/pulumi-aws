@@ -139,7 +139,7 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 }
 
 func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutputWithContext(ctx context.Context) AppAutoBranchCreationConfigPtrOutput {
-	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfig {
 		return &v
 	}).(AppAutoBranchCreationConfigPtrOutput)
 }
@@ -209,7 +209,13 @@ func (o AppAutoBranchCreationConfigPtrOutput) ToAppAutoBranchCreationConfigPtrOu
 }
 
 func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfigOutput {
-	return o.ApplyT(func(v *AppAutoBranchCreationConfig) AppAutoBranchCreationConfig { return *v }).(AppAutoBranchCreationConfigOutput)
+	return o.ApplyT(func(v *AppAutoBranchCreationConfig) AppAutoBranchCreationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppAutoBranchCreationConfig
+		return ret
+	}).(AppAutoBranchCreationConfigOutput)
 }
 
 // The basic authorization credentials for the autocreated branch.

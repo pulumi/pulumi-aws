@@ -245,9 +245,7 @@ func (i BucketLifecycleConfigurationMap) ToBucketLifecycleConfigurationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationMapOutput)
 }
 
-type BucketLifecycleConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketLifecycleConfiguration)(nil))
@@ -266,14 +264,12 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOut
 }
 
 func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfiguration) *BucketLifecycleConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfiguration) *BucketLifecycleConfiguration {
 		return &v
 	}).(BucketLifecycleConfigurationPtrOutput)
 }
 
-type BucketLifecycleConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketLifecycleConfiguration)(nil))
@@ -285,6 +281,16 @@ func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtr
 
 func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationPtrOutput) Elem() BucketLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *BucketLifecycleConfiguration) BucketLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfiguration
+		return ret
+	}).(BucketLifecycleConfigurationOutput)
 }
 
 type BucketLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }

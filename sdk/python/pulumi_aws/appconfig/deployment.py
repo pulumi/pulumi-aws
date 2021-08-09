@@ -26,7 +26,7 @@ class DeploymentArgs:
         :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,7 +84,7 @@ class DeploymentArgs:
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Input[str]:
         """
-        The deployment strategy ID. Must be between 4 and 7 characters in length.
+        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 
@@ -161,7 +161,7 @@ class _DeploymentState:
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
         :param pulumi.Input[int] deployment_number: The deployment number.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -252,7 +252,7 @@ class _DeploymentState:
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The deployment strategy ID. Must be between 4 and 7 characters in length.
+        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 
@@ -357,7 +357,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] application_id: The application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -485,7 +485,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] configuration_profile_id: The configuration profile ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] configuration_version: The configuration version to deploy. Can be at most 1024 characters.
         :param pulumi.Input[int] deployment_number: The deployment number.
-        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -551,7 +551,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentStrategyId")
     def deployment_strategy_id(self) -> pulumi.Output[str]:
         """
-        The deployment strategy ID. Must be between 4 and 7 characters in length.
+        The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         """
         return pulumi.get(self, "deployment_strategy_id")
 

@@ -306,9 +306,7 @@ func (i StreamMap) ToStreamMapOutputWithContext(ctx context.Context) StreamMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(StreamMapOutput)
 }
 
-type StreamOutput struct {
-	*pulumi.OutputState
-}
+type StreamOutput struct{ *pulumi.OutputState }
 
 func (StreamOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Stream)(nil))
@@ -327,14 +325,12 @@ func (o StreamOutput) ToStreamPtrOutput() StreamPtrOutput {
 }
 
 func (o StreamOutput) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
-	return o.ApplyT(func(v Stream) *Stream {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Stream) *Stream {
 		return &v
 	}).(StreamPtrOutput)
 }
 
-type StreamPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Stream)(nil))
@@ -346,6 +342,16 @@ func (o StreamPtrOutput) ToStreamPtrOutput() StreamPtrOutput {
 
 func (o StreamPtrOutput) ToStreamPtrOutputWithContext(ctx context.Context) StreamPtrOutput {
 	return o
+}
+
+func (o StreamPtrOutput) Elem() StreamOutput {
+	return o.ApplyT(func(v *Stream) Stream {
+		if v != nil {
+			return *v
+		}
+		var ret Stream
+		return ret
+	}).(StreamOutput)
 }
 
 type StreamArrayOutput struct{ *pulumi.OutputState }

@@ -272,9 +272,7 @@ func (i UserPolicyMap) ToUserPolicyMapOutputWithContext(ctx context.Context) Use
 	return pulumi.ToOutputWithContext(ctx, i).(UserPolicyMapOutput)
 }
 
-type UserPolicyOutput struct {
-	*pulumi.OutputState
-}
+type UserPolicyOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserPolicy)(nil))
@@ -293,14 +291,12 @@ func (o UserPolicyOutput) ToUserPolicyPtrOutput() UserPolicyPtrOutput {
 }
 
 func (o UserPolicyOutput) ToUserPolicyPtrOutputWithContext(ctx context.Context) UserPolicyPtrOutput {
-	return o.ApplyT(func(v UserPolicy) *UserPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPolicy) *UserPolicy {
 		return &v
 	}).(UserPolicyPtrOutput)
 }
 
-type UserPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserPolicy)(nil))
@@ -312,6 +308,16 @@ func (o UserPolicyPtrOutput) ToUserPolicyPtrOutput() UserPolicyPtrOutput {
 
 func (o UserPolicyPtrOutput) ToUserPolicyPtrOutputWithContext(ctx context.Context) UserPolicyPtrOutput {
 	return o
+}
+
+func (o UserPolicyPtrOutput) Elem() UserPolicyOutput {
+	return o.ApplyT(func(v *UserPolicy) UserPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UserPolicy
+		return ret
+	}).(UserPolicyOutput)
 }
 
 type UserPolicyArrayOutput struct{ *pulumi.OutputState }

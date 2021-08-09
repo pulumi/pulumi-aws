@@ -26,13 +26,19 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json)});
+ * const test = aws.sagemaker.getPrebuiltEcrImage({
+ *     repositoryName: "kmeans",
+ * });
  * const exampleModel = new aws.sagemaker.Model("exampleModel", {
  *     executionRoleArn: exampleRole.arn,
  *     primaryContainer: {
- *         image: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+ *         image: test.then(test => test.registryPath),
  *     },
  * });
  * ```
+ * ## Inference Execution Config
+ *
+ * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
  *
  * ## Import
  *
@@ -87,6 +93,10 @@ export class Model extends pulumi.CustomResource {
      */
     public readonly executionRoleArn!: pulumi.Output<string>;
     /**
+     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     */
+    public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig>;
+    /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
@@ -124,6 +134,7 @@ export class Model extends pulumi.CustomResource {
             inputs["containers"] = state ? state.containers : undefined;
             inputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            inputs["inferenceExecutionConfig"] = state ? state.inferenceExecutionConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["primaryContainer"] = state ? state.primaryContainer : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -137,6 +148,7 @@ export class Model extends pulumi.CustomResource {
             inputs["containers"] = args ? args.containers : undefined;
             inputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            inputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["primaryContainer"] = args ? args.primaryContainer : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -171,6 +183,10 @@ export interface ModelState {
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
     executionRoleArn?: pulumi.Input<string>;
+    /**
+     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     */
+    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */
@@ -209,6 +225,10 @@ export interface ModelArgs {
      * A role that SageMaker can assume to access model artifacts and docker images for deployment.
      */
     executionRoleArn: pulumi.Input<string>;
+    /**
+     * Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+     */
+    inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfig>;
     /**
      * The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
      */

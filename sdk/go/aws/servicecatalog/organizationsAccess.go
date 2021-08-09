@@ -203,9 +203,7 @@ func (i OrganizationsAccessMap) ToOrganizationsAccessMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessMapOutput)
 }
 
-type OrganizationsAccessOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationsAccessOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationsAccess)(nil))
@@ -224,14 +222,12 @@ func (o OrganizationsAccessOutput) ToOrganizationsAccessPtrOutput() Organization
 }
 
 func (o OrganizationsAccessOutput) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
-	return o.ApplyT(func(v OrganizationsAccess) *OrganizationsAccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationsAccess) *OrganizationsAccess {
 		return &v
 	}).(OrganizationsAccessPtrOutput)
 }
 
-type OrganizationsAccessPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationsAccessPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationsAccess)(nil))
@@ -243,6 +239,16 @@ func (o OrganizationsAccessPtrOutput) ToOrganizationsAccessPtrOutput() Organizat
 
 func (o OrganizationsAccessPtrOutput) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
 	return o
+}
+
+func (o OrganizationsAccessPtrOutput) Elem() OrganizationsAccessOutput {
+	return o.ApplyT(func(v *OrganizationsAccess) OrganizationsAccess {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationsAccess
+		return ret
+	}).(OrganizationsAccessOutput)
 }
 
 type OrganizationsAccessArrayOutput struct{ *pulumi.OutputState }

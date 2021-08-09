@@ -362,9 +362,7 @@ func (i ReceiptRuleMap) ToReceiptRuleMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleMapOutput)
 }
 
-type ReceiptRuleOutput struct {
-	*pulumi.OutputState
-}
+type ReceiptRuleOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReceiptRule)(nil))
@@ -383,14 +381,12 @@ func (o ReceiptRuleOutput) ToReceiptRulePtrOutput() ReceiptRulePtrOutput {
 }
 
 func (o ReceiptRuleOutput) ToReceiptRulePtrOutputWithContext(ctx context.Context) ReceiptRulePtrOutput {
-	return o.ApplyT(func(v ReceiptRule) *ReceiptRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRule) *ReceiptRule {
 		return &v
 	}).(ReceiptRulePtrOutput)
 }
 
-type ReceiptRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ReceiptRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReceiptRule)(nil))
@@ -402,6 +398,16 @@ func (o ReceiptRulePtrOutput) ToReceiptRulePtrOutput() ReceiptRulePtrOutput {
 
 func (o ReceiptRulePtrOutput) ToReceiptRulePtrOutputWithContext(ctx context.Context) ReceiptRulePtrOutput {
 	return o
+}
+
+func (o ReceiptRulePtrOutput) Elem() ReceiptRuleOutput {
+	return o.ApplyT(func(v *ReceiptRule) ReceiptRule {
+		if v != nil {
+			return *v
+		}
+		var ret ReceiptRule
+		return ret
+	}).(ReceiptRuleOutput)
 }
 
 type ReceiptRuleArrayOutput struct{ *pulumi.OutputState }

@@ -225,9 +225,7 @@ func (i BudgetResourceAssociationMap) ToBudgetResourceAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationMapOutput)
 }
 
-type BudgetResourceAssociationOutput struct {
-	*pulumi.OutputState
-}
+type BudgetResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BudgetResourceAssociation)(nil))
@@ -246,14 +244,12 @@ func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationPtrOutput() 
 }
 
 func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
-	return o.ApplyT(func(v BudgetResourceAssociation) *BudgetResourceAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetResourceAssociation) *BudgetResourceAssociation {
 		return &v
 	}).(BudgetResourceAssociationPtrOutput)
 }
 
-type BudgetResourceAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type BudgetResourceAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BudgetResourceAssociation)(nil))
@@ -265,6 +261,16 @@ func (o BudgetResourceAssociationPtrOutput) ToBudgetResourceAssociationPtrOutput
 
 func (o BudgetResourceAssociationPtrOutput) ToBudgetResourceAssociationPtrOutputWithContext(ctx context.Context) BudgetResourceAssociationPtrOutput {
 	return o
+}
+
+func (o BudgetResourceAssociationPtrOutput) Elem() BudgetResourceAssociationOutput {
+	return o.ApplyT(func(v *BudgetResourceAssociation) BudgetResourceAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetResourceAssociation
+		return ret
+	}).(BudgetResourceAssociationOutput)
 }
 
 type BudgetResourceAssociationArrayOutput struct{ *pulumi.OutputState }

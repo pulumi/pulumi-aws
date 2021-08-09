@@ -423,6 +423,7 @@ class _ClusterInstanceState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 engine_version_actual: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
                  instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
@@ -459,6 +460,7 @@ class _ClusterInstanceState:
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version_actual: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
@@ -510,6 +512,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if engine_version_actual is not None:
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
         if identifier_prefix is not None:
@@ -704,6 +708,18 @@ class _ClusterInstanceState:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        """
+        The database engine version
+        """
+        return pulumi.get(self, "engine_version_actual")
+
+    @engine_version_actual.setter
+    def engine_version_actual(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version_actual", value)
 
     @property
     @pulumi.getter
@@ -1169,6 +1185,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["kms_key_id"] = None
             __props__.__dict__["port"] = None
             __props__.__dict__["storage_encrypted"] = None
@@ -1196,6 +1213,7 @@ class ClusterInstance(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
+            engine_version_actual: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[str]] = None,
             identifier_prefix: Optional[pulumi.Input[str]] = None,
             instance_class: Optional[pulumi.Input[Union[str, 'InstanceType']]] = None,
@@ -1237,6 +1255,7 @@ class ClusterInstance(pulumi.CustomResource):
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version_actual: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
@@ -1279,6 +1298,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["identifier_prefix"] = identifier_prefix
         __props__.__dict__["instance_class"] = instance_class
@@ -1405,6 +1425,14 @@ class ClusterInstance(pulumi.CustomResource):
         The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> pulumi.Output[str]:
+        """
+        The database engine version
+        """
+        return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter

@@ -240,9 +240,7 @@ func (i SnapshotScheduleAssociationMap) ToSnapshotScheduleAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleAssociationMapOutput)
 }
 
-type SnapshotScheduleAssociationOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotScheduleAssociationOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotScheduleAssociation)(nil))
@@ -261,14 +259,12 @@ func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutpu
 }
 
 func (o SnapshotScheduleAssociationOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
-	return o.ApplyT(func(v SnapshotScheduleAssociation) *SnapshotScheduleAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotScheduleAssociation) *SnapshotScheduleAssociation {
 		return &v
 	}).(SnapshotScheduleAssociationPtrOutput)
 }
 
-type SnapshotScheduleAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotScheduleAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotScheduleAssociation)(nil))
@@ -280,6 +276,16 @@ func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOu
 
 func (o SnapshotScheduleAssociationPtrOutput) ToSnapshotScheduleAssociationPtrOutputWithContext(ctx context.Context) SnapshotScheduleAssociationPtrOutput {
 	return o
+}
+
+func (o SnapshotScheduleAssociationPtrOutput) Elem() SnapshotScheduleAssociationOutput {
+	return o.ApplyT(func(v *SnapshotScheduleAssociation) SnapshotScheduleAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotScheduleAssociation
+		return ret
+	}).(SnapshotScheduleAssociationOutput)
 }
 
 type SnapshotScheduleAssociationArrayOutput struct{ *pulumi.OutputState }

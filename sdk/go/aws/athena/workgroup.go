@@ -282,9 +282,7 @@ func (i WorkgroupMap) ToWorkgroupMapOutputWithContext(ctx context.Context) Workg
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupMapOutput)
 }
 
-type WorkgroupOutput struct {
-	*pulumi.OutputState
-}
+type WorkgroupOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Workgroup)(nil))
@@ -303,14 +301,12 @@ func (o WorkgroupOutput) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
 }
 
 func (o WorkgroupOutput) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
-	return o.ApplyT(func(v Workgroup) *Workgroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workgroup) *Workgroup {
 		return &v
 	}).(WorkgroupPtrOutput)
 }
 
-type WorkgroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type WorkgroupPtrOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Workgroup)(nil))
@@ -322,6 +318,16 @@ func (o WorkgroupPtrOutput) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
 
 func (o WorkgroupPtrOutput) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
 	return o
+}
+
+func (o WorkgroupPtrOutput) Elem() WorkgroupOutput {
+	return o.ApplyT(func(v *Workgroup) Workgroup {
+		if v != nil {
+			return *v
+		}
+		var ret Workgroup
+		return ret
+	}).(WorkgroupOutput)
 }
 
 type WorkgroupArrayOutput struct{ *pulumi.OutputState }

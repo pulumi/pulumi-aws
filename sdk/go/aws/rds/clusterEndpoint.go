@@ -356,9 +356,7 @@ func (i ClusterEndpointMap) ToClusterEndpointMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterEndpointMapOutput)
 }
 
-type ClusterEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterEndpoint)(nil))
@@ -377,14 +375,12 @@ func (o ClusterEndpointOutput) ToClusterEndpointPtrOutput() ClusterEndpointPtrOu
 }
 
 func (o ClusterEndpointOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
-	return o.ApplyT(func(v ClusterEndpoint) *ClusterEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEndpoint) *ClusterEndpoint {
 		return &v
 	}).(ClusterEndpointPtrOutput)
 }
 
-type ClusterEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterEndpoint)(nil))
@@ -396,6 +392,16 @@ func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutput() ClusterEndpointPt
 
 func (o ClusterEndpointPtrOutput) ToClusterEndpointPtrOutputWithContext(ctx context.Context) ClusterEndpointPtrOutput {
 	return o
+}
+
+func (o ClusterEndpointPtrOutput) Elem() ClusterEndpointOutput {
+	return o.ApplyT(func(v *ClusterEndpoint) ClusterEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEndpoint
+		return ret
+	}).(ClusterEndpointOutput)
 }
 
 type ClusterEndpointArrayOutput struct{ *pulumi.OutputState }

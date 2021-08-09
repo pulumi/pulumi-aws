@@ -111,7 +111,7 @@ func (o GatewayRouteSpecOutput) ToGatewayRouteSpecPtrOutput() GatewayRouteSpecPt
 }
 
 func (o GatewayRouteSpecOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx context.Context) GatewayRouteSpecPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpec) *GatewayRouteSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpec) *GatewayRouteSpec {
 		return &v
 	}).(GatewayRouteSpecPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o GatewayRouteSpecPtrOutput) ToGatewayRouteSpecPtrOutputWithContext(ctx co
 }
 
 func (o GatewayRouteSpecPtrOutput) Elem() GatewayRouteSpecOutput {
-	return o.ApplyT(func(v *GatewayRouteSpec) GatewayRouteSpec { return *v }).(GatewayRouteSpecOutput)
+	return o.ApplyT(func(v *GatewayRouteSpec) GatewayRouteSpec {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpec
+		return ret
+	}).(GatewayRouteSpecOutput)
 }
 
 // The specification of a gRPC gateway route.
@@ -276,7 +282,7 @@ func (o GatewayRouteSpecGrpcRouteOutput) ToGatewayRouteSpecGrpcRoutePtrOutput() 
 }
 
 func (o GatewayRouteSpecGrpcRouteOutput) ToGatewayRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) GatewayRouteSpecGrpcRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecGrpcRoute) *GatewayRouteSpecGrpcRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecGrpcRoute) *GatewayRouteSpecGrpcRoute {
 		return &v
 	}).(GatewayRouteSpecGrpcRoutePtrOutput)
 }
@@ -306,7 +312,13 @@ func (o GatewayRouteSpecGrpcRoutePtrOutput) ToGatewayRouteSpecGrpcRoutePtrOutput
 }
 
 func (o GatewayRouteSpecGrpcRoutePtrOutput) Elem() GatewayRouteSpecGrpcRouteOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecGrpcRoute) GatewayRouteSpecGrpcRoute { return *v }).(GatewayRouteSpecGrpcRouteOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRoute) GatewayRouteSpecGrpcRoute {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecGrpcRoute
+		return ret
+	}).(GatewayRouteSpecGrpcRouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -422,7 +434,7 @@ func (o GatewayRouteSpecGrpcRouteActionOutput) ToGatewayRouteSpecGrpcRouteAction
 }
 
 func (o GatewayRouteSpecGrpcRouteActionOutput) ToGatewayRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteSpecGrpcRouteActionPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteAction) *GatewayRouteSpecGrpcRouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecGrpcRouteAction) *GatewayRouteSpecGrpcRouteAction {
 		return &v
 	}).(GatewayRouteSpecGrpcRouteActionPtrOutput)
 }
@@ -447,7 +459,13 @@ func (o GatewayRouteSpecGrpcRouteActionPtrOutput) ToGatewayRouteSpecGrpcRouteAct
 }
 
 func (o GatewayRouteSpecGrpcRouteActionPtrOutput) Elem() GatewayRouteSpecGrpcRouteActionOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteAction) GatewayRouteSpecGrpcRouteAction { return *v }).(GatewayRouteSpecGrpcRouteActionOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteAction) GatewayRouteSpecGrpcRouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecGrpcRouteAction
+		return ret
+	}).(GatewayRouteSpecGrpcRouteActionOutput)
 }
 
 // The target that traffic is routed to when a request matches the gateway route.
@@ -553,7 +571,7 @@ func (o GatewayRouteSpecGrpcRouteActionTargetOutput) ToGatewayRouteSpecGrpcRoute
 }
 
 func (o GatewayRouteSpecGrpcRouteActionTargetOutput) ToGatewayRouteSpecGrpcRouteActionTargetPtrOutputWithContext(ctx context.Context) GatewayRouteSpecGrpcRouteActionTargetPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteActionTarget) *GatewayRouteSpecGrpcRouteActionTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecGrpcRouteActionTarget) *GatewayRouteSpecGrpcRouteActionTarget {
 		return &v
 	}).(GatewayRouteSpecGrpcRouteActionTargetPtrOutput)
 }
@@ -580,7 +598,13 @@ func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) ToGatewayRouteSpecGrpcRo
 }
 
 func (o GatewayRouteSpecGrpcRouteActionTargetPtrOutput) Elem() GatewayRouteSpecGrpcRouteActionTargetOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTarget) GatewayRouteSpecGrpcRouteActionTarget { return *v }).(GatewayRouteSpecGrpcRouteActionTargetOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTarget) GatewayRouteSpecGrpcRouteActionTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecGrpcRouteActionTarget
+		return ret
+	}).(GatewayRouteSpecGrpcRouteActionTargetOutput)
 }
 
 // The virtual service gateway route target.
@@ -686,7 +710,7 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) ToGatewayRout
 }
 
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput) ToGatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteActionTargetVirtualService) *GatewayRouteSpecGrpcRouteActionTargetVirtualService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecGrpcRouteActionTargetVirtualService) *GatewayRouteSpecGrpcRouteActionTargetVirtualService {
 		return &v
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput)
 }
@@ -712,7 +736,11 @@ func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) ToGatewayR
 
 func (o GatewayRouteSpecGrpcRouteActionTargetVirtualServicePtrOutput) Elem() GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteActionTargetVirtualService) GatewayRouteSpecGrpcRouteActionTargetVirtualService {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecGrpcRouteActionTargetVirtualService
+		return ret
 	}).(GatewayRouteSpecGrpcRouteActionTargetVirtualServiceOutput)
 }
 
@@ -819,7 +847,7 @@ func (o GatewayRouteSpecGrpcRouteMatchOutput) ToGatewayRouteSpecGrpcRouteMatchPt
 }
 
 func (o GatewayRouteSpecGrpcRouteMatchOutput) ToGatewayRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteSpecGrpcRouteMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecGrpcRouteMatch) *GatewayRouteSpecGrpcRouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecGrpcRouteMatch) *GatewayRouteSpecGrpcRouteMatch {
 		return &v
 	}).(GatewayRouteSpecGrpcRouteMatchPtrOutput)
 }
@@ -844,7 +872,13 @@ func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) ToGatewayRouteSpecGrpcRouteMatc
 }
 
 func (o GatewayRouteSpecGrpcRouteMatchPtrOutput) Elem() GatewayRouteSpecGrpcRouteMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteMatch) GatewayRouteSpecGrpcRouteMatch { return *v }).(GatewayRouteSpecGrpcRouteMatchOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecGrpcRouteMatch) GatewayRouteSpecGrpcRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecGrpcRouteMatch
+		return ret
+	}).(GatewayRouteSpecGrpcRouteMatchOutput)
 }
 
 // The fully qualified domain name for the service to match from the request.
@@ -954,7 +988,7 @@ func (o GatewayRouteSpecHttp2RouteOutput) ToGatewayRouteSpecHttp2RoutePtrOutput(
 }
 
 func (o GatewayRouteSpecHttp2RouteOutput) ToGatewayRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2Route) *GatewayRouteSpecHttp2Route {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2Route) *GatewayRouteSpecHttp2Route {
 		return &v
 	}).(GatewayRouteSpecHttp2RoutePtrOutput)
 }
@@ -984,7 +1018,13 @@ func (o GatewayRouteSpecHttp2RoutePtrOutput) ToGatewayRouteSpecHttp2RoutePtrOutp
 }
 
 func (o GatewayRouteSpecHttp2RoutePtrOutput) Elem() GatewayRouteSpecHttp2RouteOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttp2Route) GatewayRouteSpecHttp2Route { return *v }).(GatewayRouteSpecHttp2RouteOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2Route) GatewayRouteSpecHttp2Route {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2Route
+		return ret
+	}).(GatewayRouteSpecHttp2RouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -1100,7 +1140,7 @@ func (o GatewayRouteSpecHttp2RouteActionOutput) ToGatewayRouteSpecHttp2RouteActi
 }
 
 func (o GatewayRouteSpecHttp2RouteActionOutput) ToGatewayRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteAction) *GatewayRouteSpecHttp2RouteAction {
 		return &v
 	}).(GatewayRouteSpecHttp2RouteActionPtrOutput)
 }
@@ -1125,7 +1165,13 @@ func (o GatewayRouteSpecHttp2RouteActionPtrOutput) ToGatewayRouteSpecHttp2RouteA
 }
 
 func (o GatewayRouteSpecHttp2RouteActionPtrOutput) Elem() GatewayRouteSpecHttp2RouteActionOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) GatewayRouteSpecHttp2RouteAction { return *v }).(GatewayRouteSpecHttp2RouteActionOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteAction) GatewayRouteSpecHttp2RouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteAction
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionOutput)
 }
 
 // The target that traffic is routed to when a request matches the gateway route.
@@ -1231,7 +1277,7 @@ func (o GatewayRouteSpecHttp2RouteActionTargetOutput) ToGatewayRouteSpecHttp2Rou
 }
 
 func (o GatewayRouteSpecHttp2RouteActionTargetOutput) ToGatewayRouteSpecHttp2RouteActionTargetPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionTargetPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionTarget) *GatewayRouteSpecHttp2RouteActionTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionTarget) *GatewayRouteSpecHttp2RouteActionTarget {
 		return &v
 	}).(GatewayRouteSpecHttp2RouteActionTargetPtrOutput)
 }
@@ -1258,7 +1304,13 @@ func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) ToGatewayRouteSpecHttp2
 }
 
 func (o GatewayRouteSpecHttp2RouteActionTargetPtrOutput) Elem() GatewayRouteSpecHttp2RouteActionTargetOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTarget) GatewayRouteSpecHttp2RouteActionTarget { return *v }).(GatewayRouteSpecHttp2RouteActionTargetOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTarget) GatewayRouteSpecHttp2RouteActionTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionTarget
+		return ret
+	}).(GatewayRouteSpecHttp2RouteActionTargetOutput)
 }
 
 // The virtual service gateway route target.
@@ -1364,7 +1416,7 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) ToGatewayRou
 }
 
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput) ToGatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteActionTargetVirtualService) *GatewayRouteSpecHttp2RouteActionTargetVirtualService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteActionTargetVirtualService) *GatewayRouteSpecHttp2RouteActionTargetVirtualService {
 		return &v
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput)
 }
@@ -1390,7 +1442,11 @@ func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) ToGateway
 
 func (o GatewayRouteSpecHttp2RouteActionTargetVirtualServicePtrOutput) Elem() GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteActionTargetVirtualService) GatewayRouteSpecHttp2RouteActionTargetVirtualService {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteActionTargetVirtualService
+		return ret
 	}).(GatewayRouteSpecHttp2RouteActionTargetVirtualServiceOutput)
 }
 
@@ -1497,7 +1553,7 @@ func (o GatewayRouteSpecHttp2RouteMatchOutput) ToGatewayRouteSpecHttp2RouteMatch
 }
 
 func (o GatewayRouteSpecHttp2RouteMatchOutput) ToGatewayRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttp2RouteMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttp2RouteMatch) *GatewayRouteSpecHttp2RouteMatch {
 		return &v
 	}).(GatewayRouteSpecHttp2RouteMatchPtrOutput)
 }
@@ -1522,7 +1578,13 @@ func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) ToGatewayRouteSpecHttp2RouteMa
 }
 
 func (o GatewayRouteSpecHttp2RouteMatchPtrOutput) Elem() GatewayRouteSpecHttp2RouteMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) GatewayRouteSpecHttp2RouteMatch { return *v }).(GatewayRouteSpecHttp2RouteMatchOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttp2RouteMatch) GatewayRouteSpecHttp2RouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttp2RouteMatch
+		return ret
+	}).(GatewayRouteSpecHttp2RouteMatchOutput)
 }
 
 // Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
@@ -1632,7 +1694,7 @@ func (o GatewayRouteSpecHttpRouteOutput) ToGatewayRouteSpecHttpRoutePtrOutput() 
 }
 
 func (o GatewayRouteSpecHttpRouteOutput) ToGatewayRouteSpecHttpRoutePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRoute) *GatewayRouteSpecHttpRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRoute) *GatewayRouteSpecHttpRoute {
 		return &v
 	}).(GatewayRouteSpecHttpRoutePtrOutput)
 }
@@ -1662,7 +1724,13 @@ func (o GatewayRouteSpecHttpRoutePtrOutput) ToGatewayRouteSpecHttpRoutePtrOutput
 }
 
 func (o GatewayRouteSpecHttpRoutePtrOutput) Elem() GatewayRouteSpecHttpRouteOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttpRoute) GatewayRouteSpecHttpRoute { return *v }).(GatewayRouteSpecHttpRouteOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRoute) GatewayRouteSpecHttpRoute {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRoute
+		return ret
+	}).(GatewayRouteSpecHttpRouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -1778,7 +1846,7 @@ func (o GatewayRouteSpecHttpRouteActionOutput) ToGatewayRouteSpecHttpRouteAction
 }
 
 func (o GatewayRouteSpecHttpRouteActionOutput) ToGatewayRouteSpecHttpRouteActionPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteAction) *GatewayRouteSpecHttpRouteAction {
 		return &v
 	}).(GatewayRouteSpecHttpRouteActionPtrOutput)
 }
@@ -1803,7 +1871,13 @@ func (o GatewayRouteSpecHttpRouteActionPtrOutput) ToGatewayRouteSpecHttpRouteAct
 }
 
 func (o GatewayRouteSpecHttpRouteActionPtrOutput) Elem() GatewayRouteSpecHttpRouteActionOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) GatewayRouteSpecHttpRouteAction { return *v }).(GatewayRouteSpecHttpRouteActionOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteAction) GatewayRouteSpecHttpRouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteAction
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionOutput)
 }
 
 // The target that traffic is routed to when a request matches the gateway route.
@@ -1909,7 +1983,7 @@ func (o GatewayRouteSpecHttpRouteActionTargetOutput) ToGatewayRouteSpecHttpRoute
 }
 
 func (o GatewayRouteSpecHttpRouteActionTargetOutput) ToGatewayRouteSpecHttpRouteActionTargetPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionTargetPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionTarget) *GatewayRouteSpecHttpRouteActionTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionTarget) *GatewayRouteSpecHttpRouteActionTarget {
 		return &v
 	}).(GatewayRouteSpecHttpRouteActionTargetPtrOutput)
 }
@@ -1936,7 +2010,13 @@ func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) ToGatewayRouteSpecHttpRo
 }
 
 func (o GatewayRouteSpecHttpRouteActionTargetPtrOutput) Elem() GatewayRouteSpecHttpRouteActionTargetOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTarget) GatewayRouteSpecHttpRouteActionTarget { return *v }).(GatewayRouteSpecHttpRouteActionTargetOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTarget) GatewayRouteSpecHttpRouteActionTarget {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionTarget
+		return ret
+	}).(GatewayRouteSpecHttpRouteActionTargetOutput)
 }
 
 // The virtual service gateway route target.
@@ -2042,7 +2122,7 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) ToGatewayRout
 }
 
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput) ToGatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRouteActionTargetVirtualService) *GatewayRouteSpecHttpRouteActionTargetVirtualService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteActionTargetVirtualService) *GatewayRouteSpecHttpRouteActionTargetVirtualService {
 		return &v
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput)
 }
@@ -2068,7 +2148,11 @@ func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) ToGatewayR
 
 func (o GatewayRouteSpecHttpRouteActionTargetVirtualServicePtrOutput) Elem() GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput {
 	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteActionTargetVirtualService) GatewayRouteSpecHttpRouteActionTargetVirtualService {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteActionTargetVirtualService
+		return ret
 	}).(GatewayRouteSpecHttpRouteActionTargetVirtualServiceOutput)
 }
 
@@ -2175,7 +2259,7 @@ func (o GatewayRouteSpecHttpRouteMatchOutput) ToGatewayRouteSpecHttpRouteMatchPt
 }
 
 func (o GatewayRouteSpecHttpRouteMatchOutput) ToGatewayRouteSpecHttpRouteMatchPtrOutputWithContext(ctx context.Context) GatewayRouteSpecHttpRouteMatchPtrOutput {
-	return o.ApplyT(func(v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRouteSpecHttpRouteMatch) *GatewayRouteSpecHttpRouteMatch {
 		return &v
 	}).(GatewayRouteSpecHttpRouteMatchPtrOutput)
 }
@@ -2200,7 +2284,13 @@ func (o GatewayRouteSpecHttpRouteMatchPtrOutput) ToGatewayRouteSpecHttpRouteMatc
 }
 
 func (o GatewayRouteSpecHttpRouteMatchPtrOutput) Elem() GatewayRouteSpecHttpRouteMatchOutput {
-	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) GatewayRouteSpecHttpRouteMatch { return *v }).(GatewayRouteSpecHttpRouteMatchOutput)
+	return o.ApplyT(func(v *GatewayRouteSpecHttpRouteMatch) GatewayRouteSpecHttpRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRouteSpecHttpRouteMatch
+		return ret
+	}).(GatewayRouteSpecHttpRouteMatchOutput)
 }
 
 // Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
@@ -2306,7 +2396,7 @@ func (o MeshSpecOutput) ToMeshSpecPtrOutput() MeshSpecPtrOutput {
 }
 
 func (o MeshSpecOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) MeshSpecPtrOutput {
-	return o.ApplyT(func(v MeshSpec) *MeshSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSpec) *MeshSpec {
 		return &v
 	}).(MeshSpecPtrOutput)
 }
@@ -2331,7 +2421,13 @@ func (o MeshSpecPtrOutput) ToMeshSpecPtrOutputWithContext(ctx context.Context) M
 }
 
 func (o MeshSpecPtrOutput) Elem() MeshSpecOutput {
-	return o.ApplyT(func(v *MeshSpec) MeshSpec { return *v }).(MeshSpecOutput)
+	return o.ApplyT(func(v *MeshSpec) MeshSpec {
+		if v != nil {
+			return *v
+		}
+		var ret MeshSpec
+		return ret
+	}).(MeshSpecOutput)
 }
 
 // The egress filter rules for the service mesh.
@@ -2439,7 +2535,7 @@ func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutput() MeshSpecEg
 }
 
 func (o MeshSpecEgressFilterOutput) ToMeshSpecEgressFilterPtrOutputWithContext(ctx context.Context) MeshSpecEgressFilterPtrOutput {
-	return o.ApplyT(func(v MeshSpecEgressFilter) *MeshSpecEgressFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MeshSpecEgressFilter) *MeshSpecEgressFilter {
 		return &v
 	}).(MeshSpecEgressFilterPtrOutput)
 }
@@ -2465,7 +2561,13 @@ func (o MeshSpecEgressFilterPtrOutput) ToMeshSpecEgressFilterPtrOutputWithContex
 }
 
 func (o MeshSpecEgressFilterPtrOutput) Elem() MeshSpecEgressFilterOutput {
-	return o.ApplyT(func(v *MeshSpecEgressFilter) MeshSpecEgressFilter { return *v }).(MeshSpecEgressFilterOutput)
+	return o.ApplyT(func(v *MeshSpecEgressFilter) MeshSpecEgressFilter {
+		if v != nil {
+			return *v
+		}
+		var ret MeshSpecEgressFilter
+		return ret
+	}).(MeshSpecEgressFilterOutput)
 }
 
 // The egress filter type. By default, the type is `DROP_ALL`.
@@ -2590,7 +2692,7 @@ func (o RouteSpecOutput) ToRouteSpecPtrOutput() RouteSpecPtrOutput {
 }
 
 func (o RouteSpecOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context) RouteSpecPtrOutput {
-	return o.ApplyT(func(v RouteSpec) *RouteSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpec) *RouteSpec {
 		return &v
 	}).(RouteSpecPtrOutput)
 }
@@ -2636,7 +2738,13 @@ func (o RouteSpecPtrOutput) ToRouteSpecPtrOutputWithContext(ctx context.Context)
 }
 
 func (o RouteSpecPtrOutput) Elem() RouteSpecOutput {
-	return o.ApplyT(func(v *RouteSpec) RouteSpec { return *v }).(RouteSpecOutput)
+	return o.ApplyT(func(v *RouteSpec) RouteSpec {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpec
+		return ret
+	}).(RouteSpecOutput)
 }
 
 // The gRPC routing information for the route.
@@ -2795,7 +2903,7 @@ func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRoutePtrOutput() RouteSpecGrpcR
 }
 
 func (o RouteSpecGrpcRouteOutput) ToRouteSpecGrpcRoutePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRoutePtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRoute) *RouteSpecGrpcRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRoute) *RouteSpecGrpcRoute {
 		return &v
 	}).(RouteSpecGrpcRoutePtrOutput)
 }
@@ -2835,7 +2943,13 @@ func (o RouteSpecGrpcRoutePtrOutput) ToRouteSpecGrpcRoutePtrOutputWithContext(ct
 }
 
 func (o RouteSpecGrpcRoutePtrOutput) Elem() RouteSpecGrpcRouteOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRoute) RouteSpecGrpcRoute { return *v }).(RouteSpecGrpcRouteOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRoute) RouteSpecGrpcRoute {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRoute
+		return ret
+	}).(RouteSpecGrpcRouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -2973,7 +3087,7 @@ func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionPtrOutput() Ro
 }
 
 func (o RouteSpecGrpcRouteActionOutput) ToRouteSpecGrpcRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteActionPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteAction) *RouteSpecGrpcRouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteAction) *RouteSpecGrpcRouteAction {
 		return &v
 	}).(RouteSpecGrpcRouteActionPtrOutput)
 }
@@ -2999,7 +3113,13 @@ func (o RouteSpecGrpcRouteActionPtrOutput) ToRouteSpecGrpcRouteActionPtrOutputWi
 }
 
 func (o RouteSpecGrpcRouteActionPtrOutput) Elem() RouteSpecGrpcRouteActionOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteAction) RouteSpecGrpcRouteAction { return *v }).(RouteSpecGrpcRouteActionOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteAction) RouteSpecGrpcRouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteAction
+		return ret
+	}).(RouteSpecGrpcRouteActionOutput)
 }
 
 // The targets that traffic is routed to when a request matches the route.
@@ -3226,7 +3346,7 @@ func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchPtrOutput() Rout
 }
 
 func (o RouteSpecGrpcRouteMatchOutput) ToRouteSpecGrpcRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteMatch) *RouteSpecGrpcRouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteMatch) *RouteSpecGrpcRouteMatch {
 		return &v
 	}).(RouteSpecGrpcRouteMatchPtrOutput)
 }
@@ -3267,7 +3387,13 @@ func (o RouteSpecGrpcRouteMatchPtrOutput) ToRouteSpecGrpcRouteMatchPtrOutputWith
 }
 
 func (o RouteSpecGrpcRouteMatchPtrOutput) Elem() RouteSpecGrpcRouteMatchOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) RouteSpecGrpcRouteMatch { return *v }).(RouteSpecGrpcRouteMatchOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatch) RouteSpecGrpcRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteMatch
+		return ret
+	}).(RouteSpecGrpcRouteMatchOutput)
 }
 
 // The data to match from the gRPC request.
@@ -3537,7 +3663,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMet
 }
 
 func (o RouteSpecGrpcRouteMatchMetadataMatchOutput) ToRouteSpecGrpcRouteMatchMetadataMatchPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteMatchMetadataMatch) *RouteSpecGrpcRouteMatchMetadataMatch {
 		return &v
 	}).(RouteSpecGrpcRouteMatchMetadataMatchPtrOutput)
 }
@@ -3585,7 +3711,13 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) ToRouteSpecGrpcRouteMatch
 }
 
 func (o RouteSpecGrpcRouteMatchMetadataMatchPtrOutput) Elem() RouteSpecGrpcRouteMatchMetadataMatchOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) RouteSpecGrpcRouteMatchMetadataMatch { return *v }).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatch) RouteSpecGrpcRouteMatchMetadataMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteMatchMetadataMatch
+		return ret
+	}).(RouteSpecGrpcRouteMatchMetadataMatchOutput)
 }
 
 // The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
@@ -3736,7 +3868,7 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMat
 }
 
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangeOutput) ToRouteSpecGrpcRouteMatchMetadataMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteMatchMetadataMatchRange) *RouteSpecGrpcRouteMatchMetadataMatchRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteMatchMetadataMatchRange) *RouteSpecGrpcRouteMatchMetadataMatchRange {
 		return &v
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput)
 }
@@ -3767,7 +3899,11 @@ func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) ToRouteSpecGrpcRoute
 
 func (o RouteSpecGrpcRouteMatchMetadataMatchRangePtrOutput) Elem() RouteSpecGrpcRouteMatchMetadataMatchRangeOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteMatchMetadataMatchRange) RouteSpecGrpcRouteMatchMetadataMatchRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteMatchMetadataMatchRange
+		return ret
 	}).(RouteSpecGrpcRouteMatchMetadataMatchRangeOutput)
 }
 
@@ -3906,7 +4042,7 @@ func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyPtrO
 }
 
 func (o RouteSpecGrpcRouteRetryPolicyOutput) ToRouteSpecGrpcRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicy) *RouteSpecGrpcRouteRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteRetryPolicy) *RouteSpecGrpcRouteRetryPolicy {
 		return &v
 	}).(RouteSpecGrpcRouteRetryPolicyPtrOutput)
 }
@@ -3956,7 +4092,13 @@ func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) ToRouteSpecGrpcRouteRetryPolicyP
 }
 
 func (o RouteSpecGrpcRouteRetryPolicyPtrOutput) Elem() RouteSpecGrpcRouteRetryPolicyOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) RouteSpecGrpcRouteRetryPolicy { return *v }).(RouteSpecGrpcRouteRetryPolicyOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicy) RouteSpecGrpcRouteRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteRetryPolicy
+		return ret
+	}).(RouteSpecGrpcRouteRetryPolicyOutput)
 }
 
 // List of gRPC retry events.
@@ -4109,7 +4251,7 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRoute
 }
 
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
 		return &v
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
@@ -4140,7 +4282,11 @@ func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecGrpcRo
 
 func (o RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v *RouteSpecGrpcRouteRetryPolicyPerRetryTimeout) RouteSpecGrpcRouteRetryPolicyPerRetryTimeout {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteRetryPolicyPerRetryTimeout
+		return ret
 	}).(RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
@@ -4261,7 +4407,7 @@ func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutPtrOutput() 
 }
 
 func (o RouteSpecGrpcRouteTimeoutOutput) ToRouteSpecGrpcRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteTimeout) *RouteSpecGrpcRouteTimeout {
 		return &v
 	}).(RouteSpecGrpcRouteTimeoutPtrOutput)
 }
@@ -4291,7 +4437,13 @@ func (o RouteSpecGrpcRouteTimeoutPtrOutput) ToRouteSpecGrpcRouteTimeoutPtrOutput
 }
 
 func (o RouteSpecGrpcRouteTimeoutPtrOutput) Elem() RouteSpecGrpcRouteTimeoutOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) RouteSpecGrpcRouteTimeout { return *v }).(RouteSpecGrpcRouteTimeoutOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeout) RouteSpecGrpcRouteTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteTimeout
+		return ret
+	}).(RouteSpecGrpcRouteTimeoutOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -4411,7 +4563,7 @@ func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrO
 }
 
 func (o RouteSpecGrpcRouteTimeoutIdleOutput) ToRouteSpecGrpcRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutIdlePtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutIdle) *RouteSpecGrpcRouteTimeoutIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteTimeoutIdle) *RouteSpecGrpcRouteTimeoutIdle {
 		return &v
 	}).(RouteSpecGrpcRouteTimeoutIdlePtrOutput)
 }
@@ -4441,7 +4593,13 @@ func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) ToRouteSpecGrpcRouteTimeoutIdleP
 }
 
 func (o RouteSpecGrpcRouteTimeoutIdlePtrOutput) Elem() RouteSpecGrpcRouteTimeoutIdleOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) RouteSpecGrpcRouteTimeoutIdle { return *v }).(RouteSpecGrpcRouteTimeoutIdleOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutIdle) RouteSpecGrpcRouteTimeoutIdle {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteTimeoutIdle
+		return ret
+	}).(RouteSpecGrpcRouteTimeoutIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -4561,7 +4719,7 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPe
 }
 
 func (o RouteSpecGrpcRouteTimeoutPerRequestOutput) ToRouteSpecGrpcRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecGrpcRouteTimeoutPerRequestPtrOutput {
-	return o.ApplyT(func(v RouteSpecGrpcRouteTimeoutPerRequest) *RouteSpecGrpcRouteTimeoutPerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecGrpcRouteTimeoutPerRequest) *RouteSpecGrpcRouteTimeoutPerRequest {
 		return &v
 	}).(RouteSpecGrpcRouteTimeoutPerRequestPtrOutput)
 }
@@ -4591,7 +4749,13 @@ func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) ToRouteSpecGrpcRouteTimeou
 }
 
 func (o RouteSpecGrpcRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecGrpcRouteTimeoutPerRequestOutput {
-	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) RouteSpecGrpcRouteTimeoutPerRequest { return *v }).(RouteSpecGrpcRouteTimeoutPerRequestOutput)
+	return o.ApplyT(func(v *RouteSpecGrpcRouteTimeoutPerRequest) RouteSpecGrpcRouteTimeoutPerRequest {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecGrpcRouteTimeoutPerRequest
+		return ret
+	}).(RouteSpecGrpcRouteTimeoutPerRequestOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -4719,7 +4883,7 @@ func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RoutePtrOutput() RouteSpecHtt
 }
 
 func (o RouteSpecHttp2RouteOutput) ToRouteSpecHttp2RoutePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RoutePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2Route) *RouteSpecHttp2Route {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2Route) *RouteSpecHttp2Route {
 		return &v
 	}).(RouteSpecHttp2RoutePtrOutput)
 }
@@ -4759,7 +4923,13 @@ func (o RouteSpecHttp2RoutePtrOutput) ToRouteSpecHttp2RoutePtrOutputWithContext(
 }
 
 func (o RouteSpecHttp2RoutePtrOutput) Elem() RouteSpecHttp2RouteOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2Route) RouteSpecHttp2Route { return *v }).(RouteSpecHttp2RouteOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2Route) RouteSpecHttp2Route {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2Route
+		return ret
+	}).(RouteSpecHttp2RouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -4897,7 +5067,7 @@ func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionPtrOutput() 
 }
 
 func (o RouteSpecHttp2RouteActionOutput) ToRouteSpecHttp2RouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteActionPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteAction) *RouteSpecHttp2RouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteAction) *RouteSpecHttp2RouteAction {
 		return &v
 	}).(RouteSpecHttp2RouteActionPtrOutput)
 }
@@ -4923,7 +5093,13 @@ func (o RouteSpecHttp2RouteActionPtrOutput) ToRouteSpecHttp2RouteActionPtrOutput
 }
 
 func (o RouteSpecHttp2RouteActionPtrOutput) Elem() RouteSpecHttp2RouteActionOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteAction) RouteSpecHttp2RouteAction { return *v }).(RouteSpecHttp2RouteActionOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteAction) RouteSpecHttp2RouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteAction
+		return ret
+	}).(RouteSpecHttp2RouteActionOutput)
 }
 
 // The targets that traffic is routed to when a request matches the route.
@@ -5150,7 +5326,7 @@ func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchPtrOutput() Ro
 }
 
 func (o RouteSpecHttp2RouteMatchOutput) ToRouteSpecHttp2RouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteMatch) *RouteSpecHttp2RouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteMatch) *RouteSpecHttp2RouteMatch {
 		return &v
 	}).(RouteSpecHttp2RouteMatchPtrOutput)
 }
@@ -5191,7 +5367,13 @@ func (o RouteSpecHttp2RouteMatchPtrOutput) ToRouteSpecHttp2RouteMatchPtrOutputWi
 }
 
 func (o RouteSpecHttp2RouteMatchPtrOutput) Elem() RouteSpecHttp2RouteMatchOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) RouteSpecHttp2RouteMatch { return *v }).(RouteSpecHttp2RouteMatchOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatch) RouteSpecHttp2RouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteMatch
+		return ret
+	}).(RouteSpecHttp2RouteMatchOutput)
 }
 
 // The client request headers to match on.
@@ -5461,7 +5643,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHea
 }
 
 func (o RouteSpecHttp2RouteMatchHeaderMatchOutput) ToRouteSpecHttp2RouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteMatchHeaderMatch) *RouteSpecHttp2RouteMatchHeaderMatch {
 		return &v
 	}).(RouteSpecHttp2RouteMatchHeaderMatchPtrOutput)
 }
@@ -5507,7 +5689,13 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) ToRouteSpecHttp2RouteMatch
 }
 
 func (o RouteSpecHttp2RouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttp2RouteMatchHeaderMatchOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) RouteSpecHttp2RouteMatchHeaderMatch { return *v }).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatch) RouteSpecHttp2RouteMatchHeaderMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteMatchHeaderMatch
+		return ret
+	}).(RouteSpecHttp2RouteMatchHeaderMatchOutput)
 }
 
 // The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
@@ -5658,7 +5846,7 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMat
 }
 
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangeOutput) ToRouteSpecHttp2RouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteMatchHeaderMatchRange) *RouteSpecHttp2RouteMatchHeaderMatchRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteMatchHeaderMatchRange) *RouteSpecHttp2RouteMatchHeaderMatchRange {
 		return &v
 	}).(RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput)
 }
@@ -5688,7 +5876,13 @@ func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttp2Route
 }
 
 func (o RouteSpecHttp2RouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttp2RouteMatchHeaderMatchRangeOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) RouteSpecHttp2RouteMatchHeaderMatchRange { return *v }).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteMatchHeaderMatchRange) RouteSpecHttp2RouteMatchHeaderMatchRange {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteMatchHeaderMatchRange
+		return ret
+	}).(RouteSpecHttp2RouteMatchHeaderMatchRangeOutput)
 }
 
 // The end of the range.
@@ -5820,7 +6014,7 @@ func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyPt
 }
 
 func (o RouteSpecHttp2RouteRetryPolicyOutput) ToRouteSpecHttp2RouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicy) *RouteSpecHttp2RouteRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteRetryPolicy) *RouteSpecHttp2RouteRetryPolicy {
 		return &v
 	}).(RouteSpecHttp2RouteRetryPolicyPtrOutput)
 }
@@ -5864,7 +6058,13 @@ func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) ToRouteSpecHttp2RouteRetryPolic
 }
 
 func (o RouteSpecHttp2RouteRetryPolicyPtrOutput) Elem() RouteSpecHttp2RouteRetryPolicyOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) RouteSpecHttp2RouteRetryPolicy { return *v }).(RouteSpecHttp2RouteRetryPolicyOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicy) RouteSpecHttp2RouteRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteRetryPolicy
+		return ret
+	}).(RouteSpecHttp2RouteRetryPolicyOutput)
 }
 
 // List of HTTP retry events.
@@ -6006,7 +6206,7 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2Rou
 }
 
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
 		return &v
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
@@ -6037,7 +6237,11 @@ func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttp2
 
 func (o RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v *RouteSpecHttp2RouteRetryPolicyPerRetryTimeout) RouteSpecHttp2RouteRetryPolicyPerRetryTimeout {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteRetryPolicyPerRetryTimeout
+		return ret
 	}).(RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutOutput)
 }
 
@@ -6158,7 +6362,7 @@ func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutPtrOutput(
 }
 
 func (o RouteSpecHttp2RouteTimeoutOutput) ToRouteSpecHttp2RouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteTimeout) *RouteSpecHttp2RouteTimeout {
 		return &v
 	}).(RouteSpecHttp2RouteTimeoutPtrOutput)
 }
@@ -6188,7 +6392,13 @@ func (o RouteSpecHttp2RouteTimeoutPtrOutput) ToRouteSpecHttp2RouteTimeoutPtrOutp
 }
 
 func (o RouteSpecHttp2RouteTimeoutPtrOutput) Elem() RouteSpecHttp2RouteTimeoutOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) RouteSpecHttp2RouteTimeout { return *v }).(RouteSpecHttp2RouteTimeoutOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeout) RouteSpecHttp2RouteTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteTimeout
+		return ret
+	}).(RouteSpecHttp2RouteTimeoutOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -6308,7 +6518,7 @@ func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdlePt
 }
 
 func (o RouteSpecHttp2RouteTimeoutIdleOutput) ToRouteSpecHttp2RouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutIdlePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutIdle) *RouteSpecHttp2RouteTimeoutIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteTimeoutIdle) *RouteSpecHttp2RouteTimeoutIdle {
 		return &v
 	}).(RouteSpecHttp2RouteTimeoutIdlePtrOutput)
 }
@@ -6338,7 +6548,13 @@ func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) ToRouteSpecHttp2RouteTimeoutIdl
 }
 
 func (o RouteSpecHttp2RouteTimeoutIdlePtrOutput) Elem() RouteSpecHttp2RouteTimeoutIdleOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) RouteSpecHttp2RouteTimeoutIdle { return *v }).(RouteSpecHttp2RouteTimeoutIdleOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutIdle) RouteSpecHttp2RouteTimeoutIdle {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteTimeoutIdle
+		return ret
+	}).(RouteSpecHttp2RouteTimeoutIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -6458,7 +6674,7 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeout
 }
 
 func (o RouteSpecHttp2RouteTimeoutPerRequestOutput) ToRouteSpecHttp2RouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttp2RouteTimeoutPerRequestPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttp2RouteTimeoutPerRequest) *RouteSpecHttp2RouteTimeoutPerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttp2RouteTimeoutPerRequest) *RouteSpecHttp2RouteTimeoutPerRequest {
 		return &v
 	}).(RouteSpecHttp2RouteTimeoutPerRequestPtrOutput)
 }
@@ -6488,7 +6704,13 @@ func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) ToRouteSpecHttp2RouteTime
 }
 
 func (o RouteSpecHttp2RouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttp2RouteTimeoutPerRequestOutput {
-	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) RouteSpecHttp2RouteTimeoutPerRequest { return *v }).(RouteSpecHttp2RouteTimeoutPerRequestOutput)
+	return o.ApplyT(func(v *RouteSpecHttp2RouteTimeoutPerRequest) RouteSpecHttp2RouteTimeoutPerRequest {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttp2RouteTimeoutPerRequest
+		return ret
+	}).(RouteSpecHttp2RouteTimeoutPerRequestOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -6616,7 +6838,7 @@ func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRoutePtrOutput() RouteSpecHttpR
 }
 
 func (o RouteSpecHttpRouteOutput) ToRouteSpecHttpRoutePtrOutputWithContext(ctx context.Context) RouteSpecHttpRoutePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRoute) *RouteSpecHttpRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRoute) *RouteSpecHttpRoute {
 		return &v
 	}).(RouteSpecHttpRoutePtrOutput)
 }
@@ -6656,7 +6878,13 @@ func (o RouteSpecHttpRoutePtrOutput) ToRouteSpecHttpRoutePtrOutputWithContext(ct
 }
 
 func (o RouteSpecHttpRoutePtrOutput) Elem() RouteSpecHttpRouteOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRoute) RouteSpecHttpRoute { return *v }).(RouteSpecHttpRouteOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRoute) RouteSpecHttpRoute {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRoute
+		return ret
+	}).(RouteSpecHttpRouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -6794,7 +7022,7 @@ func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionPtrOutput() Ro
 }
 
 func (o RouteSpecHttpRouteActionOutput) ToRouteSpecHttpRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteActionPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteAction) *RouteSpecHttpRouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteAction) *RouteSpecHttpRouteAction {
 		return &v
 	}).(RouteSpecHttpRouteActionPtrOutput)
 }
@@ -6820,7 +7048,13 @@ func (o RouteSpecHttpRouteActionPtrOutput) ToRouteSpecHttpRouteActionPtrOutputWi
 }
 
 func (o RouteSpecHttpRouteActionPtrOutput) Elem() RouteSpecHttpRouteActionOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteAction) RouteSpecHttpRouteAction { return *v }).(RouteSpecHttpRouteActionOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteAction) RouteSpecHttpRouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteAction
+		return ret
+	}).(RouteSpecHttpRouteActionOutput)
 }
 
 // The targets that traffic is routed to when a request matches the route.
@@ -7047,7 +7281,7 @@ func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchPtrOutput() Rout
 }
 
 func (o RouteSpecHttpRouteMatchOutput) ToRouteSpecHttpRouteMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteMatch) *RouteSpecHttpRouteMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteMatch) *RouteSpecHttpRouteMatch {
 		return &v
 	}).(RouteSpecHttpRouteMatchPtrOutput)
 }
@@ -7088,7 +7322,13 @@ func (o RouteSpecHttpRouteMatchPtrOutput) ToRouteSpecHttpRouteMatchPtrOutputWith
 }
 
 func (o RouteSpecHttpRouteMatchPtrOutput) Elem() RouteSpecHttpRouteMatchOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) RouteSpecHttpRouteMatch { return *v }).(RouteSpecHttpRouteMatchOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatch) RouteSpecHttpRouteMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteMatch
+		return ret
+	}).(RouteSpecHttpRouteMatchOutput)
 }
 
 // The client request headers to match on.
@@ -7358,7 +7598,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeade
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchOutput) ToRouteSpecHttpRouteMatchHeaderMatchPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteMatchHeaderMatch) *RouteSpecHttpRouteMatchHeaderMatch {
 		return &v
 	}).(RouteSpecHttpRouteMatchHeaderMatchPtrOutput)
 }
@@ -7404,7 +7644,13 @@ func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) ToRouteSpecHttpRouteMatchHe
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchPtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch { return *v }).(RouteSpecHttpRouteMatchHeaderMatchOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatch) RouteSpecHttpRouteMatchHeaderMatch {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteMatchHeaderMatch
+		return ret
+	}).(RouteSpecHttpRouteMatchHeaderMatchOutput)
 }
 
 // The value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
@@ -7555,7 +7801,7 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatch
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchRangeOutput) ToRouteSpecHttpRouteMatchHeaderMatchRangePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteMatchHeaderMatchRange) *RouteSpecHttpRouteMatchHeaderMatchRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteMatchHeaderMatchRange) *RouteSpecHttpRouteMatchHeaderMatchRange {
 		return &v
 	}).(RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput)
 }
@@ -7585,7 +7831,13 @@ func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) ToRouteSpecHttpRouteMa
 }
 
 func (o RouteSpecHttpRouteMatchHeaderMatchRangePtrOutput) Elem() RouteSpecHttpRouteMatchHeaderMatchRangeOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatchRange) RouteSpecHttpRouteMatchHeaderMatchRange { return *v }).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteMatchHeaderMatchRange) RouteSpecHttpRouteMatchHeaderMatchRange {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteMatchHeaderMatchRange
+		return ret
+	}).(RouteSpecHttpRouteMatchHeaderMatchRangeOutput)
 }
 
 // The end of the range.
@@ -7717,7 +7969,7 @@ func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyPtrO
 }
 
 func (o RouteSpecHttpRouteRetryPolicyOutput) ToRouteSpecHttpRouteRetryPolicyPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicy) *RouteSpecHttpRouteRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteRetryPolicy) *RouteSpecHttpRouteRetryPolicy {
 		return &v
 	}).(RouteSpecHttpRouteRetryPolicyPtrOutput)
 }
@@ -7761,7 +8013,13 @@ func (o RouteSpecHttpRouteRetryPolicyPtrOutput) ToRouteSpecHttpRouteRetryPolicyP
 }
 
 func (o RouteSpecHttpRouteRetryPolicyPtrOutput) Elem() RouteSpecHttpRouteRetryPolicyOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) RouteSpecHttpRouteRetryPolicy { return *v }).(RouteSpecHttpRouteRetryPolicyOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicy) RouteSpecHttpRouteRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteRetryPolicy
+		return ret
+	}).(RouteSpecHttpRouteRetryPolicyOutput)
 }
 
 // List of HTTP retry events.
@@ -7903,7 +8161,7 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRoute
 }
 
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput) ToRouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteRetryPolicyPerRetryTimeout) *RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
 		return &v
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput)
 }
@@ -7934,7 +8192,11 @@ func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) ToRouteSpecHttpRo
 
 func (o RouteSpecHttpRouteRetryPolicyPerRetryTimeoutPtrOutput) Elem() RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput {
 	return o.ApplyT(func(v *RouteSpecHttpRouteRetryPolicyPerRetryTimeout) RouteSpecHttpRouteRetryPolicyPerRetryTimeout {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteRetryPolicyPerRetryTimeout
+		return ret
 	}).(RouteSpecHttpRouteRetryPolicyPerRetryTimeoutOutput)
 }
 
@@ -8055,7 +8317,7 @@ func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutPtrOutput() 
 }
 
 func (o RouteSpecHttpRouteTimeoutOutput) ToRouteSpecHttpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteTimeout) *RouteSpecHttpRouteTimeout {
 		return &v
 	}).(RouteSpecHttpRouteTimeoutPtrOutput)
 }
@@ -8085,7 +8347,13 @@ func (o RouteSpecHttpRouteTimeoutPtrOutput) ToRouteSpecHttpRouteTimeoutPtrOutput
 }
 
 func (o RouteSpecHttpRouteTimeoutPtrOutput) Elem() RouteSpecHttpRouteTimeoutOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) RouteSpecHttpRouteTimeout { return *v }).(RouteSpecHttpRouteTimeoutOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeout) RouteSpecHttpRouteTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteTimeout
+		return ret
+	}).(RouteSpecHttpRouteTimeoutOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -8205,7 +8473,7 @@ func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdlePtrO
 }
 
 func (o RouteSpecHttpRouteTimeoutIdleOutput) ToRouteSpecHttpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutIdlePtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutIdle) *RouteSpecHttpRouteTimeoutIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteTimeoutIdle) *RouteSpecHttpRouteTimeoutIdle {
 		return &v
 	}).(RouteSpecHttpRouteTimeoutIdlePtrOutput)
 }
@@ -8235,7 +8503,13 @@ func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) ToRouteSpecHttpRouteTimeoutIdleP
 }
 
 func (o RouteSpecHttpRouteTimeoutIdlePtrOutput) Elem() RouteSpecHttpRouteTimeoutIdleOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) RouteSpecHttpRouteTimeoutIdle { return *v }).(RouteSpecHttpRouteTimeoutIdleOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutIdle) RouteSpecHttpRouteTimeoutIdle {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteTimeoutIdle
+		return ret
+	}).(RouteSpecHttpRouteTimeoutIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -8355,7 +8629,7 @@ func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPe
 }
 
 func (o RouteSpecHttpRouteTimeoutPerRequestOutput) ToRouteSpecHttpRouteTimeoutPerRequestPtrOutputWithContext(ctx context.Context) RouteSpecHttpRouteTimeoutPerRequestPtrOutput {
-	return o.ApplyT(func(v RouteSpecHttpRouteTimeoutPerRequest) *RouteSpecHttpRouteTimeoutPerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecHttpRouteTimeoutPerRequest) *RouteSpecHttpRouteTimeoutPerRequest {
 		return &v
 	}).(RouteSpecHttpRouteTimeoutPerRequestPtrOutput)
 }
@@ -8385,7 +8659,13 @@ func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) ToRouteSpecHttpRouteTimeou
 }
 
 func (o RouteSpecHttpRouteTimeoutPerRequestPtrOutput) Elem() RouteSpecHttpRouteTimeoutPerRequestOutput {
-	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) RouteSpecHttpRouteTimeoutPerRequest { return *v }).(RouteSpecHttpRouteTimeoutPerRequestOutput)
+	return o.ApplyT(func(v *RouteSpecHttpRouteTimeoutPerRequest) RouteSpecHttpRouteTimeoutPerRequest {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecHttpRouteTimeoutPerRequest
+		return ret
+	}).(RouteSpecHttpRouteTimeoutPerRequestOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -8505,7 +8785,7 @@ func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRoutePtrOutput() RouteSpecTcpRout
 }
 
 func (o RouteSpecTcpRouteOutput) ToRouteSpecTcpRoutePtrOutputWithContext(ctx context.Context) RouteSpecTcpRoutePtrOutput {
-	return o.ApplyT(func(v RouteSpecTcpRoute) *RouteSpecTcpRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRoute) *RouteSpecTcpRoute {
 		return &v
 	}).(RouteSpecTcpRoutePtrOutput)
 }
@@ -8535,7 +8815,13 @@ func (o RouteSpecTcpRoutePtrOutput) ToRouteSpecTcpRoutePtrOutputWithContext(ctx 
 }
 
 func (o RouteSpecTcpRoutePtrOutput) Elem() RouteSpecTcpRouteOutput {
-	return o.ApplyT(func(v *RouteSpecTcpRoute) RouteSpecTcpRoute { return *v }).(RouteSpecTcpRouteOutput)
+	return o.ApplyT(func(v *RouteSpecTcpRoute) RouteSpecTcpRoute {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRoute
+		return ret
+	}).(RouteSpecTcpRouteOutput)
 }
 
 // The action to take if a match is determined.
@@ -8653,7 +8939,7 @@ func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionPtrOutput() Rout
 }
 
 func (o RouteSpecTcpRouteActionOutput) ToRouteSpecTcpRouteActionPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteActionPtrOutput {
-	return o.ApplyT(func(v RouteSpecTcpRouteAction) *RouteSpecTcpRouteAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRouteAction) *RouteSpecTcpRouteAction {
 		return &v
 	}).(RouteSpecTcpRouteActionPtrOutput)
 }
@@ -8679,7 +8965,13 @@ func (o RouteSpecTcpRouteActionPtrOutput) ToRouteSpecTcpRouteActionPtrOutputWith
 }
 
 func (o RouteSpecTcpRouteActionPtrOutput) Elem() RouteSpecTcpRouteActionOutput {
-	return o.ApplyT(func(v *RouteSpecTcpRouteAction) RouteSpecTcpRouteAction { return *v }).(RouteSpecTcpRouteActionOutput)
+	return o.ApplyT(func(v *RouteSpecTcpRouteAction) RouteSpecTcpRouteAction {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRouteAction
+		return ret
+	}).(RouteSpecTcpRouteActionOutput)
 }
 
 // The targets that traffic is routed to when a request matches the route.
@@ -8892,7 +9184,7 @@ func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutPtrOutput() Ro
 }
 
 func (o RouteSpecTcpRouteTimeoutOutput) ToRouteSpecTcpRouteTimeoutPtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutPtrOutput {
-	return o.ApplyT(func(v RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRouteTimeout) *RouteSpecTcpRouteTimeout {
 		return &v
 	}).(RouteSpecTcpRouteTimeoutPtrOutput)
 }
@@ -8917,7 +9209,13 @@ func (o RouteSpecTcpRouteTimeoutPtrOutput) ToRouteSpecTcpRouteTimeoutPtrOutputWi
 }
 
 func (o RouteSpecTcpRouteTimeoutPtrOutput) Elem() RouteSpecTcpRouteTimeoutOutput {
-	return o.ApplyT(func(v *RouteSpecTcpRouteTimeout) RouteSpecTcpRouteTimeout { return *v }).(RouteSpecTcpRouteTimeoutOutput)
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeout) RouteSpecTcpRouteTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRouteTimeout
+		return ret
+	}).(RouteSpecTcpRouteTimeoutOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -9027,7 +9325,7 @@ func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOut
 }
 
 func (o RouteSpecTcpRouteTimeoutIdleOutput) ToRouteSpecTcpRouteTimeoutIdlePtrOutputWithContext(ctx context.Context) RouteSpecTcpRouteTimeoutIdlePtrOutput {
-	return o.ApplyT(func(v RouteSpecTcpRouteTimeoutIdle) *RouteSpecTcpRouteTimeoutIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteSpecTcpRouteTimeoutIdle) *RouteSpecTcpRouteTimeoutIdle {
 		return &v
 	}).(RouteSpecTcpRouteTimeoutIdlePtrOutput)
 }
@@ -9057,7 +9355,13 @@ func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) ToRouteSpecTcpRouteTimeoutIdlePtr
 }
 
 func (o RouteSpecTcpRouteTimeoutIdlePtrOutput) Elem() RouteSpecTcpRouteTimeoutIdleOutput {
-	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) RouteSpecTcpRouteTimeoutIdle { return *v }).(RouteSpecTcpRouteTimeoutIdleOutput)
+	return o.ApplyT(func(v *RouteSpecTcpRouteTimeoutIdle) RouteSpecTcpRouteTimeoutIdle {
+		if v != nil {
+			return *v
+		}
+		var ret RouteSpecTcpRouteTimeoutIdle
+		return ret
+	}).(RouteSpecTcpRouteTimeoutIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -9181,7 +9485,7 @@ func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecPtrOutput() VirtualGateway
 }
 
 func (o VirtualGatewaySpecOutput) ToVirtualGatewaySpecPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpec) *VirtualGatewaySpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpec) *VirtualGatewaySpec {
 		return &v
 	}).(VirtualGatewaySpecPtrOutput)
 }
@@ -9216,7 +9520,13 @@ func (o VirtualGatewaySpecPtrOutput) ToVirtualGatewaySpecPtrOutputWithContext(ct
 }
 
 func (o VirtualGatewaySpecPtrOutput) Elem() VirtualGatewaySpecOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpec) VirtualGatewaySpec { return *v }).(VirtualGatewaySpecOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpec) VirtualGatewaySpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpec
+		return ret
+	}).(VirtualGatewaySpecOutput)
 }
 
 // The defaults for backends.
@@ -9342,7 +9652,7 @@ func (o VirtualGatewaySpecBackendDefaultsOutput) ToVirtualGatewaySpecBackendDefa
 }
 
 func (o VirtualGatewaySpecBackendDefaultsOutput) ToVirtualGatewaySpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaults) *VirtualGatewaySpecBackendDefaults {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaults) *VirtualGatewaySpecBackendDefaults {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsPtrOutput)
 }
@@ -9369,7 +9679,13 @@ func (o VirtualGatewaySpecBackendDefaultsPtrOutput) ToVirtualGatewaySpecBackendD
 }
 
 func (o VirtualGatewaySpecBackendDefaultsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaults) VirtualGatewaySpecBackendDefaults { return *v }).(VirtualGatewaySpecBackendDefaultsOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaults) VirtualGatewaySpecBackendDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaults
+		return ret
+	}).(VirtualGatewaySpecBackendDefaultsOutput)
 }
 
 // The default client policy for virtual gateway backends.
@@ -9475,7 +9791,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) ToVirtualGatewaySpe
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicy) *VirtualGatewaySpecBackendDefaultsClientPolicy {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput)
 }
@@ -9503,7 +9819,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) ToVirtualGateway
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicy) VirtualGatewaySpecBackendDefaultsClientPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicy
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyOutput)
 }
 
@@ -9622,7 +9942,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) ToVirtualGateway
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTls) *VirtualGatewaySpecBackendDefaultsClientPolicyTls {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
@@ -9667,7 +9987,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) ToVirtualGate
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTls) VirtualGatewaySpecBackendDefaultsClientPolicyTls {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTls
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsOutput)
 }
 
@@ -9808,7 +10132,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVir
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
@@ -9843,7 +10167,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) To
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateOutput)
 }
 
@@ -9964,7 +10292,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) T
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
@@ -9997,7 +10325,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
 }
 
@@ -10114,7 +10446,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) To
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
@@ -10140,7 +10472,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds) VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
@@ -10251,7 +10587,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirt
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
@@ -10286,7 +10622,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) ToV
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
@@ -10403,7 +10743,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
@@ -10431,7 +10771,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
@@ -10538,7 +10882,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
@@ -10566,7 +10910,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlterna
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
@@ -10681,7 +11029,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) T
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
@@ -10723,7 +11071,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
 }
 
@@ -10850,7 +11202,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
@@ -10878,7 +11230,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOut
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
 }
 
@@ -10985,7 +11341,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutpu
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
@@ -11013,7 +11369,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOu
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
@@ -11120,7 +11480,7 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput
 }
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		return &v
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
@@ -11146,7 +11506,11 @@ func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOut
 
 func (o VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds) VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds
+		return ret
 	}).(VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
@@ -11265,7 +11629,7 @@ func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutput(
 }
 
 func (o VirtualGatewaySpecListenerOutput) ToVirtualGatewaySpecListenerPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListener) *VirtualGatewaySpecListener {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListener) *VirtualGatewaySpecListener {
 		return &v
 	}).(VirtualGatewaySpecListenerPtrOutput)
 }
@@ -11305,7 +11669,13 @@ func (o VirtualGatewaySpecListenerPtrOutput) ToVirtualGatewaySpecListenerPtrOutp
 }
 
 func (o VirtualGatewaySpecListenerPtrOutput) Elem() VirtualGatewaySpecListenerOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListener) VirtualGatewaySpecListener { return *v }).(VirtualGatewaySpecListenerOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListener) VirtualGatewaySpecListener {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListener
+		return ret
+	}).(VirtualGatewaySpecListenerOutput)
 }
 
 // The connection pool information for the listener.
@@ -11449,7 +11819,7 @@ func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecList
 }
 
 func (o VirtualGatewaySpecListenerConnectionPoolOutput) ToVirtualGatewaySpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerConnectionPool) *VirtualGatewaySpecListenerConnectionPool {
 		return &v
 	}).(VirtualGatewaySpecListenerConnectionPoolPtrOutput)
 }
@@ -11490,7 +11860,13 @@ func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) ToVirtualGatewaySpecL
 }
 
 func (o VirtualGatewaySpecListenerConnectionPoolPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) VirtualGatewaySpecListenerConnectionPool { return *v }).(VirtualGatewaySpecListenerConnectionPoolOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPool) VirtualGatewaySpecListenerConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerConnectionPool
+		return ret
+	}).(VirtualGatewaySpecListenerConnectionPoolOutput)
 }
 
 // Connection pool information for gRPC listeners.
@@ -11616,7 +11992,7 @@ func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpec
 }
 
 func (o VirtualGatewaySpecListenerConnectionPoolGrpcOutput) ToVirtualGatewaySpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolGrpc) *VirtualGatewaySpecListenerConnectionPoolGrpc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerConnectionPoolGrpc) *VirtualGatewaySpecListenerConnectionPoolGrpc {
 		return &v
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput)
 }
@@ -11642,7 +12018,11 @@ func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) ToVirtualGatewayS
 
 func (o VirtualGatewaySpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolGrpcOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolGrpc) VirtualGatewaySpecListenerConnectionPoolGrpc {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerConnectionPoolGrpc
+		return ret
 	}).(VirtualGatewaySpecListenerConnectionPoolGrpcOutput)
 }
 
@@ -11749,7 +12129,7 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpe
 }
 
 func (o VirtualGatewaySpecListenerConnectionPoolHttp2Output) ToVirtualGatewaySpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp2) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerConnectionPoolHttp2) *VirtualGatewaySpecListenerConnectionPoolHttp2 {
 		return &v
 	}).(VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput)
 }
@@ -11775,7 +12155,11 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) ToVirtualGateway
 
 func (o VirtualGatewaySpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolHttp2Output {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp2) VirtualGatewaySpecListenerConnectionPoolHttp2 {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerConnectionPoolHttp2
+		return ret
 	}).(VirtualGatewaySpecListenerConnectionPoolHttp2Output)
 }
 
@@ -11886,7 +12270,7 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpec
 }
 
 func (o VirtualGatewaySpecListenerConnectionPoolHttpOutput) ToVirtualGatewaySpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerConnectionPoolHttp) *VirtualGatewaySpecListenerConnectionPoolHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerConnectionPoolHttp) *VirtualGatewaySpecListenerConnectionPoolHttp {
 		return &v
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput)
 }
@@ -11917,7 +12301,11 @@ func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) ToVirtualGatewayS
 
 func (o VirtualGatewaySpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualGatewaySpecListenerConnectionPoolHttpOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerConnectionPoolHttp) VirtualGatewaySpecListenerConnectionPoolHttp {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerConnectionPoolHttp
+		return ret
 	}).(VirtualGatewaySpecListenerConnectionPoolHttpOutput)
 }
 
@@ -12058,7 +12446,7 @@ func (o VirtualGatewaySpecListenerHealthCheckOutput) ToVirtualGatewaySpecListene
 }
 
 func (o VirtualGatewaySpecListenerHealthCheckOutput) ToVirtualGatewaySpecListenerHealthCheckPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerHealthCheck) *VirtualGatewaySpecListenerHealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerHealthCheck) *VirtualGatewaySpecListenerHealthCheck {
 		return &v
 	}).(VirtualGatewaySpecListenerHealthCheckPtrOutput)
 }
@@ -12113,7 +12501,13 @@ func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) ToVirtualGatewaySpecList
 }
 
 func (o VirtualGatewaySpecListenerHealthCheckPtrOutput) Elem() VirtualGatewaySpecListenerHealthCheckOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) VirtualGatewaySpecListenerHealthCheck { return *v }).(VirtualGatewaySpecListenerHealthCheckOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerHealthCheck) VirtualGatewaySpecListenerHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerHealthCheck
+		return ret
+	}).(VirtualGatewaySpecListenerHealthCheckOutput)
 }
 
 // The number of consecutive successful health checks that must occur before declaring listener healthy.
@@ -12283,7 +12677,7 @@ func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListene
 }
 
 func (o VirtualGatewaySpecListenerPortMappingOutput) ToVirtualGatewaySpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerPortMapping) *VirtualGatewaySpecListenerPortMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerPortMapping) *VirtualGatewaySpecListenerPortMapping {
 		return &v
 	}).(VirtualGatewaySpecListenerPortMappingPtrOutput)
 }
@@ -12313,7 +12707,13 @@ func (o VirtualGatewaySpecListenerPortMappingPtrOutput) ToVirtualGatewaySpecList
 }
 
 func (o VirtualGatewaySpecListenerPortMappingPtrOutput) Elem() VirtualGatewaySpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) VirtualGatewaySpecListenerPortMapping { return *v }).(VirtualGatewaySpecListenerPortMappingOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerPortMapping) VirtualGatewaySpecListenerPortMapping {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerPortMapping
+		return ret
+	}).(VirtualGatewaySpecListenerPortMappingOutput)
 }
 
 // The port used for the port mapping.
@@ -12437,7 +12837,7 @@ func (o VirtualGatewaySpecListenerTlsOutput) ToVirtualGatewaySpecListenerTlsPtrO
 }
 
 func (o VirtualGatewaySpecListenerTlsOutput) ToVirtualGatewaySpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTls) *VirtualGatewaySpecListenerTls {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsPtrOutput)
 }
@@ -12472,7 +12872,13 @@ func (o VirtualGatewaySpecListenerTlsPtrOutput) ToVirtualGatewaySpecListenerTlsP
 }
 
 func (o VirtualGatewaySpecListenerTlsPtrOutput) Elem() VirtualGatewaySpecListenerTlsOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) VirtualGatewaySpecListenerTls { return *v }).(VirtualGatewaySpecListenerTlsOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTls) VirtualGatewaySpecListenerTls {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTls
+		return ret
+	}).(VirtualGatewaySpecListenerTlsOutput)
 }
 
 // The listener's TLS certificate.
@@ -12606,7 +13012,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateOutput) ToVirtualGatewaySpecList
 }
 
 func (o VirtualGatewaySpecListenerTlsCertificateOutput) ToVirtualGatewaySpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsCertificate) *VirtualGatewaySpecListenerTlsCertificate {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsCertificatePtrOutput)
 }
@@ -12647,7 +13053,13 @@ func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) ToVirtualGatewaySpecL
 }
 
 func (o VirtualGatewaySpecListenerTlsCertificatePtrOutput) Elem() VirtualGatewaySpecListenerTlsCertificateOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) VirtualGatewaySpecListenerTlsCertificate { return *v }).(VirtualGatewaySpecListenerTlsCertificateOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificate) VirtualGatewaySpecListenerTlsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsCertificate
+		return ret
+	}).(VirtualGatewaySpecListenerTlsCertificateOutput)
 }
 
 // An AWS Certificate Manager (ACM) certificate.
@@ -12773,7 +13185,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmOutput) ToVirtualGatewaySpecL
 }
 
 func (o VirtualGatewaySpecListenerTlsCertificateAcmOutput) ToVirtualGatewaySpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateAcm) *VirtualGatewaySpecListenerTlsCertificateAcm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsCertificateAcm) *VirtualGatewaySpecListenerTlsCertificateAcm {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput)
 }
@@ -12799,7 +13211,11 @@ func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) ToVirtualGatewaySp
 
 func (o VirtualGatewaySpecListenerTlsCertificateAcmPtrOutput) Elem() VirtualGatewaySpecListenerTlsCertificateAcmOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateAcm) VirtualGatewaySpecListenerTlsCertificateAcm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsCertificateAcm
+		return ret
 	}).(VirtualGatewaySpecListenerTlsCertificateAcmOutput)
 }
 
@@ -12910,7 +13326,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) ToVirtualGatewaySpec
 }
 
 func (o VirtualGatewaySpecListenerTlsCertificateFileOutput) ToVirtualGatewaySpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateFilePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateFile) *VirtualGatewaySpecListenerTlsCertificateFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsCertificateFile) *VirtualGatewaySpecListenerTlsCertificateFile {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsCertificateFilePtrOutput)
 }
@@ -12941,7 +13357,11 @@ func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) ToVirtualGatewayS
 
 func (o VirtualGatewaySpecListenerTlsCertificateFilePtrOutput) Elem() VirtualGatewaySpecListenerTlsCertificateFileOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateFile) VirtualGatewaySpecListenerTlsCertificateFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsCertificateFile
+		return ret
 	}).(VirtualGatewaySpecListenerTlsCertificateFileOutput)
 }
 
@@ -13058,7 +13478,7 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecL
 }
 
 func (o VirtualGatewaySpecListenerTlsCertificateSdsOutput) ToVirtualGatewaySpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsCertificateSds) *VirtualGatewaySpecListenerTlsCertificateSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsCertificateSds) *VirtualGatewaySpecListenerTlsCertificateSds {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput)
 }
@@ -13084,7 +13504,11 @@ func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) ToVirtualGatewaySp
 
 func (o VirtualGatewaySpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualGatewaySpecListenerTlsCertificateSdsOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsCertificateSds) VirtualGatewaySpecListenerTlsCertificateSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsCertificateSds
+		return ret
 	}).(VirtualGatewaySpecListenerTlsCertificateSdsOutput)
 }
 
@@ -13195,7 +13619,7 @@ func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListe
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationOutput) ToVirtualGatewaySpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidation) *VirtualGatewaySpecListenerTlsValidation {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationPtrOutput)
 }
@@ -13229,7 +13653,13 @@ func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) ToVirtualGatewaySpecLi
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) VirtualGatewaySpecListenerTlsValidation { return *v }).(VirtualGatewaySpecListenerTlsValidationOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidation) VirtualGatewaySpecListenerTlsValidation {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidation
+		return ret
+	}).(VirtualGatewaySpecListenerTlsValidationOutput)
 }
 
 // The SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
@@ -13345,7 +13775,7 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) To
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
@@ -13373,7 +13803,11 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames
+		return ret
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesOutput)
 }
 
@@ -13480,7 +13914,7 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutpu
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
@@ -13506,7 +13940,11 @@ func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOu
 
 func (o VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch) VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch
+		return ret
 	}).(VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
@@ -13617,7 +14055,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpec
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustOutput) ToVirtualGatewaySpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrust {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidationTrust) *VirtualGatewaySpecListenerTlsValidationTrust {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationTrustPtrOutput)
 }
@@ -13652,7 +14090,11 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) ToVirtualGatewayS
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrust) VirtualGatewaySpecListenerTlsValidationTrust {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidationTrust
+		return ret
 	}).(VirtualGatewaySpecListenerTlsValidationTrustOutput)
 }
 
@@ -13769,7 +14211,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGateway
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustFileOutput) ToVirtualGatewaySpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustFile) *VirtualGatewaySpecListenerTlsValidationTrustFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidationTrustFile) *VirtualGatewaySpecListenerTlsValidationTrustFile {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput)
 }
@@ -13795,7 +14237,11 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) ToVirtualGate
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustFilePtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustFileOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustFile) VirtualGatewaySpecListenerTlsValidationTrustFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidationTrustFile
+		return ret
 	}).(VirtualGatewaySpecListenerTlsValidationTrustFileOutput)
 }
 
@@ -13902,7 +14348,7 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewayS
 }
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsOutput) ToVirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecListenerTlsValidationTrustSds) *VirtualGatewaySpecListenerTlsValidationTrustSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecListenerTlsValidationTrustSds) *VirtualGatewaySpecListenerTlsValidationTrustSds {
 		return &v
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput)
 }
@@ -13928,7 +14374,11 @@ func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualGatew
 
 func (o VirtualGatewaySpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualGatewaySpecListenerTlsValidationTrustSdsOutput {
 	return o.ApplyT(func(v *VirtualGatewaySpecListenerTlsValidationTrustSds) VirtualGatewaySpecListenerTlsValidationTrustSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecListenerTlsValidationTrustSds
+		return ret
 	}).(VirtualGatewaySpecListenerTlsValidationTrustSdsOutput)
 }
 
@@ -14035,7 +14485,7 @@ func (o VirtualGatewaySpecLoggingOutput) ToVirtualGatewaySpecLoggingPtrOutput() 
 }
 
 func (o VirtualGatewaySpecLoggingOutput) ToVirtualGatewaySpecLoggingPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecLogging) *VirtualGatewaySpecLogging {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecLogging) *VirtualGatewaySpecLogging {
 		return &v
 	}).(VirtualGatewaySpecLoggingPtrOutput)
 }
@@ -14060,7 +14510,13 @@ func (o VirtualGatewaySpecLoggingPtrOutput) ToVirtualGatewaySpecLoggingPtrOutput
 }
 
 func (o VirtualGatewaySpecLoggingPtrOutput) Elem() VirtualGatewaySpecLoggingOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecLogging) VirtualGatewaySpecLogging { return *v }).(VirtualGatewaySpecLoggingOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecLogging) VirtualGatewaySpecLogging {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecLogging
+		return ret
+	}).(VirtualGatewaySpecLoggingOutput)
 }
 
 // The access log configuration for a virtual gateway.
@@ -14166,7 +14622,7 @@ func (o VirtualGatewaySpecLoggingAccessLogOutput) ToVirtualGatewaySpecLoggingAcc
 }
 
 func (o VirtualGatewaySpecLoggingAccessLogOutput) ToVirtualGatewaySpecLoggingAccessLogPtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogPtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLog) *VirtualGatewaySpecLoggingAccessLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecLoggingAccessLog) *VirtualGatewaySpecLoggingAccessLog {
 		return &v
 	}).(VirtualGatewaySpecLoggingAccessLogPtrOutput)
 }
@@ -14191,7 +14647,13 @@ func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) ToVirtualGatewaySpecLogging
 }
 
 func (o VirtualGatewaySpecLoggingAccessLogPtrOutput) Elem() VirtualGatewaySpecLoggingAccessLogOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLog) VirtualGatewaySpecLoggingAccessLog { return *v }).(VirtualGatewaySpecLoggingAccessLogOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLog) VirtualGatewaySpecLoggingAccessLog {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecLoggingAccessLog
+		return ret
+	}).(VirtualGatewaySpecLoggingAccessLogOutput)
 }
 
 // The file object to send virtual gateway access logs to.
@@ -14297,7 +14759,7 @@ func (o VirtualGatewaySpecLoggingAccessLogFileOutput) ToVirtualGatewaySpecLoggin
 }
 
 func (o VirtualGatewaySpecLoggingAccessLogFileOutput) ToVirtualGatewaySpecLoggingAccessLogFilePtrOutputWithContext(ctx context.Context) VirtualGatewaySpecLoggingAccessLogFilePtrOutput {
-	return o.ApplyT(func(v VirtualGatewaySpecLoggingAccessLogFile) *VirtualGatewaySpecLoggingAccessLogFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGatewaySpecLoggingAccessLogFile) *VirtualGatewaySpecLoggingAccessLogFile {
 		return &v
 	}).(VirtualGatewaySpecLoggingAccessLogFilePtrOutput)
 }
@@ -14322,7 +14784,13 @@ func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) ToVirtualGatewaySpecLog
 }
 
 func (o VirtualGatewaySpecLoggingAccessLogFilePtrOutput) Elem() VirtualGatewaySpecLoggingAccessLogFileOutput {
-	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) VirtualGatewaySpecLoggingAccessLogFile { return *v }).(VirtualGatewaySpecLoggingAccessLogFileOutput)
+	return o.ApplyT(func(v *VirtualGatewaySpecLoggingAccessLogFile) VirtualGatewaySpecLoggingAccessLogFile {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGatewaySpecLoggingAccessLogFile
+		return ret
+	}).(VirtualGatewaySpecLoggingAccessLogFileOutput)
 }
 
 // The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
@@ -14444,7 +14912,7 @@ func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutput() VirtualNodeSpecPtrOu
 }
 
 func (o VirtualNodeSpecOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx context.Context) VirtualNodeSpecPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpec) *VirtualNodeSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpec) *VirtualNodeSpec {
 		return &v
 	}).(VirtualNodeSpecPtrOutput)
 }
@@ -14489,7 +14957,13 @@ func (o VirtualNodeSpecPtrOutput) ToVirtualNodeSpecPtrOutputWithContext(ctx cont
 }
 
 func (o VirtualNodeSpecPtrOutput) Elem() VirtualNodeSpecOutput {
-	return o.ApplyT(func(v *VirtualNodeSpec) VirtualNodeSpec { return *v }).(VirtualNodeSpecOutput)
+	return o.ApplyT(func(v *VirtualNodeSpec) VirtualNodeSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpec
+		return ret
+	}).(VirtualNodeSpecOutput)
 }
 
 // The defaults for backends.
@@ -14732,7 +15206,7 @@ func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsPt
 }
 
 func (o VirtualNodeSpecBackendDefaultsOutput) ToVirtualNodeSpecBackendDefaultsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaults {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaults) *VirtualNodeSpecBackendDefaults {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsPtrOutput)
 }
@@ -14759,7 +15233,13 @@ func (o VirtualNodeSpecBackendDefaultsPtrOutput) ToVirtualNodeSpecBackendDefault
 }
 
 func (o VirtualNodeSpecBackendDefaultsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaults) VirtualNodeSpecBackendDefaults { return *v }).(VirtualNodeSpecBackendDefaultsOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaults) VirtualNodeSpecBackendDefaults {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaults
+		return ret
+	}).(VirtualNodeSpecBackendDefaultsOutput)
 }
 
 // The default client policy for virtual service backends. See above for details.
@@ -14865,7 +15345,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBacke
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicy) *VirtualNodeSpecBackendDefaultsClientPolicy {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput)
 }
@@ -14893,7 +15373,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) ToVirtualNodeSpecBa
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicy) VirtualNodeSpecBackendDefaultsClientPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicy
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyOutput)
 }
 
@@ -15012,7 +15496,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBa
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTls) *VirtualNodeSpecBackendDefaultsClientPolicyTls {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput)
 }
@@ -15057,7 +15541,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) ToVirtualNodeSpe
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTls) VirtualNodeSpecBackendDefaultsClientPolicyTls {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTls
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsOutput)
 }
 
@@ -15198,7 +15686,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtua
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput)
 }
@@ -15233,7 +15721,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) ToVir
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificatePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateOutput)
 }
 
@@ -15354,7 +15846,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVi
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput)
 }
@@ -15385,7 +15877,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) T
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileOutput)
 }
 
@@ -15502,7 +15998,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVir
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput)
 }
@@ -15528,7 +16024,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) To
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds) VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsOutput)
 }
 
@@ -15639,7 +16139,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtual
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput)
 }
@@ -15674,7 +16174,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) ToVirt
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationOutput)
 }
 
@@ -15791,7 +16295,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
@@ -15819,7 +16323,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
@@ -15926,7 +16434,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
@@ -15954,7 +16462,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativ
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
@@ -16069,7 +16581,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVi
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput)
 }
@@ -16111,7 +16623,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) T
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustOutput)
 }
 
@@ -16238,7 +16754,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) T
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput)
 }
@@ -16266,7 +16782,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmOutput)
 }
 
@@ -16373,7 +16893,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) 
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput)
 }
@@ -16401,7 +16921,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutpu
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileOutput)
 }
 
@@ -16508,7 +17032,7 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) T
 }
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
 		return &v
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput)
 }
@@ -16534,7 +17058,11 @@ func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput
 
 func (o VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds) VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds
+		return ret
 	}).(VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsOutput)
 }
 
@@ -16704,7 +17232,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpe
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicy) *VirtualNodeSpecBackendVirtualServiceClientPolicy {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput)
 }
@@ -16732,7 +17260,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) ToVirtualNode
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicy) VirtualNodeSpecBackendVirtualServiceClientPolicy {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicy
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyOutput)
 }
 
@@ -16851,7 +17383,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNode
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTls) *VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput)
 }
@@ -16896,7 +17428,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) ToVirtualN
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTls) VirtualNodeSpecBackendVirtualServiceClientPolicyTls {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTls
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsOutput)
 }
 
@@ -17037,7 +17573,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) To
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 }
@@ -17072,7 +17608,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput)
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificatePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateOutput)
 }
 
@@ -17193,7 +17733,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput)
 }
@@ -17226,7 +17766,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOut
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileOutput)
 }
 
@@ -17343,7 +17887,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput)
 }
@@ -17369,7 +17913,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutp
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsOutput)
 }
 
@@ -17480,7 +18028,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToV
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput)
 }
@@ -17515,7 +18063,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) 
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationOutput)
 }
 
@@ -17632,7 +18184,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput)
 }
@@ -17660,7 +18212,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesOutput)
 }
 
@@ -17767,7 +18323,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
@@ -17795,7 +18351,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlte
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
@@ -17910,7 +18470,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput)
 }
@@ -17952,7 +18512,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOut
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustOutput)
 }
 
@@ -18079,7 +18643,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOut
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput)
 }
@@ -18107,7 +18671,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtr
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmOutput)
 }
 
@@ -18214,7 +18782,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOu
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput)
 }
@@ -18242,7 +18810,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePt
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileOutput)
 }
 
@@ -18349,7 +18921,7 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOut
 }
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput) ToVirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
 		return &v
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput)
 }
@@ -18377,7 +18949,11 @@ func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtr
 
 func (o VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds) VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds
+		return ret
 	}).(VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsOutput)
 }
 
@@ -18504,7 +19080,7 @@ func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutput() Virt
 }
 
 func (o VirtualNodeSpecListenerOutput) ToVirtualNodeSpecListenerPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListener) *VirtualNodeSpecListener {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListener) *VirtualNodeSpecListener {
 		return &v
 	}).(VirtualNodeSpecListenerPtrOutput)
 }
@@ -18554,7 +19130,13 @@ func (o VirtualNodeSpecListenerPtrOutput) ToVirtualNodeSpecListenerPtrOutputWith
 }
 
 func (o VirtualNodeSpecListenerPtrOutput) Elem() VirtualNodeSpecListenerOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListener) VirtualNodeSpecListener { return *v }).(VirtualNodeSpecListenerOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListener) VirtualNodeSpecListener {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListener
+		return ret
+	}).(VirtualNodeSpecListenerOutput)
 }
 
 // The connection pool information for the listener.
@@ -18722,7 +19304,7 @@ func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerCo
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolOutput) ToVirtualNodeSpecListenerConnectionPoolPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPool) *VirtualNodeSpecListenerConnectionPool {
 		return &v
 	}).(VirtualNodeSpecListenerConnectionPoolPtrOutput)
 }
@@ -18768,7 +19350,13 @@ func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) VirtualNodeSpecListenerConnectionPool { return *v }).(VirtualNodeSpecListenerConnectionPoolOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPool) VirtualNodeSpecListenerConnectionPool {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerConnectionPool
+		return ret
+	}).(VirtualNodeSpecListenerConnectionPoolOutput)
 }
 
 // Connection pool information for gRPC listeners.
@@ -18904,7 +19492,7 @@ func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolGrpcOutput) ToVirtualNodeSpecListenerConnectionPoolGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolGrpc) *VirtualNodeSpecListenerConnectionPoolGrpc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolGrpc) *VirtualNodeSpecListenerConnectionPoolGrpc {
 		return &v
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput)
 }
@@ -18930,7 +19518,11 @@ func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) ToVirtualNodeSpecLis
 
 func (o VirtualNodeSpecListenerConnectionPoolGrpcPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolGrpcOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolGrpc) VirtualNodeSpecListenerConnectionPoolGrpc {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerConnectionPoolGrpc
+		return ret
 	}).(VirtualNodeSpecListenerConnectionPoolGrpcOutput)
 }
 
@@ -19037,7 +19629,7 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListe
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolHttp2Output) ToVirtualNodeSpecListenerConnectionPoolHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp2) *VirtualNodeSpecListenerConnectionPoolHttp2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolHttp2) *VirtualNodeSpecListenerConnectionPoolHttp2 {
 		return &v
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput)
 }
@@ -19063,7 +19655,11 @@ func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) ToVirtualNodeSpecLi
 
 func (o VirtualNodeSpecListenerConnectionPoolHttp2PtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttp2Output {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp2) VirtualNodeSpecListenerConnectionPoolHttp2 {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerConnectionPoolHttp2
+		return ret
 	}).(VirtualNodeSpecListenerConnectionPoolHttp2Output)
 }
 
@@ -19174,7 +19770,7 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolHttpOutput) ToVirtualNodeSpecListenerConnectionPoolHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolHttpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolHttp) *VirtualNodeSpecListenerConnectionPoolHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolHttp) *VirtualNodeSpecListenerConnectionPoolHttp {
 		return &v
 	}).(VirtualNodeSpecListenerConnectionPoolHttpPtrOutput)
 }
@@ -19205,7 +19801,11 @@ func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) ToVirtualNodeSpecLis
 
 func (o VirtualNodeSpecListenerConnectionPoolHttpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolHttpOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolHttp) VirtualNodeSpecListenerConnectionPoolHttp {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerConnectionPoolHttp
+		return ret
 	}).(VirtualNodeSpecListenerConnectionPoolHttpOutput)
 }
 
@@ -19322,7 +19922,7 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolTcpOutput) ToVirtualNodeSpecListenerConnectionPoolTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerConnectionPoolTcpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerConnectionPoolTcp) *VirtualNodeSpecListenerConnectionPoolTcp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerConnectionPoolTcp) *VirtualNodeSpecListenerConnectionPoolTcp {
 		return &v
 	}).(VirtualNodeSpecListenerConnectionPoolTcpPtrOutput)
 }
@@ -19347,7 +19947,13 @@ func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) ToVirtualNodeSpecList
 }
 
 func (o VirtualNodeSpecListenerConnectionPoolTcpPtrOutput) Elem() VirtualNodeSpecListenerConnectionPoolTcpOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) VirtualNodeSpecListenerConnectionPoolTcp { return *v }).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerConnectionPoolTcp) VirtualNodeSpecListenerConnectionPoolTcp {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerConnectionPoolTcp
+		return ret
+	}).(VirtualNodeSpecListenerConnectionPoolTcpOutput)
 }
 
 // Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
@@ -19477,7 +20083,7 @@ func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealt
 }
 
 func (o VirtualNodeSpecListenerHealthCheckOutput) ToVirtualNodeSpecListenerHealthCheckPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerHealthCheckPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerHealthCheck) *VirtualNodeSpecListenerHealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerHealthCheck) *VirtualNodeSpecListenerHealthCheck {
 		return &v
 	}).(VirtualNodeSpecListenerHealthCheckPtrOutput)
 }
@@ -19532,7 +20138,13 @@ func (o VirtualNodeSpecListenerHealthCheckPtrOutput) ToVirtualNodeSpecListenerHe
 }
 
 func (o VirtualNodeSpecListenerHealthCheckPtrOutput) Elem() VirtualNodeSpecListenerHealthCheckOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) VirtualNodeSpecListenerHealthCheck { return *v }).(VirtualNodeSpecListenerHealthCheckOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerHealthCheck) VirtualNodeSpecListenerHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerHealthCheck
+		return ret
+	}).(VirtualNodeSpecListenerHealthCheckOutput)
 }
 
 // The number of consecutive successful health checks that must occur before declaring listener healthy.
@@ -19712,7 +20324,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListener
 }
 
 func (o VirtualNodeSpecListenerOutlierDetectionOutput) ToVirtualNodeSpecListenerOutlierDetectionPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerOutlierDetection) *VirtualNodeSpecListenerOutlierDetection {
 		return &v
 	}).(VirtualNodeSpecListenerOutlierDetectionPtrOutput)
 }
@@ -19757,7 +20369,13 @@ func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) ToVirtualNodeSpecListe
 }
 
 func (o VirtualNodeSpecListenerOutlierDetectionPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetection { return *v }).(VirtualNodeSpecListenerOutlierDetectionOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetection) VirtualNodeSpecListenerOutlierDetection {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerOutlierDetection
+		return ret
+	}).(VirtualNodeSpecListenerOutlierDetectionOutput)
 }
 
 // The base amount of time for which a host is ejected.
@@ -19898,7 +20516,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVir
 }
 
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput) ToVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
 		return &v
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput)
 }
@@ -19929,7 +20547,11 @@ func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) To
 
 func (o VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration) VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration
+		return ret
 	}).(VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationOutput)
 }
 
@@ -20050,7 +20672,7 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpec
 }
 
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalOutput) ToVirtualNodeSpecListenerOutlierDetectionIntervalPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerOutlierDetectionInterval) *VirtualNodeSpecListenerOutlierDetectionInterval {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerOutlierDetectionInterval) *VirtualNodeSpecListenerOutlierDetectionInterval {
 		return &v
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput)
 }
@@ -20081,7 +20703,11 @@ func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) ToVirtualNodeS
 
 func (o VirtualNodeSpecListenerOutlierDetectionIntervalPtrOutput) Elem() VirtualNodeSpecListenerOutlierDetectionIntervalOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerOutlierDetectionInterval) VirtualNodeSpecListenerOutlierDetectionInterval {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerOutlierDetectionInterval
+		return ret
 	}).(VirtualNodeSpecListenerOutlierDetectionIntervalOutput)
 }
 
@@ -20202,7 +20828,7 @@ func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortM
 }
 
 func (o VirtualNodeSpecListenerPortMappingOutput) ToVirtualNodeSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerPortMapping) *VirtualNodeSpecListenerPortMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerPortMapping) *VirtualNodeSpecListenerPortMapping {
 		return &v
 	}).(VirtualNodeSpecListenerPortMappingPtrOutput)
 }
@@ -20232,7 +20858,13 @@ func (o VirtualNodeSpecListenerPortMappingPtrOutput) ToVirtualNodeSpecListenerPo
 }
 
 func (o VirtualNodeSpecListenerPortMappingPtrOutput) Elem() VirtualNodeSpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) VirtualNodeSpecListenerPortMapping { return *v }).(VirtualNodeSpecListenerPortMappingOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerPortMapping) VirtualNodeSpecListenerPortMapping {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerPortMapping
+		return ret
+	}).(VirtualNodeSpecListenerPortMappingOutput)
 }
 
 // The port used for the port mapping.
@@ -20360,7 +20992,7 @@ func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutPt
 }
 
 func (o VirtualNodeSpecListenerTimeoutOutput) ToVirtualNodeSpecListenerTimeoutPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeout) *VirtualNodeSpecListenerTimeout {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutPtrOutput)
 }
@@ -20400,7 +21032,13 @@ func (o VirtualNodeSpecListenerTimeoutPtrOutput) ToVirtualNodeSpecListenerTimeou
 }
 
 func (o VirtualNodeSpecListenerTimeoutPtrOutput) Elem() VirtualNodeSpecListenerTimeoutOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) VirtualNodeSpecListenerTimeout { return *v }).(VirtualNodeSpecListenerTimeoutOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeout) VirtualNodeSpecListenerTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeout
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutOutput)
 }
 
 // Timeouts for gRPC listeners.
@@ -20540,7 +21178,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeo
 }
 
 func (o VirtualNodeSpecListenerTimeoutGrpcOutput) ToVirtualNodeSpecListenerTimeoutGrpcPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutGrpc) *VirtualNodeSpecListenerTimeoutGrpc {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutGrpcPtrOutput)
 }
@@ -20572,7 +21210,13 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) ToVirtualNodeSpecListenerTi
 }
 
 func (o VirtualNodeSpecListenerTimeoutGrpcPtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) VirtualNodeSpecListenerTimeoutGrpc { return *v }).(VirtualNodeSpecListenerTimeoutGrpcOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpc) VirtualNodeSpecListenerTimeoutGrpc {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutGrpc
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutGrpcOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -20692,7 +21336,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerT
 }
 
 func (o VirtualNodeSpecListenerTimeoutGrpcIdleOutput) ToVirtualNodeSpecListenerTimeoutGrpcIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcIdle) *VirtualNodeSpecListenerTimeoutGrpcIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutGrpcIdle) *VirtualNodeSpecListenerTimeoutGrpcIdle {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput)
 }
@@ -20722,7 +21366,13 @@ func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerTimeoutGrpcIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcIdleOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) VirtualNodeSpecListenerTimeoutGrpcIdle { return *v }).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcIdle) VirtualNodeSpecListenerTimeoutGrpcIdle {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutGrpcIdle
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutGrpcIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -20842,7 +21492,7 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecLis
 }
 
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput) ToVirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutGrpcPerRequest) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutGrpcPerRequest) *VirtualNodeSpecListenerTimeoutGrpcPerRequest {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput)
 }
@@ -20873,7 +21523,11 @@ func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) ToVirtualNodeSpec
 
 func (o VirtualNodeSpecListenerTimeoutGrpcPerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutGrpcPerRequest) VirtualNodeSpecListenerTimeoutGrpcPerRequest {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutGrpcPerRequest
+		return ret
 	}).(VirtualNodeSpecListenerTimeoutGrpcPerRequestOutput)
 }
 
@@ -20994,7 +21648,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTime
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttp2Output) ToVirtualNodeSpecListenerTimeoutHttp2PtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttp2) *VirtualNodeSpecListenerTimeoutHttp2 {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttp2PtrOutput)
 }
@@ -21026,7 +21680,13 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) ToVirtualNodeSpecListenerT
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttp2PtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2Output {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) VirtualNodeSpecListenerTimeoutHttp2 { return *v }).(VirtualNodeSpecListenerTimeoutHttp2Output)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2) VirtualNodeSpecListenerTimeoutHttp2 {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttp2
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutHttp2Output)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -21146,7 +21806,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListener
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttp2IdleOutput) ToVirtualNodeSpecListenerTimeoutHttp2IdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2Idle) *VirtualNodeSpecListenerTimeoutHttp2Idle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttp2Idle) *VirtualNodeSpecListenerTimeoutHttp2Idle {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput)
 }
@@ -21176,7 +21836,13 @@ func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) ToVirtualNodeSpecListe
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttp2IdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2IdleOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) VirtualNodeSpecListenerTimeoutHttp2Idle { return *v }).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2Idle) VirtualNodeSpecListenerTimeoutHttp2Idle {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttp2Idle
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutHttp2IdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -21296,7 +21962,7 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecLi
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp2PerRequest) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttp2PerRequest) *VirtualNodeSpecListenerTimeoutHttp2PerRequest {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput)
 }
@@ -21327,7 +21993,11 @@ func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) ToVirtualNodeSpe
 
 func (o VirtualNodeSpecListenerTimeoutHttp2PerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp2PerRequest) VirtualNodeSpecListenerTimeoutHttp2PerRequest {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttp2PerRequest
+		return ret
 	}).(VirtualNodeSpecListenerTimeoutHttp2PerRequestOutput)
 }
 
@@ -21448,7 +22118,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeo
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttpOutput) ToVirtualNodeSpecListenerTimeoutHttpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttp) *VirtualNodeSpecListenerTimeoutHttp {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttpPtrOutput)
 }
@@ -21480,7 +22150,13 @@ func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) ToVirtualNodeSpecListenerTi
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttpPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) VirtualNodeSpecListenerTimeoutHttp { return *v }).(VirtualNodeSpecListenerTimeoutHttpOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttp) VirtualNodeSpecListenerTimeoutHttp {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttp
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutHttpOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -21600,7 +22276,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerT
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttpIdleOutput) ToVirtualNodeSpecListenerTimeoutHttpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpIdle) *VirtualNodeSpecListenerTimeoutHttpIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttpIdle) *VirtualNodeSpecListenerTimeoutHttpIdle {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput)
 }
@@ -21630,7 +22306,13 @@ func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttpIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpIdleOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) VirtualNodeSpecListenerTimeoutHttpIdle { return *v }).(VirtualNodeSpecListenerTimeoutHttpIdleOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpIdle) VirtualNodeSpecListenerTimeoutHttpIdle {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttpIdle
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutHttpIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -21750,7 +22432,7 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecLis
 }
 
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestOutput) ToVirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutHttpPerRequest) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutHttpPerRequest) *VirtualNodeSpecListenerTimeoutHttpPerRequest {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput)
 }
@@ -21781,7 +22463,11 @@ func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) ToVirtualNodeSpec
 
 func (o VirtualNodeSpecListenerTimeoutHttpPerRequestPtrOutput) Elem() VirtualNodeSpecListenerTimeoutHttpPerRequestOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutHttpPerRequest) VirtualNodeSpecListenerTimeoutHttpPerRequest {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutHttpPerRequest
+		return ret
 	}).(VirtualNodeSpecListenerTimeoutHttpPerRequestOutput)
 }
 
@@ -21898,7 +22584,7 @@ func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeou
 }
 
 func (o VirtualNodeSpecListenerTimeoutTcpOutput) ToVirtualNodeSpecListenerTimeoutTcpPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutTcp) *VirtualNodeSpecListenerTimeoutTcp {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutTcpPtrOutput)
 }
@@ -21923,7 +22609,13 @@ func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) ToVirtualNodeSpecListenerTim
 }
 
 func (o VirtualNodeSpecListenerTimeoutTcpPtrOutput) Elem() VirtualNodeSpecListenerTimeoutTcpOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcp) VirtualNodeSpecListenerTimeoutTcp { return *v }).(VirtualNodeSpecListenerTimeoutTcpOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcp) VirtualNodeSpecListenerTimeoutTcp {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutTcp
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutTcpOutput)
 }
 
 // The idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
@@ -22033,7 +22725,7 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTi
 }
 
 func (o VirtualNodeSpecListenerTimeoutTcpIdleOutput) ToVirtualNodeSpecListenerTimeoutTcpIdlePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTimeoutTcpIdle) *VirtualNodeSpecListenerTimeoutTcpIdle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTimeoutTcpIdle) *VirtualNodeSpecListenerTimeoutTcpIdle {
 		return &v
 	}).(VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput)
 }
@@ -22063,7 +22755,13 @@ func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerTimeoutTcpIdlePtrOutput) Elem() VirtualNodeSpecListenerTimeoutTcpIdleOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) VirtualNodeSpecListenerTimeoutTcpIdle { return *v }).(VirtualNodeSpecListenerTimeoutTcpIdleOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTimeoutTcpIdle) VirtualNodeSpecListenerTimeoutTcpIdle {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTimeoutTcpIdle
+		return ret
+	}).(VirtualNodeSpecListenerTimeoutTcpIdleOutput)
 }
 
 // The unit of time. Valid values: `ms`, `s`.
@@ -22187,7 +22885,7 @@ func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsPtrOutput(
 }
 
 func (o VirtualNodeSpecListenerTlsOutput) ToVirtualNodeSpecListenerTlsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTls) *VirtualNodeSpecListenerTls {
 		return &v
 	}).(VirtualNodeSpecListenerTlsPtrOutput)
 }
@@ -22222,7 +22920,13 @@ func (o VirtualNodeSpecListenerTlsPtrOutput) ToVirtualNodeSpecListenerTlsPtrOutp
 }
 
 func (o VirtualNodeSpecListenerTlsPtrOutput) Elem() VirtualNodeSpecListenerTlsOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) VirtualNodeSpecListenerTls { return *v }).(VirtualNodeSpecListenerTlsOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTls) VirtualNodeSpecListenerTls {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTls
+		return ret
+	}).(VirtualNodeSpecListenerTlsOutput)
 }
 
 // The listener's TLS certificate.
@@ -22356,7 +23060,7 @@ func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTl
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateOutput) ToVirtualNodeSpecListenerTlsCertificatePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificatePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsCertificate) *VirtualNodeSpecListenerTlsCertificate {
 		return &v
 	}).(VirtualNodeSpecListenerTlsCertificatePtrOutput)
 }
@@ -22393,7 +23097,13 @@ func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerTlsCertificatePtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) VirtualNodeSpecListenerTlsCertificate { return *v }).(VirtualNodeSpecListenerTlsCertificateOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificate) VirtualNodeSpecListenerTlsCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsCertificate
+		return ret
+	}).(VirtualNodeSpecListenerTlsCertificateOutput)
 }
 
 // An AWS Certificate Manager (ACM) certificate.
@@ -22519,7 +23229,7 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateAcmOutput) ToVirtualNodeSpecListenerTlsCertificateAcmPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateAcmPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateAcm) *VirtualNodeSpecListenerTlsCertificateAcm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsCertificateAcm) *VirtualNodeSpecListenerTlsCertificateAcm {
 		return &v
 	}).(VirtualNodeSpecListenerTlsCertificateAcmPtrOutput)
 }
@@ -22544,7 +23254,13 @@ func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) ToVirtualNodeSpecList
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateAcmPtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateAcmOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateAcm) VirtualNodeSpecListenerTlsCertificateAcm { return *v }).(VirtualNodeSpecListenerTlsCertificateAcmOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateAcm) VirtualNodeSpecListenerTlsCertificateAcm {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsCertificateAcm
+		return ret
+	}).(VirtualNodeSpecListenerTlsCertificateAcmOutput)
 }
 
 // The Amazon Resource Name (ARN) for the certificate.
@@ -22654,7 +23370,7 @@ func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateFileOutput) ToVirtualNodeSpecListenerTlsCertificateFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateFile) *VirtualNodeSpecListenerTlsCertificateFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsCertificateFile) *VirtualNodeSpecListenerTlsCertificateFile {
 		return &v
 	}).(VirtualNodeSpecListenerTlsCertificateFilePtrOutput)
 }
@@ -22685,7 +23401,11 @@ func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) ToVirtualNodeSpecLis
 
 func (o VirtualNodeSpecListenerTlsCertificateFilePtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateFile) VirtualNodeSpecListenerTlsCertificateFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsCertificateFile
+		return ret
 	}).(VirtualNodeSpecListenerTlsCertificateFileOutput)
 }
 
@@ -22802,7 +23522,7 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListene
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateSdsOutput) ToVirtualNodeSpecListenerTlsCertificateSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsCertificateSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsCertificateSds) *VirtualNodeSpecListenerTlsCertificateSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsCertificateSds) *VirtualNodeSpecListenerTlsCertificateSds {
 		return &v
 	}).(VirtualNodeSpecListenerTlsCertificateSdsPtrOutput)
 }
@@ -22827,7 +23547,13 @@ func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) ToVirtualNodeSpecList
 }
 
 func (o VirtualNodeSpecListenerTlsCertificateSdsPtrOutput) Elem() VirtualNodeSpecListenerTlsCertificateSdsOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) VirtualNodeSpecListenerTlsCertificateSds { return *v }).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsCertificateSds) VirtualNodeSpecListenerTlsCertificateSds {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsCertificateSds
+		return ret
+	}).(VirtualNodeSpecListenerTlsCertificateSdsOutput)
 }
 
 // The name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
@@ -22937,7 +23663,7 @@ func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTls
 }
 
 func (o VirtualNodeSpecListenerTlsValidationOutput) ToVirtualNodeSpecListenerTlsValidationPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidation) *VirtualNodeSpecListenerTlsValidation {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationPtrOutput)
 }
@@ -22969,7 +23695,13 @@ func (o VirtualNodeSpecListenerTlsValidationPtrOutput) ToVirtualNodeSpecListener
 }
 
 func (o VirtualNodeSpecListenerTlsValidationPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) VirtualNodeSpecListenerTlsValidation { return *v }).(VirtualNodeSpecListenerTlsValidationOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidation) VirtualNodeSpecListenerTlsValidation {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidation
+		return ret
+	}).(VirtualNodeSpecListenerTlsValidationOutput)
 }
 
 // The SANs for a TLS validation context.
@@ -23085,7 +23817,7 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVir
 }
 
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput)
 }
@@ -23113,7 +23845,11 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) To
 
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames
+		return ret
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesOutput)
 }
 
@@ -23220,7 +23956,7 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) 
 }
 
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput) ToVirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput)
 }
@@ -23246,7 +23982,11 @@ func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutpu
 
 func (o VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch) VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch
+		return ret
 	}).(VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchOutput)
 }
 
@@ -23357,7 +24097,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListen
 }
 
 func (o VirtualNodeSpecListenerTlsValidationTrustOutput) ToVirtualNodeSpecListenerTlsValidationTrustPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrust {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidationTrust) *VirtualNodeSpecListenerTlsValidationTrust {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationTrustPtrOutput)
 }
@@ -23392,7 +24132,11 @@ func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) ToVirtualNodeSpecLis
 
 func (o VirtualNodeSpecListenerTlsValidationTrustPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrust) VirtualNodeSpecListenerTlsValidationTrust {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidationTrust
+		return ret
 	}).(VirtualNodeSpecListenerTlsValidationTrustOutput)
 }
 
@@ -23509,7 +24253,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecLi
 }
 
 func (o VirtualNodeSpecListenerTlsValidationTrustFileOutput) ToVirtualNodeSpecListenerTlsValidationTrustFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustFile) *VirtualNodeSpecListenerTlsValidationTrustFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidationTrustFile) *VirtualNodeSpecListenerTlsValidationTrustFile {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput)
 }
@@ -23535,7 +24279,11 @@ func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) ToVirtualNodeSpe
 
 func (o VirtualNodeSpecListenerTlsValidationTrustFilePtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustFileOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustFile) VirtualNodeSpecListenerTlsValidationTrustFile {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidationTrustFile
+		return ret
 	}).(VirtualNodeSpecListenerTlsValidationTrustFileOutput)
 }
 
@@ -23642,7 +24390,7 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecLis
 }
 
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsOutput) ToVirtualNodeSpecListenerTlsValidationTrustSdsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecListenerTlsValidationTrustSds) *VirtualNodeSpecListenerTlsValidationTrustSds {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecListenerTlsValidationTrustSds) *VirtualNodeSpecListenerTlsValidationTrustSds {
 		return &v
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput)
 }
@@ -23668,7 +24416,11 @@ func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) ToVirtualNodeSpec
 
 func (o VirtualNodeSpecListenerTlsValidationTrustSdsPtrOutput) Elem() VirtualNodeSpecListenerTlsValidationTrustSdsOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecListenerTlsValidationTrustSds) VirtualNodeSpecListenerTlsValidationTrustSds {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecListenerTlsValidationTrustSds
+		return ret
 	}).(VirtualNodeSpecListenerTlsValidationTrustSdsOutput)
 }
 
@@ -23775,7 +24527,7 @@ func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingPtrOutput() Virtua
 }
 
 func (o VirtualNodeSpecLoggingOutput) ToVirtualNodeSpecLoggingPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecLogging) *VirtualNodeSpecLogging {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecLogging) *VirtualNodeSpecLogging {
 		return &v
 	}).(VirtualNodeSpecLoggingPtrOutput)
 }
@@ -23800,7 +24552,13 @@ func (o VirtualNodeSpecLoggingPtrOutput) ToVirtualNodeSpecLoggingPtrOutputWithCo
 }
 
 func (o VirtualNodeSpecLoggingPtrOutput) Elem() VirtualNodeSpecLoggingOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecLogging) VirtualNodeSpecLogging { return *v }).(VirtualNodeSpecLoggingOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLogging) VirtualNodeSpecLogging {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecLogging
+		return ret
+	}).(VirtualNodeSpecLoggingOutput)
 }
 
 // The access log configuration for a virtual node.
@@ -23906,7 +24664,7 @@ func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLog
 }
 
 func (o VirtualNodeSpecLoggingAccessLogOutput) ToVirtualNodeSpecLoggingAccessLogPtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecLoggingAccessLog) *VirtualNodeSpecLoggingAccessLog {
 		return &v
 	}).(VirtualNodeSpecLoggingAccessLogPtrOutput)
 }
@@ -23931,7 +24689,13 @@ func (o VirtualNodeSpecLoggingAccessLogPtrOutput) ToVirtualNodeSpecLoggingAccess
 }
 
 func (o VirtualNodeSpecLoggingAccessLogPtrOutput) Elem() VirtualNodeSpecLoggingAccessLogOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLog) VirtualNodeSpecLoggingAccessLog { return *v }).(VirtualNodeSpecLoggingAccessLogOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLog) VirtualNodeSpecLoggingAccessLog {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecLoggingAccessLog
+		return ret
+	}).(VirtualNodeSpecLoggingAccessLogOutput)
 }
 
 // The file object to send virtual node access logs to.
@@ -24037,7 +24801,7 @@ func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAcces
 }
 
 func (o VirtualNodeSpecLoggingAccessLogFileOutput) ToVirtualNodeSpecLoggingAccessLogFilePtrOutputWithContext(ctx context.Context) VirtualNodeSpecLoggingAccessLogFilePtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecLoggingAccessLogFile) *VirtualNodeSpecLoggingAccessLogFile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecLoggingAccessLogFile) *VirtualNodeSpecLoggingAccessLogFile {
 		return &v
 	}).(VirtualNodeSpecLoggingAccessLogFilePtrOutput)
 }
@@ -24062,7 +24826,13 @@ func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) ToVirtualNodeSpecLoggingAc
 }
 
 func (o VirtualNodeSpecLoggingAccessLogFilePtrOutput) Elem() VirtualNodeSpecLoggingAccessLogFileOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile { return *v }).(VirtualNodeSpecLoggingAccessLogFileOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecLoggingAccessLogFile) VirtualNodeSpecLoggingAccessLogFile {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecLoggingAccessLogFile
+		return ret
+	}).(VirtualNodeSpecLoggingAccessLogFileOutput)
 }
 
 // The file path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
@@ -24172,7 +24942,7 @@ func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscovery
 }
 
 func (o VirtualNodeSpecServiceDiscoveryOutput) ToVirtualNodeSpecServiceDiscoveryPtrOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscovery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecServiceDiscovery) *VirtualNodeSpecServiceDiscovery {
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryPtrOutput)
 }
@@ -24204,7 +24974,13 @@ func (o VirtualNodeSpecServiceDiscoveryPtrOutput) ToVirtualNodeSpecServiceDiscov
 }
 
 func (o VirtualNodeSpecServiceDiscoveryPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscovery { return *v }).(VirtualNodeSpecServiceDiscoveryOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscovery) VirtualNodeSpecServiceDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecServiceDiscovery
+		return ret
+	}).(VirtualNodeSpecServiceDiscoveryOutput)
 }
 
 // Specifies any AWS Cloud Map information for the virtual node.
@@ -24330,7 +25106,7 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServi
 }
 
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput) ToVirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryAwsCloudMap) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecServiceDiscoveryAwsCloudMap) *VirtualNodeSpecServiceDiscoveryAwsCloudMap {
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput)
 }
@@ -24367,7 +25143,11 @@ func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) ToVirtualNodeSpecSe
 
 func (o VirtualNodeSpecServiceDiscoveryAwsCloudMapPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput {
 	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryAwsCloudMap) VirtualNodeSpecServiceDiscoveryAwsCloudMap {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecServiceDiscoveryAwsCloudMap
+		return ret
 	}).(VirtualNodeSpecServiceDiscoveryAwsCloudMapOutput)
 }
 
@@ -24495,7 +25275,7 @@ func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscov
 }
 
 func (o VirtualNodeSpecServiceDiscoveryDnsOutput) ToVirtualNodeSpecServiceDiscoveryDnsPtrOutputWithContext(ctx context.Context) VirtualNodeSpecServiceDiscoveryDnsPtrOutput {
-	return o.ApplyT(func(v VirtualNodeSpecServiceDiscoveryDns) *VirtualNodeSpecServiceDiscoveryDns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNodeSpecServiceDiscoveryDns) *VirtualNodeSpecServiceDiscoveryDns {
 		return &v
 	}).(VirtualNodeSpecServiceDiscoveryDnsPtrOutput)
 }
@@ -24520,7 +25300,13 @@ func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) ToVirtualNodeSpecServiceDis
 }
 
 func (o VirtualNodeSpecServiceDiscoveryDnsPtrOutput) Elem() VirtualNodeSpecServiceDiscoveryDnsOutput {
-	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryDns) VirtualNodeSpecServiceDiscoveryDns { return *v }).(VirtualNodeSpecServiceDiscoveryDnsOutput)
+	return o.ApplyT(func(v *VirtualNodeSpecServiceDiscoveryDns) VirtualNodeSpecServiceDiscoveryDns {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNodeSpecServiceDiscoveryDns
+		return ret
+	}).(VirtualNodeSpecServiceDiscoveryDnsOutput)
 }
 
 // The DNS host name for your virtual node.
@@ -24628,7 +25414,7 @@ func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutput() VirtualRouterSpe
 }
 
 func (o VirtualRouterSpecOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx context.Context) VirtualRouterSpecPtrOutput {
-	return o.ApplyT(func(v VirtualRouterSpec) *VirtualRouterSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpec) *VirtualRouterSpec {
 		return &v
 	}).(VirtualRouterSpecPtrOutput)
 }
@@ -24654,7 +25440,13 @@ func (o VirtualRouterSpecPtrOutput) ToVirtualRouterSpecPtrOutputWithContext(ctx 
 }
 
 func (o VirtualRouterSpecPtrOutput) Elem() VirtualRouterSpecOutput {
-	return o.ApplyT(func(v *VirtualRouterSpec) VirtualRouterSpec { return *v }).(VirtualRouterSpecOutput)
+	return o.ApplyT(func(v *VirtualRouterSpec) VirtualRouterSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualRouterSpec
+		return ret
+	}).(VirtualRouterSpecOutput)
 }
 
 // The listeners that the virtual router is expected to receive inbound traffic from.
@@ -24761,7 +25553,7 @@ func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerPtrOutput() 
 }
 
 func (o VirtualRouterSpecListenerOutput) ToVirtualRouterSpecListenerPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPtrOutput {
-	return o.ApplyT(func(v VirtualRouterSpecListener) *VirtualRouterSpecListener {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpecListener) *VirtualRouterSpecListener {
 		return &v
 	}).(VirtualRouterSpecListenerPtrOutput)
 }
@@ -24786,7 +25578,13 @@ func (o VirtualRouterSpecListenerPtrOutput) ToVirtualRouterSpecListenerPtrOutput
 }
 
 func (o VirtualRouterSpecListenerPtrOutput) Elem() VirtualRouterSpecListenerOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListener) VirtualRouterSpecListener { return *v }).(VirtualRouterSpecListenerOutput)
+	return o.ApplyT(func(v *VirtualRouterSpecListener) VirtualRouterSpecListener {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualRouterSpecListener
+		return ret
+	}).(VirtualRouterSpecListenerOutput)
 }
 
 // The port mapping information for the listener.
@@ -24896,7 +25694,7 @@ func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerP
 }
 
 func (o VirtualRouterSpecListenerPortMappingOutput) ToVirtualRouterSpecListenerPortMappingPtrOutputWithContext(ctx context.Context) VirtualRouterSpecListenerPortMappingPtrOutput {
-	return o.ApplyT(func(v VirtualRouterSpecListenerPortMapping) *VirtualRouterSpecListenerPortMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualRouterSpecListenerPortMapping) *VirtualRouterSpecListenerPortMapping {
 		return &v
 	}).(VirtualRouterSpecListenerPortMappingPtrOutput)
 }
@@ -24926,7 +25724,13 @@ func (o VirtualRouterSpecListenerPortMappingPtrOutput) ToVirtualRouterSpecListen
 }
 
 func (o VirtualRouterSpecListenerPortMappingPtrOutput) Elem() VirtualRouterSpecListenerPortMappingOutput {
-	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) VirtualRouterSpecListenerPortMapping { return *v }).(VirtualRouterSpecListenerPortMappingOutput)
+	return o.ApplyT(func(v *VirtualRouterSpecListenerPortMapping) VirtualRouterSpecListenerPortMapping {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualRouterSpecListenerPortMapping
+		return ret
+	}).(VirtualRouterSpecListenerPortMappingOutput)
 }
 
 // The port used for the port mapping.
@@ -25042,7 +25846,7 @@ func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutput() VirtualService
 }
 
 func (o VirtualServiceSpecOutput) ToVirtualServiceSpecPtrOutputWithContext(ctx context.Context) VirtualServiceSpecPtrOutput {
-	return o.ApplyT(func(v VirtualServiceSpec) *VirtualServiceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceSpec) *VirtualServiceSpec {
 		return &v
 	}).(VirtualServiceSpecPtrOutput)
 }
@@ -25067,7 +25871,13 @@ func (o VirtualServiceSpecPtrOutput) ToVirtualServiceSpecPtrOutputWithContext(ct
 }
 
 func (o VirtualServiceSpecPtrOutput) Elem() VirtualServiceSpecOutput {
-	return o.ApplyT(func(v *VirtualServiceSpec) VirtualServiceSpec { return *v }).(VirtualServiceSpecOutput)
+	return o.ApplyT(func(v *VirtualServiceSpec) VirtualServiceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualServiceSpec
+		return ret
+	}).(VirtualServiceSpecOutput)
 }
 
 // The App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
@@ -25177,7 +25987,7 @@ func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderPtrOutput(
 }
 
 func (o VirtualServiceSpecProviderOutput) ToVirtualServiceSpecProviderPtrOutputWithContext(ctx context.Context) VirtualServiceSpecProviderPtrOutput {
-	return o.ApplyT(func(v VirtualServiceSpecProvider) *VirtualServiceSpecProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceSpecProvider) *VirtualServiceSpecProvider {
 		return &v
 	}).(VirtualServiceSpecProviderPtrOutput)
 }
@@ -25207,7 +26017,13 @@ func (o VirtualServiceSpecProviderPtrOutput) ToVirtualServiceSpecProviderPtrOutp
 }
 
 func (o VirtualServiceSpecProviderPtrOutput) Elem() VirtualServiceSpecProviderOutput {
-	return o.ApplyT(func(v *VirtualServiceSpecProvider) VirtualServiceSpecProvider { return *v }).(VirtualServiceSpecProviderOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProvider) VirtualServiceSpecProvider {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualServiceSpecProvider
+		return ret
+	}).(VirtualServiceSpecProviderOutput)
 }
 
 // The virtual node associated with a virtual service.
@@ -25323,7 +26139,7 @@ func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProvide
 }
 
 func (o VirtualServiceSpecProviderVirtualNodeOutput) ToVirtualServiceSpecProviderVirtualNodePtrOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualNodePtrOutput {
-	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualNode) *VirtualServiceSpecProviderVirtualNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceSpecProviderVirtualNode) *VirtualServiceSpecProviderVirtualNode {
 		return &v
 	}).(VirtualServiceSpecProviderVirtualNodePtrOutput)
 }
@@ -25348,7 +26164,13 @@ func (o VirtualServiceSpecProviderVirtualNodePtrOutput) ToVirtualServiceSpecProv
 }
 
 func (o VirtualServiceSpecProviderVirtualNodePtrOutput) Elem() VirtualServiceSpecProviderVirtualNodeOutput {
-	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) VirtualServiceSpecProviderVirtualNode { return *v }).(VirtualServiceSpecProviderVirtualNodeOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualNode) VirtualServiceSpecProviderVirtualNode {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualServiceSpecProviderVirtualNode
+		return ret
+	}).(VirtualServiceSpecProviderVirtualNodeOutput)
 }
 
 // The name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
@@ -25454,7 +26276,7 @@ func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProvi
 }
 
 func (o VirtualServiceSpecProviderVirtualRouterOutput) ToVirtualServiceSpecProviderVirtualRouterPtrOutputWithContext(ctx context.Context) VirtualServiceSpecProviderVirtualRouterPtrOutput {
-	return o.ApplyT(func(v VirtualServiceSpecProviderVirtualRouter) *VirtualServiceSpecProviderVirtualRouter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServiceSpecProviderVirtualRouter) *VirtualServiceSpecProviderVirtualRouter {
 		return &v
 	}).(VirtualServiceSpecProviderVirtualRouterPtrOutput)
 }
@@ -25479,7 +26301,13 @@ func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) ToVirtualServiceSpecPr
 }
 
 func (o VirtualServiceSpecProviderVirtualRouterPtrOutput) Elem() VirtualServiceSpecProviderVirtualRouterOutput {
-	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) VirtualServiceSpecProviderVirtualRouter { return *v }).(VirtualServiceSpecProviderVirtualRouterOutput)
+	return o.ApplyT(func(v *VirtualServiceSpecProviderVirtualRouter) VirtualServiceSpecProviderVirtualRouter {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualServiceSpecProviderVirtualRouter
+		return ret
+	}).(VirtualServiceSpecProviderVirtualRouterOutput)
 }
 
 // The name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.

@@ -235,9 +235,7 @@ func (i ApplicationSnapshotMap) ToApplicationSnapshotMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSnapshotMapOutput)
 }
 
-type ApplicationSnapshotOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSnapshotOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationSnapshot)(nil))
@@ -256,14 +254,12 @@ func (o ApplicationSnapshotOutput) ToApplicationSnapshotPtrOutput() ApplicationS
 }
 
 func (o ApplicationSnapshotOutput) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
-	return o.ApplyT(func(v ApplicationSnapshot) *ApplicationSnapshot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSnapshot) *ApplicationSnapshot {
 		return &v
 	}).(ApplicationSnapshotPtrOutput)
 }
 
-type ApplicationSnapshotPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationSnapshotPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSnapshotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationSnapshot)(nil))
@@ -275,6 +271,16 @@ func (o ApplicationSnapshotPtrOutput) ToApplicationSnapshotPtrOutput() Applicati
 
 func (o ApplicationSnapshotPtrOutput) ToApplicationSnapshotPtrOutputWithContext(ctx context.Context) ApplicationSnapshotPtrOutput {
 	return o
+}
+
+func (o ApplicationSnapshotPtrOutput) Elem() ApplicationSnapshotOutput {
+	return o.ApplyT(func(v *ApplicationSnapshot) ApplicationSnapshot {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationSnapshot
+		return ret
+	}).(ApplicationSnapshotOutput)
 }
 
 type ApplicationSnapshotArrayOutput struct{ *pulumi.OutputState }

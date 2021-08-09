@@ -20,5 +20,7 @@ from .model_package_group import *
 from .notebook_instance import *
 from .notebook_instance_lifecycle_configuration import *
 from .user_profile import *
+from .workforce import *
+from .workteam import *
 from ._inputs import *
 from . import outputs

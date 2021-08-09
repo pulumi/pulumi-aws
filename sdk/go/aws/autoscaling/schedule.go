@@ -90,6 +90,8 @@ type Schedule struct {
 	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringOutput `pulumi:"startTime"`
+	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
 }
 
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
@@ -149,6 +151,8 @@ type scheduleState struct {
 	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime *string `pulumi:"startTime"`
+	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 type ScheduleState struct {
@@ -174,6 +178,8 @@ type ScheduleState struct {
 	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringPtrInput
+	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+	TimeZone pulumi.StringPtrInput
 }
 
 func (ScheduleState) ElementType() reflect.Type {
@@ -201,6 +207,8 @@ type scheduleArgs struct {
 	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime *string `pulumi:"startTime"`
+	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // The set of arguments for constructing a Schedule resource.
@@ -225,6 +233,8 @@ type ScheduleArgs struct {
 	// The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
 	// If you try to schedule your action in the past, Auto Scaling returns an error message.
 	StartTime pulumi.StringPtrInput
+	// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+	TimeZone pulumi.StringPtrInput
 }
 
 func (ScheduleArgs) ElementType() reflect.Type {
@@ -329,9 +339,7 @@ func (i ScheduleMap) ToScheduleMapOutputWithContext(ctx context.Context) Schedul
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleMapOutput)
 }
 
-type ScheduleOutput struct {
-	*pulumi.OutputState
-}
+type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Schedule)(nil))
@@ -350,14 +358,12 @@ func (o ScheduleOutput) ToSchedulePtrOutput() SchedulePtrOutput {
 }
 
 func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o.ApplyT(func(v Schedule) *Schedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schedule) *Schedule {
 		return &v
 	}).(SchedulePtrOutput)
 }
 
-type SchedulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (SchedulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Schedule)(nil))
@@ -369,6 +375,16 @@ func (o SchedulePtrOutput) ToSchedulePtrOutput() SchedulePtrOutput {
 
 func (o SchedulePtrOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
 	return o
+}
+
+func (o SchedulePtrOutput) Elem() ScheduleOutput {
+	return o.ApplyT(func(v *Schedule) Schedule {
+		if v != nil {
+			return *v
+		}
+		var ret Schedule
+		return ret
+	}).(ScheduleOutput)
 }
 
 type ScheduleArrayOutput struct{ *pulumi.OutputState }

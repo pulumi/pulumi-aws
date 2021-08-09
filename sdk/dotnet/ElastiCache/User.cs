@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ElastiCache
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
-        /// Access permissions string used for this user.
+        /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
         [Output("accessString")]
         public Output<string> AccessString { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access permissions string used for this user.
+        /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
         [Input("accessString", required: true)]
         public Input<string> AccessString { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access permissions string used for this user.
+        /// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         /// </summary>
         [Input("accessString")]
         public Input<string>? AccessString { get; set; }

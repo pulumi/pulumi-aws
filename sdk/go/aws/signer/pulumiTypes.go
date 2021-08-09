@@ -103,7 +103,7 @@ func (o SigningJobDestinationOutput) ToSigningJobDestinationPtrOutput() SigningJ
 }
 
 func (o SigningJobDestinationOutput) ToSigningJobDestinationPtrOutputWithContext(ctx context.Context) SigningJobDestinationPtrOutput {
-	return o.ApplyT(func(v SigningJobDestination) *SigningJobDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJobDestination) *SigningJobDestination {
 		return &v
 	}).(SigningJobDestinationPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o SigningJobDestinationPtrOutput) ToSigningJobDestinationPtrOutputWithCont
 }
 
 func (o SigningJobDestinationPtrOutput) Elem() SigningJobDestinationOutput {
-	return o.ApplyT(func(v *SigningJobDestination) SigningJobDestination { return *v }).(SigningJobDestinationOutput)
+	return o.ApplyT(func(v *SigningJobDestination) SigningJobDestination {
+		if v != nil {
+			return *v
+		}
+		var ret SigningJobDestination
+		return ret
+	}).(SigningJobDestinationOutput)
 }
 
 // A configuration block describing the S3 Destination object: See S3 Destination below for details.
@@ -238,7 +244,7 @@ func (o SigningJobDestinationS3Output) ToSigningJobDestinationS3PtrOutput() Sign
 }
 
 func (o SigningJobDestinationS3Output) ToSigningJobDestinationS3PtrOutputWithContext(ctx context.Context) SigningJobDestinationS3PtrOutput {
-	return o.ApplyT(func(v SigningJobDestinationS3) *SigningJobDestinationS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJobDestinationS3) *SigningJobDestinationS3 {
 		return &v
 	}).(SigningJobDestinationS3PtrOutput)
 }
@@ -268,7 +274,13 @@ func (o SigningJobDestinationS3PtrOutput) ToSigningJobDestinationS3PtrOutputWith
 }
 
 func (o SigningJobDestinationS3PtrOutput) Elem() SigningJobDestinationS3Output {
-	return o.ApplyT(func(v *SigningJobDestinationS3) SigningJobDestinationS3 { return *v }).(SigningJobDestinationS3Output)
+	return o.ApplyT(func(v *SigningJobDestinationS3) SigningJobDestinationS3 {
+		if v != nil {
+			return *v
+		}
+		var ret SigningJobDestinationS3
+		return ret
+	}).(SigningJobDestinationS3Output)
 }
 
 // Name of the S3 bucket.
@@ -693,7 +705,7 @@ func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutput() SigningJobSourcePt
 }
 
 func (o SigningJobSourceOutput) ToSigningJobSourcePtrOutputWithContext(ctx context.Context) SigningJobSourcePtrOutput {
-	return o.ApplyT(func(v SigningJobSource) *SigningJobSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJobSource) *SigningJobSource {
 		return &v
 	}).(SigningJobSourcePtrOutput)
 }
@@ -718,7 +730,13 @@ func (o SigningJobSourcePtrOutput) ToSigningJobSourcePtrOutputWithContext(ctx co
 }
 
 func (o SigningJobSourcePtrOutput) Elem() SigningJobSourceOutput {
-	return o.ApplyT(func(v *SigningJobSource) SigningJobSource { return *v }).(SigningJobSourceOutput)
+	return o.ApplyT(func(v *SigningJobSource) SigningJobSource {
+		if v != nil {
+			return *v
+		}
+		var ret SigningJobSource
+		return ret
+	}).(SigningJobSourceOutput)
 }
 
 // A configuration block describing the S3 Destination object: See S3 Destination below for details.
@@ -832,7 +850,7 @@ func (o SigningJobSourceS3Output) ToSigningJobSourceS3PtrOutput() SigningJobSour
 }
 
 func (o SigningJobSourceS3Output) ToSigningJobSourceS3PtrOutputWithContext(ctx context.Context) SigningJobSourceS3PtrOutput {
-	return o.ApplyT(func(v SigningJobSourceS3) *SigningJobSourceS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJobSourceS3) *SigningJobSourceS3 {
 		return &v
 	}).(SigningJobSourceS3PtrOutput)
 }
@@ -867,7 +885,13 @@ func (o SigningJobSourceS3PtrOutput) ToSigningJobSourceS3PtrOutputWithContext(ct
 }
 
 func (o SigningJobSourceS3PtrOutput) Elem() SigningJobSourceS3Output {
-	return o.ApplyT(func(v *SigningJobSourceS3) SigningJobSourceS3 { return *v }).(SigningJobSourceS3Output)
+	return o.ApplyT(func(v *SigningJobSourceS3) SigningJobSourceS3 {
+		if v != nil {
+			return *v
+		}
+		var ret SigningJobSourceS3
+		return ret
+	}).(SigningJobSourceS3Output)
 }
 
 // Name of the S3 bucket.
@@ -1099,10 +1123,11 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 }
 
 func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureValidityPeriodPtrOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodPtrOutput {
-	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningProfileSignatureValidityPeriod) *SigningProfileSignatureValidityPeriod {
 		return &v
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
+
 func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1126,7 +1151,13 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) ToSigningProfileSignatur
 }
 
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSignatureValidityPeriodOutput {
-	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) SigningProfileSignatureValidityPeriod { return *v }).(SigningProfileSignatureValidityPeriodOutput)
+	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) SigningProfileSignatureValidityPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret SigningProfileSignatureValidityPeriod
+		return ret
+	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrOutput {

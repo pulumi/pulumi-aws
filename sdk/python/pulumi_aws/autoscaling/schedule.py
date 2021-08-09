@@ -20,7 +20,8 @@ class ScheduleArgs:
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  recurrence: Optional[pulumi.Input[str]] = None,
-                 start_time: Optional[pulumi.Input[str]] = None):
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input[str] autoscaling_group_name: The name or Amazon Resource Name (ARN) of the Auto Scaling group.
@@ -35,6 +36,7 @@ class ScheduleArgs:
         :param pulumi.Input[str] recurrence: The time when recurring future actions will start. Start time is specified by the user following the Unix cron syntax format.
         :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
+        :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
@@ -50,6 +52,8 @@ class ScheduleArgs:
             pulumi.set(__self__, "recurrence", recurrence)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="autoscalingGroupName")
@@ -151,6 +155,18 @@ class ScheduleArgs:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
 
 @pulumi.input_type
 class _ScheduleState:
@@ -163,7 +179,8 @@ class _ScheduleState:
                  min_size: Optional[pulumi.Input[int]] = None,
                  recurrence: Optional[pulumi.Input[str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[str]] = None,
-                 start_time: Optional[pulumi.Input[str]] = None):
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Schedule resources.
         :param pulumi.Input[str] arn: The ARN assigned by AWS to the autoscaling schedule.
@@ -179,6 +196,7 @@ class _ScheduleState:
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
         :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
+        :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -198,6 +216,8 @@ class _ScheduleState:
             pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -311,6 +331,18 @@ class _ScheduleState:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
 
 class Schedule(pulumi.CustomResource):
     @overload
@@ -325,6 +357,7 @@ class Schedule(pulumi.CustomResource):
                  recurrence: Optional[pulumi.Input[str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides an AutoScaling Schedule resource.
@@ -375,6 +408,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
         :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
+        :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
         ...
     @overload
@@ -440,6 +474,7 @@ class Schedule(pulumi.CustomResource):
                  recurrence: Optional[pulumi.Input[str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -464,6 +499,7 @@ class Schedule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scheduled_action_name'")
             __props__.__dict__["scheduled_action_name"] = scheduled_action_name
             __props__.__dict__["start_time"] = start_time
+            __props__.__dict__["time_zone"] = time_zone
             __props__.__dict__["arn"] = None
         super(Schedule, __self__).__init__(
             'aws:autoscaling/schedule:Schedule',
@@ -483,7 +519,8 @@ class Schedule(pulumi.CustomResource):
             min_size: Optional[pulumi.Input[int]] = None,
             recurrence: Optional[pulumi.Input[str]] = None,
             scheduled_action_name: Optional[pulumi.Input[str]] = None,
-            start_time: Optional[pulumi.Input[str]] = None) -> 'Schedule':
+            start_time: Optional[pulumi.Input[str]] = None,
+            time_zone: Optional[pulumi.Input[str]] = None) -> 'Schedule':
         """
         Get an existing Schedule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -504,6 +541,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] scheduled_action_name: The name of this scaling action.
         :param pulumi.Input[str] start_time: The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only (for example, 2014-06-01T00:00:00Z ).
                If you try to schedule your action in the past, Auto Scaling returns an error message.
+        :param pulumi.Input[str] time_zone: The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -518,6 +556,7 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["recurrence"] = recurrence
         __props__.__dict__["scheduled_action_name"] = scheduled_action_name
         __props__.__dict__["start_time"] = start_time
+        __props__.__dict__["time_zone"] = time_zone
         return Schedule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -595,4 +634,12 @@ class Schedule(pulumi.CustomResource):
         If you try to schedule your action in the past, Auto Scaling returns an error message.
         """
         return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> pulumi.Output[str]:
+        """
+        The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        """
+        return pulumi.get(self, "time_zone")
 

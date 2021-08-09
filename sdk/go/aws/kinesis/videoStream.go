@@ -286,9 +286,7 @@ func (i VideoStreamMap) ToVideoStreamMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamMapOutput)
 }
 
-type VideoStreamOutput struct {
-	*pulumi.OutputState
-}
+type VideoStreamOutput struct{ *pulumi.OutputState }
 
 func (VideoStreamOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VideoStream)(nil))
@@ -307,14 +305,12 @@ func (o VideoStreamOutput) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
 }
 
 func (o VideoStreamOutput) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
-	return o.ApplyT(func(v VideoStream) *VideoStream {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VideoStream) *VideoStream {
 		return &v
 	}).(VideoStreamPtrOutput)
 }
 
-type VideoStreamPtrOutput struct {
-	*pulumi.OutputState
-}
+type VideoStreamPtrOutput struct{ *pulumi.OutputState }
 
 func (VideoStreamPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VideoStream)(nil))
@@ -326,6 +322,16 @@ func (o VideoStreamPtrOutput) ToVideoStreamPtrOutput() VideoStreamPtrOutput {
 
 func (o VideoStreamPtrOutput) ToVideoStreamPtrOutputWithContext(ctx context.Context) VideoStreamPtrOutput {
 	return o
+}
+
+func (o VideoStreamPtrOutput) Elem() VideoStreamOutput {
+	return o.ApplyT(func(v *VideoStream) VideoStream {
+		if v != nil {
+			return *v
+		}
+		var ret VideoStream
+		return ret
+	}).(VideoStreamOutput)
 }
 
 type VideoStreamArrayOutput struct{ *pulumi.OutputState }

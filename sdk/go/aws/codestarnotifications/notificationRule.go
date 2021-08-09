@@ -326,9 +326,7 @@ func (i NotificationRuleMap) ToNotificationRuleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleMapOutput)
 }
 
-type NotificationRuleOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotificationRule)(nil))
@@ -347,14 +345,12 @@ func (o NotificationRuleOutput) ToNotificationRulePtrOutput() NotificationRulePt
 }
 
 func (o NotificationRuleOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
-	return o.ApplyT(func(v NotificationRule) *NotificationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRule) *NotificationRule {
 		return &v
 	}).(NotificationRulePtrOutput)
 }
 
-type NotificationRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type NotificationRulePtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotificationRule)(nil))
@@ -366,6 +362,16 @@ func (o NotificationRulePtrOutput) ToNotificationRulePtrOutput() NotificationRul
 
 func (o NotificationRulePtrOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
 	return o
+}
+
+func (o NotificationRulePtrOutput) Elem() NotificationRuleOutput {
+	return o.ApplyT(func(v *NotificationRule) NotificationRule {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationRule
+		return ret
+	}).(NotificationRuleOutput)
 }
 
 type NotificationRuleArrayOutput struct{ *pulumi.OutputState }

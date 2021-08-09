@@ -303,9 +303,7 @@ func (i FargateProfileMap) ToFargateProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FargateProfileMapOutput)
 }
 
-type FargateProfileOutput struct {
-	*pulumi.OutputState
-}
+type FargateProfileOutput struct{ *pulumi.OutputState }
 
 func (FargateProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FargateProfile)(nil))
@@ -324,14 +322,12 @@ func (o FargateProfileOutput) ToFargateProfilePtrOutput() FargateProfilePtrOutpu
 }
 
 func (o FargateProfileOutput) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
-	return o.ApplyT(func(v FargateProfile) *FargateProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FargateProfile) *FargateProfile {
 		return &v
 	}).(FargateProfilePtrOutput)
 }
 
-type FargateProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type FargateProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (FargateProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FargateProfile)(nil))
@@ -343,6 +339,16 @@ func (o FargateProfilePtrOutput) ToFargateProfilePtrOutput() FargateProfilePtrOu
 
 func (o FargateProfilePtrOutput) ToFargateProfilePtrOutputWithContext(ctx context.Context) FargateProfilePtrOutput {
 	return o
+}
+
+func (o FargateProfilePtrOutput) Elem() FargateProfileOutput {
+	return o.ApplyT(func(v *FargateProfile) FargateProfile {
+		if v != nil {
+			return *v
+		}
+		var ret FargateProfile
+		return ret
+	}).(FargateProfileOutput)
 }
 
 type FargateProfileArrayOutput struct{ *pulumi.OutputState }

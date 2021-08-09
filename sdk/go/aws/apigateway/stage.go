@@ -385,9 +385,7 @@ func (i StageMap) ToStageMapOutputWithContext(ctx context.Context) StageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StageMapOutput)
 }
 
-type StageOutput struct {
-	*pulumi.OutputState
-}
+type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Stage)(nil))
@@ -406,14 +404,12 @@ func (o StageOutput) ToStagePtrOutput() StagePtrOutput {
 }
 
 func (o StageOutput) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
-	return o.ApplyT(func(v Stage) *Stage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Stage) *Stage {
 		return &v
 	}).(StagePtrOutput)
 }
 
-type StagePtrOutput struct {
-	*pulumi.OutputState
-}
+type StagePtrOutput struct{ *pulumi.OutputState }
 
 func (StagePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Stage)(nil))
@@ -425,6 +421,16 @@ func (o StagePtrOutput) ToStagePtrOutput() StagePtrOutput {
 
 func (o StagePtrOutput) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
 	return o
+}
+
+func (o StagePtrOutput) Elem() StageOutput {
+	return o.ApplyT(func(v *Stage) Stage {
+		if v != nil {
+			return *v
+		}
+		var ret Stage
+		return ret
+	}).(StageOutput)
 }
 
 type StageArrayOutput struct{ *pulumi.OutputState }

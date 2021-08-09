@@ -204,9 +204,7 @@ func (i MemberAccountAssociationMap) ToMemberAccountAssociationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(MemberAccountAssociationMapOutput)
 }
 
-type MemberAccountAssociationOutput struct {
-	*pulumi.OutputState
-}
+type MemberAccountAssociationOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MemberAccountAssociation)(nil))
@@ -225,14 +223,12 @@ func (o MemberAccountAssociationOutput) ToMemberAccountAssociationPtrOutput() Me
 }
 
 func (o MemberAccountAssociationOutput) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
-	return o.ApplyT(func(v MemberAccountAssociation) *MemberAccountAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberAccountAssociation) *MemberAccountAssociation {
 		return &v
 	}).(MemberAccountAssociationPtrOutput)
 }
 
-type MemberAccountAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type MemberAccountAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (MemberAccountAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MemberAccountAssociation)(nil))
@@ -244,6 +240,16 @@ func (o MemberAccountAssociationPtrOutput) ToMemberAccountAssociationPtrOutput()
 
 func (o MemberAccountAssociationPtrOutput) ToMemberAccountAssociationPtrOutputWithContext(ctx context.Context) MemberAccountAssociationPtrOutput {
 	return o
+}
+
+func (o MemberAccountAssociationPtrOutput) Elem() MemberAccountAssociationOutput {
+	return o.ApplyT(func(v *MemberAccountAssociation) MemberAccountAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret MemberAccountAssociation
+		return ret
+	}).(MemberAccountAssociationOutput)
 }
 
 type MemberAccountAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -179,6 +179,12 @@ namespace Pulumi.Aws.Rds
         public Output<bool?> CopyTagsToSnapshot { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// </summary>
+        [Output("customerOwnedIpEnabled")]
+        public Output<bool?> CustomerOwnedIpEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Name of `DB subnet group`. DB instance will
         /// be created in the VPC associated with the DB subnet group. If unspecified, will
         /// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -363,6 +369,13 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        /// </summary>
+        [Output("ncharCharacterSetName")]
+        public Output<string> NcharCharacterSetName { get; private set; } = null!;
 
         /// <summary>
         /// Name of the DB option group to associate.
@@ -656,6 +669,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
+        /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// </summary>
+        [Input("customerOwnedIpEnabled")]
+        public Input<bool>? CustomerOwnedIpEnabled { get; set; }
+
+        /// <summary>
         /// Name of `DB subnet group`. DB instance will
         /// be created in the VPC associated with the DB subnet group. If unspecified, will
         /// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -827,6 +846,13 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        /// </summary>
+        [Input("ncharCharacterSetName")]
+        public Input<string>? NcharCharacterSetName { get; set; }
 
         /// <summary>
         /// Name of the DB option group to associate.
@@ -1102,6 +1128,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? CopyTagsToSnapshot { get; set; }
 
         /// <summary>
+        /// Indicates whether to enable a customer-owned IP address (CoIP) for an RDS on Outposts DB instance. See [CoIP for RDS on Outposts](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html#rds-on-outposts.coip) for more information.
+        /// </summary>
+        [Input("customerOwnedIpEnabled")]
+        public Input<bool>? CustomerOwnedIpEnabled { get; set; }
+
+        /// <summary>
         /// Name of `DB subnet group`. DB instance will
         /// be created in the VPC associated with the DB subnet group. If unspecified, will
         /// be created in the `default` VPC, or in EC2 Classic, if available. When working
@@ -1292,6 +1324,13 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
+        /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
+        /// </summary>
+        [Input("ncharCharacterSetName")]
+        public Input<string>? NcharCharacterSetName { get; set; }
 
         /// <summary>
         /// Name of the DB option group to associate.

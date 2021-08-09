@@ -375,7 +375,7 @@ func (o ManagedPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 type ManagedPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedPolicyPtrOutput) ElementType() reflect.Type {
-	return managedPolicyPtrType
+	return reflect.TypeOf((**ManagedPolicy)(nil)).Elem()
 }
 
 func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutput {
@@ -384,6 +384,16 @@ func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutput() ManagedPolicyPtrOutpu
 
 func (o ManagedPolicyPtrOutput) ToManagedPolicyPtrOutputWithContext(ctx context.Context) ManagedPolicyPtrOutput {
 	return o
+}
+
+func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {
+	return o.ApplyT(func(v *ManagedPolicy) ManagedPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedPolicy
+		return ret
+	}).(ManagedPolicyOutput)
 }
 
 func (o ManagedPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -398,16 +408,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedPolicyPtrOutput) Elem() ManagedPolicyOutput {
-	return o.ApplyT(func(v *ManagedPolicy) ManagedPolicy {
-		var ret ManagedPolicy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ManagedPolicyOutput)
 }
 
 // ManagedPolicyInput is an input type that accepts ManagedPolicyArgs and ManagedPolicyOutput values.

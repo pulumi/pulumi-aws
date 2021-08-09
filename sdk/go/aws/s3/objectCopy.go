@@ -633,9 +633,7 @@ func (i ObjectCopyMap) ToObjectCopyMapOutputWithContext(ctx context.Context) Obj
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyMapOutput)
 }
 
-type ObjectCopyOutput struct {
-	*pulumi.OutputState
-}
+type ObjectCopyOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ObjectCopy)(nil))
@@ -654,14 +652,12 @@ func (o ObjectCopyOutput) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
 }
 
 func (o ObjectCopyOutput) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
-	return o.ApplyT(func(v ObjectCopy) *ObjectCopy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectCopy) *ObjectCopy {
 		return &v
 	}).(ObjectCopyPtrOutput)
 }
 
-type ObjectCopyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ObjectCopyPtrOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ObjectCopy)(nil))
@@ -673,6 +669,16 @@ func (o ObjectCopyPtrOutput) ToObjectCopyPtrOutput() ObjectCopyPtrOutput {
 
 func (o ObjectCopyPtrOutput) ToObjectCopyPtrOutputWithContext(ctx context.Context) ObjectCopyPtrOutput {
 	return o
+}
+
+func (o ObjectCopyPtrOutput) Elem() ObjectCopyOutput {
+	return o.ApplyT(func(v *ObjectCopy) ObjectCopy {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectCopy
+		return ret
+	}).(ObjectCopyOutput)
 }
 
 type ObjectCopyArrayOutput struct{ *pulumi.OutputState }

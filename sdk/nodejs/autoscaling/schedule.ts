@@ -109,6 +109,10 @@ export class Schedule extends pulumi.CustomResource {
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
     public readonly startTime!: pulumi.Output<string>;
+    /**
+     * The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+     */
+    public readonly timeZone!: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -132,6 +136,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["recurrence"] = state ? state.recurrence : undefined;
             inputs["scheduledActionName"] = state ? state.scheduledActionName : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
+            inputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -148,6 +153,7 @@ export class Schedule extends pulumi.CustomResource {
             inputs["recurrence"] = args ? args.recurrence : undefined;
             inputs["scheduledActionName"] = args ? args.scheduledActionName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["timeZone"] = args ? args.timeZone : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -201,6 +207,10 @@ export interface ScheduleState {
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
     startTime?: pulumi.Input<string>;
+    /**
+     * The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+     */
+    timeZone?: pulumi.Input<string>;
 }
 
 /**
@@ -243,4 +253,8 @@ export interface ScheduleArgs {
      * If you try to schedule your action in the past, Auto Scaling returns an error message.
      */
     startTime?: pulumi.Input<string>;
+    /**
+     * The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+     */
+    timeZone?: pulumi.Input<string>;
 }

@@ -520,9 +520,7 @@ func (i RecordMap) ToRecordMapOutputWithContext(ctx context.Context) RecordMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(RecordMapOutput)
 }
 
-type RecordOutput struct {
-	*pulumi.OutputState
-}
+type RecordOutput struct{ *pulumi.OutputState }
 
 func (RecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Record)(nil))
@@ -541,14 +539,12 @@ func (o RecordOutput) ToRecordPtrOutput() RecordPtrOutput {
 }
 
 func (o RecordOutput) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
-	return o.ApplyT(func(v Record) *Record {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Record) *Record {
 		return &v
 	}).(RecordPtrOutput)
 }
 
-type RecordPtrOutput struct {
-	*pulumi.OutputState
-}
+type RecordPtrOutput struct{ *pulumi.OutputState }
 
 func (RecordPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Record)(nil))
@@ -560,6 +556,16 @@ func (o RecordPtrOutput) ToRecordPtrOutput() RecordPtrOutput {
 
 func (o RecordPtrOutput) ToRecordPtrOutputWithContext(ctx context.Context) RecordPtrOutput {
 	return o
+}
+
+func (o RecordPtrOutput) Elem() RecordOutput {
+	return o.ApplyT(func(v *Record) Record {
+		if v != nil {
+			return *v
+		}
+		var ret Record
+		return ret
+	}).(RecordOutput)
 }
 
 type RecordArrayOutput struct{ *pulumi.OutputState }

@@ -331,7 +331,7 @@ func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutpu
 }
 
 func (o ReplicationGroupClusterModeOutput) ToReplicationGroupClusterModePtrOutputWithContext(ctx context.Context) ReplicationGroupClusterModePtrOutput {
-	return o.ApplyT(func(v ReplicationGroupClusterMode) *ReplicationGroupClusterMode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroupClusterMode) *ReplicationGroupClusterMode {
 		return &v
 	}).(ReplicationGroupClusterModePtrOutput)
 }
@@ -361,7 +361,13 @@ func (o ReplicationGroupClusterModePtrOutput) ToReplicationGroupClusterModePtrOu
 }
 
 func (o ReplicationGroupClusterModePtrOutput) Elem() ReplicationGroupClusterModeOutput {
-	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode { return *v }).(ReplicationGroupClusterModeOutput)
+	return o.ApplyT(func(v *ReplicationGroupClusterMode) ReplicationGroupClusterMode {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroupClusterMode
+		return ret
+	}).(ReplicationGroupClusterModeOutput)
 }
 
 // Number of node groups (shards) for this Redis replication group. Changing this number will trigger an online resizing operation before other settings modifications. Required unless `globalReplicationGroupId` is set.

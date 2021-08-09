@@ -574,7 +574,7 @@ func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPt
 }
 
 func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
-	return o.ApplyT(func(v UserPoolAccountRecoverySetting) *UserPoolAccountRecoverySetting {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAccountRecoverySetting) *UserPoolAccountRecoverySetting {
 		return &v
 	}).(UserPoolAccountRecoverySettingPtrOutput)
 }
@@ -601,7 +601,13 @@ func (o UserPoolAccountRecoverySettingPtrOutput) ToUserPoolAccountRecoverySettin
 }
 
 func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoverySettingOutput {
-	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) UserPoolAccountRecoverySetting { return *v }).(UserPoolAccountRecoverySettingOutput)
+	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) UserPoolAccountRecoverySetting {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolAccountRecoverySetting
+		return ret
+	}).(UserPoolAccountRecoverySettingOutput)
 }
 
 // List of Account Recovery Options of the following structure:
@@ -817,7 +823,7 @@ func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigPtrO
 }
 
 func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigPtrOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigPtrOutput {
-	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfig {
 		return &v
 	}).(UserPoolAdminCreateUserConfigPtrOutput)
 }
@@ -849,7 +855,13 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) ToUserPoolAdminCreateUserConfigP
 }
 
 func (o UserPoolAdminCreateUserConfigPtrOutput) Elem() UserPoolAdminCreateUserConfigOutput {
-	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) UserPoolAdminCreateUserConfig { return *v }).(UserPoolAdminCreateUserConfigOutput)
+	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) UserPoolAdminCreateUserConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolAdminCreateUserConfig
+		return ret
+	}).(UserPoolAdminCreateUserConfigOutput)
 }
 
 // Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
@@ -973,7 +985,7 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdmi
 }
 
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplateOutput) ToUserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput {
-	return o.ApplyT(func(v UserPoolAdminCreateUserConfigInviteMessageTemplate) *UserPoolAdminCreateUserConfigInviteMessageTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAdminCreateUserConfigInviteMessageTemplate) *UserPoolAdminCreateUserConfigInviteMessageTemplate {
 		return &v
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput)
 }
@@ -1009,7 +1021,11 @@ func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) ToUserPoolA
 
 func (o UserPoolAdminCreateUserConfigInviteMessageTemplatePtrOutput) Elem() UserPoolAdminCreateUserConfigInviteMessageTemplateOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfigInviteMessageTemplate) UserPoolAdminCreateUserConfigInviteMessageTemplate {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolAdminCreateUserConfigInviteMessageTemplate
+		return ret
 	}).(UserPoolAdminCreateUserConfigInviteMessageTemplateOutput)
 }
 
@@ -1152,7 +1168,7 @@ func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsCon
 }
 
 func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolClientAnalyticsConfiguration) *UserPoolClientAnalyticsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientAnalyticsConfiguration) *UserPoolClientAnalyticsConfiguration {
 		return &v
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }
@@ -1197,7 +1213,13 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToUserPoolClientAnalytics
 }
 
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnalyticsConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) UserPoolClientAnalyticsConfiguration { return *v }).(UserPoolClientAnalyticsConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolClientAnalyticsConfiguration) UserPoolClientAnalyticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientAnalyticsConfiguration
+		return ret
+	}).(UserPoolClientAnalyticsConfigurationOutput)
 }
 
 // Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
@@ -1351,7 +1373,7 @@ func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUni
 }
 
 func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
-	return o.ApplyT(func(v UserPoolClientTokenValidityUnits) *UserPoolClientTokenValidityUnits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientTokenValidityUnits) *UserPoolClientTokenValidityUnits {
 		return &v
 	}).(UserPoolClientTokenValidityUnitsPtrOutput)
 }
@@ -1386,7 +1408,13 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidity
 }
 
 func (o UserPoolClientTokenValidityUnitsPtrOutput) Elem() UserPoolClientTokenValidityUnitsOutput {
-	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) UserPoolClientTokenValidityUnits { return *v }).(UserPoolClientTokenValidityUnitsOutput)
+	return o.ApplyT(func(v *UserPoolClientTokenValidityUnits) UserPoolClientTokenValidityUnits {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolClientTokenValidityUnits
+		return ret
+	}).(UserPoolClientTokenValidityUnitsOutput)
 }
 
 // Time unit in for the value in `accessTokenValidity`, defaults to `hours`.
@@ -1516,7 +1544,7 @@ func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationPtrOutpu
 }
 
 func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDeviceConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolDeviceConfiguration) *UserPoolDeviceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDeviceConfiguration) *UserPoolDeviceConfiguration {
 		return &v
 	}).(UserPoolDeviceConfigurationPtrOutput)
 }
@@ -1546,7 +1574,13 @@ func (o UserPoolDeviceConfigurationPtrOutput) ToUserPoolDeviceConfigurationPtrOu
 }
 
 func (o UserPoolDeviceConfigurationPtrOutput) Elem() UserPoolDeviceConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolDeviceConfiguration) UserPoolDeviceConfiguration { return *v }).(UserPoolDeviceConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolDeviceConfiguration) UserPoolDeviceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDeviceConfiguration
+		return ret
+	}).(UserPoolDeviceConfigurationOutput)
 }
 
 // Whether a challenge is required on a new device. Only applicable to a new device.
@@ -1678,7 +1712,7 @@ func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutput(
 }
 
 func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolEmailConfiguration) *UserPoolEmailConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolEmailConfiguration) *UserPoolEmailConfiguration {
 		return &v
 	}).(UserPoolEmailConfigurationPtrOutput)
 }
@@ -1723,7 +1757,13 @@ func (o UserPoolEmailConfigurationPtrOutput) ToUserPoolEmailConfigurationPtrOutp
 }
 
 func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolEmailConfiguration) UserPoolEmailConfiguration { return *v }).(UserPoolEmailConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolEmailConfiguration) UserPoolEmailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolEmailConfiguration
+		return ret
+	}).(UserPoolEmailConfigurationOutput)
 }
 
 // Email configuration set name from SES.
@@ -1917,7 +1957,7 @@ func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigPtrOutput() UserPoolLa
 }
 
 func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolLambdaConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolLambdaConfig) *UserPoolLambdaConfig {
 		return &v
 	}).(UserPoolLambdaConfigPtrOutput)
 }
@@ -2002,7 +2042,13 @@ func (o UserPoolLambdaConfigPtrOutput) ToUserPoolLambdaConfigPtrOutputWithContex
 }
 
 func (o UserPoolLambdaConfigPtrOutput) Elem() UserPoolLambdaConfigOutput {
-	return o.ApplyT(func(v *UserPoolLambdaConfig) UserPoolLambdaConfig { return *v }).(UserPoolLambdaConfigOutput)
+	return o.ApplyT(func(v *UserPoolLambdaConfig) UserPoolLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolLambdaConfig
+		return ret
+	}).(UserPoolLambdaConfigOutput)
 }
 
 // ARN of the lambda creating an authentication challenge.
@@ -2232,7 +2278,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCusto
 }
 
 func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomEmailSenderPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) *UserPoolLambdaConfigCustomEmailSender {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolLambdaConfigCustomEmailSender) *UserPoolLambdaConfigCustomEmailSender {
 		return &v
 	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
 }
@@ -2262,7 +2308,13 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) ToUserPoolLambdaConfigCu
 }
 
 func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) Elem() UserPoolLambdaConfigCustomEmailSenderOutput {
-	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) UserPoolLambdaConfigCustomEmailSender { return *v }).(UserPoolLambdaConfigCustomEmailSenderOutput)
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) UserPoolLambdaConfigCustomEmailSender {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolLambdaConfigCustomEmailSender
+		return ret
+	}).(UserPoolLambdaConfigCustomEmailSenderOutput)
 }
 
 // he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
@@ -2382,7 +2434,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomS
 }
 
 func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigCustomSmsSenderPtrOutput {
-	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) *UserPoolLambdaConfigCustomSmsSender {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolLambdaConfigCustomSmsSender) *UserPoolLambdaConfigCustomSmsSender {
 		return &v
 	}).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
 }
@@ -2412,7 +2464,13 @@ func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) ToUserPoolLambdaConfigCust
 }
 
 func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) Elem() UserPoolLambdaConfigCustomSmsSenderOutput {
-	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) UserPoolLambdaConfigCustomSmsSender { return *v }).(UserPoolLambdaConfigCustomSmsSenderOutput)
+	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) UserPoolLambdaConfigCustomSmsSender {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolLambdaConfigCustomSmsSender
+		return ret
+	}).(UserPoolLambdaConfigCustomSmsSenderOutput)
 }
 
 // he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
@@ -2548,7 +2606,7 @@ func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyPtrOutput() UserPo
 }
 
 func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPoolPasswordPolicyPtrOutput {
-	return o.ApplyT(func(v UserPoolPasswordPolicy) *UserPoolPasswordPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolPasswordPolicy) *UserPoolPasswordPolicy {
 		return &v
 	}).(UserPoolPasswordPolicyPtrOutput)
 }
@@ -2598,7 +2656,13 @@ func (o UserPoolPasswordPolicyPtrOutput) ToUserPoolPasswordPolicyPtrOutputWithCo
 }
 
 func (o UserPoolPasswordPolicyPtrOutput) Elem() UserPoolPasswordPolicyOutput {
-	return o.ApplyT(func(v *UserPoolPasswordPolicy) UserPoolPasswordPolicy { return *v }).(UserPoolPasswordPolicyOutput)
+	return o.ApplyT(func(v *UserPoolPasswordPolicy) UserPoolPasswordPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolPasswordPolicy
+		return ret
+	}).(UserPoolPasswordPolicyOutput)
 }
 
 // Minimum length of the password policy that you have set.
@@ -2909,7 +2973,7 @@ func (o UserPoolSchemaNumberAttributeConstraintsOutput) ToUserPoolSchemaNumberAt
 }
 
 func (o UserPoolSchemaNumberAttributeConstraintsOutput) ToUserPoolSchemaNumberAttributeConstraintsPtrOutputWithContext(ctx context.Context) UserPoolSchemaNumberAttributeConstraintsPtrOutput {
-	return o.ApplyT(func(v UserPoolSchemaNumberAttributeConstraints) *UserPoolSchemaNumberAttributeConstraints {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSchemaNumberAttributeConstraints) *UserPoolSchemaNumberAttributeConstraints {
 		return &v
 	}).(UserPoolSchemaNumberAttributeConstraintsPtrOutput)
 }
@@ -2939,7 +3003,13 @@ func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) ToUserPoolSchemaNumbe
 }
 
 func (o UserPoolSchemaNumberAttributeConstraintsPtrOutput) Elem() UserPoolSchemaNumberAttributeConstraintsOutput {
-	return o.ApplyT(func(v *UserPoolSchemaNumberAttributeConstraints) UserPoolSchemaNumberAttributeConstraints { return *v }).(UserPoolSchemaNumberAttributeConstraintsOutput)
+	return o.ApplyT(func(v *UserPoolSchemaNumberAttributeConstraints) UserPoolSchemaNumberAttributeConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSchemaNumberAttributeConstraints
+		return ret
+	}).(UserPoolSchemaNumberAttributeConstraintsOutput)
 }
 
 // Maximum value of an attribute that is of the number data type.
@@ -3059,7 +3129,7 @@ func (o UserPoolSchemaStringAttributeConstraintsOutput) ToUserPoolSchemaStringAt
 }
 
 func (o UserPoolSchemaStringAttributeConstraintsOutput) ToUserPoolSchemaStringAttributeConstraintsPtrOutputWithContext(ctx context.Context) UserPoolSchemaStringAttributeConstraintsPtrOutput {
-	return o.ApplyT(func(v UserPoolSchemaStringAttributeConstraints) *UserPoolSchemaStringAttributeConstraints {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSchemaStringAttributeConstraints) *UserPoolSchemaStringAttributeConstraints {
 		return &v
 	}).(UserPoolSchemaStringAttributeConstraintsPtrOutput)
 }
@@ -3089,7 +3159,13 @@ func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) ToUserPoolSchemaStrin
 }
 
 func (o UserPoolSchemaStringAttributeConstraintsPtrOutput) Elem() UserPoolSchemaStringAttributeConstraintsOutput {
-	return o.ApplyT(func(v *UserPoolSchemaStringAttributeConstraints) UserPoolSchemaStringAttributeConstraints { return *v }).(UserPoolSchemaStringAttributeConstraintsOutput)
+	return o.ApplyT(func(v *UserPoolSchemaStringAttributeConstraints) UserPoolSchemaStringAttributeConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSchemaStringAttributeConstraints
+		return ret
+	}).(UserPoolSchemaStringAttributeConstraintsOutput)
 }
 
 // Maximum length of an attribute value of the string type.
@@ -3209,7 +3285,7 @@ func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutput() Us
 }
 
 func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSmsConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolSmsConfiguration) *UserPoolSmsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSmsConfiguration) *UserPoolSmsConfiguration {
 		return &v
 	}).(UserPoolSmsConfigurationPtrOutput)
 }
@@ -3239,7 +3315,13 @@ func (o UserPoolSmsConfigurationPtrOutput) ToUserPoolSmsConfigurationPtrOutputWi
 }
 
 func (o UserPoolSmsConfigurationPtrOutput) Elem() UserPoolSmsConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolSmsConfiguration) UserPoolSmsConfiguration { return *v }).(UserPoolSmsConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolSmsConfiguration) UserPoolSmsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSmsConfiguration
+		return ret
+	}).(UserPoolSmsConfigurationOutput)
 }
 
 // External ID used in IAM role trust relationships. For more information about using external IDs, see [How to Use an External ID When Granting Access to Your AWS Resources to a Third Party](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html).
@@ -3355,7 +3437,7 @@ func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaC
 }
 
 func (o UserPoolSoftwareTokenMfaConfigurationOutput) ToUserPoolSoftwareTokenMfaConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSoftwareTokenMfaConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolSoftwareTokenMfaConfiguration) *UserPoolSoftwareTokenMfaConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSoftwareTokenMfaConfiguration) *UserPoolSoftwareTokenMfaConfiguration {
 		return &v
 	}).(UserPoolSoftwareTokenMfaConfigurationPtrOutput)
 }
@@ -3380,7 +3462,13 @@ func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) ToUserPoolSoftwareTokenM
 }
 
 func (o UserPoolSoftwareTokenMfaConfigurationPtrOutput) Elem() UserPoolSoftwareTokenMfaConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolSoftwareTokenMfaConfiguration) UserPoolSoftwareTokenMfaConfiguration { return *v }).(UserPoolSoftwareTokenMfaConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolSoftwareTokenMfaConfiguration) UserPoolSoftwareTokenMfaConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSoftwareTokenMfaConfiguration
+		return ret
+	}).(UserPoolSoftwareTokenMfaConfigurationOutput)
 }
 
 // Boolean whether to enable software token Multi-Factor (MFA) tokens, such as Time-based One-Time Password (TOTP). To disable software token MFA When `smsConfiguration` is not present, the `mfaConfiguration` argument must be set to `OFF` and the `softwareTokenMfaConfiguration` configuration block must be fully removed.
@@ -3486,7 +3574,7 @@ func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutput() UserPo
 }
 
 func (o UserPoolUserPoolAddOnsOutput) ToUserPoolUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolUserPoolAddOnsPtrOutput {
-	return o.ApplyT(func(v UserPoolUserPoolAddOns) *UserPoolUserPoolAddOns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUserPoolAddOns) *UserPoolUserPoolAddOns {
 		return &v
 	}).(UserPoolUserPoolAddOnsPtrOutput)
 }
@@ -3511,7 +3599,13 @@ func (o UserPoolUserPoolAddOnsPtrOutput) ToUserPoolUserPoolAddOnsPtrOutputWithCo
 }
 
 func (o UserPoolUserPoolAddOnsPtrOutput) Elem() UserPoolUserPoolAddOnsOutput {
-	return o.ApplyT(func(v *UserPoolUserPoolAddOns) UserPoolUserPoolAddOns { return *v }).(UserPoolUserPoolAddOnsOutput)
+	return o.ApplyT(func(v *UserPoolUserPoolAddOns) UserPoolUserPoolAddOns {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolUserPoolAddOns
+		return ret
+	}).(UserPoolUserPoolAddOnsOutput)
 }
 
 // Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
@@ -3617,7 +3711,7 @@ func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrO
 }
 
 func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
-	return o.ApplyT(func(v UserPoolUsernameConfiguration) *UserPoolUsernameConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUsernameConfiguration) *UserPoolUsernameConfiguration {
 		return &v
 	}).(UserPoolUsernameConfigurationPtrOutput)
 }
@@ -3642,7 +3736,13 @@ func (o UserPoolUsernameConfigurationPtrOutput) ToUserPoolUsernameConfigurationP
 }
 
 func (o UserPoolUsernameConfigurationPtrOutput) Elem() UserPoolUsernameConfigurationOutput {
-	return o.ApplyT(func(v *UserPoolUsernameConfiguration) UserPoolUsernameConfiguration { return *v }).(UserPoolUsernameConfigurationOutput)
+	return o.ApplyT(func(v *UserPoolUsernameConfiguration) UserPoolUsernameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolUsernameConfiguration
+		return ret
+	}).(UserPoolUsernameConfigurationOutput)
 }
 
 // Whether username case sensitivity will be applied for all users in the user pool through Cognito APIs.
@@ -3768,7 +3868,7 @@ func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessage
 }
 
 func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessageTemplatePtrOutputWithContext(ctx context.Context) UserPoolVerificationMessageTemplatePtrOutput {
-	return o.ApplyT(func(v UserPoolVerificationMessageTemplate) *UserPoolVerificationMessageTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolVerificationMessageTemplate) *UserPoolVerificationMessageTemplate {
 		return &v
 	}).(UserPoolVerificationMessageTemplatePtrOutput)
 }
@@ -3818,7 +3918,13 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) ToUserPoolVerificationMess
 }
 
 func (o UserPoolVerificationMessageTemplatePtrOutput) Elem() UserPoolVerificationMessageTemplateOutput {
-	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) UserPoolVerificationMessageTemplate { return *v }).(UserPoolVerificationMessageTemplateOutput)
+	return o.ApplyT(func(v *UserPoolVerificationMessageTemplate) UserPoolVerificationMessageTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolVerificationMessageTemplate
+		return ret
+	}).(UserPoolVerificationMessageTemplateOutput)
 }
 
 // Default email option. Must be either `CONFIRM_WITH_CODE` or `CONFIRM_WITH_LINK`. Defaults to `CONFIRM_WITH_CODE`.

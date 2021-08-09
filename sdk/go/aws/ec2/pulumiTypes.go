@@ -1831,7 +1831,7 @@ func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutput() 
 }
 
 func (o FleetLaunchTemplateConfigOutput) ToFleetLaunchTemplateConfigPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigPtrOutput {
-	return o.ApplyT(func(v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfig) *FleetLaunchTemplateConfig {
 		return &v
 	}).(FleetLaunchTemplateConfigPtrOutput)
 }
@@ -1863,7 +1863,13 @@ func (o FleetLaunchTemplateConfigPtrOutput) ToFleetLaunchTemplateConfigPtrOutput
 }
 
 func (o FleetLaunchTemplateConfigPtrOutput) Elem() FleetLaunchTemplateConfigOutput {
-	return o.ApplyT(func(v *FleetLaunchTemplateConfig) FleetLaunchTemplateConfig { return *v }).(FleetLaunchTemplateConfigOutput)
+	return o.ApplyT(func(v *FleetLaunchTemplateConfig) FleetLaunchTemplateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfig
+		return ret
+	}).(FleetLaunchTemplateConfigOutput)
 }
 
 // Nested argument containing EC2 Launch Template to use. Defined below.
@@ -1987,7 +1993,7 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunc
 }
 
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput) ToFleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput {
-	return o.ApplyT(func(v FleetLaunchTemplateConfigLaunchTemplateSpecification) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigLaunchTemplateSpecification) *FleetLaunchTemplateConfigLaunchTemplateSpecification {
 		return &v
 	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput)
 }
@@ -2023,7 +2029,11 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) ToFleetLa
 
 func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Elem() FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v *FleetLaunchTemplateConfigLaunchTemplateSpecification) FleetLaunchTemplateConfigLaunchTemplateSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigLaunchTemplateSpecification
+		return ret
 	}).(FleetLaunchTemplateConfigLaunchTemplateSpecificationOutput)
 }
 
@@ -2292,7 +2302,7 @@ func (o FleetOnDemandOptionsOutput) ToFleetOnDemandOptionsPtrOutput() FleetOnDem
 }
 
 func (o FleetOnDemandOptionsOutput) ToFleetOnDemandOptionsPtrOutputWithContext(ctx context.Context) FleetOnDemandOptionsPtrOutput {
-	return o.ApplyT(func(v FleetOnDemandOptions) *FleetOnDemandOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetOnDemandOptions) *FleetOnDemandOptions {
 		return &v
 	}).(FleetOnDemandOptionsPtrOutput)
 }
@@ -2317,7 +2327,13 @@ func (o FleetOnDemandOptionsPtrOutput) ToFleetOnDemandOptionsPtrOutputWithContex
 }
 
 func (o FleetOnDemandOptionsPtrOutput) Elem() FleetOnDemandOptionsOutput {
-	return o.ApplyT(func(v *FleetOnDemandOptions) FleetOnDemandOptions { return *v }).(FleetOnDemandOptionsOutput)
+	return o.ApplyT(func(v *FleetOnDemandOptions) FleetOnDemandOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FleetOnDemandOptions
+		return ret
+	}).(FleetOnDemandOptionsOutput)
 }
 
 // How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
@@ -2435,7 +2451,7 @@ func (o FleetSpotOptionsOutput) ToFleetSpotOptionsPtrOutput() FleetSpotOptionsPt
 }
 
 func (o FleetSpotOptionsOutput) ToFleetSpotOptionsPtrOutputWithContext(ctx context.Context) FleetSpotOptionsPtrOutput {
-	return o.ApplyT(func(v FleetSpotOptions) *FleetSpotOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetSpotOptions) *FleetSpotOptions {
 		return &v
 	}).(FleetSpotOptionsPtrOutput)
 }
@@ -2475,7 +2491,13 @@ func (o FleetSpotOptionsPtrOutput) ToFleetSpotOptionsPtrOutputWithContext(ctx co
 }
 
 func (o FleetSpotOptionsPtrOutput) Elem() FleetSpotOptionsOutput {
-	return o.ApplyT(func(v *FleetSpotOptions) FleetSpotOptions { return *v }).(FleetSpotOptionsOutput)
+	return o.ApplyT(func(v *FleetSpotOptions) FleetSpotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FleetSpotOptions
+		return ret
+	}).(FleetSpotOptionsOutput)
 }
 
 // How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
@@ -2611,7 +2633,7 @@ func (o FleetSpotOptionsMaintenanceStrategiesOutput) ToFleetSpotOptionsMaintenan
 }
 
 func (o FleetSpotOptionsMaintenanceStrategiesOutput) ToFleetSpotOptionsMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) FleetSpotOptionsMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v FleetSpotOptionsMaintenanceStrategies) *FleetSpotOptionsMaintenanceStrategies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetSpotOptionsMaintenanceStrategies) *FleetSpotOptionsMaintenanceStrategies {
 		return &v
 	}).(FleetSpotOptionsMaintenanceStrategiesPtrOutput)
 }
@@ -2638,7 +2660,13 @@ func (o FleetSpotOptionsMaintenanceStrategiesPtrOutput) ToFleetSpotOptionsMainte
 }
 
 func (o FleetSpotOptionsMaintenanceStrategiesPtrOutput) Elem() FleetSpotOptionsMaintenanceStrategiesOutput {
-	return o.ApplyT(func(v *FleetSpotOptionsMaintenanceStrategies) FleetSpotOptionsMaintenanceStrategies { return *v }).(FleetSpotOptionsMaintenanceStrategiesOutput)
+	return o.ApplyT(func(v *FleetSpotOptionsMaintenanceStrategies) FleetSpotOptionsMaintenanceStrategies {
+		if v != nil {
+			return *v
+		}
+		var ret FleetSpotOptionsMaintenanceStrategies
+		return ret
+	}).(FleetSpotOptionsMaintenanceStrategiesOutput)
 }
 
 // Nested argument containing the capacity rebalance for your fleet request. Defined below.
@@ -2744,7 +2772,7 @@ func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput) ToFleetSpo
 }
 
 func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput) ToFleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutputWithContext(ctx context.Context) FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput {
-	return o.ApplyT(func(v FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) *FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) *FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
 		return &v
 	}).(FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput)
 }
@@ -2770,7 +2798,11 @@ func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput) ToFleet
 
 func (o FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput) Elem() FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput {
 	return o.ApplyT(func(v *FleetSpotOptionsMaintenanceStrategiesCapacityRebalance) FleetSpotOptionsMaintenanceStrategiesCapacityRebalance {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FleetSpotOptionsMaintenanceStrategiesCapacityRebalance
+		return ret
 	}).(FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceOutput)
 }
 
@@ -2889,7 +2921,7 @@ func (o FleetTargetCapacitySpecificationOutput) ToFleetTargetCapacitySpecificati
 }
 
 func (o FleetTargetCapacitySpecificationOutput) ToFleetTargetCapacitySpecificationPtrOutputWithContext(ctx context.Context) FleetTargetCapacitySpecificationPtrOutput {
-	return o.ApplyT(func(v FleetTargetCapacitySpecification) *FleetTargetCapacitySpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetTargetCapacitySpecification) *FleetTargetCapacitySpecification {
 		return &v
 	}).(FleetTargetCapacitySpecificationPtrOutput)
 }
@@ -2929,7 +2961,13 @@ func (o FleetTargetCapacitySpecificationPtrOutput) ToFleetTargetCapacitySpecific
 }
 
 func (o FleetTargetCapacitySpecificationPtrOutput) Elem() FleetTargetCapacitySpecificationOutput {
-	return o.ApplyT(func(v *FleetTargetCapacitySpecification) FleetTargetCapacitySpecification { return *v }).(FleetTargetCapacitySpecificationOutput)
+	return o.ApplyT(func(v *FleetTargetCapacitySpecification) FleetTargetCapacitySpecification {
+		if v != nil {
+			return *v
+		}
+		var ret FleetTargetCapacitySpecification
+		return ret
+	}).(FleetTargetCapacitySpecificationOutput)
 }
 
 // Default target capacity type. Valid values: `on-demand`, `spot`.
@@ -3069,7 +3107,7 @@ func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReserv
 }
 
 func (o InstanceCapacityReservationSpecificationOutput) ToInstanceCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v InstanceCapacityReservationSpecification) *InstanceCapacityReservationSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCapacityReservationSpecification) *InstanceCapacityReservationSpecification {
 		return &v
 	}).(InstanceCapacityReservationSpecificationPtrOutput)
 }
@@ -3101,7 +3139,13 @@ func (o InstanceCapacityReservationSpecificationPtrOutput) ToInstanceCapacityRes
 }
 
 func (o InstanceCapacityReservationSpecificationPtrOutput) Elem() InstanceCapacityReservationSpecificationOutput {
-	return o.ApplyT(func(v *InstanceCapacityReservationSpecification) InstanceCapacityReservationSpecification { return *v }).(InstanceCapacityReservationSpecificationOutput)
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecification) InstanceCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCapacityReservationSpecification
+		return ret
+	}).(InstanceCapacityReservationSpecificationOutput)
 }
 
 // Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
@@ -3217,7 +3261,7 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) ToInstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
-	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *InstanceCapacityReservationSpecificationCapacityReservationTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCapacityReservationSpecificationCapacityReservationTarget) *InstanceCapacityReservationSpecificationCapacityReservationTarget {
 		return &v
 	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
@@ -3245,7 +3289,11 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutp
 
 func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() InstanceCapacityReservationSpecificationCapacityReservationTargetOutput {
 	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) InstanceCapacityReservationSpecificationCapacityReservationTarget {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCapacityReservationSpecificationCapacityReservationTarget
+		return ret
 	}).(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
@@ -3352,7 +3400,7 @@ func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutpu
 }
 
 func (o InstanceCreditSpecificationOutput) ToInstanceCreditSpecificationPtrOutputWithContext(ctx context.Context) InstanceCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v InstanceCreditSpecification) *InstanceCreditSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceCreditSpecification) *InstanceCreditSpecification {
 		return &v
 	}).(InstanceCreditSpecificationPtrOutput)
 }
@@ -3377,7 +3425,13 @@ func (o InstanceCreditSpecificationPtrOutput) ToInstanceCreditSpecificationPtrOu
 }
 
 func (o InstanceCreditSpecificationPtrOutput) Elem() InstanceCreditSpecificationOutput {
-	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification { return *v }).(InstanceCreditSpecificationOutput)
+	return o.ApplyT(func(v *InstanceCreditSpecification) InstanceCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceCreditSpecification
+		return ret
+	}).(InstanceCreditSpecificationOutput)
 }
 
 // Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
@@ -3670,7 +3724,7 @@ func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutput() Instan
 }
 
 func (o InstanceEnclaveOptionsOutput) ToInstanceEnclaveOptionsPtrOutputWithContext(ctx context.Context) InstanceEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v InstanceEnclaveOptions) *InstanceEnclaveOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceEnclaveOptions) *InstanceEnclaveOptions {
 		return &v
 	}).(InstanceEnclaveOptionsPtrOutput)
 }
@@ -3695,7 +3749,13 @@ func (o InstanceEnclaveOptionsPtrOutput) ToInstanceEnclaveOptionsPtrOutputWithCo
 }
 
 func (o InstanceEnclaveOptionsPtrOutput) Elem() InstanceEnclaveOptionsOutput {
-	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions { return *v }).(InstanceEnclaveOptionsOutput)
+	return o.ApplyT(func(v *InstanceEnclaveOptions) InstanceEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceEnclaveOptions
+		return ret
+	}).(InstanceEnclaveOptionsOutput)
 }
 
 // Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
@@ -3924,7 +3984,7 @@ func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplatePtrOutput() Instan
 }
 
 func (o InstanceLaunchTemplateOutput) ToInstanceLaunchTemplatePtrOutputWithContext(ctx context.Context) InstanceLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v InstanceLaunchTemplate) *InstanceLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceLaunchTemplate) *InstanceLaunchTemplate {
 		return &v
 	}).(InstanceLaunchTemplatePtrOutput)
 }
@@ -3959,7 +4019,13 @@ func (o InstanceLaunchTemplatePtrOutput) ToInstanceLaunchTemplatePtrOutputWithCo
 }
 
 func (o InstanceLaunchTemplatePtrOutput) Elem() InstanceLaunchTemplateOutput {
-	return o.ApplyT(func(v *InstanceLaunchTemplate) InstanceLaunchTemplate { return *v }).(InstanceLaunchTemplateOutput)
+	return o.ApplyT(func(v *InstanceLaunchTemplate) InstanceLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceLaunchTemplate
+		return ret
+	}).(InstanceLaunchTemplateOutput)
 }
 
 // The ID of the launch template. Conflicts with `name`.
@@ -4093,7 +4159,7 @@ func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutput() Inst
 }
 
 func (o InstanceMetadataOptionsOutput) ToInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InstanceMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v InstanceMetadataOptions) *InstanceMetadataOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMetadataOptions) *InstanceMetadataOptions {
 		return &v
 	}).(InstanceMetadataOptionsPtrOutput)
 }
@@ -4128,7 +4194,13 @@ func (o InstanceMetadataOptionsPtrOutput) ToInstanceMetadataOptionsPtrOutputWith
 }
 
 func (o InstanceMetadataOptionsPtrOutput) Elem() InstanceMetadataOptionsOutput {
-	return o.ApplyT(func(v *InstanceMetadataOptions) InstanceMetadataOptions { return *v }).(InstanceMetadataOptionsOutput)
+	return o.ApplyT(func(v *InstanceMetadataOptions) InstanceMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMetadataOptions
+		return ret
+	}).(InstanceMetadataOptionsOutput)
 }
 
 // Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -4405,7 +4477,7 @@ func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDevicePtrOutput() Inst
 }
 
 func (o InstanceRootBlockDeviceOutput) ToInstanceRootBlockDevicePtrOutputWithContext(ctx context.Context) InstanceRootBlockDevicePtrOutput {
-	return o.ApplyT(func(v InstanceRootBlockDevice) *InstanceRootBlockDevice {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceRootBlockDevice) *InstanceRootBlockDevice {
 		return &v
 	}).(InstanceRootBlockDevicePtrOutput)
 }
@@ -4475,7 +4547,13 @@ func (o InstanceRootBlockDevicePtrOutput) ToInstanceRootBlockDevicePtrOutputWith
 }
 
 func (o InstanceRootBlockDevicePtrOutput) Elem() InstanceRootBlockDeviceOutput {
-	return o.ApplyT(func(v *InstanceRootBlockDevice) InstanceRootBlockDevice { return *v }).(InstanceRootBlockDeviceOutput)
+	return o.ApplyT(func(v *InstanceRootBlockDevice) InstanceRootBlockDevice {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceRootBlockDevice
+		return ret
+	}).(InstanceRootBlockDeviceOutput)
 }
 
 // Whether the volume should be destroyed on instance termination. Defaults to `true`.
@@ -4921,7 +4999,7 @@ func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataO
 }
 
 func (o LaunchConfigurationMetadataOptionsOutput) ToLaunchConfigurationMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchConfigurationMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationMetadataOptions) *LaunchConfigurationMetadataOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationMetadataOptions) *LaunchConfigurationMetadataOptions {
 		return &v
 	}).(LaunchConfigurationMetadataOptionsPtrOutput)
 }
@@ -4956,7 +5034,13 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) ToLaunchConfigurationMetada
 }
 
 func (o LaunchConfigurationMetadataOptionsPtrOutput) Elem() LaunchConfigurationMetadataOptionsOutput {
-	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) LaunchConfigurationMetadataOptions { return *v }).(LaunchConfigurationMetadataOptionsOutput)
+	return o.ApplyT(func(v *LaunchConfigurationMetadataOptions) LaunchConfigurationMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationMetadataOptions
+		return ret
+	}).(LaunchConfigurationMetadataOptionsOutput)
 }
 
 // The state of the metadata service: `enabled`, `disabled`.
@@ -5090,10 +5174,11 @@ func (o LaunchConfigurationRootBlockDeviceOutput) ToLaunchConfigurationRootBlock
 }
 
 func (o LaunchConfigurationRootBlockDeviceOutput) ToLaunchConfigurationRootBlockDevicePtrOutputWithContext(ctx context.Context) LaunchConfigurationRootBlockDevicePtrOutput {
-	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *LaunchConfigurationRootBlockDevice {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationRootBlockDevice) *LaunchConfigurationRootBlockDevice {
 		return &v
 	}).(LaunchConfigurationRootBlockDevicePtrOutput)
 }
+
 func (o LaunchConfigurationRootBlockDeviceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchConfigurationRootBlockDevice) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
@@ -5133,7 +5218,13 @@ func (o LaunchConfigurationRootBlockDevicePtrOutput) ToLaunchConfigurationRootBl
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) Elem() LaunchConfigurationRootBlockDeviceOutput {
-	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) LaunchConfigurationRootBlockDevice { return *v }).(LaunchConfigurationRootBlockDeviceOutput)
+	return o.ApplyT(func(v *LaunchConfigurationRootBlockDevice) LaunchConfigurationRootBlockDevice {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationRootBlockDevice
+		return ret
+	}).(LaunchConfigurationRootBlockDeviceOutput)
 }
 
 func (o LaunchConfigurationRootBlockDevicePtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
@@ -5449,7 +5540,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMa
 }
 
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) ToLaunchTemplateBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) LaunchTemplateBlockDeviceMappingEbsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *LaunchTemplateBlockDeviceMappingEbs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateBlockDeviceMappingEbs) *LaunchTemplateBlockDeviceMappingEbs {
 		return &v
 	}).(LaunchTemplateBlockDeviceMappingEbsPtrOutput)
 }
@@ -5513,7 +5604,13 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) ToLaunchTemplateBlockDevic
 }
 
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Elem() LaunchTemplateBlockDeviceMappingEbsOutput {
-	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) LaunchTemplateBlockDeviceMappingEbs { return *v }).(LaunchTemplateBlockDeviceMappingEbsOutput)
+	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) LaunchTemplateBlockDeviceMappingEbs {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateBlockDeviceMappingEbs
+		return ret
+	}).(LaunchTemplateBlockDeviceMappingEbsOutput)
 }
 
 // Whether the volume should be destroyed on instance termination. Defaults to `false` if not set. See [Preserving Amazon EBS Volumes on Instance Termination](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination) for more information.
@@ -5697,7 +5794,7 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 }
 
 func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationSpecification) *LaunchTemplateCapacityReservationSpecification {
 		return &v
 	}).(LaunchTemplateCapacityReservationSpecificationPtrOutput)
 }
@@ -5730,7 +5827,11 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) ToLaunchTemplat
 
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTemplateCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) LaunchTemplateCapacityReservationSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationSpecification
+		return ret
 	}).(LaunchTemplateCapacityReservationSpecificationOutput)
 }
 
@@ -5847,7 +5948,7 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetO
 }
 
 func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput) ToLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
 		return &v
 	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
@@ -5875,7 +5976,11 @@ func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetP
 
 func (o LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget) LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
+		return ret
 	}).(LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
@@ -5988,7 +6093,7 @@ func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutput() La
 }
 
 func (o LaunchTemplateCpuOptionsOutput) ToLaunchTemplateCpuOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpuOptions) *LaunchTemplateCpuOptions {
 		return &v
 	}).(LaunchTemplateCpuOptionsPtrOutput)
 }
@@ -6019,7 +6124,13 @@ func (o LaunchTemplateCpuOptionsPtrOutput) ToLaunchTemplateCpuOptionsPtrOutputWi
 }
 
 func (o LaunchTemplateCpuOptionsPtrOutput) Elem() LaunchTemplateCpuOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions { return *v }).(LaunchTemplateCpuOptionsOutput)
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) LaunchTemplateCpuOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpuOptions
+		return ret
+	}).(LaunchTemplateCpuOptionsOutput)
 }
 
 // The number of CPU cores for the instance.
@@ -6136,7 +6247,7 @@ func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecifica
 }
 
 func (o LaunchTemplateCreditSpecificationOutput) ToLaunchTemplateCreditSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateCreditSpecification) *LaunchTemplateCreditSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCreditSpecification) *LaunchTemplateCreditSpecification {
 		return &v
 	}).(LaunchTemplateCreditSpecificationPtrOutput)
 }
@@ -6161,7 +6272,13 @@ func (o LaunchTemplateCreditSpecificationPtrOutput) ToLaunchTemplateCreditSpecif
 }
 
 func (o LaunchTemplateCreditSpecificationPtrOutput) Elem() LaunchTemplateCreditSpecificationOutput {
-	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) LaunchTemplateCreditSpecification { return *v }).(LaunchTemplateCreditSpecificationOutput)
+	return o.ApplyT(func(v *LaunchTemplateCreditSpecification) LaunchTemplateCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCreditSpecification
+		return ret
+	}).(LaunchTemplateCreditSpecificationOutput)
 }
 
 // The credit option for CPU usage. Can be `"standard"` or `"unlimited"`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
@@ -6364,7 +6481,7 @@ func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElastic
 }
 
 func (o LaunchTemplateElasticInferenceAcceleratorOutput) ToLaunchTemplateElasticInferenceAcceleratorPtrOutputWithContext(ctx context.Context) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateElasticInferenceAccelerator) *LaunchTemplateElasticInferenceAccelerator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateElasticInferenceAccelerator) *LaunchTemplateElasticInferenceAccelerator {
 		return &v
 	}).(LaunchTemplateElasticInferenceAcceleratorPtrOutput)
 }
@@ -6390,7 +6507,11 @@ func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) ToLaunchTemplateElas
 
 func (o LaunchTemplateElasticInferenceAcceleratorPtrOutput) Elem() LaunchTemplateElasticInferenceAcceleratorOutput {
 	return o.ApplyT(func(v *LaunchTemplateElasticInferenceAccelerator) LaunchTemplateElasticInferenceAccelerator {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateElasticInferenceAccelerator
+		return ret
 	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
@@ -6497,7 +6618,7 @@ func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOut
 }
 
 func (o LaunchTemplateEnclaveOptionsOutput) ToLaunchTemplateEnclaveOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEnclaveOptions) *LaunchTemplateEnclaveOptions {
 		return &v
 	}).(LaunchTemplateEnclaveOptionsPtrOutput)
 }
@@ -6522,7 +6643,13 @@ func (o LaunchTemplateEnclaveOptionsPtrOutput) ToLaunchTemplateEnclaveOptionsPtr
 }
 
 func (o LaunchTemplateEnclaveOptionsPtrOutput) Elem() LaunchTemplateEnclaveOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions { return *v }).(LaunchTemplateEnclaveOptionsOutput)
+	return o.ApplyT(func(v *LaunchTemplateEnclaveOptions) LaunchTemplateEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEnclaveOptions
+		return ret
+	}).(LaunchTemplateEnclaveOptionsOutput)
 }
 
 // If set to `true`, Nitro Enclaves will be enabled on the instance.
@@ -6628,7 +6755,7 @@ func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptio
 }
 
 func (o LaunchTemplateHibernationOptionsOutput) ToLaunchTemplateHibernationOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateHibernationOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateHibernationOptions) *LaunchTemplateHibernationOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateHibernationOptions) *LaunchTemplateHibernationOptions {
 		return &v
 	}).(LaunchTemplateHibernationOptionsPtrOutput)
 }
@@ -6653,7 +6780,13 @@ func (o LaunchTemplateHibernationOptionsPtrOutput) ToLaunchTemplateHibernationOp
 }
 
 func (o LaunchTemplateHibernationOptionsPtrOutput) Elem() LaunchTemplateHibernationOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) LaunchTemplateHibernationOptions { return *v }).(LaunchTemplateHibernationOptionsOutput)
+	return o.ApplyT(func(v *LaunchTemplateHibernationOptions) LaunchTemplateHibernationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateHibernationOptions
+		return ret
+	}).(LaunchTemplateHibernationOptionsOutput)
 }
 
 // If set to `true`, the launched EC2 instance will hibernation enabled.
@@ -6763,7 +6896,7 @@ func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfi
 }
 
 func (o LaunchTemplateIamInstanceProfileOutput) ToLaunchTemplateIamInstanceProfilePtrOutputWithContext(ctx context.Context) LaunchTemplateIamInstanceProfilePtrOutput {
-	return o.ApplyT(func(v LaunchTemplateIamInstanceProfile) *LaunchTemplateIamInstanceProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateIamInstanceProfile) *LaunchTemplateIamInstanceProfile {
 		return &v
 	}).(LaunchTemplateIamInstanceProfilePtrOutput)
 }
@@ -6793,7 +6926,13 @@ func (o LaunchTemplateIamInstanceProfilePtrOutput) ToLaunchTemplateIamInstancePr
 }
 
 func (o LaunchTemplateIamInstanceProfilePtrOutput) Elem() LaunchTemplateIamInstanceProfileOutput {
-	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) LaunchTemplateIamInstanceProfile { return *v }).(LaunchTemplateIamInstanceProfileOutput)
+	return o.ApplyT(func(v *LaunchTemplateIamInstanceProfile) LaunchTemplateIamInstanceProfile {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateIamInstanceProfile
+		return ret
+	}).(LaunchTemplateIamInstanceProfileOutput)
 }
 
 // The Amazon Resource Name (ARN) of the instance profile.
@@ -6913,7 +7052,7 @@ func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarke
 }
 
 func (o LaunchTemplateInstanceMarketOptionsOutput) ToLaunchTemplateInstanceMarketOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceMarketOptions) *LaunchTemplateInstanceMarketOptions {
 		return &v
 	}).(LaunchTemplateInstanceMarketOptionsPtrOutput)
 }
@@ -6945,7 +7084,13 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) ToLaunchTemplateInstanceMa
 }
 
 func (o LaunchTemplateInstanceMarketOptionsPtrOutput) Elem() LaunchTemplateInstanceMarketOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptions { return *v }).(LaunchTemplateInstanceMarketOptionsOutput)
+	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptions) LaunchTemplateInstanceMarketOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceMarketOptions
+		return ret
+	}).(LaunchTemplateInstanceMarketOptionsOutput)
 }
 
 // The market type. Can be `spot`.
@@ -7079,7 +7224,7 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ToLaunchTemplateIn
 }
 
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsOutput) ToLaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateInstanceMarketOptionsSpotOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceMarketOptionsSpotOptions) *LaunchTemplateInstanceMarketOptionsSpotOptions {
 		return &v
 	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput)
 }
@@ -7126,7 +7271,11 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) ToLaunchTemplat
 
 func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) Elem() LaunchTemplateInstanceMarketOptionsSpotOptionsOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceMarketOptionsSpotOptions) LaunchTemplateInstanceMarketOptionsSpotOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceMarketOptionsSpotOptions
+		return ret
 	}).(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput)
 }
 
@@ -7379,7 +7528,7 @@ func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrO
 }
 
 func (o LaunchTemplateMetadataOptionsOutput) ToLaunchTemplateMetadataOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *LaunchTemplateMetadataOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMetadataOptions) *LaunchTemplateMetadataOptions {
 		return &v
 	}).(LaunchTemplateMetadataOptionsPtrOutput)
 }
@@ -7414,7 +7563,13 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) ToLaunchTemplateMetadataOptionsP
 }
 
 func (o LaunchTemplateMetadataOptionsPtrOutput) Elem() LaunchTemplateMetadataOptionsOutput {
-	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) LaunchTemplateMetadataOptions { return *v }).(LaunchTemplateMetadataOptionsOutput)
+	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) LaunchTemplateMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMetadataOptions
+		return ret
+	}).(LaunchTemplateMetadataOptionsOutput)
 }
 
 // Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
@@ -7540,7 +7695,7 @@ func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutput() La
 }
 
 func (o LaunchTemplateMonitoringOutput) ToLaunchTemplateMonitoringPtrOutputWithContext(ctx context.Context) LaunchTemplateMonitoringPtrOutput {
-	return o.ApplyT(func(v LaunchTemplateMonitoring) *LaunchTemplateMonitoring {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMonitoring) *LaunchTemplateMonitoring {
 		return &v
 	}).(LaunchTemplateMonitoringPtrOutput)
 }
@@ -7565,7 +7720,13 @@ func (o LaunchTemplateMonitoringPtrOutput) ToLaunchTemplateMonitoringPtrOutputWi
 }
 
 func (o LaunchTemplateMonitoringPtrOutput) Elem() LaunchTemplateMonitoringOutput {
-	return o.ApplyT(func(v *LaunchTemplateMonitoring) LaunchTemplateMonitoring { return *v }).(LaunchTemplateMonitoringOutput)
+	return o.ApplyT(func(v *LaunchTemplateMonitoring) LaunchTemplateMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMonitoring
+		return ret
+	}).(LaunchTemplateMonitoringOutput)
 }
 
 // If `true`, the launched EC2 instance will have detailed monitoring enabled.
@@ -7913,7 +8074,7 @@ func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutput() Laun
 }
 
 func (o LaunchTemplatePlacementOutput) ToLaunchTemplatePlacementPtrOutputWithContext(ctx context.Context) LaunchTemplatePlacementPtrOutput {
-	return o.ApplyT(func(v LaunchTemplatePlacement) *LaunchTemplatePlacement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplatePlacement) *LaunchTemplatePlacement {
 		return &v
 	}).(LaunchTemplatePlacementPtrOutput)
 }
@@ -7973,7 +8134,13 @@ func (o LaunchTemplatePlacementPtrOutput) ToLaunchTemplatePlacementPtrOutputWith
 }
 
 func (o LaunchTemplatePlacementPtrOutput) Elem() LaunchTemplatePlacementOutput {
-	return o.ApplyT(func(v *LaunchTemplatePlacement) LaunchTemplatePlacement { return *v }).(LaunchTemplatePlacementOutput)
+	return o.ApplyT(func(v *LaunchTemplatePlacement) LaunchTemplatePlacement {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplatePlacement
+		return ret
+	}).(LaunchTemplatePlacementOutput)
 }
 
 // The affinity setting for an instance on a Dedicated Host.
@@ -8057,7 +8224,7 @@ func (o LaunchTemplatePlacementPtrOutput) Tenancy() pulumi.StringPtrOutput {
 }
 
 type LaunchTemplateTagSpecification struct {
-	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+	// The type of resource to tag.
 	ResourceType *string `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -8075,7 +8242,7 @@ type LaunchTemplateTagSpecificationInput interface {
 }
 
 type LaunchTemplateTagSpecificationArgs struct {
-	// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+	// The type of resource to tag.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -8132,7 +8299,7 @@ func (o LaunchTemplateTagSpecificationOutput) ToLaunchTemplateTagSpecificationOu
 	return o
 }
 
-// The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+// The type of resource to tag.
 func (o LaunchTemplateTagSpecificationOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateTagSpecification) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
@@ -8841,7 +9008,7 @@ func (o PeeringConnectionOptionsAccepterOutput) ToPeeringConnectionOptionsAccept
 }
 
 func (o PeeringConnectionOptionsAccepterOutput) ToPeeringConnectionOptionsAccepterPtrOutputWithContext(ctx context.Context) PeeringConnectionOptionsAccepterPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsAccepter) *PeeringConnectionOptionsAccepter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringConnectionOptionsAccepter) *PeeringConnectionOptionsAccepter {
 		return &v
 	}).(PeeringConnectionOptionsAccepterPtrOutput)
 }
@@ -8881,7 +9048,13 @@ func (o PeeringConnectionOptionsAccepterPtrOutput) ToPeeringConnectionOptionsAcc
 }
 
 func (o PeeringConnectionOptionsAccepterPtrOutput) Elem() PeeringConnectionOptionsAccepterOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) PeeringConnectionOptionsAccepter { return *v }).(PeeringConnectionOptionsAccepterOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsAccepter) PeeringConnectionOptionsAccepter {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringConnectionOptionsAccepter
+		return ret
+	}).(PeeringConnectionOptionsAccepterOutput)
 }
 
 // Allow a local linked EC2-Classic instance to communicate
@@ -9030,7 +9203,7 @@ func (o PeeringConnectionOptionsRequesterOutput) ToPeeringConnectionOptionsReque
 }
 
 func (o PeeringConnectionOptionsRequesterOutput) ToPeeringConnectionOptionsRequesterPtrOutputWithContext(ctx context.Context) PeeringConnectionOptionsRequesterPtrOutput {
-	return o.ApplyT(func(v PeeringConnectionOptionsRequester) *PeeringConnectionOptionsRequester {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringConnectionOptionsRequester) *PeeringConnectionOptionsRequester {
 		return &v
 	}).(PeeringConnectionOptionsRequesterPtrOutput)
 }
@@ -9070,7 +9243,13 @@ func (o PeeringConnectionOptionsRequesterPtrOutput) ToPeeringConnectionOptionsRe
 }
 
 func (o PeeringConnectionOptionsRequesterPtrOutput) Elem() PeeringConnectionOptionsRequesterOutput {
-	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) PeeringConnectionOptionsRequester { return *v }).(PeeringConnectionOptionsRequesterOutput)
+	return o.ApplyT(func(v *PeeringConnectionOptionsRequester) PeeringConnectionOptionsRequester {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringConnectionOptionsRequester
+		return ret
+	}).(PeeringConnectionOptionsRequesterOutput)
 }
 
 // Allow a local linked EC2-Classic instance to communicate
@@ -10670,7 +10849,7 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesOutput) ToSpotFleetRequestSpotM
 }
 
 func (o SpotFleetRequestSpotMaintenanceStrategiesOutput) ToSpotFleetRequestSpotMaintenanceStrategiesPtrOutputWithContext(ctx context.Context) SpotFleetRequestSpotMaintenanceStrategiesPtrOutput {
-	return o.ApplyT(func(v SpotFleetRequestSpotMaintenanceStrategies) *SpotFleetRequestSpotMaintenanceStrategies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestSpotMaintenanceStrategies) *SpotFleetRequestSpotMaintenanceStrategies {
 		return &v
 	}).(SpotFleetRequestSpotMaintenanceStrategiesPtrOutput)
 }
@@ -10698,7 +10877,11 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesPtrOutput) ToSpotFleetRequestSp
 
 func (o SpotFleetRequestSpotMaintenanceStrategiesPtrOutput) Elem() SpotFleetRequestSpotMaintenanceStrategiesOutput {
 	return o.ApplyT(func(v *SpotFleetRequestSpotMaintenanceStrategies) SpotFleetRequestSpotMaintenanceStrategies {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestSpotMaintenanceStrategies
+		return ret
 	}).(SpotFleetRequestSpotMaintenanceStrategiesOutput)
 }
 
@@ -10805,7 +10988,7 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput) ToSpot
 }
 
 func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput) ToSpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutputWithContext(ctx context.Context) SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput {
-	return o.ApplyT(func(v SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance) *SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance) *SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
 		return &v
 	}).(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput)
 }
@@ -10833,7 +11016,11 @@ func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput) ToS
 
 func (o SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalancePtrOutput) Elem() SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput {
 	return o.ApplyT(func(v *SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance) SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalance
+		return ret
 	}).(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput)
 }
 
@@ -10944,7 +11131,7 @@ func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanc
 }
 
 func (o SpotInstanceRequestCapacityReservationSpecificationOutput) ToSpotInstanceRequestCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecification) *SpotInstanceRequestCapacityReservationSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestCapacityReservationSpecification) *SpotInstanceRequestCapacityReservationSpecification {
 		return &v
 	}).(SpotInstanceRequestCapacityReservationSpecificationPtrOutput)
 }
@@ -10979,7 +11166,11 @@ func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) ToSpotInst
 
 func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) Elem() SpotInstanceRequestCapacityReservationSpecificationOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecification) SpotInstanceRequestCapacityReservationSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestCapacityReservationSpecification
+		return ret
 	}).(SpotInstanceRequestCapacityReservationSpecificationOutput)
 }
 
@@ -11096,7 +11287,7 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 }
 
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) ToSpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
 		return &v
 	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput)
 }
@@ -11124,7 +11315,11 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 
 func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) Elem() SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget
+		return ret
 	}).(SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput)
 }
 
@@ -11231,7 +11426,7 @@ func (o SpotInstanceRequestCreditSpecificationOutput) ToSpotInstanceRequestCredi
 }
 
 func (o SpotInstanceRequestCreditSpecificationOutput) ToSpotInstanceRequestCreditSpecificationPtrOutputWithContext(ctx context.Context) SpotInstanceRequestCreditSpecificationPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestCreditSpecification) *SpotInstanceRequestCreditSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestCreditSpecification) *SpotInstanceRequestCreditSpecification {
 		return &v
 	}).(SpotInstanceRequestCreditSpecificationPtrOutput)
 }
@@ -11256,7 +11451,13 @@ func (o SpotInstanceRequestCreditSpecificationPtrOutput) ToSpotInstanceRequestCr
 }
 
 func (o SpotInstanceRequestCreditSpecificationPtrOutput) Elem() SpotInstanceRequestCreditSpecificationOutput {
-	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) SpotInstanceRequestCreditSpecification { return *v }).(SpotInstanceRequestCreditSpecificationOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestCreditSpecification) SpotInstanceRequestCreditSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestCreditSpecification
+		return ret
+	}).(SpotInstanceRequestCreditSpecificationOutput)
 }
 
 // Credit option for CPU usage. Valid values include `standard` or `unlimited`. T3 instances are launched as unlimited by default. T2 instances are launched as standard by default.
@@ -11546,7 +11747,7 @@ func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOpt
 }
 
 func (o SpotInstanceRequestEnclaveOptionsOutput) ToSpotInstanceRequestEnclaveOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestEnclaveOptionsPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestEnclaveOptions) *SpotInstanceRequestEnclaveOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestEnclaveOptions) *SpotInstanceRequestEnclaveOptions {
 		return &v
 	}).(SpotInstanceRequestEnclaveOptionsPtrOutput)
 }
@@ -11571,7 +11772,13 @@ func (o SpotInstanceRequestEnclaveOptionsPtrOutput) ToSpotInstanceRequestEnclave
 }
 
 func (o SpotInstanceRequestEnclaveOptionsPtrOutput) Elem() SpotInstanceRequestEnclaveOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) SpotInstanceRequestEnclaveOptions { return *v }).(SpotInstanceRequestEnclaveOptionsOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestEnclaveOptions) SpotInstanceRequestEnclaveOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestEnclaveOptions
+		return ret
+	}).(SpotInstanceRequestEnclaveOptionsOutput)
 }
 
 // Whether Nitro Enclaves will be enabled on the instance. Defaults to `false`.
@@ -11800,7 +12007,7 @@ func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemp
 }
 
 func (o SpotInstanceRequestLaunchTemplateOutput) ToSpotInstanceRequestLaunchTemplatePtrOutputWithContext(ctx context.Context) SpotInstanceRequestLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestLaunchTemplate) *SpotInstanceRequestLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestLaunchTemplate) *SpotInstanceRequestLaunchTemplate {
 		return &v
 	}).(SpotInstanceRequestLaunchTemplatePtrOutput)
 }
@@ -11835,7 +12042,13 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) ToSpotInstanceRequestLaunchT
 }
 
 func (o SpotInstanceRequestLaunchTemplatePtrOutput) Elem() SpotInstanceRequestLaunchTemplateOutput {
-	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) SpotInstanceRequestLaunchTemplate { return *v }).(SpotInstanceRequestLaunchTemplateOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestLaunchTemplate) SpotInstanceRequestLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestLaunchTemplate
+		return ret
+	}).(SpotInstanceRequestLaunchTemplateOutput)
 }
 
 // The ID of the launch template. Conflicts with `name`.
@@ -11969,7 +12182,7 @@ func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataO
 }
 
 func (o SpotInstanceRequestMetadataOptionsOutput) ToSpotInstanceRequestMetadataOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMetadataOptionsPtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestMetadataOptions) *SpotInstanceRequestMetadataOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestMetadataOptions) *SpotInstanceRequestMetadataOptions {
 		return &v
 	}).(SpotInstanceRequestMetadataOptionsPtrOutput)
 }
@@ -12004,7 +12217,13 @@ func (o SpotInstanceRequestMetadataOptionsPtrOutput) ToSpotInstanceRequestMetada
 }
 
 func (o SpotInstanceRequestMetadataOptionsPtrOutput) Elem() SpotInstanceRequestMetadataOptionsOutput {
-	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) SpotInstanceRequestMetadataOptions { return *v }).(SpotInstanceRequestMetadataOptionsOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestMetadataOptions) SpotInstanceRequestMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestMetadataOptions
+		return ret
+	}).(SpotInstanceRequestMetadataOptionsOutput)
 }
 
 // Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -12279,7 +12498,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) ToSpotInstanceRequestRootBlock
 }
 
 func (o SpotInstanceRequestRootBlockDeviceOutput) ToSpotInstanceRequestRootBlockDevicePtrOutputWithContext(ctx context.Context) SpotInstanceRequestRootBlockDevicePtrOutput {
-	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *SpotInstanceRequestRootBlockDevice {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestRootBlockDevice) *SpotInstanceRequestRootBlockDevice {
 		return &v
 	}).(SpotInstanceRequestRootBlockDevicePtrOutput)
 }
@@ -12348,7 +12567,13 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) ToSpotInstanceRequestRootBl
 }
 
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Elem() SpotInstanceRequestRootBlockDeviceOutput {
-	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) SpotInstanceRequestRootBlockDevice { return *v }).(SpotInstanceRequestRootBlockDeviceOutput)
+	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) SpotInstanceRequestRootBlockDevice {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestRootBlockDevice
+		return ret
+	}).(SpotInstanceRequestRootBlockDeviceOutput)
 }
 
 // Whether the volume should be destroyed on instance termination. Defaults to `true`.
@@ -12547,7 +12772,7 @@ func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilter
 }
 
 func (o TrafficMirrorFilterRuleDestinationPortRangeOutput) ToTrafficMirrorFilterRuleDestinationPortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleDestinationPortRangePtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleDestinationPortRange) *TrafficMirrorFilterRuleDestinationPortRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilterRuleDestinationPortRange) *TrafficMirrorFilterRuleDestinationPortRange {
 		return &v
 	}).(TrafficMirrorFilterRuleDestinationPortRangePtrOutput)
 }
@@ -12578,7 +12803,11 @@ func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) ToTrafficMirrorFil
 
 func (o TrafficMirrorFilterRuleDestinationPortRangePtrOutput) Elem() TrafficMirrorFilterRuleDestinationPortRangeOutput {
 	return o.ApplyT(func(v *TrafficMirrorFilterRuleDestinationPortRange) TrafficMirrorFilterRuleDestinationPortRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilterRuleDestinationPortRange
+		return ret
 	}).(TrafficMirrorFilterRuleDestinationPortRangeOutput)
 }
 
@@ -12699,7 +12928,7 @@ func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleS
 }
 
 func (o TrafficMirrorFilterRuleSourcePortRangeOutput) ToTrafficMirrorFilterRuleSourcePortRangePtrOutputWithContext(ctx context.Context) TrafficMirrorFilterRuleSourcePortRangePtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilterRuleSourcePortRange) *TrafficMirrorFilterRuleSourcePortRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilterRuleSourcePortRange) *TrafficMirrorFilterRuleSourcePortRange {
 		return &v
 	}).(TrafficMirrorFilterRuleSourcePortRangePtrOutput)
 }
@@ -12729,7 +12958,13 @@ func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) ToTrafficMirrorFilterRu
 }
 
 func (o TrafficMirrorFilterRuleSourcePortRangePtrOutput) Elem() TrafficMirrorFilterRuleSourcePortRangeOutput {
-	return o.ApplyT(func(v *TrafficMirrorFilterRuleSourcePortRange) TrafficMirrorFilterRuleSourcePortRange { return *v }).(TrafficMirrorFilterRuleSourcePortRangeOutput)
+	return o.ApplyT(func(v *TrafficMirrorFilterRuleSourcePortRange) TrafficMirrorFilterRuleSourcePortRange {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilterRuleSourcePortRange
+		return ret
+	}).(TrafficMirrorFilterRuleSourcePortRangeOutput)
 }
 
 // Starting port of the range
@@ -13097,7 +13332,7 @@ func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTy
 }
 
 func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *VpcPeeringConnectionAccepterType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepterType) *VpcPeeringConnectionAccepterType {
 		return &v
 	}).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
@@ -13139,7 +13374,13 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) ToVpcPeeringConnectionAccepte
 }
 
 func (o VpcPeeringConnectionAccepterTypePtrOutput) Elem() VpcPeeringConnectionAccepterTypeOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) VpcPeeringConnectionAccepterType { return *v }).(VpcPeeringConnectionAccepterTypeOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) VpcPeeringConnectionAccepterType {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionAccepterType
+		return ret
+	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
 // Allow a local linked EC2-Classic instance to communicate
@@ -13286,7 +13527,7 @@ func (o VpcPeeringConnectionAccepterAccepterOutput) ToVpcPeeringConnectionAccept
 }
 
 func (o VpcPeeringConnectionAccepterAccepterOutput) ToVpcPeeringConnectionAccepterAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterAccepterPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterAccepter) *VpcPeeringConnectionAccepterAccepter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepterAccepter) *VpcPeeringConnectionAccepterAccepter {
 		return &v
 	}).(VpcPeeringConnectionAccepterAccepterPtrOutput)
 }
@@ -13324,7 +13565,13 @@ func (o VpcPeeringConnectionAccepterAccepterPtrOutput) ToVpcPeeringConnectionAcc
 }
 
 func (o VpcPeeringConnectionAccepterAccepterPtrOutput) Elem() VpcPeeringConnectionAccepterAccepterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) VpcPeeringConnectionAccepterAccepter { return *v }).(VpcPeeringConnectionAccepterAccepterOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterAccepter) VpcPeeringConnectionAccepterAccepter {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionAccepterAccepter
+		return ret
+	}).(VpcPeeringConnectionAccepterAccepterOutput)
 }
 
 // Indicates whether a local ClassicLink connection can communicate
@@ -13467,7 +13714,7 @@ func (o VpcPeeringConnectionAccepterRequesterOutput) ToVpcPeeringConnectionAccep
 }
 
 func (o VpcPeeringConnectionAccepterRequesterOutput) ToVpcPeeringConnectionAccepterRequesterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterRequesterPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionAccepterRequester) *VpcPeeringConnectionAccepterRequester {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepterRequester) *VpcPeeringConnectionAccepterRequester {
 		return &v
 	}).(VpcPeeringConnectionAccepterRequesterPtrOutput)
 }
@@ -13505,7 +13752,13 @@ func (o VpcPeeringConnectionAccepterRequesterPtrOutput) ToVpcPeeringConnectionAc
 }
 
 func (o VpcPeeringConnectionAccepterRequesterPtrOutput) Elem() VpcPeeringConnectionAccepterRequesterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) VpcPeeringConnectionAccepterRequester { return *v }).(VpcPeeringConnectionAccepterRequesterOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterRequester) VpcPeeringConnectionAccepterRequester {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionAccepterRequester
+		return ret
+	}).(VpcPeeringConnectionAccepterRequesterOutput)
 }
 
 // Indicates whether a local ClassicLink connection can communicate
@@ -13656,7 +13909,7 @@ func (o VpcPeeringConnectionRequesterOutput) ToVpcPeeringConnectionRequesterPtrO
 }
 
 func (o VpcPeeringConnectionRequesterOutput) ToVpcPeeringConnectionRequesterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionRequesterPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnectionRequester) *VpcPeeringConnectionRequester {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionRequester) *VpcPeeringConnectionRequester {
 		return &v
 	}).(VpcPeeringConnectionRequesterPtrOutput)
 }
@@ -13698,7 +13951,13 @@ func (o VpcPeeringConnectionRequesterPtrOutput) ToVpcPeeringConnectionRequesterP
 }
 
 func (o VpcPeeringConnectionRequesterPtrOutput) Elem() VpcPeeringConnectionRequesterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionRequester) VpcPeeringConnectionRequester { return *v }).(VpcPeeringConnectionRequesterOutput)
+	return o.ApplyT(func(v *VpcPeeringConnectionRequester) VpcPeeringConnectionRequester {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnectionRequester
+		return ret
+	}).(VpcPeeringConnectionRequesterOutput)
 }
 
 // Allow a local linked EC2-Classic instance to communicate

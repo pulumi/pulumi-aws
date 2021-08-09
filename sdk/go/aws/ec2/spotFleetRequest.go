@@ -719,9 +719,7 @@ func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestMapOutput)
 }
 
-type SpotFleetRequestOutput struct {
-	*pulumi.OutputState
-}
+type SpotFleetRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SpotFleetRequest)(nil))
@@ -740,14 +738,12 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutput() SpotFleetRequestPt
 }
 
 func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
-	return o.ApplyT(func(v SpotFleetRequest) *SpotFleetRequest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequest) *SpotFleetRequest {
 		return &v
 	}).(SpotFleetRequestPtrOutput)
 }
 
-type SpotFleetRequestPtrOutput struct {
-	*pulumi.OutputState
-}
+type SpotFleetRequestPtrOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SpotFleetRequest)(nil))
@@ -759,6 +755,16 @@ func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutput() SpotFleetReques
 
 func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
 	return o
+}
+
+func (o SpotFleetRequestPtrOutput) Elem() SpotFleetRequestOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) SpotFleetRequest {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequest
+		return ret
+	}).(SpotFleetRequestOutput)
 }
 
 type SpotFleetRequestArrayOutput struct{ *pulumi.OutputState }

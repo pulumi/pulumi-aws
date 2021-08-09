@@ -282,9 +282,7 @@ func (i ConfigurationTemplateMap) ToConfigurationTemplateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateMapOutput)
 }
 
-type ConfigurationTemplateOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationTemplateOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationTemplate)(nil))
@@ -303,14 +301,12 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplatePtrOutput() Configur
 }
 
 func (o ConfigurationTemplateOutput) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
-	return o.ApplyT(func(v ConfigurationTemplate) *ConfigurationTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationTemplate) *ConfigurationTemplate {
 		return &v
 	}).(ConfigurationTemplatePtrOutput)
 }
 
-type ConfigurationTemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfigurationTemplate)(nil))
@@ -322,6 +318,16 @@ func (o ConfigurationTemplatePtrOutput) ToConfigurationTemplatePtrOutput() Confi
 
 func (o ConfigurationTemplatePtrOutput) ToConfigurationTemplatePtrOutputWithContext(ctx context.Context) ConfigurationTemplatePtrOutput {
 	return o
+}
+
+func (o ConfigurationTemplatePtrOutput) Elem() ConfigurationTemplateOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) ConfigurationTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationTemplate
+		return ret
+	}).(ConfigurationTemplateOutput)
 }
 
 type ConfigurationTemplateArrayOutput struct{ *pulumi.OutputState }

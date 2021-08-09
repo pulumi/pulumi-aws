@@ -111,7 +111,7 @@ func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutput() CanaryRunConfigPtrOu
 }
 
 func (o CanaryRunConfigOutput) ToCanaryRunConfigPtrOutputWithContext(ctx context.Context) CanaryRunConfigPtrOutput {
-	return o.ApplyT(func(v CanaryRunConfig) *CanaryRunConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryRunConfig) *CanaryRunConfig {
 		return &v
 	}).(CanaryRunConfigPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o CanaryRunConfigPtrOutput) ToCanaryRunConfigPtrOutputWithContext(ctx cont
 }
 
 func (o CanaryRunConfigPtrOutput) Elem() CanaryRunConfigOutput {
-	return o.ApplyT(func(v *CanaryRunConfig) CanaryRunConfig { return *v }).(CanaryRunConfigOutput)
+	return o.ApplyT(func(v *CanaryRunConfig) CanaryRunConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryRunConfig
+		return ret
+	}).(CanaryRunConfigOutput)
 }
 
 // Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
@@ -276,7 +282,7 @@ func (o CanaryScheduleOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutpu
 }
 
 func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return o.ApplyT(func(v CanarySchedule) *CanarySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanarySchedule) *CanarySchedule {
 		return &v
 	}).(CanarySchedulePtrOutput)
 }
@@ -306,7 +312,13 @@ func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutputWithContext(ctx contex
 }
 
 func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
-	return o.ApplyT(func(v *CanarySchedule) CanarySchedule { return *v }).(CanaryScheduleOutput)
+	return o.ApplyT(func(v *CanarySchedule) CanarySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret CanarySchedule
+		return ret
+	}).(CanaryScheduleOutput)
 }
 
 // Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
@@ -554,7 +566,7 @@ func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutput() CanaryVpcConfigPtrOu
 }
 
 func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context.Context) CanaryVpcConfigPtrOutput {
-	return o.ApplyT(func(v CanaryVpcConfig) *CanaryVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryVpcConfig) *CanaryVpcConfig {
 		return &v
 	}).(CanaryVpcConfigPtrOutput)
 }
@@ -589,7 +601,13 @@ func (o CanaryVpcConfigPtrOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx cont
 }
 
 func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
-	return o.ApplyT(func(v *CanaryVpcConfig) CanaryVpcConfig { return *v }).(CanaryVpcConfigOutput)
+	return o.ApplyT(func(v *CanaryVpcConfig) CanaryVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryVpcConfig
+		return ret
+	}).(CanaryVpcConfigOutput)
 }
 
 // IDs of the security groups for this canary.

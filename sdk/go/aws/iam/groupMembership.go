@@ -246,9 +246,7 @@ func (i GroupMembershipMap) ToGroupMembershipMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipMapOutput)
 }
 
-type GroupMembershipOutput struct {
-	*pulumi.OutputState
-}
+type GroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupMembership)(nil))
@@ -267,14 +265,12 @@ func (o GroupMembershipOutput) ToGroupMembershipPtrOutput() GroupMembershipPtrOu
 }
 
 func (o GroupMembershipOutput) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
-	return o.ApplyT(func(v GroupMembership) *GroupMembership {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMembership) *GroupMembership {
 		return &v
 	}).(GroupMembershipPtrOutput)
 }
 
-type GroupMembershipPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupMembershipPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupMembershipPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupMembership)(nil))
@@ -286,6 +282,16 @@ func (o GroupMembershipPtrOutput) ToGroupMembershipPtrOutput() GroupMembershipPt
 
 func (o GroupMembershipPtrOutput) ToGroupMembershipPtrOutputWithContext(ctx context.Context) GroupMembershipPtrOutput {
 	return o
+}
+
+func (o GroupMembershipPtrOutput) Elem() GroupMembershipOutput {
+	return o.ApplyT(func(v *GroupMembership) GroupMembership {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMembership
+		return ret
+	}).(GroupMembershipOutput)
 }
 
 type GroupMembershipArrayOutput struct{ *pulumi.OutputState }

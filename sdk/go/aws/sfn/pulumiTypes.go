@@ -111,7 +111,7 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 }
 
 func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationPtrOutput {
-	return o.ApplyT(func(v StateMachineLoggingConfiguration) *StateMachineLoggingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineLoggingConfiguration) *StateMachineLoggingConfiguration {
 		return &v
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o StateMachineLoggingConfigurationPtrOutput) ToStateMachineLoggingConfigur
 }
 
 func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingConfigurationOutput {
-	return o.ApplyT(func(v *StateMachineLoggingConfiguration) StateMachineLoggingConfiguration { return *v }).(StateMachineLoggingConfigurationOutput)
+	return o.ApplyT(func(v *StateMachineLoggingConfiguration) StateMachineLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineLoggingConfiguration
+		return ret
+	}).(StateMachineLoggingConfigurationOutput)
 }
 
 // Determines whether execution data is included in your log. When set to `false`, data is excluded.
@@ -272,7 +278,7 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 }
 
 func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurationPtrOutputWithContext(ctx context.Context) StateMachineTracingConfigurationPtrOutput {
-	return o.ApplyT(func(v StateMachineTracingConfiguration) *StateMachineTracingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineTracingConfiguration) *StateMachineTracingConfiguration {
 		return &v
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
@@ -297,7 +303,13 @@ func (o StateMachineTracingConfigurationPtrOutput) ToStateMachineTracingConfigur
 }
 
 func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingConfigurationOutput {
-	return o.ApplyT(func(v *StateMachineTracingConfiguration) StateMachineTracingConfiguration { return *v }).(StateMachineTracingConfigurationOutput)
+	return o.ApplyT(func(v *StateMachineTracingConfiguration) StateMachineTracingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineTracingConfiguration
+		return ret
+	}).(StateMachineTracingConfigurationOutput)
 }
 
 // When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.

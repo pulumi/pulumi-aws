@@ -281,9 +281,7 @@ func (i InstanceProfileMap) ToInstanceProfileMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileMapOutput)
 }
 
-type InstanceProfileOutput struct {
-	*pulumi.OutputState
-}
+type InstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceProfile)(nil))
@@ -302,14 +300,12 @@ func (o InstanceProfileOutput) ToInstanceProfilePtrOutput() InstanceProfilePtrOu
 }
 
 func (o InstanceProfileOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
-	return o.ApplyT(func(v InstanceProfile) *InstanceProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceProfile) *InstanceProfile {
 		return &v
 	}).(InstanceProfilePtrOutput)
 }
 
-type InstanceProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type InstanceProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InstanceProfile)(nil))
@@ -321,6 +317,16 @@ func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutput() InstanceProfilePt
 
 func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
 	return o
+}
+
+func (o InstanceProfilePtrOutput) Elem() InstanceProfileOutput {
+	return o.ApplyT(func(v *InstanceProfile) InstanceProfile {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceProfile
+		return ret
+	}).(InstanceProfileOutput)
 }
 
 type InstanceProfileArrayOutput struct{ *pulumi.OutputState }

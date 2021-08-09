@@ -426,9 +426,7 @@ func (i BotMap) ToBotMapOutputWithContext(ctx context.Context) BotMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotMapOutput)
 }
 
-type BotOutput struct {
-	*pulumi.OutputState
-}
+type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Bot)(nil))
@@ -447,14 +445,12 @@ func (o BotOutput) ToBotPtrOutput() BotPtrOutput {
 }
 
 func (o BotOutput) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
-	return o.ApplyT(func(v Bot) *Bot {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Bot) *Bot {
 		return &v
 	}).(BotPtrOutput)
 }
 
-type BotPtrOutput struct {
-	*pulumi.OutputState
-}
+type BotPtrOutput struct{ *pulumi.OutputState }
 
 func (BotPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Bot)(nil))
@@ -466,6 +462,16 @@ func (o BotPtrOutput) ToBotPtrOutput() BotPtrOutput {
 
 func (o BotPtrOutput) ToBotPtrOutputWithContext(ctx context.Context) BotPtrOutput {
 	return o
+}
+
+func (o BotPtrOutput) Elem() BotOutput {
+	return o.ApplyT(func(v *Bot) Bot {
+		if v != nil {
+			return *v
+		}
+		var ret Bot
+		return ret
+	}).(BotOutput)
 }
 
 type BotArrayOutput struct{ *pulumi.OutputState }

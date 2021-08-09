@@ -222,9 +222,7 @@ func (i ResolverQueryLogConfigAssociationMap) ToResolverQueryLogConfigAssociatio
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverQueryLogConfigAssociationMapOutput)
 }
 
-type ResolverQueryLogConfigAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ResolverQueryLogConfigAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLogConfigAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResolverQueryLogConfigAssociation)(nil))
@@ -243,14 +241,12 @@ func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssocia
 }
 
 func (o ResolverQueryLogConfigAssociationOutput) ToResolverQueryLogConfigAssociationPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationPtrOutput {
-	return o.ApplyT(func(v ResolverQueryLogConfigAssociation) *ResolverQueryLogConfigAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverQueryLogConfigAssociation) *ResolverQueryLogConfigAssociation {
 		return &v
 	}).(ResolverQueryLogConfigAssociationPtrOutput)
 }
 
-type ResolverQueryLogConfigAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResolverQueryLogConfigAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (ResolverQueryLogConfigAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResolverQueryLogConfigAssociation)(nil))
@@ -262,6 +258,16 @@ func (o ResolverQueryLogConfigAssociationPtrOutput) ToResolverQueryLogConfigAsso
 
 func (o ResolverQueryLogConfigAssociationPtrOutput) ToResolverQueryLogConfigAssociationPtrOutputWithContext(ctx context.Context) ResolverQueryLogConfigAssociationPtrOutput {
 	return o
+}
+
+func (o ResolverQueryLogConfigAssociationPtrOutput) Elem() ResolverQueryLogConfigAssociationOutput {
+	return o.ApplyT(func(v *ResolverQueryLogConfigAssociation) ResolverQueryLogConfigAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverQueryLogConfigAssociation
+		return ret
+	}).(ResolverQueryLogConfigAssociationOutput)
 }
 
 type ResolverQueryLogConfigAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -345,9 +345,7 @@ func (i ClassificationJobMap) ToClassificationJobMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobMapOutput)
 }
 
-type ClassificationJobOutput struct {
-	*pulumi.OutputState
-}
+type ClassificationJobOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClassificationJob)(nil))
@@ -366,14 +364,12 @@ func (o ClassificationJobOutput) ToClassificationJobPtrOutput() ClassificationJo
 }
 
 func (o ClassificationJobOutput) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
-	return o.ApplyT(func(v ClassificationJob) *ClassificationJob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJob) *ClassificationJob {
 		return &v
 	}).(ClassificationJobPtrOutput)
 }
 
-type ClassificationJobPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClassificationJobPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClassificationJob)(nil))
@@ -385,6 +381,16 @@ func (o ClassificationJobPtrOutput) ToClassificationJobPtrOutput() Classificatio
 
 func (o ClassificationJobPtrOutput) ToClassificationJobPtrOutputWithContext(ctx context.Context) ClassificationJobPtrOutput {
 	return o
+}
+
+func (o ClassificationJobPtrOutput) Elem() ClassificationJobOutput {
+	return o.ApplyT(func(v *ClassificationJob) ClassificationJob {
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJob
+		return ret
+	}).(ClassificationJobOutput)
 }
 
 type ClassificationJobArrayOutput struct{ *pulumi.OutputState }

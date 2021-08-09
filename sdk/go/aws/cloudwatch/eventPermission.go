@@ -283,9 +283,7 @@ func (i EventPermissionMap) ToEventPermissionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventPermissionMapOutput)
 }
 
-type EventPermissionOutput struct {
-	*pulumi.OutputState
-}
+type EventPermissionOutput struct{ *pulumi.OutputState }
 
 func (EventPermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventPermission)(nil))
@@ -304,14 +302,12 @@ func (o EventPermissionOutput) ToEventPermissionPtrOutput() EventPermissionPtrOu
 }
 
 func (o EventPermissionOutput) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
-	return o.ApplyT(func(v EventPermission) *EventPermission {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventPermission) *EventPermission {
 		return &v
 	}).(EventPermissionPtrOutput)
 }
 
-type EventPermissionPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventPermissionPtrOutput struct{ *pulumi.OutputState }
 
 func (EventPermissionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventPermission)(nil))
@@ -323,6 +319,16 @@ func (o EventPermissionPtrOutput) ToEventPermissionPtrOutput() EventPermissionPt
 
 func (o EventPermissionPtrOutput) ToEventPermissionPtrOutputWithContext(ctx context.Context) EventPermissionPtrOutput {
 	return o
+}
+
+func (o EventPermissionPtrOutput) Elem() EventPermissionOutput {
+	return o.ApplyT(func(v *EventPermission) EventPermission {
+		if v != nil {
+			return *v
+		}
+		var ret EventPermission
+		return ret
+	}).(EventPermissionOutput)
 }
 
 type EventPermissionArrayOutput struct{ *pulumi.OutputState }

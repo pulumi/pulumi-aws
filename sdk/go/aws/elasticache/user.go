@@ -52,7 +52,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Access permissions string used for this user.
+	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString pulumi.StringOutput `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -112,7 +112,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Access permissions string used for this user.
+	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString *string `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
 	Arn *string `pulumi:"arn"`
@@ -132,7 +132,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// Access permissions string used for this user.
+	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString pulumi.StringPtrInput
 	// The ARN of the created ElastiCache User.
 	Arn pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// Access permissions string used for this user.
+	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString string `pulumi:"accessString"`
 	// The ARN of the created ElastiCache User.
 	Arn *string `pulumi:"arn"`
@@ -177,7 +177,7 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// Access permissions string used for this user.
+	// Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
 	AccessString pulumi.StringInput
 	// The ARN of the created ElastiCache User.
 	Arn pulumi.StringPtrInput
@@ -298,9 +298,7 @@ func (i UserMap) ToUserMapOutputWithContext(ctx context.Context) UserMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserMapOutput)
 }
 
-type UserOutput struct {
-	*pulumi.OutputState
-}
+type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*User)(nil))
@@ -319,14 +317,12 @@ func (o UserOutput) ToUserPtrOutput() UserPtrOutput {
 }
 
 func (o UserOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
-	return o.ApplyT(func(v User) *User {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v User) *User {
 		return &v
 	}).(UserPtrOutput)
 }
 
-type UserPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**User)(nil))
@@ -338,6 +334,16 @@ func (o UserPtrOutput) ToUserPtrOutput() UserPtrOutput {
 
 func (o UserPtrOutput) ToUserPtrOutputWithContext(ctx context.Context) UserPtrOutput {
 	return o
+}
+
+func (o UserPtrOutput) Elem() UserOutput {
+	return o.ApplyT(func(v *User) User {
+		if v != nil {
+			return *v
+		}
+		var ret User
+		return ret
+	}).(UserOutput)
 }
 
 type UserArrayOutput struct{ *pulumi.OutputState }

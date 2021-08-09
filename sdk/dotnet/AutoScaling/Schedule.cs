@@ -122,6 +122,12 @@ namespace Pulumi.Aws.AutoScaling
         [Output("startTime")]
         public Output<string> StartTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string> TimeZone { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Schedule resource with the given unique name, arguments, and options.
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
 
+        /// <summary>
+        /// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
+
         public ScheduleArgs()
         {
         }
@@ -284,6 +296,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }
+
+        /// <summary>
+        /// The timezone for the cron expression. Valid values are the canonical names of the IANA time zones (such as Etc/GMT+9 or Pacific/Tahiti).
+        /// </summary>
+        [Input("timeZone")]
+        public Input<string>? TimeZone { get; set; }
 
         public ScheduleState()
         {

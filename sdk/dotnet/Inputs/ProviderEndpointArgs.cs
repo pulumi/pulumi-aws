@@ -384,6 +384,12 @@ namespace Pulumi.Aws.Inputs
         [Input("route53domains")]
         public Input<string>? Route53domains { get; set; }
 
+        [Input("route53recoverycontrolconfig")]
+        public Input<string>? Route53recoverycontrolconfig { get; set; }
+
+        [Input("route53recoveryreadiness")]
+        public Input<string>? Route53recoveryreadiness { get; set; }
+
         [Input("route53resolver")]
         public Input<string>? Route53resolver { get; set; }
 

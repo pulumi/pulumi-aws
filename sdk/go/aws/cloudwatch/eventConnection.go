@@ -404,9 +404,7 @@ func (i EventConnectionMap) ToEventConnectionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionMapOutput)
 }
 
-type EventConnectionOutput struct {
-	*pulumi.OutputState
-}
+type EventConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventConnection)(nil))
@@ -425,14 +423,12 @@ func (o EventConnectionOutput) ToEventConnectionPtrOutput() EventConnectionPtrOu
 }
 
 func (o EventConnectionOutput) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
-	return o.ApplyT(func(v EventConnection) *EventConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnection) *EventConnection {
 		return &v
 	}).(EventConnectionPtrOutput)
 }
 
-type EventConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventConnection)(nil))
@@ -444,6 +440,16 @@ func (o EventConnectionPtrOutput) ToEventConnectionPtrOutput() EventConnectionPt
 
 func (o EventConnectionPtrOutput) ToEventConnectionPtrOutputWithContext(ctx context.Context) EventConnectionPtrOutput {
 	return o
+}
+
+func (o EventConnectionPtrOutput) Elem() EventConnectionOutput {
+	return o.ApplyT(func(v *EventConnection) EventConnection {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnection
+		return ret
+	}).(EventConnectionOutput)
 }
 
 type EventConnectionArrayOutput struct{ *pulumi.OutputState }

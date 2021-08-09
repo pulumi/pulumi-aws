@@ -111,7 +111,7 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 }
 
 func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProvider {
 		return &v
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
@@ -148,7 +148,13 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ToCapacityProviderAut
 }
 
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider { return *v }).(CapacityProviderAutoScalingGroupProviderOutput)
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoScalingGroupProvider
+		return ret
+	}).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
 // - ARN of the associated auto scaling group.
@@ -290,7 +296,7 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacity
 }
 
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingOutput) ToCapacityProviderAutoScalingGroupProviderManagedScalingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
-	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProviderManagedScaling) *CapacityProviderAutoScalingGroupProviderManagedScaling {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoScalingGroupProviderManagedScaling) *CapacityProviderAutoScalingGroupProviderManagedScaling {
 		return &v
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
 }
@@ -336,7 +342,11 @@ func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) ToCapac
 
 func (o CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderManagedScalingOutput {
 	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedScaling) CapacityProviderAutoScalingGroupProviderManagedScaling {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoScalingGroupProviderManagedScaling
+		return ret
 	}).(CapacityProviderAutoScalingGroupProviderManagedScalingOutput)
 }
 
@@ -483,7 +493,7 @@ func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutput() ClusterCon
 }
 
 func (o ClusterConfigurationOutput) ToClusterConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterConfiguration) *ClusterConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfiguration) *ClusterConfiguration {
 		return &v
 	}).(ClusterConfigurationPtrOutput)
 }
@@ -510,7 +520,13 @@ func (o ClusterConfigurationPtrOutput) ToClusterConfigurationPtrOutputWithContex
 }
 
 func (o ClusterConfigurationPtrOutput) Elem() ClusterConfigurationOutput {
-	return o.ApplyT(func(v *ClusterConfiguration) ClusterConfiguration { return *v }).(ClusterConfigurationOutput)
+	return o.ApplyT(func(v *ClusterConfiguration) ClusterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConfiguration
+		return ret
+	}).(ClusterConfigurationOutput)
 }
 
 // The details of the execute command configuration. Detailed below.
@@ -624,7 +640,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigur
 }
 
 func (o ClusterConfigurationExecuteCommandConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfigurationExecuteCommandConfiguration) *ClusterConfigurationExecuteCommandConfiguration {
 		return &v
 	}).(ClusterConfigurationExecuteCommandConfigurationPtrOutput)
 }
@@ -662,7 +678,11 @@ func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) ToClusterConfi
 
 func (o ClusterConfigurationExecuteCommandConfigurationPtrOutput) Elem() ClusterConfigurationExecuteCommandConfigurationOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfiguration) ClusterConfigurationExecuteCommandConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConfigurationExecuteCommandConfiguration
+		return ret
 	}).(ClusterConfigurationExecuteCommandConfigurationOutput)
 }
 
@@ -805,7 +825,7 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) T
 }
 
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput) ToClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutputWithContext(ctx context.Context) ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfigurationExecuteCommandConfigurationLogConfiguration) *ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
 		return &v
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput)
 }
@@ -857,7 +877,11 @@ func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput
 
 func (o ClusterConfigurationExecuteCommandConfigurationLogConfigurationPtrOutput) Elem() ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput {
 	return o.ApplyT(func(v *ClusterConfigurationExecuteCommandConfigurationLogConfiguration) ClusterConfigurationExecuteCommandConfigurationLogConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConfigurationExecuteCommandConfigurationLogConfiguration
+		return ret
 	}).(ClusterConfigurationExecuteCommandConfigurationLogConfigurationOutput)
 }
 
@@ -1344,7 +1368,7 @@ func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreaker
 }
 
 func (o ServiceDeploymentCircuitBreakerOutput) ToServiceDeploymentCircuitBreakerPtrOutputWithContext(ctx context.Context) ServiceDeploymentCircuitBreakerPtrOutput {
-	return o.ApplyT(func(v ServiceDeploymentCircuitBreaker) *ServiceDeploymentCircuitBreaker {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentCircuitBreaker) *ServiceDeploymentCircuitBreaker {
 		return &v
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
@@ -1374,7 +1398,13 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) ToServiceDeploymentCircuitBrea
 }
 
 func (o ServiceDeploymentCircuitBreakerPtrOutput) Elem() ServiceDeploymentCircuitBreakerOutput {
-	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) ServiceDeploymentCircuitBreaker { return *v }).(ServiceDeploymentCircuitBreakerOutput)
+	return o.ApplyT(func(v *ServiceDeploymentCircuitBreaker) ServiceDeploymentCircuitBreaker {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentCircuitBreaker
+		return ret
+	}).(ServiceDeploymentCircuitBreakerOutput)
 }
 
 // Whether to enable the deployment circuit breaker logic for the service.
@@ -1490,7 +1520,7 @@ func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutpu
 }
 
 func (o ServiceDeploymentControllerOutput) ToServiceDeploymentControllerPtrOutputWithContext(ctx context.Context) ServiceDeploymentControllerPtrOutput {
-	return o.ApplyT(func(v ServiceDeploymentController) *ServiceDeploymentController {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentController) *ServiceDeploymentController {
 		return &v
 	}).(ServiceDeploymentControllerPtrOutput)
 }
@@ -1515,7 +1545,13 @@ func (o ServiceDeploymentControllerPtrOutput) ToServiceDeploymentControllerPtrOu
 }
 
 func (o ServiceDeploymentControllerPtrOutput) Elem() ServiceDeploymentControllerOutput {
-	return o.ApplyT(func(v *ServiceDeploymentController) ServiceDeploymentController { return *v }).(ServiceDeploymentControllerOutput)
+	return o.ApplyT(func(v *ServiceDeploymentController) ServiceDeploymentController {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentController
+		return ret
+	}).(ServiceDeploymentControllerOutput)
 }
 
 // Type of deployment controller. Valid values: `CODE_DEPLOY`, `ECS`, `EXTERNAL`. Default: `ECS`.
@@ -1753,7 +1789,7 @@ func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutpu
 }
 
 func (o ServiceNetworkConfigurationOutput) ToServiceNetworkConfigurationPtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkConfiguration) *ServiceNetworkConfiguration {
 		return &v
 	}).(ServiceNetworkConfigurationPtrOutput)
 }
@@ -1788,7 +1824,13 @@ func (o ServiceNetworkConfigurationPtrOutput) ToServiceNetworkConfigurationPtrOu
 }
 
 func (o ServiceNetworkConfigurationPtrOutput) Elem() ServiceNetworkConfigurationOutput {
-	return o.ApplyT(func(v *ServiceNetworkConfiguration) ServiceNetworkConfiguration { return *v }).(ServiceNetworkConfigurationOutput)
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) ServiceNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkConfiguration
+		return ret
+	}).(ServiceNetworkConfigurationOutput)
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
@@ -2147,7 +2189,7 @@ func (o ServiceServiceRegistriesOutput) ToServiceServiceRegistriesPtrOutput() Se
 }
 
 func (o ServiceServiceRegistriesOutput) ToServiceServiceRegistriesPtrOutputWithContext(ctx context.Context) ServiceServiceRegistriesPtrOutput {
-	return o.ApplyT(func(v ServiceServiceRegistries) *ServiceServiceRegistries {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceServiceRegistries) *ServiceServiceRegistries {
 		return &v
 	}).(ServiceServiceRegistriesPtrOutput)
 }
@@ -2187,7 +2229,13 @@ func (o ServiceServiceRegistriesPtrOutput) ToServiceServiceRegistriesPtrOutputWi
 }
 
 func (o ServiceServiceRegistriesPtrOutput) Elem() ServiceServiceRegistriesOutput {
-	return o.ApplyT(func(v *ServiceServiceRegistries) ServiceServiceRegistries { return *v }).(ServiceServiceRegistriesOutput)
+	return o.ApplyT(func(v *ServiceServiceRegistries) ServiceServiceRegistries {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceServiceRegistries
+		return ret
+	}).(ServiceServiceRegistriesOutput)
 }
 
 // Container name value, already specified in the task definition, to be used for your service discovery service.
@@ -2323,7 +2371,7 @@ func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePt
 }
 
 func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePtrOutputWithContext(ctx context.Context) TaskDefinitionEphemeralStoragePtrOutput {
-	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *TaskDefinitionEphemeralStorage {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionEphemeralStorage) *TaskDefinitionEphemeralStorage {
 		return &v
 	}).(TaskDefinitionEphemeralStoragePtrOutput)
 }
@@ -2348,7 +2396,13 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) ToTaskDefinitionEphemeralStorag
 }
 
 func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralStorageOutput {
-	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) TaskDefinitionEphemeralStorage { return *v }).(TaskDefinitionEphemeralStorageOutput)
+	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) TaskDefinitionEphemeralStorage {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionEphemeralStorage
+		return ret
+	}).(TaskDefinitionEphemeralStorageOutput)
 }
 
 // The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is `21` GiB and the maximum supported value is `200` GiB.
@@ -2674,7 +2728,7 @@ func (o TaskDefinitionProxyConfigurationOutput) ToTaskDefinitionProxyConfigurati
 }
 
 func (o TaskDefinitionProxyConfigurationOutput) ToTaskDefinitionProxyConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionProxyConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionProxyConfiguration) *TaskDefinitionProxyConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionProxyConfiguration) *TaskDefinitionProxyConfiguration {
 		return &v
 	}).(TaskDefinitionProxyConfigurationPtrOutput)
 }
@@ -2709,7 +2763,13 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) ToTaskDefinitionProxyConfigur
 }
 
 func (o TaskDefinitionProxyConfigurationPtrOutput) Elem() TaskDefinitionProxyConfigurationOutput {
-	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) TaskDefinitionProxyConfiguration { return *v }).(TaskDefinitionProxyConfigurationOutput)
+	return o.ApplyT(func(v *TaskDefinitionProxyConfiguration) TaskDefinitionProxyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionProxyConfiguration
+		return ret
+	}).(TaskDefinitionProxyConfigurationOutput)
 }
 
 // Name of the container that will serve as the App Mesh proxy.
@@ -2993,7 +3053,7 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) ToTaskDefinitionVol
 }
 
 func (o TaskDefinitionVolumeDockerVolumeConfigurationOutput) ToTaskDefinitionVolumeDockerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeDockerVolumeConfiguration) *TaskDefinitionVolumeDockerVolumeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionVolumeDockerVolumeConfiguration) *TaskDefinitionVolumeDockerVolumeConfiguration {
 		return &v
 	}).(TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput)
 }
@@ -3039,7 +3099,11 @@ func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) ToTaskDefinition
 
 func (o TaskDefinitionVolumeDockerVolumeConfigurationPtrOutput) Elem() TaskDefinitionVolumeDockerVolumeConfigurationOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeDockerVolumeConfiguration) TaskDefinitionVolumeDockerVolumeConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionVolumeDockerVolumeConfiguration
+		return ret
 	}).(TaskDefinitionVolumeDockerVolumeConfigurationOutput)
 }
 
@@ -3202,7 +3266,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolume
 }
 
 func (o TaskDefinitionVolumeEfsVolumeConfigurationOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionVolumeEfsVolumeConfiguration) *TaskDefinitionVolumeEfsVolumeConfiguration {
 		return &v
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput)
 }
@@ -3250,7 +3314,11 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) ToTaskDefinitionVol
 
 func (o TaskDefinitionVolumeEfsVolumeConfigurationPtrOutput) Elem() TaskDefinitionVolumeEfsVolumeConfigurationOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfiguration) TaskDefinitionVolumeEfsVolumeConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionVolumeEfsVolumeConfiguration
+		return ret
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationOutput)
 }
 
@@ -3401,7 +3469,7 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToT
 }
 
 func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
 		return &v
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput)
 }
@@ -3432,7 +3500,11 @@ func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) 
 
 func (o TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigPtrOutput) Elem() TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig) TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig
+		return ret
 	}).(TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigOutput)
 }
 
@@ -3557,7 +3629,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTas
 }
 
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
 		return &v
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput)
 }
@@ -3595,7 +3667,11 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) To
 
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput) Elem() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration
+		return ret
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationOutput)
 }
 
@@ -3726,7 +3802,7 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 }
 
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput) ToTaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutputWithContext(ctx context.Context) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
 		return &v
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput)
 }
@@ -3761,7 +3837,11 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 
 func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput) Elem() TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput {
 	return o.ApplyT(func(v *TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig) TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig
+		return ret
 	}).(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput)
 }
 

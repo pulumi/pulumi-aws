@@ -400,9 +400,7 @@ func (i GatewayAssociationMap) ToGatewayAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayAssociationMapOutput)
 }
 
-type GatewayAssociationOutput struct {
-	*pulumi.OutputState
-}
+type GatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayAssociation)(nil))
@@ -421,14 +419,12 @@ func (o GatewayAssociationOutput) ToGatewayAssociationPtrOutput() GatewayAssocia
 }
 
 func (o GatewayAssociationOutput) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
-	return o.ApplyT(func(v GatewayAssociation) *GatewayAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayAssociation) *GatewayAssociation {
 		return &v
 	}).(GatewayAssociationPtrOutput)
 }
 
-type GatewayAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type GatewayAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GatewayAssociation)(nil))
@@ -440,6 +436,16 @@ func (o GatewayAssociationPtrOutput) ToGatewayAssociationPtrOutput() GatewayAsso
 
 func (o GatewayAssociationPtrOutput) ToGatewayAssociationPtrOutputWithContext(ctx context.Context) GatewayAssociationPtrOutput {
 	return o
+}
+
+func (o GatewayAssociationPtrOutput) Elem() GatewayAssociationOutput {
+	return o.ApplyT(func(v *GatewayAssociation) GatewayAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayAssociation
+		return ret
+	}).(GatewayAssociationOutput)
 }
 
 type GatewayAssociationArrayOutput struct{ *pulumi.OutputState }

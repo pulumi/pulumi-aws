@@ -243,9 +243,7 @@ func (i ProductPortfolioAssociationMap) ToProductPortfolioAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ProductPortfolioAssociationMapOutput)
 }
 
-type ProductPortfolioAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ProductPortfolioAssociationOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductPortfolioAssociation)(nil))
@@ -264,14 +262,12 @@ func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationPtrOutpu
 }
 
 func (o ProductPortfolioAssociationOutput) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
-	return o.ApplyT(func(v ProductPortfolioAssociation) *ProductPortfolioAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductPortfolioAssociation) *ProductPortfolioAssociation {
 		return &v
 	}).(ProductPortfolioAssociationPtrOutput)
 }
 
-type ProductPortfolioAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductPortfolioAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductPortfolioAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProductPortfolioAssociation)(nil))
@@ -283,6 +279,16 @@ func (o ProductPortfolioAssociationPtrOutput) ToProductPortfolioAssociationPtrOu
 
 func (o ProductPortfolioAssociationPtrOutput) ToProductPortfolioAssociationPtrOutputWithContext(ctx context.Context) ProductPortfolioAssociationPtrOutput {
 	return o
+}
+
+func (o ProductPortfolioAssociationPtrOutput) Elem() ProductPortfolioAssociationOutput {
+	return o.ApplyT(func(v *ProductPortfolioAssociation) ProductPortfolioAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ProductPortfolioAssociation
+		return ret
+	}).(ProductPortfolioAssociationOutput)
 }
 
 type ProductPortfolioAssociationArrayOutput struct{ *pulumi.OutputState }

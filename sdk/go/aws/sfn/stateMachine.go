@@ -361,9 +361,7 @@ func (i StateMachineMap) ToStateMachineMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineMapOutput)
 }
 
-type StateMachineOutput struct {
-	*pulumi.OutputState
-}
+type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StateMachine)(nil))
@@ -382,14 +380,12 @@ func (o StateMachineOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
 }
 
 func (o StateMachineOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
-	return o.ApplyT(func(v StateMachine) *StateMachine {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachine) *StateMachine {
 		return &v
 	}).(StateMachinePtrOutput)
 }
 
-type StateMachinePtrOutput struct {
-	*pulumi.OutputState
-}
+type StateMachinePtrOutput struct{ *pulumi.OutputState }
 
 func (StateMachinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StateMachine)(nil))
@@ -401,6 +397,16 @@ func (o StateMachinePtrOutput) ToStateMachinePtrOutput() StateMachinePtrOutput {
 
 func (o StateMachinePtrOutput) ToStateMachinePtrOutputWithContext(ctx context.Context) StateMachinePtrOutput {
 	return o
+}
+
+func (o StateMachinePtrOutput) Elem() StateMachineOutput {
+	return o.ApplyT(func(v *StateMachine) StateMachine {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachine
+		return ret
+	}).(StateMachineOutput)
 }
 
 type StateMachineArrayOutput struct{ *pulumi.OutputState }

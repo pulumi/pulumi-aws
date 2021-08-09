@@ -107,7 +107,7 @@ func (o ThingTypePropertiesOutput) ToThingTypePropertiesPtrOutput() ThingTypePro
 }
 
 func (o ThingTypePropertiesOutput) ToThingTypePropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPtrOutput {
-	return o.ApplyT(func(v ThingTypeProperties) *ThingTypeProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingTypeProperties) *ThingTypeProperties {
 		return &v
 	}).(ThingTypePropertiesPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o ThingTypePropertiesPtrOutput) ToThingTypePropertiesPtrOutputWithContext(
 }
 
 func (o ThingTypePropertiesPtrOutput) Elem() ThingTypePropertiesOutput {
-	return o.ApplyT(func(v *ThingTypeProperties) ThingTypeProperties { return *v }).(ThingTypePropertiesOutput)
+	return o.ApplyT(func(v *ThingTypeProperties) ThingTypeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ThingTypeProperties
+		return ret
+	}).(ThingTypePropertiesOutput)
 }
 
 // The description of the thing type.
@@ -265,7 +271,7 @@ func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmPtrOutput() To
 }
 
 func (o TopicRuleCloudwatchAlarmOutput) ToTopicRuleCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchAlarmPtrOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchAlarm) *TopicRuleCloudwatchAlarm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleCloudwatchAlarm) *TopicRuleCloudwatchAlarm {
 		return &v
 	}).(TopicRuleCloudwatchAlarmPtrOutput)
 }
@@ -305,7 +311,13 @@ func (o TopicRuleCloudwatchAlarmPtrOutput) ToTopicRuleCloudwatchAlarmPtrOutputWi
 }
 
 func (o TopicRuleCloudwatchAlarmPtrOutput) Elem() TopicRuleCloudwatchAlarmOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) TopicRuleCloudwatchAlarm { return *v }).(TopicRuleCloudwatchAlarmOutput)
+	return o.ApplyT(func(v *TopicRuleCloudwatchAlarm) TopicRuleCloudwatchAlarm {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleCloudwatchAlarm
+		return ret
+	}).(TopicRuleCloudwatchAlarmOutput)
 }
 
 // The CloudWatch alarm name.
@@ -461,7 +473,7 @@ func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricPtrOutput() 
 }
 
 func (o TopicRuleCloudwatchMetricOutput) ToTopicRuleCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleCloudwatchMetricPtrOutput {
-	return o.ApplyT(func(v TopicRuleCloudwatchMetric) *TopicRuleCloudwatchMetric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleCloudwatchMetric) *TopicRuleCloudwatchMetric {
 		return &v
 	}).(TopicRuleCloudwatchMetricPtrOutput)
 }
@@ -511,7 +523,13 @@ func (o TopicRuleCloudwatchMetricPtrOutput) ToTopicRuleCloudwatchMetricPtrOutput
 }
 
 func (o TopicRuleCloudwatchMetricPtrOutput) Elem() TopicRuleCloudwatchMetricOutput {
-	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) TopicRuleCloudwatchMetric { return *v }).(TopicRuleCloudwatchMetricOutput)
+	return o.ApplyT(func(v *TopicRuleCloudwatchMetric) TopicRuleCloudwatchMetric {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleCloudwatchMetric
+		return ret
+	}).(TopicRuleCloudwatchMetricOutput)
 }
 
 // The CloudWatch metric name.
@@ -703,7 +721,7 @@ func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbPtrOutput() TopicRuleDynamod
 }
 
 func (o TopicRuleDynamodbOutput) ToTopicRuleDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodb) *TopicRuleDynamodb {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDynamodb) *TopicRuleDynamodb {
 		return &v
 	}).(TopicRuleDynamodbPtrOutput)
 }
@@ -773,7 +791,13 @@ func (o TopicRuleDynamodbPtrOutput) ToTopicRuleDynamodbPtrOutputWithContext(ctx 
 }
 
 func (o TopicRuleDynamodbPtrOutput) Elem() TopicRuleDynamodbOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodb) TopicRuleDynamodb { return *v }).(TopicRuleDynamodbOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodb) TopicRuleDynamodb {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleDynamodb
+		return ret
+	}).(TopicRuleDynamodbOutput)
 }
 
 // The hash key name.
@@ -1075,7 +1099,7 @@ func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutput(
 }
 
 func (o TopicRuleDynamodbv2PutItemOutput) ToTopicRuleDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleDynamodbv2PutItemPtrOutput {
-	return o.ApplyT(func(v TopicRuleDynamodbv2PutItem) *TopicRuleDynamodbv2PutItem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDynamodbv2PutItem) *TopicRuleDynamodbv2PutItem {
 		return &v
 	}).(TopicRuleDynamodbv2PutItemPtrOutput)
 }
@@ -1100,7 +1124,13 @@ func (o TopicRuleDynamodbv2PutItemPtrOutput) ToTopicRuleDynamodbv2PutItemPtrOutp
 }
 
 func (o TopicRuleDynamodbv2PutItemPtrOutput) Elem() TopicRuleDynamodbv2PutItemOutput {
-	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) TopicRuleDynamodbv2PutItem { return *v }).(TopicRuleDynamodbv2PutItemOutput)
+	return o.ApplyT(func(v *TopicRuleDynamodbv2PutItem) TopicRuleDynamodbv2PutItem {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleDynamodbv2PutItem
+		return ret
+	}).(TopicRuleDynamodbv2PutItemOutput)
 }
 
 // The name of the DynamoDB table.
@@ -1222,7 +1252,7 @@ func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchPtrOutput() TopicR
 }
 
 func (o TopicRuleElasticsearchOutput) ToTopicRuleElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleElasticsearchPtrOutput {
-	return o.ApplyT(func(v TopicRuleElasticsearch) *TopicRuleElasticsearch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleElasticsearch) *TopicRuleElasticsearch {
 		return &v
 	}).(TopicRuleElasticsearchPtrOutput)
 }
@@ -1267,7 +1297,13 @@ func (o TopicRuleElasticsearchPtrOutput) ToTopicRuleElasticsearchPtrOutputWithCo
 }
 
 func (o TopicRuleElasticsearchPtrOutput) Elem() TopicRuleElasticsearchOutput {
-	return o.ApplyT(func(v *TopicRuleElasticsearch) TopicRuleElasticsearch { return *v }).(TopicRuleElasticsearchOutput)
+	return o.ApplyT(func(v *TopicRuleElasticsearch) TopicRuleElasticsearch {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleElasticsearch
+		return ret
+	}).(TopicRuleElasticsearchOutput)
 }
 
 // The endpoint of your Elasticsearch domain.
@@ -1439,10 +1475,11 @@ func (o TopicRuleErrorActionOutput) ToTopicRuleErrorActionPtrOutput() TopicRuleE
 }
 
 func (o TopicRuleErrorActionOutput) ToTopicRuleErrorActionPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorAction) *TopicRuleErrorAction {
 		return &v
 	}).(TopicRuleErrorActionPtrOutput)
 }
+
 func (o TopicRuleErrorActionOutput) CloudwatchAlarm() TopicRuleErrorActionCloudwatchAlarmPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionCloudwatchAlarm { return v.CloudwatchAlarm }).(TopicRuleErrorActionCloudwatchAlarmPtrOutput)
 }
@@ -1518,7 +1555,13 @@ func (o TopicRuleErrorActionPtrOutput) ToTopicRuleErrorActionPtrOutputWithContex
 }
 
 func (o TopicRuleErrorActionPtrOutput) Elem() TopicRuleErrorActionOutput {
-	return o.ApplyT(func(v *TopicRuleErrorAction) TopicRuleErrorAction { return *v }).(TopicRuleErrorActionOutput)
+	return o.ApplyT(func(v *TopicRuleErrorAction) TopicRuleErrorAction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorAction
+		return ret
+	}).(TopicRuleErrorActionOutput)
 }
 
 func (o TopicRuleErrorActionPtrOutput) CloudwatchAlarm() TopicRuleErrorActionCloudwatchAlarmPtrOutput {
@@ -1761,7 +1804,7 @@ func (o TopicRuleErrorActionCloudwatchAlarmOutput) ToTopicRuleErrorActionCloudwa
 }
 
 func (o TopicRuleErrorActionCloudwatchAlarmOutput) ToTopicRuleErrorActionCloudwatchAlarmPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchAlarmPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchAlarm) *TopicRuleErrorActionCloudwatchAlarm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionCloudwatchAlarm) *TopicRuleErrorActionCloudwatchAlarm {
 		return &v
 	}).(TopicRuleErrorActionCloudwatchAlarmPtrOutput)
 }
@@ -1801,7 +1844,13 @@ func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) ToTopicRuleErrorActionClou
 }
 
 func (o TopicRuleErrorActionCloudwatchAlarmPtrOutput) Elem() TopicRuleErrorActionCloudwatchAlarmOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) TopicRuleErrorActionCloudwatchAlarm { return *v }).(TopicRuleErrorActionCloudwatchAlarmOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchAlarm) TopicRuleErrorActionCloudwatchAlarm {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionCloudwatchAlarm
+		return ret
+	}).(TopicRuleErrorActionCloudwatchAlarmOutput)
 }
 
 // The CloudWatch alarm name.
@@ -1957,7 +2006,7 @@ func (o TopicRuleErrorActionCloudwatchMetricOutput) ToTopicRuleErrorActionCloudw
 }
 
 func (o TopicRuleErrorActionCloudwatchMetricOutput) ToTopicRuleErrorActionCloudwatchMetricPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionCloudwatchMetricPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionCloudwatchMetric) *TopicRuleErrorActionCloudwatchMetric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionCloudwatchMetric) *TopicRuleErrorActionCloudwatchMetric {
 		return &v
 	}).(TopicRuleErrorActionCloudwatchMetricPtrOutput)
 }
@@ -2007,7 +2056,13 @@ func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) ToTopicRuleErrorActionClo
 }
 
 func (o TopicRuleErrorActionCloudwatchMetricPtrOutput) Elem() TopicRuleErrorActionCloudwatchMetricOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) TopicRuleErrorActionCloudwatchMetric { return *v }).(TopicRuleErrorActionCloudwatchMetricOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionCloudwatchMetric) TopicRuleErrorActionCloudwatchMetric {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionCloudwatchMetric
+		return ret
+	}).(TopicRuleErrorActionCloudwatchMetricOutput)
 }
 
 // The CloudWatch metric name.
@@ -2199,7 +2254,7 @@ func (o TopicRuleErrorActionDynamodbOutput) ToTopicRuleErrorActionDynamodbPtrOut
 }
 
 func (o TopicRuleErrorActionDynamodbOutput) ToTopicRuleErrorActionDynamodbPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionDynamodbPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionDynamodb) *TopicRuleErrorActionDynamodb {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionDynamodb) *TopicRuleErrorActionDynamodb {
 		return &v
 	}).(TopicRuleErrorActionDynamodbPtrOutput)
 }
@@ -2269,7 +2324,13 @@ func (o TopicRuleErrorActionDynamodbPtrOutput) ToTopicRuleErrorActionDynamodbPtr
 }
 
 func (o TopicRuleErrorActionDynamodbPtrOutput) Elem() TopicRuleErrorActionDynamodbOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) TopicRuleErrorActionDynamodb { return *v }).(TopicRuleErrorActionDynamodbOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionDynamodb) TopicRuleErrorActionDynamodb {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionDynamodb
+		return ret
+	}).(TopicRuleErrorActionDynamodbOutput)
 }
 
 // The hash key name.
@@ -2469,7 +2530,7 @@ func (o TopicRuleErrorActionDynamodbv2Output) ToTopicRuleErrorActionDynamodbv2Pt
 }
 
 func (o TopicRuleErrorActionDynamodbv2Output) ToTopicRuleErrorActionDynamodbv2PtrOutputWithContext(ctx context.Context) TopicRuleErrorActionDynamodbv2PtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2) *TopicRuleErrorActionDynamodbv2 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionDynamodbv2) *TopicRuleErrorActionDynamodbv2 {
 		return &v
 	}).(TopicRuleErrorActionDynamodbv2PtrOutput)
 }
@@ -2499,7 +2560,13 @@ func (o TopicRuleErrorActionDynamodbv2PtrOutput) ToTopicRuleErrorActionDynamodbv
 }
 
 func (o TopicRuleErrorActionDynamodbv2PtrOutput) Elem() TopicRuleErrorActionDynamodbv2Output {
-	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2) TopicRuleErrorActionDynamodbv2 { return *v }).(TopicRuleErrorActionDynamodbv2Output)
+	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2) TopicRuleErrorActionDynamodbv2 {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionDynamodbv2
+		return ret
+	}).(TopicRuleErrorActionDynamodbv2Output)
 }
 
 // Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
@@ -2615,7 +2682,7 @@ func (o TopicRuleErrorActionDynamodbv2PutItemOutput) ToTopicRuleErrorActionDynam
 }
 
 func (o TopicRuleErrorActionDynamodbv2PutItemOutput) ToTopicRuleErrorActionDynamodbv2PutItemPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionDynamodbv2PutItemPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionDynamodbv2PutItem) *TopicRuleErrorActionDynamodbv2PutItem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionDynamodbv2PutItem) *TopicRuleErrorActionDynamodbv2PutItem {
 		return &v
 	}).(TopicRuleErrorActionDynamodbv2PutItemPtrOutput)
 }
@@ -2640,7 +2707,13 @@ func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) ToTopicRuleErrorActionDy
 }
 
 func (o TopicRuleErrorActionDynamodbv2PutItemPtrOutput) Elem() TopicRuleErrorActionDynamodbv2PutItemOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2PutItem) TopicRuleErrorActionDynamodbv2PutItem { return *v }).(TopicRuleErrorActionDynamodbv2PutItemOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionDynamodbv2PutItem) TopicRuleErrorActionDynamodbv2PutItem {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionDynamodbv2PutItem
+		return ret
+	}).(TopicRuleErrorActionDynamodbv2PutItemOutput)
 }
 
 // The name of the DynamoDB table.
@@ -2762,7 +2835,7 @@ func (o TopicRuleErrorActionElasticsearchOutput) ToTopicRuleErrorActionElasticse
 }
 
 func (o TopicRuleErrorActionElasticsearchOutput) ToTopicRuleErrorActionElasticsearchPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionElasticsearchPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionElasticsearch) *TopicRuleErrorActionElasticsearch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionElasticsearch) *TopicRuleErrorActionElasticsearch {
 		return &v
 	}).(TopicRuleErrorActionElasticsearchPtrOutput)
 }
@@ -2807,7 +2880,13 @@ func (o TopicRuleErrorActionElasticsearchPtrOutput) ToTopicRuleErrorActionElasti
 }
 
 func (o TopicRuleErrorActionElasticsearchPtrOutput) Elem() TopicRuleErrorActionElasticsearchOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) TopicRuleErrorActionElasticsearch { return *v }).(TopicRuleErrorActionElasticsearchOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionElasticsearch) TopicRuleErrorActionElasticsearch {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionElasticsearch
+		return ret
+	}).(TopicRuleErrorActionElasticsearchOutput)
 }
 
 // The endpoint of your Elasticsearch domain.
@@ -2961,7 +3040,7 @@ func (o TopicRuleErrorActionFirehoseOutput) ToTopicRuleErrorActionFirehosePtrOut
 }
 
 func (o TopicRuleErrorActionFirehoseOutput) ToTopicRuleErrorActionFirehosePtrOutputWithContext(ctx context.Context) TopicRuleErrorActionFirehosePtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionFirehose) *TopicRuleErrorActionFirehose {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionFirehose) *TopicRuleErrorActionFirehose {
 		return &v
 	}).(TopicRuleErrorActionFirehosePtrOutput)
 }
@@ -2996,7 +3075,13 @@ func (o TopicRuleErrorActionFirehosePtrOutput) ToTopicRuleErrorActionFirehosePtr
 }
 
 func (o TopicRuleErrorActionFirehosePtrOutput) Elem() TopicRuleErrorActionFirehoseOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) TopicRuleErrorActionFirehose { return *v }).(TopicRuleErrorActionFirehoseOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionFirehose) TopicRuleErrorActionFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionFirehose
+		return ret
+	}).(TopicRuleErrorActionFirehoseOutput)
 }
 
 // The delivery stream name.
@@ -3126,7 +3211,7 @@ func (o TopicRuleErrorActionIotAnalyticsOutput) ToTopicRuleErrorActionIotAnalyti
 }
 
 func (o TopicRuleErrorActionIotAnalyticsOutput) ToTopicRuleErrorActionIotAnalyticsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionIotAnalyticsPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionIotAnalytics) *TopicRuleErrorActionIotAnalytics {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionIotAnalytics) *TopicRuleErrorActionIotAnalytics {
 		return &v
 	}).(TopicRuleErrorActionIotAnalyticsPtrOutput)
 }
@@ -3156,7 +3241,13 @@ func (o TopicRuleErrorActionIotAnalyticsPtrOutput) ToTopicRuleErrorActionIotAnal
 }
 
 func (o TopicRuleErrorActionIotAnalyticsPtrOutput) Elem() TopicRuleErrorActionIotAnalyticsOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) TopicRuleErrorActionIotAnalytics { return *v }).(TopicRuleErrorActionIotAnalyticsOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionIotAnalytics) TopicRuleErrorActionIotAnalytics {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionIotAnalytics
+		return ret
+	}).(TopicRuleErrorActionIotAnalyticsOutput)
 }
 
 // Name of AWS IOT Analytics channel.
@@ -3280,7 +3371,7 @@ func (o TopicRuleErrorActionIotEventsOutput) ToTopicRuleErrorActionIotEventsPtrO
 }
 
 func (o TopicRuleErrorActionIotEventsOutput) ToTopicRuleErrorActionIotEventsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionIotEventsPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionIotEvents) *TopicRuleErrorActionIotEvents {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionIotEvents) *TopicRuleErrorActionIotEvents {
 		return &v
 	}).(TopicRuleErrorActionIotEventsPtrOutput)
 }
@@ -3315,7 +3406,13 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) ToTopicRuleErrorActionIotEventsP
 }
 
 func (o TopicRuleErrorActionIotEventsPtrOutput) Elem() TopicRuleErrorActionIotEventsOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) TopicRuleErrorActionIotEvents { return *v }).(TopicRuleErrorActionIotEventsOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionIotEvents) TopicRuleErrorActionIotEvents {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionIotEvents
+		return ret
+	}).(TopicRuleErrorActionIotEventsOutput)
 }
 
 // The name of the AWS IoT Events input.
@@ -3449,7 +3546,7 @@ func (o TopicRuleErrorActionKinesisOutput) ToTopicRuleErrorActionKinesisPtrOutpu
 }
 
 func (o TopicRuleErrorActionKinesisOutput) ToTopicRuleErrorActionKinesisPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionKinesisPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionKinesis) *TopicRuleErrorActionKinesis {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionKinesis) *TopicRuleErrorActionKinesis {
 		return &v
 	}).(TopicRuleErrorActionKinesisPtrOutput)
 }
@@ -3484,7 +3581,13 @@ func (o TopicRuleErrorActionKinesisPtrOutput) ToTopicRuleErrorActionKinesisPtrOu
 }
 
 func (o TopicRuleErrorActionKinesisPtrOutput) Elem() TopicRuleErrorActionKinesisOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionKinesis) TopicRuleErrorActionKinesis { return *v }).(TopicRuleErrorActionKinesisOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionKinesis) TopicRuleErrorActionKinesis {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionKinesis
+		return ret
+	}).(TopicRuleErrorActionKinesisOutput)
 }
 
 // The partition key.
@@ -3610,7 +3713,7 @@ func (o TopicRuleErrorActionLambdaOutput) ToTopicRuleErrorActionLambdaPtrOutput(
 }
 
 func (o TopicRuleErrorActionLambdaOutput) ToTopicRuleErrorActionLambdaPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionLambdaPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionLambda) *TopicRuleErrorActionLambda {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionLambda) *TopicRuleErrorActionLambda {
 		return &v
 	}).(TopicRuleErrorActionLambdaPtrOutput)
 }
@@ -3635,7 +3738,13 @@ func (o TopicRuleErrorActionLambdaPtrOutput) ToTopicRuleErrorActionLambdaPtrOutp
 }
 
 func (o TopicRuleErrorActionLambdaPtrOutput) Elem() TopicRuleErrorActionLambdaOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionLambda) TopicRuleErrorActionLambda { return *v }).(TopicRuleErrorActionLambdaOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionLambda) TopicRuleErrorActionLambda {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionLambda
+		return ret
+	}).(TopicRuleErrorActionLambdaOutput)
 }
 
 // The ARN of the Lambda function.
@@ -3749,7 +3858,7 @@ func (o TopicRuleErrorActionRepublishOutput) ToTopicRuleErrorActionRepublishPtrO
 }
 
 func (o TopicRuleErrorActionRepublishOutput) ToTopicRuleErrorActionRepublishPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionRepublishPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionRepublish) *TopicRuleErrorActionRepublish {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionRepublish) *TopicRuleErrorActionRepublish {
 		return &v
 	}).(TopicRuleErrorActionRepublishPtrOutput)
 }
@@ -3784,7 +3893,13 @@ func (o TopicRuleErrorActionRepublishPtrOutput) ToTopicRuleErrorActionRepublishP
 }
 
 func (o TopicRuleErrorActionRepublishPtrOutput) Elem() TopicRuleErrorActionRepublishOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) TopicRuleErrorActionRepublish { return *v }).(TopicRuleErrorActionRepublishOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionRepublish) TopicRuleErrorActionRepublish {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionRepublish
+		return ret
+	}).(TopicRuleErrorActionRepublishOutput)
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
@@ -3918,7 +4033,7 @@ func (o TopicRuleErrorActionS3Output) ToTopicRuleErrorActionS3PtrOutput() TopicR
 }
 
 func (o TopicRuleErrorActionS3Output) ToTopicRuleErrorActionS3PtrOutputWithContext(ctx context.Context) TopicRuleErrorActionS3PtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionS3) *TopicRuleErrorActionS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionS3) *TopicRuleErrorActionS3 {
 		return &v
 	}).(TopicRuleErrorActionS3PtrOutput)
 }
@@ -3953,7 +4068,13 @@ func (o TopicRuleErrorActionS3PtrOutput) ToTopicRuleErrorActionS3PtrOutputWithCo
 }
 
 func (o TopicRuleErrorActionS3PtrOutput) Elem() TopicRuleErrorActionS3Output {
-	return o.ApplyT(func(v *TopicRuleErrorActionS3) TopicRuleErrorActionS3 { return *v }).(TopicRuleErrorActionS3Output)
+	return o.ApplyT(func(v *TopicRuleErrorActionS3) TopicRuleErrorActionS3 {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionS3
+		return ret
+	}).(TopicRuleErrorActionS3Output)
 }
 
 // The Amazon S3 bucket name.
@@ -4087,7 +4208,7 @@ func (o TopicRuleErrorActionSnsOutput) ToTopicRuleErrorActionSnsPtrOutput() Topi
 }
 
 func (o TopicRuleErrorActionSnsOutput) ToTopicRuleErrorActionSnsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionSnsPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionSns) *TopicRuleErrorActionSns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionSns) *TopicRuleErrorActionSns {
 		return &v
 	}).(TopicRuleErrorActionSnsPtrOutput)
 }
@@ -4122,7 +4243,13 @@ func (o TopicRuleErrorActionSnsPtrOutput) ToTopicRuleErrorActionSnsPtrOutputWith
 }
 
 func (o TopicRuleErrorActionSnsPtrOutput) Elem() TopicRuleErrorActionSnsOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionSns) TopicRuleErrorActionSns { return *v }).(TopicRuleErrorActionSnsOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionSns) TopicRuleErrorActionSns {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionSns
+		return ret
+	}).(TopicRuleErrorActionSnsOutput)
 }
 
 // The message format of the message to publish. Accepted values are "JSON" and "RAW".
@@ -4256,7 +4383,7 @@ func (o TopicRuleErrorActionSqsOutput) ToTopicRuleErrorActionSqsPtrOutput() Topi
 }
 
 func (o TopicRuleErrorActionSqsOutput) ToTopicRuleErrorActionSqsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionSqsPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionSqs) *TopicRuleErrorActionSqs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionSqs) *TopicRuleErrorActionSqs {
 		return &v
 	}).(TopicRuleErrorActionSqsPtrOutput)
 }
@@ -4291,7 +4418,13 @@ func (o TopicRuleErrorActionSqsPtrOutput) ToTopicRuleErrorActionSqsPtrOutputWith
 }
 
 func (o TopicRuleErrorActionSqsPtrOutput) Elem() TopicRuleErrorActionSqsOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionSqs) TopicRuleErrorActionSqs { return *v }).(TopicRuleErrorActionSqsOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionSqs) TopicRuleErrorActionSqs {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionSqs
+		return ret
+	}).(TopicRuleErrorActionSqsOutput)
 }
 
 // The URL of the Amazon SQS queue.
@@ -4425,7 +4558,7 @@ func (o TopicRuleErrorActionStepFunctionsOutput) ToTopicRuleErrorActionStepFunct
 }
 
 func (o TopicRuleErrorActionStepFunctionsOutput) ToTopicRuleErrorActionStepFunctionsPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionStepFunctionsPtrOutput {
-	return o.ApplyT(func(v TopicRuleErrorActionStepFunctions) *TopicRuleErrorActionStepFunctions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionStepFunctions) *TopicRuleErrorActionStepFunctions {
 		return &v
 	}).(TopicRuleErrorActionStepFunctionsPtrOutput)
 }
@@ -4460,7 +4593,13 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) ToTopicRuleErrorActionStepFu
 }
 
 func (o TopicRuleErrorActionStepFunctionsPtrOutput) Elem() TopicRuleErrorActionStepFunctionsOutput {
-	return o.ApplyT(func(v *TopicRuleErrorActionStepFunctions) TopicRuleErrorActionStepFunctions { return *v }).(TopicRuleErrorActionStepFunctionsOutput)
+	return o.ApplyT(func(v *TopicRuleErrorActionStepFunctions) TopicRuleErrorActionStepFunctions {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionStepFunctions
+		return ret
+	}).(TopicRuleErrorActionStepFunctionsOutput)
 }
 
 // The prefix used to generate, along with a UUID, the unique state machine execution name.
@@ -4594,7 +4733,7 @@ func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutput() TopicRuleFirehos
 }
 
 func (o TopicRuleFirehoseOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx context.Context) TopicRuleFirehosePtrOutput {
-	return o.ApplyT(func(v TopicRuleFirehose) *TopicRuleFirehose {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleFirehose) *TopicRuleFirehose {
 		return &v
 	}).(TopicRuleFirehosePtrOutput)
 }
@@ -4629,7 +4768,13 @@ func (o TopicRuleFirehosePtrOutput) ToTopicRuleFirehosePtrOutputWithContext(ctx 
 }
 
 func (o TopicRuleFirehosePtrOutput) Elem() TopicRuleFirehoseOutput {
-	return o.ApplyT(func(v *TopicRuleFirehose) TopicRuleFirehose { return *v }).(TopicRuleFirehoseOutput)
+	return o.ApplyT(func(v *TopicRuleFirehose) TopicRuleFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleFirehose
+		return ret
+	}).(TopicRuleFirehoseOutput)
 }
 
 // The delivery stream name.
@@ -4984,7 +5129,7 @@ func (o TopicRuleKinesisOutput) ToTopicRuleKinesisPtrOutput() TopicRuleKinesisPt
 }
 
 func (o TopicRuleKinesisOutput) ToTopicRuleKinesisPtrOutputWithContext(ctx context.Context) TopicRuleKinesisPtrOutput {
-	return o.ApplyT(func(v TopicRuleKinesis) *TopicRuleKinesis {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleKinesis) *TopicRuleKinesis {
 		return &v
 	}).(TopicRuleKinesisPtrOutput)
 }
@@ -5019,7 +5164,13 @@ func (o TopicRuleKinesisPtrOutput) ToTopicRuleKinesisPtrOutputWithContext(ctx co
 }
 
 func (o TopicRuleKinesisPtrOutput) Elem() TopicRuleKinesisOutput {
-	return o.ApplyT(func(v *TopicRuleKinesis) TopicRuleKinesis { return *v }).(TopicRuleKinesisOutput)
+	return o.ApplyT(func(v *TopicRuleKinesis) TopicRuleKinesis {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleKinesis
+		return ret
+	}).(TopicRuleKinesisOutput)
 }
 
 // The partition key.
@@ -5145,7 +5296,7 @@ func (o TopicRuleLambdaOutput) ToTopicRuleLambdaPtrOutput() TopicRuleLambdaPtrOu
 }
 
 func (o TopicRuleLambdaOutput) ToTopicRuleLambdaPtrOutputWithContext(ctx context.Context) TopicRuleLambdaPtrOutput {
-	return o.ApplyT(func(v TopicRuleLambda) *TopicRuleLambda {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleLambda) *TopicRuleLambda {
 		return &v
 	}).(TopicRuleLambdaPtrOutput)
 }
@@ -5170,7 +5321,13 @@ func (o TopicRuleLambdaPtrOutput) ToTopicRuleLambdaPtrOutputWithContext(ctx cont
 }
 
 func (o TopicRuleLambdaPtrOutput) Elem() TopicRuleLambdaOutput {
-	return o.ApplyT(func(v *TopicRuleLambda) TopicRuleLambda { return *v }).(TopicRuleLambdaOutput)
+	return o.ApplyT(func(v *TopicRuleLambda) TopicRuleLambda {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleLambda
+		return ret
+	}).(TopicRuleLambdaOutput)
 }
 
 // The ARN of the Lambda function.
@@ -5284,7 +5441,7 @@ func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutput() TopicRuleRepub
 }
 
 func (o TopicRuleRepublishOutput) ToTopicRuleRepublishPtrOutputWithContext(ctx context.Context) TopicRuleRepublishPtrOutput {
-	return o.ApplyT(func(v TopicRuleRepublish) *TopicRuleRepublish {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleRepublish) *TopicRuleRepublish {
 		return &v
 	}).(TopicRuleRepublishPtrOutput)
 }
@@ -5319,7 +5476,13 @@ func (o TopicRuleRepublishPtrOutput) ToTopicRuleRepublishPtrOutputWithContext(ct
 }
 
 func (o TopicRuleRepublishPtrOutput) Elem() TopicRuleRepublishOutput {
-	return o.ApplyT(func(v *TopicRuleRepublish) TopicRuleRepublish { return *v }).(TopicRuleRepublishOutput)
+	return o.ApplyT(func(v *TopicRuleRepublish) TopicRuleRepublish {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleRepublish
+		return ret
+	}).(TopicRuleRepublishOutput)
 }
 
 // The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
@@ -5453,7 +5616,7 @@ func (o TopicRuleS3Output) ToTopicRuleS3PtrOutput() TopicRuleS3PtrOutput {
 }
 
 func (o TopicRuleS3Output) ToTopicRuleS3PtrOutputWithContext(ctx context.Context) TopicRuleS3PtrOutput {
-	return o.ApplyT(func(v TopicRuleS3) *TopicRuleS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleS3) *TopicRuleS3 {
 		return &v
 	}).(TopicRuleS3PtrOutput)
 }
@@ -5488,7 +5651,13 @@ func (o TopicRuleS3PtrOutput) ToTopicRuleS3PtrOutputWithContext(ctx context.Cont
 }
 
 func (o TopicRuleS3PtrOutput) Elem() TopicRuleS3Output {
-	return o.ApplyT(func(v *TopicRuleS3) TopicRuleS3 { return *v }).(TopicRuleS3Output)
+	return o.ApplyT(func(v *TopicRuleS3) TopicRuleS3 {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleS3
+		return ret
+	}).(TopicRuleS3Output)
 }
 
 // The Amazon S3 bucket name.
@@ -5622,7 +5791,7 @@ func (o TopicRuleSnsOutput) ToTopicRuleSnsPtrOutput() TopicRuleSnsPtrOutput {
 }
 
 func (o TopicRuleSnsOutput) ToTopicRuleSnsPtrOutputWithContext(ctx context.Context) TopicRuleSnsPtrOutput {
-	return o.ApplyT(func(v TopicRuleSns) *TopicRuleSns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleSns) *TopicRuleSns {
 		return &v
 	}).(TopicRuleSnsPtrOutput)
 }
@@ -5657,7 +5826,13 @@ func (o TopicRuleSnsPtrOutput) ToTopicRuleSnsPtrOutputWithContext(ctx context.Co
 }
 
 func (o TopicRuleSnsPtrOutput) Elem() TopicRuleSnsOutput {
-	return o.ApplyT(func(v *TopicRuleSns) TopicRuleSns { return *v }).(TopicRuleSnsOutput)
+	return o.ApplyT(func(v *TopicRuleSns) TopicRuleSns {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleSns
+		return ret
+	}).(TopicRuleSnsOutput)
 }
 
 // The message format of the message to publish. Accepted values are "JSON" and "RAW".
@@ -5791,7 +5966,7 @@ func (o TopicRuleSqsOutput) ToTopicRuleSqsPtrOutput() TopicRuleSqsPtrOutput {
 }
 
 func (o TopicRuleSqsOutput) ToTopicRuleSqsPtrOutputWithContext(ctx context.Context) TopicRuleSqsPtrOutput {
-	return o.ApplyT(func(v TopicRuleSqs) *TopicRuleSqs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleSqs) *TopicRuleSqs {
 		return &v
 	}).(TopicRuleSqsPtrOutput)
 }
@@ -5826,7 +6001,13 @@ func (o TopicRuleSqsPtrOutput) ToTopicRuleSqsPtrOutputWithContext(ctx context.Co
 }
 
 func (o TopicRuleSqsPtrOutput) Elem() TopicRuleSqsOutput {
-	return o.ApplyT(func(v *TopicRuleSqs) TopicRuleSqs { return *v }).(TopicRuleSqsOutput)
+	return o.ApplyT(func(v *TopicRuleSqs) TopicRuleSqs {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleSqs
+		return ret
+	}).(TopicRuleSqsOutput)
 }
 
 // The URL of the Amazon SQS queue.

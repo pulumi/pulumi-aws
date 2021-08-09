@@ -350,9 +350,7 @@ func (i ResolverMap) ToResolverMapOutputWithContext(ctx context.Context) Resolve
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverMapOutput)
 }
 
-type ResolverOutput struct {
-	*pulumi.OutputState
-}
+type ResolverOutput struct{ *pulumi.OutputState }
 
 func (ResolverOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Resolver)(nil))
@@ -371,14 +369,12 @@ func (o ResolverOutput) ToResolverPtrOutput() ResolverPtrOutput {
 }
 
 func (o ResolverOutput) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
-	return o.ApplyT(func(v Resolver) *Resolver {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Resolver) *Resolver {
 		return &v
 	}).(ResolverPtrOutput)
 }
 
-type ResolverPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResolverPtrOutput struct{ *pulumi.OutputState }
 
 func (ResolverPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Resolver)(nil))
@@ -390,6 +386,16 @@ func (o ResolverPtrOutput) ToResolverPtrOutput() ResolverPtrOutput {
 
 func (o ResolverPtrOutput) ToResolverPtrOutputWithContext(ctx context.Context) ResolverPtrOutput {
 	return o
+}
+
+func (o ResolverPtrOutput) Elem() ResolverOutput {
+	return o.ApplyT(func(v *Resolver) Resolver {
+		if v != nil {
+			return *v
+		}
+		var ret Resolver
+		return ret
+	}).(ResolverOutput)
 }
 
 type ResolverArrayOutput struct{ *pulumi.OutputState }

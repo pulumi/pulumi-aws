@@ -291,7 +291,7 @@ func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionA
 }
 
 func (o ListenerDefaultActionAuthenticateCognitoOutput) ToListenerDefaultActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) ListenerDefaultActionAuthenticateCognitoPtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionAuthenticateCognito) *ListenerDefaultActionAuthenticateCognito {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionAuthenticateCognito) *ListenerDefaultActionAuthenticateCognito {
 		return &v
 	}).(ListenerDefaultActionAuthenticateCognitoPtrOutput)
 }
@@ -353,7 +353,13 @@ func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) ToListenerDefaultActi
 }
 
 func (o ListenerDefaultActionAuthenticateCognitoPtrOutput) Elem() ListenerDefaultActionAuthenticateCognitoOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) ListenerDefaultActionAuthenticateCognito { return *v }).(ListenerDefaultActionAuthenticateCognitoOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateCognito) ListenerDefaultActionAuthenticateCognito {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionAuthenticateCognito
+		return ret
+	}).(ListenerDefaultActionAuthenticateCognitoOutput)
 }
 
 // Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
@@ -569,7 +575,7 @@ func (o ListenerDefaultActionAuthenticateOidcOutput) ToListenerDefaultActionAuth
 }
 
 func (o ListenerDefaultActionAuthenticateOidcOutput) ToListenerDefaultActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) ListenerDefaultActionAuthenticateOidcPtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionAuthenticateOidc) *ListenerDefaultActionAuthenticateOidc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionAuthenticateOidc) *ListenerDefaultActionAuthenticateOidc {
 		return &v
 	}).(ListenerDefaultActionAuthenticateOidcPtrOutput)
 }
@@ -646,7 +652,13 @@ func (o ListenerDefaultActionAuthenticateOidcPtrOutput) ToListenerDefaultActionA
 }
 
 func (o ListenerDefaultActionAuthenticateOidcPtrOutput) Elem() ListenerDefaultActionAuthenticateOidcOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) ListenerDefaultActionAuthenticateOidc { return *v }).(ListenerDefaultActionAuthenticateOidcOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionAuthenticateOidc) ListenerDefaultActionAuthenticateOidc {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionAuthenticateOidc
+		return ret
+	}).(ListenerDefaultActionAuthenticateOidcOutput)
 }
 
 // Query parameters to include in the redirect request to the authorization endpoint. Max: 10.
@@ -860,7 +872,7 @@ func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedRe
 }
 
 func (o ListenerDefaultActionFixedResponseOutput) ToListenerDefaultActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerDefaultActionFixedResponsePtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionFixedResponse) *ListenerDefaultActionFixedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionFixedResponse) *ListenerDefaultActionFixedResponse {
 		return &v
 	}).(ListenerDefaultActionFixedResponsePtrOutput)
 }
@@ -895,7 +907,13 @@ func (o ListenerDefaultActionFixedResponsePtrOutput) ToListenerDefaultActionFixe
 }
 
 func (o ListenerDefaultActionFixedResponsePtrOutput) Elem() ListenerDefaultActionFixedResponseOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) ListenerDefaultActionFixedResponse { return *v }).(ListenerDefaultActionFixedResponseOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionFixedResponse) ListenerDefaultActionFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionFixedResponse
+		return ret
+	}).(ListenerDefaultActionFixedResponseOutput)
 }
 
 // Content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
@@ -1025,7 +1043,7 @@ func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOut
 }
 
 func (o ListenerDefaultActionForwardOutput) ToListenerDefaultActionForwardPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardPtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionForward) *ListenerDefaultActionForward {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionForward) *ListenerDefaultActionForward {
 		return &v
 	}).(ListenerDefaultActionForwardPtrOutput)
 }
@@ -1055,7 +1073,13 @@ func (o ListenerDefaultActionForwardPtrOutput) ToListenerDefaultActionForwardPtr
 }
 
 func (o ListenerDefaultActionForwardPtrOutput) Elem() ListenerDefaultActionForwardOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionForward) ListenerDefaultActionForward { return *v }).(ListenerDefaultActionForwardOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionForward) ListenerDefaultActionForward {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionForward
+		return ret
+	}).(ListenerDefaultActionForwardOutput)
 }
 
 // Configuration block for target group stickiness for the rule. Detailed below.
@@ -1175,7 +1199,7 @@ func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionFor
 }
 
 func (o ListenerDefaultActionForwardStickinessOutput) ToListenerDefaultActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerDefaultActionForwardStickinessPtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionForwardStickiness) *ListenerDefaultActionForwardStickiness {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionForwardStickiness) *ListenerDefaultActionForwardStickiness {
 		return &v
 	}).(ListenerDefaultActionForwardStickinessPtrOutput)
 }
@@ -1205,7 +1229,13 @@ func (o ListenerDefaultActionForwardStickinessPtrOutput) ToListenerDefaultAction
 }
 
 func (o ListenerDefaultActionForwardStickinessPtrOutput) Elem() ListenerDefaultActionForwardStickinessOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) ListenerDefaultActionForwardStickiness { return *v }).(ListenerDefaultActionForwardStickinessOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionForwardStickiness) ListenerDefaultActionForwardStickiness {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionForwardStickiness
+		return ret
+	}).(ListenerDefaultActionForwardStickinessOutput)
 }
 
 // Time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
@@ -1447,7 +1477,7 @@ func (o ListenerDefaultActionRedirectOutput) ToListenerDefaultActionRedirectPtrO
 }
 
 func (o ListenerDefaultActionRedirectOutput) ToListenerDefaultActionRedirectPtrOutputWithContext(ctx context.Context) ListenerDefaultActionRedirectPtrOutput {
-	return o.ApplyT(func(v ListenerDefaultActionRedirect) *ListenerDefaultActionRedirect {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerDefaultActionRedirect) *ListenerDefaultActionRedirect {
 		return &v
 	}).(ListenerDefaultActionRedirectPtrOutput)
 }
@@ -1497,7 +1527,13 @@ func (o ListenerDefaultActionRedirectPtrOutput) ToListenerDefaultActionRedirectP
 }
 
 func (o ListenerDefaultActionRedirectPtrOutput) Elem() ListenerDefaultActionRedirectOutput {
-	return o.ApplyT(func(v *ListenerDefaultActionRedirect) ListenerDefaultActionRedirect { return *v }).(ListenerDefaultActionRedirectOutput)
+	return o.ApplyT(func(v *ListenerDefaultActionRedirect) ListenerDefaultActionRedirect {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerDefaultActionRedirect
+		return ret
+	}).(ListenerDefaultActionRedirectOutput)
 }
 
 // Hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -1838,7 +1874,7 @@ func (o ListenerRuleActionAuthenticateCognitoOutput) ToListenerRuleActionAuthent
 }
 
 func (o ListenerRuleActionAuthenticateCognitoOutput) ToListenerRuleActionAuthenticateCognitoPtrOutputWithContext(ctx context.Context) ListenerRuleActionAuthenticateCognitoPtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionAuthenticateCognito) *ListenerRuleActionAuthenticateCognito {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionAuthenticateCognito) *ListenerRuleActionAuthenticateCognito {
 		return &v
 	}).(ListenerRuleActionAuthenticateCognitoPtrOutput)
 }
@@ -1900,7 +1936,13 @@ func (o ListenerRuleActionAuthenticateCognitoPtrOutput) ToListenerRuleActionAuth
 }
 
 func (o ListenerRuleActionAuthenticateCognitoPtrOutput) Elem() ListenerRuleActionAuthenticateCognitoOutput {
-	return o.ApplyT(func(v *ListenerRuleActionAuthenticateCognito) ListenerRuleActionAuthenticateCognito { return *v }).(ListenerRuleActionAuthenticateCognitoOutput)
+	return o.ApplyT(func(v *ListenerRuleActionAuthenticateCognito) ListenerRuleActionAuthenticateCognito {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionAuthenticateCognito
+		return ret
+	}).(ListenerRuleActionAuthenticateCognitoOutput)
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
@@ -2116,7 +2158,7 @@ func (o ListenerRuleActionAuthenticateOidcOutput) ToListenerRuleActionAuthentica
 }
 
 func (o ListenerRuleActionAuthenticateOidcOutput) ToListenerRuleActionAuthenticateOidcPtrOutputWithContext(ctx context.Context) ListenerRuleActionAuthenticateOidcPtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionAuthenticateOidc) *ListenerRuleActionAuthenticateOidc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionAuthenticateOidc) *ListenerRuleActionAuthenticateOidc {
 		return &v
 	}).(ListenerRuleActionAuthenticateOidcPtrOutput)
 }
@@ -2193,7 +2235,13 @@ func (o ListenerRuleActionAuthenticateOidcPtrOutput) ToListenerRuleActionAuthent
 }
 
 func (o ListenerRuleActionAuthenticateOidcPtrOutput) Elem() ListenerRuleActionAuthenticateOidcOutput {
-	return o.ApplyT(func(v *ListenerRuleActionAuthenticateOidc) ListenerRuleActionAuthenticateOidc { return *v }).(ListenerRuleActionAuthenticateOidcOutput)
+	return o.ApplyT(func(v *ListenerRuleActionAuthenticateOidc) ListenerRuleActionAuthenticateOidc {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionAuthenticateOidc
+		return ret
+	}).(ListenerRuleActionAuthenticateOidcOutput)
 }
 
 // The query parameters to include in the redirect request to the authorization endpoint. Max: 10.
@@ -2407,7 +2455,7 @@ func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponse
 }
 
 func (o ListenerRuleActionFixedResponseOutput) ToListenerRuleActionFixedResponsePtrOutputWithContext(ctx context.Context) ListenerRuleActionFixedResponsePtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionFixedResponse) *ListenerRuleActionFixedResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionFixedResponse) *ListenerRuleActionFixedResponse {
 		return &v
 	}).(ListenerRuleActionFixedResponsePtrOutput)
 }
@@ -2442,7 +2490,13 @@ func (o ListenerRuleActionFixedResponsePtrOutput) ToListenerRuleActionFixedRespo
 }
 
 func (o ListenerRuleActionFixedResponsePtrOutput) Elem() ListenerRuleActionFixedResponseOutput {
-	return o.ApplyT(func(v *ListenerRuleActionFixedResponse) ListenerRuleActionFixedResponse { return *v }).(ListenerRuleActionFixedResponseOutput)
+	return o.ApplyT(func(v *ListenerRuleActionFixedResponse) ListenerRuleActionFixedResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionFixedResponse
+		return ret
+	}).(ListenerRuleActionFixedResponseOutput)
 }
 
 // The content type. Valid values are `text/plain`, `text/css`, `text/html`, `application/javascript` and `application/json`.
@@ -2572,7 +2626,7 @@ func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutput() 
 }
 
 func (o ListenerRuleActionForwardOutput) ToListenerRuleActionForwardPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardPtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionForward) *ListenerRuleActionForward {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionForward) *ListenerRuleActionForward {
 		return &v
 	}).(ListenerRuleActionForwardPtrOutput)
 }
@@ -2602,7 +2656,13 @@ func (o ListenerRuleActionForwardPtrOutput) ToListenerRuleActionForwardPtrOutput
 }
 
 func (o ListenerRuleActionForwardPtrOutput) Elem() ListenerRuleActionForwardOutput {
-	return o.ApplyT(func(v *ListenerRuleActionForward) ListenerRuleActionForward { return *v }).(ListenerRuleActionForwardOutput)
+	return o.ApplyT(func(v *ListenerRuleActionForward) ListenerRuleActionForward {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionForward
+		return ret
+	}).(ListenerRuleActionForwardOutput)
 }
 
 // The target group stickiness for the rule.
@@ -2722,7 +2782,7 @@ func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardSt
 }
 
 func (o ListenerRuleActionForwardStickinessOutput) ToListenerRuleActionForwardStickinessPtrOutputWithContext(ctx context.Context) ListenerRuleActionForwardStickinessPtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionForwardStickiness) *ListenerRuleActionForwardStickiness {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionForwardStickiness) *ListenerRuleActionForwardStickiness {
 		return &v
 	}).(ListenerRuleActionForwardStickinessPtrOutput)
 }
@@ -2752,7 +2812,13 @@ func (o ListenerRuleActionForwardStickinessPtrOutput) ToListenerRuleActionForwar
 }
 
 func (o ListenerRuleActionForwardStickinessPtrOutput) Elem() ListenerRuleActionForwardStickinessOutput {
-	return o.ApplyT(func(v *ListenerRuleActionForwardStickiness) ListenerRuleActionForwardStickiness { return *v }).(ListenerRuleActionForwardStickinessOutput)
+	return o.ApplyT(func(v *ListenerRuleActionForwardStickiness) ListenerRuleActionForwardStickiness {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionForwardStickiness
+		return ret
+	}).(ListenerRuleActionForwardStickinessOutput)
 }
 
 // The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
@@ -2994,7 +3060,7 @@ func (o ListenerRuleActionRedirectOutput) ToListenerRuleActionRedirectPtrOutput(
 }
 
 func (o ListenerRuleActionRedirectOutput) ToListenerRuleActionRedirectPtrOutputWithContext(ctx context.Context) ListenerRuleActionRedirectPtrOutput {
-	return o.ApplyT(func(v ListenerRuleActionRedirect) *ListenerRuleActionRedirect {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleActionRedirect) *ListenerRuleActionRedirect {
 		return &v
 	}).(ListenerRuleActionRedirectPtrOutput)
 }
@@ -3044,7 +3110,13 @@ func (o ListenerRuleActionRedirectPtrOutput) ToListenerRuleActionRedirectPtrOutp
 }
 
 func (o ListenerRuleActionRedirectPtrOutput) Elem() ListenerRuleActionRedirectOutput {
-	return o.ApplyT(func(v *ListenerRuleActionRedirect) ListenerRuleActionRedirect { return *v }).(ListenerRuleActionRedirectOutput)
+	return o.ApplyT(func(v *ListenerRuleActionRedirect) ListenerRuleActionRedirect {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleActionRedirect
+		return ret
+	}).(ListenerRuleActionRedirectOutput)
 }
 
 // The hostname. This component is not percent-encoded. The hostname can contain `#{host}`. Defaults to `#{host}`.
@@ -3342,7 +3414,7 @@ func (o ListenerRuleConditionHostHeaderOutput) ToListenerRuleConditionHostHeader
 }
 
 func (o ListenerRuleConditionHostHeaderOutput) ToListenerRuleConditionHostHeaderPtrOutputWithContext(ctx context.Context) ListenerRuleConditionHostHeaderPtrOutput {
-	return o.ApplyT(func(v ListenerRuleConditionHostHeader) *ListenerRuleConditionHostHeader {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleConditionHostHeader) *ListenerRuleConditionHostHeader {
 		return &v
 	}).(ListenerRuleConditionHostHeaderPtrOutput)
 }
@@ -3367,7 +3439,13 @@ func (o ListenerRuleConditionHostHeaderPtrOutput) ToListenerRuleConditionHostHea
 }
 
 func (o ListenerRuleConditionHostHeaderPtrOutput) Elem() ListenerRuleConditionHostHeaderOutput {
-	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) ListenerRuleConditionHostHeader { return *v }).(ListenerRuleConditionHostHeaderOutput)
+	return o.ApplyT(func(v *ListenerRuleConditionHostHeader) ListenerRuleConditionHostHeader {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleConditionHostHeader
+		return ret
+	}).(ListenerRuleConditionHostHeaderOutput)
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
@@ -3477,7 +3555,7 @@ func (o ListenerRuleConditionHttpHeaderOutput) ToListenerRuleConditionHttpHeader
 }
 
 func (o ListenerRuleConditionHttpHeaderOutput) ToListenerRuleConditionHttpHeaderPtrOutputWithContext(ctx context.Context) ListenerRuleConditionHttpHeaderPtrOutput {
-	return o.ApplyT(func(v ListenerRuleConditionHttpHeader) *ListenerRuleConditionHttpHeader {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleConditionHttpHeader) *ListenerRuleConditionHttpHeader {
 		return &v
 	}).(ListenerRuleConditionHttpHeaderPtrOutput)
 }
@@ -3507,7 +3585,13 @@ func (o ListenerRuleConditionHttpHeaderPtrOutput) ToListenerRuleConditionHttpHea
 }
 
 func (o ListenerRuleConditionHttpHeaderPtrOutput) Elem() ListenerRuleConditionHttpHeaderOutput {
-	return o.ApplyT(func(v *ListenerRuleConditionHttpHeader) ListenerRuleConditionHttpHeader { return *v }).(ListenerRuleConditionHttpHeaderOutput)
+	return o.ApplyT(func(v *ListenerRuleConditionHttpHeader) ListenerRuleConditionHttpHeader {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleConditionHttpHeader
+		return ret
+	}).(ListenerRuleConditionHttpHeaderOutput)
 }
 
 // Name of HTTP header to search. The maximum size is 40 characters. Comparison is case insensitive. Only RFC7240 characters are supported. Wildcards are not supported. You cannot use HTTP header condition to specify the host header, use a `host-header` condition instead.
@@ -3623,7 +3707,7 @@ func (o ListenerRuleConditionHttpRequestMethodOutput) ToListenerRuleConditionHtt
 }
 
 func (o ListenerRuleConditionHttpRequestMethodOutput) ToListenerRuleConditionHttpRequestMethodPtrOutputWithContext(ctx context.Context) ListenerRuleConditionHttpRequestMethodPtrOutput {
-	return o.ApplyT(func(v ListenerRuleConditionHttpRequestMethod) *ListenerRuleConditionHttpRequestMethod {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleConditionHttpRequestMethod) *ListenerRuleConditionHttpRequestMethod {
 		return &v
 	}).(ListenerRuleConditionHttpRequestMethodPtrOutput)
 }
@@ -3648,7 +3732,13 @@ func (o ListenerRuleConditionHttpRequestMethodPtrOutput) ToListenerRuleCondition
 }
 
 func (o ListenerRuleConditionHttpRequestMethodPtrOutput) Elem() ListenerRuleConditionHttpRequestMethodOutput {
-	return o.ApplyT(func(v *ListenerRuleConditionHttpRequestMethod) ListenerRuleConditionHttpRequestMethod { return *v }).(ListenerRuleConditionHttpRequestMethodOutput)
+	return o.ApplyT(func(v *ListenerRuleConditionHttpRequestMethod) ListenerRuleConditionHttpRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleConditionHttpRequestMethod
+		return ret
+	}).(ListenerRuleConditionHttpRequestMethodOutput)
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
@@ -3754,7 +3844,7 @@ func (o ListenerRuleConditionPathPatternOutput) ToListenerRuleConditionPathPatte
 }
 
 func (o ListenerRuleConditionPathPatternOutput) ToListenerRuleConditionPathPatternPtrOutputWithContext(ctx context.Context) ListenerRuleConditionPathPatternPtrOutput {
-	return o.ApplyT(func(v ListenerRuleConditionPathPattern) *ListenerRuleConditionPathPattern {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleConditionPathPattern) *ListenerRuleConditionPathPattern {
 		return &v
 	}).(ListenerRuleConditionPathPatternPtrOutput)
 }
@@ -3779,7 +3869,13 @@ func (o ListenerRuleConditionPathPatternPtrOutput) ToListenerRuleConditionPathPa
 }
 
 func (o ListenerRuleConditionPathPatternPtrOutput) Elem() ListenerRuleConditionPathPatternOutput {
-	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) ListenerRuleConditionPathPattern { return *v }).(ListenerRuleConditionPathPatternOutput)
+	return o.ApplyT(func(v *ListenerRuleConditionPathPattern) ListenerRuleConditionPathPattern {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleConditionPathPattern
+		return ret
+	}).(ListenerRuleConditionPathPatternOutput)
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
@@ -3991,7 +4087,7 @@ func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrO
 }
 
 func (o ListenerRuleConditionSourceIpOutput) ToListenerRuleConditionSourceIpPtrOutputWithContext(ctx context.Context) ListenerRuleConditionSourceIpPtrOutput {
-	return o.ApplyT(func(v ListenerRuleConditionSourceIp) *ListenerRuleConditionSourceIp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleConditionSourceIp) *ListenerRuleConditionSourceIp {
 		return &v
 	}).(ListenerRuleConditionSourceIpPtrOutput)
 }
@@ -4016,7 +4112,13 @@ func (o ListenerRuleConditionSourceIpPtrOutput) ToListenerRuleConditionSourceIpP
 }
 
 func (o ListenerRuleConditionSourceIpPtrOutput) Elem() ListenerRuleConditionSourceIpOutput {
-	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) ListenerRuleConditionSourceIp { return *v }).(ListenerRuleConditionSourceIpOutput)
+	return o.ApplyT(func(v *ListenerRuleConditionSourceIp) ListenerRuleConditionSourceIp {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRuleConditionSourceIp
+		return ret
+	}).(ListenerRuleConditionSourceIpOutput)
 }
 
 // List of header value patterns to match. Maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). If the same header appears multiple times in the request they will be searched in order until a match is found. Only one pattern needs to match for the condition to be satisfied. To require that all of the strings are a match, create one condition block per string.
@@ -4130,7 +4232,7 @@ func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutput() LoadBa
 }
 
 func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) LoadBalancerAccessLogsPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *LoadBalancerAccessLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerAccessLogs) *LoadBalancerAccessLogs {
 		return &v
 	}).(LoadBalancerAccessLogsPtrOutput)
 }
@@ -4165,7 +4267,13 @@ func (o LoadBalancerAccessLogsPtrOutput) ToLoadBalancerAccessLogsPtrOutputWithCo
 }
 
 func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
-	return o.ApplyT(func(v *LoadBalancerAccessLogs) LoadBalancerAccessLogs { return *v }).(LoadBalancerAccessLogsOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) LoadBalancerAccessLogs {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerAccessLogs
+		return ret
+	}).(LoadBalancerAccessLogsOutput)
 }
 
 // The S3 bucket name to store the logs in.
@@ -4453,7 +4561,7 @@ func (o TargetGroupHealthCheckOutput) ToTargetGroupHealthCheckPtrOutput() Target
 }
 
 func (o TargetGroupHealthCheckOutput) ToTargetGroupHealthCheckPtrOutputWithContext(ctx context.Context) TargetGroupHealthCheckPtrOutput {
-	return o.ApplyT(func(v TargetGroupHealthCheck) *TargetGroupHealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupHealthCheck) *TargetGroupHealthCheck {
 		return &v
 	}).(TargetGroupHealthCheckPtrOutput)
 }
@@ -4518,7 +4626,13 @@ func (o TargetGroupHealthCheckPtrOutput) ToTargetGroupHealthCheckPtrOutputWithCo
 }
 
 func (o TargetGroupHealthCheckPtrOutput) Elem() TargetGroupHealthCheckOutput {
-	return o.ApplyT(func(v *TargetGroupHealthCheck) TargetGroupHealthCheck { return *v }).(TargetGroupHealthCheckOutput)
+	return o.ApplyT(func(v *TargetGroupHealthCheck) TargetGroupHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupHealthCheck
+		return ret
+	}).(TargetGroupHealthCheckOutput)
 }
 
 // Boolean to enable / disable `stickiness`. Default is `true`.
@@ -4716,7 +4830,7 @@ func (o TargetGroupStickinessOutput) ToTargetGroupStickinessPtrOutput() TargetGr
 }
 
 func (o TargetGroupStickinessOutput) ToTargetGroupStickinessPtrOutputWithContext(ctx context.Context) TargetGroupStickinessPtrOutput {
-	return o.ApplyT(func(v TargetGroupStickiness) *TargetGroupStickiness {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupStickiness) *TargetGroupStickiness {
 		return &v
 	}).(TargetGroupStickinessPtrOutput)
 }
@@ -4756,7 +4870,13 @@ func (o TargetGroupStickinessPtrOutput) ToTargetGroupStickinessPtrOutputWithCont
 }
 
 func (o TargetGroupStickinessPtrOutput) Elem() TargetGroupStickinessOutput {
-	return o.ApplyT(func(v *TargetGroupStickiness) TargetGroupStickiness { return *v }).(TargetGroupStickinessOutput)
+	return o.ApplyT(func(v *TargetGroupStickiness) TargetGroupStickiness {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupStickiness
+		return ret
+	}).(TargetGroupStickinessOutput)
 }
 
 // Only used when the type is `lbCookie`. The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).

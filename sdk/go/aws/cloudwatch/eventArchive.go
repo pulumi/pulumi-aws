@@ -291,9 +291,7 @@ func (i EventArchiveMap) ToEventArchiveMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(EventArchiveMapOutput)
 }
 
-type EventArchiveOutput struct {
-	*pulumi.OutputState
-}
+type EventArchiveOutput struct{ *pulumi.OutputState }
 
 func (EventArchiveOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventArchive)(nil))
@@ -312,14 +310,12 @@ func (o EventArchiveOutput) ToEventArchivePtrOutput() EventArchivePtrOutput {
 }
 
 func (o EventArchiveOutput) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
-	return o.ApplyT(func(v EventArchive) *EventArchive {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventArchive) *EventArchive {
 		return &v
 	}).(EventArchivePtrOutput)
 }
 
-type EventArchivePtrOutput struct {
-	*pulumi.OutputState
-}
+type EventArchivePtrOutput struct{ *pulumi.OutputState }
 
 func (EventArchivePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventArchive)(nil))
@@ -331,6 +327,16 @@ func (o EventArchivePtrOutput) ToEventArchivePtrOutput() EventArchivePtrOutput {
 
 func (o EventArchivePtrOutput) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
 	return o
+}
+
+func (o EventArchivePtrOutput) Elem() EventArchiveOutput {
+	return o.ApplyT(func(v *EventArchive) EventArchive {
+		if v != nil {
+			return *v
+		}
+		var ret EventArchive
+		return ret
+	}).(EventArchiveOutput)
 }
 
 type EventArchiveArrayOutput struct{ *pulumi.OutputState }

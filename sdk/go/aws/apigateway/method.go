@@ -408,9 +408,7 @@ func (i MethodMap) ToMethodMapOutputWithContext(ctx context.Context) MethodMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(MethodMapOutput)
 }
 
-type MethodOutput struct {
-	*pulumi.OutputState
-}
+type MethodOutput struct{ *pulumi.OutputState }
 
 func (MethodOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Method)(nil))
@@ -429,14 +427,12 @@ func (o MethodOutput) ToMethodPtrOutput() MethodPtrOutput {
 }
 
 func (o MethodOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
-	return o.ApplyT(func(v Method) *Method {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Method) *Method {
 		return &v
 	}).(MethodPtrOutput)
 }
 
-type MethodPtrOutput struct {
-	*pulumi.OutputState
-}
+type MethodPtrOutput struct{ *pulumi.OutputState }
 
 func (MethodPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Method)(nil))
@@ -448,6 +444,16 @@ func (o MethodPtrOutput) ToMethodPtrOutput() MethodPtrOutput {
 
 func (o MethodPtrOutput) ToMethodPtrOutputWithContext(ctx context.Context) MethodPtrOutput {
 	return o
+}
+
+func (o MethodPtrOutput) Elem() MethodOutput {
+	return o.ApplyT(func(v *Method) Method {
+		if v != nil {
+			return *v
+		}
+		var ret Method
+		return ret
+	}).(MethodOutput)
 }
 
 type MethodArrayOutput struct{ *pulumi.OutputState }

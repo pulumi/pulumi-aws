@@ -250,9 +250,7 @@ func (i InviteAccepterMap) ToInviteAccepterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InviteAccepterMapOutput)
 }
 
-type InviteAccepterOutput struct {
-	*pulumi.OutputState
-}
+type InviteAccepterOutput struct{ *pulumi.OutputState }
 
 func (InviteAccepterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InviteAccepter)(nil))
@@ -271,14 +269,12 @@ func (o InviteAccepterOutput) ToInviteAccepterPtrOutput() InviteAccepterPtrOutpu
 }
 
 func (o InviteAccepterOutput) ToInviteAccepterPtrOutputWithContext(ctx context.Context) InviteAccepterPtrOutput {
-	return o.ApplyT(func(v InviteAccepter) *InviteAccepter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InviteAccepter) *InviteAccepter {
 		return &v
 	}).(InviteAccepterPtrOutput)
 }
 
-type InviteAccepterPtrOutput struct {
-	*pulumi.OutputState
-}
+type InviteAccepterPtrOutput struct{ *pulumi.OutputState }
 
 func (InviteAccepterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InviteAccepter)(nil))
@@ -290,6 +286,16 @@ func (o InviteAccepterPtrOutput) ToInviteAccepterPtrOutput() InviteAccepterPtrOu
 
 func (o InviteAccepterPtrOutput) ToInviteAccepterPtrOutputWithContext(ctx context.Context) InviteAccepterPtrOutput {
 	return o
+}
+
+func (o InviteAccepterPtrOutput) Elem() InviteAccepterOutput {
+	return o.ApplyT(func(v *InviteAccepter) InviteAccepter {
+		if v != nil {
+			return *v
+		}
+		var ret InviteAccepter
+		return ret
+	}).(InviteAccepterOutput)
 }
 
 type InviteAccepterArrayOutput struct{ *pulumi.OutputState }

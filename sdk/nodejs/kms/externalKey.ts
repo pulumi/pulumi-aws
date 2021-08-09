@@ -59,6 +59,10 @@ export class ExternalKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    public readonly bypassPolicyLockoutSafetyCheck!: pulumi.Output<boolean | undefined>;
+    /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      */
     public readonly deletionWindowInDays!: pulumi.Output<number | undefined>;
@@ -117,6 +121,7 @@ export class ExternalKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ExternalKeyState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
             inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -130,6 +135,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["validTo"] = state ? state.validTo : undefined;
         } else {
             const args = argsOrState as ExternalKeyArgs | undefined;
+            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -158,6 +164,10 @@ export interface ExternalKeyState {
      * The Amazon Resource Name (ARN) of the key.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      */
@@ -208,6 +218,10 @@ export interface ExternalKeyState {
  * The set of arguments for constructing a ExternalKey resource.
  */
 export interface ExternalKeyArgs {
+    /**
+     * Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the key becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+     */
+    bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     /**
      * Duration in days after which the key is deleted after destruction of the resource. Must be between `7` and `30` days. Defaults to `30`.
      */

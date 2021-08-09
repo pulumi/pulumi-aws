@@ -240,9 +240,7 @@ func (i NetworkInterfaceAttachmentMap) ToNetworkInterfaceAttachmentMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentMapOutput)
 }
 
-type NetworkInterfaceAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
@@ -261,14 +259,12 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentPtrOutput(
 }
 
 func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceAttachment) *NetworkInterfaceAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceAttachment) *NetworkInterfaceAttachment {
 		return &v
 	}).(NetworkInterfaceAttachmentPtrOutput)
 }
 
-type NetworkInterfaceAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkInterfaceAttachment)(nil))
@@ -280,6 +276,16 @@ func (o NetworkInterfaceAttachmentPtrOutput) ToNetworkInterfaceAttachmentPtrOutp
 
 func (o NetworkInterfaceAttachmentPtrOutput) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
 	return o
+}
+
+func (o NetworkInterfaceAttachmentPtrOutput) Elem() NetworkInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) NetworkInterfaceAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceAttachment
+		return ret
+	}).(NetworkInterfaceAttachmentOutput)
 }
 
 type NetworkInterfaceAttachmentArrayOutput struct{ *pulumi.OutputState }

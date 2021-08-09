@@ -260,9 +260,7 @@ func (i CatalogDatabaseMap) ToCatalogDatabaseMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogDatabaseMapOutput)
 }
 
-type CatalogDatabaseOutput struct {
-	*pulumi.OutputState
-}
+type CatalogDatabaseOutput struct{ *pulumi.OutputState }
 
 func (CatalogDatabaseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CatalogDatabase)(nil))
@@ -281,14 +279,12 @@ func (o CatalogDatabaseOutput) ToCatalogDatabasePtrOutput() CatalogDatabasePtrOu
 }
 
 func (o CatalogDatabaseOutput) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
-	return o.ApplyT(func(v CatalogDatabase) *CatalogDatabase {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDatabase) *CatalogDatabase {
 		return &v
 	}).(CatalogDatabasePtrOutput)
 }
 
-type CatalogDatabasePtrOutput struct {
-	*pulumi.OutputState
-}
+type CatalogDatabasePtrOutput struct{ *pulumi.OutputState }
 
 func (CatalogDatabasePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CatalogDatabase)(nil))
@@ -300,6 +296,16 @@ func (o CatalogDatabasePtrOutput) ToCatalogDatabasePtrOutput() CatalogDatabasePt
 
 func (o CatalogDatabasePtrOutput) ToCatalogDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabasePtrOutput {
 	return o
+}
+
+func (o CatalogDatabasePtrOutput) Elem() CatalogDatabaseOutput {
+	return o.ApplyT(func(v *CatalogDatabase) CatalogDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDatabase
+		return ret
+	}).(CatalogDatabaseOutput)
 }
 
 type CatalogDatabaseArrayOutput struct{ *pulumi.OutputState }

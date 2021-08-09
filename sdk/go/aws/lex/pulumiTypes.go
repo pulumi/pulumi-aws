@@ -115,7 +115,7 @@ func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutput() BotAbortStatemen
 }
 
 func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
-	return o.ApplyT(func(v BotAbortStatement) *BotAbortStatement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAbortStatement) *BotAbortStatement {
 		return &v
 	}).(BotAbortStatementPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutputWithContext(ctx 
 }
 
 func (o BotAbortStatementPtrOutput) Elem() BotAbortStatementOutput {
-	return o.ApplyT(func(v *BotAbortStatement) BotAbortStatement { return *v }).(BotAbortStatementOutput)
+	return o.ApplyT(func(v *BotAbortStatement) BotAbortStatement {
+		if v != nil {
+			return *v
+		}
+		var ret BotAbortStatement
+		return ret
+	}).(BotAbortStatementOutput)
 }
 
 // A set of messages, each of which provides a message string and its type. You
@@ -391,7 +397,7 @@ func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutput() Bo
 }
 
 func (o BotAliasConversationLogsOutput) ToBotAliasConversationLogsPtrOutputWithContext(ctx context.Context) BotAliasConversationLogsPtrOutput {
-	return o.ApplyT(func(v BotAliasConversationLogs) *BotAliasConversationLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAliasConversationLogs) *BotAliasConversationLogs {
 		return &v
 	}).(BotAliasConversationLogsPtrOutput)
 }
@@ -421,7 +427,13 @@ func (o BotAliasConversationLogsPtrOutput) ToBotAliasConversationLogsPtrOutputWi
 }
 
 func (o BotAliasConversationLogsPtrOutput) Elem() BotAliasConversationLogsOutput {
-	return o.ApplyT(func(v *BotAliasConversationLogs) BotAliasConversationLogs { return *v }).(BotAliasConversationLogsOutput)
+	return o.ApplyT(func(v *BotAliasConversationLogs) BotAliasConversationLogs {
+		if v != nil {
+			return *v
+		}
+		var ret BotAliasConversationLogs
+		return ret
+	}).(BotAliasConversationLogsOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
@@ -686,7 +698,7 @@ func (o BotClarificationPromptOutput) ToBotClarificationPromptPtrOutput() BotCla
 }
 
 func (o BotClarificationPromptOutput) ToBotClarificationPromptPtrOutputWithContext(ctx context.Context) BotClarificationPromptPtrOutput {
-	return o.ApplyT(func(v BotClarificationPrompt) *BotClarificationPrompt {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotClarificationPrompt) *BotClarificationPrompt {
 		return &v
 	}).(BotClarificationPromptPtrOutput)
 }
@@ -725,7 +737,13 @@ func (o BotClarificationPromptPtrOutput) ToBotClarificationPromptPtrOutputWithCo
 }
 
 func (o BotClarificationPromptPtrOutput) Elem() BotClarificationPromptOutput {
-	return o.ApplyT(func(v *BotClarificationPrompt) BotClarificationPrompt { return *v }).(BotClarificationPromptOutput)
+	return o.ApplyT(func(v *BotClarificationPrompt) BotClarificationPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret BotClarificationPrompt
+		return ret
+	}).(BotClarificationPromptOutput)
 }
 
 // The number of times to prompt the user for information.
@@ -1091,7 +1109,7 @@ func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutput() 
 }
 
 func (o IntentConclusionStatementOutput) ToIntentConclusionStatementPtrOutputWithContext(ctx context.Context) IntentConclusionStatementPtrOutput {
-	return o.ApplyT(func(v IntentConclusionStatement) *IntentConclusionStatement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentConclusionStatement) *IntentConclusionStatement {
 		return &v
 	}).(IntentConclusionStatementPtrOutput)
 }
@@ -1125,7 +1143,13 @@ func (o IntentConclusionStatementPtrOutput) ToIntentConclusionStatementPtrOutput
 }
 
 func (o IntentConclusionStatementPtrOutput) Elem() IntentConclusionStatementOutput {
-	return o.ApplyT(func(v *IntentConclusionStatement) IntentConclusionStatement { return *v }).(IntentConclusionStatementOutput)
+	return o.ApplyT(func(v *IntentConclusionStatement) IntentConclusionStatement {
+		if v != nil {
+			return *v
+		}
+		var ret IntentConclusionStatement
+		return ret
+	}).(IntentConclusionStatementOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
@@ -1379,7 +1403,7 @@ func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutput() In
 }
 
 func (o IntentConfirmationPromptOutput) ToIntentConfirmationPromptPtrOutputWithContext(ctx context.Context) IntentConfirmationPromptPtrOutput {
-	return o.ApplyT(func(v IntentConfirmationPrompt) *IntentConfirmationPrompt {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentConfirmationPrompt) *IntentConfirmationPrompt {
 		return &v
 	}).(IntentConfirmationPromptPtrOutput)
 }
@@ -1418,7 +1442,13 @@ func (o IntentConfirmationPromptPtrOutput) ToIntentConfirmationPromptPtrOutputWi
 }
 
 func (o IntentConfirmationPromptPtrOutput) Elem() IntentConfirmationPromptOutput {
-	return o.ApplyT(func(v *IntentConfirmationPrompt) IntentConfirmationPrompt { return *v }).(IntentConfirmationPromptOutput)
+	return o.ApplyT(func(v *IntentConfirmationPrompt) IntentConfirmationPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret IntentConfirmationPrompt
+		return ret
+	}).(IntentConfirmationPromptOutput)
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -1674,7 +1704,7 @@ func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutput() IntentDial
 }
 
 func (o IntentDialogCodeHookOutput) ToIntentDialogCodeHookPtrOutputWithContext(ctx context.Context) IntentDialogCodeHookPtrOutput {
-	return o.ApplyT(func(v IntentDialogCodeHook) *IntentDialogCodeHook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentDialogCodeHook) *IntentDialogCodeHook {
 		return &v
 	}).(IntentDialogCodeHookPtrOutput)
 }
@@ -1706,7 +1736,13 @@ func (o IntentDialogCodeHookPtrOutput) ToIntentDialogCodeHookPtrOutputWithContex
 }
 
 func (o IntentDialogCodeHookPtrOutput) Elem() IntentDialogCodeHookOutput {
-	return o.ApplyT(func(v *IntentDialogCodeHook) IntentDialogCodeHook { return *v }).(IntentDialogCodeHookOutput)
+	return o.ApplyT(func(v *IntentDialogCodeHook) IntentDialogCodeHook {
+		if v != nil {
+			return *v
+		}
+		var ret IntentDialogCodeHook
+		return ret
+	}).(IntentDialogCodeHookOutput)
 }
 
 // The version of the request-response that you want Amazon Lex to use
@@ -1832,7 +1868,7 @@ func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptPtrOutput() IntentFoll
 }
 
 func (o IntentFollowUpPromptOutput) ToIntentFollowUpPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPtrOutput {
-	return o.ApplyT(func(v IntentFollowUpPrompt) *IntentFollowUpPrompt {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPrompt) *IntentFollowUpPrompt {
 		return &v
 	}).(IntentFollowUpPromptPtrOutput)
 }
@@ -1864,7 +1900,13 @@ func (o IntentFollowUpPromptPtrOutput) ToIntentFollowUpPromptPtrOutputWithContex
 }
 
 func (o IntentFollowUpPromptPtrOutput) Elem() IntentFollowUpPromptOutput {
-	return o.ApplyT(func(v *IntentFollowUpPrompt) IntentFollowUpPrompt { return *v }).(IntentFollowUpPromptOutput)
+	return o.ApplyT(func(v *IntentFollowUpPrompt) IntentFollowUpPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret IntentFollowUpPrompt
+		return ret
+	}).(IntentFollowUpPromptOutput)
 }
 
 // Prompts for information from the user. Attributes are documented under prompt.
@@ -1998,7 +2040,7 @@ func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutput(
 }
 
 func (o IntentFollowUpPromptPromptOutput) ToIntentFollowUpPromptPromptPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptPromptPtrOutput {
-	return o.ApplyT(func(v IntentFollowUpPromptPrompt) *IntentFollowUpPromptPrompt {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPromptPrompt) *IntentFollowUpPromptPrompt {
 		return &v
 	}).(IntentFollowUpPromptPromptPtrOutput)
 }
@@ -2037,7 +2079,13 @@ func (o IntentFollowUpPromptPromptPtrOutput) ToIntentFollowUpPromptPromptPtrOutp
 }
 
 func (o IntentFollowUpPromptPromptPtrOutput) Elem() IntentFollowUpPromptPromptOutput {
-	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) IntentFollowUpPromptPrompt { return *v }).(IntentFollowUpPromptPromptOutput)
+	return o.ApplyT(func(v *IntentFollowUpPromptPrompt) IntentFollowUpPromptPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret IntentFollowUpPromptPrompt
+		return ret
+	}).(IntentFollowUpPromptPromptOutput)
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
@@ -2297,7 +2345,7 @@ func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptReje
 }
 
 func (o IntentFollowUpPromptRejectionStatementOutput) ToIntentFollowUpPromptRejectionStatementPtrOutputWithContext(ctx context.Context) IntentFollowUpPromptRejectionStatementPtrOutput {
-	return o.ApplyT(func(v IntentFollowUpPromptRejectionStatement) *IntentFollowUpPromptRejectionStatement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFollowUpPromptRejectionStatement) *IntentFollowUpPromptRejectionStatement {
 		return &v
 	}).(IntentFollowUpPromptRejectionStatementPtrOutput)
 }
@@ -2333,7 +2381,13 @@ func (o IntentFollowUpPromptRejectionStatementPtrOutput) ToIntentFollowUpPromptR
 }
 
 func (o IntentFollowUpPromptRejectionStatementPtrOutput) Elem() IntentFollowUpPromptRejectionStatementOutput {
-	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) IntentFollowUpPromptRejectionStatement { return *v }).(IntentFollowUpPromptRejectionStatementOutput)
+	return o.ApplyT(func(v *IntentFollowUpPromptRejectionStatement) IntentFollowUpPromptRejectionStatement {
+		if v != nil {
+			return *v
+		}
+		var ret IntentFollowUpPromptRejectionStatement
+		return ret
+	}).(IntentFollowUpPromptRejectionStatementOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
@@ -2579,7 +2633,7 @@ func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutput() 
 }
 
 func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
-	return o.ApplyT(func(v IntentFulfillmentActivity) *IntentFulfillmentActivity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFulfillmentActivity) *IntentFulfillmentActivity {
 		return &v
 	}).(IntentFulfillmentActivityPtrOutput)
 }
@@ -2611,7 +2665,13 @@ func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutput
 }
 
 func (o IntentFulfillmentActivityPtrOutput) Elem() IntentFulfillmentActivityOutput {
-	return o.ApplyT(func(v *IntentFulfillmentActivity) IntentFulfillmentActivity { return *v }).(IntentFulfillmentActivityOutput)
+	return o.ApplyT(func(v *IntentFulfillmentActivity) IntentFulfillmentActivity {
+		if v != nil {
+			return *v
+		}
+		var ret IntentFulfillmentActivity
+		return ret
+	}).(IntentFulfillmentActivityOutput)
 }
 
 // A description of the Lambda function that is run to fulfill the intent.
@@ -2737,7 +2797,7 @@ func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCode
 }
 
 func (o IntentFulfillmentActivityCodeHookOutput) ToIntentFulfillmentActivityCodeHookPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityCodeHookPtrOutput {
-	return o.ApplyT(func(v IntentFulfillmentActivityCodeHook) *IntentFulfillmentActivityCodeHook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFulfillmentActivityCodeHook) *IntentFulfillmentActivityCodeHook {
 		return &v
 	}).(IntentFulfillmentActivityCodeHookPtrOutput)
 }
@@ -2769,7 +2829,13 @@ func (o IntentFulfillmentActivityCodeHookPtrOutput) ToIntentFulfillmentActivityC
 }
 
 func (o IntentFulfillmentActivityCodeHookPtrOutput) Elem() IntentFulfillmentActivityCodeHookOutput {
-	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) IntentFulfillmentActivityCodeHook { return *v }).(IntentFulfillmentActivityCodeHookOutput)
+	return o.ApplyT(func(v *IntentFulfillmentActivityCodeHook) IntentFulfillmentActivityCodeHook {
+		if v != nil {
+			return *v
+		}
+		var ret IntentFulfillmentActivityCodeHook
+		return ret
+	}).(IntentFulfillmentActivityCodeHookOutput)
 }
 
 // The version of the request-response that you want Amazon Lex to use
@@ -2899,7 +2965,7 @@ func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutput() In
 }
 
 func (o IntentRejectionStatementOutput) ToIntentRejectionStatementPtrOutputWithContext(ctx context.Context) IntentRejectionStatementPtrOutput {
-	return o.ApplyT(func(v IntentRejectionStatement) *IntentRejectionStatement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentRejectionStatement) *IntentRejectionStatement {
 		return &v
 	}).(IntentRejectionStatementPtrOutput)
 }
@@ -2933,7 +2999,13 @@ func (o IntentRejectionStatementPtrOutput) ToIntentRejectionStatementPtrOutputWi
 }
 
 func (o IntentRejectionStatementPtrOutput) Elem() IntentRejectionStatementOutput {
-	return o.ApplyT(func(v *IntentRejectionStatement) IntentRejectionStatement { return *v }).(IntentRejectionStatementOutput)
+	return o.ApplyT(func(v *IntentRejectionStatement) IntentRejectionStatement {
+		if v != nil {
+			return *v
+		}
+		var ret IntentRejectionStatement
+		return ret
+	}).(IntentRejectionStatementOutput)
 }
 
 // A set of messages, each of which provides a message string and its type.
@@ -3383,7 +3455,7 @@ func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationProm
 }
 
 func (o IntentSlotValueElicitationPromptOutput) ToIntentSlotValueElicitationPromptPtrOutputWithContext(ctx context.Context) IntentSlotValueElicitationPromptPtrOutput {
-	return o.ApplyT(func(v IntentSlotValueElicitationPrompt) *IntentSlotValueElicitationPrompt {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentSlotValueElicitationPrompt) *IntentSlotValueElicitationPrompt {
 		return &v
 	}).(IntentSlotValueElicitationPromptPtrOutput)
 }
@@ -3422,7 +3494,13 @@ func (o IntentSlotValueElicitationPromptPtrOutput) ToIntentSlotValueElicitationP
 }
 
 func (o IntentSlotValueElicitationPromptPtrOutput) Elem() IntentSlotValueElicitationPromptOutput {
-	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) IntentSlotValueElicitationPrompt { return *v }).(IntentSlotValueElicitationPromptOutput)
+	return o.ApplyT(func(v *IntentSlotValueElicitationPrompt) IntentSlotValueElicitationPrompt {
+		if v != nil {
+			return *v
+		}
+		var ret IntentSlotValueElicitationPrompt
+		return ret
+	}).(IntentSlotValueElicitationPromptOutput)
 }
 
 // The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).

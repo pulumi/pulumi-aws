@@ -247,9 +247,7 @@ func (i RoleAliasMap) ToRoleAliasMapOutputWithContext(ctx context.Context) RoleA
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasMapOutput)
 }
 
-type RoleAliasOutput struct {
-	*pulumi.OutputState
-}
+type RoleAliasOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RoleAlias)(nil))
@@ -268,14 +266,12 @@ func (o RoleAliasOutput) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
 }
 
 func (o RoleAliasOutput) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
-	return o.ApplyT(func(v RoleAlias) *RoleAlias {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAlias) *RoleAlias {
 		return &v
 	}).(RoleAliasPtrOutput)
 }
 
-type RoleAliasPtrOutput struct {
-	*pulumi.OutputState
-}
+type RoleAliasPtrOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RoleAlias)(nil))
@@ -287,6 +283,16 @@ func (o RoleAliasPtrOutput) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
 
 func (o RoleAliasPtrOutput) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
 	return o
+}
+
+func (o RoleAliasPtrOutput) Elem() RoleAliasOutput {
+	return o.ApplyT(func(v *RoleAlias) RoleAlias {
+		if v != nil {
+			return *v
+		}
+		var ret RoleAlias
+		return ret
+	}).(RoleAliasOutput)
 }
 
 type RoleAliasArrayOutput struct{ *pulumi.OutputState }

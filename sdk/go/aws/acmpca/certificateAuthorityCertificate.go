@@ -330,9 +330,7 @@ func (i CertificateAuthorityCertificateMap) ToCertificateAuthorityCertificateMap
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCertificateMapOutput)
 }
 
-type CertificateAuthorityCertificateOutput struct {
-	*pulumi.OutputState
-}
+type CertificateAuthorityCertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateAuthorityCertificate)(nil))
@@ -351,14 +349,12 @@ func (o CertificateAuthorityCertificateOutput) ToCertificateAuthorityCertificate
 }
 
 func (o CertificateAuthorityCertificateOutput) ToCertificateAuthorityCertificatePtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificatePtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificate) *CertificateAuthorityCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCertificate) *CertificateAuthorityCertificate {
 		return &v
 	}).(CertificateAuthorityCertificatePtrOutput)
 }
 
-type CertificateAuthorityCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type CertificateAuthorityCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateAuthorityCertificate)(nil))
@@ -370,6 +366,16 @@ func (o CertificateAuthorityCertificatePtrOutput) ToCertificateAuthorityCertific
 
 func (o CertificateAuthorityCertificatePtrOutput) ToCertificateAuthorityCertificatePtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificatePtrOutput {
 	return o
+}
+
+func (o CertificateAuthorityCertificatePtrOutput) Elem() CertificateAuthorityCertificateOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificate) CertificateAuthorityCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityCertificate
+		return ret
+	}).(CertificateAuthorityCertificateOutput)
 }
 
 type CertificateAuthorityCertificateArrayOutput struct{ *pulumi.OutputState }

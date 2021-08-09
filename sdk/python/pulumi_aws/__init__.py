@@ -28,145 +28,284 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_aws.accessanalyzer as accessanalyzer
-    import pulumi_aws.acm as acm
-    import pulumi_aws.acmpca as acmpca
-    import pulumi_aws.alb as alb
-    import pulumi_aws.amp as amp
-    import pulumi_aws.amplify as amplify
-    import pulumi_aws.apigateway as apigateway
-    import pulumi_aws.apigatewayv2 as apigatewayv2
-    import pulumi_aws.appautoscaling as appautoscaling
-    import pulumi_aws.appconfig as appconfig
-    import pulumi_aws.applicationloadbalancing as applicationloadbalancing
-    import pulumi_aws.appmesh as appmesh
-    import pulumi_aws.apprunner as apprunner
-    import pulumi_aws.appsync as appsync
-    import pulumi_aws.athena as athena
-    import pulumi_aws.autoscaling as autoscaling
-    import pulumi_aws.autoscalingplans as autoscalingplans
-    import pulumi_aws.backup as backup
-    import pulumi_aws.batch as batch
-    import pulumi_aws.budgets as budgets
-    import pulumi_aws.cfg as cfg
-    import pulumi_aws.cloud9 as cloud9
-    import pulumi_aws.cloudformation as cloudformation
-    import pulumi_aws.cloudfront as cloudfront
-    import pulumi_aws.cloudhsmv2 as cloudhsmv2
-    import pulumi_aws.cloudtrail as cloudtrail
-    import pulumi_aws.cloudwatch as cloudwatch
-    import pulumi_aws.codeartifact as codeartifact
-    import pulumi_aws.codebuild as codebuild
-    import pulumi_aws.codecommit as codecommit
-    import pulumi_aws.codedeploy as codedeploy
-    import pulumi_aws.codepipeline as codepipeline
-    import pulumi_aws.codestarconnections as codestarconnections
-    import pulumi_aws.codestarnotifications as codestarnotifications
-    import pulumi_aws.cognito as cognito
-    import pulumi_aws.config as config
-    import pulumi_aws.cur as cur
-    import pulumi_aws.datapipeline as datapipeline
-    import pulumi_aws.datasync as datasync
-    import pulumi_aws.dax as dax
-    import pulumi_aws.devicefarm as devicefarm
-    import pulumi_aws.directconnect as directconnect
-    import pulumi_aws.directoryservice as directoryservice
-    import pulumi_aws.dlm as dlm
-    import pulumi_aws.dms as dms
-    import pulumi_aws.docdb as docdb
-    import pulumi_aws.dynamodb as dynamodb
-    import pulumi_aws.ebs as ebs
-    import pulumi_aws.ec2 as ec2
-    import pulumi_aws.ec2clientvpn as ec2clientvpn
-    import pulumi_aws.ec2transitgateway as ec2transitgateway
-    import pulumi_aws.ecr as ecr
-    import pulumi_aws.ecrpublic as ecrpublic
-    import pulumi_aws.ecs as ecs
-    import pulumi_aws.efs as efs
-    import pulumi_aws.eks as eks
-    import pulumi_aws.elasticache as elasticache
-    import pulumi_aws.elasticbeanstalk as elasticbeanstalk
-    import pulumi_aws.elasticloadbalancing as elasticloadbalancing
-    import pulumi_aws.elasticloadbalancingv2 as elasticloadbalancingv2
-    import pulumi_aws.elasticsearch as elasticsearch
-    import pulumi_aws.elastictranscoder as elastictranscoder
-    import pulumi_aws.elb as elb
-    import pulumi_aws.emr as emr
-    import pulumi_aws.fms as fms
-    import pulumi_aws.fsx as fsx
-    import pulumi_aws.gamelift as gamelift
-    import pulumi_aws.glacier as glacier
-    import pulumi_aws.globalaccelerator as globalaccelerator
-    import pulumi_aws.glue as glue
-    import pulumi_aws.guardduty as guardduty
-    import pulumi_aws.iam as iam
-    import pulumi_aws.identitystore as identitystore
-    import pulumi_aws.imagebuilder as imagebuilder
-    import pulumi_aws.inspector as inspector
-    import pulumi_aws.iot as iot
-    import pulumi_aws.kinesis as kinesis
-    import pulumi_aws.kinesisanalyticsv2 as kinesisanalyticsv2
-    import pulumi_aws.kms as kms
-    import pulumi_aws.lakeformation as lakeformation
-    import pulumi_aws.lambda_ as lambda_
-    import pulumi_aws.lb as lb
-    import pulumi_aws.lex as lex
-    import pulumi_aws.licensemanager as licensemanager
-    import pulumi_aws.lightsail as lightsail
-    import pulumi_aws.macie as macie
-    import pulumi_aws.macie2 as macie2
-    import pulumi_aws.mediaconvert as mediaconvert
-    import pulumi_aws.mediapackage as mediapackage
-    import pulumi_aws.mediastore as mediastore
-    import pulumi_aws.mq as mq
-    import pulumi_aws.msk as msk
-    import pulumi_aws.mwaa as mwaa
-    import pulumi_aws.neptune as neptune
-    import pulumi_aws.networkfirewall as networkfirewall
-    import pulumi_aws.opsworks as opsworks
-    import pulumi_aws.organizations as organizations
-    import pulumi_aws.outposts as outposts
-    import pulumi_aws.pinpoint as pinpoint
-    import pulumi_aws.pricing as pricing
-    import pulumi_aws.qldb as qldb
-    import pulumi_aws.quicksight as quicksight
-    import pulumi_aws.ram as ram
-    import pulumi_aws.rds as rds
-    import pulumi_aws.redshift as redshift
-    import pulumi_aws.resourcegroups as resourcegroups
-    import pulumi_aws.resourcegroupstaggingapi as resourcegroupstaggingapi
-    import pulumi_aws.route53 as route53
-    import pulumi_aws.s3 as s3
-    import pulumi_aws.s3control as s3control
-    import pulumi_aws.s3outposts as s3outposts
-    import pulumi_aws.sagemaker as sagemaker
-    import pulumi_aws.schemas as schemas
-    import pulumi_aws.secretsmanager as secretsmanager
-    import pulumi_aws.securityhub as securityhub
-    import pulumi_aws.serverlessrepository as serverlessrepository
-    import pulumi_aws.servicecatalog as servicecatalog
-    import pulumi_aws.servicediscovery as servicediscovery
-    import pulumi_aws.servicequotas as servicequotas
-    import pulumi_aws.ses as ses
-    import pulumi_aws.sfn as sfn
-    import pulumi_aws.shield as shield
-    import pulumi_aws.signer as signer
-    import pulumi_aws.simpledb as simpledb
-    import pulumi_aws.sns as sns
-    import pulumi_aws.sqs as sqs
-    import pulumi_aws.ssm as ssm
-    import pulumi_aws.ssoadmin as ssoadmin
-    import pulumi_aws.storagegateway as storagegateway
-    import pulumi_aws.swf as swf
-    import pulumi_aws.synthetics as synthetics
-    import pulumi_aws.timestreamwrite as timestreamwrite
-    import pulumi_aws.transfer as transfer
-    import pulumi_aws.waf as waf
-    import pulumi_aws.wafregional as wafregional
-    import pulumi_aws.wafv2 as wafv2
-    import pulumi_aws.worklink as worklink
-    import pulumi_aws.workspaces as workspaces
-    import pulumi_aws.xray as xray
+    import pulumi_aws.accessanalyzer as __accessanalyzer
+    accessanalyzer = __accessanalyzer
+    import pulumi_aws.acm as __acm
+    acm = __acm
+    import pulumi_aws.acmpca as __acmpca
+    acmpca = __acmpca
+    import pulumi_aws.alb as __alb
+    alb = __alb
+    import pulumi_aws.amp as __amp
+    amp = __amp
+    import pulumi_aws.amplify as __amplify
+    amplify = __amplify
+    import pulumi_aws.apigateway as __apigateway
+    apigateway = __apigateway
+    import pulumi_aws.apigatewayv2 as __apigatewayv2
+    apigatewayv2 = __apigatewayv2
+    import pulumi_aws.appautoscaling as __appautoscaling
+    appautoscaling = __appautoscaling
+    import pulumi_aws.appconfig as __appconfig
+    appconfig = __appconfig
+    import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
+    applicationloadbalancing = __applicationloadbalancing
+    import pulumi_aws.appmesh as __appmesh
+    appmesh = __appmesh
+    import pulumi_aws.apprunner as __apprunner
+    apprunner = __apprunner
+    import pulumi_aws.appsync as __appsync
+    appsync = __appsync
+    import pulumi_aws.athena as __athena
+    athena = __athena
+    import pulumi_aws.autoscaling as __autoscaling
+    autoscaling = __autoscaling
+    import pulumi_aws.autoscalingplans as __autoscalingplans
+    autoscalingplans = __autoscalingplans
+    import pulumi_aws.backup as __backup
+    backup = __backup
+    import pulumi_aws.batch as __batch
+    batch = __batch
+    import pulumi_aws.budgets as __budgets
+    budgets = __budgets
+    import pulumi_aws.cfg as __cfg
+    cfg = __cfg
+    import pulumi_aws.cloud9 as __cloud9
+    cloud9 = __cloud9
+    import pulumi_aws.cloudformation as __cloudformation
+    cloudformation = __cloudformation
+    import pulumi_aws.cloudfront as __cloudfront
+    cloudfront = __cloudfront
+    import pulumi_aws.cloudhsmv2 as __cloudhsmv2
+    cloudhsmv2 = __cloudhsmv2
+    import pulumi_aws.cloudtrail as __cloudtrail
+    cloudtrail = __cloudtrail
+    import pulumi_aws.cloudwatch as __cloudwatch
+    cloudwatch = __cloudwatch
+    import pulumi_aws.codeartifact as __codeartifact
+    codeartifact = __codeartifact
+    import pulumi_aws.codebuild as __codebuild
+    codebuild = __codebuild
+    import pulumi_aws.codecommit as __codecommit
+    codecommit = __codecommit
+    import pulumi_aws.codedeploy as __codedeploy
+    codedeploy = __codedeploy
+    import pulumi_aws.codepipeline as __codepipeline
+    codepipeline = __codepipeline
+    import pulumi_aws.codestarconnections as __codestarconnections
+    codestarconnections = __codestarconnections
+    import pulumi_aws.codestarnotifications as __codestarnotifications
+    codestarnotifications = __codestarnotifications
+    import pulumi_aws.cognito as __cognito
+    cognito = __cognito
+    import pulumi_aws.config as __config
+    config = __config
+    import pulumi_aws.cur as __cur
+    cur = __cur
+    import pulumi_aws.datapipeline as __datapipeline
+    datapipeline = __datapipeline
+    import pulumi_aws.datasync as __datasync
+    datasync = __datasync
+    import pulumi_aws.dax as __dax
+    dax = __dax
+    import pulumi_aws.devicefarm as __devicefarm
+    devicefarm = __devicefarm
+    import pulumi_aws.directconnect as __directconnect
+    directconnect = __directconnect
+    import pulumi_aws.directoryservice as __directoryservice
+    directoryservice = __directoryservice
+    import pulumi_aws.dlm as __dlm
+    dlm = __dlm
+    import pulumi_aws.dms as __dms
+    dms = __dms
+    import pulumi_aws.docdb as __docdb
+    docdb = __docdb
+    import pulumi_aws.dynamodb as __dynamodb
+    dynamodb = __dynamodb
+    import pulumi_aws.ebs as __ebs
+    ebs = __ebs
+    import pulumi_aws.ec2 as __ec2
+    ec2 = __ec2
+    import pulumi_aws.ec2clientvpn as __ec2clientvpn
+    ec2clientvpn = __ec2clientvpn
+    import pulumi_aws.ec2transitgateway as __ec2transitgateway
+    ec2transitgateway = __ec2transitgateway
+    import pulumi_aws.ecr as __ecr
+    ecr = __ecr
+    import pulumi_aws.ecrpublic as __ecrpublic
+    ecrpublic = __ecrpublic
+    import pulumi_aws.ecs as __ecs
+    ecs = __ecs
+    import pulumi_aws.efs as __efs
+    efs = __efs
+    import pulumi_aws.eks as __eks
+    eks = __eks
+    import pulumi_aws.elasticache as __elasticache
+    elasticache = __elasticache
+    import pulumi_aws.elasticbeanstalk as __elasticbeanstalk
+    elasticbeanstalk = __elasticbeanstalk
+    import pulumi_aws.elasticloadbalancing as __elasticloadbalancing
+    elasticloadbalancing = __elasticloadbalancing
+    import pulumi_aws.elasticloadbalancingv2 as __elasticloadbalancingv2
+    elasticloadbalancingv2 = __elasticloadbalancingv2
+    import pulumi_aws.elasticsearch as __elasticsearch
+    elasticsearch = __elasticsearch
+    import pulumi_aws.elastictranscoder as __elastictranscoder
+    elastictranscoder = __elastictranscoder
+    import pulumi_aws.elb as __elb
+    elb = __elb
+    import pulumi_aws.emr as __emr
+    emr = __emr
+    import pulumi_aws.fms as __fms
+    fms = __fms
+    import pulumi_aws.fsx as __fsx
+    fsx = __fsx
+    import pulumi_aws.gamelift as __gamelift
+    gamelift = __gamelift
+    import pulumi_aws.glacier as __glacier
+    glacier = __glacier
+    import pulumi_aws.globalaccelerator as __globalaccelerator
+    globalaccelerator = __globalaccelerator
+    import pulumi_aws.glue as __glue
+    glue = __glue
+    import pulumi_aws.guardduty as __guardduty
+    guardduty = __guardduty
+    import pulumi_aws.iam as __iam
+    iam = __iam
+    import pulumi_aws.identitystore as __identitystore
+    identitystore = __identitystore
+    import pulumi_aws.imagebuilder as __imagebuilder
+    imagebuilder = __imagebuilder
+    import pulumi_aws.inspector as __inspector
+    inspector = __inspector
+    import pulumi_aws.iot as __iot
+    iot = __iot
+    import pulumi_aws.kinesis as __kinesis
+    kinesis = __kinesis
+    import pulumi_aws.kinesisanalyticsv2 as __kinesisanalyticsv2
+    kinesisanalyticsv2 = __kinesisanalyticsv2
+    import pulumi_aws.kms as __kms
+    kms = __kms
+    import pulumi_aws.lakeformation as __lakeformation
+    lakeformation = __lakeformation
+    import pulumi_aws.lambda_ as __lambda_
+    lambda_ = __lambda_
+    import pulumi_aws.lb as __lb
+    lb = __lb
+    import pulumi_aws.lex as __lex
+    lex = __lex
+    import pulumi_aws.licensemanager as __licensemanager
+    licensemanager = __licensemanager
+    import pulumi_aws.lightsail as __lightsail
+    lightsail = __lightsail
+    import pulumi_aws.macie as __macie
+    macie = __macie
+    import pulumi_aws.macie2 as __macie2
+    macie2 = __macie2
+    import pulumi_aws.mediaconvert as __mediaconvert
+    mediaconvert = __mediaconvert
+    import pulumi_aws.mediapackage as __mediapackage
+    mediapackage = __mediapackage
+    import pulumi_aws.mediastore as __mediastore
+    mediastore = __mediastore
+    import pulumi_aws.mq as __mq
+    mq = __mq
+    import pulumi_aws.msk as __msk
+    msk = __msk
+    import pulumi_aws.mwaa as __mwaa
+    mwaa = __mwaa
+    import pulumi_aws.neptune as __neptune
+    neptune = __neptune
+    import pulumi_aws.networkfirewall as __networkfirewall
+    networkfirewall = __networkfirewall
+    import pulumi_aws.opsworks as __opsworks
+    opsworks = __opsworks
+    import pulumi_aws.organizations as __organizations
+    organizations = __organizations
+    import pulumi_aws.outposts as __outposts
+    outposts = __outposts
+    import pulumi_aws.pinpoint as __pinpoint
+    pinpoint = __pinpoint
+    import pulumi_aws.pricing as __pricing
+    pricing = __pricing
+    import pulumi_aws.qldb as __qldb
+    qldb = __qldb
+    import pulumi_aws.quicksight as __quicksight
+    quicksight = __quicksight
+    import pulumi_aws.ram as __ram
+    ram = __ram
+    import pulumi_aws.rds as __rds
+    rds = __rds
+    import pulumi_aws.redshift as __redshift
+    redshift = __redshift
+    import pulumi_aws.resourcegroups as __resourcegroups
+    resourcegroups = __resourcegroups
+    import pulumi_aws.resourcegroupstaggingapi as __resourcegroupstaggingapi
+    resourcegroupstaggingapi = __resourcegroupstaggingapi
+    import pulumi_aws.route53 as __route53
+    route53 = __route53
+    import pulumi_aws.s3 as __s3
+    s3 = __s3
+    import pulumi_aws.s3control as __s3control
+    s3control = __s3control
+    import pulumi_aws.s3outposts as __s3outposts
+    s3outposts = __s3outposts
+    import pulumi_aws.sagemaker as __sagemaker
+    sagemaker = __sagemaker
+    import pulumi_aws.schemas as __schemas
+    schemas = __schemas
+    import pulumi_aws.secretsmanager as __secretsmanager
+    secretsmanager = __secretsmanager
+    import pulumi_aws.securityhub as __securityhub
+    securityhub = __securityhub
+    import pulumi_aws.serverlessrepository as __serverlessrepository
+    serverlessrepository = __serverlessrepository
+    import pulumi_aws.servicecatalog as __servicecatalog
+    servicecatalog = __servicecatalog
+    import pulumi_aws.servicediscovery as __servicediscovery
+    servicediscovery = __servicediscovery
+    import pulumi_aws.servicequotas as __servicequotas
+    servicequotas = __servicequotas
+    import pulumi_aws.ses as __ses
+    ses = __ses
+    import pulumi_aws.sfn as __sfn
+    sfn = __sfn
+    import pulumi_aws.shield as __shield
+    shield = __shield
+    import pulumi_aws.signer as __signer
+    signer = __signer
+    import pulumi_aws.simpledb as __simpledb
+    simpledb = __simpledb
+    import pulumi_aws.sns as __sns
+    sns = __sns
+    import pulumi_aws.sqs as __sqs
+    sqs = __sqs
+    import pulumi_aws.ssm as __ssm
+    ssm = __ssm
+    import pulumi_aws.ssoadmin as __ssoadmin
+    ssoadmin = __ssoadmin
+    import pulumi_aws.storagegateway as __storagegateway
+    storagegateway = __storagegateway
+    import pulumi_aws.swf as __swf
+    swf = __swf
+    import pulumi_aws.synthetics as __synthetics
+    synthetics = __synthetics
+    import pulumi_aws.timestreamwrite as __timestreamwrite
+    timestreamwrite = __timestreamwrite
+    import pulumi_aws.transfer as __transfer
+    transfer = __transfer
+    import pulumi_aws.waf as __waf
+    waf = __waf
+    import pulumi_aws.wafregional as __wafregional
+    wafregional = __wafregional
+    import pulumi_aws.wafv2 as __wafv2
+    wafv2 = __wafv2
+    import pulumi_aws.worklink as __worklink
+    worklink = __worklink
+    import pulumi_aws.workspaces as __workspaces
+    workspaces = __workspaces
+    import pulumi_aws.xray as __xray
+    xray = __xray
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws.accessanalyzer')
     acm = _utilities.lazy_import('pulumi_aws.acm')
@@ -2181,6 +2320,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ebs",
   "classes": {
    "aws:ebs/snapshotCopy:SnapshotCopy": "SnapshotCopy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ebs/snapshotImport",
+  "fqn": "pulumi_aws.ebs",
+  "classes": {
+   "aws:ebs/snapshotImport:SnapshotImport": "SnapshotImport"
   }
  },
  {
@@ -5545,6 +5692,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/workforce",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/workforce:Workforce": "Workforce"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/workteam",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/workteam:Workteam": "Workteam"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "schemas/discoverer",
   "fqn": "pulumi_aws.schemas",
   "classes": {
@@ -6189,6 +6352,14 @@ _utilities.register(
   "fqn": "pulumi_aws.storagegateway",
   "classes": {
    "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume": "CachesIscsiVolume"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "storagegateway/fileSystemAssociation",
+  "fqn": "pulumi_aws.storagegateway",
+  "classes": {
+   "aws:storagegateway/fileSystemAssociation:FileSystemAssociation": "FileSystemAssociation"
   }
  },
  {

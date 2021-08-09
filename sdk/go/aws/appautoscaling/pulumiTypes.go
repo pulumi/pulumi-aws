@@ -119,7 +119,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) ToPolicyStepScalingPolicyCon
 }
 
 func (o PolicyStepScalingPolicyConfigurationOutput) ToPolicyStepScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyStepScalingPolicyConfigurationPtrOutput {
-	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) *PolicyStepScalingPolicyConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStepScalingPolicyConfiguration) *PolicyStepScalingPolicyConfiguration {
 		return &v
 	}).(PolicyStepScalingPolicyConfigurationPtrOutput)
 }
@@ -166,7 +166,13 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) ToPolicyStepScalingPolicy
 }
 
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) Elem() PolicyStepScalingPolicyConfigurationOutput {
-	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) PolicyStepScalingPolicyConfiguration { return *v }).(PolicyStepScalingPolicyConfigurationOutput)
+	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) PolicyStepScalingPolicyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStepScalingPolicyConfiguration
+		return ret
+	}).(PolicyStepScalingPolicyConfigurationOutput)
 }
 
 // Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
@@ -447,7 +453,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationOutput) ToPolicyTargetTrac
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationOutput) ToPolicyTargetTrackingScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfiguration) *PolicyTargetTrackingScalingPolicyConfiguration {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPtrOutput)
 }
@@ -502,7 +508,11 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ToPolicyTargetT
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfiguration) PolicyTargetTrackingScalingPolicyConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingScalingPolicyConfiguration
+		return ret
 	}).(PolicyTargetTrackingScalingPolicyConfigurationOutput)
 }
 
@@ -675,7 +685,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput) ToPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput)
 }
@@ -731,7 +741,11 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification) PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
+		return ret
 	}).(PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationOutput)
 }
 
@@ -992,7 +1006,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 }
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput) ToPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput)
 }
@@ -1027,7 +1041,11 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
+		return ret
 	}).(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput)
 }
 
@@ -1148,7 +1166,7 @@ func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTarg
 }
 
 func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
-	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *ScheduledActionScalableTargetAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionScalableTargetAction) *ScheduledActionScalableTargetAction {
 		return &v
 	}).(ScheduledActionScalableTargetActionPtrOutput)
 }
@@ -1178,7 +1196,13 @@ func (o ScheduledActionScalableTargetActionPtrOutput) ToScheduledActionScalableT
 }
 
 func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScalableTargetActionOutput {
-	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) ScheduledActionScalableTargetAction { return *v }).(ScheduledActionScalableTargetActionOutput)
+	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) ScheduledActionScalableTargetAction {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionScalableTargetAction
+		return ret
+	}).(ScheduledActionScalableTargetActionOutput)
 }
 
 // The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.

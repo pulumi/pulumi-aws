@@ -111,7 +111,7 @@ func (o ServiceDnsConfigOutput) ToServiceDnsConfigPtrOutput() ServiceDnsConfigPt
 }
 
 func (o ServiceDnsConfigOutput) ToServiceDnsConfigPtrOutputWithContext(ctx context.Context) ServiceDnsConfigPtrOutput {
-	return o.ApplyT(func(v ServiceDnsConfig) *ServiceDnsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDnsConfig) *ServiceDnsConfig {
 		return &v
 	}).(ServiceDnsConfigPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o ServiceDnsConfigPtrOutput) ToServiceDnsConfigPtrOutputWithContext(ctx co
 }
 
 func (o ServiceDnsConfigPtrOutput) Elem() ServiceDnsConfigOutput {
-	return o.ApplyT(func(v *ServiceDnsConfig) ServiceDnsConfig { return *v }).(ServiceDnsConfigOutput)
+	return o.ApplyT(func(v *ServiceDnsConfig) ServiceDnsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDnsConfig
+		return ret
+	}).(ServiceDnsConfigOutput)
 }
 
 // An array that contains one DnsRecord object for each resource record set.
@@ -386,7 +392,7 @@ func (o ServiceHealthCheckConfigOutput) ToServiceHealthCheckConfigPtrOutput() Se
 }
 
 func (o ServiceHealthCheckConfigOutput) ToServiceHealthCheckConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfig) *ServiceHealthCheckConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHealthCheckConfig) *ServiceHealthCheckConfig {
 		return &v
 	}).(ServiceHealthCheckConfigPtrOutput)
 }
@@ -421,7 +427,13 @@ func (o ServiceHealthCheckConfigPtrOutput) ToServiceHealthCheckConfigPtrOutputWi
 }
 
 func (o ServiceHealthCheckConfigPtrOutput) Elem() ServiceHealthCheckConfigOutput {
-	return o.ApplyT(func(v *ServiceHealthCheckConfig) ServiceHealthCheckConfig { return *v }).(ServiceHealthCheckConfigOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckConfig) ServiceHealthCheckConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHealthCheckConfig
+		return ret
+	}).(ServiceHealthCheckConfigOutput)
 }
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
@@ -547,7 +559,7 @@ func (o ServiceHealthCheckCustomConfigOutput) ToServiceHealthCheckCustomConfigPt
 }
 
 func (o ServiceHealthCheckCustomConfigOutput) ToServiceHealthCheckCustomConfigPtrOutputWithContext(ctx context.Context) ServiceHealthCheckCustomConfigPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckCustomConfig) *ServiceHealthCheckCustomConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHealthCheckCustomConfig) *ServiceHealthCheckCustomConfig {
 		return &v
 	}).(ServiceHealthCheckCustomConfigPtrOutput)
 }
@@ -572,7 +584,13 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) ToServiceHealthCheckCustomConfi
 }
 
 func (o ServiceHealthCheckCustomConfigPtrOutput) Elem() ServiceHealthCheckCustomConfigOutput {
-	return o.ApplyT(func(v *ServiceHealthCheckCustomConfig) ServiceHealthCheckCustomConfig { return *v }).(ServiceHealthCheckCustomConfigOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckCustomConfig) ServiceHealthCheckCustomConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHealthCheckCustomConfig
+		return ret
+	}).(ServiceHealthCheckCustomConfigOutput)
 }
 
 // The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.

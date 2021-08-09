@@ -244,9 +244,7 @@ func (i TemplateMap) ToTemplateMapOutputWithContext(ctx context.Context) Templat
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateMapOutput)
 }
 
-type TemplateOutput struct {
-	*pulumi.OutputState
-}
+type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Template)(nil))
@@ -265,14 +263,12 @@ func (o TemplateOutput) ToTemplatePtrOutput() TemplatePtrOutput {
 }
 
 func (o TemplateOutput) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
-	return o.ApplyT(func(v Template) *Template {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Template) *Template {
 		return &v
 	}).(TemplatePtrOutput)
 }
 
-type TemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type TemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (TemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Template)(nil))
@@ -284,6 +280,16 @@ func (o TemplatePtrOutput) ToTemplatePtrOutput() TemplatePtrOutput {
 
 func (o TemplatePtrOutput) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
 	return o
+}
+
+func (o TemplatePtrOutput) Elem() TemplateOutput {
+	return o.ApplyT(func(v *Template) Template {
+		if v != nil {
+			return *v
+		}
+		var ret Template
+		return ret
+	}).(TemplateOutput)
 }
 
 type TemplateArrayOutput struct{ *pulumi.OutputState }

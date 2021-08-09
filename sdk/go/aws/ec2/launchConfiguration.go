@@ -663,9 +663,7 @@ func (i LaunchConfigurationMap) ToLaunchConfigurationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationMapOutput)
 }
 
-type LaunchConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type LaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LaunchConfiguration)(nil))
@@ -684,14 +682,12 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationPtrOutput() LaunchConfig
 }
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
-	return o.ApplyT(func(v LaunchConfiguration) *LaunchConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfiguration) *LaunchConfiguration {
 		return &v
 	}).(LaunchConfigurationPtrOutput)
 }
 
-type LaunchConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type LaunchConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LaunchConfiguration)(nil))
@@ -703,6 +699,16 @@ func (o LaunchConfigurationPtrOutput) ToLaunchConfigurationPtrOutput() LaunchCon
 
 func (o LaunchConfigurationPtrOutput) ToLaunchConfigurationPtrOutputWithContext(ctx context.Context) LaunchConfigurationPtrOutput {
 	return o
+}
+
+func (o LaunchConfigurationPtrOutput) Elem() LaunchConfigurationOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) LaunchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfiguration
+		return ret
+	}).(LaunchConfigurationOutput)
 }
 
 type LaunchConfigurationArrayOutput struct{ *pulumi.OutputState }

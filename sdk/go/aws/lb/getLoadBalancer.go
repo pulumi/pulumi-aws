@@ -64,7 +64,8 @@ type LookupLoadBalancerArgs struct {
 	// The full ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// The unique name of the load balancer.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	Tags map[string]string `pulumi:"tags"`
 }
 

@@ -190,9 +190,7 @@ func (i PolicyAttachmentMap) ToPolicyAttachmentMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentMapOutput)
 }
 
-type PolicyAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyAttachment)(nil))
@@ -211,14 +209,12 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentPtrOutput() PolicyAttachmentPt
 }
 
 func (o PolicyAttachmentOutput) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
-	return o.ApplyT(func(v PolicyAttachment) *PolicyAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAttachment) *PolicyAttachment {
 		return &v
 	}).(PolicyAttachmentPtrOutput)
 }
 
-type PolicyAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type PolicyAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PolicyAttachment)(nil))
@@ -230,6 +226,16 @@ func (o PolicyAttachmentPtrOutput) ToPolicyAttachmentPtrOutput() PolicyAttachmen
 
 func (o PolicyAttachmentPtrOutput) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
 	return o
+}
+
+func (o PolicyAttachmentPtrOutput) Elem() PolicyAttachmentOutput {
+	return o.ApplyT(func(v *PolicyAttachment) PolicyAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyAttachment
+		return ret
+	}).(PolicyAttachmentOutput)
 }
 
 type PolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

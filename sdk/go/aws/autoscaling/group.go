@@ -505,7 +505,7 @@ type Group struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.StringMapArrayOutput `pulumi:"tagsCollection"`
@@ -642,7 +642,7 @@ type groupState struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection []map[string]string `pulumi:"tagsCollection"`
@@ -745,7 +745,7 @@ type GroupState struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
 	Tags GroupTagArrayInput
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.StringMapArrayInput
@@ -850,7 +850,7 @@ type groupArgs struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
 	Tags []GroupTag `pulumi:"tags"`
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection []map[string]string `pulumi:"tagsCollection"`
@@ -952,7 +952,7 @@ type GroupArgs struct {
 	// A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
 	// Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
 	SuspendedProcesses pulumi.StringArrayInput
-	// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+	// Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
 	Tags GroupTagArrayInput
 	// Set of maps containing resource tags. Conflicts with `tag`. Documented below.
 	TagsCollection pulumi.StringMapArrayInput
@@ -1081,9 +1081,7 @@ func (i GroupMap) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMapOutput)
 }
 
-type GroupOutput struct {
-	*pulumi.OutputState
-}
+type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Group)(nil))
@@ -1102,14 +1100,12 @@ func (o GroupOutput) ToGroupPtrOutput() GroupPtrOutput {
 }
 
 func (o GroupOutput) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
-	return o.ApplyT(func(v Group) *Group {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Group) *Group {
 		return &v
 	}).(GroupPtrOutput)
 }
 
-type GroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Group)(nil))
@@ -1121,6 +1117,16 @@ func (o GroupPtrOutput) ToGroupPtrOutput() GroupPtrOutput {
 
 func (o GroupPtrOutput) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
 	return o
+}
+
+func (o GroupPtrOutput) Elem() GroupOutput {
+	return o.ApplyT(func(v *Group) Group {
+		if v != nil {
+			return *v
+		}
+		var ret Group
+		return ret
+	}).(GroupOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

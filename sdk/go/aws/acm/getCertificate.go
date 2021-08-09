@@ -92,7 +92,9 @@ type LookupCertificateResult struct {
 	Id         string   `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
 	MostRecent *bool    `pulumi:"mostRecent"`
-	Statuses   []string `pulumi:"statuses"`
+	// Status of the found certificate.
+	Status   string   `pulumi:"status"`
+	Statuses []string `pulumi:"statuses"`
 	// A mapping of tags for the resource.
 	Tags  map[string]string `pulumi:"tags"`
 	Types []string          `pulumi:"types"`

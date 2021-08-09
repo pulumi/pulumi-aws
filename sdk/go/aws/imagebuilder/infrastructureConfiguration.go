@@ -367,9 +367,7 @@ func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationMapOutput)
 }
 
-type InfrastructureConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type InfrastructureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InfrastructureConfiguration)(nil))
@@ -388,14 +386,12 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationPtrOutpu
 }
 
 func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
-	return o.ApplyT(func(v InfrastructureConfiguration) *InfrastructureConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfiguration) *InfrastructureConfiguration {
 		return &v
 	}).(InfrastructureConfigurationPtrOutput)
 }
 
-type InfrastructureConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type InfrastructureConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InfrastructureConfiguration)(nil))
@@ -407,6 +403,16 @@ func (o InfrastructureConfigurationPtrOutput) ToInfrastructureConfigurationPtrOu
 
 func (o InfrastructureConfigurationPtrOutput) ToInfrastructureConfigurationPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPtrOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationPtrOutput) Elem() InfrastructureConfigurationOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfiguration
+		return ret
+	}).(InfrastructureConfigurationOutput)
 }
 
 type InfrastructureConfigurationArrayOutput struct{ *pulumi.OutputState }

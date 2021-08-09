@@ -346,9 +346,7 @@ func (i OrganizationCustomRuleMap) ToOrganizationCustomRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCustomRuleMapOutput)
 }
 
-type OrganizationCustomRuleOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCustomRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationCustomRule)(nil))
@@ -367,14 +365,12 @@ func (o OrganizationCustomRuleOutput) ToOrganizationCustomRulePtrOutput() Organi
 }
 
 func (o OrganizationCustomRuleOutput) ToOrganizationCustomRulePtrOutputWithContext(ctx context.Context) OrganizationCustomRulePtrOutput {
-	return o.ApplyT(func(v OrganizationCustomRule) *OrganizationCustomRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationCustomRule) *OrganizationCustomRule {
 		return &v
 	}).(OrganizationCustomRulePtrOutput)
 }
 
-type OrganizationCustomRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationCustomRulePtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCustomRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationCustomRule)(nil))
@@ -386,6 +382,16 @@ func (o OrganizationCustomRulePtrOutput) ToOrganizationCustomRulePtrOutput() Org
 
 func (o OrganizationCustomRulePtrOutput) ToOrganizationCustomRulePtrOutputWithContext(ctx context.Context) OrganizationCustomRulePtrOutput {
 	return o
+}
+
+func (o OrganizationCustomRulePtrOutput) Elem() OrganizationCustomRuleOutput {
+	return o.ApplyT(func(v *OrganizationCustomRule) OrganizationCustomRule {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationCustomRule
+		return ret
+	}).(OrganizationCustomRuleOutput)
 }
 
 type OrganizationCustomRuleArrayOutput struct{ *pulumi.OutputState }

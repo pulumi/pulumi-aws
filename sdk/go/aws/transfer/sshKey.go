@@ -272,9 +272,7 @@ func (i SshKeyMap) ToSshKeyMapOutputWithContext(ctx context.Context) SshKeyMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SshKeyMapOutput)
 }
 
-type SshKeyOutput struct {
-	*pulumi.OutputState
-}
+type SshKeyOutput struct{ *pulumi.OutputState }
 
 func (SshKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SshKey)(nil))
@@ -293,14 +291,12 @@ func (o SshKeyOutput) ToSshKeyPtrOutput() SshKeyPtrOutput {
 }
 
 func (o SshKeyOutput) ToSshKeyPtrOutputWithContext(ctx context.Context) SshKeyPtrOutput {
-	return o.ApplyT(func(v SshKey) *SshKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SshKey) *SshKey {
 		return &v
 	}).(SshKeyPtrOutput)
 }
 
-type SshKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SshKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (SshKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SshKey)(nil))
@@ -312,6 +308,16 @@ func (o SshKeyPtrOutput) ToSshKeyPtrOutput() SshKeyPtrOutput {
 
 func (o SshKeyPtrOutput) ToSshKeyPtrOutputWithContext(ctx context.Context) SshKeyPtrOutput {
 	return o
+}
+
+func (o SshKeyPtrOutput) Elem() SshKeyOutput {
+	return o.ApplyT(func(v *SshKey) SshKey {
+		if v != nil {
+			return *v
+		}
+		var ret SshKey
+		return ret
+	}).(SshKeyOutput)
 }
 
 type SshKeyArrayOutput struct{ *pulumi.OutputState }

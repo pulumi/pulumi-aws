@@ -283,9 +283,7 @@ func (i LogGroupMap) ToLogGroupMapOutputWithContext(ctx context.Context) LogGrou
 	return pulumi.ToOutputWithContext(ctx, i).(LogGroupMapOutput)
 }
 
-type LogGroupOutput struct {
-	*pulumi.OutputState
-}
+type LogGroupOutput struct{ *pulumi.OutputState }
 
 func (LogGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogGroup)(nil))
@@ -304,14 +302,12 @@ func (o LogGroupOutput) ToLogGroupPtrOutput() LogGroupPtrOutput {
 }
 
 func (o LogGroupOutput) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
-	return o.ApplyT(func(v LogGroup) *LogGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogGroup) *LogGroup {
 		return &v
 	}).(LogGroupPtrOutput)
 }
 
-type LogGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (LogGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogGroup)(nil))
@@ -323,6 +319,16 @@ func (o LogGroupPtrOutput) ToLogGroupPtrOutput() LogGroupPtrOutput {
 
 func (o LogGroupPtrOutput) ToLogGroupPtrOutputWithContext(ctx context.Context) LogGroupPtrOutput {
 	return o
+}
+
+func (o LogGroupPtrOutput) Elem() LogGroupOutput {
+	return o.ApplyT(func(v *LogGroup) LogGroup {
+		if v != nil {
+			return *v
+		}
+		var ret LogGroup
+		return ret
+	}).(LogGroupOutput)
 }
 
 type LogGroupArrayOutput struct{ *pulumi.OutputState }

@@ -236,9 +236,7 @@ func (i TrafficMirrorFilterMap) ToTrafficMirrorFilterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficMirrorFilterMapOutput)
 }
 
-type TrafficMirrorFilterOutput struct {
-	*pulumi.OutputState
-}
+type TrafficMirrorFilterOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficMirrorFilter)(nil))
@@ -257,14 +255,12 @@ func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterPtrOutput() TrafficMirro
 }
 
 func (o TrafficMirrorFilterOutput) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
-	return o.ApplyT(func(v TrafficMirrorFilter) *TrafficMirrorFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficMirrorFilter) *TrafficMirrorFilter {
 		return &v
 	}).(TrafficMirrorFilterPtrOutput)
 }
 
-type TrafficMirrorFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type TrafficMirrorFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (TrafficMirrorFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TrafficMirrorFilter)(nil))
@@ -276,6 +272,16 @@ func (o TrafficMirrorFilterPtrOutput) ToTrafficMirrorFilterPtrOutput() TrafficMi
 
 func (o TrafficMirrorFilterPtrOutput) ToTrafficMirrorFilterPtrOutputWithContext(ctx context.Context) TrafficMirrorFilterPtrOutput {
 	return o
+}
+
+func (o TrafficMirrorFilterPtrOutput) Elem() TrafficMirrorFilterOutput {
+	return o.ApplyT(func(v *TrafficMirrorFilter) TrafficMirrorFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficMirrorFilter
+		return ret
+	}).(TrafficMirrorFilterOutput)
 }
 
 type TrafficMirrorFilterArrayOutput struct{ *pulumi.OutputState }

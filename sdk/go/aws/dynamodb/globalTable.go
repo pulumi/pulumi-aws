@@ -283,9 +283,7 @@ func (i GlobalTableMap) ToGlobalTableMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableMapOutput)
 }
 
-type GlobalTableOutput struct {
-	*pulumi.OutputState
-}
+type GlobalTableOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalTable)(nil))
@@ -304,14 +302,12 @@ func (o GlobalTableOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
 }
 
 func (o GlobalTableOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
-	return o.ApplyT(func(v GlobalTable) *GlobalTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTable) *GlobalTable {
 		return &v
 	}).(GlobalTablePtrOutput)
 }
 
-type GlobalTablePtrOutput struct {
-	*pulumi.OutputState
-}
+type GlobalTablePtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalTablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GlobalTable)(nil))
@@ -323,6 +319,16 @@ func (o GlobalTablePtrOutput) ToGlobalTablePtrOutput() GlobalTablePtrOutput {
 
 func (o GlobalTablePtrOutput) ToGlobalTablePtrOutputWithContext(ctx context.Context) GlobalTablePtrOutput {
 	return o
+}
+
+func (o GlobalTablePtrOutput) Elem() GlobalTableOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTable {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTable
+		return ret
+	}).(GlobalTableOutput)
 }
 
 type GlobalTableArrayOutput struct{ *pulumi.OutputState }

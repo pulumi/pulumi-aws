@@ -244,9 +244,7 @@ func (i ActionTargetMap) ToActionTargetMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ActionTargetMapOutput)
 }
 
-type ActionTargetOutput struct {
-	*pulumi.OutputState
-}
+type ActionTargetOutput struct{ *pulumi.OutputState }
 
 func (ActionTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ActionTarget)(nil))
@@ -265,14 +263,12 @@ func (o ActionTargetOutput) ToActionTargetPtrOutput() ActionTargetPtrOutput {
 }
 
 func (o ActionTargetOutput) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
-	return o.ApplyT(func(v ActionTarget) *ActionTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionTarget) *ActionTarget {
 		return &v
 	}).(ActionTargetPtrOutput)
 }
 
-type ActionTargetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActionTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (ActionTargetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ActionTarget)(nil))
@@ -284,6 +280,16 @@ func (o ActionTargetPtrOutput) ToActionTargetPtrOutput() ActionTargetPtrOutput {
 
 func (o ActionTargetPtrOutput) ToActionTargetPtrOutputWithContext(ctx context.Context) ActionTargetPtrOutput {
 	return o
+}
+
+func (o ActionTargetPtrOutput) Elem() ActionTargetOutput {
+	return o.ApplyT(func(v *ActionTarget) ActionTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ActionTarget
+		return ret
+	}).(ActionTargetOutput)
 }
 
 type ActionTargetArrayOutput struct{ *pulumi.OutputState }

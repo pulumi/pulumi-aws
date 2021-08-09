@@ -689,9 +689,7 @@ func (i MetricAlarmMap) ToMetricAlarmMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MetricAlarmMapOutput)
 }
 
-type MetricAlarmOutput struct {
-	*pulumi.OutputState
-}
+type MetricAlarmOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MetricAlarm)(nil))
@@ -710,14 +708,12 @@ func (o MetricAlarmOutput) ToMetricAlarmPtrOutput() MetricAlarmPtrOutput {
 }
 
 func (o MetricAlarmOutput) ToMetricAlarmPtrOutputWithContext(ctx context.Context) MetricAlarmPtrOutput {
-	return o.ApplyT(func(v MetricAlarm) *MetricAlarm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarm) *MetricAlarm {
 		return &v
 	}).(MetricAlarmPtrOutput)
 }
 
-type MetricAlarmPtrOutput struct {
-	*pulumi.OutputState
-}
+type MetricAlarmPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricAlarmPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MetricAlarm)(nil))
@@ -729,6 +725,16 @@ func (o MetricAlarmPtrOutput) ToMetricAlarmPtrOutput() MetricAlarmPtrOutput {
 
 func (o MetricAlarmPtrOutput) ToMetricAlarmPtrOutputWithContext(ctx context.Context) MetricAlarmPtrOutput {
 	return o
+}
+
+func (o MetricAlarmPtrOutput) Elem() MetricAlarmOutput {
+	return o.ApplyT(func(v *MetricAlarm) MetricAlarm {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarm
+		return ret
+	}).(MetricAlarmOutput)
 }
 
 type MetricAlarmArrayOutput struct{ *pulumi.OutputState }

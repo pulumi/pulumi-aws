@@ -408,9 +408,7 @@ func (i AmiFromInstanceMap) ToAmiFromInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AmiFromInstanceMapOutput)
 }
 
-type AmiFromInstanceOutput struct {
-	*pulumi.OutputState
-}
+type AmiFromInstanceOutput struct{ *pulumi.OutputState }
 
 func (AmiFromInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AmiFromInstance)(nil))
@@ -429,14 +427,12 @@ func (o AmiFromInstanceOutput) ToAmiFromInstancePtrOutput() AmiFromInstancePtrOu
 }
 
 func (o AmiFromInstanceOutput) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
-	return o.ApplyT(func(v AmiFromInstance) *AmiFromInstance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmiFromInstance) *AmiFromInstance {
 		return &v
 	}).(AmiFromInstancePtrOutput)
 }
 
-type AmiFromInstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type AmiFromInstancePtrOutput struct{ *pulumi.OutputState }
 
 func (AmiFromInstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AmiFromInstance)(nil))
@@ -448,6 +444,16 @@ func (o AmiFromInstancePtrOutput) ToAmiFromInstancePtrOutput() AmiFromInstancePt
 
 func (o AmiFromInstancePtrOutput) ToAmiFromInstancePtrOutputWithContext(ctx context.Context) AmiFromInstancePtrOutput {
 	return o
+}
+
+func (o AmiFromInstancePtrOutput) Elem() AmiFromInstanceOutput {
+	return o.ApplyT(func(v *AmiFromInstance) AmiFromInstance {
+		if v != nil {
+			return *v
+		}
+		var ret AmiFromInstance
+		return ret
+	}).(AmiFromInstanceOutput)
 }
 
 type AmiFromInstanceArrayOutput struct{ *pulumi.OutputState }

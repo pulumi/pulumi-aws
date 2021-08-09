@@ -54,10 +54,16 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		test, err := sagemaker.GetPrebuiltEcrImage(ctx, &sagemaker.GetPrebuiltEcrImageArgs{
+// 			RepositoryName: "kmeans",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = sagemaker.NewModel(ctx, "exampleModel", &sagemaker.ModelArgs{
 // 			ExecutionRoleArn: exampleRole.Arn,
 // 			PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
-// 				Image: pulumi.String("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1"),
+// 				Image: pulumi.String(test.RegistryPath),
 // 			},
 // 		})
 // 		if err != nil {
@@ -67,6 +73,9 @@ import (
 // 	})
 // }
 // ```
+// ## Inference Execution Config
+//
+// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
 //
 // ## Import
 //
@@ -86,6 +95,8 @@ type Model struct {
 	EnableNetworkIsolation pulumi.BoolPtrOutput `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
+	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	InferenceExecutionConfig ModelInferenceExecutionConfigOutput `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -138,6 +149,8 @@ type modelState struct {
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
+	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -159,6 +172,8 @@ type ModelState struct {
 	EnableNetworkIsolation pulumi.BoolPtrInput
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringPtrInput
+	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -182,6 +197,8 @@ type modelArgs struct {
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
+	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -202,6 +219,8 @@ type ModelArgs struct {
 	EnableNetworkIsolation pulumi.BoolPtrInput
 	// A role that SageMaker can assume to access model artifacts and docker images for deployment.
 	ExecutionRoleArn pulumi.StringInput
+	// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
@@ -316,9 +335,7 @@ func (i ModelMap) ToModelMapOutputWithContext(ctx context.Context) ModelMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelMapOutput)
 }
 
-type ModelOutput struct {
-	*pulumi.OutputState
-}
+type ModelOutput struct{ *pulumi.OutputState }
 
 func (ModelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Model)(nil))
@@ -337,14 +354,12 @@ func (o ModelOutput) ToModelPtrOutput() ModelPtrOutput {
 }
 
 func (o ModelOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return o.ApplyT(func(v Model) *Model {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Model) *Model {
 		return &v
 	}).(ModelPtrOutput)
 }
 
-type ModelPtrOutput struct {
-	*pulumi.OutputState
-}
+type ModelPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Model)(nil))
@@ -356,6 +371,16 @@ func (o ModelPtrOutput) ToModelPtrOutput() ModelPtrOutput {
 
 func (o ModelPtrOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
 	return o
+}
+
+func (o ModelPtrOutput) Elem() ModelOutput {
+	return o.ApplyT(func(v *Model) Model {
+		if v != nil {
+			return *v
+		}
+		var ret Model
+		return ret
+	}).(ModelOutput)
 }
 
 type ModelArrayOutput struct{ *pulumi.OutputState }

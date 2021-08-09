@@ -236,9 +236,7 @@ func (i RouteTableMap) ToRouteTableMapOutputWithContext(ctx context.Context) Rou
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTableMapOutput)
 }
 
-type RouteTableOutput struct {
-	*pulumi.OutputState
-}
+type RouteTableOutput struct{ *pulumi.OutputState }
 
 func (RouteTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteTable)(nil))
@@ -257,14 +255,12 @@ func (o RouteTableOutput) ToRouteTablePtrOutput() RouteTablePtrOutput {
 }
 
 func (o RouteTableOutput) ToRouteTablePtrOutputWithContext(ctx context.Context) RouteTablePtrOutput {
-	return o.ApplyT(func(v RouteTable) *RouteTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteTable) *RouteTable {
 		return &v
 	}).(RouteTablePtrOutput)
 }
 
-type RouteTablePtrOutput struct {
-	*pulumi.OutputState
-}
+type RouteTablePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteTablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteTable)(nil))
@@ -276,6 +272,16 @@ func (o RouteTablePtrOutput) ToRouteTablePtrOutput() RouteTablePtrOutput {
 
 func (o RouteTablePtrOutput) ToRouteTablePtrOutputWithContext(ctx context.Context) RouteTablePtrOutput {
 	return o
+}
+
+func (o RouteTablePtrOutput) Elem() RouteTableOutput {
+	return o.ApplyT(func(v *RouteTable) RouteTable {
+		if v != nil {
+			return *v
+		}
+		var ret RouteTable
+		return ret
+	}).(RouteTableOutput)
 }
 
 type RouteTableArrayOutput struct{ *pulumi.OutputState }

@@ -306,9 +306,7 @@ func (i NetworkInterfaceSecurityGroupAttachmentMap) ToNetworkInterfaceSecurityGr
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceSecurityGroupAttachmentMapOutput)
 }
 
-type NetworkInterfaceSecurityGroupAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceSecurityGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceSecurityGroupAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachment)(nil))
@@ -327,14 +325,12 @@ func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurit
 }
 
 func (o NetworkInterfaceSecurityGroupAttachmentOutput) ToNetworkInterfaceSecurityGroupAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentPtrOutput {
-	return o.ApplyT(func(v NetworkInterfaceSecurityGroupAttachment) *NetworkInterfaceSecurityGroupAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceSecurityGroupAttachment) *NetworkInterfaceSecurityGroupAttachment {
 		return &v
 	}).(NetworkInterfaceSecurityGroupAttachmentPtrOutput)
 }
 
-type NetworkInterfaceSecurityGroupAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkInterfaceSecurityGroupAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceSecurityGroupAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkInterfaceSecurityGroupAttachment)(nil))
@@ -346,6 +342,16 @@ func (o NetworkInterfaceSecurityGroupAttachmentPtrOutput) ToNetworkInterfaceSecu
 
 func (o NetworkInterfaceSecurityGroupAttachmentPtrOutput) ToNetworkInterfaceSecurityGroupAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceSecurityGroupAttachmentPtrOutput {
 	return o
+}
+
+func (o NetworkInterfaceSecurityGroupAttachmentPtrOutput) Elem() NetworkInterfaceSecurityGroupAttachmentOutput {
+	return o.ApplyT(func(v *NetworkInterfaceSecurityGroupAttachment) NetworkInterfaceSecurityGroupAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkInterfaceSecurityGroupAttachment
+		return ret
+	}).(NetworkInterfaceSecurityGroupAttachmentOutput)
 }
 
 type NetworkInterfaceSecurityGroupAttachmentArrayOutput struct{ *pulumi.OutputState }

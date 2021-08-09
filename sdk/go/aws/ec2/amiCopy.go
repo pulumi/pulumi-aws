@@ -450,9 +450,7 @@ func (i AmiCopyMap) ToAmiCopyMapOutputWithContext(ctx context.Context) AmiCopyMa
 	return pulumi.ToOutputWithContext(ctx, i).(AmiCopyMapOutput)
 }
 
-type AmiCopyOutput struct {
-	*pulumi.OutputState
-}
+type AmiCopyOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AmiCopy)(nil))
@@ -471,14 +469,12 @@ func (o AmiCopyOutput) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
 }
 
 func (o AmiCopyOutput) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
-	return o.ApplyT(func(v AmiCopy) *AmiCopy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AmiCopy) *AmiCopy {
 		return &v
 	}).(AmiCopyPtrOutput)
 }
 
-type AmiCopyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AmiCopyPtrOutput struct{ *pulumi.OutputState }
 
 func (AmiCopyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AmiCopy)(nil))
@@ -490,6 +486,16 @@ func (o AmiCopyPtrOutput) ToAmiCopyPtrOutput() AmiCopyPtrOutput {
 
 func (o AmiCopyPtrOutput) ToAmiCopyPtrOutputWithContext(ctx context.Context) AmiCopyPtrOutput {
 	return o
+}
+
+func (o AmiCopyPtrOutput) Elem() AmiCopyOutput {
+	return o.ApplyT(func(v *AmiCopy) AmiCopy {
+		if v != nil {
+			return *v
+		}
+		var ret AmiCopy
+		return ret
+	}).(AmiCopyOutput)
 }
 
 type AmiCopyArrayOutput struct{ *pulumi.OutputState }

@@ -992,6 +992,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_snapshot":              {Tok: awsResource(ebsMod, "Snapshot")},
 			"aws_ebs_snapshot_copy":         {Tok: awsResource(ebsMod, "SnapshotCopy")},
 			"aws_ebs_volume":                {Tok: awsResource(ebsMod, "Volume")},
+			"aws_ebs_snapshot_import":       {Tok: awsResource(ebsMod, "SnapshotImport")},
 			// ElastiCache
 			"aws_elasticache_cluster": {
 				Tok: awsResource(elasticacheMod, "Cluster"),
@@ -2138,6 +2139,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_app_image_config":       {Tok: awsResource(sagemakerMod, "AppImageConfig")},
 			"aws_sagemaker_model_package_group":    {Tok: awsResource(sagemakerMod, "ModelPackageGroup")},
 			"aws_sagemaker_app":                    {Tok: awsResource(sagemakerMod, "App")},
+			"aws_sagemaker_workforce":              {Tok: awsResource(sagemakerMod, "Workforce")},
+			"aws_sagemaker_workteam":               {Tok: awsResource(sagemakerMod, "Workteam")},
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
@@ -2369,6 +2372,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_storagegateway_working_storage":     {Tok: awsResource(storagegatewayMod, "WorkingStorage")},
 			"aws_storagegateway_stored_iscsi_volume": {Tok: awsResource(storagegatewayMod, "StoredIscsiVolume")},
 			"aws_storagegateway_tape_pool":           {Tok: awsResource(storagegatewayMod, "TapePool")},
+			"aws_storagegateway_file_system_association": {
+				Tok: awsResource(storagegatewayMod, "FileSystemAssociation"),
+			},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
 			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},

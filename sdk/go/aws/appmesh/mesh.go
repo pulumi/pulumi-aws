@@ -289,9 +289,7 @@ func (i MeshMap) ToMeshMapOutputWithContext(ctx context.Context) MeshMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MeshMapOutput)
 }
 
-type MeshOutput struct {
-	*pulumi.OutputState
-}
+type MeshOutput struct{ *pulumi.OutputState }
 
 func (MeshOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Mesh)(nil))
@@ -310,14 +308,12 @@ func (o MeshOutput) ToMeshPtrOutput() MeshPtrOutput {
 }
 
 func (o MeshOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
-	return o.ApplyT(func(v Mesh) *Mesh {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Mesh) *Mesh {
 		return &v
 	}).(MeshPtrOutput)
 }
 
-type MeshPtrOutput struct {
-	*pulumi.OutputState
-}
+type MeshPtrOutput struct{ *pulumi.OutputState }
 
 func (MeshPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Mesh)(nil))
@@ -329,6 +325,16 @@ func (o MeshPtrOutput) ToMeshPtrOutput() MeshPtrOutput {
 
 func (o MeshPtrOutput) ToMeshPtrOutputWithContext(ctx context.Context) MeshPtrOutput {
 	return o
+}
+
+func (o MeshPtrOutput) Elem() MeshOutput {
+	return o.ApplyT(func(v *Mesh) Mesh {
+		if v != nil {
+			return *v
+		}
+		var ret Mesh
+		return ret
+	}).(MeshOutput)
 }
 
 type MeshArrayOutput struct{ *pulumi.OutputState }

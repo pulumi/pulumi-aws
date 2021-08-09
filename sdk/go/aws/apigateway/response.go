@@ -265,9 +265,7 @@ func (i ResponseMap) ToResponseMapOutputWithContext(ctx context.Context) Respons
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseMapOutput)
 }
 
-type ResponseOutput struct {
-	*pulumi.OutputState
-}
+type ResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Response)(nil))
@@ -286,14 +284,12 @@ func (o ResponseOutput) ToResponsePtrOutput() ResponsePtrOutput {
 }
 
 func (o ResponseOutput) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
-	return o.ApplyT(func(v Response) *Response {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Response) *Response {
 		return &v
 	}).(ResponsePtrOutput)
 }
 
-type ResponsePtrOutput struct {
-	*pulumi.OutputState
-}
+type ResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ResponsePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Response)(nil))
@@ -305,6 +301,16 @@ func (o ResponsePtrOutput) ToResponsePtrOutput() ResponsePtrOutput {
 
 func (o ResponsePtrOutput) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
 	return o
+}
+
+func (o ResponsePtrOutput) Elem() ResponseOutput {
+	return o.ApplyT(func(v *Response) Response {
+		if v != nil {
+			return *v
+		}
+		var ret Response
+		return ret
+	}).(ResponseOutput)
 }
 
 type ResponseArrayOutput struct{ *pulumi.OutputState }

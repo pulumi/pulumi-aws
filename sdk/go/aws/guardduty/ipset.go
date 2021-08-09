@@ -316,9 +316,7 @@ func (i IPSetMap) ToIPSetMapOutputWithContext(ctx context.Context) IPSetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IPSetMapOutput)
 }
 
-type IPSetOutput struct {
-	*pulumi.OutputState
-}
+type IPSetOutput struct{ *pulumi.OutputState }
 
 func (IPSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IPSet)(nil))
@@ -337,14 +335,12 @@ func (o IPSetOutput) ToIPSetPtrOutput() IPSetPtrOutput {
 }
 
 func (o IPSetOutput) ToIPSetPtrOutputWithContext(ctx context.Context) IPSetPtrOutput {
-	return o.ApplyT(func(v IPSet) *IPSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPSet) *IPSet {
 		return &v
 	}).(IPSetPtrOutput)
 }
 
-type IPSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type IPSetPtrOutput struct{ *pulumi.OutputState }
 
 func (IPSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IPSet)(nil))
@@ -356,6 +352,16 @@ func (o IPSetPtrOutput) ToIPSetPtrOutput() IPSetPtrOutput {
 
 func (o IPSetPtrOutput) ToIPSetPtrOutputWithContext(ctx context.Context) IPSetPtrOutput {
 	return o
+}
+
+func (o IPSetPtrOutput) Elem() IPSetOutput {
+	return o.ApplyT(func(v *IPSet) IPSet {
+		if v != nil {
+			return *v
+		}
+		var ret IPSet
+		return ret
+	}).(IPSetOutput)
 }
 
 type IPSetArrayOutput struct{ *pulumi.OutputState }

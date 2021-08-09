@@ -200,9 +200,7 @@ func (i MainRouteTableAssociationMap) ToMainRouteTableAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MainRouteTableAssociationMapOutput)
 }
 
-type MainRouteTableAssociationOutput struct {
-	*pulumi.OutputState
-}
+type MainRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (MainRouteTableAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MainRouteTableAssociation)(nil))
@@ -221,14 +219,12 @@ func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationPtrOutput() 
 }
 
 func (o MainRouteTableAssociationOutput) ToMainRouteTableAssociationPtrOutputWithContext(ctx context.Context) MainRouteTableAssociationPtrOutput {
-	return o.ApplyT(func(v MainRouteTableAssociation) *MainRouteTableAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MainRouteTableAssociation) *MainRouteTableAssociation {
 		return &v
 	}).(MainRouteTableAssociationPtrOutput)
 }
 
-type MainRouteTableAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type MainRouteTableAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (MainRouteTableAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MainRouteTableAssociation)(nil))
@@ -240,6 +236,16 @@ func (o MainRouteTableAssociationPtrOutput) ToMainRouteTableAssociationPtrOutput
 
 func (o MainRouteTableAssociationPtrOutput) ToMainRouteTableAssociationPtrOutputWithContext(ctx context.Context) MainRouteTableAssociationPtrOutput {
 	return o
+}
+
+func (o MainRouteTableAssociationPtrOutput) Elem() MainRouteTableAssociationOutput {
+	return o.ApplyT(func(v *MainRouteTableAssociation) MainRouteTableAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret MainRouteTableAssociation
+		return ret
+	}).(MainRouteTableAssociationOutput)
 }
 
 type MainRouteTableAssociationArrayOutput struct{ *pulumi.OutputState }

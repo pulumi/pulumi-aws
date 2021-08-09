@@ -236,9 +236,7 @@ func (i VaultPolicyMap) ToVaultPolicyMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VaultPolicyMapOutput)
 }
 
-type VaultPolicyOutput struct {
-	*pulumi.OutputState
-}
+type VaultPolicyOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultPolicy)(nil))
@@ -257,14 +255,12 @@ func (o VaultPolicyOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
 }
 
 func (o VaultPolicyOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
-	return o.ApplyT(func(v VaultPolicy) *VaultPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultPolicy) *VaultPolicy {
 		return &v
 	}).(VaultPolicyPtrOutput)
 }
 
-type VaultPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type VaultPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (VaultPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VaultPolicy)(nil))
@@ -276,6 +272,16 @@ func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutput() VaultPolicyPtrOutput {
 
 func (o VaultPolicyPtrOutput) ToVaultPolicyPtrOutputWithContext(ctx context.Context) VaultPolicyPtrOutput {
 	return o
+}
+
+func (o VaultPolicyPtrOutput) Elem() VaultPolicyOutput {
+	return o.ApplyT(func(v *VaultPolicy) VaultPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VaultPolicy
+		return ret
+	}).(VaultPolicyOutput)
 }
 
 type VaultPolicyArrayOutput struct{ *pulumi.OutputState }

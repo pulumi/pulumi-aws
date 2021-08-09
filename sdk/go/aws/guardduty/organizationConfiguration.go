@@ -245,9 +245,7 @@ func (i OrganizationConfigurationMap) ToOrganizationConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationMapOutput)
 }
 
-type OrganizationConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationConfiguration)(nil))
@@ -266,14 +264,12 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationPtrOutput() 
 }
 
 func (o OrganizationConfigurationOutput) ToOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationPtrOutput {
-	return o.ApplyT(func(v OrganizationConfiguration) *OrganizationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfiguration) *OrganizationConfiguration {
 		return &v
 	}).(OrganizationConfigurationPtrOutput)
 }
 
-type OrganizationConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationConfiguration)(nil))
@@ -285,6 +281,16 @@ func (o OrganizationConfigurationPtrOutput) ToOrganizationConfigurationPtrOutput
 
 func (o OrganizationConfigurationPtrOutput) ToOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationPtrOutput {
 	return o
+}
+
+func (o OrganizationConfigurationPtrOutput) Elem() OrganizationConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfiguration
+		return ret
+	}).(OrganizationConfigurationOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -232,9 +232,7 @@ func (i QueuePolicyMap) ToQueuePolicyMapOutputWithContext(ctx context.Context) Q
 	return pulumi.ToOutputWithContext(ctx, i).(QueuePolicyMapOutput)
 }
 
-type QueuePolicyOutput struct {
-	*pulumi.OutputState
-}
+type QueuePolicyOutput struct{ *pulumi.OutputState }
 
 func (QueuePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueuePolicy)(nil))
@@ -253,14 +251,12 @@ func (o QueuePolicyOutput) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
 }
 
 func (o QueuePolicyOutput) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
-	return o.ApplyT(func(v QueuePolicy) *QueuePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueuePolicy) *QueuePolicy {
 		return &v
 	}).(QueuePolicyPtrOutput)
 }
 
-type QueuePolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type QueuePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (QueuePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**QueuePolicy)(nil))
@@ -272,6 +268,16 @@ func (o QueuePolicyPtrOutput) ToQueuePolicyPtrOutput() QueuePolicyPtrOutput {
 
 func (o QueuePolicyPtrOutput) ToQueuePolicyPtrOutputWithContext(ctx context.Context) QueuePolicyPtrOutput {
 	return o
+}
+
+func (o QueuePolicyPtrOutput) Elem() QueuePolicyOutput {
+	return o.ApplyT(func(v *QueuePolicy) QueuePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret QueuePolicy
+		return ret
+	}).(QueuePolicyOutput)
 }
 
 type QueuePolicyArrayOutput struct{ *pulumi.OutputState }

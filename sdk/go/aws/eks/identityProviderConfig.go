@@ -248,9 +248,7 @@ func (i IdentityProviderConfigMap) ToIdentityProviderConfigMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigMapOutput)
 }
 
-type IdentityProviderConfigOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityProviderConfig)(nil))
@@ -269,14 +267,12 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigPtrOutput() Identi
 }
 
 func (o IdentityProviderConfigOutput) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
-	return o.ApplyT(func(v IdentityProviderConfig) *IdentityProviderConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfig) *IdentityProviderConfig {
 		return &v
 	}).(IdentityProviderConfigPtrOutput)
 }
 
-type IdentityProviderConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityProviderConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityProviderConfig)(nil))
@@ -288,6 +284,16 @@ func (o IdentityProviderConfigPtrOutput) ToIdentityProviderConfigPtrOutput() Ide
 
 func (o IdentityProviderConfigPtrOutput) ToIdentityProviderConfigPtrOutputWithContext(ctx context.Context) IdentityProviderConfigPtrOutput {
 	return o
+}
+
+func (o IdentityProviderConfigPtrOutput) Elem() IdentityProviderConfigOutput {
+	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderConfig
+		return ret
+	}).(IdentityProviderConfigOutput)
 }
 
 type IdentityProviderConfigArrayOutput struct{ *pulumi.OutputState }

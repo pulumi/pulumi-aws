@@ -942,6 +942,20 @@ class BucketObject(pulumi.CustomResource):
             force_destroy=True)
         ```
 
+        ## Import
+
+        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+        ```
+
+         Additionally, s3 url syntax can be used, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] acl: [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
@@ -1044,6 +1058,20 @@ class BucketObject(pulumi.CustomResource):
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True)
+        ```
+
+        ## Import
+
+        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+        ```
+
+         Additionally, s3 url syntax can be used, e.g.
+
+        ```sh
+         $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
         ```
 
         :param str resource_name: The name of the resource.

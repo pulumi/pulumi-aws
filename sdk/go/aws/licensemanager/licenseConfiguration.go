@@ -312,9 +312,7 @@ func (i LicenseConfigurationMap) ToLicenseConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConfigurationMapOutput)
 }
 
-type LicenseConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type LicenseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LicenseConfiguration)(nil))
@@ -333,14 +331,12 @@ func (o LicenseConfigurationOutput) ToLicenseConfigurationPtrOutput() LicenseCon
 }
 
 func (o LicenseConfigurationOutput) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
-	return o.ApplyT(func(v LicenseConfiguration) *LicenseConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LicenseConfiguration) *LicenseConfiguration {
 		return &v
 	}).(LicenseConfigurationPtrOutput)
 }
 
-type LicenseConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type LicenseConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (LicenseConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LicenseConfiguration)(nil))
@@ -352,6 +348,16 @@ func (o LicenseConfigurationPtrOutput) ToLicenseConfigurationPtrOutput() License
 
 func (o LicenseConfigurationPtrOutput) ToLicenseConfigurationPtrOutputWithContext(ctx context.Context) LicenseConfigurationPtrOutput {
 	return o
+}
+
+func (o LicenseConfigurationPtrOutput) Elem() LicenseConfigurationOutput {
+	return o.ApplyT(func(v *LicenseConfiguration) LicenseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LicenseConfiguration
+		return ret
+	}).(LicenseConfigurationOutput)
 }
 
 type LicenseConfigurationArrayOutput struct{ *pulumi.OutputState }

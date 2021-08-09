@@ -227,7 +227,7 @@ func (o ServiceEncryptionConfigurationOutput) ToServiceEncryptionConfigurationPt
 }
 
 func (o ServiceEncryptionConfigurationOutput) ToServiceEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ServiceEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceEncryptionConfiguration) *ServiceEncryptionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEncryptionConfiguration) *ServiceEncryptionConfiguration {
 		return &v
 	}).(ServiceEncryptionConfigurationPtrOutput)
 }
@@ -252,7 +252,13 @@ func (o ServiceEncryptionConfigurationPtrOutput) ToServiceEncryptionConfiguratio
 }
 
 func (o ServiceEncryptionConfigurationPtrOutput) Elem() ServiceEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *ServiceEncryptionConfiguration) ServiceEncryptionConfiguration { return *v }).(ServiceEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *ServiceEncryptionConfiguration) ServiceEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEncryptionConfiguration
+		return ret
+	}).(ServiceEncryptionConfigurationOutput)
 }
 
 // The ARN of the KMS key used for encryption.
@@ -378,7 +384,7 @@ func (o ServiceHealthCheckConfigurationOutput) ToServiceHealthCheckConfiguration
 }
 
 func (o ServiceHealthCheckConfigurationOutput) ToServiceHealthCheckConfigurationPtrOutputWithContext(ctx context.Context) ServiceHealthCheckConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceHealthCheckConfiguration) *ServiceHealthCheckConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceHealthCheckConfiguration) *ServiceHealthCheckConfiguration {
 		return &v
 	}).(ServiceHealthCheckConfigurationPtrOutput)
 }
@@ -428,7 +434,13 @@ func (o ServiceHealthCheckConfigurationPtrOutput) ToServiceHealthCheckConfigurat
 }
 
 func (o ServiceHealthCheckConfigurationPtrOutput) Elem() ServiceHealthCheckConfigurationOutput {
-	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) ServiceHealthCheckConfiguration { return *v }).(ServiceHealthCheckConfigurationOutput)
+	return o.ApplyT(func(v *ServiceHealthCheckConfiguration) ServiceHealthCheckConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceHealthCheckConfiguration
+		return ret
+	}).(ServiceHealthCheckConfigurationOutput)
 }
 
 // The number of consecutive checks that must succeed before App Runner decides that the service is healthy. Defaults to 1. Minimum value of 1. Maximum value of 20.
@@ -592,7 +604,7 @@ func (o ServiceInstanceConfigurationOutput) ToServiceInstanceConfigurationPtrOut
 }
 
 func (o ServiceInstanceConfigurationOutput) ToServiceInstanceConfigurationPtrOutputWithContext(ctx context.Context) ServiceInstanceConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceInstanceConfiguration) *ServiceInstanceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInstanceConfiguration) *ServiceInstanceConfiguration {
 		return &v
 	}).(ServiceInstanceConfigurationPtrOutput)
 }
@@ -627,7 +639,13 @@ func (o ServiceInstanceConfigurationPtrOutput) ToServiceInstanceConfigurationPtr
 }
 
 func (o ServiceInstanceConfigurationPtrOutput) Elem() ServiceInstanceConfigurationOutput {
-	return o.ApplyT(func(v *ServiceInstanceConfiguration) ServiceInstanceConfiguration { return *v }).(ServiceInstanceConfigurationOutput)
+	return o.ApplyT(func(v *ServiceInstanceConfiguration) ServiceInstanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceInstanceConfiguration
+		return ret
+	}).(ServiceInstanceConfigurationOutput)
 }
 
 // The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
@@ -765,7 +783,7 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutput(
 }
 
 func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfiguration) *ServiceSourceConfiguration {
 		return &v
 	}).(ServiceSourceConfigurationPtrOutput)
 }
@@ -809,7 +827,13 @@ func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutp
 }
 
 func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) ServiceSourceConfiguration { return *v }).(ServiceSourceConfigurationOutput)
+	return o.ApplyT(func(v *ServiceSourceConfiguration) ServiceSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfiguration
+		return ret
+	}).(ServiceSourceConfigurationOutput)
 }
 
 // Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
@@ -949,7 +973,7 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationOutput) ToServiceSo
 }
 
 func (o ServiceSourceConfigurationAuthenticationConfigurationOutput) ToServiceSourceConfigurationAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationAuthenticationConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationAuthenticationConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
 		return &v
 	}).(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput)
 }
@@ -980,7 +1004,11 @@ func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) ToServic
 
 func (o ServiceSourceConfigurationAuthenticationConfigurationPtrOutput) Elem() ServiceSourceConfigurationAuthenticationConfigurationOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationAuthenticationConfiguration) ServiceSourceConfigurationAuthenticationConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationAuthenticationConfiguration
+		return ret
 	}).(ServiceSourceConfigurationAuthenticationConfigurationOutput)
 }
 
@@ -1105,7 +1133,7 @@ func (o ServiceSourceConfigurationCodeRepositoryOutput) ToServiceSourceConfigura
 }
 
 func (o ServiceSourceConfigurationCodeRepositoryOutput) ToServiceSourceConfigurationCodeRepositoryPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationCodeRepositoryPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationCodeRepository) *ServiceSourceConfigurationCodeRepository {
 		return &v
 	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
 }
@@ -1144,7 +1172,13 @@ func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) ToServiceSourceConfig
 }
 
 func (o ServiceSourceConfigurationCodeRepositoryPtrOutput) Elem() ServiceSourceConfigurationCodeRepositoryOutput {
-	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) ServiceSourceConfigurationCodeRepository { return *v }).(ServiceSourceConfigurationCodeRepositoryOutput)
+	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepository) ServiceSourceConfigurationCodeRepository {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationCodeRepository
+		return ret
+	}).(ServiceSourceConfigurationCodeRepositoryOutput)
 }
 
 // Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
@@ -1274,7 +1308,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ToServi
 }
 
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput) ToServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationCodeRepositoryCodeConfiguration) *ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
 		return &v
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput)
 }
@@ -1307,7 +1341,11 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) ToSe
 
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationPtrOutput) Elem() ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfiguration) ServiceSourceConfigurationCodeRepositoryCodeConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationCodeRepositoryCodeConfiguration
+		return ret
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationOutput)
 }
 
@@ -1440,7 +1478,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 }
 
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) ToServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
 		return &v
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput)
 }
@@ -1496,7 +1534,11 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) Elem() ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues
+		return ret
 	}).(ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput)
 }
 
@@ -1647,7 +1689,7 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput) ToServi
 }
 
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput) ToServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositorySourceCodeVersion) *ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationCodeRepositorySourceCodeVersion) *ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
 		return &v
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput)
 }
@@ -1678,7 +1720,11 @@ func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) ToSe
 
 func (o ServiceSourceConfigurationCodeRepositorySourceCodeVersionPtrOutput) Elem() ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositorySourceCodeVersion) ServiceSourceConfigurationCodeRepositorySourceCodeVersion {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationCodeRepositorySourceCodeVersion
+		return ret
 	}).(ServiceSourceConfigurationCodeRepositorySourceCodeVersionOutput)
 }
 
@@ -1805,7 +1851,7 @@ func (o ServiceSourceConfigurationImageRepositoryOutput) ToServiceSourceConfigur
 }
 
 func (o ServiceSourceConfigurationImageRepositoryOutput) ToServiceSourceConfigurationImageRepositoryPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationImageRepositoryPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationImageRepository) *ServiceSourceConfigurationImageRepository {
 		return &v
 	}).(ServiceSourceConfigurationImageRepositoryPtrOutput)
 }
@@ -1844,7 +1890,11 @@ func (o ServiceSourceConfigurationImageRepositoryPtrOutput) ToServiceSourceConfi
 
 func (o ServiceSourceConfigurationImageRepositoryPtrOutput) Elem() ServiceSourceConfigurationImageRepositoryOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepository) ServiceSourceConfigurationImageRepository {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationImageRepository
+		return ret
 	}).(ServiceSourceConfigurationImageRepositoryOutput)
 }
 
@@ -1980,7 +2030,7 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) ToSer
 }
 
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationOutput) ToServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput {
-	return o.ApplyT(func(v ServiceSourceConfigurationImageRepositoryImageConfiguration) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfigurationImageRepositoryImageConfiguration) *ServiceSourceConfigurationImageRepositoryImageConfiguration {
 		return &v
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput)
 }
@@ -2018,7 +2068,11 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) To
 
 func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) Elem() ServiceSourceConfigurationImageRepositoryImageConfigurationOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationImageRepositoryImageConfiguration) ServiceSourceConfigurationImageRepositoryImageConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceSourceConfigurationImageRepositoryImageConfiguration
+		return ret
 	}).(ServiceSourceConfigurationImageRepositoryImageConfigurationOutput)
 }
 

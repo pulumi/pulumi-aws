@@ -402,9 +402,7 @@ func (i AuthorizerMap) ToAuthorizerMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizerMapOutput)
 }
 
-type AuthorizerOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Authorizer)(nil))
@@ -423,14 +421,12 @@ func (o AuthorizerOutput) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
 }
 
 func (o AuthorizerOutput) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
-	return o.ApplyT(func(v Authorizer) *Authorizer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Authorizer) *Authorizer {
 		return &v
 	}).(AuthorizerPtrOutput)
 }
 
-type AuthorizerPtrOutput struct {
-	*pulumi.OutputState
-}
+type AuthorizerPtrOutput struct{ *pulumi.OutputState }
 
 func (AuthorizerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Authorizer)(nil))
@@ -442,6 +438,16 @@ func (o AuthorizerPtrOutput) ToAuthorizerPtrOutput() AuthorizerPtrOutput {
 
 func (o AuthorizerPtrOutput) ToAuthorizerPtrOutputWithContext(ctx context.Context) AuthorizerPtrOutput {
 	return o
+}
+
+func (o AuthorizerPtrOutput) Elem() AuthorizerOutput {
+	return o.ApplyT(func(v *Authorizer) Authorizer {
+		if v != nil {
+			return *v
+		}
+		var ret Authorizer
+		return ret
+	}).(AuthorizerOutput)
 }
 
 type AuthorizerArrayOutput struct{ *pulumi.OutputState }

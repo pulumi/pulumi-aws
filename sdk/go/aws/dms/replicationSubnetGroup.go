@@ -270,9 +270,7 @@ func (i ReplicationSubnetGroupMap) ToReplicationSubnetGroupMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupMapOutput)
 }
 
-type ReplicationSubnetGroupOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationSubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationSubnetGroup)(nil))
@@ -291,14 +289,12 @@ func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupPtrOutput() Replic
 }
 
 func (o ReplicationSubnetGroupOutput) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
-	return o.ApplyT(func(v ReplicationSubnetGroup) *ReplicationSubnetGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationSubnetGroup) *ReplicationSubnetGroup {
 		return &v
 	}).(ReplicationSubnetGroupPtrOutput)
 }
 
-type ReplicationSubnetGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationSubnetGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicationSubnetGroup)(nil))
@@ -310,6 +306,16 @@ func (o ReplicationSubnetGroupPtrOutput) ToReplicationSubnetGroupPtrOutput() Rep
 
 func (o ReplicationSubnetGroupPtrOutput) ToReplicationSubnetGroupPtrOutputWithContext(ctx context.Context) ReplicationSubnetGroupPtrOutput {
 	return o
+}
+
+func (o ReplicationSubnetGroupPtrOutput) Elem() ReplicationSubnetGroupOutput {
+	return o.ApplyT(func(v *ReplicationSubnetGroup) ReplicationSubnetGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationSubnetGroup
+		return ret
+	}).(ReplicationSubnetGroupOutput)
 }
 
 type ReplicationSubnetGroupArrayOutput struct{ *pulumi.OutputState }

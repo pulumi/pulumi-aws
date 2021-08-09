@@ -59,19 +59,14 @@ namespace Pulumi.Aws.Qldb
     [OutputType]
     public sealed class GetLedgerResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the ledger.
-        /// </summary>
         public readonly string Arn;
-        /// <summary>
-        /// Deletion protection on the QLDB Ledger instance. Set to `true` by default.
-        /// </summary>
         public readonly bool DeletionProtection;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string PermissionsMode;
 
         [OutputConstructor]
         private GetLedgerResult(
@@ -81,12 +76,15 @@ namespace Pulumi.Aws.Qldb
 
             string id,
 
-            string name)
+            string name,
+
+            string permissionsMode)
         {
             Arn = arn;
             DeletionProtection = deletionProtection;
             Id = id;
             Name = name;
+            PermissionsMode = permissionsMode;
         }
     }
 }

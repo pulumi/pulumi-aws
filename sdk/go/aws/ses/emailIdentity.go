@@ -214,9 +214,7 @@ func (i EmailIdentityMap) ToEmailIdentityMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMapOutput)
 }
 
-type EmailIdentityOutput struct {
-	*pulumi.OutputState
-}
+type EmailIdentityOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EmailIdentity)(nil))
@@ -235,14 +233,12 @@ func (o EmailIdentityOutput) ToEmailIdentityPtrOutput() EmailIdentityPtrOutput {
 }
 
 func (o EmailIdentityOutput) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
-	return o.ApplyT(func(v EmailIdentity) *EmailIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EmailIdentity) *EmailIdentity {
 		return &v
 	}).(EmailIdentityPtrOutput)
 }
 
-type EmailIdentityPtrOutput struct {
-	*pulumi.OutputState
-}
+type EmailIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EmailIdentity)(nil))
@@ -254,6 +250,16 @@ func (o EmailIdentityPtrOutput) ToEmailIdentityPtrOutput() EmailIdentityPtrOutpu
 
 func (o EmailIdentityPtrOutput) ToEmailIdentityPtrOutputWithContext(ctx context.Context) EmailIdentityPtrOutput {
 	return o
+}
+
+func (o EmailIdentityPtrOutput) Elem() EmailIdentityOutput {
+	return o.ApplyT(func(v *EmailIdentity) EmailIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret EmailIdentity
+		return ret
+	}).(EmailIdentityOutput)
 }
 
 type EmailIdentityArrayOutput struct{ *pulumi.OutputState }

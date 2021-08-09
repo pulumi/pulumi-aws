@@ -288,9 +288,7 @@ func (i AutoScalingConfigurationVersionMap) ToAutoScalingConfigurationVersionMap
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingConfigurationVersionMapOutput)
 }
 
-type AutoScalingConfigurationVersionOutput struct {
-	*pulumi.OutputState
-}
+type AutoScalingConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AutoScalingConfigurationVersion)(nil))
@@ -309,14 +307,12 @@ func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersion
 }
 
 func (o AutoScalingConfigurationVersionOutput) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
-	return o.ApplyT(func(v AutoScalingConfigurationVersion) *AutoScalingConfigurationVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingConfigurationVersion) *AutoScalingConfigurationVersion {
 		return &v
 	}).(AutoScalingConfigurationVersionPtrOutput)
 }
 
-type AutoScalingConfigurationVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type AutoScalingConfigurationVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingConfigurationVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AutoScalingConfigurationVersion)(nil))
@@ -328,6 +324,16 @@ func (o AutoScalingConfigurationVersionPtrOutput) ToAutoScalingConfigurationVers
 
 func (o AutoScalingConfigurationVersionPtrOutput) ToAutoScalingConfigurationVersionPtrOutputWithContext(ctx context.Context) AutoScalingConfigurationVersionPtrOutput {
 	return o
+}
+
+func (o AutoScalingConfigurationVersionPtrOutput) Elem() AutoScalingConfigurationVersionOutput {
+	return o.ApplyT(func(v *AutoScalingConfigurationVersion) AutoScalingConfigurationVersion {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingConfigurationVersion
+		return ret
+	}).(AutoScalingConfigurationVersionOutput)
 }
 
 type AutoScalingConfigurationVersionArrayOutput struct{ *pulumi.OutputState }

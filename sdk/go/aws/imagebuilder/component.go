@@ -348,9 +348,7 @@ func (i ComponentMap) ToComponentMapOutputWithContext(ctx context.Context) Compo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentMapOutput)
 }
 
-type ComponentOutput struct {
-	*pulumi.OutputState
-}
+type ComponentOutput struct{ *pulumi.OutputState }
 
 func (ComponentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Component)(nil))
@@ -369,14 +367,12 @@ func (o ComponentOutput) ToComponentPtrOutput() ComponentPtrOutput {
 }
 
 func (o ComponentOutput) ToComponentPtrOutputWithContext(ctx context.Context) ComponentPtrOutput {
-	return o.ApplyT(func(v Component) *Component {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Component) *Component {
 		return &v
 	}).(ComponentPtrOutput)
 }
 
-type ComponentPtrOutput struct {
-	*pulumi.OutputState
-}
+type ComponentPtrOutput struct{ *pulumi.OutputState }
 
 func (ComponentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Component)(nil))
@@ -388,6 +384,16 @@ func (o ComponentPtrOutput) ToComponentPtrOutput() ComponentPtrOutput {
 
 func (o ComponentPtrOutput) ToComponentPtrOutputWithContext(ctx context.Context) ComponentPtrOutput {
 	return o
+}
+
+func (o ComponentPtrOutput) Elem() ComponentOutput {
+	return o.ApplyT(func(v *Component) Component {
+		if v != nil {
+			return *v
+		}
+		var ret Component
+		return ret
+	}).(ComponentOutput)
 }
 
 type ComponentArrayOutput struct{ *pulumi.OutputState }

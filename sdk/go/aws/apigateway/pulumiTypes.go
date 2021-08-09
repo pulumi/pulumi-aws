@@ -107,7 +107,7 @@ func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutput() Acco
 }
 
 func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return o.ApplyT(func(v AccountThrottleSettings) *AccountThrottleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountThrottleSettings) *AccountThrottleSettings {
 		return &v
 	}).(AccountThrottleSettingsPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutputWith
 }
 
 func (o AccountThrottleSettingsPtrOutput) Elem() AccountThrottleSettingsOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) AccountThrottleSettings { return *v }).(AccountThrottleSettingsOutput)
+	return o.ApplyT(func(v *AccountThrottleSettings) AccountThrottleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret AccountThrottleSettings
+		return ret
+	}).(AccountThrottleSettingsOutput)
 }
 
 // The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
@@ -269,7 +275,7 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutput() 
 }
 
 func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return o.ApplyT(func(v DocumentationPartLocation) *DocumentationPartLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocation) *DocumentationPartLocation {
 		return &v
 	}).(DocumentationPartLocationPtrOutput)
 }
@@ -314,7 +320,13 @@ func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput
 }
 
 func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation { return *v }).(DocumentationPartLocationOutput)
+	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentationPartLocation
+		return ret
+	}).(DocumentationPartLocationOutput)
 }
 
 // The HTTP verb of a method. The default value is `*` for any method.
@@ -460,7 +472,7 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 }
 
 func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfigurationPtrOutputWithContext(ctx context.Context) DomainNameEndpointConfigurationPtrOutput {
-	return o.ApplyT(func(v DomainNameEndpointConfiguration) *DomainNameEndpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameEndpointConfiguration) *DomainNameEndpointConfiguration {
 		return &v
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
@@ -485,7 +497,13 @@ func (o DomainNameEndpointConfigurationPtrOutput) ToDomainNameEndpointConfigurat
 }
 
 func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfigurationOutput {
-	return o.ApplyT(func(v *DomainNameEndpointConfiguration) DomainNameEndpointConfiguration { return *v }).(DomainNameEndpointConfigurationOutput)
+	return o.ApplyT(func(v *DomainNameEndpointConfiguration) DomainNameEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameEndpointConfiguration
+		return ret
+	}).(DomainNameEndpointConfigurationOutput)
 }
 
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE` or `REGIONAL`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -597,7 +615,7 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 }
 
 func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
-	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
 		return &v
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
@@ -628,7 +646,13 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthent
 }
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
-	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameMutualTlsAuthentication
+		return ret
+	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
 // An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
@@ -745,7 +769,7 @@ func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutput() Integratio
 }
 
 func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
-	return o.ApplyT(func(v IntegrationTlsConfig) *IntegrationTlsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTlsConfig) *IntegrationTlsConfig {
 		return &v
 	}).(IntegrationTlsConfigPtrOutput)
 }
@@ -770,7 +794,13 @@ func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContex
 }
 
 func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
-	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig { return *v }).(IntegrationTlsConfigOutput)
+	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationTlsConfig
+		return ret
+	}).(IntegrationTlsConfigOutput)
 }
 
 // Specifies whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
@@ -912,7 +942,7 @@ func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsPtrOutput() Method
 }
 
 func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsSettingsPtrOutput {
-	return o.ApplyT(func(v MethodSettingsSettings) *MethodSettingsSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodSettingsSettings) *MethodSettingsSettings {
 		return &v
 	}).(MethodSettingsSettingsPtrOutput)
 }
@@ -982,7 +1012,13 @@ func (o MethodSettingsSettingsPtrOutput) ToMethodSettingsSettingsPtrOutputWithCo
 }
 
 func (o MethodSettingsSettingsPtrOutput) Elem() MethodSettingsSettingsOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) MethodSettingsSettings { return *v }).(MethodSettingsSettingsOutput)
+	return o.ApplyT(func(v *MethodSettingsSettings) MethodSettingsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MethodSettingsSettings
+		return ret
+	}).(MethodSettingsSettingsOutput)
 }
 
 // Specifies whether the cached responses are encrypted.
@@ -1182,7 +1218,7 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 }
 
 func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOutputWithContext(ctx context.Context) RestApiEndpointConfigurationPtrOutput {
-	return o.ApplyT(func(v RestApiEndpointConfiguration) *RestApiEndpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApiEndpointConfiguration) *RestApiEndpointConfiguration {
 		return &v
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
@@ -1212,7 +1248,13 @@ func (o RestApiEndpointConfigurationPtrOutput) ToRestApiEndpointConfigurationPtr
 }
 
 func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurationOutput {
-	return o.ApplyT(func(v *RestApiEndpointConfiguration) RestApiEndpointConfiguration { return *v }).(RestApiEndpointConfigurationOutput)
+	return o.ApplyT(func(v *RestApiEndpointConfiguration) RestApiEndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RestApiEndpointConfiguration
+		return ret
+	}).(RestApiEndpointConfigurationOutput)
 }
 
 // A list of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. Must be declared as `REGIONAL` in non-Commercial partitions. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
@@ -1334,7 +1376,7 @@ func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutput() StageA
 }
 
 func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
-	return o.ApplyT(func(v StageAccessLogSettings) *StageAccessLogSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAccessLogSettings) *StageAccessLogSettings {
 		return &v
 	}).(StageAccessLogSettingsPtrOutput)
 }
@@ -1365,7 +1407,13 @@ func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithCo
 }
 
 func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
-	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings { return *v }).(StageAccessLogSettingsOutput)
+	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageAccessLogSettings
+		return ret
+	}).(StageAccessLogSettingsOutput)
 }
 
 // The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
@@ -1596,7 +1644,7 @@ func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutput() UsageP
 }
 
 func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithContext(ctx context.Context) UsagePlanQuotaSettingsPtrOutput {
-	return o.ApplyT(func(v UsagePlanQuotaSettings) *UsagePlanQuotaSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanQuotaSettings) *UsagePlanQuotaSettings {
 		return &v
 	}).(UsagePlanQuotaSettingsPtrOutput)
 }
@@ -1631,7 +1679,13 @@ func (o UsagePlanQuotaSettingsPtrOutput) ToUsagePlanQuotaSettingsPtrOutputWithCo
 }
 
 func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
-	return o.ApplyT(func(v *UsagePlanQuotaSettings) UsagePlanQuotaSettings { return *v }).(UsagePlanQuotaSettingsOutput)
+	return o.ApplyT(func(v *UsagePlanQuotaSettings) UsagePlanQuotaSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanQuotaSettings
+		return ret
+	}).(UsagePlanQuotaSettingsOutput)
 }
 
 // The maximum number of requests that can be made in a given time period.
@@ -1761,7 +1815,7 @@ func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutput() 
 }
 
 func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsPtrOutput {
-	return o.ApplyT(func(v UsagePlanThrottleSettings) *UsagePlanThrottleSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanThrottleSettings) *UsagePlanThrottleSettings {
 		return &v
 	}).(UsagePlanThrottleSettingsPtrOutput)
 }
@@ -1791,7 +1845,13 @@ func (o UsagePlanThrottleSettingsPtrOutput) ToUsagePlanThrottleSettingsPtrOutput
 }
 
 func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutput {
-	return o.ApplyT(func(v *UsagePlanThrottleSettings) UsagePlanThrottleSettings { return *v }).(UsagePlanThrottleSettingsOutput)
+	return o.ApplyT(func(v *UsagePlanThrottleSettings) UsagePlanThrottleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanThrottleSettings
+		return ret
+	}).(UsagePlanThrottleSettingsOutput)
 }
 
 // The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.

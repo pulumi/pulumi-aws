@@ -257,9 +257,7 @@ func (i CodeSigningConfigMap) ToCodeSigningConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigMapOutput)
 }
 
-type CodeSigningConfigOutput struct {
-	*pulumi.OutputState
-}
+type CodeSigningConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeSigningConfig)(nil))
@@ -278,14 +276,12 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutput() CodeSigningConfi
 }
 
 func (o CodeSigningConfigOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
-	return o.ApplyT(func(v CodeSigningConfig) *CodeSigningConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfig) *CodeSigningConfig {
 		return &v
 	}).(CodeSigningConfigPtrOutput)
 }
 
-type CodeSigningConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type CodeSigningConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CodeSigningConfig)(nil))
@@ -297,6 +293,16 @@ func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutput() CodeSigningCo
 
 func (o CodeSigningConfigPtrOutput) ToCodeSigningConfigPtrOutputWithContext(ctx context.Context) CodeSigningConfigPtrOutput {
 	return o
+}
+
+func (o CodeSigningConfigPtrOutput) Elem() CodeSigningConfigOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSigningConfig
+		return ret
+	}).(CodeSigningConfigOutput)
 }
 
 type CodeSigningConfigArrayOutput struct{ *pulumi.OutputState }

@@ -351,9 +351,7 @@ func (i ImagePipelineMap) ToImagePipelineMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineMapOutput)
 }
 
-type ImagePipelineOutput struct {
-	*pulumi.OutputState
-}
+type ImagePipelineOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImagePipeline)(nil))
@@ -372,14 +370,12 @@ func (o ImagePipelineOutput) ToImagePipelinePtrOutput() ImagePipelinePtrOutput {
 }
 
 func (o ImagePipelineOutput) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
-	return o.ApplyT(func(v ImagePipeline) *ImagePipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipeline) *ImagePipeline {
 		return &v
 	}).(ImagePipelinePtrOutput)
 }
 
-type ImagePipelinePtrOutput struct {
-	*pulumi.OutputState
-}
+type ImagePipelinePtrOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ImagePipeline)(nil))
@@ -391,6 +387,16 @@ func (o ImagePipelinePtrOutput) ToImagePipelinePtrOutput() ImagePipelinePtrOutpu
 
 func (o ImagePipelinePtrOutput) ToImagePipelinePtrOutputWithContext(ctx context.Context) ImagePipelinePtrOutput {
 	return o
+}
+
+func (o ImagePipelinePtrOutput) Elem() ImagePipelineOutput {
+	return o.ApplyT(func(v *ImagePipeline) ImagePipeline {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipeline
+		return ret
+	}).(ImagePipelineOutput)
 }
 
 type ImagePipelineArrayOutput struct{ *pulumi.OutputState }

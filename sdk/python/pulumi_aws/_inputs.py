@@ -269,6 +269,8 @@ class ProviderEndpointArgs:
                  resourcegroupstaggingapi: Optional[pulumi.Input[str]] = None,
                  route53: Optional[pulumi.Input[str]] = None,
                  route53domains: Optional[pulumi.Input[str]] = None,
+                 route53recoverycontrolconfig: Optional[pulumi.Input[str]] = None,
+                 route53recoveryreadiness: Optional[pulumi.Input[str]] = None,
                  route53resolver: Optional[pulumi.Input[str]] = None,
                  s3: Optional[pulumi.Input[str]] = None,
                  s3control: Optional[pulumi.Input[str]] = None,
@@ -551,6 +553,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "route53", route53)
         if route53domains is not None:
             pulumi.set(__self__, "route53domains", route53domains)
+        if route53recoverycontrolconfig is not None:
+            pulumi.set(__self__, "route53recoverycontrolconfig", route53recoverycontrolconfig)
+        if route53recoveryreadiness is not None:
+            pulumi.set(__self__, "route53recoveryreadiness", route53recoveryreadiness)
         if route53resolver is not None:
             pulumi.set(__self__, "route53resolver", route53resolver)
         if s3 is not None:
@@ -1735,6 +1741,24 @@ class ProviderEndpointArgs:
     @route53domains.setter
     def route53domains(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "route53domains", value)
+
+    @property
+    @pulumi.getter
+    def route53recoverycontrolconfig(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "route53recoverycontrolconfig")
+
+    @route53recoverycontrolconfig.setter
+    def route53recoverycontrolconfig(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route53recoverycontrolconfig", value)
+
+    @property
+    @pulumi.getter
+    def route53recoveryreadiness(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "route53recoveryreadiness")
+
+    @route53recoveryreadiness.setter
+    def route53recoveryreadiness(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "route53recoveryreadiness", value)
 
     @property
     @pulumi.getter

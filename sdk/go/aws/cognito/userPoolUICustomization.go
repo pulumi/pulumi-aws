@@ -243,9 +243,7 @@ func (i UserPoolUICustomizationMap) ToUserPoolUICustomizationMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationMapOutput)
 }
 
-type UserPoolUICustomizationOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolUICustomizationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserPoolUICustomization)(nil))
@@ -264,14 +262,12 @@ func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationPtrOutput() User
 }
 
 func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
-	return o.ApplyT(func(v UserPoolUICustomization) *UserPoolUICustomization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUICustomization) *UserPoolUICustomization {
 		return &v
 	}).(UserPoolUICustomizationPtrOutput)
 }
 
-type UserPoolUICustomizationPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolUICustomizationPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserPoolUICustomization)(nil))
@@ -283,6 +279,16 @@ func (o UserPoolUICustomizationPtrOutput) ToUserPoolUICustomizationPtrOutput() U
 
 func (o UserPoolUICustomizationPtrOutput) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
 	return o
+}
+
+func (o UserPoolUICustomizationPtrOutput) Elem() UserPoolUICustomizationOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) UserPoolUICustomization {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolUICustomization
+		return ret
+	}).(UserPoolUICustomizationOutput)
 }
 
 type UserPoolUICustomizationArrayOutput struct{ *pulumi.OutputState }

@@ -419,9 +419,7 @@ func (i CanaryMap) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryMapOutput)
 }
 
-type CanaryOutput struct {
-	*pulumi.OutputState
-}
+type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Canary)(nil))
@@ -440,14 +438,12 @@ func (o CanaryOutput) ToCanaryPtrOutput() CanaryPtrOutput {
 }
 
 func (o CanaryOutput) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
-	return o.ApplyT(func(v Canary) *Canary {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Canary) *Canary {
 		return &v
 	}).(CanaryPtrOutput)
 }
 
-type CanaryPtrOutput struct {
-	*pulumi.OutputState
-}
+type CanaryPtrOutput struct{ *pulumi.OutputState }
 
 func (CanaryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Canary)(nil))
@@ -459,6 +455,16 @@ func (o CanaryPtrOutput) ToCanaryPtrOutput() CanaryPtrOutput {
 
 func (o CanaryPtrOutput) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
 	return o
+}
+
+func (o CanaryPtrOutput) Elem() CanaryOutput {
+	return o.ApplyT(func(v *Canary) Canary {
+		if v != nil {
+			return *v
+		}
+		var ret Canary
+		return ret
+	}).(CanaryOutput)
 }
 
 type CanaryArrayOutput struct{ *pulumi.OutputState }

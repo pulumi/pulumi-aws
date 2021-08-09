@@ -4061,7 +4061,7 @@ class LaunchTemplateTagSpecification(dict):
                  resource_type: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
         """
-        :param str resource_type: The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+        :param str resource_type: The type of resource to tag.
         :param Mapping[str, str] tags: A map of tags to assign to the resource.
         """
         if resource_type is not None:
@@ -4073,7 +4073,7 @@ class LaunchTemplateTagSpecification(dict):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[str]:
         """
-        The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+        The type of resource to tag.
         """
         return pulumi.get(self, "resource_type")
 

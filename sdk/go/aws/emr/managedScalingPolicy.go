@@ -242,9 +242,7 @@ func (i ManagedScalingPolicyMap) ToManagedScalingPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedScalingPolicyMapOutput)
 }
 
-type ManagedScalingPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ManagedScalingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedScalingPolicy)(nil))
@@ -263,14 +261,12 @@ func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyPtrOutput() ManagedSca
 }
 
 func (o ManagedScalingPolicyOutput) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
-	return o.ApplyT(func(v ManagedScalingPolicy) *ManagedScalingPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedScalingPolicy) *ManagedScalingPolicy {
 		return &v
 	}).(ManagedScalingPolicyPtrOutput)
 }
 
-type ManagedScalingPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ManagedScalingPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedScalingPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedScalingPolicy)(nil))
@@ -282,6 +278,16 @@ func (o ManagedScalingPolicyPtrOutput) ToManagedScalingPolicyPtrOutput() Managed
 
 func (o ManagedScalingPolicyPtrOutput) ToManagedScalingPolicyPtrOutputWithContext(ctx context.Context) ManagedScalingPolicyPtrOutput {
 	return o
+}
+
+func (o ManagedScalingPolicyPtrOutput) Elem() ManagedScalingPolicyOutput {
+	return o.ApplyT(func(v *ManagedScalingPolicy) ManagedScalingPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedScalingPolicy
+		return ret
+	}).(ManagedScalingPolicyOutput)
 }
 
 type ManagedScalingPolicyArrayOutput struct{ *pulumi.OutputState }

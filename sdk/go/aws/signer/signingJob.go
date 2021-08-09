@@ -348,9 +348,7 @@ func (i SigningJobMap) ToSigningJobMapOutputWithContext(ctx context.Context) Sig
 	return pulumi.ToOutputWithContext(ctx, i).(SigningJobMapOutput)
 }
 
-type SigningJobOutput struct {
-	*pulumi.OutputState
-}
+type SigningJobOutput struct{ *pulumi.OutputState }
 
 func (SigningJobOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SigningJob)(nil))
@@ -369,14 +367,12 @@ func (o SigningJobOutput) ToSigningJobPtrOutput() SigningJobPtrOutput {
 }
 
 func (o SigningJobOutput) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
-	return o.ApplyT(func(v SigningJob) *SigningJob {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningJob) *SigningJob {
 		return &v
 	}).(SigningJobPtrOutput)
 }
 
-type SigningJobPtrOutput struct {
-	*pulumi.OutputState
-}
+type SigningJobPtrOutput struct{ *pulumi.OutputState }
 
 func (SigningJobPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SigningJob)(nil))
@@ -388,6 +384,16 @@ func (o SigningJobPtrOutput) ToSigningJobPtrOutput() SigningJobPtrOutput {
 
 func (o SigningJobPtrOutput) ToSigningJobPtrOutputWithContext(ctx context.Context) SigningJobPtrOutput {
 	return o
+}
+
+func (o SigningJobPtrOutput) Elem() SigningJobOutput {
+	return o.ApplyT(func(v *SigningJob) SigningJob {
+		if v != nil {
+			return *v
+		}
+		var ret SigningJob
+		return ret
+	}).(SigningJobOutput)
 }
 
 type SigningJobArrayOutput struct{ *pulumi.OutputState }

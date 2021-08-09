@@ -268,9 +268,7 @@ func (i EventBusMap) ToEventBusMapOutputWithContext(ctx context.Context) EventBu
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusMapOutput)
 }
 
-type EventBusOutput struct {
-	*pulumi.OutputState
-}
+type EventBusOutput struct{ *pulumi.OutputState }
 
 func (EventBusOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventBus)(nil))
@@ -289,14 +287,12 @@ func (o EventBusOutput) ToEventBusPtrOutput() EventBusPtrOutput {
 }
 
 func (o EventBusOutput) ToEventBusPtrOutputWithContext(ctx context.Context) EventBusPtrOutput {
-	return o.ApplyT(func(v EventBus) *EventBus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventBus) *EventBus {
 		return &v
 	}).(EventBusPtrOutput)
 }
 
-type EventBusPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventBusPtrOutput struct{ *pulumi.OutputState }
 
 func (EventBusPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventBus)(nil))
@@ -308,6 +304,16 @@ func (o EventBusPtrOutput) ToEventBusPtrOutput() EventBusPtrOutput {
 
 func (o EventBusPtrOutput) ToEventBusPtrOutputWithContext(ctx context.Context) EventBusPtrOutput {
 	return o
+}
+
+func (o EventBusPtrOutput) Elem() EventBusOutput {
+	return o.ApplyT(func(v *EventBus) EventBus {
+		if v != nil {
+			return *v
+		}
+		var ret EventBus
+		return ret
+	}).(EventBusOutput)
 }
 
 type EventBusArrayOutput struct{ *pulumi.OutputState }

@@ -102,7 +102,7 @@ func (o ParameterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 type ParameterTypePtrOutput struct{ *pulumi.OutputState }
 
 func (ParameterTypePtrOutput) ElementType() reflect.Type {
-	return parameterTypePtrType
+	return reflect.TypeOf((**ParameterType)(nil)).Elem()
 }
 
 func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutput {
@@ -111,6 +111,16 @@ func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutpu
 
 func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
 	return o
+}
+
+func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
+	return o.ApplyT(func(v *ParameterType) ParameterType {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterType
+		return ret
+	}).(ParameterTypeOutput)
 }
 
 func (o ParameterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -125,16 +135,6 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
-	return o.ApplyT(func(v *ParameterType) ParameterType {
-		var ret ParameterType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ParameterTypeOutput)
 }
 
 // ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.

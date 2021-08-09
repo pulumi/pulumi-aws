@@ -123,7 +123,7 @@ func (o RepositoryCatalogDataOutput) ToRepositoryCatalogDataPtrOutput() Reposito
 }
 
 func (o RepositoryCatalogDataOutput) ToRepositoryCatalogDataPtrOutputWithContext(ctx context.Context) RepositoryCatalogDataPtrOutput {
-	return o.ApplyT(func(v RepositoryCatalogData) *RepositoryCatalogData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryCatalogData) *RepositoryCatalogData {
 		return &v
 	}).(RepositoryCatalogDataPtrOutput)
 }
@@ -173,7 +173,13 @@ func (o RepositoryCatalogDataPtrOutput) ToRepositoryCatalogDataPtrOutputWithCont
 }
 
 func (o RepositoryCatalogDataPtrOutput) Elem() RepositoryCatalogDataOutput {
-	return o.ApplyT(func(v *RepositoryCatalogData) RepositoryCatalogData { return *v }).(RepositoryCatalogDataOutput)
+	return o.ApplyT(func(v *RepositoryCatalogData) RepositoryCatalogData {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryCatalogData
+		return ret
+	}).(RepositoryCatalogDataOutput)
 }
 
 // A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.

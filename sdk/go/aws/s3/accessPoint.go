@@ -335,9 +335,7 @@ func (i AccessPointMap) ToAccessPointMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointMapOutput)
 }
 
-type AccessPointOutput struct {
-	*pulumi.OutputState
-}
+type AccessPointOutput struct{ *pulumi.OutputState }
 
 func (AccessPointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessPoint)(nil))
@@ -356,14 +354,12 @@ func (o AccessPointOutput) ToAccessPointPtrOutput() AccessPointPtrOutput {
 }
 
 func (o AccessPointOutput) ToAccessPointPtrOutputWithContext(ctx context.Context) AccessPointPtrOutput {
-	return o.ApplyT(func(v AccessPoint) *AccessPoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPoint) *AccessPoint {
 		return &v
 	}).(AccessPointPtrOutput)
 }
 
-type AccessPointPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccessPointPtrOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccessPoint)(nil))
@@ -375,6 +371,16 @@ func (o AccessPointPtrOutput) ToAccessPointPtrOutput() AccessPointPtrOutput {
 
 func (o AccessPointPtrOutput) ToAccessPointPtrOutputWithContext(ctx context.Context) AccessPointPtrOutput {
 	return o
+}
+
+func (o AccessPointPtrOutput) Elem() AccessPointOutput {
+	return o.ApplyT(func(v *AccessPoint) AccessPoint {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPoint
+		return ret
+	}).(AccessPointOutput)
 }
 
 type AccessPointArrayOutput struct{ *pulumi.OutputState }

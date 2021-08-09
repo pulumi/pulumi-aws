@@ -547,9 +547,7 @@ func (i IntentMap) ToIntentMapOutputWithContext(ctx context.Context) IntentMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(IntentMapOutput)
 }
 
-type IntentOutput struct {
-	*pulumi.OutputState
-}
+type IntentOutput struct{ *pulumi.OutputState }
 
 func (IntentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Intent)(nil))
@@ -568,14 +566,12 @@ func (o IntentOutput) ToIntentPtrOutput() IntentPtrOutput {
 }
 
 func (o IntentOutput) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
-	return o.ApplyT(func(v Intent) *Intent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Intent) *Intent {
 		return &v
 	}).(IntentPtrOutput)
 }
 
-type IntentPtrOutput struct {
-	*pulumi.OutputState
-}
+type IntentPtrOutput struct{ *pulumi.OutputState }
 
 func (IntentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Intent)(nil))
@@ -587,6 +583,16 @@ func (o IntentPtrOutput) ToIntentPtrOutput() IntentPtrOutput {
 
 func (o IntentPtrOutput) ToIntentPtrOutputWithContext(ctx context.Context) IntentPtrOutput {
 	return o
+}
+
+func (o IntentPtrOutput) Elem() IntentOutput {
+	return o.ApplyT(func(v *Intent) Intent {
+		if v != nil {
+			return *v
+		}
+		var ret Intent
+		return ret
+	}).(IntentOutput)
 }
 
 type IntentArrayOutput struct{ *pulumi.OutputState }

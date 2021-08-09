@@ -280,9 +280,7 @@ func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelMapOutput)
 }
 
-type ApnsSandboxChannelOutput struct {
-	*pulumi.OutputState
-}
+type ApnsSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsSandboxChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApnsSandboxChannel)(nil))
@@ -301,14 +299,12 @@ func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelPtrOutput() ApnsSandboxCha
 }
 
 func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
-	return o.ApplyT(func(v ApnsSandboxChannel) *ApnsSandboxChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsSandboxChannel) *ApnsSandboxChannel {
 		return &v
 	}).(ApnsSandboxChannelPtrOutput)
 }
 
-type ApnsSandboxChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApnsSandboxChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (ApnsSandboxChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApnsSandboxChannel)(nil))
@@ -320,6 +316,16 @@ func (o ApnsSandboxChannelPtrOutput) ToApnsSandboxChannelPtrOutput() ApnsSandbox
 
 func (o ApnsSandboxChannelPtrOutput) ToApnsSandboxChannelPtrOutputWithContext(ctx context.Context) ApnsSandboxChannelPtrOutput {
 	return o
+}
+
+func (o ApnsSandboxChannelPtrOutput) Elem() ApnsSandboxChannelOutput {
+	return o.ApplyT(func(v *ApnsSandboxChannel) ApnsSandboxChannel {
+		if v != nil {
+			return *v
+		}
+		var ret ApnsSandboxChannel
+		return ret
+	}).(ApnsSandboxChannelOutput)
 }
 
 type ApnsSandboxChannelArrayOutput struct{ *pulumi.OutputState }

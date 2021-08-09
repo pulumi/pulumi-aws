@@ -127,7 +127,7 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 }
 
 func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
-	return o.ApplyT(func(v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
 		return &v
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
@@ -174,7 +174,11 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicA
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
 	return o.ApplyT(func(v *AccessPointPublicAccessBlockConfiguration) AccessPointPublicAccessBlockConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointPublicAccessBlockConfiguration
+		return ret
 	}).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
@@ -317,7 +321,7 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 }
 
 func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
-	return o.ApplyT(func(v AccessPointVpcConfiguration) *AccessPointVpcConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointVpcConfiguration) *AccessPointVpcConfiguration {
 		return &v
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
@@ -342,7 +346,13 @@ func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOu
 }
 
 func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
-	return o.ApplyT(func(v *AccessPointVpcConfiguration) AccessPointVpcConfiguration { return *v }).(AccessPointVpcConfigurationOutput)
+	return o.ApplyT(func(v *AccessPointVpcConfiguration) AccessPointVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointVpcConfiguration
+		return ret
+	}).(AccessPointVpcConfigurationOutput)
 }
 
 // This access point will only allow connections from the specified VPC ID.
@@ -452,7 +462,7 @@ func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOut
 }
 
 func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationFilter) *AnalyticsConfigurationFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationFilter) *AnalyticsConfigurationFilter {
 		return &v
 	}).(AnalyticsConfigurationFilterPtrOutput)
 }
@@ -482,7 +492,13 @@ func (o AnalyticsConfigurationFilterPtrOutput) ToAnalyticsConfigurationFilterPtr
 }
 
 func (o AnalyticsConfigurationFilterPtrOutput) Elem() AnalyticsConfigurationFilterOutput {
-	return o.ApplyT(func(v *AnalyticsConfigurationFilter) AnalyticsConfigurationFilter { return *v }).(AnalyticsConfigurationFilterOutput)
+	return o.ApplyT(func(v *AnalyticsConfigurationFilter) AnalyticsConfigurationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfigurationFilter
+		return ret
+	}).(AnalyticsConfigurationFilterOutput)
 }
 
 // Object prefix for filtering.
@@ -598,7 +614,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurati
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysis) *AnalyticsConfigurationStorageClassAnalysis {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysis) *AnalyticsConfigurationStorageClassAnalysis {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
 }
@@ -626,7 +642,11 @@ func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToAnalyticsConfigur
 
 func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysis {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfigurationStorageClassAnalysis
+		return ret
 	}).(AnalyticsConfigurationStorageClassAnalysisOutput)
 }
 
@@ -737,7 +757,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsC
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExport) *AnalyticsConfigurationStorageClassAnalysisDataExport {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysisDataExport) *AnalyticsConfigurationStorageClassAnalysisDataExport {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput)
 }
@@ -770,7 +790,11 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) ToAnalyti
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExport) AnalyticsConfigurationStorageClassAnalysisDataExport {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfigurationStorageClassAnalysisDataExport
+		return ret
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
 }
 
@@ -887,7 +911,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysisDataExportDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput)
 }
@@ -915,7 +939,11 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestination {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfigurationStorageClassAnalysisDataExportDestination
+		return ret
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
 }
 
@@ -1034,7 +1062,7 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput)
 }
@@ -1083,7 +1111,11 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
 	return o.ApplyT(func(v *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination
+		return ret
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput)
 }
 
@@ -1658,7 +1690,7 @@ func (o BucketLifecycleRuleExpirationOutput) ToBucketLifecycleRuleExpirationPtrO
 }
 
 func (o BucketLifecycleRuleExpirationOutput) ToBucketLifecycleRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleRuleExpirationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleRuleExpiration) *BucketLifecycleRuleExpiration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleRuleExpiration) *BucketLifecycleRuleExpiration {
 		return &v
 	}).(BucketLifecycleRuleExpirationPtrOutput)
 }
@@ -1693,7 +1725,13 @@ func (o BucketLifecycleRuleExpirationPtrOutput) ToBucketLifecycleRuleExpirationP
 }
 
 func (o BucketLifecycleRuleExpirationPtrOutput) Elem() BucketLifecycleRuleExpirationOutput {
-	return o.ApplyT(func(v *BucketLifecycleRuleExpiration) BucketLifecycleRuleExpiration { return *v }).(BucketLifecycleRuleExpirationOutput)
+	return o.ApplyT(func(v *BucketLifecycleRuleExpiration) BucketLifecycleRuleExpiration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleRuleExpiration
+		return ret
+	}).(BucketLifecycleRuleExpirationOutput)
 }
 
 // Specifies the date after which you want the corresponding action to take effect.
@@ -1819,7 +1857,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleR
 }
 
 func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *BucketLifecycleRuleNoncurrentVersionExpiration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleRuleNoncurrentVersionExpiration) *BucketLifecycleRuleNoncurrentVersionExpiration {
 		return &v
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
@@ -1845,7 +1883,11 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecyc
 
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLifecycleRuleNoncurrentVersionExpirationOutput {
 	return o.ApplyT(func(v *BucketLifecycleRuleNoncurrentVersionExpiration) BucketLifecycleRuleNoncurrentVersionExpiration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleRuleNoncurrentVersionExpiration
+		return ret
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
@@ -2283,7 +2325,7 @@ func (o BucketMetricFilterOutput) ToBucketMetricFilterPtrOutput() BucketMetricFi
 }
 
 func (o BucketMetricFilterOutput) ToBucketMetricFilterPtrOutputWithContext(ctx context.Context) BucketMetricFilterPtrOutput {
-	return o.ApplyT(func(v BucketMetricFilter) *BucketMetricFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketMetricFilter) *BucketMetricFilter {
 		return &v
 	}).(BucketMetricFilterPtrOutput)
 }
@@ -2313,7 +2355,13 @@ func (o BucketMetricFilterPtrOutput) ToBucketMetricFilterPtrOutputWithContext(ct
 }
 
 func (o BucketMetricFilterPtrOutput) Elem() BucketMetricFilterOutput {
-	return o.ApplyT(func(v *BucketMetricFilter) BucketMetricFilter { return *v }).(BucketMetricFilterOutput)
+	return o.ApplyT(func(v *BucketMetricFilter) BucketMetricFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketMetricFilter
+		return ret
+	}).(BucketMetricFilterOutput)
 }
 
 // Object prefix for filtering (singular).
@@ -2832,7 +2880,7 @@ func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrO
 }
 
 func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfiguration) *BucketObjectLockConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfiguration) *BucketObjectLockConfiguration {
 		return &v
 	}).(BucketObjectLockConfigurationPtrOutput)
 }
@@ -2862,7 +2910,13 @@ func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationP
 }
 
 func (o BucketObjectLockConfigurationPtrOutput) Elem() BucketObjectLockConfigurationOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfiguration) BucketObjectLockConfiguration { return *v }).(BucketObjectLockConfigurationOutput)
+	return o.ApplyT(func(v *BucketObjectLockConfiguration) BucketObjectLockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfiguration
+		return ret
+	}).(BucketObjectLockConfigurationOutput)
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
@@ -2978,7 +3032,7 @@ func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfiguration
 }
 
 func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationRule) *BucketObjectLockConfigurationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationRule) *BucketObjectLockConfigurationRule {
 		return &v
 	}).(BucketObjectLockConfigurationRulePtrOutput)
 }
@@ -3005,7 +3059,13 @@ func (o BucketObjectLockConfigurationRulePtrOutput) ToBucketObjectLockConfigurat
 }
 
 func (o BucketObjectLockConfigurationRulePtrOutput) Elem() BucketObjectLockConfigurationRuleOutput {
-	return o.ApplyT(func(v *BucketObjectLockConfigurationRule) BucketObjectLockConfigurationRule { return *v }).(BucketObjectLockConfigurationRuleOutput)
+	return o.ApplyT(func(v *BucketObjectLockConfigurationRule) BucketObjectLockConfigurationRule {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfigurationRule
+		return ret
+	}).(BucketObjectLockConfigurationRuleOutput)
 }
 
 // The default retention period that you want to apply to new objects placed in this bucket.
@@ -3119,7 +3179,7 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectL
 }
 
 func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
-	return o.ApplyT(func(v BucketObjectLockConfigurationRuleDefaultRetention) *BucketObjectLockConfigurationRuleDefaultRetention {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationRuleDefaultRetention) *BucketObjectLockConfigurationRuleDefaultRetention {
 		return &v
 	}).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
 }
@@ -3155,7 +3215,11 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToBucketObje
 
 func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Elem() BucketObjectLockConfigurationRuleDefaultRetentionOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfigurationRuleDefaultRetention) BucketObjectLockConfigurationRuleDefaultRetention {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketObjectLockConfigurationRuleDefaultRetention
+		return ret
 	}).(BucketObjectLockConfigurationRuleDefaultRetentionOutput)
 }
 
@@ -3282,7 +3346,7 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutpu
 }
 
 func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
-	return o.ApplyT(func(v BucketOwnershipControlsRule) *BucketOwnershipControlsRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketOwnershipControlsRule) *BucketOwnershipControlsRule {
 		return &v
 	}).(BucketOwnershipControlsRulePtrOutput)
 }
@@ -3307,7 +3371,13 @@ func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOu
 }
 
 func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRuleOutput {
-	return o.ApplyT(func(v *BucketOwnershipControlsRule) BucketOwnershipControlsRule { return *v }).(BucketOwnershipControlsRuleOutput)
+	return o.ApplyT(func(v *BucketOwnershipControlsRule) BucketOwnershipControlsRule {
+		if v != nil {
+			return *v
+		}
+		var ret BucketOwnershipControlsRule
+		return ret
+	}).(BucketOwnershipControlsRuleOutput)
 }
 
 // Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
@@ -3417,7 +3487,7 @@ func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPt
 }
 
 func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketReplicationConfiguration) *BucketReplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfiguration) *BucketReplicationConfiguration {
 		return &v
 	}).(BucketReplicationConfigurationPtrOutput)
 }
@@ -3447,7 +3517,13 @@ func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfiguratio
 }
 
 func (o BucketReplicationConfigurationPtrOutput) Elem() BucketReplicationConfigurationOutput {
-	return o.ApplyT(func(v *BucketReplicationConfiguration) BucketReplicationConfiguration { return *v }).(BucketReplicationConfigurationOutput)
+	return o.ApplyT(func(v *BucketReplicationConfiguration) BucketReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfiguration
+		return ret
+	}).(BucketReplicationConfigurationOutput)
 }
 
 // The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
@@ -3820,7 +3896,7 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOut
 }
 
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput {
-	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationAccessControlTranslation) *BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleDestinationAccessControlTranslation) *BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
 		return &v
 	}).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput)
 }
@@ -3846,7 +3922,11 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput) Elem() BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationAccessControlTranslation) BucketReplicationConfigurationRuleDestinationAccessControlTranslation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleDestinationAccessControlTranslation
+		return ret
 	}).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
 }
 
@@ -3959,7 +4039,7 @@ func (o BucketReplicationConfigurationRuleFilterOutput) ToBucketReplicationConfi
 }
 
 func (o BucketReplicationConfigurationRuleFilterOutput) ToBucketReplicationConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleFilterPtrOutput {
-	return o.ApplyT(func(v BucketReplicationConfigurationRuleFilter) *BucketReplicationConfigurationRuleFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleFilter) *BucketReplicationConfigurationRuleFilter {
 		return &v
 	}).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
@@ -3990,7 +4070,13 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) ToBucketReplicationCo
 }
 
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) Elem() BucketReplicationConfigurationRuleFilterOutput {
-	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) BucketReplicationConfigurationRuleFilter { return *v }).(BucketReplicationConfigurationRuleFilterOutput)
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleFilter) BucketReplicationConfigurationRuleFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleFilter
+		return ret
+	}).(BucketReplicationConfigurationRuleFilterOutput)
 }
 
 // Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
@@ -4109,7 +4195,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBucke
 }
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput {
-	return o.ApplyT(func(v BucketReplicationConfigurationRuleSourceSelectionCriteria) *BucketReplicationConfigurationRuleSourceSelectionCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleSourceSelectionCriteria) *BucketReplicationConfigurationRuleSourceSelectionCriteria {
 		return &v
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput)
 }
@@ -4138,7 +4224,11 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) ToBu
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) Elem() BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleSourceSelectionCriteria) BucketReplicationConfigurationRuleSourceSelectionCriteria {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleSourceSelectionCriteria
+		return ret
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput)
 }
 
@@ -4246,7 +4336,7 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 }
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
-	return o.ApplyT(func(v BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects) *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects) *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
 		return &v
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput)
 }
@@ -4274,7 +4364,11 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) Elem() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects) BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects
+		return ret
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput)
 }
 
@@ -4381,7 +4475,7 @@ func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncrypt
 }
 
 func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfiguration) *BucketServerSideEncryptionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfiguration) *BucketServerSideEncryptionConfiguration {
 		return &v
 	}).(BucketServerSideEncryptionConfigurationPtrOutput)
 }
@@ -4408,7 +4502,13 @@ func (o BucketServerSideEncryptionConfigurationPtrOutput) ToBucketServerSideEncr
 }
 
 func (o BucketServerSideEncryptionConfigurationPtrOutput) Elem() BucketServerSideEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfiguration { return *v }).(BucketServerSideEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BucketServerSideEncryptionConfiguration
+		return ret
+	}).(BucketServerSideEncryptionConfigurationOutput)
 }
 
 // A single object for server-side encryption by default configuration. (documented below)
@@ -4518,7 +4618,7 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ToBucketServerSideEnc
 }
 
 func (o BucketServerSideEncryptionConfigurationRuleOutput) ToBucketServerSideEncryptionConfigurationRulePtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRulePtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRule) *BucketServerSideEncryptionConfigurationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationRule) *BucketServerSideEncryptionConfigurationRule {
 		return &v
 	}).(BucketServerSideEncryptionConfigurationRulePtrOutput)
 }
@@ -4551,7 +4651,11 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ToBucketServerSide
 
 func (o BucketServerSideEncryptionConfigurationRulePtrOutput) Elem() BucketServerSideEncryptionConfigurationRuleOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRule) BucketServerSideEncryptionConfigurationRule {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketServerSideEncryptionConfigurationRule
+		return ret
 	}).(BucketServerSideEncryptionConfigurationRuleOutput)
 }
 
@@ -4672,7 +4776,7 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 }
 
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
-	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
 		return &v
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
@@ -4707,7 +4811,11 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault
+		return ret
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
@@ -4828,7 +4936,7 @@ func (o BucketVersioningOutput) ToBucketVersioningPtrOutput() BucketVersioningPt
 }
 
 func (o BucketVersioningOutput) ToBucketVersioningPtrOutputWithContext(ctx context.Context) BucketVersioningPtrOutput {
-	return o.ApplyT(func(v BucketVersioning) *BucketVersioning {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketVersioning) *BucketVersioning {
 		return &v
 	}).(BucketVersioningPtrOutput)
 }
@@ -4858,7 +4966,13 @@ func (o BucketVersioningPtrOutput) ToBucketVersioningPtrOutputWithContext(ctx co
 }
 
 func (o BucketVersioningPtrOutput) Elem() BucketVersioningOutput {
-	return o.ApplyT(func(v *BucketVersioning) BucketVersioning { return *v }).(BucketVersioningOutput)
+	return o.ApplyT(func(v *BucketVersioning) BucketVersioning {
+		if v != nil {
+			return *v
+		}
+		var ret BucketVersioning
+		return ret
+	}).(BucketVersioningOutput)
 }
 
 // Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
@@ -4988,7 +5102,7 @@ func (o BucketWebsiteOutput) ToBucketWebsitePtrOutput() BucketWebsitePtrOutput {
 }
 
 func (o BucketWebsiteOutput) ToBucketWebsitePtrOutputWithContext(ctx context.Context) BucketWebsitePtrOutput {
-	return o.ApplyT(func(v BucketWebsite) *BucketWebsite {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsite) *BucketWebsite {
 		return &v
 	}).(BucketWebsitePtrOutput)
 }
@@ -5029,7 +5143,13 @@ func (o BucketWebsitePtrOutput) ToBucketWebsitePtrOutputWithContext(ctx context.
 }
 
 func (o BucketWebsitePtrOutput) Elem() BucketWebsiteOutput {
-	return o.ApplyT(func(v *BucketWebsite) BucketWebsite { return *v }).(BucketWebsiteOutput)
+	return o.ApplyT(func(v *BucketWebsite) BucketWebsite {
+		if v != nil {
+			return *v
+		}
+		var ret BucketWebsite
+		return ret
+	}).(BucketWebsiteOutput)
 }
 
 // An absolute path to the document to return in case of a 4XX error.
@@ -5166,7 +5286,7 @@ func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutput() InventoryD
 }
 
 func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
-	return o.ApplyT(func(v InventoryDestination) *InventoryDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestination) *InventoryDestination {
 		return &v
 	}).(InventoryDestinationPtrOutput)
 }
@@ -5191,7 +5311,13 @@ func (o InventoryDestinationPtrOutput) ToInventoryDestinationPtrOutputWithContex
 }
 
 func (o InventoryDestinationPtrOutput) Elem() InventoryDestinationOutput {
-	return o.ApplyT(func(v *InventoryDestination) InventoryDestination { return *v }).(InventoryDestinationOutput)
+	return o.ApplyT(func(v *InventoryDestination) InventoryDestination {
+		if v != nil {
+			return *v
+		}
+		var ret InventoryDestination
+		return ret
+	}).(InventoryDestinationOutput)
 }
 
 // The S3 bucket configuration where inventory results are published (documented below).
@@ -5313,7 +5439,7 @@ func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketPtrOutput(
 }
 
 func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
-	return o.ApplyT(func(v InventoryDestinationBucket) *InventoryDestinationBucket {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucket) *InventoryDestinationBucket {
 		return &v
 	}).(InventoryDestinationBucketPtrOutput)
 }
@@ -5358,7 +5484,13 @@ func (o InventoryDestinationBucketPtrOutput) ToInventoryDestinationBucketPtrOutp
 }
 
 func (o InventoryDestinationBucketPtrOutput) Elem() InventoryDestinationBucketOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) InventoryDestinationBucket { return *v }).(InventoryDestinationBucketOutput)
+	return o.ApplyT(func(v *InventoryDestinationBucket) InventoryDestinationBucket {
+		if v != nil {
+			return *v
+		}
+		var ret InventoryDestinationBucket
+		return ret
+	}).(InventoryDestinationBucketOutput)
 }
 
 // The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
@@ -5508,7 +5640,7 @@ func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucket
 }
 
 func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucketEncryptionPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionPtrOutput {
-	return o.ApplyT(func(v InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryption {
 		return &v
 	}).(InventoryDestinationBucketEncryptionPtrOutput)
 }
@@ -5542,7 +5674,13 @@ func (o InventoryDestinationBucketEncryptionPtrOutput) ToInventoryDestinationBuc
 }
 
 func (o InventoryDestinationBucketEncryptionPtrOutput) Elem() InventoryDestinationBucketEncryptionOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucketEncryption) InventoryDestinationBucketEncryption { return *v }).(InventoryDestinationBucketEncryptionOutput)
+	return o.ApplyT(func(v *InventoryDestinationBucketEncryption) InventoryDestinationBucketEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret InventoryDestinationBucketEncryption
+		return ret
+	}).(InventoryDestinationBucketEncryptionOutput)
 }
 
 // Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
@@ -5658,7 +5796,7 @@ func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestination
 }
 
 func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestinationBucketEncryptionSseKmsPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseKmsPtrOutput {
-	return o.ApplyT(func(v InventoryDestinationBucketEncryptionSseKms) *InventoryDestinationBucketEncryptionSseKms {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucketEncryptionSseKms) *InventoryDestinationBucketEncryptionSseKms {
 		return &v
 	}).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
@@ -5684,7 +5822,11 @@ func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) ToInventoryDestinat
 
 func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) Elem() InventoryDestinationBucketEncryptionSseKmsOutput {
 	return o.ApplyT(func(v *InventoryDestinationBucketEncryptionSseKms) InventoryDestinationBucketEncryptionSseKms {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InventoryDestinationBucketEncryptionSseKms
+		return ret
 	}).(InventoryDestinationBucketEncryptionSseKmsOutput)
 }
 
@@ -5787,7 +5929,7 @@ func (o InventoryDestinationBucketEncryptionSseS3Output) ToInventoryDestinationB
 }
 
 func (o InventoryDestinationBucketEncryptionSseS3Output) ToInventoryDestinationBucketEncryptionSseS3PtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseS3PtrOutput {
-	return o.ApplyT(func(v InventoryDestinationBucketEncryptionSseS3) *InventoryDestinationBucketEncryptionSseS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucketEncryptionSseS3) *InventoryDestinationBucketEncryptionSseS3 {
 		return &v
 	}).(InventoryDestinationBucketEncryptionSseS3PtrOutput)
 }
@@ -5808,7 +5950,11 @@ func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) ToInventoryDestinati
 
 func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) Elem() InventoryDestinationBucketEncryptionSseS3Output {
 	return o.ApplyT(func(v *InventoryDestinationBucketEncryptionSseS3) InventoryDestinationBucketEncryptionSseS3 {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InventoryDestinationBucketEncryptionSseS3
+		return ret
 	}).(InventoryDestinationBucketEncryptionSseS3Output)
 }
 
@@ -5905,7 +6051,7 @@ func (o InventoryFilterOutput) ToInventoryFilterPtrOutput() InventoryFilterPtrOu
 }
 
 func (o InventoryFilterOutput) ToInventoryFilterPtrOutputWithContext(ctx context.Context) InventoryFilterPtrOutput {
-	return o.ApplyT(func(v InventoryFilter) *InventoryFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryFilter) *InventoryFilter {
 		return &v
 	}).(InventoryFilterPtrOutput)
 }
@@ -5930,7 +6076,13 @@ func (o InventoryFilterPtrOutput) ToInventoryFilterPtrOutputWithContext(ctx cont
 }
 
 func (o InventoryFilterPtrOutput) Elem() InventoryFilterOutput {
-	return o.ApplyT(func(v *InventoryFilter) InventoryFilter { return *v }).(InventoryFilterOutput)
+	return o.ApplyT(func(v *InventoryFilter) InventoryFilter {
+		if v != nil {
+			return *v
+		}
+		var ret InventoryFilter
+		return ret
+	}).(InventoryFilterOutput)
 }
 
 // The prefix that an object must have to be included in the inventory results.
@@ -6036,7 +6188,7 @@ func (o InventoryScheduleOutput) ToInventorySchedulePtrOutput() InventorySchedul
 }
 
 func (o InventoryScheduleOutput) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
-	return o.ApplyT(func(v InventorySchedule) *InventorySchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventorySchedule) *InventorySchedule {
 		return &v
 	}).(InventorySchedulePtrOutput)
 }
@@ -6061,7 +6213,13 @@ func (o InventorySchedulePtrOutput) ToInventorySchedulePtrOutputWithContext(ctx 
 }
 
 func (o InventorySchedulePtrOutput) Elem() InventoryScheduleOutput {
-	return o.ApplyT(func(v *InventorySchedule) InventorySchedule { return *v }).(InventoryScheduleOutput)
+	return o.ApplyT(func(v *InventorySchedule) InventorySchedule {
+		if v != nil {
+			return *v
+		}
+		var ret InventorySchedule
+		return ret
+	}).(InventoryScheduleOutput)
 }
 
 // Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.

@@ -568,9 +568,7 @@ func (i LaunchTemplateMap) ToLaunchTemplateMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMapOutput)
 }
 
-type LaunchTemplateOutput struct {
-	*pulumi.OutputState
-}
+type LaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LaunchTemplate)(nil))
@@ -589,14 +587,12 @@ func (o LaunchTemplateOutput) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOutpu
 }
 
 func (o LaunchTemplateOutput) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
-	return o.ApplyT(func(v LaunchTemplate) *LaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplate) *LaunchTemplate {
 		return &v
 	}).(LaunchTemplatePtrOutput)
 }
 
-type LaunchTemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type LaunchTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LaunchTemplate)(nil))
@@ -608,6 +604,16 @@ func (o LaunchTemplatePtrOutput) ToLaunchTemplatePtrOutput() LaunchTemplatePtrOu
 
 func (o LaunchTemplatePtrOutput) ToLaunchTemplatePtrOutputWithContext(ctx context.Context) LaunchTemplatePtrOutput {
 	return o
+}
+
+func (o LaunchTemplatePtrOutput) Elem() LaunchTemplateOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplate
+		return ret
+	}).(LaunchTemplateOutput)
 }
 
 type LaunchTemplateArrayOutput struct{ *pulumi.OutputState }

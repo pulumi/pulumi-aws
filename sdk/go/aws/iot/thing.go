@@ -244,9 +244,7 @@ func (i ThingMap) ToThingMapOutputWithContext(ctx context.Context) ThingMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ThingMapOutput)
 }
 
-type ThingOutput struct {
-	*pulumi.OutputState
-}
+type ThingOutput struct{ *pulumi.OutputState }
 
 func (ThingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Thing)(nil))
@@ -265,14 +263,12 @@ func (o ThingOutput) ToThingPtrOutput() ThingPtrOutput {
 }
 
 func (o ThingOutput) ToThingPtrOutputWithContext(ctx context.Context) ThingPtrOutput {
-	return o.ApplyT(func(v Thing) *Thing {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Thing) *Thing {
 		return &v
 	}).(ThingPtrOutput)
 }
 
-type ThingPtrOutput struct {
-	*pulumi.OutputState
-}
+type ThingPtrOutput struct{ *pulumi.OutputState }
 
 func (ThingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Thing)(nil))
@@ -284,6 +280,16 @@ func (o ThingPtrOutput) ToThingPtrOutput() ThingPtrOutput {
 
 func (o ThingPtrOutput) ToThingPtrOutputWithContext(ctx context.Context) ThingPtrOutput {
 	return o
+}
+
+func (o ThingPtrOutput) Elem() ThingOutput {
+	return o.ApplyT(func(v *Thing) Thing {
+		if v != nil {
+			return *v
+		}
+		var ret Thing
+		return ret
+	}).(ThingOutput)
 }
 
 type ThingArrayOutput struct{ *pulumi.OutputState }

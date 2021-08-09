@@ -111,7 +111,7 @@ func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAg
 }
 
 func (o ConfigurationAggregatorAccountAggregationSourceOutput) ToConfigurationAggregatorAccountAggregationSourcePtrOutputWithContext(ctx context.Context) ConfigurationAggregatorAccountAggregationSourcePtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorAccountAggregationSource) *ConfigurationAggregatorAccountAggregationSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAggregatorAccountAggregationSource) *ConfigurationAggregatorAccountAggregationSource {
 		return &v
 	}).(ConfigurationAggregatorAccountAggregationSourcePtrOutput)
 }
@@ -147,7 +147,11 @@ func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) ToConfiguratio
 
 func (o ConfigurationAggregatorAccountAggregationSourcePtrOutput) Elem() ConfigurationAggregatorAccountAggregationSourceOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorAccountAggregationSource) ConfigurationAggregatorAccountAggregationSource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationAggregatorAccountAggregationSource
+		return ret
 	}).(ConfigurationAggregatorAccountAggregationSourceOutput)
 }
 
@@ -282,7 +286,7 @@ func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurat
 }
 
 func (o ConfigurationAggregatorOrganizationAggregationSourceOutput) ToConfigurationAggregatorOrganizationAggregationSourcePtrOutputWithContext(ctx context.Context) ConfigurationAggregatorOrganizationAggregationSourcePtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregatorOrganizationAggregationSource) *ConfigurationAggregatorOrganizationAggregationSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAggregatorOrganizationAggregationSource) *ConfigurationAggregatorOrganizationAggregationSource {
 		return &v
 	}).(ConfigurationAggregatorOrganizationAggregationSourcePtrOutput)
 }
@@ -318,7 +322,11 @@ func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) ToConfigu
 
 func (o ConfigurationAggregatorOrganizationAggregationSourcePtrOutput) Elem() ConfigurationAggregatorOrganizationAggregationSourceOutput {
 	return o.ApplyT(func(v *ConfigurationAggregatorOrganizationAggregationSource) ConfigurationAggregatorOrganizationAggregationSource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationAggregatorOrganizationAggregationSource
+		return ret
 	}).(ConfigurationAggregatorOrganizationAggregationSourceOutput)
 }
 
@@ -551,7 +559,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 }
 
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapshotDeliveryPropertiesPtrOutputWithContext(ctx context.Context) DeliveryChannelSnapshotDeliveryPropertiesPtrOutput {
-	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *DeliveryChannelSnapshotDeliveryProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryChannelSnapshotDeliveryProperties) *DeliveryChannelSnapshotDeliveryProperties {
 		return &v
 	}).(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput)
 }
@@ -577,7 +585,11 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) ToDeliveryChannelSna
 
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChannelSnapshotDeliveryPropertiesOutput {
 	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) DeliveryChannelSnapshotDeliveryProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryChannelSnapshotDeliveryProperties
+		return ret
 	}).(DeliveryChannelSnapshotDeliveryPropertiesOutput)
 }
 
@@ -798,7 +810,7 @@ func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupPtrOutput() Record
 }
 
 func (o RecorderRecordingGroupOutput) ToRecorderRecordingGroupPtrOutputWithContext(ctx context.Context) RecorderRecordingGroupPtrOutput {
-	return o.ApplyT(func(v RecorderRecordingGroup) *RecorderRecordingGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecorderRecordingGroup) *RecorderRecordingGroup {
 		return &v
 	}).(RecorderRecordingGroupPtrOutput)
 }
@@ -833,7 +845,13 @@ func (o RecorderRecordingGroupPtrOutput) ToRecorderRecordingGroupPtrOutputWithCo
 }
 
 func (o RecorderRecordingGroupPtrOutput) Elem() RecorderRecordingGroupOutput {
-	return o.ApplyT(func(v *RecorderRecordingGroup) RecorderRecordingGroup { return *v }).(RecorderRecordingGroupOutput)
+	return o.ApplyT(func(v *RecorderRecordingGroup) RecorderRecordingGroup {
+		if v != nil {
+			return *v
+		}
+		var ret RecorderRecordingGroup
+		return ret
+	}).(RecorderRecordingGroupOutput)
 }
 
 // Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resourceTypes`. Defaults to `true`.
@@ -1086,7 +1104,7 @@ func (o RuleScopeOutput) ToRuleScopePtrOutput() RuleScopePtrOutput {
 }
 
 func (o RuleScopeOutput) ToRuleScopePtrOutputWithContext(ctx context.Context) RuleScopePtrOutput {
-	return o.ApplyT(func(v RuleScope) *RuleScope {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleScope) *RuleScope {
 		return &v
 	}).(RuleScopePtrOutput)
 }
@@ -1126,7 +1144,13 @@ func (o RuleScopePtrOutput) ToRuleScopePtrOutputWithContext(ctx context.Context)
 }
 
 func (o RuleScopePtrOutput) Elem() RuleScopeOutput {
-	return o.ApplyT(func(v *RuleScope) RuleScope { return *v }).(RuleScopeOutput)
+	return o.ApplyT(func(v *RuleScope) RuleScope {
+		if v != nil {
+			return *v
+		}
+		var ret RuleScope
+		return ret
+	}).(RuleScopeOutput)
 }
 
 // The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
@@ -1270,7 +1294,7 @@ func (o RuleSourceOutput) ToRuleSourcePtrOutput() RuleSourcePtrOutput {
 }
 
 func (o RuleSourceOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) RuleSourcePtrOutput {
-	return o.ApplyT(func(v RuleSource) *RuleSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSource) *RuleSource {
 		return &v
 	}).(RuleSourcePtrOutput)
 }
@@ -1305,7 +1329,13 @@ func (o RuleSourcePtrOutput) ToRuleSourcePtrOutputWithContext(ctx context.Contex
 }
 
 func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
-	return o.ApplyT(func(v *RuleSource) RuleSource { return *v }).(RuleSourceOutput)
+	return o.ApplyT(func(v *RuleSource) RuleSource {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSource
+		return ret
+	}).(RuleSourceOutput)
 }
 
 // Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.

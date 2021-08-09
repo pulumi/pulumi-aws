@@ -257,9 +257,7 @@ func (i SecretRotationMap) ToSecretRotationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecretRotationMapOutput)
 }
 
-type SecretRotationOutput struct {
-	*pulumi.OutputState
-}
+type SecretRotationOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecretRotation)(nil))
@@ -278,14 +276,12 @@ func (o SecretRotationOutput) ToSecretRotationPtrOutput() SecretRotationPtrOutpu
 }
 
 func (o SecretRotationOutput) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
-	return o.ApplyT(func(v SecretRotation) *SecretRotation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretRotation) *SecretRotation {
 		return &v
 	}).(SecretRotationPtrOutput)
 }
 
-type SecretRotationPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecretRotationPtrOutput struct{ *pulumi.OutputState }
 
 func (SecretRotationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecretRotation)(nil))
@@ -297,6 +293,16 @@ func (o SecretRotationPtrOutput) ToSecretRotationPtrOutput() SecretRotationPtrOu
 
 func (o SecretRotationPtrOutput) ToSecretRotationPtrOutputWithContext(ctx context.Context) SecretRotationPtrOutput {
 	return o
+}
+
+func (o SecretRotationPtrOutput) Elem() SecretRotationOutput {
+	return o.ApplyT(func(v *SecretRotation) SecretRotation {
+		if v != nil {
+			return *v
+		}
+		var ret SecretRotation
+		return ret
+	}).(SecretRotationOutput)
 }
 
 type SecretRotationArrayOutput struct{ *pulumi.OutputState }

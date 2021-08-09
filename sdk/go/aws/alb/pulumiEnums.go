@@ -101,7 +101,7 @@ func (o IpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 type IpAddressTypePtrOutput struct{ *pulumi.OutputState }
 
 func (IpAddressTypePtrOutput) ElementType() reflect.Type {
-	return ipAddressTypePtrType
+	return reflect.TypeOf((**IpAddressType)(nil)).Elem()
 }
 
 func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutput() IpAddressTypePtrOutput {
@@ -110,6 +110,16 @@ func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutput() IpAddressTypePtrOutpu
 
 func (o IpAddressTypePtrOutput) ToIpAddressTypePtrOutputWithContext(ctx context.Context) IpAddressTypePtrOutput {
 	return o
+}
+
+func (o IpAddressTypePtrOutput) Elem() IpAddressTypeOutput {
+	return o.ApplyT(func(v *IpAddressType) IpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret IpAddressType
+		return ret
+	}).(IpAddressTypeOutput)
 }
 
 func (o IpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -124,16 +134,6 @@ func (o IpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o IpAddressTypePtrOutput) Elem() IpAddressTypeOutput {
-	return o.ApplyT(func(v *IpAddressType) IpAddressType {
-		var ret IpAddressType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(IpAddressTypeOutput)
 }
 
 // IpAddressTypeInput is an input type that accepts IpAddressTypeArgs and IpAddressTypeOutput values.
@@ -265,7 +265,7 @@ func (o LoadBalancerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context
 type LoadBalancerTypePtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTypePtrOutput) ElementType() reflect.Type {
-	return loadBalancerTypePtrType
+	return reflect.TypeOf((**LoadBalancerType)(nil)).Elem()
 }
 
 func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTypePtrOutput {
@@ -274,6 +274,16 @@ func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutput() LoadBalancerTyp
 
 func (o LoadBalancerTypePtrOutput) ToLoadBalancerTypePtrOutputWithContext(ctx context.Context) LoadBalancerTypePtrOutput {
 	return o
+}
+
+func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {
+	return o.ApplyT(func(v *LoadBalancerType) LoadBalancerType {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerType
+		return ret
+	}).(LoadBalancerTypeOutput)
 }
 
 func (o LoadBalancerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -288,16 +298,6 @@ func (o LoadBalancerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerTypePtrOutput) Elem() LoadBalancerTypeOutput {
-	return o.ApplyT(func(v *LoadBalancerType) LoadBalancerType {
-		var ret LoadBalancerType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(LoadBalancerTypeOutput)
 }
 
 // LoadBalancerTypeInput is an input type that accepts LoadBalancerTypeArgs and LoadBalancerTypeOutput values.

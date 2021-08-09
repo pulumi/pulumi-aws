@@ -107,7 +107,7 @@ func (o VaultNotificationOutput) ToVaultNotificationPtrOutput() VaultNotificatio
 }
 
 func (o VaultNotificationOutput) ToVaultNotificationPtrOutputWithContext(ctx context.Context) VaultNotificationPtrOutput {
-	return o.ApplyT(func(v VaultNotification) *VaultNotification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultNotification) *VaultNotification {
 		return &v
 	}).(VaultNotificationPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o VaultNotificationPtrOutput) ToVaultNotificationPtrOutputWithContext(ctx 
 }
 
 func (o VaultNotificationPtrOutput) Elem() VaultNotificationOutput {
-	return o.ApplyT(func(v *VaultNotification) VaultNotification { return *v }).(VaultNotificationOutput)
+	return o.ApplyT(func(v *VaultNotification) VaultNotification {
+		if v != nil {
+			return *v
+		}
+		var ret VaultNotification
+		return ret
+	}).(VaultNotificationOutput)
 }
 
 // You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.

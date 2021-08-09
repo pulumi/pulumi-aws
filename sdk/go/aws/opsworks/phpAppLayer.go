@@ -399,9 +399,7 @@ func (i PhpAppLayerMap) ToPhpAppLayerMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PhpAppLayerMapOutput)
 }
 
-type PhpAppLayerOutput struct {
-	*pulumi.OutputState
-}
+type PhpAppLayerOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PhpAppLayer)(nil))
@@ -420,14 +418,12 @@ func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
 }
 
 func (o PhpAppLayerOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
-	return o.ApplyT(func(v PhpAppLayer) *PhpAppLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PhpAppLayer) *PhpAppLayer {
 		return &v
 	}).(PhpAppLayerPtrOutput)
 }
 
-type PhpAppLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type PhpAppLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (PhpAppLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PhpAppLayer)(nil))
@@ -439,6 +435,16 @@ func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutput() PhpAppLayerPtrOutput {
 
 func (o PhpAppLayerPtrOutput) ToPhpAppLayerPtrOutputWithContext(ctx context.Context) PhpAppLayerPtrOutput {
 	return o
+}
+
+func (o PhpAppLayerPtrOutput) Elem() PhpAppLayerOutput {
+	return o.ApplyT(func(v *PhpAppLayer) PhpAppLayer {
+		if v != nil {
+			return *v
+		}
+		var ret PhpAppLayer
+		return ret
+	}).(PhpAppLayerOutput)
 }
 
 type PhpAppLayerArrayOutput struct{ *pulumi.OutputState }

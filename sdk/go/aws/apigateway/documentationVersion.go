@@ -249,9 +249,7 @@ func (i DocumentationVersionMap) ToDocumentationVersionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationVersionMapOutput)
 }
 
-type DocumentationVersionOutput struct {
-	*pulumi.OutputState
-}
+type DocumentationVersionOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DocumentationVersion)(nil))
@@ -270,14 +268,12 @@ func (o DocumentationVersionOutput) ToDocumentationVersionPtrOutput() Documentat
 }
 
 func (o DocumentationVersionOutput) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
-	return o.ApplyT(func(v DocumentationVersion) *DocumentationVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationVersion) *DocumentationVersion {
 		return &v
 	}).(DocumentationVersionPtrOutput)
 }
 
-type DocumentationVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type DocumentationVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (DocumentationVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DocumentationVersion)(nil))
@@ -289,6 +285,16 @@ func (o DocumentationVersionPtrOutput) ToDocumentationVersionPtrOutput() Documen
 
 func (o DocumentationVersionPtrOutput) ToDocumentationVersionPtrOutputWithContext(ctx context.Context) DocumentationVersionPtrOutput {
 	return o
+}
+
+func (o DocumentationVersionPtrOutput) Elem() DocumentationVersionOutput {
+	return o.ApplyT(func(v *DocumentationVersion) DocumentationVersion {
+		if v != nil {
+			return *v
+		}
+		var ret DocumentationVersion
+		return ret
+	}).(DocumentationVersionOutput)
 }
 
 type DocumentationVersionArrayOutput struct{ *pulumi.OutputState }

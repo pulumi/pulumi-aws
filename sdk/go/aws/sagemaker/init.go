@@ -49,6 +49,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NotebookInstanceLifecycleConfiguration{}
 	case "aws:sagemaker/userProfile:UserProfile":
 		r = &UserProfile{}
+	case "aws:sagemaker/workforce:Workforce":
+		r = &Workforce{}
+	case "aws:sagemaker/workteam:Workteam":
+		r = &Workteam{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -130,6 +134,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/userProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/workforce",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/workteam",
 		&module{version},
 	)
 }

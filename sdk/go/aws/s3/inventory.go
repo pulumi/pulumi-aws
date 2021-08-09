@@ -355,9 +355,7 @@ func (i InventoryMap) ToInventoryMapOutputWithContext(ctx context.Context) Inven
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryMapOutput)
 }
 
-type InventoryOutput struct {
-	*pulumi.OutputState
-}
+type InventoryOutput struct{ *pulumi.OutputState }
 
 func (InventoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Inventory)(nil))
@@ -376,14 +374,12 @@ func (o InventoryOutput) ToInventoryPtrOutput() InventoryPtrOutput {
 }
 
 func (o InventoryOutput) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
-	return o.ApplyT(func(v Inventory) *Inventory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Inventory) *Inventory {
 		return &v
 	}).(InventoryPtrOutput)
 }
 
-type InventoryPtrOutput struct {
-	*pulumi.OutputState
-}
+type InventoryPtrOutput struct{ *pulumi.OutputState }
 
 func (InventoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Inventory)(nil))
@@ -395,6 +391,16 @@ func (o InventoryPtrOutput) ToInventoryPtrOutput() InventoryPtrOutput {
 
 func (o InventoryPtrOutput) ToInventoryPtrOutputWithContext(ctx context.Context) InventoryPtrOutput {
 	return o
+}
+
+func (o InventoryPtrOutput) Elem() InventoryOutput {
+	return o.ApplyT(func(v *Inventory) Inventory {
+		if v != nil {
+			return *v
+		}
+		var ret Inventory
+		return ret
+	}).(InventoryOutput)
 }
 
 type InventoryArrayOutput struct{ *pulumi.OutputState }

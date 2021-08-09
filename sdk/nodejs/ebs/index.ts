@@ -15,6 +15,7 @@ export * from "./getSnapshotIds";
 export * from "./getVolume";
 export * from "./snapshot";
 export * from "./snapshotCopy";
+export * from "./snapshotImport";
 export * from "./volume";
 
 // Import resources to register:
@@ -22,6 +23,7 @@ import { DefaultKmsKey } from "./defaultKmsKey";
 import { EncryptionByDefault } from "./encryptionByDefault";
 import { Snapshot } from "./snapshot";
 import { SnapshotCopy } from "./snapshotCopy";
+import { SnapshotImport } from "./snapshotImport";
 import { Volume } from "./volume";
 
 const _module = {
@@ -36,6 +38,8 @@ const _module = {
                 return new Snapshot(name, <any>undefined, { urn })
             case "aws:ebs/snapshotCopy:SnapshotCopy":
                 return new SnapshotCopy(name, <any>undefined, { urn })
+            case "aws:ebs/snapshotImport:SnapshotImport":
+                return new SnapshotImport(name, <any>undefined, { urn })
             case "aws:ebs/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
             default:
@@ -47,4 +51,5 @@ pulumi.runtime.registerResourceModule("aws", "ebs/defaultKmsKey", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/encryptionByDefault", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/snapshotCopy", _module)
+pulumi.runtime.registerResourceModule("aws", "ebs/snapshotImport", _module)
 pulumi.runtime.registerResourceModule("aws", "ebs/volume", _module)

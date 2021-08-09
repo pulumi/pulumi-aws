@@ -508,9 +508,7 @@ func (i TableMap) ToTableMapOutputWithContext(ctx context.Context) TableMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableMapOutput)
 }
 
-type TableOutput struct {
-	*pulumi.OutputState
-}
+type TableOutput struct{ *pulumi.OutputState }
 
 func (TableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Table)(nil))
@@ -529,14 +527,12 @@ func (o TableOutput) ToTablePtrOutput() TablePtrOutput {
 }
 
 func (o TableOutput) ToTablePtrOutputWithContext(ctx context.Context) TablePtrOutput {
-	return o.ApplyT(func(v Table) *Table {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Table) *Table {
 		return &v
 	}).(TablePtrOutput)
 }
 
-type TablePtrOutput struct {
-	*pulumi.OutputState
-}
+type TablePtrOutput struct{ *pulumi.OutputState }
 
 func (TablePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Table)(nil))
@@ -548,6 +544,16 @@ func (o TablePtrOutput) ToTablePtrOutput() TablePtrOutput {
 
 func (o TablePtrOutput) ToTablePtrOutputWithContext(ctx context.Context) TablePtrOutput {
 	return o
+}
+
+func (o TablePtrOutput) Elem() TableOutput {
+	return o.ApplyT(func(v *Table) Table {
+		if v != nil {
+			return *v
+		}
+		var ret Table
+		return ret
+	}).(TableOutput)
 }
 
 type TableArrayOutput struct{ *pulumi.OutputState }

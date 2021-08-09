@@ -107,7 +107,7 @@ func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourcePtrOut
 }
 
 func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
-	return o.ApplyT(func(v ScalingPlanApplicationSource) *ScalingPlanApplicationSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanApplicationSource) *ScalingPlanApplicationSource {
 		return &v
 	}).(ScalingPlanApplicationSourcePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o ScalingPlanApplicationSourcePtrOutput) ToScalingPlanApplicationSourcePtr
 }
 
 func (o ScalingPlanApplicationSourcePtrOutput) Elem() ScalingPlanApplicationSourceOutput {
-	return o.ApplyT(func(v *ScalingPlanApplicationSource) ScalingPlanApplicationSource { return *v }).(ScalingPlanApplicationSourceOutput)
+	return o.ApplyT(func(v *ScalingPlanApplicationSource) ScalingPlanApplicationSource {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanApplicationSource
+		return ret
+	}).(ScalingPlanApplicationSourceOutput)
 }
 
 // The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
@@ -607,7 +613,7 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) To
 }
 
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput) ToScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
 		return &v
 	}).(ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 }
@@ -655,7 +661,11 @@ func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput)
 
 func (o ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrOutput) Elem() ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionCustomizedLoadMetricSpecification) ScalingPlanScalingInstructionCustomizedLoadMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanScalingInstructionCustomizedLoadMetricSpecification
+		return ret
 	}).(ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationOutput)
 }
 
@@ -806,7 +816,7 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) To
 }
 
 func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput) ToScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
 		return &v
 	}).(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput)
 }
@@ -839,7 +849,11 @@ func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput)
 
 func (o ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrOutput) Elem() ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionPredefinedLoadMetricSpecification) ScalingPlanScalingInstructionPredefinedLoadMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanScalingInstructionPredefinedLoadMetricSpecification
+		return ret
 	}).(ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationOutput)
 }
 
@@ -1144,7 +1158,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 }
 
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput) ToScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
 		return &v
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput)
 }
@@ -1200,7 +1214,11 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalin
 
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrOutput) Elem() ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification) ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecification
+		return ret
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationOutput)
 }
 
@@ -1351,7 +1369,7 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 }
 
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput) ToScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
 		return &v
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput)
 }
@@ -1386,7 +1404,11 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 
 func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrOutput) Elem() ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput {
 	return o.ApplyT(func(v *ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification) ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecification
+		return ret
 	}).(ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationOutput)
 }
 

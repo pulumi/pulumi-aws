@@ -274,9 +274,7 @@ func (i AccountPublicAccessBlockMap) ToAccountPublicAccessBlockMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountPublicAccessBlockMapOutput)
 }
 
-type AccountPublicAccessBlockOutput struct {
-	*pulumi.OutputState
-}
+type AccountPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (AccountPublicAccessBlockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountPublicAccessBlock)(nil))
@@ -295,14 +293,12 @@ func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockPtrOutput() Ac
 }
 
 func (o AccountPublicAccessBlockOutput) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
-	return o.ApplyT(func(v AccountPublicAccessBlock) *AccountPublicAccessBlock {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountPublicAccessBlock) *AccountPublicAccessBlock {
 		return &v
 	}).(AccountPublicAccessBlockPtrOutput)
 }
 
-type AccountPublicAccessBlockPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccountPublicAccessBlockPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountPublicAccessBlockPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountPublicAccessBlock)(nil))
@@ -314,6 +310,16 @@ func (o AccountPublicAccessBlockPtrOutput) ToAccountPublicAccessBlockPtrOutput()
 
 func (o AccountPublicAccessBlockPtrOutput) ToAccountPublicAccessBlockPtrOutputWithContext(ctx context.Context) AccountPublicAccessBlockPtrOutput {
 	return o
+}
+
+func (o AccountPublicAccessBlockPtrOutput) Elem() AccountPublicAccessBlockOutput {
+	return o.ApplyT(func(v *AccountPublicAccessBlock) AccountPublicAccessBlock {
+		if v != nil {
+			return *v
+		}
+		var ret AccountPublicAccessBlock
+		return ret
+	}).(AccountPublicAccessBlockOutput)
 }
 
 type AccountPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }

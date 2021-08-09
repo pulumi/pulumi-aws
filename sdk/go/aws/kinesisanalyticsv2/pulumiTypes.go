@@ -127,7 +127,7 @@ func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfi
 }
 
 func (o ApplicationApplicationConfigurationOutput) ToApplicationApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfiguration) *ApplicationApplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfiguration) *ApplicationApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationPtrOutput)
 }
@@ -196,7 +196,13 @@ func (o ApplicationApplicationConfigurationPtrOutput) ToApplicationApplicationCo
 }
 
 func (o ApplicationApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfiguration) ApplicationApplicationConfiguration { return *v }).(ApplicationApplicationConfigurationOutput)
+	return o.ApplyT(func(v *ApplicationApplicationConfiguration) ApplicationApplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfiguration
+		return ret
+	}).(ApplicationApplicationConfigurationOutput)
 }
 
 // The code location and type parameters for the application.
@@ -366,7 +372,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) T
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfiguration) *ApplicationApplicationConfigurationApplicationCodeConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput)
 }
@@ -401,7 +407,11 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfiguration) ApplicationApplicationConfigurationApplicationCodeConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationApplicationCodeConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationOutput)
 }
 
@@ -522,7 +532,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput)
 }
@@ -557,7 +567,11 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
+		return ret
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentOutput)
 }
 
@@ -682,7 +696,7 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 }
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput) ToApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput)
 }
@@ -724,7 +738,11 @@ func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeConte
 
 func (o ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation) ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation
+		return ret
 	}).(ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationOutput)
 }
 
@@ -851,7 +869,7 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutpu
 }
 
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput) ToApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationApplicationSnapshotConfiguration) *ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationApplicationSnapshotConfiguration) *ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput)
 }
@@ -879,7 +897,11 @@ func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOu
 
 func (o ApplicationApplicationConfigurationApplicationSnapshotConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationApplicationSnapshotConfiguration) ApplicationApplicationConfigurationApplicationSnapshotConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationApplicationSnapshotConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationApplicationSnapshotConfigurationOutput)
 }
 
@@ -986,7 +1008,7 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ToApplic
 }
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesOutput) ToApplicationApplicationConfigurationEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationEnvironmentProperties) *ApplicationApplicationConfigurationEnvironmentProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationEnvironmentProperties) *ApplicationApplicationConfigurationEnvironmentProperties {
 		return &v
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput)
 }
@@ -1014,7 +1036,11 @@ func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) ToApp
 
 func (o ApplicationApplicationConfigurationEnvironmentPropertiesPtrOutput) Elem() ApplicationApplicationConfigurationEnvironmentPropertiesOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationEnvironmentProperties) ApplicationApplicationConfigurationEnvironmentProperties {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationEnvironmentProperties
+		return ret
 	}).(ApplicationApplicationConfigurationEnvironmentPropertiesOutput)
 }
 
@@ -1239,7 +1265,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) 
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput)
 }
@@ -1281,7 +1307,11 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutpu
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfiguration) ApplicationApplicationConfigurationFlinkApplicationConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationFlinkApplicationConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationOutput)
 }
 
@@ -1426,7 +1456,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput)
 }
@@ -1478,7 +1508,11 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoi
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration) ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationOutput)
 }
 
@@ -1626,7 +1660,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput)
 }
@@ -1668,7 +1702,11 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitori
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration) ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationOutput)
 }
 
@@ -1807,7 +1845,7 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 }
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput) ToApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput)
 }
@@ -1856,7 +1894,11 @@ func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallel
 
 func (o ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration) ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationOutput)
 }
 
@@ -1997,7 +2039,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationOutput) ToApplication
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationOutput) ToApplicationApplicationConfigurationRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationRunConfiguration) *ApplicationApplicationConfigurationRunConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationRunConfigurationPtrOutput)
 }
@@ -2032,7 +2074,11 @@ func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) ToApplicat
 
 func (o ApplicationApplicationConfigurationRunConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfiguration) ApplicationApplicationConfigurationRunConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationRunConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationRunConfigurationOutput)
 }
 
@@ -2153,7 +2199,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput) ToApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput)
 }
@@ -2188,7 +2234,11 @@ func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreCon
 
 func (o ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration) ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationOutput)
 }
 
@@ -2305,7 +2355,7 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 }
 
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput) ToApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput)
 }
@@ -2333,7 +2383,11 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 
 func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration) ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationOutput)
 }
 
@@ -2448,7 +2502,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) To
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
@@ -2490,7 +2544,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) ApplicationApplicationConfigurationSqlApplicationConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)
 }
 
@@ -2647,10 +2705,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutpu
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput)
 }
+
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InAppStreamNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) []string {
 		return v.InAppStreamNames
@@ -2727,7 +2786,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput)
 }
 
@@ -2913,7 +2976,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
@@ -2941,7 +3004,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput)
 }
 
@@ -3048,7 +3115,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
@@ -3076,7 +3143,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput)
 }
 
@@ -3183,7 +3254,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput)
 }
@@ -3211,7 +3282,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorOutput)
 }
 
@@ -3326,7 +3401,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput)
 }
@@ -3368,7 +3443,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput)
 }
 
@@ -3620,7 +3699,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput)
 }
@@ -3655,7 +3734,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatOutput)
 }
 
@@ -3776,7 +3859,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput)
 }
@@ -3811,7 +3894,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersOutput)
 }
 
@@ -3932,7 +4019,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
@@ -3967,7 +4054,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
@@ -4084,7 +4175,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
@@ -4112,7 +4203,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
@@ -4318,7 +4413,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
@@ -4346,7 +4441,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputOutput)
 }
 
@@ -4453,7 +4552,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
@@ -4481,7 +4580,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput)
 }
 
@@ -4791,7 +4894,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
@@ -4819,7 +4922,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput)
 }
 
@@ -4926,7 +5033,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
@@ -4954,7 +5061,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKine
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputOutput)
 }
 
@@ -5061,7 +5172,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
@@ -5089,7 +5200,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLamb
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputOutput)
 }
 
@@ -5206,10 +5321,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput)
 }
+
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) *string {
 		return v.ReferenceId
@@ -5253,7 +5369,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceOutput)
 }
 
@@ -5397,7 +5517,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput)
 }
@@ -5439,7 +5559,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaOutput)
 }
 
@@ -5691,7 +5815,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput)
 }
@@ -5726,7 +5850,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatOutput)
 }
 
@@ -5847,7 +5975,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput)
 }
@@ -5882,7 +6010,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersOutput)
 }
 
@@ -6003,7 +6135,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput)
 }
@@ -6038,7 +6170,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersOutput)
 }
 
@@ -6155,7 +6291,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput)
 }
@@ -6183,7 +6319,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersOutput)
 }
 
@@ -6294,7 +6434,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 }
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
 		return &v
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput)
 }
@@ -6329,7 +6469,11 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceD
 
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourcePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource) ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource
+		return ret
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceOutput)
 }
 
@@ -6454,7 +6598,7 @@ func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToApplication
 }
 
 func (o ApplicationApplicationConfigurationVpcConfigurationOutput) ToApplicationApplicationConfigurationVpcConfigurationPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationVpcConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationVpcConfiguration) *ApplicationApplicationConfigurationVpcConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationVpcConfiguration) *ApplicationApplicationConfigurationVpcConfiguration {
 		return &v
 	}).(ApplicationApplicationConfigurationVpcConfigurationPtrOutput)
 }
@@ -6493,7 +6637,11 @@ func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) ToApplicat
 
 func (o ApplicationApplicationConfigurationVpcConfigurationPtrOutput) Elem() ApplicationApplicationConfigurationVpcConfigurationOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationVpcConfiguration) ApplicationApplicationConfigurationVpcConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationApplicationConfigurationVpcConfiguration
+		return ret
 	}).(ApplicationApplicationConfigurationVpcConfigurationOutput)
 }
 
@@ -6630,10 +6778,11 @@ func (o ApplicationCloudwatchLoggingOptionsOutput) ToApplicationCloudwatchLoggin
 }
 
 func (o ApplicationCloudwatchLoggingOptionsOutput) ToApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) ApplicationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v ApplicationCloudwatchLoggingOptions) *ApplicationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCloudwatchLoggingOptions) *ApplicationCloudwatchLoggingOptions {
 		return &v
 	}).(ApplicationCloudwatchLoggingOptionsPtrOutput)
 }
+
 func (o ApplicationCloudwatchLoggingOptionsOutput) CloudwatchLoggingOptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationCloudwatchLoggingOptions) *string { return v.CloudwatchLoggingOptionId }).(pulumi.StringPtrOutput)
 }
@@ -6658,7 +6807,13 @@ func (o ApplicationCloudwatchLoggingOptionsPtrOutput) ToApplicationCloudwatchLog
 }
 
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) Elem() ApplicationCloudwatchLoggingOptionsOutput {
-	return o.ApplyT(func(v *ApplicationCloudwatchLoggingOptions) ApplicationCloudwatchLoggingOptions { return *v }).(ApplicationCloudwatchLoggingOptionsOutput)
+	return o.ApplyT(func(v *ApplicationCloudwatchLoggingOptions) ApplicationCloudwatchLoggingOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationCloudwatchLoggingOptions
+		return ret
+	}).(ApplicationCloudwatchLoggingOptionsOutput)
 }
 
 func (o ApplicationCloudwatchLoggingOptionsPtrOutput) CloudwatchLoggingOptionId() pulumi.StringPtrOutput {

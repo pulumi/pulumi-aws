@@ -225,9 +225,7 @@ func (i PublicKeyMap) ToPublicKeyMapOutputWithContext(ctx context.Context) Publi
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyMapOutput)
 }
 
-type PublicKeyOutput struct {
-	*pulumi.OutputState
-}
+type PublicKeyOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublicKey)(nil))
@@ -246,14 +244,12 @@ func (o PublicKeyOutput) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
 }
 
 func (o PublicKeyOutput) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
-	return o.ApplyT(func(v PublicKey) *PublicKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublicKey) *PublicKey {
 		return &v
 	}).(PublicKeyPtrOutput)
 }
 
-type PublicKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type PublicKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PublicKey)(nil))
@@ -265,6 +261,16 @@ func (o PublicKeyPtrOutput) ToPublicKeyPtrOutput() PublicKeyPtrOutput {
 
 func (o PublicKeyPtrOutput) ToPublicKeyPtrOutputWithContext(ctx context.Context) PublicKeyPtrOutput {
 	return o
+}
+
+func (o PublicKeyPtrOutput) Elem() PublicKeyOutput {
+	return o.ApplyT(func(v *PublicKey) PublicKey {
+		if v != nil {
+			return *v
+		}
+		var ret PublicKey
+		return ret
+	}).(PublicKeyOutput)
 }
 
 type PublicKeyArrayOutput struct{ *pulumi.OutputState }

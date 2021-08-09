@@ -331,9 +331,7 @@ func (i ReplicationTaskMap) ToReplicationTaskMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskMapOutput)
 }
 
-type ReplicationTaskOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationTaskOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationTask)(nil))
@@ -352,14 +350,12 @@ func (o ReplicationTaskOutput) ToReplicationTaskPtrOutput() ReplicationTaskPtrOu
 }
 
 func (o ReplicationTaskOutput) ToReplicationTaskPtrOutputWithContext(ctx context.Context) ReplicationTaskPtrOutput {
-	return o.ApplyT(func(v ReplicationTask) *ReplicationTask {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationTask) *ReplicationTask {
 		return &v
 	}).(ReplicationTaskPtrOutput)
 }
 
-type ReplicationTaskPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationTaskPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicationTask)(nil))
@@ -371,6 +367,16 @@ func (o ReplicationTaskPtrOutput) ToReplicationTaskPtrOutput() ReplicationTaskPt
 
 func (o ReplicationTaskPtrOutput) ToReplicationTaskPtrOutputWithContext(ctx context.Context) ReplicationTaskPtrOutput {
 	return o
+}
+
+func (o ReplicationTaskPtrOutput) Elem() ReplicationTaskOutput {
+	return o.ApplyT(func(v *ReplicationTask) ReplicationTask {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationTask
+		return ret
+	}).(ReplicationTaskOutput)
 }
 
 type ReplicationTaskArrayOutput struct{ *pulumi.OutputState }

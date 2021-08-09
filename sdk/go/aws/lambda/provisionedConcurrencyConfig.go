@@ -261,9 +261,7 @@ func (i ProvisionedConcurrencyConfigMap) ToProvisionedConcurrencyConfigMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionedConcurrencyConfigMapOutput)
 }
 
-type ProvisionedConcurrencyConfigOutput struct {
-	*pulumi.OutputState
-}
+type ProvisionedConcurrencyConfigOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProvisionedConcurrencyConfig)(nil))
@@ -282,14 +280,12 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOut
 }
 
 func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
-	return o.ApplyT(func(v ProvisionedConcurrencyConfig) *ProvisionedConcurrencyConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisionedConcurrencyConfig) *ProvisionedConcurrencyConfig {
 		return &v
 	}).(ProvisionedConcurrencyConfigPtrOutput)
 }
 
-type ProvisionedConcurrencyConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProvisionedConcurrencyConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ProvisionedConcurrencyConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProvisionedConcurrencyConfig)(nil))
@@ -301,6 +297,16 @@ func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtr
 
 func (o ProvisionedConcurrencyConfigPtrOutput) ToProvisionedConcurrencyConfigPtrOutputWithContext(ctx context.Context) ProvisionedConcurrencyConfigPtrOutput {
 	return o
+}
+
+func (o ProvisionedConcurrencyConfigPtrOutput) Elem() ProvisionedConcurrencyConfigOutput {
+	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) ProvisionedConcurrencyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisionedConcurrencyConfig
+		return ret
+	}).(ProvisionedConcurrencyConfigOutput)
 }
 
 type ProvisionedConcurrencyConfigArrayOutput struct{ *pulumi.OutputState }

@@ -63,6 +63,8 @@ type GetCoipPoolArgs struct {
 
 // A collection of values returned by getCoipPool.
 type GetCoipPoolResult struct {
+	// ARN of the COIP pool
+	Arn     string              `pulumi:"arn"`
 	Filters []GetCoipPoolFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                       string `pulumi:"id"`

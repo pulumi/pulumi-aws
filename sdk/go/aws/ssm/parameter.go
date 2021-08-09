@@ -379,9 +379,7 @@ func (i ParameterMap) ToParameterMapOutputWithContext(ctx context.Context) Param
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterMapOutput)
 }
 
-type ParameterOutput struct {
-	*pulumi.OutputState
-}
+type ParameterOutput struct{ *pulumi.OutputState }
 
 func (ParameterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Parameter)(nil))
@@ -400,14 +398,12 @@ func (o ParameterOutput) ToParameterPtrOutput() ParameterPtrOutput {
 }
 
 func (o ParameterOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
-	return o.ApplyT(func(v Parameter) *Parameter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Parameter) *Parameter {
 		return &v
 	}).(ParameterPtrOutput)
 }
 
-type ParameterPtrOutput struct {
-	*pulumi.OutputState
-}
+type ParameterPtrOutput struct{ *pulumi.OutputState }
 
 func (ParameterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Parameter)(nil))
@@ -419,6 +415,16 @@ func (o ParameterPtrOutput) ToParameterPtrOutput() ParameterPtrOutput {
 
 func (o ParameterPtrOutput) ToParameterPtrOutputWithContext(ctx context.Context) ParameterPtrOutput {
 	return o
+}
+
+func (o ParameterPtrOutput) Elem() ParameterOutput {
+	return o.ApplyT(func(v *Parameter) Parameter {
+		if v != nil {
+			return *v
+		}
+		var ret Parameter
+		return ret
+	}).(ParameterOutput)
 }
 
 type ParameterArrayOutput struct{ *pulumi.OutputState }

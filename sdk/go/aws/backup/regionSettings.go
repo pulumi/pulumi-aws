@@ -217,9 +217,7 @@ func (i RegionSettingsMap) ToRegionSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegionSettingsMapOutput)
 }
 
-type RegionSettingsOutput struct {
-	*pulumi.OutputState
-}
+type RegionSettingsOutput struct{ *pulumi.OutputState }
 
 func (RegionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegionSettings)(nil))
@@ -238,14 +236,12 @@ func (o RegionSettingsOutput) ToRegionSettingsPtrOutput() RegionSettingsPtrOutpu
 }
 
 func (o RegionSettingsOutput) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
-	return o.ApplyT(func(v RegionSettings) *RegionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegionSettings) *RegionSettings {
 		return &v
 	}).(RegionSettingsPtrOutput)
 }
 
-type RegionSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (RegionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegionSettings)(nil))
@@ -257,6 +253,16 @@ func (o RegionSettingsPtrOutput) ToRegionSettingsPtrOutput() RegionSettingsPtrOu
 
 func (o RegionSettingsPtrOutput) ToRegionSettingsPtrOutputWithContext(ctx context.Context) RegionSettingsPtrOutput {
 	return o
+}
+
+func (o RegionSettingsPtrOutput) Elem() RegionSettingsOutput {
+	return o.ApplyT(func(v *RegionSettings) RegionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret RegionSettings
+		return ret
+	}).(RegionSettingsOutput)
 }
 
 type RegionSettingsArrayOutput struct{ *pulumi.OutputState }

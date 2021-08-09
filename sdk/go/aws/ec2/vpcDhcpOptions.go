@@ -325,9 +325,7 @@ func (i VpcDhcpOptionsMap) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsMapOutput)
 }
 
-type VpcDhcpOptionsOutput struct {
-	*pulumi.OutputState
-}
+type VpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpcDhcpOptions)(nil))
@@ -346,14 +344,12 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutpu
 }
 
 func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
-	return o.ApplyT(func(v VpcDhcpOptions) *VpcDhcpOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcDhcpOptions) *VpcDhcpOptions {
 		return &v
 	}).(VpcDhcpOptionsPtrOutput)
 }
 
-type VpcDhcpOptionsPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcDhcpOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpcDhcpOptions)(nil))
@@ -365,6 +361,16 @@ func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOu
 
 func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
 	return o
+}
+
+func (o VpcDhcpOptionsPtrOutput) Elem() VpcDhcpOptionsOutput {
+	return o.ApplyT(func(v *VpcDhcpOptions) VpcDhcpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcDhcpOptions
+		return ret
+	}).(VpcDhcpOptionsOutput)
 }
 
 type VpcDhcpOptionsArrayOutput struct{ *pulumi.OutputState }

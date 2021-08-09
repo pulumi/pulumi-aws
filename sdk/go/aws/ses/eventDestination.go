@@ -351,9 +351,7 @@ func (i EventDestinationMap) ToEventDestinationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventDestinationMapOutput)
 }
 
-type EventDestinationOutput struct {
-	*pulumi.OutputState
-}
+type EventDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventDestination)(nil))
@@ -372,14 +370,12 @@ func (o EventDestinationOutput) ToEventDestinationPtrOutput() EventDestinationPt
 }
 
 func (o EventDestinationOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
-	return o.ApplyT(func(v EventDestination) *EventDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDestination) *EventDestination {
 		return &v
 	}).(EventDestinationPtrOutput)
 }
 
-type EventDestinationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (EventDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventDestination)(nil))
@@ -391,6 +387,16 @@ func (o EventDestinationPtrOutput) ToEventDestinationPtrOutput() EventDestinatio
 
 func (o EventDestinationPtrOutput) ToEventDestinationPtrOutputWithContext(ctx context.Context) EventDestinationPtrOutput {
 	return o
+}
+
+func (o EventDestinationPtrOutput) Elem() EventDestinationOutput {
+	return o.ApplyT(func(v *EventDestination) EventDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventDestination
+		return ret
+	}).(EventDestinationOutput)
 }
 
 type EventDestinationArrayOutput struct{ *pulumi.OutputState }

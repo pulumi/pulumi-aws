@@ -518,9 +518,7 @@ func (i RuleGroupMap) ToRuleGroupMapOutputWithContext(ctx context.Context) RuleG
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupMapOutput)
 }
 
-type RuleGroupOutput struct {
-	*pulumi.OutputState
-}
+type RuleGroupOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RuleGroup)(nil))
@@ -539,14 +537,12 @@ func (o RuleGroupOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
 }
 
 func (o RuleGroupOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
-	return o.ApplyT(func(v RuleGroup) *RuleGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroup) *RuleGroup {
 		return &v
 	}).(RuleGroupPtrOutput)
 }
 
-type RuleGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type RuleGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RuleGroup)(nil))
@@ -558,6 +554,16 @@ func (o RuleGroupPtrOutput) ToRuleGroupPtrOutput() RuleGroupPtrOutput {
 
 func (o RuleGroupPtrOutput) ToRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupPtrOutput {
 	return o
+}
+
+func (o RuleGroupPtrOutput) Elem() RuleGroupOutput {
+	return o.ApplyT(func(v *RuleGroup) RuleGroup {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroup
+		return ret
+	}).(RuleGroupOutput)
 }
 
 type RuleGroupArrayOutput struct{ *pulumi.OutputState }

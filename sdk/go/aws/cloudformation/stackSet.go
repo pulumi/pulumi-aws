@@ -373,9 +373,7 @@ func (i StackSetMap) ToStackSetMapOutputWithContext(ctx context.Context) StackSe
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetMapOutput)
 }
 
-type StackSetOutput struct {
-	*pulumi.OutputState
-}
+type StackSetOutput struct{ *pulumi.OutputState }
 
 func (StackSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StackSet)(nil))
@@ -394,14 +392,12 @@ func (o StackSetOutput) ToStackSetPtrOutput() StackSetPtrOutput {
 }
 
 func (o StackSetOutput) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
-	return o.ApplyT(func(v StackSet) *StackSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSet) *StackSet {
 		return &v
 	}).(StackSetPtrOutput)
 }
 
-type StackSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type StackSetPtrOutput struct{ *pulumi.OutputState }
 
 func (StackSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StackSet)(nil))
@@ -413,6 +409,16 @@ func (o StackSetPtrOutput) ToStackSetPtrOutput() StackSetPtrOutput {
 
 func (o StackSetPtrOutput) ToStackSetPtrOutputWithContext(ctx context.Context) StackSetPtrOutput {
 	return o
+}
+
+func (o StackSetPtrOutput) Elem() StackSetOutput {
+	return o.ApplyT(func(v *StackSet) StackSet {
+		if v != nil {
+			return *v
+		}
+		var ret StackSet
+		return ret
+	}).(StackSetOutput)
 }
 
 type StackSetArrayOutput struct{ *pulumi.OutputState }

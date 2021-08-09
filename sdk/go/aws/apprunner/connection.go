@@ -259,9 +259,7 @@ func (i ConnectionMap) ToConnectionMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionMapOutput)
 }
 
-type ConnectionOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionOutput struct{ *pulumi.OutputState }
 
 func (ConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Connection)(nil))
@@ -280,14 +278,12 @@ func (o ConnectionOutput) ToConnectionPtrOutput() ConnectionPtrOutput {
 }
 
 func (o ConnectionOutput) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
-	return o.ApplyT(func(v Connection) *Connection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Connection) *Connection {
 		return &v
 	}).(ConnectionPtrOutput)
 }
 
-type ConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Connection)(nil))
@@ -299,6 +295,16 @@ func (o ConnectionPtrOutput) ToConnectionPtrOutput() ConnectionPtrOutput {
 
 func (o ConnectionPtrOutput) ToConnectionPtrOutputWithContext(ctx context.Context) ConnectionPtrOutput {
 	return o
+}
+
+func (o ConnectionPtrOutput) Elem() ConnectionOutput {
+	return o.ApplyT(func(v *Connection) Connection {
+		if v != nil {
+			return *v
+		}
+		var ret Connection
+		return ret
+	}).(ConnectionOutput)
 }
 
 type ConnectionArrayOutput struct{ *pulumi.OutputState }

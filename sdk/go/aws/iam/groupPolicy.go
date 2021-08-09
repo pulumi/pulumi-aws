@@ -276,9 +276,7 @@ func (i GroupPolicyMap) ToGroupPolicyMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GroupPolicyMapOutput)
 }
 
-type GroupPolicyOutput struct {
-	*pulumi.OutputState
-}
+type GroupPolicyOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GroupPolicy)(nil))
@@ -297,14 +295,12 @@ func (o GroupPolicyOutput) ToGroupPolicyPtrOutput() GroupPolicyPtrOutput {
 }
 
 func (o GroupPolicyOutput) ToGroupPolicyPtrOutputWithContext(ctx context.Context) GroupPolicyPtrOutput {
-	return o.ApplyT(func(v GroupPolicy) *GroupPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupPolicy) *GroupPolicy {
 		return &v
 	}).(GroupPolicyPtrOutput)
 }
 
-type GroupPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type GroupPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GroupPolicy)(nil))
@@ -316,6 +312,16 @@ func (o GroupPolicyPtrOutput) ToGroupPolicyPtrOutput() GroupPolicyPtrOutput {
 
 func (o GroupPolicyPtrOutput) ToGroupPolicyPtrOutputWithContext(ctx context.Context) GroupPolicyPtrOutput {
 	return o
+}
+
+func (o GroupPolicyPtrOutput) Elem() GroupPolicyOutput {
+	return o.ApplyT(func(v *GroupPolicy) GroupPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GroupPolicy
+		return ret
+	}).(GroupPolicyOutput)
 }
 
 type GroupPolicyArrayOutput struct{ *pulumi.OutputState }

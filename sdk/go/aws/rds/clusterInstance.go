@@ -113,6 +113,8 @@ type ClusterInstance struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The database engine version
+	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -221,6 +223,8 @@ type clusterInstanceState struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The database engine version
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -295,6 +299,8 @@ type ClusterInstanceState struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
 	EngineVersion pulumi.StringPtrInput
+	// The database engine version
+	EngineVersionActual pulumi.StringPtrInput
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
 	// Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -565,9 +571,7 @@ func (i ClusterInstanceMap) ToClusterInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceMapOutput)
 }
 
-type ClusterInstanceOutput struct {
-	*pulumi.OutputState
-}
+type ClusterInstanceOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterInstance)(nil))
@@ -586,14 +590,12 @@ func (o ClusterInstanceOutput) ToClusterInstancePtrOutput() ClusterInstancePtrOu
 }
 
 func (o ClusterInstanceOutput) ToClusterInstancePtrOutputWithContext(ctx context.Context) ClusterInstancePtrOutput {
-	return o.ApplyT(func(v ClusterInstance) *ClusterInstance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstance) *ClusterInstance {
 		return &v
 	}).(ClusterInstancePtrOutput)
 }
 
-type ClusterInstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterInstancePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterInstance)(nil))
@@ -605,6 +607,16 @@ func (o ClusterInstancePtrOutput) ToClusterInstancePtrOutput() ClusterInstancePt
 
 func (o ClusterInstancePtrOutput) ToClusterInstancePtrOutputWithContext(ctx context.Context) ClusterInstancePtrOutput {
 	return o
+}
+
+func (o ClusterInstancePtrOutput) Elem() ClusterInstanceOutput {
+	return o.ApplyT(func(v *ClusterInstance) ClusterInstance {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstance
+		return ret
+	}).(ClusterInstanceOutput)
 }
 
 type ClusterInstanceArrayOutput struct{ *pulumi.OutputState }

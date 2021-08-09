@@ -261,9 +261,7 @@ func (i BucketPolicyMap) ToBucketPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyMapOutput)
 }
 
-type BucketPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BucketPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketPolicy)(nil))
@@ -282,14 +280,12 @@ func (o BucketPolicyOutput) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
 }
 
 func (o BucketPolicyOutput) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
-	return o.ApplyT(func(v BucketPolicy) *BucketPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPolicy) *BucketPolicy {
 		return &v
 	}).(BucketPolicyPtrOutput)
 }
 
-type BucketPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketPolicy)(nil))
@@ -301,6 +297,16 @@ func (o BucketPolicyPtrOutput) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
 
 func (o BucketPolicyPtrOutput) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
 	return o
+}
+
+func (o BucketPolicyPtrOutput) Elem() BucketPolicyOutput {
+	return o.ApplyT(func(v *BucketPolicy) BucketPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret BucketPolicy
+		return ret
+	}).(BucketPolicyOutput)
 }
 
 type BucketPolicyArrayOutput struct{ *pulumi.OutputState }

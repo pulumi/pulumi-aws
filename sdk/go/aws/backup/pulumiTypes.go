@@ -488,7 +488,7 @@ func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutpu
 }
 
 func (o PlanRuleCopyActionLifecycleOutput) ToPlanRuleCopyActionLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleCopyActionLifecyclePtrOutput {
-	return o.ApplyT(func(v PlanRuleCopyActionLifecycle) *PlanRuleCopyActionLifecycle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanRuleCopyActionLifecycle) *PlanRuleCopyActionLifecycle {
 		return &v
 	}).(PlanRuleCopyActionLifecyclePtrOutput)
 }
@@ -518,7 +518,13 @@ func (o PlanRuleCopyActionLifecyclePtrOutput) ToPlanRuleCopyActionLifecyclePtrOu
 }
 
 func (o PlanRuleCopyActionLifecyclePtrOutput) Elem() PlanRuleCopyActionLifecycleOutput {
-	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) PlanRuleCopyActionLifecycle { return *v }).(PlanRuleCopyActionLifecycleOutput)
+	return o.ApplyT(func(v *PlanRuleCopyActionLifecycle) PlanRuleCopyActionLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret PlanRuleCopyActionLifecycle
+		return ret
+	}).(PlanRuleCopyActionLifecycleOutput)
 }
 
 // Specifies the number of days after creation that a recovery point is moved to cold storage.
@@ -638,7 +644,7 @@ func (o PlanRuleLifecycleOutput) ToPlanRuleLifecyclePtrOutput() PlanRuleLifecycl
 }
 
 func (o PlanRuleLifecycleOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx context.Context) PlanRuleLifecyclePtrOutput {
-	return o.ApplyT(func(v PlanRuleLifecycle) *PlanRuleLifecycle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanRuleLifecycle) *PlanRuleLifecycle {
 		return &v
 	}).(PlanRuleLifecyclePtrOutput)
 }
@@ -668,7 +674,13 @@ func (o PlanRuleLifecyclePtrOutput) ToPlanRuleLifecyclePtrOutputWithContext(ctx 
 }
 
 func (o PlanRuleLifecyclePtrOutput) Elem() PlanRuleLifecycleOutput {
-	return o.ApplyT(func(v *PlanRuleLifecycle) PlanRuleLifecycle { return *v }).(PlanRuleLifecycleOutput)
+	return o.ApplyT(func(v *PlanRuleLifecycle) PlanRuleLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret PlanRuleLifecycle
+		return ret
+	}).(PlanRuleLifecycleOutput)
 }
 
 // Specifies the number of days after creation that a recovery point is moved to cold storage.

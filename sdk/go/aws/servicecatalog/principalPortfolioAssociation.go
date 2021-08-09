@@ -243,9 +243,7 @@ func (i PrincipalPortfolioAssociationMap) ToPrincipalPortfolioAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPortfolioAssociationMapOutput)
 }
 
-type PrincipalPortfolioAssociationOutput struct {
-	*pulumi.OutputState
-}
+type PrincipalPortfolioAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPortfolioAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrincipalPortfolioAssociation)(nil))
@@ -264,14 +262,12 @@ func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationPtrO
 }
 
 func (o PrincipalPortfolioAssociationOutput) ToPrincipalPortfolioAssociationPtrOutputWithContext(ctx context.Context) PrincipalPortfolioAssociationPtrOutput {
-	return o.ApplyT(func(v PrincipalPortfolioAssociation) *PrincipalPortfolioAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPortfolioAssociation) *PrincipalPortfolioAssociation {
 		return &v
 	}).(PrincipalPortfolioAssociationPtrOutput)
 }
 
-type PrincipalPortfolioAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type PrincipalPortfolioAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPortfolioAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrincipalPortfolioAssociation)(nil))
@@ -283,6 +279,16 @@ func (o PrincipalPortfolioAssociationPtrOutput) ToPrincipalPortfolioAssociationP
 
 func (o PrincipalPortfolioAssociationPtrOutput) ToPrincipalPortfolioAssociationPtrOutputWithContext(ctx context.Context) PrincipalPortfolioAssociationPtrOutput {
 	return o
+}
+
+func (o PrincipalPortfolioAssociationPtrOutput) Elem() PrincipalPortfolioAssociationOutput {
+	return o.ApplyT(func(v *PrincipalPortfolioAssociation) PrincipalPortfolioAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalPortfolioAssociation
+		return ret
+	}).(PrincipalPortfolioAssociationOutput)
 }
 
 type PrincipalPortfolioAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -305,9 +305,7 @@ func (i CompositeAlarmMap) ToCompositeAlarmMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmMapOutput)
 }
 
-type CompositeAlarmOutput struct {
-	*pulumi.OutputState
-}
+type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CompositeAlarm)(nil))
@@ -326,14 +324,12 @@ func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutpu
 }
 
 func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
-	return o.ApplyT(func(v CompositeAlarm) *CompositeAlarm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarm) *CompositeAlarm {
 		return &v
 	}).(CompositeAlarmPtrOutput)
 }
 
-type CompositeAlarmPtrOutput struct {
-	*pulumi.OutputState
-}
+type CompositeAlarmPtrOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CompositeAlarm)(nil))
@@ -345,6 +341,16 @@ func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOu
 
 func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
 	return o
+}
+
+func (o CompositeAlarmPtrOutput) Elem() CompositeAlarmOutput {
+	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarm {
+		if v != nil {
+			return *v
+		}
+		var ret CompositeAlarm
+		return ret
+	}).(CompositeAlarmOutput)
 }
 
 type CompositeAlarmArrayOutput struct{ *pulumi.OutputState }

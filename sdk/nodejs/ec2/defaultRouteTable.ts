@@ -107,9 +107,12 @@ export class DefaultRouteTable extends pulumi.CustomResource {
      * List of virtual gateways for propagation.
      */
     public readonly propagatingVgws!: pulumi.Output<string[] | undefined>;
+    /**
+     * Set of objects. Detailed below
+     */
     public readonly routes!: pulumi.Output<outputs.ec2.DefaultRouteTableRoute[]>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -183,9 +186,12 @@ export interface DefaultRouteTableState {
      * List of virtual gateways for propagation.
      */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of objects. Detailed below
+     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -210,9 +216,12 @@ export interface DefaultRouteTableArgs {
      * List of virtual gateways for propagation.
      */
     propagatingVgws?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Set of objects. Detailed below
+     */
     routes?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultRouteTableRoute>[]>;
     /**
-     * Map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

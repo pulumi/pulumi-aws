@@ -68,6 +68,10 @@ export interface GetCoipPoolArgs {
  * A collection of values returned by getCoipPool.
  */
 export interface GetCoipPoolResult {
+    /**
+     * ARN of the COIP pool
+     */
+    readonly arn: string;
     readonly filters?: outputs.ec2.GetCoipPoolFilter[];
     /**
      * The provider-assigned unique ID for this managed resource.

@@ -228,9 +228,7 @@ func (i ActivityMap) ToActivityMapOutputWithContext(ctx context.Context) Activit
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityMapOutput)
 }
 
-type ActivityOutput struct {
-	*pulumi.OutputState
-}
+type ActivityOutput struct{ *pulumi.OutputState }
 
 func (ActivityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Activity)(nil))
@@ -249,14 +247,12 @@ func (o ActivityOutput) ToActivityPtrOutput() ActivityPtrOutput {
 }
 
 func (o ActivityOutput) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
-	return o.ApplyT(func(v Activity) *Activity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Activity) *Activity {
 		return &v
 	}).(ActivityPtrOutput)
 }
 
-type ActivityPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActivityPtrOutput struct{ *pulumi.OutputState }
 
 func (ActivityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Activity)(nil))
@@ -268,6 +264,16 @@ func (o ActivityPtrOutput) ToActivityPtrOutput() ActivityPtrOutput {
 
 func (o ActivityPtrOutput) ToActivityPtrOutputWithContext(ctx context.Context) ActivityPtrOutput {
 	return o
+}
+
+func (o ActivityPtrOutput) Elem() ActivityOutput {
+	return o.ApplyT(func(v *Activity) Activity {
+		if v != nil {
+			return *v
+		}
+		var ret Activity
+		return ret
+	}).(ActivityOutput)
 }
 
 type ActivityArrayOutput struct{ *pulumi.OutputState }

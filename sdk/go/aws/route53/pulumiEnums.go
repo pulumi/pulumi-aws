@@ -111,7 +111,7 @@ func (o RecordTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type RecordTypePtrOutput struct{ *pulumi.OutputState }
 
 func (RecordTypePtrOutput) ElementType() reflect.Type {
-	return recordTypePtrType
+	return reflect.TypeOf((**RecordType)(nil)).Elem()
 }
 
 func (o RecordTypePtrOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
@@ -120,6 +120,16 @@ func (o RecordTypePtrOutput) ToRecordTypePtrOutput() RecordTypePtrOutput {
 
 func (o RecordTypePtrOutput) ToRecordTypePtrOutputWithContext(ctx context.Context) RecordTypePtrOutput {
 	return o
+}
+
+func (o RecordTypePtrOutput) Elem() RecordTypeOutput {
+	return o.ApplyT(func(v *RecordType) RecordType {
+		if v != nil {
+			return *v
+		}
+		var ret RecordType
+		return ret
+	}).(RecordTypeOutput)
 }
 
 func (o RecordTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -134,16 +144,6 @@ func (o RecordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o RecordTypePtrOutput) Elem() RecordTypeOutput {
-	return o.ApplyT(func(v *RecordType) RecordType {
-		var ret RecordType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(RecordTypeOutput)
 }
 
 // RecordTypeInput is an input type that accepts RecordTypeArgs and RecordTypeOutput values.

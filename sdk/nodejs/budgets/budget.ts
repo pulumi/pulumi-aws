@@ -16,9 +16,10 @@ import * as utilities from "../utilities";
  *
  * const ec2 = new aws.budgets.Budget("ec2", {
  *     budgetType: "COST",
- *     costFilters: {
- *         Service: "Amazon Elastic Compute Cloud - Compute",
- *     },
+ *     costFilters: [{
+ *         name: "Service",
+ *         values: ["Amazon Elastic Compute Cloud - Compute"],
+ *     }],
  *     limitAmount: "1200",
  *     limitUnit: "USD",
  *     notifications: [{
@@ -168,11 +169,11 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly budgetType!: pulumi.Output<string>;
     /**
-     * Map of Cost Filters key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     public readonly costFilters!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     public readonly costTypes!: pulumi.Output<outputs.budgets.BudgetCostTypes>;
     /**
@@ -200,7 +201,7 @@ export class Budget extends pulumi.CustomResource {
      */
     public readonly timePeriodEnd!: pulumi.Output<string | undefined>;
     /**
-     * The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
     public readonly timePeriodStart!: pulumi.Output<string>;
     /**
@@ -245,9 +246,6 @@ export class Budget extends pulumi.CustomResource {
             if ((!args || args.limitUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'limitUnit'");
             }
-            if ((!args || args.timePeriodStart === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'timePeriodStart'");
-            }
             if ((!args || args.timeUnit === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeUnit'");
             }
@@ -289,11 +287,11 @@ export interface BudgetState {
      */
     budgetType?: pulumi.Input<string>;
     /**
-     * Map of Cost Filters key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
@@ -321,7 +319,7 @@ export interface BudgetState {
      */
     timePeriodEnd?: pulumi.Input<string>;
     /**
-     * The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
     timePeriodStart?: pulumi.Input<string>;
     /**
@@ -343,11 +341,11 @@ export interface BudgetArgs {
      */
     budgetType: pulumi.Input<string>;
     /**
-     * Map of Cost Filters key/value pairs to apply to the budget.
+     * Map of CostFilters key/value pairs to apply to the budget.
      */
     costFilters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+     * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
     /**
@@ -375,9 +373,9 @@ export interface BudgetArgs {
      */
     timePeriodEnd?: pulumi.Input<string>;
     /**
-     * The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+     * The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
      */
-    timePeriodStart: pulumi.Input<string>;
+    timePeriodStart?: pulumi.Input<string>;
     /**
      * The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
      */

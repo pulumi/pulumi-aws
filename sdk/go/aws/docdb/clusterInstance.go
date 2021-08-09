@@ -502,9 +502,7 @@ func (i ClusterInstanceMap) ToClusterInstanceMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterInstanceMapOutput)
 }
 
-type ClusterInstanceOutput struct {
-	*pulumi.OutputState
-}
+type ClusterInstanceOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterInstance)(nil))
@@ -523,14 +521,12 @@ func (o ClusterInstanceOutput) ToClusterInstancePtrOutput() ClusterInstancePtrOu
 }
 
 func (o ClusterInstanceOutput) ToClusterInstancePtrOutputWithContext(ctx context.Context) ClusterInstancePtrOutput {
-	return o.ApplyT(func(v ClusterInstance) *ClusterInstance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterInstance) *ClusterInstance {
 		return &v
 	}).(ClusterInstancePtrOutput)
 }
 
-type ClusterInstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterInstancePtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterInstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterInstance)(nil))
@@ -542,6 +538,16 @@ func (o ClusterInstancePtrOutput) ToClusterInstancePtrOutput() ClusterInstancePt
 
 func (o ClusterInstancePtrOutput) ToClusterInstancePtrOutputWithContext(ctx context.Context) ClusterInstancePtrOutput {
 	return o
+}
+
+func (o ClusterInstancePtrOutput) Elem() ClusterInstanceOutput {
+	return o.ApplyT(func(v *ClusterInstance) ClusterInstance {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterInstance
+		return ret
+	}).(ClusterInstanceOutput)
 }
 
 type ClusterInstanceArrayOutput struct{ *pulumi.OutputState }

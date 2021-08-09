@@ -280,9 +280,7 @@ func (i SnapshotScheduleMap) ToSnapshotScheduleMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleMapOutput)
 }
 
-type SnapshotScheduleOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotSchedule)(nil))
@@ -301,14 +299,12 @@ func (o SnapshotScheduleOutput) ToSnapshotSchedulePtrOutput() SnapshotSchedulePt
 }
 
 func (o SnapshotScheduleOutput) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
-	return o.ApplyT(func(v SnapshotSchedule) *SnapshotSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSchedule) *SnapshotSchedule {
 		return &v
 	}).(SnapshotSchedulePtrOutput)
 }
 
-type SnapshotSchedulePtrOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotSchedulePtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotSchedulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotSchedule)(nil))
@@ -320,6 +316,16 @@ func (o SnapshotSchedulePtrOutput) ToSnapshotSchedulePtrOutput() SnapshotSchedul
 
 func (o SnapshotSchedulePtrOutput) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
 	return o
+}
+
+func (o SnapshotSchedulePtrOutput) Elem() SnapshotScheduleOutput {
+	return o.ApplyT(func(v *SnapshotSchedule) SnapshotSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotSchedule
+		return ret
+	}).(SnapshotScheduleOutput)
 }
 
 type SnapshotScheduleArrayOutput struct{ *pulumi.OutputState }

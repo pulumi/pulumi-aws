@@ -67,7 +67,7 @@ export class Alias extends pulumi.CustomResource {
      * Creates an unique alias beginning with the specified prefix.
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */

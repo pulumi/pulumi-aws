@@ -111,7 +111,7 @@ func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLo
 }
 
 func (o WindowsFileSystemAuditLogConfigurationOutput) ToWindowsFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemAuditLogConfigurationPtrOutput {
-	return o.ApplyT(func(v WindowsFileSystemAuditLogConfiguration) *WindowsFileSystemAuditLogConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystemAuditLogConfiguration) *WindowsFileSystemAuditLogConfiguration {
 		return &v
 	}).(WindowsFileSystemAuditLogConfigurationPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) ToWindowsFileSystemAudi
 }
 
 func (o WindowsFileSystemAuditLogConfigurationPtrOutput) Elem() WindowsFileSystemAuditLogConfigurationOutput {
-	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) WindowsFileSystemAuditLogConfiguration { return *v }).(WindowsFileSystemAuditLogConfigurationOutput)
+	return o.ApplyT(func(v *WindowsFileSystemAuditLogConfiguration) WindowsFileSystemAuditLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsFileSystemAuditLogConfiguration
+		return ret
+	}).(WindowsFileSystemAuditLogConfigurationOutput)
 }
 
 // The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -292,7 +298,7 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) ToWindowsFileSystemSe
 }
 
 func (o WindowsFileSystemSelfManagedActiveDirectoryOutput) ToWindowsFileSystemSelfManagedActiveDirectoryPtrOutputWithContext(ctx context.Context) WindowsFileSystemSelfManagedActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v WindowsFileSystemSelfManagedActiveDirectory) *WindowsFileSystemSelfManagedActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystemSelfManagedActiveDirectory) *WindowsFileSystemSelfManagedActiveDirectory {
 		return &v
 	}).(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput)
 }
@@ -345,7 +351,11 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) ToWindowsFileSyste
 
 func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Elem() WindowsFileSystemSelfManagedActiveDirectoryOutput {
 	return o.ApplyT(func(v *WindowsFileSystemSelfManagedActiveDirectory) WindowsFileSystemSelfManagedActiveDirectory {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WindowsFileSystemSelfManagedActiveDirectory
+		return ret
 	}).(WindowsFileSystemSelfManagedActiveDirectoryOutput)
 }
 

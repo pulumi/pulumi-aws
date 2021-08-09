@@ -268,9 +268,7 @@ func (i TapePoolMap) ToTapePoolMapOutputWithContext(ctx context.Context) TapePoo
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolMapOutput)
 }
 
-type TapePoolOutput struct {
-	*pulumi.OutputState
-}
+type TapePoolOutput struct{ *pulumi.OutputState }
 
 func (TapePoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TapePool)(nil))
@@ -289,14 +287,12 @@ func (o TapePoolOutput) ToTapePoolPtrOutput() TapePoolPtrOutput {
 }
 
 func (o TapePoolOutput) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
-	return o.ApplyT(func(v TapePool) *TapePool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TapePool) *TapePool {
 		return &v
 	}).(TapePoolPtrOutput)
 }
 
-type TapePoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type TapePoolPtrOutput struct{ *pulumi.OutputState }
 
 func (TapePoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TapePool)(nil))
@@ -308,6 +304,16 @@ func (o TapePoolPtrOutput) ToTapePoolPtrOutput() TapePoolPtrOutput {
 
 func (o TapePoolPtrOutput) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
 	return o
+}
+
+func (o TapePoolPtrOutput) Elem() TapePoolOutput {
+	return o.ApplyT(func(v *TapePool) TapePool {
+		if v != nil {
+			return *v
+		}
+		var ret TapePool
+		return ret
+	}).(TapePoolOutput)
 }
 
 type TapePoolArrayOutput struct{ *pulumi.OutputState }

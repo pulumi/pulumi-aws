@@ -159,7 +159,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeRes
 }
 
 func (o ComputeEnvironmentComputeResourcesOutput) ToComputeEnvironmentComputeResourcesPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesPtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResources {
 		return &v
 	}).(ComputeEnvironmentComputeResourcesPtrOutput)
 }
@@ -256,7 +256,13 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) ToComputeEnvironmentCompute
 }
 
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Elem() ComputeEnvironmentComputeResourcesOutput {
-	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) ComputeEnvironmentComputeResources { return *v }).(ComputeEnvironmentComputeResourcesOutput)
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) ComputeEnvironmentComputeResources {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentComputeResources
+		return ret
+	}).(ComputeEnvironmentComputeResourcesOutput)
 }
 
 // The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -510,7 +516,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnviron
 }
 
 func (o ComputeEnvironmentComputeResourcesLaunchTemplateOutput) ToComputeEnvironmentComputeResourcesLaunchTemplatePtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesLaunchTemplate) *ComputeEnvironmentComputeResourcesLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResourcesLaunchTemplate) *ComputeEnvironmentComputeResourcesLaunchTemplate {
 		return &v
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput)
 }
@@ -546,7 +552,11 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) ToComputeEnvi
 
 func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Elem() ComputeEnvironmentComputeResourcesLaunchTemplateOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesLaunchTemplate) ComputeEnvironmentComputeResourcesLaunchTemplate {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentComputeResourcesLaunchTemplate
+		return ret
 	}).(ComputeEnvironmentComputeResourcesLaunchTemplateOutput)
 }
 
@@ -677,7 +687,7 @@ func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutput(
 }
 
 func (o JobDefinitionRetryStrategyOutput) ToJobDefinitionRetryStrategyPtrOutputWithContext(ctx context.Context) JobDefinitionRetryStrategyPtrOutput {
-	return o.ApplyT(func(v JobDefinitionRetryStrategy) *JobDefinitionRetryStrategy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionRetryStrategy) *JobDefinitionRetryStrategy {
 		return &v
 	}).(JobDefinitionRetryStrategyPtrOutput)
 }
@@ -709,7 +719,13 @@ func (o JobDefinitionRetryStrategyPtrOutput) ToJobDefinitionRetryStrategyPtrOutp
 }
 
 func (o JobDefinitionRetryStrategyPtrOutput) Elem() JobDefinitionRetryStrategyOutput {
-	return o.ApplyT(func(v *JobDefinitionRetryStrategy) JobDefinitionRetryStrategy { return *v }).(JobDefinitionRetryStrategyOutput)
+	return o.ApplyT(func(v *JobDefinitionRetryStrategy) JobDefinitionRetryStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionRetryStrategy
+		return ret
+	}).(JobDefinitionRetryStrategyOutput)
 }
 
 // The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
@@ -949,7 +965,7 @@ func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutput() JobDefinit
 }
 
 func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
-	return o.ApplyT(func(v JobDefinitionTimeout) *JobDefinitionTimeout {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionTimeout) *JobDefinitionTimeout {
 		return &v
 	}).(JobDefinitionTimeoutPtrOutput)
 }
@@ -974,7 +990,13 @@ func (o JobDefinitionTimeoutPtrOutput) ToJobDefinitionTimeoutPtrOutputWithContex
 }
 
 func (o JobDefinitionTimeoutPtrOutput) Elem() JobDefinitionTimeoutOutput {
-	return o.ApplyT(func(v *JobDefinitionTimeout) JobDefinitionTimeout { return *v }).(JobDefinitionTimeoutOutput)
+	return o.ApplyT(func(v *JobDefinitionTimeout) JobDefinitionTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionTimeout
+		return ret
+	}).(JobDefinitionTimeoutOutput)
 }
 
 // The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.

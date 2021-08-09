@@ -367,9 +367,7 @@ func (i TransitVirtualInterfaceMap) ToTransitVirtualInterfaceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceMapOutput)
 }
 
-type TransitVirtualInterfaceOutput struct {
-	*pulumi.OutputState
-}
+type TransitVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransitVirtualInterface)(nil))
@@ -388,14 +386,12 @@ func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfacePtrOutput() Tran
 }
 
 func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
-	return o.ApplyT(func(v TransitVirtualInterface) *TransitVirtualInterface {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitVirtualInterface) *TransitVirtualInterface {
 		return &v
 	}).(TransitVirtualInterfacePtrOutput)
 }
 
-type TransitVirtualInterfacePtrOutput struct {
-	*pulumi.OutputState
-}
+type TransitVirtualInterfacePtrOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TransitVirtualInterface)(nil))
@@ -407,6 +403,16 @@ func (o TransitVirtualInterfacePtrOutput) ToTransitVirtualInterfacePtrOutput() T
 
 func (o TransitVirtualInterfacePtrOutput) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
 	return o
+}
+
+func (o TransitVirtualInterfacePtrOutput) Elem() TransitVirtualInterfaceOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) TransitVirtualInterface {
+		if v != nil {
+			return *v
+		}
+		var ret TransitVirtualInterface
+		return ret
+	}).(TransitVirtualInterfaceOutput)
 }
 
 type TransitVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }

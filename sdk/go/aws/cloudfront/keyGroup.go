@@ -202,9 +202,7 @@ func (i KeyGroupMap) ToKeyGroupMapOutputWithContext(ctx context.Context) KeyGrou
 	return pulumi.ToOutputWithContext(ctx, i).(KeyGroupMapOutput)
 }
 
-type KeyGroupOutput struct {
-	*pulumi.OutputState
-}
+type KeyGroupOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KeyGroup)(nil))
@@ -223,14 +221,12 @@ func (o KeyGroupOutput) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
 }
 
 func (o KeyGroupOutput) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
-	return o.ApplyT(func(v KeyGroup) *KeyGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyGroup) *KeyGroup {
 		return &v
 	}).(KeyGroupPtrOutput)
 }
 
-type KeyGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type KeyGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KeyGroup)(nil))
@@ -242,6 +238,16 @@ func (o KeyGroupPtrOutput) ToKeyGroupPtrOutput() KeyGroupPtrOutput {
 
 func (o KeyGroupPtrOutput) ToKeyGroupPtrOutputWithContext(ctx context.Context) KeyGroupPtrOutput {
 	return o
+}
+
+func (o KeyGroupPtrOutput) Elem() KeyGroupOutput {
+	return o.ApplyT(func(v *KeyGroup) KeyGroup {
+		if v != nil {
+			return *v
+		}
+		var ret KeyGroup
+		return ret
+	}).(KeyGroupOutput)
 }
 
 type KeyGroupArrayOutput struct{ *pulumi.OutputState }

@@ -262,9 +262,7 @@ func (i PrincipalAssociationMap) ToPrincipalAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalAssociationMapOutput)
 }
 
-type PrincipalAssociationOutput struct {
-	*pulumi.OutputState
-}
+type PrincipalAssociationOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrincipalAssociation)(nil))
@@ -283,14 +281,12 @@ func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutput() PrincipalA
 }
 
 func (o PrincipalAssociationOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
-	return o.ApplyT(func(v PrincipalAssociation) *PrincipalAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalAssociation) *PrincipalAssociation {
 		return &v
 	}).(PrincipalAssociationPtrOutput)
 }
 
-type PrincipalAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type PrincipalAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (PrincipalAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrincipalAssociation)(nil))
@@ -302,6 +298,16 @@ func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutput() Princip
 
 func (o PrincipalAssociationPtrOutput) ToPrincipalAssociationPtrOutputWithContext(ctx context.Context) PrincipalAssociationPtrOutput {
 	return o
+}
+
+func (o PrincipalAssociationPtrOutput) Elem() PrincipalAssociationOutput {
+	return o.ApplyT(func(v *PrincipalAssociation) PrincipalAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalAssociation
+		return ret
+	}).(PrincipalAssociationOutput)
 }
 
 type PrincipalAssociationArrayOutput struct{ *pulumi.OutputState }

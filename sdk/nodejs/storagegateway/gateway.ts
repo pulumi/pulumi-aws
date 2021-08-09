@@ -8,10 +8,48 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS Storage Gateway file, tape, or volume gateway in the provider region.
  *
- * > NOTE: The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
+ * > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
  *
  * ## Example Usage
- * ### File Gateway
+ * ### Local Cache
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testVolumeAttachment = new aws.ec2.VolumeAttachment("testVolumeAttachment", {
+ *     deviceName: "/dev/xvdb",
+ *     volumeId: aws_ebs_volume.test.id,
+ *     instanceId: aws_instance.test.id,
+ * });
+ * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDisk({
+ *     diskNode: deviceName,
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * }));
+ * const testCache = new aws.storagegateway.Cache("testCache", {
+ *     diskId: testLocalDisk.apply(testLocalDisk => testLocalDisk.diskId),
+ *     gatewayArn: aws_storagegateway_gateway.test.arn,
+ * });
+ * ```
+ * ### FSx File Gateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.storagegateway.Gateway("example", {
+ *     gatewayIpAddress: "1.2.3.4",
+ *     gatewayName: "example",
+ *     gatewayTimezone: "GMT",
+ *     gatewayType: "FILE_FSX_SMB",
+ *     smbActiveDirectorySettings: {
+ *         domainName: "corp.example.com",
+ *         password: "avoid-plaintext-passwords",
+ *         username: "Admin",
+ *     },
+ * });
+ * ```
+ * ### S3 File Gateway
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -153,11 +191,11 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly gatewayTimezone!: pulumi.Output<string>;
     /**
-     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      */
     public readonly gatewayType!: pulumi.Output<string | undefined>;
     /**
-     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     public readonly gatewayVpcEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -169,7 +207,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
-     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
     /**
@@ -177,7 +215,7 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly smbFileShareVisibility!: pulumi.Output<boolean | undefined>;
     /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     public readonly smbGuestPassword!: pulumi.Output<string | undefined>;
     /**
@@ -325,11 +363,11 @@ export interface GatewayState {
      */
     gatewayTimezone?: pulumi.Input<string>;
     /**
-     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      */
     gatewayType?: pulumi.Input<string>;
     /**
-     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
@@ -341,7 +379,7 @@ export interface GatewayState {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
-     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
@@ -349,7 +387,7 @@ export interface GatewayState {
      */
     smbFileShareVisibility?: pulumi.Input<boolean>;
     /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     smbGuestPassword?: pulumi.Input<string>;
     /**
@@ -403,11 +441,11 @@ export interface GatewayArgs {
      */
     gatewayTimezone: pulumi.Input<string>;
     /**
-     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_S3`, `STORED`, `VTL`.
+     * Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
      */
     gatewayType?: pulumi.Input<string>;
     /**
-     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+     * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     gatewayVpcEndpoint?: pulumi.Input<string>;
     /**
@@ -415,7 +453,7 @@ export interface GatewayArgs {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
-     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
+     * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
     /**
@@ -423,7 +461,7 @@ export interface GatewayArgs {
      */
     smbFileShareVisibility?: pulumi.Input<boolean>;
     /**
-     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` gateway type. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
+     * Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
      */
     smbGuestPassword?: pulumi.Input<string>;
     /**

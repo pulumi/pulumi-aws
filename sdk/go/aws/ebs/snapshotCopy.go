@@ -320,9 +320,7 @@ func (i SnapshotCopyMap) ToSnapshotCopyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyMapOutput)
 }
 
-type SnapshotCopyOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotCopyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCopyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnapshotCopy)(nil))
@@ -341,14 +339,12 @@ func (o SnapshotCopyOutput) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
 }
 
 func (o SnapshotCopyOutput) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
-	return o.ApplyT(func(v SnapshotCopy) *SnapshotCopy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotCopy) *SnapshotCopy {
 		return &v
 	}).(SnapshotCopyPtrOutput)
 }
 
-type SnapshotCopyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SnapshotCopyPtrOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCopyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnapshotCopy)(nil))
@@ -360,6 +356,16 @@ func (o SnapshotCopyPtrOutput) ToSnapshotCopyPtrOutput() SnapshotCopyPtrOutput {
 
 func (o SnapshotCopyPtrOutput) ToSnapshotCopyPtrOutputWithContext(ctx context.Context) SnapshotCopyPtrOutput {
 	return o
+}
+
+func (o SnapshotCopyPtrOutput) Elem() SnapshotCopyOutput {
+	return o.ApplyT(func(v *SnapshotCopy) SnapshotCopy {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotCopy
+		return ret
+	}).(SnapshotCopyOutput)
 }
 
 type SnapshotCopyArrayOutput struct{ *pulumi.OutputState }

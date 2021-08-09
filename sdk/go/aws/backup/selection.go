@@ -331,9 +331,7 @@ func (i SelectionMap) ToSelectionMapOutputWithContext(ctx context.Context) Selec
 	return pulumi.ToOutputWithContext(ctx, i).(SelectionMapOutput)
 }
 
-type SelectionOutput struct {
-	*pulumi.OutputState
-}
+type SelectionOutput struct{ *pulumi.OutputState }
 
 func (SelectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Selection)(nil))
@@ -352,14 +350,12 @@ func (o SelectionOutput) ToSelectionPtrOutput() SelectionPtrOutput {
 }
 
 func (o SelectionOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
-	return o.ApplyT(func(v Selection) *Selection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Selection) *Selection {
 		return &v
 	}).(SelectionPtrOutput)
 }
 
-type SelectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SelectionPtrOutput struct{ *pulumi.OutputState }
 
 func (SelectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Selection)(nil))
@@ -371,6 +367,16 @@ func (o SelectionPtrOutput) ToSelectionPtrOutput() SelectionPtrOutput {
 
 func (o SelectionPtrOutput) ToSelectionPtrOutputWithContext(ctx context.Context) SelectionPtrOutput {
 	return o
+}
+
+func (o SelectionPtrOutput) Elem() SelectionOutput {
+	return o.ApplyT(func(v *Selection) Selection {
+		if v != nil {
+			return *v
+		}
+		var ret Selection
+		return ret
+	}).(SelectionOutput)
 }
 
 type SelectionArrayOutput struct{ *pulumi.OutputState }

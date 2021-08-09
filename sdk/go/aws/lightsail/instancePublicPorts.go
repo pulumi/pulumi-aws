@@ -232,9 +232,7 @@ func (i InstancePublicPortsMap) ToInstancePublicPortsMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsMapOutput)
 }
 
-type InstancePublicPortsOutput struct {
-	*pulumi.OutputState
-}
+type InstancePublicPortsOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstancePublicPorts)(nil))
@@ -253,14 +251,12 @@ func (o InstancePublicPortsOutput) ToInstancePublicPortsPtrOutput() InstancePubl
 }
 
 func (o InstancePublicPortsOutput) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
-	return o.ApplyT(func(v InstancePublicPorts) *InstancePublicPorts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePublicPorts) *InstancePublicPorts {
 		return &v
 	}).(InstancePublicPortsPtrOutput)
 }
 
-type InstancePublicPortsPtrOutput struct {
-	*pulumi.OutputState
-}
+type InstancePublicPortsPtrOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InstancePublicPorts)(nil))
@@ -272,6 +268,16 @@ func (o InstancePublicPortsPtrOutput) ToInstancePublicPortsPtrOutput() InstanceP
 
 func (o InstancePublicPortsPtrOutput) ToInstancePublicPortsPtrOutputWithContext(ctx context.Context) InstancePublicPortsPtrOutput {
 	return o
+}
+
+func (o InstancePublicPortsPtrOutput) Elem() InstancePublicPortsOutput {
+	return o.ApplyT(func(v *InstancePublicPorts) InstancePublicPorts {
+		if v != nil {
+			return *v
+		}
+		var ret InstancePublicPorts
+		return ret
+	}).(InstancePublicPortsOutput)
 }
 
 type InstancePublicPortsArrayOutput struct{ *pulumi.OutputState }

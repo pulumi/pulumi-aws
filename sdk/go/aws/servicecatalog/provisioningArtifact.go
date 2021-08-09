@@ -315,9 +315,7 @@ func (i ProvisioningArtifactMap) ToProvisioningArtifactMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningArtifactMapOutput)
 }
 
-type ProvisioningArtifactOutput struct {
-	*pulumi.OutputState
-}
+type ProvisioningArtifactOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProvisioningArtifact)(nil))
@@ -336,14 +334,12 @@ func (o ProvisioningArtifactOutput) ToProvisioningArtifactPtrOutput() Provisioni
 }
 
 func (o ProvisioningArtifactOutput) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
-	return o.ApplyT(func(v ProvisioningArtifact) *ProvisioningArtifact {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProvisioningArtifact) *ProvisioningArtifact {
 		return &v
 	}).(ProvisioningArtifactPtrOutput)
 }
 
-type ProvisioningArtifactPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProvisioningArtifactPtrOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningArtifactPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProvisioningArtifact)(nil))
@@ -355,6 +351,16 @@ func (o ProvisioningArtifactPtrOutput) ToProvisioningArtifactPtrOutput() Provisi
 
 func (o ProvisioningArtifactPtrOutput) ToProvisioningArtifactPtrOutputWithContext(ctx context.Context) ProvisioningArtifactPtrOutput {
 	return o
+}
+
+func (o ProvisioningArtifactPtrOutput) Elem() ProvisioningArtifactOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) ProvisioningArtifact {
+		if v != nil {
+			return *v
+		}
+		var ret ProvisioningArtifact
+		return ret
+	}).(ProvisioningArtifactOutput)
 }
 
 type ProvisioningArtifactArrayOutput struct{ *pulumi.OutputState }

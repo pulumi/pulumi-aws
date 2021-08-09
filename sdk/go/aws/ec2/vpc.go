@@ -404,9 +404,7 @@ func (i VpcMap) ToVpcMapOutputWithContext(ctx context.Context) VpcMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcMapOutput)
 }
 
-type VpcOutput struct {
-	*pulumi.OutputState
-}
+type VpcOutput struct{ *pulumi.OutputState }
 
 func (VpcOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Vpc)(nil))
@@ -425,14 +423,12 @@ func (o VpcOutput) ToVpcPtrOutput() VpcPtrOutput {
 }
 
 func (o VpcOutput) ToVpcPtrOutputWithContext(ctx context.Context) VpcPtrOutput {
-	return o.ApplyT(func(v Vpc) *Vpc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Vpc) *Vpc {
 		return &v
 	}).(VpcPtrOutput)
 }
 
-type VpcPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Vpc)(nil))
@@ -444,6 +440,16 @@ func (o VpcPtrOutput) ToVpcPtrOutput() VpcPtrOutput {
 
 func (o VpcPtrOutput) ToVpcPtrOutputWithContext(ctx context.Context) VpcPtrOutput {
 	return o
+}
+
+func (o VpcPtrOutput) Elem() VpcOutput {
+	return o.ApplyT(func(v *Vpc) Vpc {
+		if v != nil {
+			return *v
+		}
+		var ret Vpc
+		return ret
+	}).(VpcOutput)
 }
 
 type VpcArrayOutput struct{ *pulumi.OutputState }

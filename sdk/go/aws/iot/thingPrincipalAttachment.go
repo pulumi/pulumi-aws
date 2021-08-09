@@ -190,9 +190,7 @@ func (i ThingPrincipalAttachmentMap) ToThingPrincipalAttachmentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentMapOutput)
 }
 
-type ThingPrincipalAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type ThingPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
@@ -211,14 +209,12 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentPtrOutput() Th
 }
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
-	return o.ApplyT(func(v ThingPrincipalAttachment) *ThingPrincipalAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingPrincipalAttachment) *ThingPrincipalAttachment {
 		return &v
 	}).(ThingPrincipalAttachmentPtrOutput)
 }
 
-type ThingPrincipalAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type ThingPrincipalAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ThingPrincipalAttachment)(nil))
@@ -230,6 +226,16 @@ func (o ThingPrincipalAttachmentPtrOutput) ToThingPrincipalAttachmentPtrOutput()
 
 func (o ThingPrincipalAttachmentPtrOutput) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
 	return o
+}
+
+func (o ThingPrincipalAttachmentPtrOutput) Elem() ThingPrincipalAttachmentOutput {
+	return o.ApplyT(func(v *ThingPrincipalAttachment) ThingPrincipalAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret ThingPrincipalAttachment
+		return ret
+	}).(ThingPrincipalAttachmentOutput)
 }
 
 type ThingPrincipalAttachmentArrayOutput struct{ *pulumi.OutputState }

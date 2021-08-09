@@ -227,9 +227,7 @@ func (i ProductSubscriptionMap) ToProductSubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionMapOutput)
 }
 
-type ProductSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type ProductSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (ProductSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProductSubscription)(nil))
@@ -248,14 +246,12 @@ func (o ProductSubscriptionOutput) ToProductSubscriptionPtrOutput() ProductSubsc
 }
 
 func (o ProductSubscriptionOutput) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
-	return o.ApplyT(func(v ProductSubscription) *ProductSubscription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductSubscription) *ProductSubscription {
 		return &v
 	}).(ProductSubscriptionPtrOutput)
 }
 
-type ProductSubscriptionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductSubscriptionPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductSubscriptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProductSubscription)(nil))
@@ -267,6 +263,16 @@ func (o ProductSubscriptionPtrOutput) ToProductSubscriptionPtrOutput() ProductSu
 
 func (o ProductSubscriptionPtrOutput) ToProductSubscriptionPtrOutputWithContext(ctx context.Context) ProductSubscriptionPtrOutput {
 	return o
+}
+
+func (o ProductSubscriptionPtrOutput) Elem() ProductSubscriptionOutput {
+	return o.ApplyT(func(v *ProductSubscription) ProductSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret ProductSubscription
+		return ret
+	}).(ProductSubscriptionOutput)
 }
 
 type ProductSubscriptionArrayOutput struct{ *pulumi.OutputState }

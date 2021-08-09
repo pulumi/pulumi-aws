@@ -258,9 +258,7 @@ func (i AppImageConfigMap) ToAppImageConfigMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AppImageConfigMapOutput)
 }
 
-type AppImageConfigOutput struct {
-	*pulumi.OutputState
-}
+type AppImageConfigOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AppImageConfig)(nil))
@@ -279,14 +277,12 @@ func (o AppImageConfigOutput) ToAppImageConfigPtrOutput() AppImageConfigPtrOutpu
 }
 
 func (o AppImageConfigOutput) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
-	return o.ApplyT(func(v AppImageConfig) *AppImageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfig) *AppImageConfig {
 		return &v
 	}).(AppImageConfigPtrOutput)
 }
 
-type AppImageConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type AppImageConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (AppImageConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AppImageConfig)(nil))
@@ -298,6 +294,16 @@ func (o AppImageConfigPtrOutput) ToAppImageConfigPtrOutput() AppImageConfigPtrOu
 
 func (o AppImageConfigPtrOutput) ToAppImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigPtrOutput {
 	return o
+}
+
+func (o AppImageConfigPtrOutput) Elem() AppImageConfigOutput {
+	return o.ApplyT(func(v *AppImageConfig) AppImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfig
+		return ret
+	}).(AppImageConfigOutput)
 }
 
 type AppImageConfigArrayOutput struct{ *pulumi.OutputState }

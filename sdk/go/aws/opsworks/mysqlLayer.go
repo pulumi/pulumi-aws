@@ -411,9 +411,7 @@ func (i MysqlLayerMap) ToMysqlLayerMapOutputWithContext(ctx context.Context) Mys
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerMapOutput)
 }
 
-type MysqlLayerOutput struct {
-	*pulumi.OutputState
-}
+type MysqlLayerOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MysqlLayer)(nil))
@@ -432,14 +430,12 @@ func (o MysqlLayerOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
 }
 
 func (o MysqlLayerOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
-	return o.ApplyT(func(v MysqlLayer) *MysqlLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayer) *MysqlLayer {
 		return &v
 	}).(MysqlLayerPtrOutput)
 }
 
-type MysqlLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type MysqlLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MysqlLayer)(nil))
@@ -451,6 +447,16 @@ func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
 
 func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
 	return o
+}
+
+func (o MysqlLayerPtrOutput) Elem() MysqlLayerOutput {
+	return o.ApplyT(func(v *MysqlLayer) MysqlLayer {
+		if v != nil {
+			return *v
+		}
+		var ret MysqlLayer
+		return ret
+	}).(MysqlLayerOutput)
 }
 
 type MysqlLayerArrayOutput struct{ *pulumi.OutputState }

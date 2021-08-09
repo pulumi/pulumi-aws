@@ -266,9 +266,7 @@ func (i BucketMetricMap) ToBucketMetricMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricMapOutput)
 }
 
-type BucketMetricOutput struct {
-	*pulumi.OutputState
-}
+type BucketMetricOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketMetric)(nil))
@@ -287,14 +285,12 @@ func (o BucketMetricOutput) ToBucketMetricPtrOutput() BucketMetricPtrOutput {
 }
 
 func (o BucketMetricOutput) ToBucketMetricPtrOutputWithContext(ctx context.Context) BucketMetricPtrOutput {
-	return o.ApplyT(func(v BucketMetric) *BucketMetric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketMetric) *BucketMetric {
 		return &v
 	}).(BucketMetricPtrOutput)
 }
 
-type BucketMetricPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketMetricPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketMetric)(nil))
@@ -306,6 +302,16 @@ func (o BucketMetricPtrOutput) ToBucketMetricPtrOutput() BucketMetricPtrOutput {
 
 func (o BucketMetricPtrOutput) ToBucketMetricPtrOutputWithContext(ctx context.Context) BucketMetricPtrOutput {
 	return o
+}
+
+func (o BucketMetricPtrOutput) Elem() BucketMetricOutput {
+	return o.ApplyT(func(v *BucketMetric) BucketMetric {
+		if v != nil {
+			return *v
+		}
+		var ret BucketMetric
+		return ret
+	}).(BucketMetricOutput)
 }
 
 type BucketMetricArrayOutput struct{ *pulumi.OutputState }

@@ -280,9 +280,7 @@ func (i ApnsChannelMap) ToApnsChannelMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsChannelMapOutput)
 }
 
-type ApnsChannelOutput struct {
-	*pulumi.OutputState
-}
+type ApnsChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApnsChannel)(nil))
@@ -301,14 +299,12 @@ func (o ApnsChannelOutput) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
 }
 
 func (o ApnsChannelOutput) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
-	return o.ApplyT(func(v ApnsChannel) *ApnsChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApnsChannel) *ApnsChannel {
 		return &v
 	}).(ApnsChannelPtrOutput)
 }
 
-type ApnsChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApnsChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (ApnsChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApnsChannel)(nil))
@@ -320,6 +316,16 @@ func (o ApnsChannelPtrOutput) ToApnsChannelPtrOutput() ApnsChannelPtrOutput {
 
 func (o ApnsChannelPtrOutput) ToApnsChannelPtrOutputWithContext(ctx context.Context) ApnsChannelPtrOutput {
 	return o
+}
+
+func (o ApnsChannelPtrOutput) Elem() ApnsChannelOutput {
+	return o.ApplyT(func(v *ApnsChannel) ApnsChannel {
+		if v != nil {
+			return *v
+		}
+		var ret ApnsChannel
+		return ret
+	}).(ApnsChannelOutput)
 }
 
 type ApnsChannelArrayOutput struct{ *pulumi.OutputState }

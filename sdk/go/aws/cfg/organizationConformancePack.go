@@ -348,9 +348,7 @@ func (i OrganizationConformancePackMap) ToOrganizationConformancePackMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConformancePackMapOutput)
 }
 
-type OrganizationConformancePackOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationConformancePackOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationConformancePack)(nil))
@@ -369,14 +367,12 @@ func (o OrganizationConformancePackOutput) ToOrganizationConformancePackPtrOutpu
 }
 
 func (o OrganizationConformancePackOutput) ToOrganizationConformancePackPtrOutputWithContext(ctx context.Context) OrganizationConformancePackPtrOutput {
-	return o.ApplyT(func(v OrganizationConformancePack) *OrganizationConformancePack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConformancePack) *OrganizationConformancePack {
 		return &v
 	}).(OrganizationConformancePackPtrOutput)
 }
 
-type OrganizationConformancePackPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationConformancePackPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConformancePackPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationConformancePack)(nil))
@@ -388,6 +384,16 @@ func (o OrganizationConformancePackPtrOutput) ToOrganizationConformancePackPtrOu
 
 func (o OrganizationConformancePackPtrOutput) ToOrganizationConformancePackPtrOutputWithContext(ctx context.Context) OrganizationConformancePackPtrOutput {
 	return o
+}
+
+func (o OrganizationConformancePackPtrOutput) Elem() OrganizationConformancePackOutput {
+	return o.ApplyT(func(v *OrganizationConformancePack) OrganizationConformancePack {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConformancePack
+		return ret
+	}).(OrganizationConformancePackOutput)
 }
 
 type OrganizationConformancePackArrayOutput struct{ *pulumi.OutputState }

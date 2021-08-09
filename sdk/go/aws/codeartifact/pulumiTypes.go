@@ -107,7 +107,7 @@ func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrO
 }
 
 func (o RepositoryExternalConnectionsOutput) ToRepositoryExternalConnectionsPtrOutputWithContext(ctx context.Context) RepositoryExternalConnectionsPtrOutput {
-	return o.ApplyT(func(v RepositoryExternalConnections) *RepositoryExternalConnections {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryExternalConnections) *RepositoryExternalConnections {
 		return &v
 	}).(RepositoryExternalConnectionsPtrOutput)
 }
@@ -140,7 +140,13 @@ func (o RepositoryExternalConnectionsPtrOutput) ToRepositoryExternalConnectionsP
 }
 
 func (o RepositoryExternalConnectionsPtrOutput) Elem() RepositoryExternalConnectionsOutput {
-	return o.ApplyT(func(v *RepositoryExternalConnections) RepositoryExternalConnections { return *v }).(RepositoryExternalConnectionsOutput)
+	return o.ApplyT(func(v *RepositoryExternalConnections) RepositoryExternalConnections {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryExternalConnections
+		return ret
+	}).(RepositoryExternalConnectionsOutput)
 }
 
 // The name of the external connection associated with a repository.

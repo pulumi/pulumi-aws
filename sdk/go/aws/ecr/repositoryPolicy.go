@@ -237,9 +237,7 @@ func (i RepositoryPolicyMap) ToRepositoryPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMapOutput)
 }
 
-type RepositoryPolicyOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicy)(nil))
@@ -258,14 +256,12 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyPtrOutput() RepositoryPolicyPt
 }
 
 func (o RepositoryPolicyOutput) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicy) *RepositoryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicy) *RepositoryPolicy {
 		return &v
 	}).(RepositoryPolicyPtrOutput)
 }
 
-type RepositoryPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicy)(nil))
@@ -277,6 +273,16 @@ func (o RepositoryPolicyPtrOutput) ToRepositoryPolicyPtrOutput() RepositoryPolic
 
 func (o RepositoryPolicyPtrOutput) ToRepositoryPolicyPtrOutputWithContext(ctx context.Context) RepositoryPolicyPtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyPtrOutput) Elem() RepositoryPolicyOutput {
+	return o.ApplyT(func(v *RepositoryPolicy) RepositoryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicy
+		return ret
+	}).(RepositoryPolicyOutput)
 }
 
 type RepositoryPolicyArrayOutput struct{ *pulumi.OutputState }

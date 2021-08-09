@@ -198,9 +198,7 @@ func (i EncryptionByDefaultMap) ToEncryptionByDefaultMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultMapOutput)
 }
 
-type EncryptionByDefaultOutput struct {
-	*pulumi.OutputState
-}
+type EncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EncryptionByDefault)(nil))
@@ -219,14 +217,12 @@ func (o EncryptionByDefaultOutput) ToEncryptionByDefaultPtrOutput() EncryptionBy
 }
 
 func (o EncryptionByDefaultOutput) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
-	return o.ApplyT(func(v EncryptionByDefault) *EncryptionByDefault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionByDefault) *EncryptionByDefault {
 		return &v
 	}).(EncryptionByDefaultPtrOutput)
 }
 
-type EncryptionByDefaultPtrOutput struct {
-	*pulumi.OutputState
-}
+type EncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EncryptionByDefault)(nil))
@@ -238,6 +234,16 @@ func (o EncryptionByDefaultPtrOutput) ToEncryptionByDefaultPtrOutput() Encryptio
 
 func (o EncryptionByDefaultPtrOutput) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
 	return o
+}
+
+func (o EncryptionByDefaultPtrOutput) Elem() EncryptionByDefaultOutput {
+	return o.ApplyT(func(v *EncryptionByDefault) EncryptionByDefault {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionByDefault
+		return ret
+	}).(EncryptionByDefaultOutput)
 }
 
 type EncryptionByDefaultArrayOutput struct{ *pulumi.OutputState }

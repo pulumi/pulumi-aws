@@ -343,9 +343,7 @@ func (i PlatformApplicationMap) ToPlatformApplicationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PlatformApplicationMapOutput)
 }
 
-type PlatformApplicationOutput struct {
-	*pulumi.OutputState
-}
+type PlatformApplicationOutput struct{ *pulumi.OutputState }
 
 func (PlatformApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PlatformApplication)(nil))
@@ -364,14 +362,12 @@ func (o PlatformApplicationOutput) ToPlatformApplicationPtrOutput() PlatformAppl
 }
 
 func (o PlatformApplicationOutput) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
-	return o.ApplyT(func(v PlatformApplication) *PlatformApplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlatformApplication) *PlatformApplication {
 		return &v
 	}).(PlatformApplicationPtrOutput)
 }
 
-type PlatformApplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type PlatformApplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (PlatformApplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PlatformApplication)(nil))
@@ -383,6 +379,16 @@ func (o PlatformApplicationPtrOutput) ToPlatformApplicationPtrOutput() PlatformA
 
 func (o PlatformApplicationPtrOutput) ToPlatformApplicationPtrOutputWithContext(ctx context.Context) PlatformApplicationPtrOutput {
 	return o
+}
+
+func (o PlatformApplicationPtrOutput) Elem() PlatformApplicationOutput {
+	return o.ApplyT(func(v *PlatformApplication) PlatformApplication {
+		if v != nil {
+			return *v
+		}
+		var ret PlatformApplication
+		return ret
+	}).(PlatformApplicationOutput)
 }
 
 type PlatformApplicationArrayOutput struct{ *pulumi.OutputState }

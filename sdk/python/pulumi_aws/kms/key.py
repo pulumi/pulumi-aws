@@ -13,6 +13,7 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class KeyArgs:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -34,6 +36,8 @@ class KeyArgs:
                Defaults to `ENCRYPT_DECRYPT`.
         :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
         """
+        if bypass_policy_lockout_safety_check is not None:
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if customer_master_key_spec is not None:
             pulumi.set(__self__, "customer_master_key_spec", customer_master_key_spec)
         if deletion_window_in_days is not None:
@@ -52,6 +56,18 @@ class KeyArgs:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
+
+    @bypass_policy_lockout_safety_check.setter
+    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
@@ -162,6 +178,7 @@ class KeyArgs:
 class _KeyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -175,6 +192,7 @@ class _KeyState:
         """
         Input properties used for looking up and filtering Key resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -188,6 +206,8 @@ class _KeyState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if bypass_policy_lockout_safety_check is not None:
+            pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
         if customer_master_key_spec is not None:
             pulumi.set(__self__, "customer_master_key_spec", customer_master_key_spec)
         if deletion_window_in_days is not None:
@@ -220,6 +240,18 @@ class _KeyState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
+
+    @bypass_policy_lockout_safety_check.setter
+    def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")
@@ -343,6 +375,7 @@ class Key(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -377,6 +410,7 @@ class Key(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -430,6 +464,7 @@ class Key(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  customer_master_key_spec: Optional[pulumi.Input[str]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -451,6 +486,7 @@ class Key(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyArgs.__new__(KeyArgs)
 
+            __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["customer_master_key_spec"] = customer_master_key_spec
             __props__.__dict__["deletion_window_in_days"] = deletion_window_in_days
             __props__.__dict__["description"] = description
@@ -473,6 +509,7 @@ class Key(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
             customer_master_key_spec: Optional[pulumi.Input[str]] = None,
             deletion_window_in_days: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -491,6 +528,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[bool] bypass_policy_lockout_safety_check: Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
         :param pulumi.Input[str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
                Valid values: `SYMMETRIC_DEFAULT`,  `RSA_2048`, `RSA_3072`, `RSA_4096`, `ECC_NIST_P256`, `ECC_NIST_P384`, `ECC_NIST_P521`, or `ECC_SECG_P256K1`. Defaults to `SYMMETRIC_DEFAULT`. For help with choosing a key spec, see the [AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html).
         :param pulumi.Input[int] deletion_window_in_days: Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
@@ -507,6 +545,7 @@ class Key(pulumi.CustomResource):
         __props__ = _KeyState.__new__(_KeyState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
         __props__.__dict__["customer_master_key_spec"] = customer_master_key_spec
         __props__.__dict__["deletion_window_in_days"] = deletion_window_in_days
         __props__.__dict__["description"] = description
@@ -526,6 +565,14 @@ class Key(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the key.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
+    def bypass_policy_lockout_safety_check(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        """
+        return pulumi.get(self, "bypass_policy_lockout_safety_check")
 
     @property
     @pulumi.getter(name="customerMasterKeySpec")

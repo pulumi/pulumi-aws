@@ -331,9 +331,7 @@ func (i TaskMap) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskMapOutput)
 }
 
-type TaskOutput struct {
-	*pulumi.OutputState
-}
+type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Task)(nil))
@@ -352,14 +350,12 @@ func (o TaskOutput) ToTaskPtrOutput() TaskPtrOutput {
 }
 
 func (o TaskOutput) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
-	return o.ApplyT(func(v Task) *Task {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Task) *Task {
 		return &v
 	}).(TaskPtrOutput)
 }
 
-type TaskPtrOutput struct {
-	*pulumi.OutputState
-}
+type TaskPtrOutput struct{ *pulumi.OutputState }
 
 func (TaskPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Task)(nil))
@@ -371,6 +367,16 @@ func (o TaskPtrOutput) ToTaskPtrOutput() TaskPtrOutput {
 
 func (o TaskPtrOutput) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
 	return o
+}
+
+func (o TaskPtrOutput) Elem() TaskOutput {
+	return o.ApplyT(func(v *Task) Task {
+		if v != nil {
+			return *v
+		}
+		var ret Task
+		return ret
+	}).(TaskOutput)
 }
 
 type TaskArrayOutput struct{ *pulumi.OutputState }

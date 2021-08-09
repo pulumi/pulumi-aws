@@ -269,9 +269,7 @@ func (i EfsLocationMap) ToEfsLocationMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EfsLocationMapOutput)
 }
 
-type EfsLocationOutput struct {
-	*pulumi.OutputState
-}
+type EfsLocationOutput struct{ *pulumi.OutputState }
 
 func (EfsLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EfsLocation)(nil))
@@ -290,14 +288,12 @@ func (o EfsLocationOutput) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
 }
 
 func (o EfsLocationOutput) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
-	return o.ApplyT(func(v EfsLocation) *EfsLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EfsLocation) *EfsLocation {
 		return &v
 	}).(EfsLocationPtrOutput)
 }
 
-type EfsLocationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EfsLocationPtrOutput struct{ *pulumi.OutputState }
 
 func (EfsLocationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EfsLocation)(nil))
@@ -309,6 +305,16 @@ func (o EfsLocationPtrOutput) ToEfsLocationPtrOutput() EfsLocationPtrOutput {
 
 func (o EfsLocationPtrOutput) ToEfsLocationPtrOutputWithContext(ctx context.Context) EfsLocationPtrOutput {
 	return o
+}
+
+func (o EfsLocationPtrOutput) Elem() EfsLocationOutput {
+	return o.ApplyT(func(v *EfsLocation) EfsLocation {
+		if v != nil {
+			return *v
+		}
+		var ret EfsLocation
+		return ret
+	}).(EfsLocationOutput)
 }
 
 type EfsLocationArrayOutput struct{ *pulumi.OutputState }

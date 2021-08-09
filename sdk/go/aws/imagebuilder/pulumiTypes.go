@@ -240,7 +240,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 }
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfiguration) *DistributionConfigurationDistributionAmiDistributionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfiguration) *DistributionConfigurationDistributionAmiDistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
 }
@@ -299,7 +299,11 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfiguration) DistributionConfigurationDistributionAmiDistributionConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionAmiDistributionConfiguration
+		return ret
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 }
 
@@ -460,7 +464,7 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 }
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput {
-	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		return &v
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
@@ -495,7 +499,11 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
 	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission
+		return ret
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
@@ -616,7 +624,7 @@ func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOut
 }
 
 func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
-	return o.ApplyT(func(v ImageImageTestsConfiguration) *ImageImageTestsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageImageTestsConfiguration) *ImageImageTestsConfiguration {
 		return &v
 	}).(ImageImageTestsConfigurationPtrOutput)
 }
@@ -646,7 +654,13 @@ func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtr
 }
 
 func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurationOutput {
-	return o.ApplyT(func(v *ImageImageTestsConfiguration) ImageImageTestsConfiguration { return *v }).(ImageImageTestsConfigurationOutput)
+	return o.ApplyT(func(v *ImageImageTestsConfiguration) ImageImageTestsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImageImageTestsConfiguration
+		return ret
+	}).(ImageImageTestsConfigurationOutput)
 }
 
 // Whether image tests are enabled. Defaults to `true`.
@@ -996,7 +1010,7 @@ func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsCon
 }
 
 func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
-	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *ImagePipelineImageTestsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageTestsConfiguration) *ImagePipelineImageTestsConfiguration {
 		return &v
 	}).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
@@ -1026,7 +1040,13 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTests
 }
 
 func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImageTestsConfigurationOutput {
-	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) ImagePipelineImageTestsConfiguration { return *v }).(ImagePipelineImageTestsConfigurationOutput)
+	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) ImagePipelineImageTestsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageTestsConfiguration
+		return ret
+	}).(ImagePipelineImageTestsConfigurationOutput)
 }
 
 // Whether image tests are enabled. Defaults to `true`.
@@ -1146,7 +1166,7 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutput() ImagePip
 }
 
 func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
-	return o.ApplyT(func(v ImagePipelineSchedule) *ImagePipelineSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineSchedule) *ImagePipelineSchedule {
 		return &v
 	}).(ImagePipelineSchedulePtrOutput)
 }
@@ -1176,7 +1196,13 @@ func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutputWithCont
 }
 
 func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
-	return o.ApplyT(func(v *ImagePipelineSchedule) ImagePipelineSchedule { return *v }).(ImagePipelineScheduleOutput)
+	return o.ApplyT(func(v *ImagePipelineSchedule) ImagePipelineSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineSchedule
+		return ret
+	}).(ImagePipelineScheduleOutput)
 }
 
 // Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
@@ -1440,7 +1466,7 @@ func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingE
 }
 
 func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
-	return o.ApplyT(func(v ImageRecipeBlockDeviceMappingEbs) *ImageRecipeBlockDeviceMappingEbs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeBlockDeviceMappingEbs) *ImageRecipeBlockDeviceMappingEbs {
 		return &v
 	}).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
 }
@@ -1495,7 +1521,13 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToImageRecipeBlockDeviceMappi
 }
 
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Elem() ImageRecipeBlockDeviceMappingEbsOutput {
-	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) ImageRecipeBlockDeviceMappingEbs { return *v }).(ImageRecipeBlockDeviceMappingEbsOutput)
+	return o.ApplyT(func(v *ImageRecipeBlockDeviceMappingEbs) ImageRecipeBlockDeviceMappingEbs {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipeBlockDeviceMappingEbs
+		return ret
+	}).(ImageRecipeBlockDeviceMappingEbsOutput)
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -1758,7 +1790,7 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 }
 
 func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
-	return o.ApplyT(func(v InfrastructureConfigurationLogging) *InfrastructureConfigurationLogging {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationLogging) *InfrastructureConfigurationLogging {
 		return &v
 	}).(InfrastructureConfigurationLoggingPtrOutput)
 }
@@ -1783,7 +1815,13 @@ func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurati
 }
 
 func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfigurationLoggingOutput {
-	return o.ApplyT(func(v *InfrastructureConfigurationLogging) InfrastructureConfigurationLogging { return *v }).(InfrastructureConfigurationLoggingOutput)
+	return o.ApplyT(func(v *InfrastructureConfigurationLogging) InfrastructureConfigurationLogging {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationLogging
+		return ret
+	}).(InfrastructureConfigurationLoggingOutput)
 }
 
 // Configuration block with S3 logging settings. Detailed below.
@@ -1893,7 +1931,7 @@ func (o InfrastructureConfigurationLoggingS3LogsOutput) ToInfrastructureConfigur
 }
 
 func (o InfrastructureConfigurationLoggingS3LogsOutput) ToInfrastructureConfigurationLoggingS3LogsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingS3LogsPtrOutput {
-	return o.ApplyT(func(v InfrastructureConfigurationLoggingS3Logs) *InfrastructureConfigurationLoggingS3Logs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationLoggingS3Logs) *InfrastructureConfigurationLoggingS3Logs {
 		return &v
 	}).(InfrastructureConfigurationLoggingS3LogsPtrOutput)
 }
@@ -1923,7 +1961,13 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) ToInfrastructureConfi
 }
 
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) Elem() InfrastructureConfigurationLoggingS3LogsOutput {
-	return o.ApplyT(func(v *InfrastructureConfigurationLoggingS3Logs) InfrastructureConfigurationLoggingS3Logs { return *v }).(InfrastructureConfigurationLoggingS3LogsOutput)
+	return o.ApplyT(func(v *InfrastructureConfigurationLoggingS3Logs) InfrastructureConfigurationLoggingS3Logs {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationLoggingS3Logs
+		return ret
+	}).(InfrastructureConfigurationLoggingS3LogsOutput)
 }
 
 // Name of the S3 Bucket.

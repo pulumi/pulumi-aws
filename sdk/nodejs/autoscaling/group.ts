@@ -457,7 +457,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly suspendedProcesses!: pulumi.Output<string[] | undefined>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
      */
     public readonly tags!: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
@@ -729,7 +729,7 @@ export interface GroupState {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
@@ -899,7 +899,7 @@ export interface GroupArgs {
      */
     suspendedProcesses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+     * Configuration block(s) containing resource tags. Conflicts with `tagsCollection`. Documented below.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**

@@ -502,9 +502,7 @@ func (i DomainNameMap) ToDomainNameMapOutputWithContext(ctx context.Context) Dom
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMapOutput)
 }
 
-type DomainNameOutput struct {
-	*pulumi.OutputState
-}
+type DomainNameOutput struct{ *pulumi.OutputState }
 
 func (DomainNameOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainName)(nil))
@@ -523,14 +521,12 @@ func (o DomainNameOutput) ToDomainNamePtrOutput() DomainNamePtrOutput {
 }
 
 func (o DomainNameOutput) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
-	return o.ApplyT(func(v DomainName) *DomainName {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainName) *DomainName {
 		return &v
 	}).(DomainNamePtrOutput)
 }
 
-type DomainNamePtrOutput struct {
-	*pulumi.OutputState
-}
+type DomainNamePtrOutput struct{ *pulumi.OutputState }
 
 func (DomainNamePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainName)(nil))
@@ -542,6 +538,16 @@ func (o DomainNamePtrOutput) ToDomainNamePtrOutput() DomainNamePtrOutput {
 
 func (o DomainNamePtrOutput) ToDomainNamePtrOutputWithContext(ctx context.Context) DomainNamePtrOutput {
 	return o
+}
+
+func (o DomainNamePtrOutput) Elem() DomainNameOutput {
+	return o.ApplyT(func(v *DomainName) DomainName {
+		if v != nil {
+			return *v
+		}
+		var ret DomainName
+		return ret
+	}).(DomainNameOutput)
 }
 
 type DomainNameArrayOutput struct{ *pulumi.OutputState }

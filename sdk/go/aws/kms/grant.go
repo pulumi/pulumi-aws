@@ -327,9 +327,7 @@ func (i GrantMap) ToGrantMapOutputWithContext(ctx context.Context) GrantMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GrantMapOutput)
 }
 
-type GrantOutput struct {
-	*pulumi.OutputState
-}
+type GrantOutput struct{ *pulumi.OutputState }
 
 func (GrantOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Grant)(nil))
@@ -348,14 +346,12 @@ func (o GrantOutput) ToGrantPtrOutput() GrantPtrOutput {
 }
 
 func (o GrantOutput) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
-	return o.ApplyT(func(v Grant) *Grant {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Grant) *Grant {
 		return &v
 	}).(GrantPtrOutput)
 }
 
-type GrantPtrOutput struct {
-	*pulumi.OutputState
-}
+type GrantPtrOutput struct{ *pulumi.OutputState }
 
 func (GrantPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Grant)(nil))
@@ -367,6 +363,16 @@ func (o GrantPtrOutput) ToGrantPtrOutput() GrantPtrOutput {
 
 func (o GrantPtrOutput) ToGrantPtrOutputWithContext(ctx context.Context) GrantPtrOutput {
 	return o
+}
+
+func (o GrantPtrOutput) Elem() GrantOutput {
+	return o.ApplyT(func(v *Grant) Grant {
+		if v != nil {
+			return *v
+		}
+		var ret Grant
+		return ret
+	}).(GrantOutput)
 }
 
 type GrantArrayOutput struct{ *pulumi.OutputState }

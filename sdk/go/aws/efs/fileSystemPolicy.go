@@ -228,9 +228,7 @@ func (i FileSystemPolicyMap) ToFileSystemPolicyMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemPolicyMapOutput)
 }
 
-type FileSystemPolicyOutput struct {
-	*pulumi.OutputState
-}
+type FileSystemPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileSystemPolicy)(nil))
@@ -249,14 +247,12 @@ func (o FileSystemPolicyOutput) ToFileSystemPolicyPtrOutput() FileSystemPolicyPt
 }
 
 func (o FileSystemPolicyOutput) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
-	return o.ApplyT(func(v FileSystemPolicy) *FileSystemPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemPolicy) *FileSystemPolicy {
 		return &v
 	}).(FileSystemPolicyPtrOutput)
 }
 
-type FileSystemPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type FileSystemPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FileSystemPolicy)(nil))
@@ -268,6 +264,16 @@ func (o FileSystemPolicyPtrOutput) ToFileSystemPolicyPtrOutput() FileSystemPolic
 
 func (o FileSystemPolicyPtrOutput) ToFileSystemPolicyPtrOutputWithContext(ctx context.Context) FileSystemPolicyPtrOutput {
 	return o
+}
+
+func (o FileSystemPolicyPtrOutput) Elem() FileSystemPolicyOutput {
+	return o.ApplyT(func(v *FileSystemPolicy) FileSystemPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemPolicy
+		return ret
+	}).(FileSystemPolicyOutput)
 }
 
 type FileSystemPolicyArrayOutput struct{ *pulumi.OutputState }

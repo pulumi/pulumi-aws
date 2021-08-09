@@ -282,9 +282,7 @@ func (i HostedTransitVirtualInterfaceAcceptorMap) ToHostedTransitVirtualInterfac
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceAcceptorMapOutput)
 }
 
-type HostedTransitVirtualInterfaceAcceptorOutput struct {
-	*pulumi.OutputState
-}
+type HostedTransitVirtualInterfaceAcceptorOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfaceAcceptorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostedTransitVirtualInterfaceAcceptor)(nil))
@@ -303,14 +301,12 @@ func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInter
 }
 
 func (o HostedTransitVirtualInterfaceAcceptorOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
-	return o.ApplyT(func(v HostedTransitVirtualInterfaceAcceptor) *HostedTransitVirtualInterfaceAcceptor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedTransitVirtualInterfaceAcceptor) *HostedTransitVirtualInterfaceAcceptor {
 		return &v
 	}).(HostedTransitVirtualInterfaceAcceptorPtrOutput)
 }
 
-type HostedTransitVirtualInterfaceAcceptorPtrOutput struct {
-	*pulumi.OutputState
-}
+type HostedTransitVirtualInterfaceAcceptorPtrOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfaceAcceptorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HostedTransitVirtualInterfaceAcceptor)(nil))
@@ -322,6 +318,16 @@ func (o HostedTransitVirtualInterfaceAcceptorPtrOutput) ToHostedTransitVirtualIn
 
 func (o HostedTransitVirtualInterfaceAcceptorPtrOutput) ToHostedTransitVirtualInterfaceAcceptorPtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceAcceptorPtrOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfaceAcceptorPtrOutput) Elem() HostedTransitVirtualInterfaceAcceptorOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterfaceAcceptor) HostedTransitVirtualInterfaceAcceptor {
+		if v != nil {
+			return *v
+		}
+		var ret HostedTransitVirtualInterfaceAcceptor
+		return ret
+	}).(HostedTransitVirtualInterfaceAcceptorOutput)
 }
 
 type HostedTransitVirtualInterfaceAcceptorArrayOutput struct{ *pulumi.OutputState }

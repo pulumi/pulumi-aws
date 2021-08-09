@@ -103,7 +103,7 @@ func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutpu
 }
 
 func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return o.ApplyT(func(v ClusterCertificateAuthority) *ClusterCertificateAuthority {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificateAuthority) *ClusterCertificateAuthority {
 		return &v
 	}).(ClusterCertificateAuthorityPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOu
 }
 
 func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority { return *v }).(ClusterCertificateAuthorityOutput)
+	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCertificateAuthority
+		return ret
+	}).(ClusterCertificateAuthorityOutput)
 }
 
 // Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
@@ -238,7 +244,7 @@ func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigPtrOutput() Clus
 }
 
 func (o ClusterEncryptionConfigOutput) ToClusterEncryptionConfigPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfig) *ClusterEncryptionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionConfig) *ClusterEncryptionConfig {
 		return &v
 	}).(ClusterEncryptionConfigPtrOutput)
 }
@@ -268,7 +274,13 @@ func (o ClusterEncryptionConfigPtrOutput) ToClusterEncryptionConfigPtrOutputWith
 }
 
 func (o ClusterEncryptionConfigPtrOutput) Elem() ClusterEncryptionConfigOutput {
-	return o.ApplyT(func(v *ClusterEncryptionConfig) ClusterEncryptionConfig { return *v }).(ClusterEncryptionConfigOutput)
+	return o.ApplyT(func(v *ClusterEncryptionConfig) ClusterEncryptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionConfig
+		return ret
+	}).(ClusterEncryptionConfigOutput)
 }
 
 // Configuration block with provider for encryption. Detailed below.
@@ -384,7 +396,7 @@ func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProvider
 }
 
 func (o ClusterEncryptionConfigProviderOutput) ToClusterEncryptionConfigProviderPtrOutputWithContext(ctx context.Context) ClusterEncryptionConfigProviderPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionConfigProvider) *ClusterEncryptionConfigProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionConfigProvider) *ClusterEncryptionConfigProvider {
 		return &v
 	}).(ClusterEncryptionConfigProviderPtrOutput)
 }
@@ -409,7 +421,13 @@ func (o ClusterEncryptionConfigProviderPtrOutput) ToClusterEncryptionConfigProvi
 }
 
 func (o ClusterEncryptionConfigProviderPtrOutput) Elem() ClusterEncryptionConfigProviderOutput {
-	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider { return *v }).(ClusterEncryptionConfigProviderOutput)
+	return o.ApplyT(func(v *ClusterEncryptionConfigProvider) ClusterEncryptionConfigProvider {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionConfigProvider
+		return ret
+	}).(ClusterEncryptionConfigProviderOutput)
 }
 
 // ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
@@ -709,7 +727,7 @@ func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPt
 }
 
 func (o ClusterKubernetesNetworkConfigOutput) ToClusterKubernetesNetworkConfigPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigPtrOutput {
-	return o.ApplyT(func(v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterKubernetesNetworkConfig) *ClusterKubernetesNetworkConfig {
 		return &v
 	}).(ClusterKubernetesNetworkConfigPtrOutput)
 }
@@ -734,7 +752,13 @@ func (o ClusterKubernetesNetworkConfigPtrOutput) ToClusterKubernetesNetworkConfi
 }
 
 func (o ClusterKubernetesNetworkConfigPtrOutput) Elem() ClusterKubernetesNetworkConfigOutput {
-	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) ClusterKubernetesNetworkConfig { return *v }).(ClusterKubernetesNetworkConfigOutput)
+	return o.ApplyT(func(v *ClusterKubernetesNetworkConfig) ClusterKubernetesNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterKubernetesNetworkConfig
+		return ret
+	}).(ClusterKubernetesNetworkConfigOutput)
 }
 
 // The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. You can only specify a custom CIDR block when you create a cluster, changing this value will force a new cluster to be created. The block must meet the following requirements:
@@ -864,7 +888,7 @@ func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPt
 }
 
 func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
-	return o.ApplyT(func(v ClusterVpcConfig) *ClusterVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConfig) *ClusterVpcConfig {
 		return &v
 	}).(ClusterVpcConfigPtrOutput)
 }
@@ -919,7 +943,13 @@ func (o ClusterVpcConfigPtrOutput) ToClusterVpcConfigPtrOutputWithContext(ctx co
 }
 
 func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) ClusterVpcConfig { return *v }).(ClusterVpcConfigOutput)
+	return o.ApplyT(func(v *ClusterVpcConfig) ClusterVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterVpcConfig
+		return ret
+	}).(ClusterVpcConfigOutput)
 }
 
 // Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
@@ -1219,7 +1249,7 @@ func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcPtrOutput(
 }
 
 func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcPtrOutput {
-	return o.ApplyT(func(v IdentityProviderConfigOidc) *IdentityProviderConfigOidc {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfigOidc) *IdentityProviderConfigOidc {
 		return &v
 	}).(IdentityProviderConfigOidcPtrOutput)
 }
@@ -1279,7 +1309,13 @@ func (o IdentityProviderConfigOidcPtrOutput) ToIdentityProviderConfigOidcPtrOutp
 }
 
 func (o IdentityProviderConfigOidcPtrOutput) Elem() IdentityProviderConfigOidcOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) IdentityProviderConfigOidc { return *v }).(IdentityProviderConfigOidcOutput)
+	return o.ApplyT(func(v *IdentityProviderConfigOidc) IdentityProviderConfigOidc {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityProviderConfigOidc
+		return ret
+	}).(IdentityProviderConfigOidcOutput)
 }
 
 // Client ID for the OpenID Connect identity provider.
@@ -1463,7 +1499,7 @@ func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutput() Node
 }
 
 func (o NodeGroupLaunchTemplateOutput) ToNodeGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) NodeGroupLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v NodeGroupLaunchTemplate) *NodeGroupLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupLaunchTemplate) *NodeGroupLaunchTemplate {
 		return &v
 	}).(NodeGroupLaunchTemplatePtrOutput)
 }
@@ -1498,7 +1534,13 @@ func (o NodeGroupLaunchTemplatePtrOutput) ToNodeGroupLaunchTemplatePtrOutputWith
 }
 
 func (o NodeGroupLaunchTemplatePtrOutput) Elem() NodeGroupLaunchTemplateOutput {
-	return o.ApplyT(func(v *NodeGroupLaunchTemplate) NodeGroupLaunchTemplate { return *v }).(NodeGroupLaunchTemplateOutput)
+	return o.ApplyT(func(v *NodeGroupLaunchTemplate) NodeGroupLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroupLaunchTemplate
+		return ret
+	}).(NodeGroupLaunchTemplateOutput)
 }
 
 // Identifier of the EC2 Launch Template. Conflicts with `name`.
@@ -1628,7 +1670,7 @@ func (o NodeGroupRemoteAccessOutput) ToNodeGroupRemoteAccessPtrOutput() NodeGrou
 }
 
 func (o NodeGroupRemoteAccessOutput) ToNodeGroupRemoteAccessPtrOutputWithContext(ctx context.Context) NodeGroupRemoteAccessPtrOutput {
-	return o.ApplyT(func(v NodeGroupRemoteAccess) *NodeGroupRemoteAccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupRemoteAccess) *NodeGroupRemoteAccess {
 		return &v
 	}).(NodeGroupRemoteAccessPtrOutput)
 }
@@ -1658,7 +1700,13 @@ func (o NodeGroupRemoteAccessPtrOutput) ToNodeGroupRemoteAccessPtrOutputWithCont
 }
 
 func (o NodeGroupRemoteAccessPtrOutput) Elem() NodeGroupRemoteAccessOutput {
-	return o.ApplyT(func(v *NodeGroupRemoteAccess) NodeGroupRemoteAccess { return *v }).(NodeGroupRemoteAccessOutput)
+	return o.ApplyT(func(v *NodeGroupRemoteAccess) NodeGroupRemoteAccess {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroupRemoteAccess
+		return ret
+	}).(NodeGroupRemoteAccessOutput)
 }
 
 // EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group. If you specify this configuration, but do not specify `sourceSecurityGroupIds` when you create an EKS Node Group, port 22 on the worker nodes is opened to the Internet (0.0.0.0/0).
@@ -1985,7 +2033,7 @@ func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigPtrOutput() NodeGr
 }
 
 func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigPtrOutputWithContext(ctx context.Context) NodeGroupScalingConfigPtrOutput {
-	return o.ApplyT(func(v NodeGroupScalingConfig) *NodeGroupScalingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupScalingConfig) *NodeGroupScalingConfig {
 		return &v
 	}).(NodeGroupScalingConfigPtrOutput)
 }
@@ -2020,7 +2068,13 @@ func (o NodeGroupScalingConfigPtrOutput) ToNodeGroupScalingConfigPtrOutputWithCo
 }
 
 func (o NodeGroupScalingConfigPtrOutput) Elem() NodeGroupScalingConfigOutput {
-	return o.ApplyT(func(v *NodeGroupScalingConfig) NodeGroupScalingConfig { return *v }).(NodeGroupScalingConfigOutput)
+	return o.ApplyT(func(v *NodeGroupScalingConfig) NodeGroupScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroupScalingConfig
+		return ret
+	}).(NodeGroupScalingConfigOutput)
 }
 
 // Desired number of worker nodes.

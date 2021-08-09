@@ -209,9 +209,7 @@ func (i ResourceGroupMap) ToResourceGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupMapOutput)
 }
 
-type ResourceGroupOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceGroup)(nil))
@@ -230,14 +228,12 @@ func (o ResourceGroupOutput) ToResourceGroupPtrOutput() ResourceGroupPtrOutput {
 }
 
 func (o ResourceGroupOutput) ToResourceGroupPtrOutputWithContext(ctx context.Context) ResourceGroupPtrOutput {
-	return o.ApplyT(func(v ResourceGroup) *ResourceGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGroup) *ResourceGroup {
 		return &v
 	}).(ResourceGroupPtrOutput)
 }
 
-type ResourceGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourceGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceGroup)(nil))
@@ -249,6 +245,16 @@ func (o ResourceGroupPtrOutput) ToResourceGroupPtrOutput() ResourceGroupPtrOutpu
 
 func (o ResourceGroupPtrOutput) ToResourceGroupPtrOutputWithContext(ctx context.Context) ResourceGroupPtrOutput {
 	return o
+}
+
+func (o ResourceGroupPtrOutput) Elem() ResourceGroupOutput {
+	return o.ApplyT(func(v *ResourceGroup) ResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGroup
+		return ret
+	}).(ResourceGroupOutput)
 }
 
 type ResourceGroupArrayOutput struct{ *pulumi.OutputState }

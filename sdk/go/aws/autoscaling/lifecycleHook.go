@@ -320,9 +320,7 @@ func (i LifecycleHookMap) ToLifecycleHookMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookMapOutput)
 }
 
-type LifecycleHookOutput struct {
-	*pulumi.OutputState
-}
+type LifecycleHookOutput struct{ *pulumi.OutputState }
 
 func (LifecycleHookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LifecycleHook)(nil))
@@ -341,14 +339,12 @@ func (o LifecycleHookOutput) ToLifecycleHookPtrOutput() LifecycleHookPtrOutput {
 }
 
 func (o LifecycleHookOutput) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
-	return o.ApplyT(func(v LifecycleHook) *LifecycleHook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecycleHook) *LifecycleHook {
 		return &v
 	}).(LifecycleHookPtrOutput)
 }
 
-type LifecycleHookPtrOutput struct {
-	*pulumi.OutputState
-}
+type LifecycleHookPtrOutput struct{ *pulumi.OutputState }
 
 func (LifecycleHookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LifecycleHook)(nil))
@@ -360,6 +356,16 @@ func (o LifecycleHookPtrOutput) ToLifecycleHookPtrOutput() LifecycleHookPtrOutpu
 
 func (o LifecycleHookPtrOutput) ToLifecycleHookPtrOutputWithContext(ctx context.Context) LifecycleHookPtrOutput {
 	return o
+}
+
+func (o LifecycleHookPtrOutput) Elem() LifecycleHookOutput {
+	return o.ApplyT(func(v *LifecycleHook) LifecycleHook {
+		if v != nil {
+			return *v
+		}
+		var ret LifecycleHook
+		return ret
+	}).(LifecycleHookOutput)
 }
 
 type LifecycleHookArrayOutput struct{ *pulumi.OutputState }

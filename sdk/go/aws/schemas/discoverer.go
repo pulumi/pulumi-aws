@@ -242,9 +242,7 @@ func (i DiscovererMap) ToDiscovererMapOutputWithContext(ctx context.Context) Dis
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererMapOutput)
 }
 
-type DiscovererOutput struct {
-	*pulumi.OutputState
-}
+type DiscovererOutput struct{ *pulumi.OutputState }
 
 func (DiscovererOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Discoverer)(nil))
@@ -263,14 +261,12 @@ func (o DiscovererOutput) ToDiscovererPtrOutput() DiscovererPtrOutput {
 }
 
 func (o DiscovererOutput) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
-	return o.ApplyT(func(v Discoverer) *Discoverer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Discoverer) *Discoverer {
 		return &v
 	}).(DiscovererPtrOutput)
 }
 
-type DiscovererPtrOutput struct {
-	*pulumi.OutputState
-}
+type DiscovererPtrOutput struct{ *pulumi.OutputState }
 
 func (DiscovererPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Discoverer)(nil))
@@ -282,6 +278,16 @@ func (o DiscovererPtrOutput) ToDiscovererPtrOutput() DiscovererPtrOutput {
 
 func (o DiscovererPtrOutput) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
 	return o
+}
+
+func (o DiscovererPtrOutput) Elem() DiscovererOutput {
+	return o.ApplyT(func(v *Discoverer) Discoverer {
+		if v != nil {
+			return *v
+		}
+		var ret Discoverer
+		return ret
+	}).(DiscovererOutput)
 }
 
 type DiscovererArrayOutput struct{ *pulumi.OutputState }

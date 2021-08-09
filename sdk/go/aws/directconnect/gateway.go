@@ -224,9 +224,7 @@ func (i GatewayMap) ToGatewayMapOutputWithContext(ctx context.Context) GatewayMa
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayMapOutput)
 }
 
-type GatewayOutput struct {
-	*pulumi.OutputState
-}
+type GatewayOutput struct{ *pulumi.OutputState }
 
 func (GatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Gateway)(nil))
@@ -245,14 +243,12 @@ func (o GatewayOutput) ToGatewayPtrOutput() GatewayPtrOutput {
 }
 
 func (o GatewayOutput) ToGatewayPtrOutputWithContext(ctx context.Context) GatewayPtrOutput {
-	return o.ApplyT(func(v Gateway) *Gateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Gateway) *Gateway {
 		return &v
 	}).(GatewayPtrOutput)
 }
 
-type GatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type GatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Gateway)(nil))
@@ -264,6 +260,16 @@ func (o GatewayPtrOutput) ToGatewayPtrOutput() GatewayPtrOutput {
 
 func (o GatewayPtrOutput) ToGatewayPtrOutputWithContext(ctx context.Context) GatewayPtrOutput {
 	return o
+}
+
+func (o GatewayPtrOutput) Elem() GatewayOutput {
+	return o.ApplyT(func(v *Gateway) Gateway {
+		if v != nil {
+			return *v
+		}
+		var ret Gateway
+		return ret
+	}).(GatewayOutput)
 }
 
 type GatewayArrayOutput struct{ *pulumi.OutputState }

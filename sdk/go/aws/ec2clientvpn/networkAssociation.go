@@ -279,9 +279,7 @@ func (i NetworkAssociationMap) ToNetworkAssociationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkAssociationMapOutput)
 }
 
-type NetworkAssociationOutput struct {
-	*pulumi.OutputState
-}
+type NetworkAssociationOutput struct{ *pulumi.OutputState }
 
 func (NetworkAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NetworkAssociation)(nil))
@@ -300,14 +298,12 @@ func (o NetworkAssociationOutput) ToNetworkAssociationPtrOutput() NetworkAssocia
 }
 
 func (o NetworkAssociationOutput) ToNetworkAssociationPtrOutputWithContext(ctx context.Context) NetworkAssociationPtrOutput {
-	return o.ApplyT(func(v NetworkAssociation) *NetworkAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkAssociation) *NetworkAssociation {
 		return &v
 	}).(NetworkAssociationPtrOutput)
 }
 
-type NetworkAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type NetworkAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (NetworkAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NetworkAssociation)(nil))
@@ -319,6 +315,16 @@ func (o NetworkAssociationPtrOutput) ToNetworkAssociationPtrOutput() NetworkAsso
 
 func (o NetworkAssociationPtrOutput) ToNetworkAssociationPtrOutputWithContext(ctx context.Context) NetworkAssociationPtrOutput {
 	return o
+}
+
+func (o NetworkAssociationPtrOutput) Elem() NetworkAssociationOutput {
+	return o.ApplyT(func(v *NetworkAssociation) NetworkAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret NetworkAssociation
+		return ret
+	}).(NetworkAssociationOutput)
 }
 
 type NetworkAssociationArrayOutput struct{ *pulumi.OutputState }

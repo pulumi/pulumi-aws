@@ -239,9 +239,7 @@ func (i ClusterRoleAssociationMap) ToClusterRoleAssociationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterRoleAssociationMapOutput)
 }
 
-type ClusterRoleAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ClusterRoleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ClusterRoleAssociation)(nil))
@@ -260,14 +258,12 @@ func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationPtrOutput() Cluste
 }
 
 func (o ClusterRoleAssociationOutput) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
-	return o.ApplyT(func(v ClusterRoleAssociation) *ClusterRoleAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRoleAssociation) *ClusterRoleAssociation {
 		return &v
 	}).(ClusterRoleAssociationPtrOutput)
 }
 
-type ClusterRoleAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterRoleAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterRoleAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ClusterRoleAssociation)(nil))
@@ -279,6 +275,16 @@ func (o ClusterRoleAssociationPtrOutput) ToClusterRoleAssociationPtrOutput() Clu
 
 func (o ClusterRoleAssociationPtrOutput) ToClusterRoleAssociationPtrOutputWithContext(ctx context.Context) ClusterRoleAssociationPtrOutput {
 	return o
+}
+
+func (o ClusterRoleAssociationPtrOutput) Elem() ClusterRoleAssociationOutput {
+	return o.ApplyT(func(v *ClusterRoleAssociation) ClusterRoleAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRoleAssociation
+		return ret
+	}).(ClusterRoleAssociationOutput)
 }
 
 type ClusterRoleAssociationArrayOutput struct{ *pulumi.OutputState }

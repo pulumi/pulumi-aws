@@ -238,7 +238,7 @@ func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutpu
 }
 
 func (o ClusterRestoreToPointInTimeOutput) ToClusterRestoreToPointInTimePtrOutputWithContext(ctx context.Context) ClusterRestoreToPointInTimePtrOutput {
-	return o.ApplyT(func(v ClusterRestoreToPointInTime) *ClusterRestoreToPointInTime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterRestoreToPointInTime) *ClusterRestoreToPointInTime {
 		return &v
 	}).(ClusterRestoreToPointInTimePtrOutput)
 }
@@ -279,7 +279,13 @@ func (o ClusterRestoreToPointInTimePtrOutput) ToClusterRestoreToPointInTimePtrOu
 }
 
 func (o ClusterRestoreToPointInTimePtrOutput) Elem() ClusterRestoreToPointInTimeOutput {
-	return o.ApplyT(func(v *ClusterRestoreToPointInTime) ClusterRestoreToPointInTime { return *v }).(ClusterRestoreToPointInTimeOutput)
+	return o.ApplyT(func(v *ClusterRestoreToPointInTime) ClusterRestoreToPointInTime {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterRestoreToPointInTime
+		return ret
+	}).(ClusterRestoreToPointInTimeOutput)
 }
 
 // Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
@@ -432,7 +438,7 @@ func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutput() ClusterS3ImportPtrOu
 }
 
 func (o ClusterS3ImportOutput) ToClusterS3ImportPtrOutputWithContext(ctx context.Context) ClusterS3ImportPtrOutput {
-	return o.ApplyT(func(v ClusterS3Import) *ClusterS3Import {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterS3Import) *ClusterS3Import {
 		return &v
 	}).(ClusterS3ImportPtrOutput)
 }
@@ -477,7 +483,13 @@ func (o ClusterS3ImportPtrOutput) ToClusterS3ImportPtrOutputWithContext(ctx cont
 }
 
 func (o ClusterS3ImportPtrOutput) Elem() ClusterS3ImportOutput {
-	return o.ApplyT(func(v *ClusterS3Import) ClusterS3Import { return *v }).(ClusterS3ImportOutput)
+	return o.ApplyT(func(v *ClusterS3Import) ClusterS3Import {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterS3Import
+		return ret
+	}).(ClusterS3ImportOutput)
 }
 
 // The bucket name where your backup is stored
@@ -639,7 +651,7 @@ func (o ClusterScalingConfigurationOutput) ToClusterScalingConfigurationPtrOutpu
 }
 
 func (o ClusterScalingConfigurationOutput) ToClusterScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterScalingConfigurationPtrOutput {
-	return o.ApplyT(func(v ClusterScalingConfiguration) *ClusterScalingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterScalingConfiguration) *ClusterScalingConfiguration {
 		return &v
 	}).(ClusterScalingConfigurationPtrOutput)
 }
@@ -684,7 +696,13 @@ func (o ClusterScalingConfigurationPtrOutput) ToClusterScalingConfigurationPtrOu
 }
 
 func (o ClusterScalingConfigurationPtrOutput) Elem() ClusterScalingConfigurationOutput {
-	return o.ApplyT(func(v *ClusterScalingConfiguration) ClusterScalingConfiguration { return *v }).(ClusterScalingConfigurationOutput)
+	return o.ApplyT(func(v *ClusterScalingConfiguration) ClusterScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterScalingConfiguration
+		return ret
+	}).(ClusterScalingConfigurationOutput)
 }
 
 // Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
@@ -948,7 +966,7 @@ func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOut
 }
 
 func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOutputWithContext(ctx context.Context) InstanceRestoreToPointInTimePtrOutput {
-	return o.ApplyT(func(v InstanceRestoreToPointInTime) *InstanceRestoreToPointInTime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceRestoreToPointInTime) *InstanceRestoreToPointInTime {
 		return &v
 	}).(InstanceRestoreToPointInTimePtrOutput)
 }
@@ -988,7 +1006,13 @@ func (o InstanceRestoreToPointInTimePtrOutput) ToInstanceRestoreToPointInTimePtr
 }
 
 func (o InstanceRestoreToPointInTimePtrOutput) Elem() InstanceRestoreToPointInTimeOutput {
-	return o.ApplyT(func(v *InstanceRestoreToPointInTime) InstanceRestoreToPointInTime { return *v }).(InstanceRestoreToPointInTimeOutput)
+	return o.ApplyT(func(v *InstanceRestoreToPointInTime) InstanceRestoreToPointInTime {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceRestoreToPointInTime
+		return ret
+	}).(InstanceRestoreToPointInTimeOutput)
 }
 
 // The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
@@ -1140,7 +1164,7 @@ func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutput() InstanceS3ImportPt
 }
 
 func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutputWithContext(ctx context.Context) InstanceS3ImportPtrOutput {
-	return o.ApplyT(func(v InstanceS3Import) *InstanceS3Import {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceS3Import) *InstanceS3Import {
 		return &v
 	}).(InstanceS3ImportPtrOutput)
 }
@@ -1185,7 +1209,13 @@ func (o InstanceS3ImportPtrOutput) ToInstanceS3ImportPtrOutputWithContext(ctx co
 }
 
 func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
-	return o.ApplyT(func(v *InstanceS3Import) InstanceS3Import { return *v }).(InstanceS3ImportOutput)
+	return o.ApplyT(func(v *InstanceS3Import) InstanceS3Import {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceS3Import
+		return ret
+	}).(InstanceS3ImportOutput)
 }
 
 // The bucket name where your backup is stored
@@ -1840,7 +1870,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetG
 }
 
 func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetGroupConnectionPoolConfigPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput {
-	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *ProxyDefaultTargetGroupConnectionPoolConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyDefaultTargetGroupConnectionPoolConfig) *ProxyDefaultTargetGroupConnectionPoolConfig {
 		return &v
 	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
 }
@@ -1886,7 +1916,11 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ToProxyDefaultTarg
 
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) Elem() ProxyDefaultTargetGroupConnectionPoolConfigOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) ProxyDefaultTargetGroupConnectionPoolConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ProxyDefaultTargetGroupConnectionPoolConfig
+		return ret
 	}).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
 }
 

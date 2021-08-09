@@ -111,7 +111,7 @@ func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutput() AccessPoin
 }
 
 func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
-	return o.ApplyT(func(v AccessPointPosixUser) *AccessPointPosixUser {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPosixUser) *AccessPointPosixUser {
 		return &v
 	}).(AccessPointPosixUserPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutputWithContex
 }
 
 func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
-	return o.ApplyT(func(v *AccessPointPosixUser) AccessPointPosixUser { return *v }).(AccessPointPosixUserOutput)
+	return o.ApplyT(func(v *AccessPointPosixUser) AccessPointPosixUser {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointPosixUser
+		return ret
+	}).(AccessPointPosixUserOutput)
 }
 
 // POSIX group ID used for all file system operations using this access point.
@@ -276,7 +282,7 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutput() Ac
 }
 
 func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
-	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointRootDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointRootDirectory) *AccessPointRootDirectory {
 		return &v
 	}).(AccessPointRootDirectoryPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutputWi
 }
 
 func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput {
-	return o.ApplyT(func(v *AccessPointRootDirectory) AccessPointRootDirectory { return *v }).(AccessPointRootDirectoryOutput)
+	return o.ApplyT(func(v *AccessPointRootDirectory) AccessPointRootDirectory {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointRootDirectory
+		return ret
+	}).(AccessPointRootDirectoryOutput)
 }
 
 // POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
@@ -430,7 +442,7 @@ func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCr
 }
 
 func (o AccessPointRootDirectoryCreationInfoOutput) ToAccessPointRootDirectoryCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryCreationInfoPtrOutput {
-	return o.ApplyT(func(v AccessPointRootDirectoryCreationInfo) *AccessPointRootDirectoryCreationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointRootDirectoryCreationInfo) *AccessPointRootDirectoryCreationInfo {
 		return &v
 	}).(AccessPointRootDirectoryCreationInfoPtrOutput)
 }
@@ -465,7 +477,13 @@ func (o AccessPointRootDirectoryCreationInfoPtrOutput) ToAccessPointRootDirector
 }
 
 func (o AccessPointRootDirectoryCreationInfoPtrOutput) Elem() AccessPointRootDirectoryCreationInfoOutput {
-	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) AccessPointRootDirectoryCreationInfo { return *v }).(AccessPointRootDirectoryCreationInfoOutput)
+	return o.ApplyT(func(v *AccessPointRootDirectoryCreationInfo) AccessPointRootDirectoryCreationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPointRootDirectoryCreationInfo
+		return ret
+	}).(AccessPointRootDirectoryCreationInfoOutput)
 }
 
 // POSIX group ID to apply to the `rootDirectory`.
@@ -591,7 +609,7 @@ func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutput() Ba
 }
 
 func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
-	return o.ApplyT(func(v BackupPolicyBackupPolicy) *BackupPolicyBackupPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyBackupPolicy) *BackupPolicyBackupPolicy {
 		return &v
 	}).(BackupPolicyBackupPolicyPtrOutput)
 }
@@ -616,7 +634,13 @@ func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutputWi
 }
 
 func (o BackupPolicyBackupPolicyPtrOutput) Elem() BackupPolicyBackupPolicyOutput {
-	return o.ApplyT(func(v *BackupPolicyBackupPolicy) BackupPolicyBackupPolicy { return *v }).(BackupPolicyBackupPolicyOutput)
+	return o.ApplyT(func(v *BackupPolicyBackupPolicy) BackupPolicyBackupPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyBackupPolicy
+		return ret
+	}).(BackupPolicyBackupPolicyOutput)
 }
 
 // A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
@@ -722,7 +746,7 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutput() 
 }
 
 func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyPtrOutput {
-	return o.ApplyT(func(v FileSystemLifecyclePolicy) *FileSystemLifecyclePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemLifecyclePolicy) *FileSystemLifecyclePolicy {
 		return &v
 	}).(FileSystemLifecyclePolicyPtrOutput)
 }
@@ -747,7 +771,13 @@ func (o FileSystemLifecyclePolicyPtrOutput) ToFileSystemLifecyclePolicyPtrOutput
 }
 
 func (o FileSystemLifecyclePolicyPtrOutput) Elem() FileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v *FileSystemLifecyclePolicy) FileSystemLifecyclePolicy { return *v }).(FileSystemLifecyclePolicyOutput)
+	return o.ApplyT(func(v *FileSystemLifecyclePolicy) FileSystemLifecyclePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemLifecyclePolicy
+		return ret
+	}).(FileSystemLifecyclePolicyOutput)
 }
 
 // Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.

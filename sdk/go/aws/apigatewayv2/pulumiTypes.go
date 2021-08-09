@@ -123,7 +123,7 @@ func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationPtrOutput() ApiCorsCon
 }
 
 func (o ApiCorsConfigurationOutput) ToApiCorsConfigurationPtrOutputWithContext(ctx context.Context) ApiCorsConfigurationPtrOutput {
-	return o.ApplyT(func(v ApiCorsConfiguration) *ApiCorsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCorsConfiguration) *ApiCorsConfiguration {
 		return &v
 	}).(ApiCorsConfigurationPtrOutput)
 }
@@ -173,7 +173,13 @@ func (o ApiCorsConfigurationPtrOutput) ToApiCorsConfigurationPtrOutputWithContex
 }
 
 func (o ApiCorsConfigurationPtrOutput) Elem() ApiCorsConfigurationOutput {
-	return o.ApplyT(func(v *ApiCorsConfiguration) ApiCorsConfiguration { return *v }).(ApiCorsConfigurationOutput)
+	return o.ApplyT(func(v *ApiCorsConfiguration) ApiCorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApiCorsConfiguration
+		return ret
+	}).(ApiCorsConfigurationOutput)
 }
 
 // Whether credentials are included in the CORS request.
@@ -333,7 +339,7 @@ func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutput(
 }
 
 func (o AuthorizerJwtConfigurationOutput) ToAuthorizerJwtConfigurationPtrOutputWithContext(ctx context.Context) AuthorizerJwtConfigurationPtrOutput {
-	return o.ApplyT(func(v AuthorizerJwtConfiguration) *AuthorizerJwtConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizerJwtConfiguration) *AuthorizerJwtConfiguration {
 		return &v
 	}).(AuthorizerJwtConfigurationPtrOutput)
 }
@@ -363,7 +369,13 @@ func (o AuthorizerJwtConfigurationPtrOutput) ToAuthorizerJwtConfigurationPtrOutp
 }
 
 func (o AuthorizerJwtConfigurationPtrOutput) Elem() AuthorizerJwtConfigurationOutput {
-	return o.ApplyT(func(v *AuthorizerJwtConfiguration) AuthorizerJwtConfiguration { return *v }).(AuthorizerJwtConfigurationOutput)
+	return o.ApplyT(func(v *AuthorizerJwtConfiguration) AuthorizerJwtConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AuthorizerJwtConfiguration
+		return ret
+	}).(AuthorizerJwtConfigurationOutput)
 }
 
 // A list of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
@@ -497,7 +509,7 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 }
 
 func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
-	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *DomainNameDomainNameConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameDomainNameConfiguration) *DomainNameDomainNameConfiguration {
 		return &v
 	}).(DomainNameDomainNameConfigurationPtrOutput)
 }
@@ -543,7 +555,13 @@ func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfig
 }
 
 func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameConfigurationOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) DomainNameDomainNameConfiguration { return *v }).(DomainNameDomainNameConfigurationOutput)
+	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) DomainNameDomainNameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameDomainNameConfiguration
+		return ret
+	}).(DomainNameDomainNameConfigurationOutput)
 }
 
 // The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
@@ -696,7 +714,7 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 }
 
 func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthenticationPtrOutputWithContext(ctx context.Context) DomainNameMutualTlsAuthenticationPtrOutput {
-	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameMutualTlsAuthentication) *DomainNameMutualTlsAuthentication {
 		return &v
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
@@ -727,7 +745,13 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) ToDomainNameMutualTlsAuthent
 }
 
 func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAuthenticationOutput {
-	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication { return *v }).(DomainNameMutualTlsAuthenticationOutput)
+	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) DomainNameMutualTlsAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameMutualTlsAuthentication
+		return ret
+	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
 // An Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`.
@@ -953,7 +977,7 @@ func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutput() Integratio
 }
 
 func (o IntegrationTlsConfigOutput) ToIntegrationTlsConfigPtrOutputWithContext(ctx context.Context) IntegrationTlsConfigPtrOutput {
-	return o.ApplyT(func(v IntegrationTlsConfig) *IntegrationTlsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationTlsConfig) *IntegrationTlsConfig {
 		return &v
 	}).(IntegrationTlsConfigPtrOutput)
 }
@@ -978,7 +1002,13 @@ func (o IntegrationTlsConfigPtrOutput) ToIntegrationTlsConfigPtrOutputWithContex
 }
 
 func (o IntegrationTlsConfigPtrOutput) Elem() IntegrationTlsConfigOutput {
-	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig { return *v }).(IntegrationTlsConfigOutput)
+	return o.ApplyT(func(v *IntegrationTlsConfig) IntegrationTlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationTlsConfig
+		return ret
+	}).(IntegrationTlsConfigOutput)
 }
 
 // If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
@@ -1194,7 +1224,7 @@ func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutput() StageA
 }
 
 func (o StageAccessLogSettingsOutput) ToStageAccessLogSettingsPtrOutputWithContext(ctx context.Context) StageAccessLogSettingsPtrOutput {
-	return o.ApplyT(func(v StageAccessLogSettings) *StageAccessLogSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageAccessLogSettings) *StageAccessLogSettings {
 		return &v
 	}).(StageAccessLogSettingsPtrOutput)
 }
@@ -1224,7 +1254,13 @@ func (o StageAccessLogSettingsPtrOutput) ToStageAccessLogSettingsPtrOutputWithCo
 }
 
 func (o StageAccessLogSettingsPtrOutput) Elem() StageAccessLogSettingsOutput {
-	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings { return *v }).(StageAccessLogSettingsOutput)
+	return o.ApplyT(func(v *StageAccessLogSettings) StageAccessLogSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageAccessLogSettings
+		return ret
+	}).(StageAccessLogSettingsOutput)
 }
 
 // The ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
@@ -1360,7 +1396,7 @@ func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutput() 
 }
 
 func (o StageDefaultRouteSettingsOutput) ToStageDefaultRouteSettingsPtrOutputWithContext(ctx context.Context) StageDefaultRouteSettingsPtrOutput {
-	return o.ApplyT(func(v StageDefaultRouteSettings) *StageDefaultRouteSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageDefaultRouteSettings) *StageDefaultRouteSettings {
 		return &v
 	}).(StageDefaultRouteSettingsPtrOutput)
 }
@@ -1407,7 +1443,13 @@ func (o StageDefaultRouteSettingsPtrOutput) ToStageDefaultRouteSettingsPtrOutput
 }
 
 func (o StageDefaultRouteSettingsPtrOutput) Elem() StageDefaultRouteSettingsOutput {
-	return o.ApplyT(func(v *StageDefaultRouteSettings) StageDefaultRouteSettings { return *v }).(StageDefaultRouteSettingsOutput)
+	return o.ApplyT(func(v *StageDefaultRouteSettings) StageDefaultRouteSettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageDefaultRouteSettings
+		return ret
+	}).(StageDefaultRouteSettingsOutput)
 }
 
 // Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.

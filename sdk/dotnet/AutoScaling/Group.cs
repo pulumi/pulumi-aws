@@ -601,7 +601,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> SuspendedProcesses { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
@@ -912,7 +912,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
         /// </summary>
         public InputList<Inputs.GroupTagArgs> Tags
         {
@@ -1217,7 +1217,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GroupTagGetArgs>? _tags;
 
         /// <summary>
-        /// Configuration block(s) containing resource tags. Conflicts with `tags`. Documented below.
+        /// Configuration block(s) containing resource tags. Conflicts with `tags_collection`. Documented below.
         /// </summary>
         public InputList<Inputs.GroupTagGetArgs> Tags
         {

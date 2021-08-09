@@ -533,9 +533,7 @@ func (i HealthCheckMap) ToHealthCheckMapOutputWithContext(ctx context.Context) H
 	return pulumi.ToOutputWithContext(ctx, i).(HealthCheckMapOutput)
 }
 
-type HealthCheckOutput struct {
-	*pulumi.OutputState
-}
+type HealthCheckOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HealthCheck)(nil))
@@ -554,14 +552,12 @@ func (o HealthCheckOutput) ToHealthCheckPtrOutput() HealthCheckPtrOutput {
 }
 
 func (o HealthCheckOutput) ToHealthCheckPtrOutputWithContext(ctx context.Context) HealthCheckPtrOutput {
-	return o.ApplyT(func(v HealthCheck) *HealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HealthCheck) *HealthCheck {
 		return &v
 	}).(HealthCheckPtrOutput)
 }
 
-type HealthCheckPtrOutput struct {
-	*pulumi.OutputState
-}
+type HealthCheckPtrOutput struct{ *pulumi.OutputState }
 
 func (HealthCheckPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HealthCheck)(nil))
@@ -573,6 +569,16 @@ func (o HealthCheckPtrOutput) ToHealthCheckPtrOutput() HealthCheckPtrOutput {
 
 func (o HealthCheckPtrOutput) ToHealthCheckPtrOutputWithContext(ctx context.Context) HealthCheckPtrOutput {
 	return o
+}
+
+func (o HealthCheckPtrOutput) Elem() HealthCheckOutput {
+	return o.ApplyT(func(v *HealthCheck) HealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret HealthCheck
+		return ret
+	}).(HealthCheckOutput)
 }
 
 type HealthCheckArrayOutput struct{ *pulumi.OutputState }

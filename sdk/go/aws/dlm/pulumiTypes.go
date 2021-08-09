@@ -111,7 +111,7 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 }
 
 func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetails {
 		return &v
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtr
 }
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetailsOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) LifecyclePolicyPolicyDetails { return *v }).(LifecyclePolicyPolicyDetailsOutput)
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) LifecyclePolicyPolicyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetails
+		return ret
+	}).(LifecyclePolicyPolicyDetailsOutput)
 }
 
 // A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.

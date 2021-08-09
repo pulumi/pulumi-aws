@@ -273,9 +273,7 @@ func (i ProtectionMap) ToProtectionMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionMapOutput)
 }
 
-type ProtectionOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionOutput struct{ *pulumi.OutputState }
 
 func (ProtectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Protection)(nil))
@@ -294,14 +292,12 @@ func (o ProtectionOutput) ToProtectionPtrOutput() ProtectionPtrOutput {
 }
 
 func (o ProtectionOutput) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
-	return o.ApplyT(func(v Protection) *Protection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Protection) *Protection {
 		return &v
 	}).(ProtectionPtrOutput)
 }
 
-type ProtectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProtectionPtrOutput struct{ *pulumi.OutputState }
 
 func (ProtectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Protection)(nil))
@@ -313,6 +309,16 @@ func (o ProtectionPtrOutput) ToProtectionPtrOutput() ProtectionPtrOutput {
 
 func (o ProtectionPtrOutput) ToProtectionPtrOutputWithContext(ctx context.Context) ProtectionPtrOutput {
 	return o
+}
+
+func (o ProtectionPtrOutput) Elem() ProtectionOutput {
+	return o.ApplyT(func(v *Protection) Protection {
+		if v != nil {
+			return *v
+		}
+		var ret Protection
+		return ret
+	}).(ProtectionOutput)
 }
 
 type ProtectionArrayOutput struct{ *pulumi.OutputState }

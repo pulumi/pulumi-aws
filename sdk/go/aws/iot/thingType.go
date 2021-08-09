@@ -228,9 +228,7 @@ func (i ThingTypeMap) ToThingTypeMapOutputWithContext(ctx context.Context) Thing
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypeMapOutput)
 }
 
-type ThingTypeOutput struct {
-	*pulumi.OutputState
-}
+type ThingTypeOutput struct{ *pulumi.OutputState }
 
 func (ThingTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThingType)(nil))
@@ -249,14 +247,12 @@ func (o ThingTypeOutput) ToThingTypePtrOutput() ThingTypePtrOutput {
 }
 
 func (o ThingTypeOutput) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
-	return o.ApplyT(func(v ThingType) *ThingType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingType) *ThingType {
 		return &v
 	}).(ThingTypePtrOutput)
 }
 
-type ThingTypePtrOutput struct {
-	*pulumi.OutputState
-}
+type ThingTypePtrOutput struct{ *pulumi.OutputState }
 
 func (ThingTypePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ThingType)(nil))
@@ -268,6 +264,16 @@ func (o ThingTypePtrOutput) ToThingTypePtrOutput() ThingTypePtrOutput {
 
 func (o ThingTypePtrOutput) ToThingTypePtrOutputWithContext(ctx context.Context) ThingTypePtrOutput {
 	return o
+}
+
+func (o ThingTypePtrOutput) Elem() ThingTypeOutput {
+	return o.ApplyT(func(v *ThingType) ThingType {
+		if v != nil {
+			return *v
+		}
+		var ret ThingType
+		return ret
+	}).(ThingTypeOutput)
 }
 
 type ThingTypeArrayOutput struct{ *pulumi.OutputState }

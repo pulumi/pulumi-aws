@@ -250,9 +250,7 @@ func (i OrganizationalUnitMap) ToOrganizationalUnitMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitMapOutput)
 }
 
-type OrganizationalUnitOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationalUnitOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationalUnit)(nil))
@@ -271,14 +269,12 @@ func (o OrganizationalUnitOutput) ToOrganizationalUnitPtrOutput() Organizational
 }
 
 func (o OrganizationalUnitOutput) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
-	return o.ApplyT(func(v OrganizationalUnit) *OrganizationalUnit {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationalUnit) *OrganizationalUnit {
 		return &v
 	}).(OrganizationalUnitPtrOutput)
 }
 
-type OrganizationalUnitPtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationalUnitPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationalUnitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationalUnit)(nil))
@@ -290,6 +286,16 @@ func (o OrganizationalUnitPtrOutput) ToOrganizationalUnitPtrOutput() Organizatio
 
 func (o OrganizationalUnitPtrOutput) ToOrganizationalUnitPtrOutputWithContext(ctx context.Context) OrganizationalUnitPtrOutput {
 	return o
+}
+
+func (o OrganizationalUnitPtrOutput) Elem() OrganizationalUnitOutput {
+	return o.ApplyT(func(v *OrganizationalUnit) OrganizationalUnit {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationalUnit
+		return ret
+	}).(OrganizationalUnitOutput)
 }
 
 type OrganizationalUnitArrayOutput struct{ *pulumi.OutputState }

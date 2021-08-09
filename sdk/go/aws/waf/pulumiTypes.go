@@ -1585,7 +1585,7 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutput() WebAclDefaul
 }
 
 func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
-	return o.ApplyT(func(v WebAclDefaultAction) *WebAclDefaultAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclDefaultAction) *WebAclDefaultAction {
 		return &v
 	}).(WebAclDefaultActionPtrOutput)
 }
@@ -1610,7 +1610,13 @@ func (o WebAclDefaultActionPtrOutput) ToWebAclDefaultActionPtrOutputWithContext(
 }
 
 func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
-	return o.ApplyT(func(v *WebAclDefaultAction) WebAclDefaultAction { return *v }).(WebAclDefaultActionOutput)
+	return o.ApplyT(func(v *WebAclDefaultAction) WebAclDefaultAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclDefaultAction
+		return ret
+	}).(WebAclDefaultActionOutput)
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
@@ -1720,7 +1726,7 @@ func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutput(
 }
 
 func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationPtrOutput {
-	return o.ApplyT(func(v WebAclLoggingConfiguration) *WebAclLoggingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclLoggingConfiguration) *WebAclLoggingConfiguration {
 		return &v
 	}).(WebAclLoggingConfigurationPtrOutput)
 }
@@ -1750,7 +1756,13 @@ func (o WebAclLoggingConfigurationPtrOutput) ToWebAclLoggingConfigurationPtrOutp
 }
 
 func (o WebAclLoggingConfigurationPtrOutput) Elem() WebAclLoggingConfigurationOutput {
-	return o.ApplyT(func(v *WebAclLoggingConfiguration) WebAclLoggingConfiguration { return *v }).(WebAclLoggingConfigurationOutput)
+	return o.ApplyT(func(v *WebAclLoggingConfiguration) WebAclLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclLoggingConfiguration
+		return ret
+	}).(WebAclLoggingConfigurationOutput)
 }
 
 // Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
@@ -1866,7 +1878,7 @@ func (o WebAclLoggingConfigurationRedactedFieldsOutput) ToWebAclLoggingConfigura
 }
 
 func (o WebAclLoggingConfigurationRedactedFieldsOutput) ToWebAclLoggingConfigurationRedactedFieldsPtrOutputWithContext(ctx context.Context) WebAclLoggingConfigurationRedactedFieldsPtrOutput {
-	return o.ApplyT(func(v WebAclLoggingConfigurationRedactedFields) *WebAclLoggingConfigurationRedactedFields {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclLoggingConfigurationRedactedFields) *WebAclLoggingConfigurationRedactedFields {
 		return &v
 	}).(WebAclLoggingConfigurationRedactedFieldsPtrOutput)
 }
@@ -1893,7 +1905,13 @@ func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) ToWebAclLoggingConfig
 }
 
 func (o WebAclLoggingConfigurationRedactedFieldsPtrOutput) Elem() WebAclLoggingConfigurationRedactedFieldsOutput {
-	return o.ApplyT(func(v *WebAclLoggingConfigurationRedactedFields) WebAclLoggingConfigurationRedactedFields { return *v }).(WebAclLoggingConfigurationRedactedFieldsOutput)
+	return o.ApplyT(func(v *WebAclLoggingConfigurationRedactedFields) WebAclLoggingConfigurationRedactedFields {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclLoggingConfigurationRedactedFields
+		return ret
+	}).(WebAclLoggingConfigurationRedactedFieldsOutput)
 }
 
 // Set of configuration blocks for fields to redact. Detailed below.
@@ -2241,7 +2259,7 @@ func (o WebAclRuleActionOutput) ToWebAclRuleActionPtrOutput() WebAclRuleActionPt
 }
 
 func (o WebAclRuleActionOutput) ToWebAclRuleActionPtrOutputWithContext(ctx context.Context) WebAclRuleActionPtrOutput {
-	return o.ApplyT(func(v WebAclRuleAction) *WebAclRuleAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleAction) *WebAclRuleAction {
 		return &v
 	}).(WebAclRuleActionPtrOutput)
 }
@@ -2266,7 +2284,13 @@ func (o WebAclRuleActionPtrOutput) ToWebAclRuleActionPtrOutputWithContext(ctx co
 }
 
 func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
-	return o.ApplyT(func(v *WebAclRuleAction) WebAclRuleAction { return *v }).(WebAclRuleActionOutput)
+	return o.ApplyT(func(v *WebAclRuleAction) WebAclRuleAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleAction
+		return ret
+	}).(WebAclRuleActionOutput)
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
@@ -2372,7 +2396,7 @@ func (o WebAclRuleOverrideActionOutput) ToWebAclRuleOverrideActionPtrOutput() We
 }
 
 func (o WebAclRuleOverrideActionOutput) ToWebAclRuleOverrideActionPtrOutputWithContext(ctx context.Context) WebAclRuleOverrideActionPtrOutput {
-	return o.ApplyT(func(v WebAclRuleOverrideAction) *WebAclRuleOverrideAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclRuleOverrideAction) *WebAclRuleOverrideAction {
 		return &v
 	}).(WebAclRuleOverrideActionPtrOutput)
 }
@@ -2397,7 +2421,13 @@ func (o WebAclRuleOverrideActionPtrOutput) ToWebAclRuleOverrideActionPtrOutputWi
 }
 
 func (o WebAclRuleOverrideActionPtrOutput) Elem() WebAclRuleOverrideActionOutput {
-	return o.ApplyT(func(v *WebAclRuleOverrideAction) WebAclRuleOverrideAction { return *v }).(WebAclRuleOverrideActionOutput)
+	return o.ApplyT(func(v *WebAclRuleOverrideAction) WebAclRuleOverrideAction {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclRuleOverrideAction
+		return ret
+	}).(WebAclRuleOverrideActionOutput)
 }
 
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.

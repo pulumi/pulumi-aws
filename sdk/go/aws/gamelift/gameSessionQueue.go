@@ -273,9 +273,7 @@ func (i GameSessionQueueMap) ToGameSessionQueueMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueMapOutput)
 }
 
-type GameSessionQueueOutput struct {
-	*pulumi.OutputState
-}
+type GameSessionQueueOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GameSessionQueue)(nil))
@@ -294,14 +292,12 @@ func (o GameSessionQueueOutput) ToGameSessionQueuePtrOutput() GameSessionQueuePt
 }
 
 func (o GameSessionQueueOutput) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
-	return o.ApplyT(func(v GameSessionQueue) *GameSessionQueue {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueue) *GameSessionQueue {
 		return &v
 	}).(GameSessionQueuePtrOutput)
 }
 
-type GameSessionQueuePtrOutput struct {
-	*pulumi.OutputState
-}
+type GameSessionQueuePtrOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueuePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GameSessionQueue)(nil))
@@ -313,6 +309,16 @@ func (o GameSessionQueuePtrOutput) ToGameSessionQueuePtrOutput() GameSessionQueu
 
 func (o GameSessionQueuePtrOutput) ToGameSessionQueuePtrOutputWithContext(ctx context.Context) GameSessionQueuePtrOutput {
 	return o
+}
+
+func (o GameSessionQueuePtrOutput) Elem() GameSessionQueueOutput {
+	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueue {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueue
+		return ret
+	}).(GameSessionQueueOutput)
 }
 
 type GameSessionQueueArrayOutput struct{ *pulumi.OutputState }

@@ -305,9 +305,7 @@ func (i AccessKeyMap) ToAccessKeyMapOutputWithContext(ctx context.Context) Acces
 	return pulumi.ToOutputWithContext(ctx, i).(AccessKeyMapOutput)
 }
 
-type AccessKeyOutput struct {
-	*pulumi.OutputState
-}
+type AccessKeyOutput struct{ *pulumi.OutputState }
 
 func (AccessKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccessKey)(nil))
@@ -326,14 +324,12 @@ func (o AccessKeyOutput) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
 }
 
 func (o AccessKeyOutput) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
-	return o.ApplyT(func(v AccessKey) *AccessKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessKey) *AccessKey {
 		return &v
 	}).(AccessKeyPtrOutput)
 }
 
-type AccessKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccessKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (AccessKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccessKey)(nil))
@@ -345,6 +341,16 @@ func (o AccessKeyPtrOutput) ToAccessKeyPtrOutput() AccessKeyPtrOutput {
 
 func (o AccessKeyPtrOutput) ToAccessKeyPtrOutputWithContext(ctx context.Context) AccessKeyPtrOutput {
 	return o
+}
+
+func (o AccessKeyPtrOutput) Elem() AccessKeyOutput {
+	return o.ApplyT(func(v *AccessKey) AccessKey {
+		if v != nil {
+			return *v
+		}
+		var ret AccessKey
+		return ret
+	}).(AccessKeyOutput)
 }
 
 type AccessKeyArrayOutput struct{ *pulumi.OutputState }

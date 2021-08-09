@@ -202,9 +202,7 @@ func (i AdminAccountMap) ToAdminAccountMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AdminAccountMapOutput)
 }
 
-type AdminAccountOutput struct {
-	*pulumi.OutputState
-}
+type AdminAccountOutput struct{ *pulumi.OutputState }
 
 func (AdminAccountOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AdminAccount)(nil))
@@ -223,14 +221,12 @@ func (o AdminAccountOutput) ToAdminAccountPtrOutput() AdminAccountPtrOutput {
 }
 
 func (o AdminAccountOutput) ToAdminAccountPtrOutputWithContext(ctx context.Context) AdminAccountPtrOutput {
-	return o.ApplyT(func(v AdminAccount) *AdminAccount {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdminAccount) *AdminAccount {
 		return &v
 	}).(AdminAccountPtrOutput)
 }
 
-type AdminAccountPtrOutput struct {
-	*pulumi.OutputState
-}
+type AdminAccountPtrOutput struct{ *pulumi.OutputState }
 
 func (AdminAccountPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AdminAccount)(nil))
@@ -242,6 +238,16 @@ func (o AdminAccountPtrOutput) ToAdminAccountPtrOutput() AdminAccountPtrOutput {
 
 func (o AdminAccountPtrOutput) ToAdminAccountPtrOutputWithContext(ctx context.Context) AdminAccountPtrOutput {
 	return o
+}
+
+func (o AdminAccountPtrOutput) Elem() AdminAccountOutput {
+	return o.ApplyT(func(v *AdminAccount) AdminAccount {
+		if v != nil {
+			return *v
+		}
+		var ret AdminAccount
+		return ret
+	}).(AdminAccountOutput)
 }
 
 type AdminAccountArrayOutput struct{ *pulumi.OutputState }

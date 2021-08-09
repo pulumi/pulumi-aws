@@ -207,9 +207,7 @@ func (i NotebookInstanceLifecycleConfigurationMap) ToNotebookInstanceLifecycleCo
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigurationMapOutput)
 }
 
-type NotebookInstanceLifecycleConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type NotebookInstanceLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceLifecycleConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NotebookInstanceLifecycleConfiguration)(nil))
@@ -228,14 +226,12 @@ func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycl
 }
 
 func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationPtrOutput {
-	return o.ApplyT(func(v NotebookInstanceLifecycleConfiguration) *NotebookInstanceLifecycleConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookInstanceLifecycleConfiguration) *NotebookInstanceLifecycleConfiguration {
 		return &v
 	}).(NotebookInstanceLifecycleConfigurationPtrOutput)
 }
 
-type NotebookInstanceLifecycleConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type NotebookInstanceLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NotebookInstanceLifecycleConfiguration)(nil))
@@ -247,6 +243,16 @@ func (o NotebookInstanceLifecycleConfigurationPtrOutput) ToNotebookInstanceLifec
 
 func (o NotebookInstanceLifecycleConfigurationPtrOutput) ToNotebookInstanceLifecycleConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationPtrOutput {
 	return o
+}
+
+func (o NotebookInstanceLifecycleConfigurationPtrOutput) Elem() NotebookInstanceLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *NotebookInstanceLifecycleConfiguration) NotebookInstanceLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookInstanceLifecycleConfiguration
+		return ret
+	}).(NotebookInstanceLifecycleConfigurationOutput)
 }
 
 type NotebookInstanceLifecycleConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -319,9 +319,7 @@ func (i MemberMap) ToMemberMapOutputWithContext(ctx context.Context) MemberMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(MemberMapOutput)
 }
 
-type MemberOutput struct {
-	*pulumi.OutputState
-}
+type MemberOutput struct{ *pulumi.OutputState }
 
 func (MemberOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Member)(nil))
@@ -340,14 +338,12 @@ func (o MemberOutput) ToMemberPtrOutput() MemberPtrOutput {
 }
 
 func (o MemberOutput) ToMemberPtrOutputWithContext(ctx context.Context) MemberPtrOutput {
-	return o.ApplyT(func(v Member) *Member {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Member) *Member {
 		return &v
 	}).(MemberPtrOutput)
 }
 
-type MemberPtrOutput struct {
-	*pulumi.OutputState
-}
+type MemberPtrOutput struct{ *pulumi.OutputState }
 
 func (MemberPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Member)(nil))
@@ -359,6 +355,16 @@ func (o MemberPtrOutput) ToMemberPtrOutput() MemberPtrOutput {
 
 func (o MemberPtrOutput) ToMemberPtrOutputWithContext(ctx context.Context) MemberPtrOutput {
 	return o
+}
+
+func (o MemberPtrOutput) Elem() MemberOutput {
+	return o.ApplyT(func(v *Member) Member {
+		if v != nil {
+			return *v
+		}
+		var ret Member
+		return ret
+	}).(MemberOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

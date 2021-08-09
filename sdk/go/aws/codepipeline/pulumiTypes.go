@@ -115,7 +115,7 @@ func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutput() Pipeline
 }
 
 func (o PipelineArtifactStoreOutput) ToPipelineArtifactStorePtrOutputWithContext(ctx context.Context) PipelineArtifactStorePtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStore) *PipelineArtifactStore {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineArtifactStore) *PipelineArtifactStore {
 		return &v
 	}).(PipelineArtifactStorePtrOutput)
 }
@@ -155,7 +155,13 @@ func (o PipelineArtifactStorePtrOutput) ToPipelineArtifactStorePtrOutputWithCont
 }
 
 func (o PipelineArtifactStorePtrOutput) Elem() PipelineArtifactStoreOutput {
-	return o.ApplyT(func(v *PipelineArtifactStore) PipelineArtifactStore { return *v }).(PipelineArtifactStoreOutput)
+	return o.ApplyT(func(v *PipelineArtifactStore) PipelineArtifactStore {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineArtifactStore
+		return ret
+	}).(PipelineArtifactStoreOutput)
 }
 
 // The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
@@ -295,7 +301,7 @@ func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncrypt
 }
 
 func (o PipelineArtifactStoreEncryptionKeyOutput) ToPipelineArtifactStoreEncryptionKeyPtrOutputWithContext(ctx context.Context) PipelineArtifactStoreEncryptionKeyPtrOutput {
-	return o.ApplyT(func(v PipelineArtifactStoreEncryptionKey) *PipelineArtifactStoreEncryptionKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineArtifactStoreEncryptionKey) *PipelineArtifactStoreEncryptionKey {
 		return &v
 	}).(PipelineArtifactStoreEncryptionKeyPtrOutput)
 }
@@ -325,7 +331,13 @@ func (o PipelineArtifactStoreEncryptionKeyPtrOutput) ToPipelineArtifactStoreEncr
 }
 
 func (o PipelineArtifactStoreEncryptionKeyPtrOutput) Elem() PipelineArtifactStoreEncryptionKeyOutput {
-	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey { return *v }).(PipelineArtifactStoreEncryptionKeyOutput)
+	return o.ApplyT(func(v *PipelineArtifactStoreEncryptionKey) PipelineArtifactStoreEncryptionKey {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineArtifactStoreEncryptionKey
+		return ret
+	}).(PipelineArtifactStoreEncryptionKeyOutput)
 }
 
 // The KMS key ARN or ID
@@ -747,7 +759,7 @@ func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigu
 }
 
 func (o WebhookAuthenticationConfigurationOutput) ToWebhookAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) WebhookAuthenticationConfigurationPtrOutput {
-	return o.ApplyT(func(v WebhookAuthenticationConfiguration) *WebhookAuthenticationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebhookAuthenticationConfiguration) *WebhookAuthenticationConfiguration {
 		return &v
 	}).(WebhookAuthenticationConfigurationPtrOutput)
 }
@@ -777,7 +789,13 @@ func (o WebhookAuthenticationConfigurationPtrOutput) ToWebhookAuthenticationConf
 }
 
 func (o WebhookAuthenticationConfigurationPtrOutput) Elem() WebhookAuthenticationConfigurationOutput {
-	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration { return *v }).(WebhookAuthenticationConfigurationOutput)
+	return o.ApplyT(func(v *WebhookAuthenticationConfiguration) WebhookAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebhookAuthenticationConfiguration
+		return ret
+	}).(WebhookAuthenticationConfigurationOutput)
 }
 
 // A valid CIDR block for `IP` filtering. Required for `IP`.

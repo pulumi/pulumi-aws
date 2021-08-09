@@ -276,9 +276,7 @@ func (i EndpointConfigurationMap) ToEndpointConfigurationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationMapOutput)
 }
 
-type EndpointConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type EndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EndpointConfiguration)(nil))
@@ -297,14 +295,12 @@ func (o EndpointConfigurationOutput) ToEndpointConfigurationPtrOutput() Endpoint
 }
 
 func (o EndpointConfigurationOutput) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
-	return o.ApplyT(func(v EndpointConfiguration) *EndpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfiguration) *EndpointConfiguration {
 		return &v
 	}).(EndpointConfigurationPtrOutput)
 }
 
-type EndpointConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EndpointConfiguration)(nil))
@@ -316,6 +312,16 @@ func (o EndpointConfigurationPtrOutput) ToEndpointConfigurationPtrOutput() Endpo
 
 func (o EndpointConfigurationPtrOutput) ToEndpointConfigurationPtrOutputWithContext(ctx context.Context) EndpointConfigurationPtrOutput {
 	return o
+}
+
+func (o EndpointConfigurationPtrOutput) Elem() EndpointConfigurationOutput {
+	return o.ApplyT(func(v *EndpointConfiguration) EndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfiguration
+		return ret
+	}).(EndpointConfigurationOutput)
 }
 
 type EndpointConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -19,7 +19,7 @@ class GetLedgerResult:
     """
     A collection of values returned by getLedger.
     """
-    def __init__(__self__, arn=None, deletion_protection=None, id=None, name=None):
+    def __init__(__self__, arn=None, deletion_protection=None, id=None, name=None, permissions_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,21 +32,18 @@ class GetLedgerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if permissions_mode and not isinstance(permissions_mode, str):
+            raise TypeError("Expected argument 'permissions_mode' to be a str")
+        pulumi.set(__self__, "permissions_mode", permissions_mode)
 
     @property
     @pulumi.getter
     def arn(self) -> str:
-        """
-        Amazon Resource Name (ARN) of the ledger.
-        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> bool:
-        """
-        Deletion protection on the QLDB Ledger instance. Set to `true` by default.
-        """
         return pulumi.get(self, "deletion_protection")
 
     @property
@@ -62,6 +59,11 @@ class GetLedgerResult:
     def name(self) -> str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter(name="permissionsMode")
+    def permissions_mode(self) -> str:
+        return pulumi.get(self, "permissions_mode")
+
 
 class AwaitableGetLedgerResult(GetLedgerResult):
     # pylint: disable=using-constant-test
@@ -72,7 +74,8 @@ class AwaitableGetLedgerResult(GetLedgerResult):
             arn=self.arn,
             deletion_protection=self.deletion_protection,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            permissions_mode=self.permissions_mode)
 
 
 def get_ledger(name: Optional[str] = None,
@@ -104,4 +107,5 @@ def get_ledger(name: Optional[str] = None,
         arn=__ret__.arn,
         deletion_protection=__ret__.deletion_protection,
         id=__ret__.id,
-        name=__ret__.name)
+        name=__ret__.name,
+        permissions_mode=__ret__.permissions_mode)

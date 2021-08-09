@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Provides an ECS cluster.
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,7 +22,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ## Example W/Log Configuration
+ * ### Example W/Log Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -288,9 +288,7 @@ func (i S3LocationMap) ToS3LocationMapOutputWithContext(ctx context.Context) S3L
 	return pulumi.ToOutputWithContext(ctx, i).(S3LocationMapOutput)
 }
 
-type S3LocationOutput struct {
-	*pulumi.OutputState
-}
+type S3LocationOutput struct{ *pulumi.OutputState }
 
 func (S3LocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*S3Location)(nil))
@@ -309,14 +307,12 @@ func (o S3LocationOutput) ToS3LocationPtrOutput() S3LocationPtrOutput {
 }
 
 func (o S3LocationOutput) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
-	return o.ApplyT(func(v S3Location) *S3Location {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3Location) *S3Location {
 		return &v
 	}).(S3LocationPtrOutput)
 }
 
-type S3LocationPtrOutput struct {
-	*pulumi.OutputState
-}
+type S3LocationPtrOutput struct{ *pulumi.OutputState }
 
 func (S3LocationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**S3Location)(nil))
@@ -328,6 +324,16 @@ func (o S3LocationPtrOutput) ToS3LocationPtrOutput() S3LocationPtrOutput {
 
 func (o S3LocationPtrOutput) ToS3LocationPtrOutputWithContext(ctx context.Context) S3LocationPtrOutput {
 	return o
+}
+
+func (o S3LocationPtrOutput) Elem() S3LocationOutput {
+	return o.ApplyT(func(v *S3Location) S3Location {
+		if v != nil {
+			return *v
+		}
+		var ret S3Location
+		return ret
+	}).(S3LocationOutput)
 }
 
 type S3LocationArrayOutput struct{ *pulumi.OutputState }

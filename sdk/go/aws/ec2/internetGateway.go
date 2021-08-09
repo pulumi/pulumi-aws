@@ -239,9 +239,7 @@ func (i InternetGatewayMap) ToInternetGatewayMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InternetGatewayMapOutput)
 }
 
-type InternetGatewayOutput struct {
-	*pulumi.OutputState
-}
+type InternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (InternetGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InternetGateway)(nil))
@@ -260,14 +258,12 @@ func (o InternetGatewayOutput) ToInternetGatewayPtrOutput() InternetGatewayPtrOu
 }
 
 func (o InternetGatewayOutput) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
-	return o.ApplyT(func(v InternetGateway) *InternetGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InternetGateway) *InternetGateway {
 		return &v
 	}).(InternetGatewayPtrOutput)
 }
 
-type InternetGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type InternetGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (InternetGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InternetGateway)(nil))
@@ -279,6 +275,16 @@ func (o InternetGatewayPtrOutput) ToInternetGatewayPtrOutput() InternetGatewayPt
 
 func (o InternetGatewayPtrOutput) ToInternetGatewayPtrOutputWithContext(ctx context.Context) InternetGatewayPtrOutput {
 	return o
+}
+
+func (o InternetGatewayPtrOutput) Elem() InternetGatewayOutput {
+	return o.ApplyT(func(v *InternetGateway) InternetGateway {
+		if v != nil {
+			return *v
+		}
+		var ret InternetGateway
+		return ret
+	}).(InternetGatewayOutput)
 }
 
 type InternetGatewayArrayOutput struct{ *pulumi.OutputState }

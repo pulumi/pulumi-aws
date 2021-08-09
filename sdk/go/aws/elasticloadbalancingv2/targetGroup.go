@@ -444,9 +444,7 @@ func (i TargetGroupMap) ToTargetGroupMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMapOutput)
 }
 
-type TargetGroupOutput struct {
-	*pulumi.OutputState
-}
+type TargetGroupOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TargetGroup)(nil))
@@ -465,14 +463,12 @@ func (o TargetGroupOutput) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
 }
 
 func (o TargetGroupOutput) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
-	return o.ApplyT(func(v TargetGroup) *TargetGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroup) *TargetGroup {
 		return &v
 	}).(TargetGroupPtrOutput)
 }
 
-type TargetGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type TargetGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TargetGroup)(nil))
@@ -484,6 +480,16 @@ func (o TargetGroupPtrOutput) ToTargetGroupPtrOutput() TargetGroupPtrOutput {
 
 func (o TargetGroupPtrOutput) ToTargetGroupPtrOutputWithContext(ctx context.Context) TargetGroupPtrOutput {
 	return o
+}
+
+func (o TargetGroupPtrOutput) Elem() TargetGroupOutput {
+	return o.ApplyT(func(v *TargetGroup) TargetGroup {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroup
+		return ret
+	}).(TargetGroupOutput)
 }
 
 type TargetGroupArrayOutput struct{ *pulumi.OutputState }

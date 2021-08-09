@@ -247,9 +247,7 @@ func (i AccountAssignmentMap) ToAccountAssignmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAssignmentMapOutput)
 }
 
-type AccountAssignmentOutput struct {
-	*pulumi.OutputState
-}
+type AccountAssignmentOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountAssignment)(nil))
@@ -268,14 +266,12 @@ func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutput() AccountAssignmen
 }
 
 func (o AccountAssignmentOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
-	return o.ApplyT(func(v AccountAssignment) *AccountAssignment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAssignment) *AccountAssignment {
 		return &v
 	}).(AccountAssignmentPtrOutput)
 }
 
-type AccountAssignmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccountAssignmentPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountAssignmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountAssignment)(nil))
@@ -287,6 +283,16 @@ func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutput() AccountAssign
 
 func (o AccountAssignmentPtrOutput) ToAccountAssignmentPtrOutputWithContext(ctx context.Context) AccountAssignmentPtrOutput {
 	return o
+}
+
+func (o AccountAssignmentPtrOutput) Elem() AccountAssignmentOutput {
+	return o.ApplyT(func(v *AccountAssignment) AccountAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAssignment
+		return ret
+	}).(AccountAssignmentOutput)
 }
 
 type AccountAssignmentArrayOutput struct{ *pulumi.OutputState }

@@ -320,9 +320,7 @@ func (i OrganizationManagedRuleMap) ToOrganizationManagedRuleMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationManagedRuleMapOutput)
 }
 
-type OrganizationManagedRuleOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationManagedRuleOutput struct{ *pulumi.OutputState }
 
 func (OrganizationManagedRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OrganizationManagedRule)(nil))
@@ -341,14 +339,12 @@ func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutput() Orga
 }
 
 func (o OrganizationManagedRuleOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
-	return o.ApplyT(func(v OrganizationManagedRule) *OrganizationManagedRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationManagedRule) *OrganizationManagedRule {
 		return &v
 	}).(OrganizationManagedRulePtrOutput)
 }
 
-type OrganizationManagedRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type OrganizationManagedRulePtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationManagedRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OrganizationManagedRule)(nil))
@@ -360,6 +356,16 @@ func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutput() O
 
 func (o OrganizationManagedRulePtrOutput) ToOrganizationManagedRulePtrOutputWithContext(ctx context.Context) OrganizationManagedRulePtrOutput {
 	return o
+}
+
+func (o OrganizationManagedRulePtrOutput) Elem() OrganizationManagedRuleOutput {
+	return o.ApplyT(func(v *OrganizationManagedRule) OrganizationManagedRule {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationManagedRule
+		return ret
+	}).(OrganizationManagedRuleOutput)
 }
 
 type OrganizationManagedRuleArrayOutput struct{ *pulumi.OutputState }

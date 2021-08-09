@@ -307,9 +307,7 @@ func (i InstanceFleetMap) ToInstanceFleetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceFleetMapOutput)
 }
 
-type InstanceFleetOutput struct {
-	*pulumi.OutputState
-}
+type InstanceFleetOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*InstanceFleet)(nil))
@@ -328,14 +326,12 @@ func (o InstanceFleetOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutput {
 }
 
 func (o InstanceFleetOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
-	return o.ApplyT(func(v InstanceFleet) *InstanceFleet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceFleet) *InstanceFleet {
 		return &v
 	}).(InstanceFleetPtrOutput)
 }
 
-type InstanceFleetPtrOutput struct {
-	*pulumi.OutputState
-}
+type InstanceFleetPtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceFleetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**InstanceFleet)(nil))
@@ -347,6 +343,16 @@ func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutput() InstanceFleetPtrOutpu
 
 func (o InstanceFleetPtrOutput) ToInstanceFleetPtrOutputWithContext(ctx context.Context) InstanceFleetPtrOutput {
 	return o
+}
+
+func (o InstanceFleetPtrOutput) Elem() InstanceFleetOutput {
+	return o.ApplyT(func(v *InstanceFleet) InstanceFleet {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceFleet
+		return ret
+	}).(InstanceFleetOutput)
 }
 
 type InstanceFleetArrayOutput struct{ *pulumi.OutputState }

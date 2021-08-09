@@ -241,9 +241,7 @@ func (i IdentityPolicyMap) ToIdentityPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyMapOutput)
 }
 
-type IdentityPolicyOutput struct {
-	*pulumi.OutputState
-}
+type IdentityPolicyOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityPolicy)(nil))
@@ -262,14 +260,12 @@ func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOutpu
 }
 
 func (o IdentityPolicyOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
-	return o.ApplyT(func(v IdentityPolicy) *IdentityPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPolicy) *IdentityPolicy {
 		return &v
 	}).(IdentityPolicyPtrOutput)
 }
 
-type IdentityPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityPolicy)(nil))
@@ -281,6 +277,16 @@ func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutput() IdentityPolicyPtrOu
 
 func (o IdentityPolicyPtrOutput) ToIdentityPolicyPtrOutputWithContext(ctx context.Context) IdentityPolicyPtrOutput {
 	return o
+}
+
+func (o IdentityPolicyPtrOutput) Elem() IdentityPolicyOutput {
+	return o.ApplyT(func(v *IdentityPolicy) IdentityPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPolicy
+		return ret
+	}).(IdentityPolicyOutput)
 }
 
 type IdentityPolicyArrayOutput struct{ *pulumi.OutputState }

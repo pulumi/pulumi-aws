@@ -239,9 +239,7 @@ func (i RecorderMap) ToRecorderMapOutputWithContext(ctx context.Context) Recorde
 	return pulumi.ToOutputWithContext(ctx, i).(RecorderMapOutput)
 }
 
-type RecorderOutput struct {
-	*pulumi.OutputState
-}
+type RecorderOutput struct{ *pulumi.OutputState }
 
 func (RecorderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Recorder)(nil))
@@ -260,14 +258,12 @@ func (o RecorderOutput) ToRecorderPtrOutput() RecorderPtrOutput {
 }
 
 func (o RecorderOutput) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
-	return o.ApplyT(func(v Recorder) *Recorder {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Recorder) *Recorder {
 		return &v
 	}).(RecorderPtrOutput)
 }
 
-type RecorderPtrOutput struct {
-	*pulumi.OutputState
-}
+type RecorderPtrOutput struct{ *pulumi.OutputState }
 
 func (RecorderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Recorder)(nil))
@@ -279,6 +275,16 @@ func (o RecorderPtrOutput) ToRecorderPtrOutput() RecorderPtrOutput {
 
 func (o RecorderPtrOutput) ToRecorderPtrOutputWithContext(ctx context.Context) RecorderPtrOutput {
 	return o
+}
+
+func (o RecorderPtrOutput) Elem() RecorderOutput {
+	return o.ApplyT(func(v *Recorder) Recorder {
+		if v != nil {
+			return *v
+		}
+		var ret Recorder
+		return ret
+	}).(RecorderOutput)
 }
 
 type RecorderArrayOutput struct{ *pulumi.OutputState }

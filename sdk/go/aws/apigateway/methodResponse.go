@@ -312,9 +312,7 @@ func (i MethodResponseMap) ToMethodResponseMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MethodResponseMapOutput)
 }
 
-type MethodResponseOutput struct {
-	*pulumi.OutputState
-}
+type MethodResponseOutput struct{ *pulumi.OutputState }
 
 func (MethodResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MethodResponse)(nil))
@@ -333,14 +331,12 @@ func (o MethodResponseOutput) ToMethodResponsePtrOutput() MethodResponsePtrOutpu
 }
 
 func (o MethodResponseOutput) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
-	return o.ApplyT(func(v MethodResponse) *MethodResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodResponse) *MethodResponse {
 		return &v
 	}).(MethodResponsePtrOutput)
 }
 
-type MethodResponsePtrOutput struct {
-	*pulumi.OutputState
-}
+type MethodResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (MethodResponsePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MethodResponse)(nil))
@@ -352,6 +348,16 @@ func (o MethodResponsePtrOutput) ToMethodResponsePtrOutput() MethodResponsePtrOu
 
 func (o MethodResponsePtrOutput) ToMethodResponsePtrOutputWithContext(ctx context.Context) MethodResponsePtrOutput {
 	return o
+}
+
+func (o MethodResponsePtrOutput) Elem() MethodResponseOutput {
+	return o.ApplyT(func(v *MethodResponse) MethodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MethodResponse
+		return ret
+	}).(MethodResponseOutput)
 }
 
 type MethodResponseArrayOutput struct{ *pulumi.OutputState }

@@ -103,7 +103,7 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 }
 
 func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationConfigurationReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationReplicationConfiguration) *ReplicationConfigurationReplicationConfiguration {
 		return &v
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
@@ -131,7 +131,11 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) ToReplication
 
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationReplicationConfigurationOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) ReplicationConfigurationReplicationConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationReplicationConfiguration
+		return ret
 	}).(ReplicationConfigurationReplicationConfigurationOutput)
 }
 
@@ -238,7 +242,7 @@ func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicatio
 }
 
 func (o ReplicationConfigurationReplicationConfigurationRuleOutput) ToReplicationConfigurationReplicationConfigurationRulePtrOutputWithContext(ctx context.Context) ReplicationConfigurationReplicationConfigurationRulePtrOutput {
-	return o.ApplyT(func(v ReplicationConfigurationReplicationConfigurationRule) *ReplicationConfigurationReplicationConfigurationRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationReplicationConfigurationRule) *ReplicationConfigurationReplicationConfigurationRule {
 		return &v
 	}).(ReplicationConfigurationReplicationConfigurationRulePtrOutput)
 }
@@ -266,7 +270,11 @@ func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) ToReplica
 
 func (o ReplicationConfigurationReplicationConfigurationRulePtrOutput) Elem() ReplicationConfigurationReplicationConfigurationRuleOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfigurationRule) ReplicationConfigurationReplicationConfigurationRule {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationReplicationConfigurationRule
+		return ret
 	}).(ReplicationConfigurationReplicationConfigurationRuleOutput)
 }
 
@@ -585,7 +593,7 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 }
 
 func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningConfigurationPtrOutputWithContext(ctx context.Context) RepositoryImageScanningConfigurationPtrOutput {
-	return o.ApplyT(func(v RepositoryImageScanningConfiguration) *RepositoryImageScanningConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryImageScanningConfiguration) *RepositoryImageScanningConfiguration {
 		return &v
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
@@ -610,7 +618,13 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ToRepositoryImageScanning
 }
 
 func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageScanningConfigurationOutput {
-	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) RepositoryImageScanningConfiguration { return *v }).(RepositoryImageScanningConfigurationOutput)
+	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) RepositoryImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryImageScanningConfiguration
+		return ret
+	}).(RepositoryImageScanningConfigurationOutput)
 }
 
 // Indicates whether images are scanned after being pushed to the repository (true) or not scanned (false).

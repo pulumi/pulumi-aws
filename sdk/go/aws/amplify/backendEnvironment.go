@@ -254,9 +254,7 @@ func (i BackendEnvironmentMap) ToBackendEnvironmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackendEnvironmentMapOutput)
 }
 
-type BackendEnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type BackendEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (BackendEnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackendEnvironment)(nil))
@@ -275,14 +273,12 @@ func (o BackendEnvironmentOutput) ToBackendEnvironmentPtrOutput() BackendEnviron
 }
 
 func (o BackendEnvironmentOutput) ToBackendEnvironmentPtrOutputWithContext(ctx context.Context) BackendEnvironmentPtrOutput {
-	return o.ApplyT(func(v BackendEnvironment) *BackendEnvironment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendEnvironment) *BackendEnvironment {
 		return &v
 	}).(BackendEnvironmentPtrOutput)
 }
 
-type BackendEnvironmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackendEnvironmentPtrOutput struct{ *pulumi.OutputState }
 
 func (BackendEnvironmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackendEnvironment)(nil))
@@ -294,6 +290,16 @@ func (o BackendEnvironmentPtrOutput) ToBackendEnvironmentPtrOutput() BackendEnvi
 
 func (o BackendEnvironmentPtrOutput) ToBackendEnvironmentPtrOutputWithContext(ctx context.Context) BackendEnvironmentPtrOutput {
 	return o
+}
+
+func (o BackendEnvironmentPtrOutput) Elem() BackendEnvironmentOutput {
+	return o.ApplyT(func(v *BackendEnvironment) BackendEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret BackendEnvironment
+		return ret
+	}).(BackendEnvironmentOutput)
 }
 
 type BackendEnvironmentArrayOutput struct{ *pulumi.OutputState }

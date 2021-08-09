@@ -155,6 +155,20 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+// ```
+//
+//  Additionally, s3 url syntax can be used, e.g.
+//
+// ```sh
+//  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
+// ```
 type BucketObject struct {
 	pulumi.CustomResourceState
 
@@ -566,9 +580,7 @@ func (i BucketObjectMap) ToBucketObjectMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectMapOutput)
 }
 
-type BucketObjectOutput struct {
-	*pulumi.OutputState
-}
+type BucketObjectOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketObject)(nil))
@@ -587,14 +599,12 @@ func (o BucketObjectOutput) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
 }
 
 func (o BucketObjectOutput) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
-	return o.ApplyT(func(v BucketObject) *BucketObject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObject) *BucketObject {
 		return &v
 	}).(BucketObjectPtrOutput)
 }
 
-type BucketObjectPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketObjectPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketObject)(nil))
@@ -606,6 +616,16 @@ func (o BucketObjectPtrOutput) ToBucketObjectPtrOutput() BucketObjectPtrOutput {
 
 func (o BucketObjectPtrOutput) ToBucketObjectPtrOutputWithContext(ctx context.Context) BucketObjectPtrOutput {
 	return o
+}
+
+func (o BucketObjectPtrOutput) Elem() BucketObjectOutput {
+	return o.ApplyT(func(v *BucketObject) BucketObject {
+		if v != nil {
+			return *v
+		}
+		var ret BucketObject
+		return ret
+	}).(BucketObjectOutput)
 }
 
 type BucketObjectArrayOutput struct{ *pulumi.OutputState }

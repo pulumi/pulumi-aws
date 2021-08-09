@@ -239,9 +239,7 @@ func (i SecretPolicyMap) ToSecretPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SecretPolicyMapOutput)
 }
 
-type SecretPolicyOutput struct {
-	*pulumi.OutputState
-}
+type SecretPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecretPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecretPolicy)(nil))
@@ -260,14 +258,12 @@ func (o SecretPolicyOutput) ToSecretPolicyPtrOutput() SecretPolicyPtrOutput {
 }
 
 func (o SecretPolicyOutput) ToSecretPolicyPtrOutputWithContext(ctx context.Context) SecretPolicyPtrOutput {
-	return o.ApplyT(func(v SecretPolicy) *SecretPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretPolicy) *SecretPolicy {
 		return &v
 	}).(SecretPolicyPtrOutput)
 }
 
-type SecretPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecretPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (SecretPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecretPolicy)(nil))
@@ -279,6 +275,16 @@ func (o SecretPolicyPtrOutput) ToSecretPolicyPtrOutput() SecretPolicyPtrOutput {
 
 func (o SecretPolicyPtrOutput) ToSecretPolicyPtrOutputWithContext(ctx context.Context) SecretPolicyPtrOutput {
 	return o
+}
+
+func (o SecretPolicyPtrOutput) Elem() SecretPolicyOutput {
+	return o.ApplyT(func(v *SecretPolicy) SecretPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret SecretPolicy
+		return ret
+	}).(SecretPolicyOutput)
 }
 
 type SecretPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -113,7 +113,7 @@ func (o ClusterLoggingOutput) ToClusterLoggingPtrOutput() ClusterLoggingPtrOutpu
 }
 
 func (o ClusterLoggingOutput) ToClusterLoggingPtrOutputWithContext(ctx context.Context) ClusterLoggingPtrOutput {
-	return o.ApplyT(func(v ClusterLogging) *ClusterLogging {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLogging) *ClusterLogging {
 		return &v
 	}).(ClusterLoggingPtrOutput)
 }
@@ -149,7 +149,13 @@ func (o ClusterLoggingPtrOutput) ToClusterLoggingPtrOutputWithContext(ctx contex
 }
 
 func (o ClusterLoggingPtrOutput) Elem() ClusterLoggingOutput {
-	return o.ApplyT(func(v *ClusterLogging) ClusterLogging { return *v }).(ClusterLoggingOutput)
+	return o.ApplyT(func(v *ClusterLogging) ClusterLogging {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLogging
+		return ret
+	}).(ClusterLoggingOutput)
 }
 
 // The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
@@ -284,7 +290,7 @@ func (o ClusterSnapshotCopyOutput) ToClusterSnapshotCopyPtrOutput() ClusterSnaps
 }
 
 func (o ClusterSnapshotCopyOutput) ToClusterSnapshotCopyPtrOutputWithContext(ctx context.Context) ClusterSnapshotCopyPtrOutput {
-	return o.ApplyT(func(v ClusterSnapshotCopy) *ClusterSnapshotCopy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterSnapshotCopy) *ClusterSnapshotCopy {
 		return &v
 	}).(ClusterSnapshotCopyPtrOutput)
 }
@@ -319,7 +325,13 @@ func (o ClusterSnapshotCopyPtrOutput) ToClusterSnapshotCopyPtrOutputWithContext(
 }
 
 func (o ClusterSnapshotCopyPtrOutput) Elem() ClusterSnapshotCopyOutput {
-	return o.ApplyT(func(v *ClusterSnapshotCopy) ClusterSnapshotCopy { return *v }).(ClusterSnapshotCopyOutput)
+	return o.ApplyT(func(v *ClusterSnapshotCopy) ClusterSnapshotCopy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterSnapshotCopy
+		return ret
+	}).(ClusterSnapshotCopyOutput)
 }
 
 // The destination region that you want to copy snapshots to.

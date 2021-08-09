@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Snapshot{}
 	case "aws:ebs/snapshotCopy:SnapshotCopy":
 		r = &SnapshotCopy{}
+	case "aws:ebs/snapshotImport:SnapshotImport":
+		r = &SnapshotImport{}
 	case "aws:ebs/volume:Volume":
 		r = &Volume{}
 	default:
@@ -62,6 +64,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ebs/snapshotCopy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ebs/snapshotImport",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

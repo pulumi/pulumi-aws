@@ -69,7 +69,11 @@ type GetInstanceTypeOfferingsResult struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Set of EC2 Instance Types.
+	// List of EC2 Instance Types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	LocationType  *string  `pulumi:"locationType"`
+	// List of location types.
+	LocationTypes []string `pulumi:"locationTypes"`
+	// List of locations.
+	Locations []string `pulumi:"locations"`
 }

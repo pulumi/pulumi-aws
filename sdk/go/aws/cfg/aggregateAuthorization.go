@@ -248,9 +248,7 @@ func (i AggregateAuthorizationMap) ToAggregateAuthorizationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationMapOutput)
 }
 
-type AggregateAuthorizationOutput struct {
-	*pulumi.OutputState
-}
+type AggregateAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AggregateAuthorization)(nil))
@@ -269,14 +267,12 @@ func (o AggregateAuthorizationOutput) ToAggregateAuthorizationPtrOutput() Aggreg
 }
 
 func (o AggregateAuthorizationOutput) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
-	return o.ApplyT(func(v AggregateAuthorization) *AggregateAuthorization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AggregateAuthorization) *AggregateAuthorization {
 		return &v
 	}).(AggregateAuthorizationPtrOutput)
 }
 
-type AggregateAuthorizationPtrOutput struct {
-	*pulumi.OutputState
-}
+type AggregateAuthorizationPtrOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AggregateAuthorization)(nil))
@@ -288,6 +284,16 @@ func (o AggregateAuthorizationPtrOutput) ToAggregateAuthorizationPtrOutput() Agg
 
 func (o AggregateAuthorizationPtrOutput) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
 	return o
+}
+
+func (o AggregateAuthorizationPtrOutput) Elem() AggregateAuthorizationOutput {
+	return o.ApplyT(func(v *AggregateAuthorization) AggregateAuthorization {
+		if v != nil {
+			return *v
+		}
+		var ret AggregateAuthorization
+		return ret
+	}).(AggregateAuthorizationOutput)
 }
 
 type AggregateAuthorizationArrayOutput struct{ *pulumi.OutputState }

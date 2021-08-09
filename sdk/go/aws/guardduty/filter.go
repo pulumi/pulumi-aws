@@ -321,9 +321,7 @@ func (i FilterMap) ToFilterMapOutputWithContext(ctx context.Context) FilterMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(FilterMapOutput)
 }
 
-type FilterOutput struct {
-	*pulumi.OutputState
-}
+type FilterOutput struct{ *pulumi.OutputState }
 
 func (FilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Filter)(nil))
@@ -342,14 +340,12 @@ func (o FilterOutput) ToFilterPtrOutput() FilterPtrOutput {
 }
 
 func (o FilterOutput) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
-	return o.ApplyT(func(v Filter) *Filter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Filter) *Filter {
 		return &v
 	}).(FilterPtrOutput)
 }
 
-type FilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type FilterPtrOutput struct{ *pulumi.OutputState }
 
 func (FilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Filter)(nil))
@@ -361,6 +357,16 @@ func (o FilterPtrOutput) ToFilterPtrOutput() FilterPtrOutput {
 
 func (o FilterPtrOutput) ToFilterPtrOutputWithContext(ctx context.Context) FilterPtrOutput {
 	return o
+}
+
+func (o FilterPtrOutput) Elem() FilterOutput {
+	return o.ApplyT(func(v *Filter) Filter {
+		if v != nil {
+			return *v
+		}
+		var ret Filter
+		return ret
+	}).(FilterOutput)
 }
 
 type FilterArrayOutput struct{ *pulumi.OutputState }

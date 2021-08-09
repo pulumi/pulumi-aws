@@ -218,7 +218,7 @@ func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionPtrOutpu
 }
 
 func (o ClusterServerSideEncryptionOutput) ToClusterServerSideEncryptionPtrOutputWithContext(ctx context.Context) ClusterServerSideEncryptionPtrOutput {
-	return o.ApplyT(func(v ClusterServerSideEncryption) *ClusterServerSideEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServerSideEncryption) *ClusterServerSideEncryption {
 		return &v
 	}).(ClusterServerSideEncryptionPtrOutput)
 }
@@ -243,7 +243,13 @@ func (o ClusterServerSideEncryptionPtrOutput) ToClusterServerSideEncryptionPtrOu
 }
 
 func (o ClusterServerSideEncryptionPtrOutput) Elem() ClusterServerSideEncryptionOutput {
-	return o.ApplyT(func(v *ClusterServerSideEncryption) ClusterServerSideEncryption { return *v }).(ClusterServerSideEncryptionOutput)
+	return o.ApplyT(func(v *ClusterServerSideEncryption) ClusterServerSideEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServerSideEncryption
+		return ret
+	}).(ClusterServerSideEncryptionOutput)
 }
 
 // Whether to enable encryption at rest. Defaults to `false`.

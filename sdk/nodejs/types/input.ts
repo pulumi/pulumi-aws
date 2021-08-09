@@ -219,6 +219,8 @@ export interface ProviderEndpoint {
     resourcegroupstaggingapi?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
     route53domains?: pulumi.Input<string>;
+    route53recoverycontrolconfig?: pulumi.Input<string>;
+    route53recoveryreadiness?: pulumi.Input<string>;
     route53resolver?: pulumi.Input<string>;
     s3?: pulumi.Input<string>;
     s3control?: pulumi.Input<string>;
@@ -8701,6 +8703,55 @@ export namespace ebs {
         values: string[];
     }
 
+    export interface SnapshotImportClientData {
+        /**
+         * A user-defined comment about the disk upload.
+         */
+        comment?: pulumi.Input<string>;
+        /**
+         * The time that the disk upload ends.
+         */
+        uploadEnd?: pulumi.Input<string>;
+        /**
+         * The size of the uploaded disk image, in GiB.
+         */
+        uploadSize?: pulumi.Input<number>;
+        /**
+         * The time that the disk upload starts.
+         */
+        uploadStart?: pulumi.Input<string>;
+    }
+
+    export interface SnapshotImportDiskContainer {
+        /**
+         * The description of the disk image being imported.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The format of the disk image being imported. One of `VHD` or `VMDK`.
+         */
+        format: pulumi.Input<string>;
+        /**
+         * The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `userBucket` must be set.
+         */
+        url?: pulumi.Input<string>;
+        /**
+         * The Amazon S3 bucket for the disk image. One of `url` or `userBucket` must be set. Detailed below.
+         */
+        userBucket?: pulumi.Input<inputs.ebs.SnapshotImportDiskContainerUserBucket>;
+    }
+
+    export interface SnapshotImportDiskContainerUserBucket {
+        /**
+         * The name of the Amazon S3 bucket where the disk image is located.
+         */
+        s3Bucket: pulumi.Input<string>;
+        /**
+         * The file name of the disk image.
+         */
+        s3Key: pulumi.Input<string>;
+    }
+
 }
 
 export namespace ec2 {
@@ -10175,7 +10226,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateTagSpecification {
         /**
-         * The type of resource to tag. Valid values are `instance`, `volume`, `elastic-gpu` and `spot-instances-request`.
+         * The type of resource to tag.
          */
         resourceType?: pulumi.Input<string>;
         /**
@@ -21878,6 +21929,13 @@ export namespace sagemaker {
         repositoryAccessMode: pulumi.Input<string>;
     }
 
+    export interface ModelInferenceExecutionConfig {
+        /**
+         * The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+         */
+        mode: pulumi.Input<string>;
+    }
+
     export interface ModelPrimaryContainer {
         /**
          * The DNS host name for the container.
@@ -22032,9 +22090,126 @@ export namespace sagemaker {
          */
         sagemakerImageArn?: pulumi.Input<string>;
     }
+
+    export interface WorkforceCognitoConfig {
+        /**
+         * The OIDC IdP client ID used to configure your private workforce.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The id for your Amazon Cognito user pool.
+         */
+        userPool: pulumi.Input<string>;
+    }
+
+    export interface WorkforceOidcConfig {
+        /**
+         * The OIDC IdP authorization endpoint used to configure your private workforce.
+         */
+        authorizationEndpoint: pulumi.Input<string>;
+        /**
+         * The OIDC IdP client ID used to configure your private workforce.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * The OIDC IdP client secret used to configure your private workforce.
+         */
+        clientSecret: pulumi.Input<string>;
+        /**
+         * The OIDC IdP issuer used to configure your private workforce.
+         */
+        issuer: pulumi.Input<string>;
+        /**
+         * The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+         */
+        jwksUri: pulumi.Input<string>;
+        /**
+         * The OIDC IdP logout endpoint used to configure your private workforce.
+         */
+        logoutEndpoint: pulumi.Input<string>;
+        /**
+         * The OIDC IdP token endpoint used to configure your private workforce.
+         */
+        tokenEndpoint: pulumi.Input<string>;
+        /**
+         * The OIDC IdP user information endpoint used to configure your private workforce.
+         */
+        userInfoEndpoint: pulumi.Input<string>;
+    }
+
+    export interface WorkforceSourceIpConfig {
+        /**
+         * A list of up to 10 CIDR values.
+         */
+        cidrs: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkteamMemberDefinition {
+        /**
+         * The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+         */
+        cognitoMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionCognitoMemberDefinition>;
+        /**
+         * A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+         */
+        oidcMemberDefinition?: pulumi.Input<inputs.sagemaker.WorkteamMemberDefinitionOidcMemberDefinition>;
+    }
+
+    export interface WorkteamMemberDefinitionCognitoMemberDefinition {
+        /**
+         * An identifier for an application client. You must create the app client ID using Amazon Cognito.
+         */
+        clientId: pulumi.Input<string>;
+        /**
+         * An identifier for a user group.
+         */
+        userGroup: pulumi.Input<string>;
+        /**
+         * An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+         */
+        userPool: pulumi.Input<string>;
+    }
+
+    export interface WorkteamMemberDefinitionOidcMemberDefinition {
+        /**
+         * A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+         */
+        groups: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface WorkteamNotificationConfiguration {
+        /**
+         * The ARN for the SNS topic to which notifications should be published.
+         */
+        notificationTopicArn?: pulumi.Input<string>;
+    }
+
 }
 
 export namespace secretsmanager {
+    export interface SecretReplica {
+        /**
+         * ARN, Key ID, or Alias.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * Date that you last accessed the secret in the Region.
+         */
+        lastAccessedDate?: pulumi.Input<string>;
+        /**
+         * Region for replicating the secret.
+         */
+        region: pulumi.Input<string>;
+        /**
+         * Status can be `InProgress`, `Failed`, or `InSync`.
+         */
+        status?: pulumi.Input<string>;
+        /**
+         * Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+         */
+        statusMessage?: pulumi.Input<string>;
+    }
+
     export interface SecretRotationRotationRules {
         /**
          * Specifies the number of days between automatic scheduled rotations of the secret.
@@ -24272,6 +24447,15 @@ export namespace ssm {
 }
 
 export namespace storagegateway {
+    export interface FileSystemAssociationCacheAttributes {
+        /**
+         * Refreshes a file share's cache by using Time To Live (TTL).
+         * TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+         * to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+         */
+        cacheStaleTimeoutInSeconds?: pulumi.Input<number>;
+    }
+
     export interface GatewayGatewayNetworkInterface {
         /**
          * The Internet Protocol version 4 (IPv4) address of the interface.

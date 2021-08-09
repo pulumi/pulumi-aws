@@ -69,6 +69,10 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());

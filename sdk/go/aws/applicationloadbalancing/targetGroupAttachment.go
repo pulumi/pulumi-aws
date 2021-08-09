@@ -297,9 +297,7 @@ func (i TargetGroupAttachmentMap) ToTargetGroupAttachmentMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttachmentMapOutput)
 }
 
-type TargetGroupAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type TargetGroupAttachmentOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TargetGroupAttachment)(nil))
@@ -318,14 +316,12 @@ func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentPtrOutput() TargetGr
 }
 
 func (o TargetGroupAttachmentOutput) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
-	return o.ApplyT(func(v TargetGroupAttachment) *TargetGroupAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetGroupAttachment) *TargetGroupAttachment {
 		return &v
 	}).(TargetGroupAttachmentPtrOutput)
 }
 
-type TargetGroupAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type TargetGroupAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TargetGroupAttachment)(nil))
@@ -337,6 +333,16 @@ func (o TargetGroupAttachmentPtrOutput) ToTargetGroupAttachmentPtrOutput() Targe
 
 func (o TargetGroupAttachmentPtrOutput) ToTargetGroupAttachmentPtrOutputWithContext(ctx context.Context) TargetGroupAttachmentPtrOutput {
 	return o
+}
+
+func (o TargetGroupAttachmentPtrOutput) Elem() TargetGroupAttachmentOutput {
+	return o.ApplyT(func(v *TargetGroupAttachment) TargetGroupAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret TargetGroupAttachment
+		return ret
+	}).(TargetGroupAttachmentOutput)
 }
 
 type TargetGroupAttachmentArrayOutput struct{ *pulumi.OutputState }

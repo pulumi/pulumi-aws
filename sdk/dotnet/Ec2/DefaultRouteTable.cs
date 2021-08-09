@@ -115,11 +115,14 @@ namespace Pulumi.Aws.Ec2
         [Output("propagatingVgws")]
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of objects. Detailed below
+        /// </summary>
         [Output("routes")]
         public Output<ImmutableArray<Outputs.DefaultRouteTableRoute>> Routes { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -202,6 +205,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteArgs>? _routes;
+
+        /// <summary>
+        /// Set of objects. Detailed below
+        /// </summary>
         public InputList<Inputs.DefaultRouteTableRouteArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteArgs>());
@@ -212,7 +219,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -271,6 +278,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteGetArgs>? _routes;
+
+        /// <summary>
+        /// Set of objects. Detailed below
+        /// </summary>
         public InputList<Inputs.DefaultRouteTableRouteGetArgs> Routes
         {
             get => _routes ?? (_routes = new InputList<Inputs.DefaultRouteTableRouteGetArgs>());
@@ -281,7 +292,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

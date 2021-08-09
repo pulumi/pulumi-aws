@@ -234,9 +234,7 @@ func (i ContainerMap) ToContainerMapOutputWithContext(ctx context.Context) Conta
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMapOutput)
 }
 
-type ContainerOutput struct {
-	*pulumi.OutputState
-}
+type ContainerOutput struct{ *pulumi.OutputState }
 
 func (ContainerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Container)(nil))
@@ -255,14 +253,12 @@ func (o ContainerOutput) ToContainerPtrOutput() ContainerPtrOutput {
 }
 
 func (o ContainerOutput) ToContainerPtrOutputWithContext(ctx context.Context) ContainerPtrOutput {
-	return o.ApplyT(func(v Container) *Container {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Container) *Container {
 		return &v
 	}).(ContainerPtrOutput)
 }
 
-type ContainerPtrOutput struct {
-	*pulumi.OutputState
-}
+type ContainerPtrOutput struct{ *pulumi.OutputState }
 
 func (ContainerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Container)(nil))
@@ -274,6 +270,16 @@ func (o ContainerPtrOutput) ToContainerPtrOutput() ContainerPtrOutput {
 
 func (o ContainerPtrOutput) ToContainerPtrOutputWithContext(ctx context.Context) ContainerPtrOutput {
 	return o
+}
+
+func (o ContainerPtrOutput) Elem() ContainerOutput {
+	return o.ApplyT(func(v *Container) Container {
+		if v != nil {
+			return *v
+		}
+		var ret Container
+		return ret
+	}).(ContainerOutput)
 }
 
 type ContainerArrayOutput struct{ *pulumi.OutputState }

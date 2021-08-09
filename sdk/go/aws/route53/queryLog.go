@@ -280,9 +280,7 @@ func (i QueryLogMap) ToQueryLogMapOutputWithContext(ctx context.Context) QueryLo
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLogMapOutput)
 }
 
-type QueryLogOutput struct {
-	*pulumi.OutputState
-}
+type QueryLogOutput struct{ *pulumi.OutputState }
 
 func (QueryLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueryLog)(nil))
@@ -301,14 +299,12 @@ func (o QueryLogOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
 }
 
 func (o QueryLogOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
-	return o.ApplyT(func(v QueryLog) *QueryLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLog) *QueryLog {
 		return &v
 	}).(QueryLogPtrOutput)
 }
 
-type QueryLogPtrOutput struct {
-	*pulumi.OutputState
-}
+type QueryLogPtrOutput struct{ *pulumi.OutputState }
 
 func (QueryLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**QueryLog)(nil))
@@ -320,6 +316,16 @@ func (o QueryLogPtrOutput) ToQueryLogPtrOutput() QueryLogPtrOutput {
 
 func (o QueryLogPtrOutput) ToQueryLogPtrOutputWithContext(ctx context.Context) QueryLogPtrOutput {
 	return o
+}
+
+func (o QueryLogPtrOutput) Elem() QueryLogOutput {
+	return o.ApplyT(func(v *QueryLog) QueryLog {
+		if v != nil {
+			return *v
+		}
+		var ret QueryLog
+		return ret
+	}).(QueryLogOutput)
 }
 
 type QueryLogArrayOutput struct{ *pulumi.OutputState }

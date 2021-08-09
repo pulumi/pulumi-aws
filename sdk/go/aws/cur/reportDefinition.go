@@ -348,9 +348,7 @@ func (i ReportDefinitionMap) ToReportDefinitionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionMapOutput)
 }
 
-type ReportDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type ReportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportDefinition)(nil))
@@ -369,14 +367,12 @@ func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPt
 }
 
 func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o.ApplyT(func(v ReportDefinition) *ReportDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinition) *ReportDefinition {
 		return &v
 	}).(ReportDefinitionPtrOutput)
 }
 
-type ReportDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReportDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReportDefinition)(nil))
@@ -388,6 +384,16 @@ func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutput() ReportDefinitio
 
 func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
 	return o
+}
+
+func (o ReportDefinitionPtrOutput) Elem() ReportDefinitionOutput {
+	return o.ApplyT(func(v *ReportDefinition) ReportDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ReportDefinition
+		return ret
+	}).(ReportDefinitionOutput)
 }
 
 type ReportDefinitionArrayOutput struct{ *pulumi.OutputState }

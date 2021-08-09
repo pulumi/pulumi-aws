@@ -119,7 +119,7 @@ func (o DirectorySelfServicePermissionsOutput) ToDirectorySelfServicePermissions
 }
 
 func (o DirectorySelfServicePermissionsOutput) ToDirectorySelfServicePermissionsPtrOutputWithContext(ctx context.Context) DirectorySelfServicePermissionsPtrOutput {
-	return o.ApplyT(func(v DirectorySelfServicePermissions) *DirectorySelfServicePermissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectorySelfServicePermissions) *DirectorySelfServicePermissions {
 		return &v
 	}).(DirectorySelfServicePermissionsPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o DirectorySelfServicePermissionsPtrOutput) ToDirectorySelfServicePermissi
 }
 
 func (o DirectorySelfServicePermissionsPtrOutput) Elem() DirectorySelfServicePermissionsOutput {
-	return o.ApplyT(func(v *DirectorySelfServicePermissions) DirectorySelfServicePermissions { return *v }).(DirectorySelfServicePermissionsOutput)
+	return o.ApplyT(func(v *DirectorySelfServicePermissions) DirectorySelfServicePermissions {
+		if v != nil {
+			return *v
+		}
+		var ret DirectorySelfServicePermissions
+		return ret
+	}).(DirectorySelfServicePermissionsOutput)
 }
 
 // Whether WorkSpaces directory users can change the compute type (bundle) for their workspace. Default `false`.
@@ -334,7 +340,7 @@ func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessProp
 }
 
 func (o DirectoryWorkspaceAccessPropertiesOutput) ToDirectoryWorkspaceAccessPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceAccessPropertiesPtrOutput {
-	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceAccessProperties) *DirectoryWorkspaceAccessProperties {
 		return &v
 	}).(DirectoryWorkspaceAccessPropertiesPtrOutput)
 }
@@ -389,7 +395,13 @@ func (o DirectoryWorkspaceAccessPropertiesPtrOutput) ToDirectoryWorkspaceAccessP
 }
 
 func (o DirectoryWorkspaceAccessPropertiesPtrOutput) Elem() DirectoryWorkspaceAccessPropertiesOutput {
-	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) DirectoryWorkspaceAccessProperties { return *v }).(DirectoryWorkspaceAccessPropertiesOutput)
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) DirectoryWorkspaceAccessProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceAccessProperties
+		return ret
+	}).(DirectoryWorkspaceAccessPropertiesOutput)
 }
 
 // Indicates whether users can use Android devices to access their WorkSpaces.
@@ -571,7 +583,7 @@ func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreation
 }
 
 func (o DirectoryWorkspaceCreationPropertiesOutput) ToDirectoryWorkspaceCreationPropertiesPtrOutputWithContext(ctx context.Context) DirectoryWorkspaceCreationPropertiesPtrOutput {
-	return o.ApplyT(func(v DirectoryWorkspaceCreationProperties) *DirectoryWorkspaceCreationProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryWorkspaceCreationProperties) *DirectoryWorkspaceCreationProperties {
 		return &v
 	}).(DirectoryWorkspaceCreationPropertiesPtrOutput)
 }
@@ -616,7 +628,13 @@ func (o DirectoryWorkspaceCreationPropertiesPtrOutput) ToDirectoryWorkspaceCreat
 }
 
 func (o DirectoryWorkspaceCreationPropertiesPtrOutput) Elem() DirectoryWorkspaceCreationPropertiesOutput {
-	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) DirectoryWorkspaceCreationProperties { return *v }).(DirectoryWorkspaceCreationPropertiesOutput)
+	return o.ApplyT(func(v *DirectoryWorkspaceCreationProperties) DirectoryWorkspaceCreationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryWorkspaceCreationProperties
+		return ret
+	}).(DirectoryWorkspaceCreationPropertiesOutput)
 }
 
 // The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
@@ -884,7 +902,7 @@ func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOut
 }
 
 func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOutputWithContext(ctx context.Context) WorkspaceWorkspacePropertiesPtrOutput {
-	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceWorkspaceProperties) *WorkspaceWorkspaceProperties {
 		return &v
 	}).(WorkspaceWorkspacePropertiesPtrOutput)
 }
@@ -929,7 +947,13 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) ToWorkspaceWorkspacePropertiesPtr
 }
 
 func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspacePropertiesOutput {
-	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) WorkspaceWorkspaceProperties { return *v }).(WorkspaceWorkspacePropertiesOutput)
+	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) WorkspaceWorkspaceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceWorkspaceProperties
+		return ret
+	}).(WorkspaceWorkspacePropertiesOutput)
 }
 
 // The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.

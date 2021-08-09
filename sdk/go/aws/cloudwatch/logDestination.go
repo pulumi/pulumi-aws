@@ -238,9 +238,7 @@ func (i LogDestinationMap) ToLogDestinationMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationMapOutput)
 }
 
-type LogDestinationOutput struct {
-	*pulumi.OutputState
-}
+type LogDestinationOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogDestination)(nil))
@@ -259,14 +257,12 @@ func (o LogDestinationOutput) ToLogDestinationPtrOutput() LogDestinationPtrOutpu
 }
 
 func (o LogDestinationOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
-	return o.ApplyT(func(v LogDestination) *LogDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDestination) *LogDestination {
 		return &v
 	}).(LogDestinationPtrOutput)
 }
 
-type LogDestinationPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogDestination)(nil))
@@ -278,6 +274,16 @@ func (o LogDestinationPtrOutput) ToLogDestinationPtrOutput() LogDestinationPtrOu
 
 func (o LogDestinationPtrOutput) ToLogDestinationPtrOutputWithContext(ctx context.Context) LogDestinationPtrOutput {
 	return o
+}
+
+func (o LogDestinationPtrOutput) Elem() LogDestinationOutput {
+	return o.ApplyT(func(v *LogDestination) LogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret LogDestination
+		return ret
+	}).(LogDestinationOutput)
 }
 
 type LogDestinationArrayOutput struct{ *pulumi.OutputState }

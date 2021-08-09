@@ -834,9 +834,7 @@ func (i DistributionMap) ToDistributionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionMapOutput)
 }
 
-type DistributionOutput struct {
-	*pulumi.OutputState
-}
+type DistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Distribution)(nil))
@@ -855,14 +853,12 @@ func (o DistributionOutput) ToDistributionPtrOutput() DistributionPtrOutput {
 }
 
 func (o DistributionOutput) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
-	return o.ApplyT(func(v Distribution) *Distribution {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Distribution) *Distribution {
 		return &v
 	}).(DistributionPtrOutput)
 }
 
-type DistributionPtrOutput struct {
-	*pulumi.OutputState
-}
+type DistributionPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Distribution)(nil))
@@ -874,6 +870,16 @@ func (o DistributionPtrOutput) ToDistributionPtrOutput() DistributionPtrOutput {
 
 func (o DistributionPtrOutput) ToDistributionPtrOutputWithContext(ctx context.Context) DistributionPtrOutput {
 	return o
+}
+
+func (o DistributionPtrOutput) Elem() DistributionOutput {
+	return o.ApplyT(func(v *Distribution) Distribution {
+		if v != nil {
+			return *v
+		}
+		var ret Distribution
+		return ret
+	}).(DistributionOutput)
 }
 
 type DistributionArrayOutput struct{ *pulumi.OutputState }

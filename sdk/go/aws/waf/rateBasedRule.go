@@ -302,9 +302,7 @@ func (i RateBasedRuleMap) ToRateBasedRuleMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RateBasedRuleMapOutput)
 }
 
-type RateBasedRuleOutput struct {
-	*pulumi.OutputState
-}
+type RateBasedRuleOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RateBasedRule)(nil))
@@ -323,14 +321,12 @@ func (o RateBasedRuleOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutput {
 }
 
 func (o RateBasedRuleOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
-	return o.ApplyT(func(v RateBasedRule) *RateBasedRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RateBasedRule) *RateBasedRule {
 		return &v
 	}).(RateBasedRulePtrOutput)
 }
 
-type RateBasedRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type RateBasedRulePtrOutput struct{ *pulumi.OutputState }
 
 func (RateBasedRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RateBasedRule)(nil))
@@ -342,6 +338,16 @@ func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutput() RateBasedRulePtrOutpu
 
 func (o RateBasedRulePtrOutput) ToRateBasedRulePtrOutputWithContext(ctx context.Context) RateBasedRulePtrOutput {
 	return o
+}
+
+func (o RateBasedRulePtrOutput) Elem() RateBasedRuleOutput {
+	return o.ApplyT(func(v *RateBasedRule) RateBasedRule {
+		if v != nil {
+			return *v
+		}
+		var ret RateBasedRule
+		return ret
+	}).(RateBasedRuleOutput)
 }
 
 type RateBasedRuleArrayOutput struct{ *pulumi.OutputState }

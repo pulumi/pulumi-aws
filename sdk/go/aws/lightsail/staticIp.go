@@ -214,9 +214,7 @@ func (i StaticIpMap) ToStaticIpMapOutputWithContext(ctx context.Context) StaticI
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpMapOutput)
 }
 
-type StaticIpOutput struct {
-	*pulumi.OutputState
-}
+type StaticIpOutput struct{ *pulumi.OutputState }
 
 func (StaticIpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticIp)(nil))
@@ -235,14 +233,12 @@ func (o StaticIpOutput) ToStaticIpPtrOutput() StaticIpPtrOutput {
 }
 
 func (o StaticIpOutput) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
-	return o.ApplyT(func(v StaticIp) *StaticIp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticIp) *StaticIp {
 		return &v
 	}).(StaticIpPtrOutput)
 }
 
-type StaticIpPtrOutput struct {
-	*pulumi.OutputState
-}
+type StaticIpPtrOutput struct{ *pulumi.OutputState }
 
 func (StaticIpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StaticIp)(nil))
@@ -254,6 +250,16 @@ func (o StaticIpPtrOutput) ToStaticIpPtrOutput() StaticIpPtrOutput {
 
 func (o StaticIpPtrOutput) ToStaticIpPtrOutputWithContext(ctx context.Context) StaticIpPtrOutput {
 	return o
+}
+
+func (o StaticIpPtrOutput) Elem() StaticIpOutput {
+	return o.ApplyT(func(v *StaticIp) StaticIp {
+		if v != nil {
+			return *v
+		}
+		var ret StaticIp
+		return ret
+	}).(StaticIpOutput)
 }
 
 type StaticIpArrayOutput struct{ *pulumi.OutputState }

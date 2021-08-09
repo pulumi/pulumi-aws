@@ -20,6 +20,8 @@ export * from "./modelPackageGroup";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
 export * from "./userProfile";
+export * from "./workforce";
+export * from "./workteam";
 
 // Import resources to register:
 import { App } from "./app";
@@ -36,6 +38,8 @@ import { ModelPackageGroup } from "./modelPackageGroup";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
 import { UserProfile } from "./userProfile";
+import { Workforce } from "./workforce";
+import { Workteam } from "./workteam";
 
 const _module = {
     version: utilities.getVersion(),
@@ -69,6 +73,10 @@ const _module = {
                 return new NotebookInstanceLifecycleConfiguration(name, <any>undefined, { urn })
             case "aws:sagemaker/userProfile:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
+            case "aws:sagemaker/workforce:Workforce":
+                return new Workforce(name, <any>undefined, { urn })
+            case "aws:sagemaker/workteam:Workteam":
+                return new Workteam(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -88,3 +96,5 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _mod
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/workforce", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/workteam", _module)

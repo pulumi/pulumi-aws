@@ -292,9 +292,7 @@ func (i ConstraintMap) ToConstraintMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConstraintMapOutput)
 }
 
-type ConstraintOutput struct {
-	*pulumi.OutputState
-}
+type ConstraintOutput struct{ *pulumi.OutputState }
 
 func (ConstraintOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Constraint)(nil))
@@ -313,14 +311,12 @@ func (o ConstraintOutput) ToConstraintPtrOutput() ConstraintPtrOutput {
 }
 
 func (o ConstraintOutput) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
-	return o.ApplyT(func(v Constraint) *Constraint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Constraint) *Constraint {
 		return &v
 	}).(ConstraintPtrOutput)
 }
 
-type ConstraintPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConstraintPtrOutput struct{ *pulumi.OutputState }
 
 func (ConstraintPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Constraint)(nil))
@@ -332,6 +328,16 @@ func (o ConstraintPtrOutput) ToConstraintPtrOutput() ConstraintPtrOutput {
 
 func (o ConstraintPtrOutput) ToConstraintPtrOutputWithContext(ctx context.Context) ConstraintPtrOutput {
 	return o
+}
+
+func (o ConstraintPtrOutput) Elem() ConstraintOutput {
+	return o.ApplyT(func(v *Constraint) Constraint {
+		if v != nil {
+			return *v
+		}
+		var ret Constraint
+		return ret
+	}).(ConstraintOutput)
 }
 
 type ConstraintArrayOutput struct{ *pulumi.OutputState }

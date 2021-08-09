@@ -59,6 +59,9 @@ export interface GetLoadBalancerArgs {
      * The unique name of the load balancer.
      */
     name?: string;
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     */
     tags?: {[key: string]: string};
 }
 

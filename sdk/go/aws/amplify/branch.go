@@ -421,9 +421,7 @@ func (i BranchMap) ToBranchMapOutputWithContext(ctx context.Context) BranchMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BranchMapOutput)
 }
 
-type BranchOutput struct {
-	*pulumi.OutputState
-}
+type BranchOutput struct{ *pulumi.OutputState }
 
 func (BranchOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Branch)(nil))
@@ -442,14 +440,12 @@ func (o BranchOutput) ToBranchPtrOutput() BranchPtrOutput {
 }
 
 func (o BranchOutput) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
-	return o.ApplyT(func(v Branch) *Branch {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Branch) *Branch {
 		return &v
 	}).(BranchPtrOutput)
 }
 
-type BranchPtrOutput struct {
-	*pulumi.OutputState
-}
+type BranchPtrOutput struct{ *pulumi.OutputState }
 
 func (BranchPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Branch)(nil))
@@ -461,6 +457,16 @@ func (o BranchPtrOutput) ToBranchPtrOutput() BranchPtrOutput {
 
 func (o BranchPtrOutput) ToBranchPtrOutputWithContext(ctx context.Context) BranchPtrOutput {
 	return o
+}
+
+func (o BranchPtrOutput) Elem() BranchOutput {
+	return o.ApplyT(func(v *Branch) Branch {
+		if v != nil {
+			return *v
+		}
+		var ret Branch
+		return ret
+	}).(BranchOutput)
 }
 
 type BranchArrayOutput struct{ *pulumi.OutputState }

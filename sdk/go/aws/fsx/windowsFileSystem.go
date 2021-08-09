@@ -499,9 +499,7 @@ func (i WindowsFileSystemMap) ToWindowsFileSystemMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemMapOutput)
 }
 
-type WindowsFileSystemOutput struct {
-	*pulumi.OutputState
-}
+type WindowsFileSystemOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WindowsFileSystem)(nil))
@@ -520,14 +518,12 @@ func (o WindowsFileSystemOutput) ToWindowsFileSystemPtrOutput() WindowsFileSyste
 }
 
 func (o WindowsFileSystemOutput) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
-	return o.ApplyT(func(v WindowsFileSystem) *WindowsFileSystem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystem) *WindowsFileSystem {
 		return &v
 	}).(WindowsFileSystemPtrOutput)
 }
 
-type WindowsFileSystemPtrOutput struct {
-	*pulumi.OutputState
-}
+type WindowsFileSystemPtrOutput struct{ *pulumi.OutputState }
 
 func (WindowsFileSystemPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WindowsFileSystem)(nil))
@@ -539,6 +535,16 @@ func (o WindowsFileSystemPtrOutput) ToWindowsFileSystemPtrOutput() WindowsFileSy
 
 func (o WindowsFileSystemPtrOutput) ToWindowsFileSystemPtrOutputWithContext(ctx context.Context) WindowsFileSystemPtrOutput {
 	return o
+}
+
+func (o WindowsFileSystemPtrOutput) Elem() WindowsFileSystemOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsFileSystem
+		return ret
+	}).(WindowsFileSystemOutput)
 }
 
 type WindowsFileSystemArrayOutput struct{ *pulumi.OutputState }

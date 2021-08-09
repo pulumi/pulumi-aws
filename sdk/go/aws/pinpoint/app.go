@@ -282,9 +282,7 @@ func (i AppMap) ToAppMapOutputWithContext(ctx context.Context) AppMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppMapOutput)
 }
 
-type AppOutput struct {
-	*pulumi.OutputState
-}
+type AppOutput struct{ *pulumi.OutputState }
 
 func (AppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*App)(nil))
@@ -303,14 +301,12 @@ func (o AppOutput) ToAppPtrOutput() AppPtrOutput {
 }
 
 func (o AppOutput) ToAppPtrOutputWithContext(ctx context.Context) AppPtrOutput {
-	return o.ApplyT(func(v App) *App {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v App) *App {
 		return &v
 	}).(AppPtrOutput)
 }
 
-type AppPtrOutput struct {
-	*pulumi.OutputState
-}
+type AppPtrOutput struct{ *pulumi.OutputState }
 
 func (AppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**App)(nil))
@@ -322,6 +318,16 @@ func (o AppPtrOutput) ToAppPtrOutput() AppPtrOutput {
 
 func (o AppPtrOutput) ToAppPtrOutputWithContext(ctx context.Context) AppPtrOutput {
 	return o
+}
+
+func (o AppPtrOutput) Elem() AppOutput {
+	return o.ApplyT(func(v *App) App {
+		if v != nil {
+			return *v
+		}
+		var ret App
+		return ret
+	}).(AppOutput)
 }
 
 type AppArrayOutput struct{ *pulumi.OutputState }

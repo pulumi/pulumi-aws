@@ -103,7 +103,7 @@ func (o AliasRoutingConfigOutput) ToAliasRoutingConfigPtrOutput() AliasRoutingCo
 }
 
 func (o AliasRoutingConfigOutput) ToAliasRoutingConfigPtrOutputWithContext(ctx context.Context) AliasRoutingConfigPtrOutput {
-	return o.ApplyT(func(v AliasRoutingConfig) *AliasRoutingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingConfig) *AliasRoutingConfig {
 		return &v
 	}).(AliasRoutingConfigPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o AliasRoutingConfigPtrOutput) ToAliasRoutingConfigPtrOutputWithContext(ct
 }
 
 func (o AliasRoutingConfigPtrOutput) Elem() AliasRoutingConfigOutput {
-	return o.ApplyT(func(v *AliasRoutingConfig) AliasRoutingConfig { return *v }).(AliasRoutingConfigOutput)
+	return o.ApplyT(func(v *AliasRoutingConfig) AliasRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AliasRoutingConfig
+		return ret
+	}).(AliasRoutingConfigOutput)
 }
 
 // A map that defines the proportion of events that should be sent to different versions of a lambda function.
@@ -234,7 +240,7 @@ func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPubl
 }
 
 func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
 		return &v
 	}).(CodeSigningConfigAllowedPublishersPtrOutput)
 }
@@ -259,7 +265,13 @@ func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedP
 }
 
 func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
-	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers { return *v }).(CodeSigningConfigAllowedPublishersOutput)
+	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSigningConfigAllowedPublishers
+		return ret
+	}).(CodeSigningConfigAllowedPublishersOutput)
 }
 
 // The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
@@ -365,7 +377,7 @@ func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutput() 
 }
 
 func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutputWithContext(ctx context.Context) CodeSigningConfigPoliciesPtrOutput {
-	return o.ApplyT(func(v CodeSigningConfigPolicies) *CodeSigningConfigPolicies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfigPolicies) *CodeSigningConfigPolicies {
 		return &v
 	}).(CodeSigningConfigPoliciesPtrOutput)
 }
@@ -390,7 +402,13 @@ func (o CodeSigningConfigPoliciesPtrOutput) ToCodeSigningConfigPoliciesPtrOutput
 }
 
 func (o CodeSigningConfigPoliciesPtrOutput) Elem() CodeSigningConfigPoliciesOutput {
-	return o.ApplyT(func(v *CodeSigningConfigPolicies) CodeSigningConfigPolicies { return *v }).(CodeSigningConfigPoliciesOutput)
+	return o.ApplyT(func(v *CodeSigningConfigPolicies) CodeSigningConfigPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret CodeSigningConfigPolicies
+		return ret
+	}).(CodeSigningConfigPoliciesOutput)
 }
 
 // Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
@@ -496,7 +514,7 @@ func (o EventSourceMappingDestinationConfigOutput) ToEventSourceMappingDestinati
 }
 
 func (o EventSourceMappingDestinationConfigOutput) ToEventSourceMappingDestinationConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingDestinationConfigPtrOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfig {
 		return &v
 	}).(EventSourceMappingDestinationConfigPtrOutput)
 }
@@ -523,7 +541,13 @@ func (o EventSourceMappingDestinationConfigPtrOutput) ToEventSourceMappingDestin
 }
 
 func (o EventSourceMappingDestinationConfigPtrOutput) Elem() EventSourceMappingDestinationConfigOutput {
-	return o.ApplyT(func(v *EventSourceMappingDestinationConfig) EventSourceMappingDestinationConfig { return *v }).(EventSourceMappingDestinationConfigOutput)
+	return o.ApplyT(func(v *EventSourceMappingDestinationConfig) EventSourceMappingDestinationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingDestinationConfig
+		return ret
+	}).(EventSourceMappingDestinationConfigOutput)
 }
 
 // The destination configuration for failed invocations. Detailed below.
@@ -629,7 +653,7 @@ func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMapping
 }
 
 func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMappingDestinationConfigOnFailurePtrOutputWithContext(ctx context.Context) EventSourceMappingDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) *EventSourceMappingDestinationConfigOnFailure {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingDestinationConfigOnFailure) *EventSourceMappingDestinationConfigOnFailure {
 		return &v
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
@@ -655,7 +679,11 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) ToEventSourceMapp
 
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourceMappingDestinationConfigOnFailureOutput {
 	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) EventSourceMappingDestinationConfigOnFailure {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingDestinationConfigOnFailure
+		return ret
 	}).(EventSourceMappingDestinationConfigOnFailureOutput)
 }
 
@@ -762,7 +790,7 @@ func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelf
 }
 
 func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelfManagedEventSourcePtrOutputWithContext(ctx context.Context) EventSourceMappingSelfManagedEventSourcePtrOutput {
-	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) *EventSourceMappingSelfManagedEventSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingSelfManagedEventSource) *EventSourceMappingSelfManagedEventSource {
 		return &v
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
@@ -787,7 +815,13 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) ToEventSourceMappingS
 }
 
 func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMappingSelfManagedEventSourceOutput {
-	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) EventSourceMappingSelfManagedEventSource { return *v }).(EventSourceMappingSelfManagedEventSourceOutput)
+	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) EventSourceMappingSelfManagedEventSource {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingSelfManagedEventSource
+		return ret
+	}).(EventSourceMappingSelfManagedEventSourceOutput)
 }
 
 // A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
@@ -999,7 +1033,7 @@ func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigPtrOutput() Fu
 }
 
 func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigPtrOutputWithContext(ctx context.Context) FunctionDeadLetterConfigPtrOutput {
-	return o.ApplyT(func(v FunctionDeadLetterConfig) *FunctionDeadLetterConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDeadLetterConfig) *FunctionDeadLetterConfig {
 		return &v
 	}).(FunctionDeadLetterConfigPtrOutput)
 }
@@ -1024,7 +1058,13 @@ func (o FunctionDeadLetterConfigPtrOutput) ToFunctionDeadLetterConfigPtrOutputWi
 }
 
 func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput {
-	return o.ApplyT(func(v *FunctionDeadLetterConfig) FunctionDeadLetterConfig { return *v }).(FunctionDeadLetterConfigOutput)
+	return o.ApplyT(func(v *FunctionDeadLetterConfig) FunctionDeadLetterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionDeadLetterConfig
+		return ret
+	}).(FunctionDeadLetterConfigOutput)
 }
 
 // ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
@@ -1130,7 +1170,7 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutput() FunctionEnvi
 }
 
 func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx context.Context) FunctionEnvironmentPtrOutput {
-	return o.ApplyT(func(v FunctionEnvironment) *FunctionEnvironment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEnvironment) *FunctionEnvironment {
 		return &v
 	}).(FunctionEnvironmentPtrOutput)
 }
@@ -1155,7 +1195,13 @@ func (o FunctionEnvironmentPtrOutput) ToFunctionEnvironmentPtrOutputWithContext(
 }
 
 func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
-	return o.ApplyT(func(v *FunctionEnvironment) FunctionEnvironment { return *v }).(FunctionEnvironmentOutput)
+	return o.ApplyT(func(v *FunctionEnvironment) FunctionEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEnvironment
+		return ret
+	}).(FunctionEnvironmentOutput)
 }
 
 // Map of environment variables that are accessible from the function code during execution.
@@ -1265,7 +1311,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOutput) ToFunctionEventInvokeC
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigOutput) ToFunctionEventInvokeConfigDestinationConfigPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigPtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfig {
 		return &v
 	}).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
 }
@@ -1300,7 +1346,11 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) ToFunctionEventInvo
 
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) FunctionEventInvokeConfigDestinationConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEventInvokeConfigDestinationConfig
+		return ret
 	}).(FunctionEventInvokeConfigDestinationConfigOutput)
 }
 
@@ -1417,7 +1467,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToFunctionEve
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToFunctionEventInvokeConfigDestinationConfigOnFailurePtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) *FunctionEventInvokeConfigDestinationConfigOnFailure {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEventInvokeConfigDestinationConfigOnFailure) *FunctionEventInvokeConfigDestinationConfigOnFailure {
 		return &v
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
@@ -1443,7 +1493,11 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) ToFunction
 
 func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOnFailureOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnFailure) FunctionEventInvokeConfigDestinationConfigOnFailure {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEventInvokeConfigDestinationConfigOnFailure
+		return ret
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput)
 }
 
@@ -1550,7 +1604,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToFunctionEve
 }
 
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToFunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutputWithContext(ctx context.Context) FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
-	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionEventInvokeConfigDestinationConfigOnSuccess) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
 		return &v
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
@@ -1576,7 +1630,11 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) ToFunction
 
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() FunctionEventInvokeConfigDestinationConfigOnSuccessOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnSuccess) FunctionEventInvokeConfigDestinationConfigOnSuccess {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FunctionEventInvokeConfigDestinationConfigOnSuccess
+		return ret
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput)
 }
 
@@ -1687,7 +1745,7 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutput() Fu
 }
 
 func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithContext(ctx context.Context) FunctionFileSystemConfigPtrOutput {
-	return o.ApplyT(func(v FunctionFileSystemConfig) *FunctionFileSystemConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionFileSystemConfig) *FunctionFileSystemConfig {
 		return &v
 	}).(FunctionFileSystemConfigPtrOutput)
 }
@@ -1717,7 +1775,13 @@ func (o FunctionFileSystemConfigPtrOutput) ToFunctionFileSystemConfigPtrOutputWi
 }
 
 func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput {
-	return o.ApplyT(func(v *FunctionFileSystemConfig) FunctionFileSystemConfig { return *v }).(FunctionFileSystemConfigOutput)
+	return o.ApplyT(func(v *FunctionFileSystemConfig) FunctionFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionFileSystemConfig
+		return ret
+	}).(FunctionFileSystemConfigOutput)
 }
 
 // Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
@@ -1841,7 +1905,7 @@ func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutput() FunctionImag
 }
 
 func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx context.Context) FunctionImageConfigPtrOutput {
-	return o.ApplyT(func(v FunctionImageConfig) *FunctionImageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionImageConfig) *FunctionImageConfig {
 		return &v
 	}).(FunctionImageConfigPtrOutput)
 }
@@ -1876,7 +1940,13 @@ func (o FunctionImageConfigPtrOutput) ToFunctionImageConfigPtrOutputWithContext(
 }
 
 func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
-	return o.ApplyT(func(v *FunctionImageConfig) FunctionImageConfig { return *v }).(FunctionImageConfigOutput)
+	return o.ApplyT(func(v *FunctionImageConfig) FunctionImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionImageConfig
+		return ret
+	}).(FunctionImageConfigOutput)
 }
 
 // Parameters that you want to pass in with `entryPoint`.
@@ -2002,7 +2072,7 @@ func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutput() Function
 }
 
 func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutputWithContext(ctx context.Context) FunctionTracingConfigPtrOutput {
-	return o.ApplyT(func(v FunctionTracingConfig) *FunctionTracingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionTracingConfig) *FunctionTracingConfig {
 		return &v
 	}).(FunctionTracingConfigPtrOutput)
 }
@@ -2027,7 +2097,13 @@ func (o FunctionTracingConfigPtrOutput) ToFunctionTracingConfigPtrOutputWithCont
 }
 
 func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
-	return o.ApplyT(func(v *FunctionTracingConfig) FunctionTracingConfig { return *v }).(FunctionTracingConfigOutput)
+	return o.ApplyT(func(v *FunctionTracingConfig) FunctionTracingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionTracingConfig
+		return ret
+	}).(FunctionTracingConfigOutput)
 }
 
 // Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
@@ -2139,7 +2215,7 @@ func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutput() FunctionVpcConfi
 }
 
 func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx context.Context) FunctionVpcConfigPtrOutput {
-	return o.ApplyT(func(v FunctionVpcConfig) *FunctionVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionVpcConfig) *FunctionVpcConfig {
 		return &v
 	}).(FunctionVpcConfigPtrOutput)
 }
@@ -2173,7 +2249,13 @@ func (o FunctionVpcConfigPtrOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx 
 }
 
 func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
-	return o.ApplyT(func(v *FunctionVpcConfig) FunctionVpcConfig { return *v }).(FunctionVpcConfigOutput)
+	return o.ApplyT(func(v *FunctionVpcConfig) FunctionVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionVpcConfig
+		return ret
+	}).(FunctionVpcConfigOutput)
 }
 
 // List of security group IDs associated with the Lambda function.

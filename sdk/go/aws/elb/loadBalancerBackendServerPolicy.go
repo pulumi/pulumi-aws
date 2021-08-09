@@ -206,9 +206,7 @@ func (i LoadBalancerBackendServerPolicyMap) ToLoadBalancerBackendServerPolicyMap
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerBackendServerPolicyMapOutput)
 }
 
-type LoadBalancerBackendServerPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerBackendServerPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendServerPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerBackendServerPolicy)(nil))
@@ -227,14 +225,12 @@ func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicy
 }
 
 func (o LoadBalancerBackendServerPolicyOutput) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
-	return o.ApplyT(func(v LoadBalancerBackendServerPolicy) *LoadBalancerBackendServerPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerBackendServerPolicy) *LoadBalancerBackendServerPolicy {
 		return &v
 	}).(LoadBalancerBackendServerPolicyPtrOutput)
 }
 
-type LoadBalancerBackendServerPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerBackendServerPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendServerPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoadBalancerBackendServerPolicy)(nil))
@@ -246,6 +242,16 @@ func (o LoadBalancerBackendServerPolicyPtrOutput) ToLoadBalancerBackendServerPol
 
 func (o LoadBalancerBackendServerPolicyPtrOutput) ToLoadBalancerBackendServerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerBackendServerPolicyPtrOutput {
 	return o
+}
+
+func (o LoadBalancerBackendServerPolicyPtrOutput) Elem() LoadBalancerBackendServerPolicyOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) LoadBalancerBackendServerPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerBackendServerPolicy
+		return ret
+	}).(LoadBalancerBackendServerPolicyOutput)
 }
 
 type LoadBalancerBackendServerPolicyArrayOutput struct{ *pulumi.OutputState }

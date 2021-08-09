@@ -113,7 +113,7 @@ func (o MetricOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type MetricPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricPtrOutput) ElementType() reflect.Type {
-	return metricPtrType
+	return reflect.TypeOf((**Metric)(nil)).Elem()
 }
 
 func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
@@ -122,6 +122,16 @@ func (o MetricPtrOutput) ToMetricPtrOutput() MetricPtrOutput {
 
 func (o MetricPtrOutput) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtrOutput {
 	return o
+}
+
+func (o MetricPtrOutput) Elem() MetricOutput {
+	return o.ApplyT(func(v *Metric) Metric {
+		if v != nil {
+			return *v
+		}
+		var ret Metric
+		return ret
+	}).(MetricOutput)
 }
 
 func (o MetricPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -136,16 +146,6 @@ func (o MetricPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o MetricPtrOutput) Elem() MetricOutput {
-	return o.ApplyT(func(v *Metric) Metric {
-		var ret Metric
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(MetricOutput)
 }
 
 // MetricInput is an input type that accepts MetricArgs and MetricOutput values.
@@ -277,7 +277,7 @@ func (o MetricsGranularityOutput) ToStringPtrOutputWithContext(ctx context.Conte
 type MetricsGranularityPtrOutput struct{ *pulumi.OutputState }
 
 func (MetricsGranularityPtrOutput) ElementType() reflect.Type {
-	return metricsGranularityPtrType
+	return reflect.TypeOf((**MetricsGranularity)(nil)).Elem()
 }
 
 func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGranularityPtrOutput {
@@ -286,6 +286,16 @@ func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutput() MetricsGran
 
 func (o MetricsGranularityPtrOutput) ToMetricsGranularityPtrOutputWithContext(ctx context.Context) MetricsGranularityPtrOutput {
 	return o
+}
+
+func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
+	return o.ApplyT(func(v *MetricsGranularity) MetricsGranularity {
+		if v != nil {
+			return *v
+		}
+		var ret MetricsGranularity
+		return ret
+	}).(MetricsGranularityOutput)
 }
 
 func (o MetricsGranularityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -300,16 +310,6 @@ func (o MetricsGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o MetricsGranularityPtrOutput) Elem() MetricsGranularityOutput {
-	return o.ApplyT(func(v *MetricsGranularity) MetricsGranularity {
-		var ret MetricsGranularity
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(MetricsGranularityOutput)
 }
 
 // MetricsGranularityInput is an input type that accepts MetricsGranularityArgs and MetricsGranularityOutput values.
@@ -445,7 +445,7 @@ func (o NotificationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context
 type NotificationTypePtrOutput struct{ *pulumi.OutputState }
 
 func (NotificationTypePtrOutput) ElementType() reflect.Type {
-	return notificationTypePtrType
+	return reflect.TypeOf((**NotificationType)(nil)).Elem()
 }
 
 func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTypePtrOutput {
@@ -454,6 +454,16 @@ func (o NotificationTypePtrOutput) ToNotificationTypePtrOutput() NotificationTyp
 
 func (o NotificationTypePtrOutput) ToNotificationTypePtrOutputWithContext(ctx context.Context) NotificationTypePtrOutput {
 	return o
+}
+
+func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {
+	return o.ApplyT(func(v *NotificationType) NotificationType {
+		if v != nil {
+			return *v
+		}
+		var ret NotificationType
+		return ret
+	}).(NotificationTypeOutput)
 }
 
 func (o NotificationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -468,16 +478,6 @@ func (o NotificationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o NotificationTypePtrOutput) Elem() NotificationTypeOutput {
-	return o.ApplyT(func(v *NotificationType) NotificationType {
-		var ret NotificationType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(NotificationTypeOutput)
 }
 
 // NotificationTypeInput is an input type that accepts NotificationTypeArgs and NotificationTypeOutput values.

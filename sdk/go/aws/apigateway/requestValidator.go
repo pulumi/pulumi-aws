@@ -240,9 +240,7 @@ func (i RequestValidatorMap) ToRequestValidatorMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RequestValidatorMapOutput)
 }
 
-type RequestValidatorOutput struct {
-	*pulumi.OutputState
-}
+type RequestValidatorOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RequestValidator)(nil))
@@ -261,14 +259,12 @@ func (o RequestValidatorOutput) ToRequestValidatorPtrOutput() RequestValidatorPt
 }
 
 func (o RequestValidatorOutput) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
-	return o.ApplyT(func(v RequestValidator) *RequestValidator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RequestValidator) *RequestValidator {
 		return &v
 	}).(RequestValidatorPtrOutput)
 }
 
-type RequestValidatorPtrOutput struct {
-	*pulumi.OutputState
-}
+type RequestValidatorPtrOutput struct{ *pulumi.OutputState }
 
 func (RequestValidatorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RequestValidator)(nil))
@@ -280,6 +276,16 @@ func (o RequestValidatorPtrOutput) ToRequestValidatorPtrOutput() RequestValidato
 
 func (o RequestValidatorPtrOutput) ToRequestValidatorPtrOutputWithContext(ctx context.Context) RequestValidatorPtrOutput {
 	return o
+}
+
+func (o RequestValidatorPtrOutput) Elem() RequestValidatorOutput {
+	return o.ApplyT(func(v *RequestValidator) RequestValidator {
+		if v != nil {
+			return *v
+		}
+		var ret RequestValidator
+		return ret
+	}).(RequestValidatorOutput)
 }
 
 type RequestValidatorArrayOutput struct{ *pulumi.OutputState }

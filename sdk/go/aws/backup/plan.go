@@ -274,9 +274,7 @@ func (i PlanMap) ToPlanMapOutputWithContext(ctx context.Context) PlanMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlanMapOutput)
 }
 
-type PlanOutput struct {
-	*pulumi.OutputState
-}
+type PlanOutput struct{ *pulumi.OutputState }
 
 func (PlanOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Plan)(nil))
@@ -295,14 +293,12 @@ func (o PlanOutput) ToPlanPtrOutput() PlanPtrOutput {
 }
 
 func (o PlanOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
-	return o.ApplyT(func(v Plan) *Plan {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Plan) *Plan {
 		return &v
 	}).(PlanPtrOutput)
 }
 
-type PlanPtrOutput struct {
-	*pulumi.OutputState
-}
+type PlanPtrOutput struct{ *pulumi.OutputState }
 
 func (PlanPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Plan)(nil))
@@ -314,6 +310,16 @@ func (o PlanPtrOutput) ToPlanPtrOutput() PlanPtrOutput {
 
 func (o PlanPtrOutput) ToPlanPtrOutputWithContext(ctx context.Context) PlanPtrOutput {
 	return o
+}
+
+func (o PlanPtrOutput) Elem() PlanOutput {
+	return o.ApplyT(func(v *Plan) Plan {
+		if v != nil {
+			return *v
+		}
+		var ret Plan
+		return ret
+	}).(PlanOutput)
 }
 
 type PlanArrayOutput struct{ *pulumi.OutputState }

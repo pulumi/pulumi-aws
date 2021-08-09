@@ -367,6 +367,8 @@ namespace Pulumi.Aws
                 public string? Resourcegroupstaggingapi { get; set; } = null!;
                 public string? Route53 { get; set; } = null!;
                 public string? Route53domains { get; set; } = null!;
+                public string? Route53recoverycontrolconfig { get; set; } = null!;
+                public string? Route53recoveryreadiness { get; set; } = null!;
                 public string? Route53resolver { get; set; } = null!;
                 public string? S3 { get; set; } = null!;
                 public string? S3control { get; set; } = null!;

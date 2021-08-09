@@ -362,9 +362,7 @@ func (i ProductMap) ToProductMapOutputWithContext(ctx context.Context) ProductMa
 	return pulumi.ToOutputWithContext(ctx, i).(ProductMapOutput)
 }
 
-type ProductOutput struct {
-	*pulumi.OutputState
-}
+type ProductOutput struct{ *pulumi.OutputState }
 
 func (ProductOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Product)(nil))
@@ -383,14 +381,12 @@ func (o ProductOutput) ToProductPtrOutput() ProductPtrOutput {
 }
 
 func (o ProductOutput) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
-	return o.ApplyT(func(v Product) *Product {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Product) *Product {
 		return &v
 	}).(ProductPtrOutput)
 }
 
-type ProductPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProductPtrOutput struct{ *pulumi.OutputState }
 
 func (ProductPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Product)(nil))
@@ -402,6 +398,16 @@ func (o ProductPtrOutput) ToProductPtrOutput() ProductPtrOutput {
 
 func (o ProductPtrOutput) ToProductPtrOutputWithContext(ctx context.Context) ProductPtrOutput {
 	return o
+}
+
+func (o ProductPtrOutput) Elem() ProductOutput {
+	return o.ApplyT(func(v *Product) Product {
+		if v != nil {
+			return *v
+		}
+		var ret Product
+		return ret
+	}).(ProductOutput)
 }
 
 type ProductArrayOutput struct{ *pulumi.OutputState }

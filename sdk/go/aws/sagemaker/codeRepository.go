@@ -281,9 +281,7 @@ func (i CodeRepositoryMap) ToCodeRepositoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryMapOutput)
 }
 
-type CodeRepositoryOutput struct {
-	*pulumi.OutputState
-}
+type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CodeRepository)(nil))
@@ -302,14 +300,12 @@ func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOutpu
 }
 
 func (o CodeRepositoryOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
-	return o.ApplyT(func(v CodeRepository) *CodeRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepository) *CodeRepository {
 		return &v
 	}).(CodeRepositoryPtrOutput)
 }
 
-type CodeRepositoryPtrOutput struct {
-	*pulumi.OutputState
-}
+type CodeRepositoryPtrOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CodeRepository)(nil))
@@ -321,6 +317,16 @@ func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutput() CodeRepositoryPtrOu
 
 func (o CodeRepositoryPtrOutput) ToCodeRepositoryPtrOutputWithContext(ctx context.Context) CodeRepositoryPtrOutput {
 	return o
+}
+
+func (o CodeRepositoryPtrOutput) Elem() CodeRepositoryOutput {
+	return o.ApplyT(func(v *CodeRepository) CodeRepository {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepository
+		return ret
+	}).(CodeRepositoryOutput)
 }
 
 type CodeRepositoryArrayOutput struct{ *pulumi.OutputState }

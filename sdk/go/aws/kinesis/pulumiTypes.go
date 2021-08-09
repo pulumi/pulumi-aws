@@ -111,7 +111,7 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicati
 }
 
 func (o AnalyticsApplicationCloudwatchLoggingOptionsOutput) ToAnalyticsApplicationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationCloudwatchLoggingOptions) *AnalyticsApplicationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationCloudwatchLoggingOptions) *AnalyticsApplicationCloudwatchLoggingOptions {
 		return &v
 	}).(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -147,7 +147,11 @@ func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) ToAnalyticsApplic
 
 func (o AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput) Elem() AnalyticsApplicationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationCloudwatchLoggingOptions) AnalyticsApplicationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationCloudwatchLoggingOptions
+		return ret
 	}).(AnalyticsApplicationCloudwatchLoggingOptionsOutput)
 }
 
@@ -314,7 +318,7 @@ func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsPtrOutput(
 }
 
 func (o AnalyticsApplicationInputsOutput) ToAnalyticsApplicationInputsPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputs) *AnalyticsApplicationInputs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputs) *AnalyticsApplicationInputs {
 		return &v
 	}).(AnalyticsApplicationInputsPtrOutput)
 }
@@ -389,7 +393,13 @@ func (o AnalyticsApplicationInputsPtrOutput) ToAnalyticsApplicationInputsPtrOutp
 }
 
 func (o AnalyticsApplicationInputsPtrOutput) Elem() AnalyticsApplicationInputsOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationInputs) AnalyticsApplicationInputs { return *v }).(AnalyticsApplicationInputsOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationInputs) AnalyticsApplicationInputs {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputs
+		return ret
+	}).(AnalyticsApplicationInputsOutput)
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -583,7 +593,7 @@ func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationI
 }
 
 func (o AnalyticsApplicationInputsKinesisFirehoseOutput) ToAnalyticsApplicationInputsKinesisFirehosePtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisFirehosePtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisFirehose) *AnalyticsApplicationInputsKinesisFirehose {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsKinesisFirehose) *AnalyticsApplicationInputsKinesisFirehose {
 		return &v
 	}).(AnalyticsApplicationInputsKinesisFirehosePtrOutput)
 }
@@ -614,7 +624,11 @@ func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) ToAnalyticsApplicati
 
 func (o AnalyticsApplicationInputsKinesisFirehosePtrOutput) Elem() AnalyticsApplicationInputsKinesisFirehoseOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisFirehose) AnalyticsApplicationInputsKinesisFirehose {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsKinesisFirehose
+		return ret
 	}).(AnalyticsApplicationInputsKinesisFirehoseOutput)
 }
 
@@ -735,7 +749,7 @@ func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInp
 }
 
 func (o AnalyticsApplicationInputsKinesisStreamOutput) ToAnalyticsApplicationInputsKinesisStreamPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsKinesisStreamPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsKinesisStream) *AnalyticsApplicationInputsKinesisStream {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsKinesisStream) *AnalyticsApplicationInputsKinesisStream {
 		return &v
 	}).(AnalyticsApplicationInputsKinesisStreamPtrOutput)
 }
@@ -765,7 +779,13 @@ func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) ToAnalyticsApplication
 }
 
 func (o AnalyticsApplicationInputsKinesisStreamPtrOutput) Elem() AnalyticsApplicationInputsKinesisStreamOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisStream) AnalyticsApplicationInputsKinesisStream { return *v }).(AnalyticsApplicationInputsKinesisStreamOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationInputsKinesisStream) AnalyticsApplicationInputsKinesisStream {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsKinesisStream
+		return ret
+	}).(AnalyticsApplicationInputsKinesisStreamOutput)
 }
 
 // The ARN of the Kinesis Stream.
@@ -881,7 +901,7 @@ func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInput
 }
 
 func (o AnalyticsApplicationInputsParallelismOutput) ToAnalyticsApplicationInputsParallelismPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsParallelismPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsParallelism) *AnalyticsApplicationInputsParallelism {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsParallelism) *AnalyticsApplicationInputsParallelism {
 		return &v
 	}).(AnalyticsApplicationInputsParallelismPtrOutput)
 }
@@ -906,7 +926,13 @@ func (o AnalyticsApplicationInputsParallelismPtrOutput) ToAnalyticsApplicationIn
 }
 
 func (o AnalyticsApplicationInputsParallelismPtrOutput) Elem() AnalyticsApplicationInputsParallelismOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationInputsParallelism) AnalyticsApplicationInputsParallelism { return *v }).(AnalyticsApplicationInputsParallelismOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationInputsParallelism) AnalyticsApplicationInputsParallelism {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsParallelism
+		return ret
+	}).(AnalyticsApplicationInputsParallelismOutput)
 }
 
 // The Count of streams.
@@ -1012,7 +1038,7 @@ func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsAppl
 }
 
 func (o AnalyticsApplicationInputsProcessingConfigurationOutput) ToAnalyticsApplicationInputsProcessingConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfiguration) *AnalyticsApplicationInputsProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsProcessingConfiguration) *AnalyticsApplicationInputsProcessingConfiguration {
 		return &v
 	}).(AnalyticsApplicationInputsProcessingConfigurationPtrOutput)
 }
@@ -1040,7 +1066,11 @@ func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) ToAnalyticsA
 
 func (o AnalyticsApplicationInputsProcessingConfigurationPtrOutput) Elem() AnalyticsApplicationInputsProcessingConfigurationOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsProcessingConfiguration) AnalyticsApplicationInputsProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsProcessingConfiguration
+		return ret
 	}).(AnalyticsApplicationInputsProcessingConfigurationOutput)
 }
 
@@ -1151,7 +1181,7 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyti
 }
 
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaOutput) ToAnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsProcessingConfigurationLambda) *AnalyticsApplicationInputsProcessingConfigurationLambda {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsProcessingConfigurationLambda) *AnalyticsApplicationInputsProcessingConfigurationLambda {
 		return &v
 	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput)
 }
@@ -1182,7 +1212,11 @@ func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) ToAnal
 
 func (o AnalyticsApplicationInputsProcessingConfigurationLambdaPtrOutput) Elem() AnalyticsApplicationInputsProcessingConfigurationLambdaOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsProcessingConfigurationLambda) AnalyticsApplicationInputsProcessingConfigurationLambda {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsProcessingConfigurationLambda
+		return ret
 	}).(AnalyticsApplicationInputsProcessingConfigurationLambdaOutput)
 }
 
@@ -1311,7 +1345,7 @@ func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSche
 }
 
 func (o AnalyticsApplicationInputsSchemaOutput) ToAnalyticsApplicationInputsSchemaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsSchema) *AnalyticsApplicationInputsSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchema) *AnalyticsApplicationInputsSchema {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaPtrOutput)
 }
@@ -1352,7 +1386,13 @@ func (o AnalyticsApplicationInputsSchemaPtrOutput) ToAnalyticsApplicationInputsS
 }
 
 func (o AnalyticsApplicationInputsSchemaPtrOutput) Elem() AnalyticsApplicationInputsSchemaOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationInputsSchema) AnalyticsApplicationInputsSchema { return *v }).(AnalyticsApplicationInputsSchemaOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationInputsSchema) AnalyticsApplicationInputsSchema {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsSchema
+		return ret
+	}).(AnalyticsApplicationInputsSchemaOutput)
 }
 
 // The Record Column mapping for the streaming source data element.
@@ -1601,7 +1641,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicati
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatOutput) ToAnalyticsApplicationInputsSchemaRecordFormatPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormat) *AnalyticsApplicationInputsSchemaRecordFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormat) *AnalyticsApplicationInputsSchemaRecordFormat {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatPtrOutput)
 }
@@ -1635,7 +1675,11 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) ToAnalyticsApplic
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormat) AnalyticsApplicationInputsSchemaRecordFormat {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsSchemaRecordFormat
+		return ret
 	}).(AnalyticsApplicationInputsSchemaRecordFormatOutput)
 }
 
@@ -1761,7 +1805,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToA
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput)
 }
@@ -1798,7 +1842,11 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) 
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParameters) AnalyticsApplicationInputsSchemaRecordFormatMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsSchemaRecordFormatMappingParameters
+		return ret
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersOutput)
 }
 
@@ -1921,7 +1969,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) 
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
@@ -1956,7 +2004,11 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutpu
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsv
+		return ret
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvOutput)
 }
 
@@ -2073,7 +2125,7 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 }
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx context.Context) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
 		return &v
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
@@ -2101,7 +2153,11 @@ func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutp
 
 func (o AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonPtrOutput) Elem() AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson) AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJson
+		return ret
 	}).(AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonOutput)
 }
 
@@ -2461,7 +2517,7 @@ func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ToAnalyticsApplicationO
 }
 
 func (o AnalyticsApplicationOutputKinesisFirehoseOutput) ToAnalyticsApplicationOutputKinesisFirehosePtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputKinesisFirehosePtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisFirehose) *AnalyticsApplicationOutputKinesisFirehose {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationOutputKinesisFirehose) *AnalyticsApplicationOutputKinesisFirehose {
 		return &v
 	}).(AnalyticsApplicationOutputKinesisFirehosePtrOutput)
 }
@@ -2492,7 +2548,11 @@ func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) ToAnalyticsApplicati
 
 func (o AnalyticsApplicationOutputKinesisFirehosePtrOutput) Elem() AnalyticsApplicationOutputKinesisFirehoseOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisFirehose) AnalyticsApplicationOutputKinesisFirehose {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationOutputKinesisFirehose
+		return ret
 	}).(AnalyticsApplicationOutputKinesisFirehoseOutput)
 }
 
@@ -2613,7 +2673,7 @@ func (o AnalyticsApplicationOutputKinesisStreamOutput) ToAnalyticsApplicationOut
 }
 
 func (o AnalyticsApplicationOutputKinesisStreamOutput) ToAnalyticsApplicationOutputKinesisStreamPtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputKinesisStreamPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutputKinesisStream) *AnalyticsApplicationOutputKinesisStream {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationOutputKinesisStream) *AnalyticsApplicationOutputKinesisStream {
 		return &v
 	}).(AnalyticsApplicationOutputKinesisStreamPtrOutput)
 }
@@ -2643,7 +2703,13 @@ func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) ToAnalyticsApplication
 }
 
 func (o AnalyticsApplicationOutputKinesisStreamPtrOutput) Elem() AnalyticsApplicationOutputKinesisStreamOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisStream) AnalyticsApplicationOutputKinesisStream { return *v }).(AnalyticsApplicationOutputKinesisStreamOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationOutputKinesisStream) AnalyticsApplicationOutputKinesisStream {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationOutputKinesisStream
+		return ret
+	}).(AnalyticsApplicationOutputKinesisStreamOutput)
 }
 
 // The ARN of the Kinesis Stream.
@@ -2763,7 +2829,7 @@ func (o AnalyticsApplicationOutputLambdaOutput) ToAnalyticsApplicationOutputLamb
 }
 
 func (o AnalyticsApplicationOutputLambdaOutput) ToAnalyticsApplicationOutputLambdaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationOutputLambdaPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationOutputLambda) *AnalyticsApplicationOutputLambda {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationOutputLambda) *AnalyticsApplicationOutputLambda {
 		return &v
 	}).(AnalyticsApplicationOutputLambdaPtrOutput)
 }
@@ -2793,7 +2859,13 @@ func (o AnalyticsApplicationOutputLambdaPtrOutput) ToAnalyticsApplicationOutputL
 }
 
 func (o AnalyticsApplicationOutputLambdaPtrOutput) Elem() AnalyticsApplicationOutputLambdaOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationOutputLambda) AnalyticsApplicationOutputLambda { return *v }).(AnalyticsApplicationOutputLambdaOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationOutputLambda) AnalyticsApplicationOutputLambda {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationOutputLambda
+		return ret
+	}).(AnalyticsApplicationOutputLambdaOutput)
 }
 
 // The ARN of the Lambda function.
@@ -2973,7 +3045,7 @@ func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationRe
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesOutput) ToAnalyticsApplicationReferenceDataSourcesPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSources) *AnalyticsApplicationReferenceDataSources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSources) *AnalyticsApplicationReferenceDataSources {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesPtrOutput)
 }
@@ -3017,7 +3089,13 @@ func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) ToAnalyticsApplicatio
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesOutput {
-	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSources { return *v }).(AnalyticsApplicationReferenceDataSourcesOutput)
+	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSources) AnalyticsApplicationReferenceDataSources {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSources
+		return ret
+	}).(AnalyticsApplicationReferenceDataSourcesOutput)
 }
 
 // The ARN of the Kinesis Analytics Application.
@@ -3161,7 +3239,7 @@ func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplication
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesS3Output) ToAnalyticsApplicationReferenceDataSourcesS3PtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesS3PtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesS3) *AnalyticsApplicationReferenceDataSourcesS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesS3) *AnalyticsApplicationReferenceDataSourcesS3 {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesS3PtrOutput)
 }
@@ -3197,7 +3275,11 @@ func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) ToAnalyticsApplicat
 
 func (o AnalyticsApplicationReferenceDataSourcesS3PtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesS3Output {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesS3) AnalyticsApplicationReferenceDataSourcesS3 {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesS3
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesS3Output)
 }
 
@@ -3336,7 +3418,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplica
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchema) *AnalyticsApplicationReferenceDataSourcesSchema {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchema) *AnalyticsApplicationReferenceDataSourcesSchema {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput)
 }
@@ -3378,7 +3460,11 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) ToAnalyticsAppl
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchema) AnalyticsApplicationReferenceDataSourcesSchema {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesSchema
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaOutput)
 }
 
@@ -3628,7 +3714,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnal
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput)
 }
@@ -3662,7 +3748,11 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) ToA
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesSchemaRecordFormat
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatOutput)
 }
 
@@ -3788,7 +3878,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput)
 }
@@ -3825,7 +3915,11 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParameters
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersOutput)
 }
 
@@ -3948,7 +4042,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput)
 }
@@ -3983,7 +4077,11 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsv
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvOutput)
 }
 
@@ -4100,7 +4198,7 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 }
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput) ToAnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutputWithContext(ctx context.Context) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
 		return &v
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput)
 }
@@ -4128,7 +4226,11 @@ func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParamet
 
 func (o AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonPtrOutput) Elem() AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput {
 	return o.ApplyT(func(v *AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson) AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJson
+		return ret
 	}).(AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonOutput)
 }
 
@@ -4283,7 +4385,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ToFirehoseDelive
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfiguration) *FirehoseDeliveryStreamElasticsearchConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput)
 }
@@ -4375,7 +4477,11 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) ToFirehoseDel
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfiguration) FirehoseDeliveryStreamElasticsearchConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamElasticsearchConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationOutput)
 }
 
@@ -4610,7 +4716,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -4652,7 +4758,11 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -4783,7 +4893,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationO
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput)
 }
@@ -4818,7 +4928,11 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration) FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationOutput)
 }
 
@@ -5165,7 +5279,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFireh
 }
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput) ToFirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
 		return &v
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput)
 }
@@ -5205,7 +5319,11 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) ToFi
 
 func (o FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigPtrOutput) Elem() FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig) FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamElasticsearchConfigurationVpcConfig
+		return ret
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigOutput)
 }
 
@@ -5393,7 +5511,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ToFirehoseDeliveryS
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3Configuration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3Configuration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput)
 }
@@ -5489,7 +5607,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) ToFirehoseDelive
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) FirehoseDeliveryStreamExtendedS3Configuration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3Configuration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationOutput)
 }
 
@@ -5726,7 +5848,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOut
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -5766,7 +5888,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtr
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -5905,7 +6031,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
@@ -5954,7 +6080,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutput)
 }
 
@@ -6091,7 +6221,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput)
 }
@@ -6119,7 +6249,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationOutput)
 }
 
@@ -6230,7 +6364,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput)
 }
@@ -6265,7 +6399,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializer
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOutput)
 }
 
@@ -6382,7 +6520,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput)
 }
@@ -6410,7 +6548,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDe
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeOutput)
 }
 
@@ -6525,7 +6667,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput)
 }
@@ -6567,7 +6709,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDe
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeOutput)
 }
 
@@ -6694,7 +6840,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput)
 }
@@ -6722,7 +6868,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationOutput)
 }
 
@@ -6833,7 +6983,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput)
 }
@@ -6868,7 +7018,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializer
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOutput)
 }
 
@@ -7021,7 +7175,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput)
 }
@@ -7112,7 +7266,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeOutput)
 }
 
@@ -7329,7 +7487,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput)
 }
@@ -7392,7 +7550,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeOutput)
 }
 
@@ -7569,7 +7731,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput)
 }
@@ -7632,7 +7794,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput)
 }
 
@@ -7793,7 +7959,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutp
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput)
 }
@@ -7826,7 +7992,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput)
 }
 
@@ -8195,7 +8365,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput)
 }
@@ -8264,7 +8434,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOut
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationOutput)
 }
 
@@ -8451,7 +8625,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 }
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -8493,7 +8667,11 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudw
 
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -8660,7 +8838,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliver
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfiguration) *FirehoseDeliveryStreamHttpEndpointConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
@@ -8742,7 +8920,11 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) ToFirehoseDeli
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfiguration) FirehoseDeliveryStreamHttpEndpointConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamHttpEndpointConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationOutput)
 }
 
@@ -8957,7 +9139,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsO
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -8999,7 +9181,11 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsP
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -9130,7 +9316,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOu
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput)
 }
@@ -9163,7 +9349,11 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationOutput)
 }
 
@@ -9504,7 +9694,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutpu
 }
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput) ToFirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput)
 }
@@ -9539,7 +9729,11 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOu
 
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationPtrOutput) Elem() FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration) FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationOutput)
 }
 
@@ -9770,7 +9964,7 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ToFirehoseDelive
 }
 
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationOutput) ToFirehoseDeliveryStreamKinesisSourceConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamKinesisSourceConfiguration) *FirehoseDeliveryStreamKinesisSourceConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamKinesisSourceConfiguration) *FirehoseDeliveryStreamKinesisSourceConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput)
 }
@@ -9801,7 +9995,11 @@ func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) ToFirehoseDel
 
 func (o FirehoseDeliveryStreamKinesisSourceConfigurationPtrOutput) Elem() FirehoseDeliveryStreamKinesisSourceConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamKinesisSourceConfiguration) FirehoseDeliveryStreamKinesisSourceConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamKinesisSourceConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamKinesisSourceConfigurationOutput)
 }
 
@@ -9962,7 +10160,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ToFirehoseDeliveryStr
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfiguration) *FirehoseDeliveryStreamRedshiftConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationPtrOutput)
 }
@@ -10049,7 +10247,11 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) ToFirehoseDelivery
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfiguration) FirehoseDeliveryStreamRedshiftConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamRedshiftConfigurationOutput)
 }
 
@@ -10274,7 +10476,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutpu
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -10314,7 +10516,11 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOu
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -10445,7 +10651,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput)
 }
@@ -10478,7 +10684,11 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration) FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfigurationProcessingConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationOutput)
 }
 
@@ -10847,7 +11057,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) 
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput)
 }
@@ -10914,7 +11124,11 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutpu
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationOutput)
 }
 
@@ -11101,7 +11315,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 }
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -11143,7 +11357,11 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwat
 
 func (o FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -11302,7 +11520,7 @@ func (o FirehoseDeliveryStreamS3ConfigurationOutput) ToFirehoseDeliveryStreamS3C
 }
 
 func (o FirehoseDeliveryStreamS3ConfigurationOutput) ToFirehoseDeliveryStreamS3ConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamS3ConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamS3Configuration) *FirehoseDeliveryStreamS3Configuration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamS3Configuration) *FirehoseDeliveryStreamS3Configuration {
 		return &v
 	}).(FirehoseDeliveryStreamS3ConfigurationPtrOutput)
 }
@@ -11366,7 +11584,13 @@ func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) ToFirehoseDeliveryStream
 }
 
 func (o FirehoseDeliveryStreamS3ConfigurationPtrOutput) Elem() FirehoseDeliveryStreamS3ConfigurationOutput {
-	return o.ApplyT(func(v *FirehoseDeliveryStreamS3Configuration) FirehoseDeliveryStreamS3Configuration { return *v }).(FirehoseDeliveryStreamS3ConfigurationOutput)
+	return o.ApplyT(func(v *FirehoseDeliveryStreamS3Configuration) FirehoseDeliveryStreamS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamS3Configuration
+		return ret
+	}).(FirehoseDeliveryStreamS3ConfigurationOutput)
 }
 
 // The ARN of the S3 bucket
@@ -11552,7 +11776,7 @@ func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput) ToF
 }
 
 func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -11588,7 +11812,11 @@ func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) 
 
 func (o FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamS3ConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -11723,7 +11951,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) ToFirehoseDeliveryStre
 }
 
 func (o FirehoseDeliveryStreamServerSideEncryptionOutput) ToFirehoseDeliveryStreamServerSideEncryptionPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamServerSideEncryptionPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *FirehoseDeliveryStreamServerSideEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamServerSideEncryption) *FirehoseDeliveryStreamServerSideEncryption {
 		return &v
 	}).(FirehoseDeliveryStreamServerSideEncryptionPtrOutput)
 }
@@ -11759,7 +11987,11 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) ToFirehoseDeliveryS
 
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) Elem() FirehoseDeliveryStreamServerSideEncryptionOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamServerSideEncryption) FirehoseDeliveryStreamServerSideEncryption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamServerSideEncryption
+		return ret
 	}).(FirehoseDeliveryStreamServerSideEncryptionOutput)
 }
 
@@ -11914,7 +12146,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ToFirehoseDeliveryStrea
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfiguration) *FirehoseDeliveryStreamSplunkConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationPtrOutput)
 }
@@ -11979,7 +12211,11 @@ func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) ToFirehoseDeliverySt
 
 func (o FirehoseDeliveryStreamSplunkConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfiguration) FirehoseDeliveryStreamSplunkConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSplunkConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamSplunkConfigurationOutput)
 }
 
@@ -12164,7 +12400,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput)
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput) ToFirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput)
 }
@@ -12204,7 +12440,11 @@ func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutp
 
 func (o FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions) FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptions
+		return ret
 	}).(FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsOutput)
 }
 
@@ -12335,7 +12575,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) 
 }
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput) ToFirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
 		return &v
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput)
 }
@@ -12368,7 +12608,11 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutput) Elem() FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration) FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration
+		return ret
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationOutput)
 }
 

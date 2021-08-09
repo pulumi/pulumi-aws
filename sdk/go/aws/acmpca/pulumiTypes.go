@@ -111,7 +111,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToCertifica
 }
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationOutput) ToCertificateAuthorityCertificateAuthorityConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfiguration) *CertificateAuthorityCertificateAuthorityConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCertificateAuthorityConfiguration) *CertificateAuthorityCertificateAuthorityConfiguration {
 		return &v
 	}).(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput)
 }
@@ -149,7 +149,11 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) ToCertif
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfiguration) CertificateAuthorityCertificateAuthorityConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityCertificateAuthorityConfiguration
+		return ret
 	}).(CertificateAuthorityCertificateAuthorityConfigurationOutput)
 }
 
@@ -324,7 +328,7 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCe
 }
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput) ToCertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutputWithContext(ctx context.Context) CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityCertificateAuthorityConfigurationSubject) *CertificateAuthorityCertificateAuthorityConfigurationSubject {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCertificateAuthorityConfigurationSubject) *CertificateAuthorityCertificateAuthorityConfigurationSubject {
 		return &v
 	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput)
 }
@@ -416,7 +420,11 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) T
 
 func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) Elem() CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificateAuthorityConfigurationSubject) CertificateAuthorityCertificateAuthorityConfigurationSubject {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityCertificateAuthorityConfigurationSubject
+		return ret
 	}).(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput)
 }
 
@@ -643,7 +651,7 @@ func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorit
 }
 
 func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfiguration {
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
@@ -671,7 +679,11 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAutho
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) CertificateAuthorityRevocationConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityRevocationConfiguration
+		return ret
 	}).(CertificateAuthorityRevocationConfigurationOutput)
 }
 
@@ -794,7 +806,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToCer
 }
 
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) ToCertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput {
-	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfigurationCrlConfiguration) *CertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
@@ -840,7 +852,11 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) To
 
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationCrlConfigurationOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) CertificateAuthorityRevocationConfigurationCrlConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityRevocationConfigurationCrlConfiguration
+		return ret
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
@@ -991,7 +1007,7 @@ func (o CertificateValidityOutput) ToCertificateValidityPtrOutput() CertificateV
 }
 
 func (o CertificateValidityOutput) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
-	return o.ApplyT(func(v CertificateValidity) *CertificateValidity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateValidity) *CertificateValidity {
 		return &v
 	}).(CertificateValidityPtrOutput)
 }
@@ -1021,7 +1037,13 @@ func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutputWithContext(
 }
 
 func (o CertificateValidityPtrOutput) Elem() CertificateValidityOutput {
-	return o.ApplyT(func(v *CertificateValidity) CertificateValidity { return *v }).(CertificateValidityOutput)
+	return o.ApplyT(func(v *CertificateValidity) CertificateValidity {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateValidity
+		return ret
+	}).(CertificateValidityOutput)
 }
 
 // Determines how `value` is interpreted. Valid values: `DAYS`, `MONTHS`, `YEARS`, `ABSOLUTE`, `END_DATE`.

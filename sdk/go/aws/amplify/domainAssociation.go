@@ -286,9 +286,7 @@ func (i DomainAssociationMap) ToDomainAssociationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainAssociationMapOutput)
 }
 
-type DomainAssociationOutput struct {
-	*pulumi.OutputState
-}
+type DomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainAssociation)(nil))
@@ -307,14 +305,12 @@ func (o DomainAssociationOutput) ToDomainAssociationPtrOutput() DomainAssociatio
 }
 
 func (o DomainAssociationOutput) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
-	return o.ApplyT(func(v DomainAssociation) *DomainAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAssociation) *DomainAssociation {
 		return &v
 	}).(DomainAssociationPtrOutput)
 }
 
-type DomainAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type DomainAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainAssociation)(nil))
@@ -326,6 +322,16 @@ func (o DomainAssociationPtrOutput) ToDomainAssociationPtrOutput() DomainAssocia
 
 func (o DomainAssociationPtrOutput) ToDomainAssociationPtrOutputWithContext(ctx context.Context) DomainAssociationPtrOutput {
 	return o
+}
+
+func (o DomainAssociationPtrOutput) Elem() DomainAssociationOutput {
+	return o.ApplyT(func(v *DomainAssociation) DomainAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAssociation
+		return ret
+	}).(DomainAssociationOutput)
 }
 
 type DomainAssociationArrayOutput struct{ *pulumi.OutputState }

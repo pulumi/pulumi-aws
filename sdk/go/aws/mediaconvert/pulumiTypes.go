@@ -111,7 +111,7 @@ func (o QueueReservationPlanSettingsOutput) ToQueueReservationPlanSettingsPtrOut
 }
 
 func (o QueueReservationPlanSettingsOutput) ToQueueReservationPlanSettingsPtrOutputWithContext(ctx context.Context) QueueReservationPlanSettingsPtrOutput {
-	return o.ApplyT(func(v QueueReservationPlanSettings) *QueueReservationPlanSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueReservationPlanSettings) *QueueReservationPlanSettings {
 		return &v
 	}).(QueueReservationPlanSettingsPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o QueueReservationPlanSettingsPtrOutput) ToQueueReservationPlanSettingsPtr
 }
 
 func (o QueueReservationPlanSettingsPtrOutput) Elem() QueueReservationPlanSettingsOutput {
-	return o.ApplyT(func(v *QueueReservationPlanSettings) QueueReservationPlanSettings { return *v }).(QueueReservationPlanSettingsOutput)
+	return o.ApplyT(func(v *QueueReservationPlanSettings) QueueReservationPlanSettings {
+		if v != nil {
+			return *v
+		}
+		var ret QueueReservationPlanSettings
+		return ret
+	}).(QueueReservationPlanSettingsOutput)
 }
 
 // The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.

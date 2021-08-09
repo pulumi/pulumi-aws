@@ -117,7 +117,7 @@ func (o RuntimeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 type RuntimePtrOutput struct{ *pulumi.OutputState }
 
 func (RuntimePtrOutput) ElementType() reflect.Type {
-	return runtimePtrType
+	return reflect.TypeOf((**Runtime)(nil)).Elem()
 }
 
 func (o RuntimePtrOutput) ToRuntimePtrOutput() RuntimePtrOutput {
@@ -126,6 +126,16 @@ func (o RuntimePtrOutput) ToRuntimePtrOutput() RuntimePtrOutput {
 
 func (o RuntimePtrOutput) ToRuntimePtrOutputWithContext(ctx context.Context) RuntimePtrOutput {
 	return o
+}
+
+func (o RuntimePtrOutput) Elem() RuntimeOutput {
+	return o.ApplyT(func(v *Runtime) Runtime {
+		if v != nil {
+			return *v
+		}
+		var ret Runtime
+		return ret
+	}).(RuntimeOutput)
 }
 
 func (o RuntimePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -140,16 +150,6 @@ func (o RuntimePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o RuntimePtrOutput) Elem() RuntimeOutput {
-	return o.ApplyT(func(v *Runtime) Runtime {
-		var ret Runtime
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(RuntimeOutput)
 }
 
 // RuntimeInput is an input type that accepts RuntimeArgs and RuntimeOutput values.

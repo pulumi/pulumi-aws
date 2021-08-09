@@ -279,9 +279,7 @@ func (i BotAliasMap) ToBotAliasMapOutputWithContext(ctx context.Context) BotAlia
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasMapOutput)
 }
 
-type BotAliasOutput struct {
-	*pulumi.OutputState
-}
+type BotAliasOutput struct{ *pulumi.OutputState }
 
 func (BotAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BotAlias)(nil))
@@ -300,14 +298,12 @@ func (o BotAliasOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
 }
 
 func (o BotAliasOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
-	return o.ApplyT(func(v BotAlias) *BotAlias {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAlias) *BotAlias {
 		return &v
 	}).(BotAliasPtrOutput)
 }
 
-type BotAliasPtrOutput struct {
-	*pulumi.OutputState
-}
+type BotAliasPtrOutput struct{ *pulumi.OutputState }
 
 func (BotAliasPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BotAlias)(nil))
@@ -319,6 +315,16 @@ func (o BotAliasPtrOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
 
 func (o BotAliasPtrOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
 	return o
+}
+
+func (o BotAliasPtrOutput) Elem() BotAliasOutput {
+	return o.ApplyT(func(v *BotAlias) BotAlias {
+		if v != nil {
+			return *v
+		}
+		var ret BotAlias
+		return ret
+	}).(BotAliasOutput)
 }
 
 type BotAliasArrayOutput struct{ *pulumi.OutputState }

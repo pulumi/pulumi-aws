@@ -71,8 +71,16 @@ export interface GetInstanceTypeOfferingsResult {
      */
     readonly id: string;
     /**
-     * Set of EC2 Instance Types.
+     * List of EC2 Instance Types.
      */
     readonly instanceTypes: string[];
     readonly locationType?: string;
+    /**
+     * List of location types.
+     */
+    readonly locationTypes: string[];
+    /**
+     * List of locations.
+     */
+    readonly locations: string[];
 }

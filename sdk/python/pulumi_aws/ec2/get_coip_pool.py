@@ -21,7 +21,10 @@ class GetCoipPoolResult:
     """
     A collection of values returned by getCoipPool.
     """
-    def __init__(__self__, filters=None, id=None, local_gateway_route_table_id=None, pool_cidrs=None, pool_id=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, local_gateway_route_table_id=None, pool_cidrs=None, pool_id=None, tags=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -40,6 +43,14 @@ class GetCoipPoolResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        ARN of the COIP pool
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetCoipPoolResult(GetCoipPoolResult):
         if False:
             yield self
         return GetCoipPoolResult(
+            arn=self.arn,
             filters=self.filters,
             id=self.id,
             local_gateway_route_table_id=self.local_gateway_route_table_id,
@@ -135,6 +147,7 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult).value
 
     return AwaitableGetCoipPoolResult(
+        arn=__ret__.arn,
         filters=__ret__.filters,
         id=__ret__.id,
         local_gateway_route_table_id=__ret__.local_gateway_route_table_id,

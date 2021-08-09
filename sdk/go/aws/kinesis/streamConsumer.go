@@ -242,9 +242,7 @@ func (i StreamConsumerMap) ToStreamConsumerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StreamConsumerMapOutput)
 }
 
-type StreamConsumerOutput struct {
-	*pulumi.OutputState
-}
+type StreamConsumerOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StreamConsumer)(nil))
@@ -263,14 +261,12 @@ func (o StreamConsumerOutput) ToStreamConsumerPtrOutput() StreamConsumerPtrOutpu
 }
 
 func (o StreamConsumerOutput) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
-	return o.ApplyT(func(v StreamConsumer) *StreamConsumer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamConsumer) *StreamConsumer {
 		return &v
 	}).(StreamConsumerPtrOutput)
 }
 
-type StreamConsumerPtrOutput struct {
-	*pulumi.OutputState
-}
+type StreamConsumerPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamConsumerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StreamConsumer)(nil))
@@ -282,6 +278,16 @@ func (o StreamConsumerPtrOutput) ToStreamConsumerPtrOutput() StreamConsumerPtrOu
 
 func (o StreamConsumerPtrOutput) ToStreamConsumerPtrOutputWithContext(ctx context.Context) StreamConsumerPtrOutput {
 	return o
+}
+
+func (o StreamConsumerPtrOutput) Elem() StreamConsumerOutput {
+	return o.ApplyT(func(v *StreamConsumer) StreamConsumer {
+		if v != nil {
+			return *v
+		}
+		var ret StreamConsumer
+		return ret
+	}).(StreamConsumerOutput)
 }
 
 type StreamConsumerArrayOutput struct{ *pulumi.OutputState }
