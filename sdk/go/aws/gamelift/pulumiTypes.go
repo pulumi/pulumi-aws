@@ -111,7 +111,7 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutput() AliasRouti
 }
 
 func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return o.ApplyT(func(v AliasRoutingStrategy) *AliasRoutingStrategy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingStrategy) *AliasRoutingStrategy {
 		return &v
 	}).(AliasRoutingStrategyPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutputWithContex
 }
 
 func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) AliasRoutingStrategy { return *v }).(AliasRoutingStrategyOutput)
+	return o.ApplyT(func(v *AliasRoutingStrategy) AliasRoutingStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret AliasRoutingStrategy
+		return ret
+	}).(AliasRoutingStrategyOutput)
 }
 
 // ID of the Gamelift Fleet to point the alias to.
@@ -280,7 +286,7 @@ func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutput() BuildStora
 }
 
 func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
-	return o.ApplyT(func(v BuildStorageLocation) *BuildStorageLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildStorageLocation) *BuildStorageLocation {
 		return &v
 	}).(BuildStorageLocationPtrOutput)
 }
@@ -315,7 +321,13 @@ func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutputWithContex
 }
 
 func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
-	return o.ApplyT(func(v *BuildStorageLocation) BuildStorageLocation { return *v }).(BuildStorageLocationOutput)
+	return o.ApplyT(func(v *BuildStorageLocation) BuildStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret BuildStorageLocation
+		return ret
+	}).(BuildStorageLocationOutput)
 }
 
 // Name of your S3 bucket.
@@ -569,7 +581,7 @@ func (o FleetResourceCreationLimitPolicyOutput) ToFleetResourceCreationLimitPoli
 }
 
 func (o FleetResourceCreationLimitPolicyOutput) ToFleetResourceCreationLimitPolicyPtrOutputWithContext(ctx context.Context) FleetResourceCreationLimitPolicyPtrOutput {
-	return o.ApplyT(func(v FleetResourceCreationLimitPolicy) *FleetResourceCreationLimitPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetResourceCreationLimitPolicy) *FleetResourceCreationLimitPolicy {
 		return &v
 	}).(FleetResourceCreationLimitPolicyPtrOutput)
 }
@@ -599,7 +611,13 @@ func (o FleetResourceCreationLimitPolicyPtrOutput) ToFleetResourceCreationLimitP
 }
 
 func (o FleetResourceCreationLimitPolicyPtrOutput) Elem() FleetResourceCreationLimitPolicyOutput {
-	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) FleetResourceCreationLimitPolicy { return *v }).(FleetResourceCreationLimitPolicyOutput)
+	return o.ApplyT(func(v *FleetResourceCreationLimitPolicy) FleetResourceCreationLimitPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FleetResourceCreationLimitPolicy
+		return ret
+	}).(FleetResourceCreationLimitPolicyOutput)
 }
 
 // Maximum number of game sessions that an individual can create during the policy period.
@@ -723,7 +741,7 @@ func (o FleetRuntimeConfigurationOutput) ToFleetRuntimeConfigurationPtrOutput() 
 }
 
 func (o FleetRuntimeConfigurationOutput) ToFleetRuntimeConfigurationPtrOutputWithContext(ctx context.Context) FleetRuntimeConfigurationPtrOutput {
-	return o.ApplyT(func(v FleetRuntimeConfiguration) *FleetRuntimeConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetRuntimeConfiguration) *FleetRuntimeConfiguration {
 		return &v
 	}).(FleetRuntimeConfigurationPtrOutput)
 }
@@ -758,7 +776,13 @@ func (o FleetRuntimeConfigurationPtrOutput) ToFleetRuntimeConfigurationPtrOutput
 }
 
 func (o FleetRuntimeConfigurationPtrOutput) Elem() FleetRuntimeConfigurationOutput {
-	return o.ApplyT(func(v *FleetRuntimeConfiguration) FleetRuntimeConfiguration { return *v }).(FleetRuntimeConfigurationOutput)
+	return o.ApplyT(func(v *FleetRuntimeConfiguration) FleetRuntimeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetRuntimeConfiguration
+		return ret
+	}).(FleetRuntimeConfigurationOutput)
 }
 
 // Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.

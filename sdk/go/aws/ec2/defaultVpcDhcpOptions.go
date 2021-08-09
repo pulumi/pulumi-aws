@@ -267,9 +267,7 @@ func (i DefaultVpcDhcpOptionsMap) ToDefaultVpcDhcpOptionsMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcDhcpOptionsMapOutput)
 }
 
-type DefaultVpcDhcpOptionsOutput struct {
-	*pulumi.OutputState
-}
+type DefaultVpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultVpcDhcpOptions)(nil))
@@ -288,14 +286,12 @@ func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsPtrOutput() DefaultV
 }
 
 func (o DefaultVpcDhcpOptionsOutput) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
-	return o.ApplyT(func(v DefaultVpcDhcpOptions) *DefaultVpcDhcpOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultVpcDhcpOptions) *DefaultVpcDhcpOptions {
 		return &v
 	}).(DefaultVpcDhcpOptionsPtrOutput)
 }
 
-type DefaultVpcDhcpOptionsPtrOutput struct {
-	*pulumi.OutputState
-}
+type DefaultVpcDhcpOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcDhcpOptionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DefaultVpcDhcpOptions)(nil))
@@ -307,6 +303,16 @@ func (o DefaultVpcDhcpOptionsPtrOutput) ToDefaultVpcDhcpOptionsPtrOutput() Defau
 
 func (o DefaultVpcDhcpOptionsPtrOutput) ToDefaultVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) DefaultVpcDhcpOptionsPtrOutput {
 	return o
+}
+
+func (o DefaultVpcDhcpOptionsPtrOutput) Elem() DefaultVpcDhcpOptionsOutput {
+	return o.ApplyT(func(v *DefaultVpcDhcpOptions) DefaultVpcDhcpOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultVpcDhcpOptions
+		return ret
+	}).(DefaultVpcDhcpOptionsOutput)
 }
 
 type DefaultVpcDhcpOptionsArrayOutput struct{ *pulumi.OutputState }

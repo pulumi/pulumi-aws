@@ -244,9 +244,7 @@ func (i SmsPreferencesMap) ToSmsPreferencesMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SmsPreferencesMapOutput)
 }
 
-type SmsPreferencesOutput struct {
-	*pulumi.OutputState
-}
+type SmsPreferencesOutput struct{ *pulumi.OutputState }
 
 func (SmsPreferencesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SmsPreferences)(nil))
@@ -265,14 +263,12 @@ func (o SmsPreferencesOutput) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOutpu
 }
 
 func (o SmsPreferencesOutput) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
-	return o.ApplyT(func(v SmsPreferences) *SmsPreferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmsPreferences) *SmsPreferences {
 		return &v
 	}).(SmsPreferencesPtrOutput)
 }
 
-type SmsPreferencesPtrOutput struct {
-	*pulumi.OutputState
-}
+type SmsPreferencesPtrOutput struct{ *pulumi.OutputState }
 
 func (SmsPreferencesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SmsPreferences)(nil))
@@ -284,6 +280,16 @@ func (o SmsPreferencesPtrOutput) ToSmsPreferencesPtrOutput() SmsPreferencesPtrOu
 
 func (o SmsPreferencesPtrOutput) ToSmsPreferencesPtrOutputWithContext(ctx context.Context) SmsPreferencesPtrOutput {
 	return o
+}
+
+func (o SmsPreferencesPtrOutput) Elem() SmsPreferencesOutput {
+	return o.ApplyT(func(v *SmsPreferences) SmsPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret SmsPreferences
+		return ret
+	}).(SmsPreferencesOutput)
 }
 
 type SmsPreferencesArrayOutput struct{ *pulumi.OutputState }

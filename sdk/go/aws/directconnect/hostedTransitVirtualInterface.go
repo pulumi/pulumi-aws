@@ -336,9 +336,7 @@ func (i HostedTransitVirtualInterfaceMap) ToHostedTransitVirtualInterfaceMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceMapOutput)
 }
 
-type HostedTransitVirtualInterfaceOutput struct {
-	*pulumi.OutputState
-}
+type HostedTransitVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostedTransitVirtualInterface)(nil))
@@ -357,14 +355,12 @@ func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfacePtrO
 }
 
 func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfacePtrOutput {
-	return o.ApplyT(func(v HostedTransitVirtualInterface) *HostedTransitVirtualInterface {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedTransitVirtualInterface) *HostedTransitVirtualInterface {
 		return &v
 	}).(HostedTransitVirtualInterfacePtrOutput)
 }
 
-type HostedTransitVirtualInterfacePtrOutput struct {
-	*pulumi.OutputState
-}
+type HostedTransitVirtualInterfacePtrOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HostedTransitVirtualInterface)(nil))
@@ -376,6 +372,16 @@ func (o HostedTransitVirtualInterfacePtrOutput) ToHostedTransitVirtualInterfaceP
 
 func (o HostedTransitVirtualInterfacePtrOutput) ToHostedTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedTransitVirtualInterfacePtrOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfacePtrOutput) Elem() HostedTransitVirtualInterfaceOutput {
+	return o.ApplyT(func(v *HostedTransitVirtualInterface) HostedTransitVirtualInterface {
+		if v != nil {
+			return *v
+		}
+		var ret HostedTransitVirtualInterface
+		return ret
+	}).(HostedTransitVirtualInterfaceOutput)
 }
 
 type HostedTransitVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }

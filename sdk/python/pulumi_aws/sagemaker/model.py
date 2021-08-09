@@ -18,6 +18,7 @@ class ModelArgs:
                  execution_role_arn: pulumi.Input[str],
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
+                 inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input['ModelPrimaryContainerArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -28,6 +29,7 @@ class ModelArgs:
         :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
+        :param pulumi.Input['ModelInferenceExecutionConfigArgs'] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -39,6 +41,8 @@ class ModelArgs:
             pulumi.set(__self__, "containers", containers)
         if enable_network_isolation is not None:
             pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if inference_execution_config is not None:
+            pulumi.set(__self__, "inference_execution_config", inference_execution_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_container is not None:
@@ -85,6 +89,18 @@ class ModelArgs:
     @enable_network_isolation.setter
     def enable_network_isolation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_network_isolation", value)
+
+    @property
+    @pulumi.getter(name="inferenceExecutionConfig")
+    def inference_execution_config(self) -> Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']]:
+        """
+        Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        """
+        return pulumi.get(self, "inference_execution_config")
+
+    @inference_execution_config.setter
+    def inference_execution_config(self, value: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']]):
+        pulumi.set(self, "inference_execution_config", value)
 
     @property
     @pulumi.getter
@@ -154,6 +170,7 @@ class _ModelState:
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input['ModelPrimaryContainerArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -165,6 +182,7 @@ class _ModelState:
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        :param pulumi.Input['ModelInferenceExecutionConfigArgs'] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input['ModelPrimaryContainerArgs'] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,6 +197,8 @@ class _ModelState:
             pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if inference_execution_config is not None:
+            pulumi.set(__self__, "inference_execution_config", inference_execution_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if primary_container is not None:
@@ -237,6 +257,18 @@ class _ModelState:
     @execution_role_arn.setter
     def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="inferenceExecutionConfig")
+    def inference_execution_config(self) -> Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']]:
+        """
+        Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        """
+        return pulumi.get(self, "inference_execution_config")
+
+    @inference_execution_config.setter
+    def inference_execution_config(self, value: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']]):
+        pulumi.set(self, "inference_execution_config", value)
 
     @property
     @pulumi.getter
@@ -307,6 +339,7 @@ class Model(pulumi.CustomResource):
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 inference_execution_config: Optional[pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[pulumi.InputType['ModelPrimaryContainerArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -332,12 +365,16 @@ class Model(pulumi.CustomResource):
             )],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example_model = aws.sagemaker.Model("exampleModel",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
-                image="174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+                image=test.registry_path,
             ))
         ```
+        ## Inference Execution Config
+
+        * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
 
         ## Import
 
@@ -352,6 +389,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        :param pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[pulumi.InputType['ModelPrimaryContainerArgs']] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -383,12 +421,16 @@ class Model(pulumi.CustomResource):
             )],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
+        test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example_model = aws.sagemaker.Model("exampleModel",
             execution_role_arn=example_role.arn,
             primary_container=aws.sagemaker.ModelPrimaryContainerArgs(
-                image="174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+                image=test.registry_path,
             ))
         ```
+        ## Inference Execution Config
+
+        * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
 
         ## Import
 
@@ -416,6 +458,7 @@ class Model(pulumi.CustomResource):
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 inference_execution_config: Optional[pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input[pulumi.InputType['ModelPrimaryContainerArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -438,6 +481,7 @@ class Model(pulumi.CustomResource):
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
+            __props__.__dict__["inference_execution_config"] = inference_execution_config
             __props__.__dict__["name"] = name
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["tags"] = tags
@@ -458,6 +502,7 @@ class Model(pulumi.CustomResource):
             containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]]] = None,
             enable_network_isolation: Optional[pulumi.Input[bool]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
+            inference_execution_config: Optional[pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_container: Optional[pulumi.Input[pulumi.InputType['ModelPrimaryContainerArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -474,6 +519,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModelContainerArgs']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[str] execution_role_arn: A role that SageMaker can assume to access model artifacts and docker images for deployment.
+        :param pulumi.Input[pulumi.InputType['ModelInferenceExecutionConfigArgs']] inference_execution_config: Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
         :param pulumi.Input[str] name: The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[pulumi.InputType['ModelPrimaryContainerArgs']] primary_container: The primary docker image containing inference code that is used when the model is deployed for predictions.  If not specified, the `container` argument is required. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -488,6 +534,7 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["containers"] = containers
         __props__.__dict__["enable_network_isolation"] = enable_network_isolation
         __props__.__dict__["execution_role_arn"] = execution_role_arn
+        __props__.__dict__["inference_execution_config"] = inference_execution_config
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_container"] = primary_container
         __props__.__dict__["tags"] = tags
@@ -526,6 +573,14 @@ class Model(pulumi.CustomResource):
         A role that SageMaker can assume to access model artifacts and docker images for deployment.
         """
         return pulumi.get(self, "execution_role_arn")
+
+    @property
+    @pulumi.getter(name="inferenceExecutionConfig")
+    def inference_execution_config(self) -> pulumi.Output['outputs.ModelInferenceExecutionConfig']:
+        """
+        Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        """
+        return pulumi.get(self, "inference_execution_config")
 
     @property
     @pulumi.getter

@@ -413,9 +413,7 @@ func (i CustomLayerMap) ToCustomLayerMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLayerMapOutput)
 }
 
-type CustomLayerOutput struct {
-	*pulumi.OutputState
-}
+type CustomLayerOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomLayer)(nil))
@@ -434,14 +432,12 @@ func (o CustomLayerOutput) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
 }
 
 func (o CustomLayerOutput) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
-	return o.ApplyT(func(v CustomLayer) *CustomLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomLayer) *CustomLayer {
 		return &v
 	}).(CustomLayerPtrOutput)
 }
 
-type CustomLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomLayer)(nil))
@@ -453,6 +449,16 @@ func (o CustomLayerPtrOutput) ToCustomLayerPtrOutput() CustomLayerPtrOutput {
 
 func (o CustomLayerPtrOutput) ToCustomLayerPtrOutputWithContext(ctx context.Context) CustomLayerPtrOutput {
 	return o
+}
+
+func (o CustomLayerPtrOutput) Elem() CustomLayerOutput {
+	return o.ApplyT(func(v *CustomLayer) CustomLayer {
+		if v != nil {
+			return *v
+		}
+		var ret CustomLayer
+		return ret
+	}).(CustomLayerOutput)
 }
 
 type CustomLayerArrayOutput struct{ *pulumi.OutputState }

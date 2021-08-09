@@ -241,9 +241,7 @@ func (i ListenerCertificateMap) ToListenerCertificateMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateMapOutput)
 }
 
-type ListenerCertificateOutput struct {
-	*pulumi.OutputState
-}
+type ListenerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListenerCertificate)(nil))
@@ -262,14 +260,12 @@ func (o ListenerCertificateOutput) ToListenerCertificatePtrOutput() ListenerCert
 }
 
 func (o ListenerCertificateOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
-	return o.ApplyT(func(v ListenerCertificate) *ListenerCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerCertificate) *ListenerCertificate {
 		return &v
 	}).(ListenerCertificatePtrOutput)
 }
 
-type ListenerCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type ListenerCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ListenerCertificate)(nil))
@@ -281,6 +277,16 @@ func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutput() ListenerC
 
 func (o ListenerCertificatePtrOutput) ToListenerCertificatePtrOutputWithContext(ctx context.Context) ListenerCertificatePtrOutput {
 	return o
+}
+
+func (o ListenerCertificatePtrOutput) Elem() ListenerCertificateOutput {
+	return o.ApplyT(func(v *ListenerCertificate) ListenerCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerCertificate
+		return ret
+	}).(ListenerCertificateOutput)
 }
 
 type ListenerCertificateArrayOutput struct{ *pulumi.OutputState }

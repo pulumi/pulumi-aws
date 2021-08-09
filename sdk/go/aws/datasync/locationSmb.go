@@ -317,9 +317,7 @@ func (i LocationSmbMap) ToLocationSmbMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMapOutput)
 }
 
-type LocationSmbOutput struct {
-	*pulumi.OutputState
-}
+type LocationSmbOutput struct{ *pulumi.OutputState }
 
 func (LocationSmbOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LocationSmb)(nil))
@@ -338,14 +336,12 @@ func (o LocationSmbOutput) ToLocationSmbPtrOutput() LocationSmbPtrOutput {
 }
 
 func (o LocationSmbOutput) ToLocationSmbPtrOutputWithContext(ctx context.Context) LocationSmbPtrOutput {
-	return o.ApplyT(func(v LocationSmb) *LocationSmb {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmb) *LocationSmb {
 		return &v
 	}).(LocationSmbPtrOutput)
 }
 
-type LocationSmbPtrOutput struct {
-	*pulumi.OutputState
-}
+type LocationSmbPtrOutput struct{ *pulumi.OutputState }
 
 func (LocationSmbPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LocationSmb)(nil))
@@ -357,6 +353,16 @@ func (o LocationSmbPtrOutput) ToLocationSmbPtrOutput() LocationSmbPtrOutput {
 
 func (o LocationSmbPtrOutput) ToLocationSmbPtrOutputWithContext(ctx context.Context) LocationSmbPtrOutput {
 	return o
+}
+
+func (o LocationSmbPtrOutput) Elem() LocationSmbOutput {
+	return o.ApplyT(func(v *LocationSmb) LocationSmb {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmb
+		return ret
+	}).(LocationSmbOutput)
 }
 
 type LocationSmbArrayOutput struct{ *pulumi.OutputState }

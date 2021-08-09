@@ -697,9 +697,7 @@ func (i ReplicationGroupMap) ToReplicationGroupMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupMapOutput)
 }
 
-type ReplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationGroup)(nil))
@@ -718,14 +716,12 @@ func (o ReplicationGroupOutput) ToReplicationGroupPtrOutput() ReplicationGroupPt
 }
 
 func (o ReplicationGroupOutput) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
-	return o.ApplyT(func(v ReplicationGroup) *ReplicationGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationGroup) *ReplicationGroup {
 		return &v
 	}).(ReplicationGroupPtrOutput)
 }
 
-type ReplicationGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicationGroup)(nil))
@@ -737,6 +733,16 @@ func (o ReplicationGroupPtrOutput) ToReplicationGroupPtrOutput() ReplicationGrou
 
 func (o ReplicationGroupPtrOutput) ToReplicationGroupPtrOutputWithContext(ctx context.Context) ReplicationGroupPtrOutput {
 	return o
+}
+
+func (o ReplicationGroupPtrOutput) Elem() ReplicationGroupOutput {
+	return o.ApplyT(func(v *ReplicationGroup) ReplicationGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationGroup
+		return ret
+	}).(ReplicationGroupOutput)
 }
 
 type ReplicationGroupArrayOutput struct{ *pulumi.OutputState }

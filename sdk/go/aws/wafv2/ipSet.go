@@ -290,9 +290,7 @@ func (i IpSetMap) ToIpSetMapOutputWithContext(ctx context.Context) IpSetMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IpSetMapOutput)
 }
 
-type IpSetOutput struct {
-	*pulumi.OutputState
-}
+type IpSetOutput struct{ *pulumi.OutputState }
 
 func (IpSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IpSet)(nil))
@@ -311,14 +309,12 @@ func (o IpSetOutput) ToIpSetPtrOutput() IpSetPtrOutput {
 }
 
 func (o IpSetOutput) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
-	return o.ApplyT(func(v IpSet) *IpSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpSet) *IpSet {
 		return &v
 	}).(IpSetPtrOutput)
 }
 
-type IpSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type IpSetPtrOutput struct{ *pulumi.OutputState }
 
 func (IpSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IpSet)(nil))
@@ -330,6 +326,16 @@ func (o IpSetPtrOutput) ToIpSetPtrOutput() IpSetPtrOutput {
 
 func (o IpSetPtrOutput) ToIpSetPtrOutputWithContext(ctx context.Context) IpSetPtrOutput {
 	return o
+}
+
+func (o IpSetPtrOutput) Elem() IpSetOutput {
+	return o.ApplyT(func(v *IpSet) IpSet {
+		if v != nil {
+			return *v
+		}
+		var ret IpSet
+		return ret
+	}).(IpSetOutput)
 }
 
 type IpSetArrayOutput struct{ *pulumi.OutputState }

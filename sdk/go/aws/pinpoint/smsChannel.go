@@ -254,9 +254,7 @@ func (i SmsChannelMap) ToSmsChannelMapOutputWithContext(ctx context.Context) Sms
 	return pulumi.ToOutputWithContext(ctx, i).(SmsChannelMapOutput)
 }
 
-type SmsChannelOutput struct {
-	*pulumi.OutputState
-}
+type SmsChannelOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SmsChannel)(nil))
@@ -275,14 +273,12 @@ func (o SmsChannelOutput) ToSmsChannelPtrOutput() SmsChannelPtrOutput {
 }
 
 func (o SmsChannelOutput) ToSmsChannelPtrOutputWithContext(ctx context.Context) SmsChannelPtrOutput {
-	return o.ApplyT(func(v SmsChannel) *SmsChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SmsChannel) *SmsChannel {
 		return &v
 	}).(SmsChannelPtrOutput)
 }
 
-type SmsChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type SmsChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (SmsChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SmsChannel)(nil))
@@ -294,6 +290,16 @@ func (o SmsChannelPtrOutput) ToSmsChannelPtrOutput() SmsChannelPtrOutput {
 
 func (o SmsChannelPtrOutput) ToSmsChannelPtrOutputWithContext(ctx context.Context) SmsChannelPtrOutput {
 	return o
+}
+
+func (o SmsChannelPtrOutput) Elem() SmsChannelOutput {
+	return o.ApplyT(func(v *SmsChannel) SmsChannel {
+		if v != nil {
+			return *v
+		}
+		var ret SmsChannel
+		return ret
+	}).(SmsChannelOutput)
 }
 
 type SmsChannelArrayOutput struct{ *pulumi.OutputState }

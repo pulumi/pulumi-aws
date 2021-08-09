@@ -536,9 +536,7 @@ func (i EnvironmentMap) ToEnvironmentMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMapOutput)
 }
 
-type EnvironmentOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Environment)(nil))
@@ -557,14 +555,12 @@ func (o EnvironmentOutput) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
 }
 
 func (o EnvironmentOutput) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
-	return o.ApplyT(func(v Environment) *Environment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Environment) *Environment {
 		return &v
 	}).(EnvironmentPtrOutput)
 }
 
-type EnvironmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type EnvironmentPtrOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Environment)(nil))
@@ -576,6 +572,16 @@ func (o EnvironmentPtrOutput) ToEnvironmentPtrOutput() EnvironmentPtrOutput {
 
 func (o EnvironmentPtrOutput) ToEnvironmentPtrOutputWithContext(ctx context.Context) EnvironmentPtrOutput {
 	return o
+}
+
+func (o EnvironmentPtrOutput) Elem() EnvironmentOutput {
+	return o.ApplyT(func(v *Environment) Environment {
+		if v != nil {
+			return *v
+		}
+		var ret Environment
+		return ret
+	}).(EnvironmentOutput)
 }
 
 type EnvironmentArrayOutput struct{ *pulumi.OutputState }

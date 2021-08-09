@@ -229,9 +229,7 @@ func (i BackupPolicyMap) ToBackupPolicyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyMapOutput)
 }
 
-type BackupPolicyOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BackupPolicy)(nil))
@@ -250,14 +248,12 @@ func (o BackupPolicyOutput) ToBackupPolicyPtrOutput() BackupPolicyPtrOutput {
 }
 
 func (o BackupPolicyOutput) ToBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyPtrOutput {
-	return o.ApplyT(func(v BackupPolicy) *BackupPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicy) *BackupPolicy {
 		return &v
 	}).(BackupPolicyPtrOutput)
 }
 
-type BackupPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type BackupPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BackupPolicy)(nil))
@@ -269,6 +265,16 @@ func (o BackupPolicyPtrOutput) ToBackupPolicyPtrOutput() BackupPolicyPtrOutput {
 
 func (o BackupPolicyPtrOutput) ToBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyPtrOutput {
 	return o
+}
+
+func (o BackupPolicyPtrOutput) Elem() BackupPolicyOutput {
+	return o.ApplyT(func(v *BackupPolicy) BackupPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicy
+		return ret
+	}).(BackupPolicyOutput)
 }
 
 type BackupPolicyArrayOutput struct{ *pulumi.OutputState }

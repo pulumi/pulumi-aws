@@ -245,9 +245,7 @@ func (i ModelPackageGroupMap) ToModelPackageGroupMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupMapOutput)
 }
 
-type ModelPackageGroupOutput struct {
-	*pulumi.OutputState
-}
+type ModelPackageGroupOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ModelPackageGroup)(nil))
@@ -266,14 +264,12 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupPtrOutput() ModelPackageGrou
 }
 
 func (o ModelPackageGroupOutput) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
-	return o.ApplyT(func(v ModelPackageGroup) *ModelPackageGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageGroup) *ModelPackageGroup {
 		return &v
 	}).(ModelPackageGroupPtrOutput)
 }
 
-type ModelPackageGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ModelPackageGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ModelPackageGroup)(nil))
@@ -285,6 +281,16 @@ func (o ModelPackageGroupPtrOutput) ToModelPackageGroupPtrOutput() ModelPackageG
 
 func (o ModelPackageGroupPtrOutput) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
 	return o
+}
+
+func (o ModelPackageGroupPtrOutput) Elem() ModelPackageGroupOutput {
+	return o.ApplyT(func(v *ModelPackageGroup) ModelPackageGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPackageGroup
+		return ret
+	}).(ModelPackageGroupOutput)
 }
 
 type ModelPackageGroupArrayOutput struct{ *pulumi.OutputState }

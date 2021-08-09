@@ -270,9 +270,7 @@ func (i ProxyEndpointMap) ToProxyEndpointMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyEndpointMapOutput)
 }
 
-type ProxyEndpointOutput struct {
-	*pulumi.OutputState
-}
+type ProxyEndpointOutput struct{ *pulumi.OutputState }
 
 func (ProxyEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProxyEndpoint)(nil))
@@ -291,14 +289,12 @@ func (o ProxyEndpointOutput) ToProxyEndpointPtrOutput() ProxyEndpointPtrOutput {
 }
 
 func (o ProxyEndpointOutput) ToProxyEndpointPtrOutputWithContext(ctx context.Context) ProxyEndpointPtrOutput {
-	return o.ApplyT(func(v ProxyEndpoint) *ProxyEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyEndpoint) *ProxyEndpoint {
 		return &v
 	}).(ProxyEndpointPtrOutput)
 }
 
-type ProxyEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProxyEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (ProxyEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProxyEndpoint)(nil))
@@ -310,6 +306,16 @@ func (o ProxyEndpointPtrOutput) ToProxyEndpointPtrOutput() ProxyEndpointPtrOutpu
 
 func (o ProxyEndpointPtrOutput) ToProxyEndpointPtrOutputWithContext(ctx context.Context) ProxyEndpointPtrOutput {
 	return o
+}
+
+func (o ProxyEndpointPtrOutput) Elem() ProxyEndpointOutput {
+	return o.ApplyT(func(v *ProxyEndpoint) ProxyEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyEndpoint
+		return ret
+	}).(ProxyEndpointOutput)
 }
 
 type ProxyEndpointArrayOutput struct{ *pulumi.OutputState }

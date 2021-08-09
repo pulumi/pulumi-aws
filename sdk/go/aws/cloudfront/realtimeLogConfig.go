@@ -279,9 +279,7 @@ func (i RealtimeLogConfigMap) ToRealtimeLogConfigMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigMapOutput)
 }
 
-type RealtimeLogConfigOutput struct {
-	*pulumi.OutputState
-}
+type RealtimeLogConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RealtimeLogConfig)(nil))
@@ -300,14 +298,12 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigPtrOutput() RealtimeLogConfi
 }
 
 func (o RealtimeLogConfigOutput) ToRealtimeLogConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPtrOutput {
-	return o.ApplyT(func(v RealtimeLogConfig) *RealtimeLogConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeLogConfig) *RealtimeLogConfig {
 		return &v
 	}).(RealtimeLogConfigPtrOutput)
 }
 
-type RealtimeLogConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type RealtimeLogConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RealtimeLogConfig)(nil))
@@ -319,6 +315,16 @@ func (o RealtimeLogConfigPtrOutput) ToRealtimeLogConfigPtrOutput() RealtimeLogCo
 
 func (o RealtimeLogConfigPtrOutput) ToRealtimeLogConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigPtrOutput {
 	return o
+}
+
+func (o RealtimeLogConfigPtrOutput) Elem() RealtimeLogConfigOutput {
+	return o.ApplyT(func(v *RealtimeLogConfig) RealtimeLogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeLogConfig
+		return ret
+	}).(RealtimeLogConfigOutput)
 }
 
 type RealtimeLogConfigArrayOutput struct{ *pulumi.OutputState }

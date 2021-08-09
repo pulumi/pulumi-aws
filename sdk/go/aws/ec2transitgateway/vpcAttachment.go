@@ -304,9 +304,7 @@ func (i VpcAttachmentMap) ToVpcAttachmentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentMapOutput)
 }
 
-type VpcAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type VpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpcAttachment)(nil))
@@ -325,14 +323,12 @@ func (o VpcAttachmentOutput) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput {
 }
 
 func (o VpcAttachmentOutput) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
-	return o.ApplyT(func(v VpcAttachment) *VpcAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachment) *VpcAttachment {
 		return &v
 	}).(VpcAttachmentPtrOutput)
 }
 
-type VpcAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpcAttachment)(nil))
@@ -344,6 +340,16 @@ func (o VpcAttachmentPtrOutput) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutpu
 
 func (o VpcAttachmentPtrOutput) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
 	return o
+}
+
+func (o VpcAttachmentPtrOutput) Elem() VpcAttachmentOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret VpcAttachment
+		return ret
+	}).(VpcAttachmentOutput)
 }
 
 type VpcAttachmentArrayOutput struct{ *pulumi.OutputState }

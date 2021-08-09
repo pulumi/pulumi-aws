@@ -107,7 +107,7 @@ func (o FleetIdentityProviderOutput) ToFleetIdentityProviderPtrOutput() FleetIde
 }
 
 func (o FleetIdentityProviderOutput) ToFleetIdentityProviderPtrOutputWithContext(ctx context.Context) FleetIdentityProviderPtrOutput {
-	return o.ApplyT(func(v FleetIdentityProvider) *FleetIdentityProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetIdentityProvider) *FleetIdentityProvider {
 		return &v
 	}).(FleetIdentityProviderPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o FleetIdentityProviderPtrOutput) ToFleetIdentityProviderPtrOutputWithCont
 }
 
 func (o FleetIdentityProviderPtrOutput) Elem() FleetIdentityProviderOutput {
-	return o.ApplyT(func(v *FleetIdentityProvider) FleetIdentityProvider { return *v }).(FleetIdentityProviderOutput)
+	return o.ApplyT(func(v *FleetIdentityProvider) FleetIdentityProvider {
+		if v != nil {
+			return *v
+		}
+		var ret FleetIdentityProvider
+		return ret
+	}).(FleetIdentityProviderOutput)
 }
 
 // The SAML metadata document provided by the customer’s identity provider.
@@ -261,7 +267,7 @@ func (o FleetNetworkOutput) ToFleetNetworkPtrOutput() FleetNetworkPtrOutput {
 }
 
 func (o FleetNetworkOutput) ToFleetNetworkPtrOutputWithContext(ctx context.Context) FleetNetworkPtrOutput {
-	return o.ApplyT(func(v FleetNetwork) *FleetNetwork {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetNetwork) *FleetNetwork {
 		return &v
 	}).(FleetNetworkPtrOutput)
 }
@@ -296,7 +302,13 @@ func (o FleetNetworkPtrOutput) ToFleetNetworkPtrOutputWithContext(ctx context.Co
 }
 
 func (o FleetNetworkPtrOutput) Elem() FleetNetworkOutput {
-	return o.ApplyT(func(v *FleetNetwork) FleetNetwork { return *v }).(FleetNetworkOutput)
+	return o.ApplyT(func(v *FleetNetwork) FleetNetwork {
+		if v != nil {
+			return *v
+		}
+		var ret FleetNetwork
+		return ret
+	}).(FleetNetworkOutput)
 }
 
 // A list of security group IDs associated with access to the provided subnets.

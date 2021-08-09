@@ -258,9 +258,7 @@ func (i CapacityProviderMap) ToCapacityProviderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMapOutput)
 }
 
-type CapacityProviderOutput struct {
-	*pulumi.OutputState
-}
+type CapacityProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CapacityProvider)(nil))
@@ -279,14 +277,12 @@ func (o CapacityProviderOutput) ToCapacityProviderPtrOutput() CapacityProviderPt
 }
 
 func (o CapacityProviderOutput) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
-	return o.ApplyT(func(v CapacityProvider) *CapacityProvider {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProvider) *CapacityProvider {
 		return &v
 	}).(CapacityProviderPtrOutput)
 }
 
-type CapacityProviderPtrOutput struct {
-	*pulumi.OutputState
-}
+type CapacityProviderPtrOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CapacityProvider)(nil))
@@ -298,6 +294,16 @@ func (o CapacityProviderPtrOutput) ToCapacityProviderPtrOutput() CapacityProvide
 
 func (o CapacityProviderPtrOutput) ToCapacityProviderPtrOutputWithContext(ctx context.Context) CapacityProviderPtrOutput {
 	return o
+}
+
+func (o CapacityProviderPtrOutput) Elem() CapacityProviderOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProvider {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProvider
+		return ret
+	}).(CapacityProviderOutput)
 }
 
 type CapacityProviderArrayOutput struct{ *pulumi.OutputState }

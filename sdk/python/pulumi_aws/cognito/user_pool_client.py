@@ -1101,7 +1101,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="callbackUrls")
-    def callback_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def callback_urls(self) -> pulumi.Output[Sequence[str]]:
         """
         List of allowed callback URLs for the identity providers.
         """
@@ -1157,7 +1157,7 @@ class UserPoolClient(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="logoutUrls")
-    def logout_urls(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def logout_urls(self) -> pulumi.Output[Sequence[str]]:
         """
         List of allowed logout URLs for the identity providers.
         """

@@ -9,12 +9,53 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FileSystemAssociationCacheAttributes',
     'GatewayGatewayNetworkInterface',
     'GatewaySmbActiveDirectorySettings',
     'NfsFileShareCacheAttributes',
     'NfsFileShareNfsFileShareDefaults',
     'SmbFileShareCacheAttributes',
 ]
+
+@pulumi.output_type
+class FileSystemAssociationCacheAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheStaleTimeoutInSeconds":
+            suggest = "cache_stale_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemAssociationCacheAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemAssociationCacheAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemAssociationCacheAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[int] = None):
+        """
+        :param int cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
+
 
 @pulumi.output_type
 class GatewayGatewayNetworkInterface(dict):

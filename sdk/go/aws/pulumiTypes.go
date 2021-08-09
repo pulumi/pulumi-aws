@@ -115,10 +115,11 @@ func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutput() ProviderAssume
 }
 
 func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
-	return o.ApplyT(func(v ProviderAssumeRole) *ProviderAssumeRole {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRole) *ProviderAssumeRole {
 		return &v
 	}).(ProviderAssumeRolePtrOutput)
 }
+
 func (o ProviderAssumeRoleOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProviderAssumeRole) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -166,7 +167,13 @@ func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutputWithContext(ct
 }
 
 func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) ProviderAssumeRole { return *v }).(ProviderAssumeRoleOutput)
+	return o.ApplyT(func(v *ProviderAssumeRole) ProviderAssumeRole {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderAssumeRole
+		return ret
+	}).(ProviderAssumeRoleOutput)
 }
 
 func (o ProviderAssumeRolePtrOutput) DurationSeconds() pulumi.IntPtrOutput {
@@ -332,10 +339,11 @@ func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutput() ProviderDefa
 }
 
 func (o ProviderDefaultTagsOutput) ToProviderDefaultTagsPtrOutputWithContext(ctx context.Context) ProviderDefaultTagsPtrOutput {
-	return o.ApplyT(func(v ProviderDefaultTags) *ProviderDefaultTags {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderDefaultTags) *ProviderDefaultTags {
 		return &v
 	}).(ProviderDefaultTagsPtrOutput)
 }
+
 func (o ProviderDefaultTagsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v ProviderDefaultTags) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -355,7 +363,13 @@ func (o ProviderDefaultTagsPtrOutput) ToProviderDefaultTagsPtrOutputWithContext(
 }
 
 func (o ProviderDefaultTagsPtrOutput) Elem() ProviderDefaultTagsOutput {
-	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags { return *v }).(ProviderDefaultTagsOutput)
+	return o.ApplyT(func(v *ProviderDefaultTags) ProviderDefaultTags {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderDefaultTags
+		return ret
+	}).(ProviderDefaultTagsOutput)
 }
 
 func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
@@ -1496,10 +1510,11 @@ func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutput() ProviderIgnore
 }
 
 func (o ProviderIgnoreTagsOutput) ToProviderIgnoreTagsPtrOutputWithContext(ctx context.Context) ProviderIgnoreTagsPtrOutput {
-	return o.ApplyT(func(v ProviderIgnoreTags) *ProviderIgnoreTags {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderIgnoreTags) *ProviderIgnoreTags {
 		return &v
 	}).(ProviderIgnoreTagsPtrOutput)
 }
+
 func (o ProviderIgnoreTagsOutput) KeyPrefixes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderIgnoreTags) []string { return v.KeyPrefixes }).(pulumi.StringArrayOutput)
 }
@@ -1523,7 +1538,13 @@ func (o ProviderIgnoreTagsPtrOutput) ToProviderIgnoreTagsPtrOutputWithContext(ct
 }
 
 func (o ProviderIgnoreTagsPtrOutput) Elem() ProviderIgnoreTagsOutput {
-	return o.ApplyT(func(v *ProviderIgnoreTags) ProviderIgnoreTags { return *v }).(ProviderIgnoreTagsOutput)
+	return o.ApplyT(func(v *ProviderIgnoreTags) ProviderIgnoreTags {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderIgnoreTags
+		return ret
+	}).(ProviderIgnoreTagsOutput)
 }
 
 func (o ProviderIgnoreTagsPtrOutput) KeyPrefixes() pulumi.StringArrayOutput {

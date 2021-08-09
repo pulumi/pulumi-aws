@@ -336,9 +336,7 @@ func (i ImageRecipeMap) ToImageRecipeMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeMapOutput)
 }
 
-type ImageRecipeOutput struct {
-	*pulumi.OutputState
-}
+type ImageRecipeOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageRecipe)(nil))
@@ -357,14 +355,12 @@ func (o ImageRecipeOutput) ToImageRecipePtrOutput() ImageRecipePtrOutput {
 }
 
 func (o ImageRecipeOutput) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
-	return o.ApplyT(func(v ImageRecipe) *ImageRecipe {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipe) *ImageRecipe {
 		return &v
 	}).(ImageRecipePtrOutput)
 }
 
-type ImageRecipePtrOutput struct {
-	*pulumi.OutputState
-}
+type ImageRecipePtrOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ImageRecipe)(nil))
@@ -376,6 +372,16 @@ func (o ImageRecipePtrOutput) ToImageRecipePtrOutput() ImageRecipePtrOutput {
 
 func (o ImageRecipePtrOutput) ToImageRecipePtrOutputWithContext(ctx context.Context) ImageRecipePtrOutput {
 	return o
+}
+
+func (o ImageRecipePtrOutput) Elem() ImageRecipeOutput {
+	return o.ApplyT(func(v *ImageRecipe) ImageRecipe {
+		if v != nil {
+			return *v
+		}
+		var ret ImageRecipe
+		return ret
+	}).(ImageRecipeOutput)
 }
 
 type ImageRecipeArrayOutput struct{ *pulumi.OutputState }

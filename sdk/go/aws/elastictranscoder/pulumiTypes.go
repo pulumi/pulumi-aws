@@ -107,7 +107,7 @@ func (o PipelineContentConfigOutput) ToPipelineContentConfigPtrOutput() Pipeline
 }
 
 func (o PipelineContentConfigOutput) ToPipelineContentConfigPtrOutputWithContext(ctx context.Context) PipelineContentConfigPtrOutput {
-	return o.ApplyT(func(v PipelineContentConfig) *PipelineContentConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineContentConfig) *PipelineContentConfig {
 		return &v
 	}).(PipelineContentConfigPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o PipelineContentConfigPtrOutput) ToPipelineContentConfigPtrOutputWithCont
 }
 
 func (o PipelineContentConfigPtrOutput) Elem() PipelineContentConfigOutput {
-	return o.ApplyT(func(v *PipelineContentConfig) PipelineContentConfig { return *v }).(PipelineContentConfigOutput)
+	return o.ApplyT(func(v *PipelineContentConfig) PipelineContentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineContentConfig
+		return ret
+	}).(PipelineContentConfigOutput)
 }
 
 // The Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists.
@@ -380,7 +386,7 @@ func (o PipelineNotificationsOutput) ToPipelineNotificationsPtrOutput() Pipeline
 }
 
 func (o PipelineNotificationsOutput) ToPipelineNotificationsPtrOutputWithContext(ctx context.Context) PipelineNotificationsPtrOutput {
-	return o.ApplyT(func(v PipelineNotifications) *PipelineNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineNotifications) *PipelineNotifications {
 		return &v
 	}).(PipelineNotificationsPtrOutput)
 }
@@ -420,7 +426,13 @@ func (o PipelineNotificationsPtrOutput) ToPipelineNotificationsPtrOutputWithCont
 }
 
 func (o PipelineNotificationsPtrOutput) Elem() PipelineNotificationsOutput {
-	return o.ApplyT(func(v *PipelineNotifications) PipelineNotifications { return *v }).(PipelineNotificationsOutput)
+	return o.ApplyT(func(v *PipelineNotifications) PipelineNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineNotifications
+		return ret
+	}).(PipelineNotificationsOutput)
 }
 
 // The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job in this pipeline.
@@ -560,7 +572,7 @@ func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigPtrOutput() Pipe
 }
 
 func (o PipelineThumbnailConfigOutput) ToPipelineThumbnailConfigPtrOutputWithContext(ctx context.Context) PipelineThumbnailConfigPtrOutput {
-	return o.ApplyT(func(v PipelineThumbnailConfig) *PipelineThumbnailConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineThumbnailConfig) *PipelineThumbnailConfig {
 		return &v
 	}).(PipelineThumbnailConfigPtrOutput)
 }
@@ -590,7 +602,13 @@ func (o PipelineThumbnailConfigPtrOutput) ToPipelineThumbnailConfigPtrOutputWith
 }
 
 func (o PipelineThumbnailConfigPtrOutput) Elem() PipelineThumbnailConfigOutput {
-	return o.ApplyT(func(v *PipelineThumbnailConfig) PipelineThumbnailConfig { return *v }).(PipelineThumbnailConfigOutput)
+	return o.ApplyT(func(v *PipelineThumbnailConfig) PipelineThumbnailConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineThumbnailConfig
+		return ret
+	}).(PipelineThumbnailConfigOutput)
 }
 
 // The Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files.
@@ -837,7 +855,7 @@ func (o PresetAudioOutput) ToPresetAudioPtrOutput() PresetAudioPtrOutput {
 }
 
 func (o PresetAudioOutput) ToPresetAudioPtrOutputWithContext(ctx context.Context) PresetAudioPtrOutput {
-	return o.ApplyT(func(v PresetAudio) *PresetAudio {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetAudio) *PresetAudio {
 		return &v
 	}).(PresetAudioPtrOutput)
 }
@@ -882,7 +900,13 @@ func (o PresetAudioPtrOutput) ToPresetAudioPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PresetAudioPtrOutput) Elem() PresetAudioOutput {
-	return o.ApplyT(func(v *PresetAudio) PresetAudio { return *v }).(PresetAudioOutput)
+	return o.ApplyT(func(v *PresetAudio) PresetAudio {
+		if v != nil {
+			return *v
+		}
+		var ret PresetAudio
+		return ret
+	}).(PresetAudioOutput)
 }
 
 // The method of organizing audio channels and tracks. Use Audio:Channels to specify the number of channels in your output, and Audio:AudioPackingMode to specify the number of tracks and their relation to the channels. If you do not specify an Audio:AudioPackingMode, Elastic Transcoder uses SingleTrack.
@@ -1040,7 +1064,7 @@ func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsPtrOutput() Pres
 }
 
 func (o PresetAudioCodecOptionsOutput) ToPresetAudioCodecOptionsPtrOutputWithContext(ctx context.Context) PresetAudioCodecOptionsPtrOutput {
-	return o.ApplyT(func(v PresetAudioCodecOptions) *PresetAudioCodecOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetAudioCodecOptions) *PresetAudioCodecOptions {
 		return &v
 	}).(PresetAudioCodecOptionsPtrOutput)
 }
@@ -1080,7 +1104,13 @@ func (o PresetAudioCodecOptionsPtrOutput) ToPresetAudioCodecOptionsPtrOutputWith
 }
 
 func (o PresetAudioCodecOptionsPtrOutput) Elem() PresetAudioCodecOptionsOutput {
-	return o.ApplyT(func(v *PresetAudioCodecOptions) PresetAudioCodecOptions { return *v }).(PresetAudioCodecOptionsOutput)
+	return o.ApplyT(func(v *PresetAudioCodecOptions) PresetAudioCodecOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PresetAudioCodecOptions
+		return ret
+	}).(PresetAudioCodecOptionsOutput)
 }
 
 // The bit depth of a sample is how many bits of information are included in the audio samples. Valid values are `16` and `24`. (FLAC/PCM Only)
@@ -1244,7 +1274,7 @@ func (o PresetThumbnailsOutput) ToPresetThumbnailsPtrOutput() PresetThumbnailsPt
 }
 
 func (o PresetThumbnailsOutput) ToPresetThumbnailsPtrOutputWithContext(ctx context.Context) PresetThumbnailsPtrOutput {
-	return o.ApplyT(func(v PresetThumbnails) *PresetThumbnails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetThumbnails) *PresetThumbnails {
 		return &v
 	}).(PresetThumbnailsPtrOutput)
 }
@@ -1304,7 +1334,13 @@ func (o PresetThumbnailsPtrOutput) ToPresetThumbnailsPtrOutputWithContext(ctx co
 }
 
 func (o PresetThumbnailsPtrOutput) Elem() PresetThumbnailsOutput {
-	return o.ApplyT(func(v *PresetThumbnails) PresetThumbnails { return *v }).(PresetThumbnailsOutput)
+	return o.ApplyT(func(v *PresetThumbnails) PresetThumbnails {
+		if v != nil {
+			return *v
+		}
+		var ret PresetThumbnails
+		return ret
+	}).(PresetThumbnailsOutput)
 }
 
 // The aspect ratio of thumbnails. The following values are valid: auto, 1:1, 4:3, 3:2, 16:9
@@ -1528,7 +1564,7 @@ func (o PresetVideoOutput) ToPresetVideoPtrOutput() PresetVideoPtrOutput {
 }
 
 func (o PresetVideoOutput) ToPresetVideoPtrOutputWithContext(ctx context.Context) PresetVideoPtrOutput {
-	return o.ApplyT(func(v PresetVideo) *PresetVideo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PresetVideo) *PresetVideo {
 		return &v
 	}).(PresetVideoPtrOutput)
 }
@@ -1613,7 +1649,13 @@ func (o PresetVideoPtrOutput) ToPresetVideoPtrOutputWithContext(ctx context.Cont
 }
 
 func (o PresetVideoPtrOutput) Elem() PresetVideoOutput {
-	return o.ApplyT(func(v *PresetVideo) PresetVideo { return *v }).(PresetVideoOutput)
+	return o.ApplyT(func(v *PresetVideo) PresetVideo {
+		if v != nil {
+			return *v
+		}
+		var ret PresetVideo
+		return ret
+	}).(PresetVideoOutput)
 }
 
 // The display aspect ratio of the video in the output file. Valid values are: `auto`, `1:1`, `4:3`, `3:2`, `16:9`. (Note; to better control resolution and aspect ratio of output videos, we recommend that you use the values `maxWidth`, `maxHeight`, `sizingPolicy`, `paddingPolicy`, and `displayAspectRatio` instead of `resolution` and `aspectRatio`.)

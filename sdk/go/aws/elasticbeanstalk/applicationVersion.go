@@ -304,9 +304,7 @@ func (i ApplicationVersionMap) ToApplicationVersionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionMapOutput)
 }
 
-type ApplicationVersionOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApplicationVersion)(nil))
@@ -325,14 +323,12 @@ func (o ApplicationVersionOutput) ToApplicationVersionPtrOutput() ApplicationVer
 }
 
 func (o ApplicationVersionOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
-	return o.ApplyT(func(v ApplicationVersion) *ApplicationVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersion) *ApplicationVersion {
 		return &v
 	}).(ApplicationVersionPtrOutput)
 }
 
-type ApplicationVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApplicationVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApplicationVersion)(nil))
@@ -344,6 +340,16 @@ func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutput() Application
 
 func (o ApplicationVersionPtrOutput) ToApplicationVersionPtrOutputWithContext(ctx context.Context) ApplicationVersionPtrOutput {
 	return o
+}
+
+func (o ApplicationVersionPtrOutput) Elem() ApplicationVersionOutput {
+	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersion
+		return ret
+	}).(ApplicationVersionOutput)
 }
 
 type ApplicationVersionArrayOutput struct{ *pulumi.OutputState }

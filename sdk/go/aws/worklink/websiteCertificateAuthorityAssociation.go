@@ -212,9 +212,7 @@ func (i WebsiteCertificateAuthorityAssociationMap) ToWebsiteCertificateAuthority
 	return pulumi.ToOutputWithContext(ctx, i).(WebsiteCertificateAuthorityAssociationMapOutput)
 }
 
-type WebsiteCertificateAuthorityAssociationOutput struct {
-	*pulumi.OutputState
-}
+type WebsiteCertificateAuthorityAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebsiteCertificateAuthorityAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebsiteCertificateAuthorityAssociation)(nil))
@@ -233,14 +231,12 @@ func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthor
 }
 
 func (o WebsiteCertificateAuthorityAssociationOutput) ToWebsiteCertificateAuthorityAssociationPtrOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationPtrOutput {
-	return o.ApplyT(func(v WebsiteCertificateAuthorityAssociation) *WebsiteCertificateAuthorityAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebsiteCertificateAuthorityAssociation) *WebsiteCertificateAuthorityAssociation {
 		return &v
 	}).(WebsiteCertificateAuthorityAssociationPtrOutput)
 }
 
-type WebsiteCertificateAuthorityAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type WebsiteCertificateAuthorityAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (WebsiteCertificateAuthorityAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebsiteCertificateAuthorityAssociation)(nil))
@@ -252,6 +248,16 @@ func (o WebsiteCertificateAuthorityAssociationPtrOutput) ToWebsiteCertificateAut
 
 func (o WebsiteCertificateAuthorityAssociationPtrOutput) ToWebsiteCertificateAuthorityAssociationPtrOutputWithContext(ctx context.Context) WebsiteCertificateAuthorityAssociationPtrOutput {
 	return o
+}
+
+func (o WebsiteCertificateAuthorityAssociationPtrOutput) Elem() WebsiteCertificateAuthorityAssociationOutput {
+	return o.ApplyT(func(v *WebsiteCertificateAuthorityAssociation) WebsiteCertificateAuthorityAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret WebsiteCertificateAuthorityAssociation
+		return ret
+	}).(WebsiteCertificateAuthorityAssociationOutput)
 }
 
 type WebsiteCertificateAuthorityAssociationArrayOutput struct{ *pulumi.OutputState }

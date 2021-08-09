@@ -268,9 +268,7 @@ func (i PrivateDnsNamespaceMap) ToPrivateDnsNamespaceMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateDnsNamespaceMapOutput)
 }
 
-type PrivateDnsNamespaceOutput struct {
-	*pulumi.OutputState
-}
+type PrivateDnsNamespaceOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateDnsNamespace)(nil))
@@ -289,14 +287,12 @@ func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespacePtrOutput() PrivateDnsNa
 }
 
 func (o PrivateDnsNamespaceOutput) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
-	return o.ApplyT(func(v PrivateDnsNamespace) *PrivateDnsNamespace {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateDnsNamespace) *PrivateDnsNamespace {
 		return &v
 	}).(PrivateDnsNamespacePtrOutput)
 }
 
-type PrivateDnsNamespacePtrOutput struct {
-	*pulumi.OutputState
-}
+type PrivateDnsNamespacePtrOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsNamespacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrivateDnsNamespace)(nil))
@@ -308,6 +304,16 @@ func (o PrivateDnsNamespacePtrOutput) ToPrivateDnsNamespacePtrOutput() PrivateDn
 
 func (o PrivateDnsNamespacePtrOutput) ToPrivateDnsNamespacePtrOutputWithContext(ctx context.Context) PrivateDnsNamespacePtrOutput {
 	return o
+}
+
+func (o PrivateDnsNamespacePtrOutput) Elem() PrivateDnsNamespaceOutput {
+	return o.ApplyT(func(v *PrivateDnsNamespace) PrivateDnsNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateDnsNamespace
+		return ret
+	}).(PrivateDnsNamespaceOutput)
 }
 
 type PrivateDnsNamespaceArrayOutput struct{ *pulumi.OutputState }

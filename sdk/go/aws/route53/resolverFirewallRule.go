@@ -319,9 +319,7 @@ func (i ResolverFirewallRuleMap) ToResolverFirewallRuleMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleMapOutput)
 }
 
-type ResolverFirewallRuleOutput struct {
-	*pulumi.OutputState
-}
+type ResolverFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResolverFirewallRule)(nil))
@@ -340,14 +338,12 @@ func (o ResolverFirewallRuleOutput) ToResolverFirewallRulePtrOutput() ResolverFi
 }
 
 func (o ResolverFirewallRuleOutput) ToResolverFirewallRulePtrOutputWithContext(ctx context.Context) ResolverFirewallRulePtrOutput {
-	return o.ApplyT(func(v ResolverFirewallRule) *ResolverFirewallRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverFirewallRule) *ResolverFirewallRule {
 		return &v
 	}).(ResolverFirewallRulePtrOutput)
 }
 
-type ResolverFirewallRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ResolverFirewallRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResolverFirewallRule)(nil))
@@ -359,6 +355,16 @@ func (o ResolverFirewallRulePtrOutput) ToResolverFirewallRulePtrOutput() Resolve
 
 func (o ResolverFirewallRulePtrOutput) ToResolverFirewallRulePtrOutputWithContext(ctx context.Context) ResolverFirewallRulePtrOutput {
 	return o
+}
+
+func (o ResolverFirewallRulePtrOutput) Elem() ResolverFirewallRuleOutput {
+	return o.ApplyT(func(v *ResolverFirewallRule) ResolverFirewallRule {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverFirewallRule
+		return ret
+	}).(ResolverFirewallRuleOutput)
 }
 
 type ResolverFirewallRuleArrayOutput struct{ *pulumi.OutputState }

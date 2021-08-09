@@ -111,7 +111,7 @@ func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutput() Da
 }
 
 func (o DataSourceDynamodbConfigOutput) ToDataSourceDynamodbConfigPtrOutputWithContext(ctx context.Context) DataSourceDynamodbConfigPtrOutput {
-	return o.ApplyT(func(v DataSourceDynamodbConfig) *DataSourceDynamodbConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDynamodbConfig) *DataSourceDynamodbConfig {
 		return &v
 	}).(DataSourceDynamodbConfigPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o DataSourceDynamodbConfigPtrOutput) ToDataSourceDynamodbConfigPtrOutputWi
 }
 
 func (o DataSourceDynamodbConfigPtrOutput) Elem() DataSourceDynamodbConfigOutput {
-	return o.ApplyT(func(v *DataSourceDynamodbConfig) DataSourceDynamodbConfig { return *v }).(DataSourceDynamodbConfigOutput)
+	return o.ApplyT(func(v *DataSourceDynamodbConfig) DataSourceDynamodbConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDynamodbConfig
+		return ret
+	}).(DataSourceDynamodbConfigOutput)
 }
 
 // AWS region of Elasticsearch domain. Defaults to current region.
@@ -276,7 +282,7 @@ func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrO
 }
 
 func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
-	return o.ApplyT(func(v DataSourceElasticsearchConfig) *DataSourceElasticsearchConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceElasticsearchConfig) *DataSourceElasticsearchConfig {
 		return &v
 	}).(DataSourceElasticsearchConfigPtrOutput)
 }
@@ -306,7 +312,13 @@ func (o DataSourceElasticsearchConfigPtrOutput) ToDataSourceElasticsearchConfigP
 }
 
 func (o DataSourceElasticsearchConfigPtrOutput) Elem() DataSourceElasticsearchConfigOutput {
-	return o.ApplyT(func(v *DataSourceElasticsearchConfig) DataSourceElasticsearchConfig { return *v }).(DataSourceElasticsearchConfigOutput)
+	return o.ApplyT(func(v *DataSourceElasticsearchConfig) DataSourceElasticsearchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceElasticsearchConfig
+		return ret
+	}).(DataSourceElasticsearchConfigOutput)
 }
 
 // HTTP URL.
@@ -422,7 +434,7 @@ func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutput() DataSource
 }
 
 func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
-	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceHttpConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceHttpConfig) *DataSourceHttpConfig {
 		return &v
 	}).(DataSourceHttpConfigPtrOutput)
 }
@@ -447,7 +459,13 @@ func (o DataSourceHttpConfigPtrOutput) ToDataSourceHttpConfigPtrOutputWithContex
 }
 
 func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
-	return o.ApplyT(func(v *DataSourceHttpConfig) DataSourceHttpConfig { return *v }).(DataSourceHttpConfigOutput)
+	return o.ApplyT(func(v *DataSourceHttpConfig) DataSourceHttpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceHttpConfig
+		return ret
+	}).(DataSourceHttpConfigOutput)
 }
 
 // HTTP URL.
@@ -553,7 +571,7 @@ func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutput() DataSo
 }
 
 func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
-	return o.ApplyT(func(v DataSourceLambdaConfig) *DataSourceLambdaConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceLambdaConfig) *DataSourceLambdaConfig {
 		return &v
 	}).(DataSourceLambdaConfigPtrOutput)
 }
@@ -578,7 +596,13 @@ func (o DataSourceLambdaConfigPtrOutput) ToDataSourceLambdaConfigPtrOutputWithCo
 }
 
 func (o DataSourceLambdaConfigPtrOutput) Elem() DataSourceLambdaConfigOutput {
-	return o.ApplyT(func(v *DataSourceLambdaConfig) DataSourceLambdaConfig { return *v }).(DataSourceLambdaConfigOutput)
+	return o.ApplyT(func(v *DataSourceLambdaConfig) DataSourceLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceLambdaConfig
+		return ret
+	}).(DataSourceLambdaConfigOutput)
 }
 
 // The ARN for the Lambda function.
@@ -815,7 +839,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ToG
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput {
-	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
 		return &v
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput)
 }
@@ -856,7 +880,11 @@ func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) 
 
 func (o GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig) GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig
+		return ret
 	}).(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput)
 }
 
@@ -1001,7 +1029,7 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToGraphQ
 }
 
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput {
-	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
 		return &v
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput)
 }
@@ -1037,7 +1065,11 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) ToGra
 
 func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput {
 	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderUserPoolConfig) GraphQLApiAdditionalAuthenticationProviderUserPoolConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiAdditionalAuthenticationProviderUserPoolConfig
+		return ret
 	}).(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput)
 }
 
@@ -1172,7 +1204,7 @@ func (o GraphQLApiLogConfigOutput) ToGraphQLApiLogConfigPtrOutput() GraphQLApiLo
 }
 
 func (o GraphQLApiLogConfigOutput) ToGraphQLApiLogConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLogConfigPtrOutput {
-	return o.ApplyT(func(v GraphQLApiLogConfig) *GraphQLApiLogConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiLogConfig) *GraphQLApiLogConfig {
 		return &v
 	}).(GraphQLApiLogConfigPtrOutput)
 }
@@ -1207,7 +1239,13 @@ func (o GraphQLApiLogConfigPtrOutput) ToGraphQLApiLogConfigPtrOutputWithContext(
 }
 
 func (o GraphQLApiLogConfigPtrOutput) Elem() GraphQLApiLogConfigOutput {
-	return o.ApplyT(func(v *GraphQLApiLogConfig) GraphQLApiLogConfig { return *v }).(GraphQLApiLogConfigOutput)
+	return o.ApplyT(func(v *GraphQLApiLogConfig) GraphQLApiLogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiLogConfig
+		return ret
+	}).(GraphQLApiLogConfigOutput)
 }
 
 // Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
@@ -1345,7 +1383,7 @@ func (o GraphQLApiOpenidConnectConfigOutput) ToGraphQLApiOpenidConnectConfigPtrO
 }
 
 func (o GraphQLApiOpenidConnectConfigOutput) ToGraphQLApiOpenidConnectConfigPtrOutputWithContext(ctx context.Context) GraphQLApiOpenidConnectConfigPtrOutput {
-	return o.ApplyT(func(v GraphQLApiOpenidConnectConfig) *GraphQLApiOpenidConnectConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiOpenidConnectConfig) *GraphQLApiOpenidConnectConfig {
 		return &v
 	}).(GraphQLApiOpenidConnectConfigPtrOutput)
 }
@@ -1385,7 +1423,13 @@ func (o GraphQLApiOpenidConnectConfigPtrOutput) ToGraphQLApiOpenidConnectConfigP
 }
 
 func (o GraphQLApiOpenidConnectConfigPtrOutput) Elem() GraphQLApiOpenidConnectConfigOutput {
-	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) GraphQLApiOpenidConnectConfig { return *v }).(GraphQLApiOpenidConnectConfigOutput)
+	return o.ApplyT(func(v *GraphQLApiOpenidConnectConfig) GraphQLApiOpenidConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiOpenidConnectConfig
+		return ret
+	}).(GraphQLApiOpenidConnectConfigOutput)
 }
 
 // Number of milliseconds a token is valid after being authenticated.
@@ -1533,7 +1577,7 @@ func (o GraphQLApiUserPoolConfigOutput) ToGraphQLApiUserPoolConfigPtrOutput() Gr
 }
 
 func (o GraphQLApiUserPoolConfigOutput) ToGraphQLApiUserPoolConfigPtrOutputWithContext(ctx context.Context) GraphQLApiUserPoolConfigPtrOutput {
-	return o.ApplyT(func(v GraphQLApiUserPoolConfig) *GraphQLApiUserPoolConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiUserPoolConfig) *GraphQLApiUserPoolConfig {
 		return &v
 	}).(GraphQLApiUserPoolConfigPtrOutput)
 }
@@ -1573,7 +1617,13 @@ func (o GraphQLApiUserPoolConfigPtrOutput) ToGraphQLApiUserPoolConfigPtrOutputWi
 }
 
 func (o GraphQLApiUserPoolConfigPtrOutput) Elem() GraphQLApiUserPoolConfigOutput {
-	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) GraphQLApiUserPoolConfig { return *v }).(GraphQLApiUserPoolConfigOutput)
+	return o.ApplyT(func(v *GraphQLApiUserPoolConfig) GraphQLApiUserPoolConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiUserPoolConfig
+		return ret
+	}).(GraphQLApiUserPoolConfigOutput)
 }
 
 // A regular expression for validating the incoming Amazon Cognito User Pool app client ID.
@@ -1713,7 +1763,7 @@ func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutput() Resolver
 }
 
 func (o ResolverCachingConfigOutput) ToResolverCachingConfigPtrOutputWithContext(ctx context.Context) ResolverCachingConfigPtrOutput {
-	return o.ApplyT(func(v ResolverCachingConfig) *ResolverCachingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverCachingConfig) *ResolverCachingConfig {
 		return &v
 	}).(ResolverCachingConfigPtrOutput)
 }
@@ -1743,7 +1793,13 @@ func (o ResolverCachingConfigPtrOutput) ToResolverCachingConfigPtrOutputWithCont
 }
 
 func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
-	return o.ApplyT(func(v *ResolverCachingConfig) ResolverCachingConfig { return *v }).(ResolverCachingConfigOutput)
+	return o.ApplyT(func(v *ResolverCachingConfig) ResolverCachingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverCachingConfig
+		return ret
+	}).(ResolverCachingConfigOutput)
 }
 
 // The list of caching key.
@@ -1859,7 +1915,7 @@ func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutput() Resolv
 }
 
 func (o ResolverPipelineConfigOutput) ToResolverPipelineConfigPtrOutputWithContext(ctx context.Context) ResolverPipelineConfigPtrOutput {
-	return o.ApplyT(func(v ResolverPipelineConfig) *ResolverPipelineConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverPipelineConfig) *ResolverPipelineConfig {
 		return &v
 	}).(ResolverPipelineConfigPtrOutput)
 }
@@ -1884,7 +1940,13 @@ func (o ResolverPipelineConfigPtrOutput) ToResolverPipelineConfigPtrOutputWithCo
 }
 
 func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
-	return o.ApplyT(func(v *ResolverPipelineConfig) ResolverPipelineConfig { return *v }).(ResolverPipelineConfigOutput)
+	return o.ApplyT(func(v *ResolverPipelineConfig) ResolverPipelineConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverPipelineConfig
+		return ret
+	}).(ResolverPipelineConfigOutput)
 }
 
 // The list of Function ID.

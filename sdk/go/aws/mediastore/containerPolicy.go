@@ -239,9 +239,7 @@ func (i ContainerPolicyMap) ToContainerPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPolicyMapOutput)
 }
 
-type ContainerPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ContainerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContainerPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ContainerPolicy)(nil))
@@ -260,14 +258,12 @@ func (o ContainerPolicyOutput) ToContainerPolicyPtrOutput() ContainerPolicyPtrOu
 }
 
 func (o ContainerPolicyOutput) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
-	return o.ApplyT(func(v ContainerPolicy) *ContainerPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPolicy) *ContainerPolicy {
 		return &v
 	}).(ContainerPolicyPtrOutput)
 }
 
-type ContainerPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ContainerPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ContainerPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ContainerPolicy)(nil))
@@ -279,6 +275,16 @@ func (o ContainerPolicyPtrOutput) ToContainerPolicyPtrOutput() ContainerPolicyPt
 
 func (o ContainerPolicyPtrOutput) ToContainerPolicyPtrOutputWithContext(ctx context.Context) ContainerPolicyPtrOutput {
 	return o
+}
+
+func (o ContainerPolicyPtrOutput) Elem() ContainerPolicyOutput {
+	return o.ApplyT(func(v *ContainerPolicy) ContainerPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerPolicy
+		return ret
+	}).(ContainerPolicyOutput)
 }
 
 type ContainerPolicyArrayOutput struct{ *pulumi.OutputState }

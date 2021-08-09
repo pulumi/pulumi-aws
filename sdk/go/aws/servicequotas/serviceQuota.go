@@ -274,9 +274,7 @@ func (i ServiceQuotaMap) ToServiceQuotaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceQuotaMapOutput)
 }
 
-type ServiceQuotaOutput struct {
-	*pulumi.OutputState
-}
+type ServiceQuotaOutput struct{ *pulumi.OutputState }
 
 func (ServiceQuotaOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceQuota)(nil))
@@ -295,14 +293,12 @@ func (o ServiceQuotaOutput) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
 }
 
 func (o ServiceQuotaOutput) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
-	return o.ApplyT(func(v ServiceQuota) *ServiceQuota {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceQuota) *ServiceQuota {
 		return &v
 	}).(ServiceQuotaPtrOutput)
 }
 
-type ServiceQuotaPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceQuotaPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceQuotaPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceQuota)(nil))
@@ -314,6 +310,16 @@ func (o ServiceQuotaPtrOutput) ToServiceQuotaPtrOutput() ServiceQuotaPtrOutput {
 
 func (o ServiceQuotaPtrOutput) ToServiceQuotaPtrOutputWithContext(ctx context.Context) ServiceQuotaPtrOutput {
 	return o
+}
+
+func (o ServiceQuotaPtrOutput) Elem() ServiceQuotaOutput {
+	return o.ApplyT(func(v *ServiceQuota) ServiceQuota {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceQuota
+		return ret
+	}).(ServiceQuotaOutput)
 }
 
 type ServiceQuotaArrayOutput struct{ *pulumi.OutputState }

@@ -236,9 +236,7 @@ func (i GcmChannelMap) ToGcmChannelMapOutputWithContext(ctx context.Context) Gcm
 	return pulumi.ToOutputWithContext(ctx, i).(GcmChannelMapOutput)
 }
 
-type GcmChannelOutput struct {
-	*pulumi.OutputState
-}
+type GcmChannelOutput struct{ *pulumi.OutputState }
 
 func (GcmChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GcmChannel)(nil))
@@ -257,14 +255,12 @@ func (o GcmChannelOutput) ToGcmChannelPtrOutput() GcmChannelPtrOutput {
 }
 
 func (o GcmChannelOutput) ToGcmChannelPtrOutputWithContext(ctx context.Context) GcmChannelPtrOutput {
-	return o.ApplyT(func(v GcmChannel) *GcmChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GcmChannel) *GcmChannel {
 		return &v
 	}).(GcmChannelPtrOutput)
 }
 
-type GcmChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type GcmChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (GcmChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GcmChannel)(nil))
@@ -276,6 +272,16 @@ func (o GcmChannelPtrOutput) ToGcmChannelPtrOutput() GcmChannelPtrOutput {
 
 func (o GcmChannelPtrOutput) ToGcmChannelPtrOutputWithContext(ctx context.Context) GcmChannelPtrOutput {
 	return o
+}
+
+func (o GcmChannelPtrOutput) Elem() GcmChannelOutput {
+	return o.ApplyT(func(v *GcmChannel) GcmChannel {
+		if v != nil {
+			return *v
+		}
+		var ret GcmChannel
+		return ret
+	}).(GcmChannelOutput)
 }
 
 type GcmChannelArrayOutput struct{ *pulumi.OutputState }

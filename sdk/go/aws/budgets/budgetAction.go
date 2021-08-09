@@ -380,9 +380,7 @@ func (i BudgetActionMap) ToBudgetActionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionMapOutput)
 }
 
-type BudgetActionOutput struct {
-	*pulumi.OutputState
-}
+type BudgetActionOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BudgetAction)(nil))
@@ -401,14 +399,12 @@ func (o BudgetActionOutput) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
 }
 
 func (o BudgetActionOutput) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
-	return o.ApplyT(func(v BudgetAction) *BudgetAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetAction) *BudgetAction {
 		return &v
 	}).(BudgetActionPtrOutput)
 }
 
-type BudgetActionPtrOutput struct {
-	*pulumi.OutputState
-}
+type BudgetActionPtrOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BudgetAction)(nil))
@@ -420,6 +416,16 @@ func (o BudgetActionPtrOutput) ToBudgetActionPtrOutput() BudgetActionPtrOutput {
 
 func (o BudgetActionPtrOutput) ToBudgetActionPtrOutputWithContext(ctx context.Context) BudgetActionPtrOutput {
 	return o
+}
+
+func (o BudgetActionPtrOutput) Elem() BudgetActionOutput {
+	return o.ApplyT(func(v *BudgetAction) BudgetAction {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetAction
+		return ret
+	}).(BudgetActionOutput)
 }
 
 type BudgetActionArrayOutput struct{ *pulumi.OutputState }

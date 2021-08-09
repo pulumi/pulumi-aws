@@ -327,9 +327,7 @@ func (i EventRuleMap) ToEventRuleMapOutputWithContext(ctx context.Context) Event
 	return pulumi.ToOutputWithContext(ctx, i).(EventRuleMapOutput)
 }
 
-type EventRuleOutput struct {
-	*pulumi.OutputState
-}
+type EventRuleOutput struct{ *pulumi.OutputState }
 
 func (EventRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventRule)(nil))
@@ -348,14 +346,12 @@ func (o EventRuleOutput) ToEventRulePtrOutput() EventRulePtrOutput {
 }
 
 func (o EventRuleOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
-	return o.ApplyT(func(v EventRule) *EventRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventRule) *EventRule {
 		return &v
 	}).(EventRulePtrOutput)
 }
 
-type EventRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type EventRulePtrOutput struct{ *pulumi.OutputState }
 
 func (EventRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventRule)(nil))
@@ -367,6 +363,16 @@ func (o EventRulePtrOutput) ToEventRulePtrOutput() EventRulePtrOutput {
 
 func (o EventRulePtrOutput) ToEventRulePtrOutputWithContext(ctx context.Context) EventRulePtrOutput {
 	return o
+}
+
+func (o EventRulePtrOutput) Elem() EventRuleOutput {
+	return o.ApplyT(func(v *EventRule) EventRule {
+		if v != nil {
+			return *v
+		}
+		var ret EventRule
+		return ret
+	}).(EventRuleOutput)
 }
 
 type EventRuleArrayOutput struct{ *pulumi.OutputState }

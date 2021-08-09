@@ -325,9 +325,7 @@ func (i LayerVersionMap) ToLayerVersionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(LayerVersionMapOutput)
 }
 
-type LayerVersionOutput struct {
-	*pulumi.OutputState
-}
+type LayerVersionOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LayerVersion)(nil))
@@ -346,14 +344,12 @@ func (o LayerVersionOutput) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
 }
 
 func (o LayerVersionOutput) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
-	return o.ApplyT(func(v LayerVersion) *LayerVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LayerVersion) *LayerVersion {
 		return &v
 	}).(LayerVersionPtrOutput)
 }
 
-type LayerVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type LayerVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (LayerVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LayerVersion)(nil))
@@ -365,6 +361,16 @@ func (o LayerVersionPtrOutput) ToLayerVersionPtrOutput() LayerVersionPtrOutput {
 
 func (o LayerVersionPtrOutput) ToLayerVersionPtrOutputWithContext(ctx context.Context) LayerVersionPtrOutput {
 	return o
+}
+
+func (o LayerVersionPtrOutput) Elem() LayerVersionOutput {
+	return o.ApplyT(func(v *LayerVersion) LayerVersion {
+		if v != nil {
+			return *v
+		}
+		var ret LayerVersion
+		return ret
+	}).(LayerVersionOutput)
 }
 
 type LayerVersionArrayOutput struct{ *pulumi.OutputState }

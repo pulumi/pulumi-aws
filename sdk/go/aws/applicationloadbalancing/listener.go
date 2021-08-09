@@ -588,9 +588,7 @@ func (i ListenerMap) ToListenerMapOutputWithContext(ctx context.Context) Listene
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerMapOutput)
 }
 
-type ListenerOutput struct {
-	*pulumi.OutputState
-}
+type ListenerOutput struct{ *pulumi.OutputState }
 
 func (ListenerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Listener)(nil))
@@ -609,14 +607,12 @@ func (o ListenerOutput) ToListenerPtrOutput() ListenerPtrOutput {
 }
 
 func (o ListenerOutput) ToListenerPtrOutputWithContext(ctx context.Context) ListenerPtrOutput {
-	return o.ApplyT(func(v Listener) *Listener {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Listener) *Listener {
 		return &v
 	}).(ListenerPtrOutput)
 }
 
-type ListenerPtrOutput struct {
-	*pulumi.OutputState
-}
+type ListenerPtrOutput struct{ *pulumi.OutputState }
 
 func (ListenerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Listener)(nil))
@@ -628,6 +624,16 @@ func (o ListenerPtrOutput) ToListenerPtrOutput() ListenerPtrOutput {
 
 func (o ListenerPtrOutput) ToListenerPtrOutputWithContext(ctx context.Context) ListenerPtrOutput {
 	return o
+}
+
+func (o ListenerPtrOutput) Elem() ListenerOutput {
+	return o.ApplyT(func(v *Listener) Listener {
+		if v != nil {
+			return *v
+		}
+		var ret Listener
+		return ret
+	}).(ListenerOutput)
 }
 
 type ListenerArrayOutput struct{ *pulumi.OutputState }

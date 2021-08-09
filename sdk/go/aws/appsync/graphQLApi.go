@@ -546,9 +546,7 @@ func (i GraphQLApiMap) ToGraphQLApiMapOutputWithContext(ctx context.Context) Gra
 	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiMapOutput)
 }
 
-type GraphQLApiOutput struct {
-	*pulumi.OutputState
-}
+type GraphQLApiOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GraphQLApi)(nil))
@@ -567,14 +565,12 @@ func (o GraphQLApiOutput) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
 }
 
 func (o GraphQLApiOutput) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
-	return o.ApplyT(func(v GraphQLApi) *GraphQLApi {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApi) *GraphQLApi {
 		return &v
 	}).(GraphQLApiPtrOutput)
 }
 
-type GraphQLApiPtrOutput struct {
-	*pulumi.OutputState
-}
+type GraphQLApiPtrOutput struct{ *pulumi.OutputState }
 
 func (GraphQLApiPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GraphQLApi)(nil))
@@ -586,6 +582,16 @@ func (o GraphQLApiPtrOutput) ToGraphQLApiPtrOutput() GraphQLApiPtrOutput {
 
 func (o GraphQLApiPtrOutput) ToGraphQLApiPtrOutputWithContext(ctx context.Context) GraphQLApiPtrOutput {
 	return o
+}
+
+func (o GraphQLApiPtrOutput) Elem() GraphQLApiOutput {
+	return o.ApplyT(func(v *GraphQLApi) GraphQLApi {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApi
+		return ret
+	}).(GraphQLApiOutput)
 }
 
 type GraphQLApiArrayOutput struct{ *pulumi.OutputState }

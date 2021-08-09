@@ -281,9 +281,7 @@ func (i DistributionConfigurationMap) ToDistributionConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationMapOutput)
 }
 
-type DistributionConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type DistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DistributionConfiguration)(nil))
@@ -302,14 +300,12 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationPtrOutput() 
 }
 
 func (o DistributionConfigurationOutput) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
-	return o.ApplyT(func(v DistributionConfiguration) *DistributionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfiguration) *DistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationPtrOutput)
 }
 
-type DistributionConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type DistributionConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DistributionConfiguration)(nil))
@@ -321,6 +317,16 @@ func (o DistributionConfigurationPtrOutput) ToDistributionConfigurationPtrOutput
 
 func (o DistributionConfigurationPtrOutput) ToDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationPtrOutput) Elem() DistributionConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfiguration) DistributionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfiguration
+		return ret
+	}).(DistributionConfigurationOutput)
 }
 
 type DistributionConfigurationArrayOutput struct{ *pulumi.OutputState }

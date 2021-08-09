@@ -251,9 +251,7 @@ func (i DomainIdentityMap) ToDomainIdentityMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityMapOutput)
 }
 
-type DomainIdentityOutput struct {
-	*pulumi.OutputState
-}
+type DomainIdentityOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DomainIdentity)(nil))
@@ -272,14 +270,12 @@ func (o DomainIdentityOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOutpu
 }
 
 func (o DomainIdentityOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
-	return o.ApplyT(func(v DomainIdentity) *DomainIdentity {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentity) *DomainIdentity {
 		return &v
 	}).(DomainIdentityPtrOutput)
 }
 
-type DomainIdentityPtrOutput struct {
-	*pulumi.OutputState
-}
+type DomainIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainIdentityPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DomainIdentity)(nil))
@@ -291,6 +287,16 @@ func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutput() DomainIdentityPtrOu
 
 func (o DomainIdentityPtrOutput) ToDomainIdentityPtrOutputWithContext(ctx context.Context) DomainIdentityPtrOutput {
 	return o
+}
+
+func (o DomainIdentityPtrOutput) Elem() DomainIdentityOutput {
+	return o.ApplyT(func(v *DomainIdentity) DomainIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentity
+		return ret
+	}).(DomainIdentityOutput)
 }
 
 type DomainIdentityArrayOutput struct{ *pulumi.OutputState }

@@ -203,9 +203,7 @@ func (i WebAclAssociationMap) ToWebAclAssociationMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclAssociationMapOutput)
 }
 
-type WebAclAssociationOutput struct {
-	*pulumi.OutputState
-}
+type WebAclAssociationOutput struct{ *pulumi.OutputState }
 
 func (WebAclAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAclAssociation)(nil))
@@ -224,14 +222,12 @@ func (o WebAclAssociationOutput) ToWebAclAssociationPtrOutput() WebAclAssociatio
 }
 
 func (o WebAclAssociationOutput) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
-	return o.ApplyT(func(v WebAclAssociation) *WebAclAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclAssociation) *WebAclAssociation {
 		return &v
 	}).(WebAclAssociationPtrOutput)
 }
 
-type WebAclAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type WebAclAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (WebAclAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebAclAssociation)(nil))
@@ -243,6 +239,16 @@ func (o WebAclAssociationPtrOutput) ToWebAclAssociationPtrOutput() WebAclAssocia
 
 func (o WebAclAssociationPtrOutput) ToWebAclAssociationPtrOutputWithContext(ctx context.Context) WebAclAssociationPtrOutput {
 	return o
+}
+
+func (o WebAclAssociationPtrOutput) Elem() WebAclAssociationOutput {
+	return o.ApplyT(func(v *WebAclAssociation) WebAclAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret WebAclAssociation
+		return ret
+	}).(WebAclAssociationOutput)
 }
 
 type WebAclAssociationArrayOutput struct{ *pulumi.OutputState }

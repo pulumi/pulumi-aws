@@ -227,9 +227,7 @@ func (i DataCatalogEncryptionSettingsMap) ToDataCatalogEncryptionSettingsMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsMapOutput)
 }
 
-type DataCatalogEncryptionSettingsOutput struct {
-	*pulumi.OutputState
-}
+type DataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataCatalogEncryptionSettings)(nil))
@@ -248,14 +246,12 @@ func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsPtrO
 }
 
 func (o DataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettings) *DataCatalogEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettings) *DataCatalogEncryptionSettings {
 		return &v
 	}).(DataCatalogEncryptionSettingsPtrOutput)
 }
 
-type DataCatalogEncryptionSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataCatalogEncryptionSettings)(nil))
@@ -267,6 +263,16 @@ func (o DataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsP
 
 func (o DataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsPtrOutput {
 	return o
+}
+
+func (o DataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettings
+		return ret
+	}).(DataCatalogEncryptionSettingsOutput)
 }
 
 type DataCatalogEncryptionSettingsArrayOutput struct{ *pulumi.OutputState }

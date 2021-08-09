@@ -260,9 +260,7 @@ func (i StackSetInstanceMap) ToStackSetInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceMapOutput)
 }
 
-type StackSetInstanceOutput struct {
-	*pulumi.OutputState
-}
+type StackSetInstanceOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StackSetInstance)(nil))
@@ -281,14 +279,12 @@ func (o StackSetInstanceOutput) ToStackSetInstancePtrOutput() StackSetInstancePt
 }
 
 func (o StackSetInstanceOutput) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
-	return o.ApplyT(func(v StackSetInstance) *StackSetInstance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetInstance) *StackSetInstance {
 		return &v
 	}).(StackSetInstancePtrOutput)
 }
 
-type StackSetInstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type StackSetInstancePtrOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StackSetInstance)(nil))
@@ -300,6 +296,16 @@ func (o StackSetInstancePtrOutput) ToStackSetInstancePtrOutput() StackSetInstanc
 
 func (o StackSetInstancePtrOutput) ToStackSetInstancePtrOutputWithContext(ctx context.Context) StackSetInstancePtrOutput {
 	return o
+}
+
+func (o StackSetInstancePtrOutput) Elem() StackSetInstanceOutput {
+	return o.ApplyT(func(v *StackSetInstance) StackSetInstance {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetInstance
+		return ret
+	}).(StackSetInstanceOutput)
 }
 
 type StackSetInstanceArrayOutput struct{ *pulumi.OutputState }

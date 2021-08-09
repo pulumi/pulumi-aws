@@ -97,10 +97,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Set of EC2 Instance Types.
+        /// List of EC2 Instance Types.
         /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
         public readonly string? LocationType;
+        /// <summary>
+        /// List of location types.
+        /// </summary>
+        public readonly ImmutableArray<string> LocationTypes;
+        /// <summary>
+        /// List of locations.
+        /// </summary>
+        public readonly ImmutableArray<string> Locations;
 
         [OutputConstructor]
         private GetInstanceTypeOfferingsResult(
@@ -110,12 +118,18 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> instanceTypes,
 
-            string? locationType)
+            string? locationType,
+
+            ImmutableArray<string> locationTypes,
+
+            ImmutableArray<string> locations)
         {
             Filters = filters;
             Id = id;
             InstanceTypes = instanceTypes;
             LocationType = locationType;
+            LocationTypes = locationTypes;
+            Locations = locations;
         }
     }
 }

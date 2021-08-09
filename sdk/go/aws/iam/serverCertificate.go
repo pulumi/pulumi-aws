@@ -327,9 +327,7 @@ func (i ServerCertificateMap) ToServerCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateMapOutput)
 }
 
-type ServerCertificateOutput struct {
-	*pulumi.OutputState
-}
+type ServerCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServerCertificate)(nil))
@@ -348,14 +346,12 @@ func (o ServerCertificateOutput) ToServerCertificatePtrOutput() ServerCertificat
 }
 
 func (o ServerCertificateOutput) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
-	return o.ApplyT(func(v ServerCertificate) *ServerCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCertificate) *ServerCertificate {
 		return &v
 	}).(ServerCertificatePtrOutput)
 }
 
-type ServerCertificatePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServerCertificatePtrOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServerCertificate)(nil))
@@ -367,6 +363,16 @@ func (o ServerCertificatePtrOutput) ToServerCertificatePtrOutput() ServerCertifi
 
 func (o ServerCertificatePtrOutput) ToServerCertificatePtrOutputWithContext(ctx context.Context) ServerCertificatePtrOutput {
 	return o
+}
+
+func (o ServerCertificatePtrOutput) Elem() ServerCertificateOutput {
+	return o.ApplyT(func(v *ServerCertificate) ServerCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ServerCertificate
+		return ret
+	}).(ServerCertificateOutput)
 }
 
 type ServerCertificateArrayOutput struct{ *pulumi.OutputState }

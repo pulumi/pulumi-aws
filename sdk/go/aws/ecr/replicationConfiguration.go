@@ -272,9 +272,7 @@ func (i ReplicationConfigurationMap) ToReplicationConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationMapOutput)
 }
 
-type ReplicationConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReplicationConfiguration)(nil))
@@ -293,14 +291,12 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationPtrOutput() Re
 }
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
-	return o.ApplyT(func(v ReplicationConfiguration) *ReplicationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfiguration) *ReplicationConfiguration {
 		return &v
 	}).(ReplicationConfigurationPtrOutput)
 }
 
-type ReplicationConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReplicationConfiguration)(nil))
@@ -312,6 +308,16 @@ func (o ReplicationConfigurationPtrOutput) ToReplicationConfigurationPtrOutput()
 
 func (o ReplicationConfigurationPtrOutput) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o ReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) ReplicationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfiguration
+		return ret
+	}).(ReplicationConfigurationOutput)
 }
 
 type ReplicationConfigurationArrayOutput struct{ *pulumi.OutputState }

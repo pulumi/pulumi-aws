@@ -226,9 +226,7 @@ func (i StandardsSubscriptionMap) ToStandardsSubscriptionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsSubscriptionMapOutput)
 }
 
-type StandardsSubscriptionOutput struct {
-	*pulumi.OutputState
-}
+type StandardsSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (StandardsSubscriptionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StandardsSubscription)(nil))
@@ -247,14 +245,12 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionPtrOutput() Standard
 }
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
-	return o.ApplyT(func(v StandardsSubscription) *StandardsSubscription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StandardsSubscription) *StandardsSubscription {
 		return &v
 	}).(StandardsSubscriptionPtrOutput)
 }
 
-type StandardsSubscriptionPtrOutput struct {
-	*pulumi.OutputState
-}
+type StandardsSubscriptionPtrOutput struct{ *pulumi.OutputState }
 
 func (StandardsSubscriptionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StandardsSubscription)(nil))
@@ -266,6 +262,16 @@ func (o StandardsSubscriptionPtrOutput) ToStandardsSubscriptionPtrOutput() Stand
 
 func (o StandardsSubscriptionPtrOutput) ToStandardsSubscriptionPtrOutputWithContext(ctx context.Context) StandardsSubscriptionPtrOutput {
 	return o
+}
+
+func (o StandardsSubscriptionPtrOutput) Elem() StandardsSubscriptionOutput {
+	return o.ApplyT(func(v *StandardsSubscription) StandardsSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret StandardsSubscription
+		return ret
+	}).(StandardsSubscriptionOutput)
 }
 
 type StandardsSubscriptionArrayOutput struct{ *pulumi.OutputState }

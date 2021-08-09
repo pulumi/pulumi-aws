@@ -161,6 +161,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
+        /// The database engine version
+        /// </summary>
+        [Output("engineVersionActual")]
+        public Output<string> EngineVersionActual { get; private set; } = null!;
+
+        /// <summary>
         /// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         /// </summary>
         [Output("identifier")]
@@ -564,6 +570,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// The database engine version
+        /// </summary>
+        [Input("engineVersionActual")]
+        public Input<string>? EngineVersionActual { get; set; }
 
         /// <summary>
         /// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.

@@ -340,9 +340,7 @@ func (i AddonMap) ToAddonMapOutputWithContext(ctx context.Context) AddonMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AddonMapOutput)
 }
 
-type AddonOutput struct {
-	*pulumi.OutputState
-}
+type AddonOutput struct{ *pulumi.OutputState }
 
 func (AddonOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Addon)(nil))
@@ -361,14 +359,12 @@ func (o AddonOutput) ToAddonPtrOutput() AddonPtrOutput {
 }
 
 func (o AddonOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
-	return o.ApplyT(func(v Addon) *Addon {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Addon) *Addon {
 		return &v
 	}).(AddonPtrOutput)
 }
 
-type AddonPtrOutput struct {
-	*pulumi.OutputState
-}
+type AddonPtrOutput struct{ *pulumi.OutputState }
 
 func (AddonPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Addon)(nil))
@@ -380,6 +376,16 @@ func (o AddonPtrOutput) ToAddonPtrOutput() AddonPtrOutput {
 
 func (o AddonPtrOutput) ToAddonPtrOutputWithContext(ctx context.Context) AddonPtrOutput {
 	return o
+}
+
+func (o AddonPtrOutput) Elem() AddonOutput {
+	return o.ApplyT(func(v *Addon) Addon {
+		if v != nil {
+			return *v
+		}
+		var ret Addon
+		return ret
+	}).(AddonOutput)
 }
 
 type AddonArrayOutput struct{ *pulumi.OutputState }

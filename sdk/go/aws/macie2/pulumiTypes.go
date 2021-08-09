@@ -107,7 +107,7 @@ func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefiniti
 }
 
 func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinition {
 		return &v
 	}).(ClassificationJobS3JobDefinitionPtrOutput)
 }
@@ -139,7 +139,13 @@ func (o ClassificationJobS3JobDefinitionPtrOutput) ToClassificationJobS3JobDefin
 }
 
 func (o ClassificationJobS3JobDefinitionPtrOutput) Elem() ClassificationJobS3JobDefinitionOutput {
-	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) ClassificationJobS3JobDefinition { return *v }).(ClassificationJobS3JobDefinitionOutput)
+	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) ClassificationJobS3JobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinition
+		return ret
+	}).(ClassificationJobS3JobDefinitionOutput)
 }
 
 // An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
@@ -365,7 +371,7 @@ func (o ClassificationJobS3JobDefinitionScopingOutput) ToClassificationJobS3JobD
 }
 
 func (o ClassificationJobS3JobDefinitionScopingOutput) ToClassificationJobS3JobDefinitionScopingPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScoping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScoping) *ClassificationJobS3JobDefinitionScoping {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingPtrOutput)
 }
@@ -399,7 +405,13 @@ func (o ClassificationJobS3JobDefinitionScopingPtrOutput) ToClassificationJobS3J
 }
 
 func (o ClassificationJobS3JobDefinitionScopingPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingOutput {
-	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScoping) ClassificationJobS3JobDefinitionScoping { return *v }).(ClassificationJobS3JobDefinitionScopingOutput)
+	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScoping) ClassificationJobS3JobDefinitionScoping {
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScoping
+		return ret
+	}).(ClassificationJobS3JobDefinitionScopingOutput)
 }
 
 // The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
@@ -515,7 +527,7 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) ToClassificationJ
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesOutput) ToClassificationJobS3JobDefinitionScopingExcludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludes) *ClassificationJobS3JobDefinitionScopingExcludes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingExcludes) *ClassificationJobS3JobDefinitionScopingExcludes {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingExcludesPtrOutput)
 }
@@ -543,7 +555,11 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludes) ClassificationJobS3JobDefinitionScopingExcludes {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingExcludes
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingExcludesOutput)
 }
 
@@ -768,7 +784,7 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput)
 }
@@ -804,7 +820,11 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutp
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm) ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTerm
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermOutput)
 }
 
@@ -943,7 +963,7 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) To
 }
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput) ToClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 }
@@ -986,7 +1006,11 @@ func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput)
 
 func (o ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm) ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTerm
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermOutput)
 }
 
@@ -1226,7 +1250,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToClassificationJ
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesOutput) ToClassificationJobS3JobDefinitionScopingIncludesPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludes) *ClassificationJobS3JobDefinitionScopingIncludes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingIncludes) *ClassificationJobS3JobDefinitionScopingIncludes {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingIncludesPtrOutput)
 }
@@ -1254,7 +1278,11 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) ToClassificati
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludes) ClassificationJobS3JobDefinitionScopingIncludes {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingIncludes
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingIncludesOutput)
 }
 
@@ -1479,7 +1507,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput)
 }
@@ -1515,7 +1543,11 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutp
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm) ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTerm
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermOutput)
 }
 
@@ -1654,7 +1686,7 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) To
 }
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput) ToClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput {
-	return o.ApplyT(func(v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
 		return &v
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 }
@@ -1697,7 +1729,11 @@ func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput)
 
 func (o ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermPtrOutput) Elem() ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput {
 	return o.ApplyT(func(v *ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm) ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTerm
+		return ret
 	}).(ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermOutput)
 }
 
@@ -1945,7 +1981,7 @@ func (o ClassificationJobScheduleFrequencyOutput) ToClassificationJobScheduleFre
 }
 
 func (o ClassificationJobScheduleFrequencyOutput) ToClassificationJobScheduleFrequencyPtrOutputWithContext(ctx context.Context) ClassificationJobScheduleFrequencyPtrOutput {
-	return o.ApplyT(func(v ClassificationJobScheduleFrequency) *ClassificationJobScheduleFrequency {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobScheduleFrequency) *ClassificationJobScheduleFrequency {
 		return &v
 	}).(ClassificationJobScheduleFrequencyPtrOutput)
 }
@@ -1980,7 +2016,13 @@ func (o ClassificationJobScheduleFrequencyPtrOutput) ToClassificationJobSchedule
 }
 
 func (o ClassificationJobScheduleFrequencyPtrOutput) Elem() ClassificationJobScheduleFrequencyOutput {
-	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) ClassificationJobScheduleFrequency { return *v }).(ClassificationJobScheduleFrequencyOutput)
+	return o.ApplyT(func(v *ClassificationJobScheduleFrequency) ClassificationJobScheduleFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret ClassificationJobScheduleFrequency
+		return ret
+	}).(ClassificationJobScheduleFrequencyOutput)
 }
 
 // Specifies a daily recurrence pattern for running the job.

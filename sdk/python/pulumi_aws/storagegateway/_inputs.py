@@ -9,12 +9,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FileSystemAssociationCacheAttributesArgs',
     'GatewayGatewayNetworkInterfaceArgs',
     'GatewaySmbActiveDirectorySettingsArgs',
     'NfsFileShareCacheAttributesArgs',
     'NfsFileShareNfsFileShareDefaultsArgs',
     'SmbFileShareCacheAttributesArgs',
 ]
+
+@pulumi.input_type
+class FileSystemAssociationCacheAttributesArgs:
+    def __init__(__self__, *,
+                 cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] cache_stale_timeout_in_seconds: Refreshes a file share's cache by using Time To Live (TTL).
+               TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+               to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+        """
+        if cache_stale_timeout_in_seconds is not None:
+            pulumi.set(__self__, "cache_stale_timeout_in_seconds", cache_stale_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="cacheStaleTimeoutInSeconds")
+    def cache_stale_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Refreshes a file share's cache by using Time To Live (TTL).
+        TTL is the length of time since the last refresh after which access to the directory would cause the file gateway
+        to first refresh that directory's contents from the Amazon S3 bucket. Valid Values: `0` or `300` to `2592000` seconds (5 minutes to 30 days). Defaults to `0`
+        """
+        return pulumi.get(self, "cache_stale_timeout_in_seconds")
+
+    @cache_stale_timeout_in_seconds.setter
+    def cache_stale_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cache_stale_timeout_in_seconds", value)
+
 
 @pulumi.input_type
 class GatewayGatewayNetworkInterfaceArgs:

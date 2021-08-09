@@ -401,9 +401,7 @@ func (i InsightMap) ToInsightMapOutputWithContext(ctx context.Context) InsightMa
 	return pulumi.ToOutputWithContext(ctx, i).(InsightMapOutput)
 }
 
-type InsightOutput struct {
-	*pulumi.OutputState
-}
+type InsightOutput struct{ *pulumi.OutputState }
 
 func (InsightOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Insight)(nil))
@@ -422,14 +420,12 @@ func (o InsightOutput) ToInsightPtrOutput() InsightPtrOutput {
 }
 
 func (o InsightOutput) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
-	return o.ApplyT(func(v Insight) *Insight {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Insight) *Insight {
 		return &v
 	}).(InsightPtrOutput)
 }
 
-type InsightPtrOutput struct {
-	*pulumi.OutputState
-}
+type InsightPtrOutput struct{ *pulumi.OutputState }
 
 func (InsightPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Insight)(nil))
@@ -441,6 +437,16 @@ func (o InsightPtrOutput) ToInsightPtrOutput() InsightPtrOutput {
 
 func (o InsightPtrOutput) ToInsightPtrOutputWithContext(ctx context.Context) InsightPtrOutput {
 	return o
+}
+
+func (o InsightPtrOutput) Elem() InsightOutput {
+	return o.ApplyT(func(v *Insight) Insight {
+		if v != nil {
+			return *v
+		}
+		var ret Insight
+		return ret
+	}).(InsightOutput)
 }
 
 type InsightArrayOutput struct{ *pulumi.OutputState }

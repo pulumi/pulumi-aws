@@ -267,9 +267,7 @@ func (i UsagePlanKeyMap) ToUsagePlanKeyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanKeyMapOutput)
 }
 
-type UsagePlanKeyOutput struct {
-	*pulumi.OutputState
-}
+type UsagePlanKeyOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UsagePlanKey)(nil))
@@ -288,14 +286,12 @@ func (o UsagePlanKeyOutput) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
 }
 
 func (o UsagePlanKeyOutput) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
-	return o.ApplyT(func(v UsagePlanKey) *UsagePlanKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePlanKey) *UsagePlanKey {
 		return &v
 	}).(UsagePlanKeyPtrOutput)
 }
 
-type UsagePlanKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type UsagePlanKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UsagePlanKey)(nil))
@@ -307,6 +303,16 @@ func (o UsagePlanKeyPtrOutput) ToUsagePlanKeyPtrOutput() UsagePlanKeyPtrOutput {
 
 func (o UsagePlanKeyPtrOutput) ToUsagePlanKeyPtrOutputWithContext(ctx context.Context) UsagePlanKeyPtrOutput {
 	return o
+}
+
+func (o UsagePlanKeyPtrOutput) Elem() UsagePlanKeyOutput {
+	return o.ApplyT(func(v *UsagePlanKey) UsagePlanKey {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePlanKey
+		return ret
+	}).(UsagePlanKeyOutput)
 }
 
 type UsagePlanKeyArrayOutput struct{ *pulumi.OutputState }

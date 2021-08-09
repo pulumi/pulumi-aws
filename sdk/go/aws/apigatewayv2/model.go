@@ -259,9 +259,7 @@ func (i ModelMap) ToModelMapOutputWithContext(ctx context.Context) ModelMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ModelMapOutput)
 }
 
-type ModelOutput struct {
-	*pulumi.OutputState
-}
+type ModelOutput struct{ *pulumi.OutputState }
 
 func (ModelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Model)(nil))
@@ -280,14 +278,12 @@ func (o ModelOutput) ToModelPtrOutput() ModelPtrOutput {
 }
 
 func (o ModelOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return o.ApplyT(func(v Model) *Model {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Model) *Model {
 		return &v
 	}).(ModelPtrOutput)
 }
 
-type ModelPtrOutput struct {
-	*pulumi.OutputState
-}
+type ModelPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Model)(nil))
@@ -299,6 +295,16 @@ func (o ModelPtrOutput) ToModelPtrOutput() ModelPtrOutput {
 
 func (o ModelPtrOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
 	return o
+}
+
+func (o ModelPtrOutput) Elem() ModelOutput {
+	return o.ApplyT(func(v *Model) Model {
+		if v != nil {
+			return *v
+		}
+		var ret Model
+		return ret
+	}).(ModelOutput)
 }
 
 type ModelArrayOutput struct{ *pulumi.OutputState }

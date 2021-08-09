@@ -280,9 +280,7 @@ func (i OriginRequestPolicyMap) ToOriginRequestPolicyMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyMapOutput)
 }
 
-type OriginRequestPolicyOutput struct {
-	*pulumi.OutputState
-}
+type OriginRequestPolicyOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OriginRequestPolicy)(nil))
@@ -301,14 +299,12 @@ func (o OriginRequestPolicyOutput) ToOriginRequestPolicyPtrOutput() OriginReques
 }
 
 func (o OriginRequestPolicyOutput) ToOriginRequestPolicyPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicy) *OriginRequestPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicy) *OriginRequestPolicy {
 		return &v
 	}).(OriginRequestPolicyPtrOutput)
 }
 
-type OriginRequestPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type OriginRequestPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OriginRequestPolicy)(nil))
@@ -320,6 +316,16 @@ func (o OriginRequestPolicyPtrOutput) ToOriginRequestPolicyPtrOutput() OriginReq
 
 func (o OriginRequestPolicyPtrOutput) ToOriginRequestPolicyPtrOutputWithContext(ctx context.Context) OriginRequestPolicyPtrOutput {
 	return o
+}
+
+func (o OriginRequestPolicyPtrOutput) Elem() OriginRequestPolicyOutput {
+	return o.ApplyT(func(v *OriginRequestPolicy) OriginRequestPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicy
+		return ret
+	}).(OriginRequestPolicyOutput)
 }
 
 type OriginRequestPolicyArrayOutput struct{ *pulumi.OutputState }

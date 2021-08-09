@@ -312,9 +312,7 @@ func (i UserPoolDomainMap) ToUserPoolDomainMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainMapOutput)
 }
 
-type UserPoolDomainOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolDomainOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserPoolDomain)(nil))
@@ -333,14 +331,12 @@ func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutpu
 }
 
 func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
-	return o.ApplyT(func(v UserPoolDomain) *UserPoolDomain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDomain) *UserPoolDomain {
 		return &v
 	}).(UserPoolDomainPtrOutput)
 }
 
-type UserPoolDomainPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolDomainPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserPoolDomain)(nil))
@@ -352,6 +348,16 @@ func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOu
 
 func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
 	return o
+}
+
+func (o UserPoolDomainPtrOutput) Elem() UserPoolDomainOutput {
+	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomain {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolDomain
+		return ret
+	}).(UserPoolDomainOutput)
 }
 
 type UserPoolDomainArrayOutput struct{ *pulumi.OutputState }

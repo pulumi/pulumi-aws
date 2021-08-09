@@ -229,9 +229,7 @@ func (i AssessmentTargetMap) ToAssessmentTargetMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTargetMapOutput)
 }
 
-type AssessmentTargetOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentTargetOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AssessmentTarget)(nil))
@@ -250,14 +248,12 @@ func (o AssessmentTargetOutput) ToAssessmentTargetPtrOutput() AssessmentTargetPt
 }
 
 func (o AssessmentTargetOutput) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
-	return o.ApplyT(func(v AssessmentTarget) *AssessmentTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentTarget) *AssessmentTarget {
 		return &v
 	}).(AssessmentTargetPtrOutput)
 }
 
-type AssessmentTargetPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssessmentTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (AssessmentTargetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AssessmentTarget)(nil))
@@ -269,6 +265,16 @@ func (o AssessmentTargetPtrOutput) ToAssessmentTargetPtrOutput() AssessmentTarge
 
 func (o AssessmentTargetPtrOutput) ToAssessmentTargetPtrOutputWithContext(ctx context.Context) AssessmentTargetPtrOutput {
 	return o
+}
+
+func (o AssessmentTargetPtrOutput) Elem() AssessmentTargetOutput {
+	return o.ApplyT(func(v *AssessmentTarget) AssessmentTarget {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentTarget
+		return ret
+	}).(AssessmentTargetOutput)
 }
 
 type AssessmentTargetArrayOutput struct{ *pulumi.OutputState }

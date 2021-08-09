@@ -447,9 +447,7 @@ func (i LustreFileSystemMap) ToLustreFileSystemMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LustreFileSystemMapOutput)
 }
 
-type LustreFileSystemOutput struct {
-	*pulumi.OutputState
-}
+type LustreFileSystemOutput struct{ *pulumi.OutputState }
 
 func (LustreFileSystemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LustreFileSystem)(nil))
@@ -468,14 +466,12 @@ func (o LustreFileSystemOutput) ToLustreFileSystemPtrOutput() LustreFileSystemPt
 }
 
 func (o LustreFileSystemOutput) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
-	return o.ApplyT(func(v LustreFileSystem) *LustreFileSystem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LustreFileSystem) *LustreFileSystem {
 		return &v
 	}).(LustreFileSystemPtrOutput)
 }
 
-type LustreFileSystemPtrOutput struct {
-	*pulumi.OutputState
-}
+type LustreFileSystemPtrOutput struct{ *pulumi.OutputState }
 
 func (LustreFileSystemPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LustreFileSystem)(nil))
@@ -487,6 +483,16 @@ func (o LustreFileSystemPtrOutput) ToLustreFileSystemPtrOutput() LustreFileSyste
 
 func (o LustreFileSystemPtrOutput) ToLustreFileSystemPtrOutputWithContext(ctx context.Context) LustreFileSystemPtrOutput {
 	return o
+}
+
+func (o LustreFileSystemPtrOutput) Elem() LustreFileSystemOutput {
+	return o.ApplyT(func(v *LustreFileSystem) LustreFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret LustreFileSystem
+		return ret
+	}).(LustreFileSystemOutput)
 }
 
 type LustreFileSystemArrayOutput struct{ *pulumi.OutputState }

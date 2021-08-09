@@ -366,9 +366,7 @@ func (i PrivateVirtualInterfaceMap) ToPrivateVirtualInterfaceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateVirtualInterfaceMapOutput)
 }
 
-type PrivateVirtualInterfaceOutput struct {
-	*pulumi.OutputState
-}
+type PrivateVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (PrivateVirtualInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PrivateVirtualInterface)(nil))
@@ -387,14 +385,12 @@ func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfacePtrOutput() Priv
 }
 
 func (o PrivateVirtualInterfaceOutput) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
-	return o.ApplyT(func(v PrivateVirtualInterface) *PrivateVirtualInterface {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateVirtualInterface) *PrivateVirtualInterface {
 		return &v
 	}).(PrivateVirtualInterfacePtrOutput)
 }
 
-type PrivateVirtualInterfacePtrOutput struct {
-	*pulumi.OutputState
-}
+type PrivateVirtualInterfacePtrOutput struct{ *pulumi.OutputState }
 
 func (PrivateVirtualInterfacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PrivateVirtualInterface)(nil))
@@ -406,6 +402,16 @@ func (o PrivateVirtualInterfacePtrOutput) ToPrivateVirtualInterfacePtrOutput() P
 
 func (o PrivateVirtualInterfacePtrOutput) ToPrivateVirtualInterfacePtrOutputWithContext(ctx context.Context) PrivateVirtualInterfacePtrOutput {
 	return o
+}
+
+func (o PrivateVirtualInterfacePtrOutput) Elem() PrivateVirtualInterfaceOutput {
+	return o.ApplyT(func(v *PrivateVirtualInterface) PrivateVirtualInterface {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateVirtualInterface
+		return ret
+	}).(PrivateVirtualInterfaceOutput)
 }
 
 type PrivateVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }

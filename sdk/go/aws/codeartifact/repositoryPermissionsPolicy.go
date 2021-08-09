@@ -287,9 +287,7 @@ func (i RepositoryPermissionsPolicyMap) ToRepositoryPermissionsPolicyMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPermissionsPolicyMapOutput)
 }
 
-type RepositoryPermissionsPolicyOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPermissionsPolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPermissionsPolicy)(nil))
@@ -308,14 +306,12 @@ func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyPtrOutpu
 }
 
 func (o RepositoryPermissionsPolicyOutput) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
-	return o.ApplyT(func(v RepositoryPermissionsPolicy) *RepositoryPermissionsPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPermissionsPolicy) *RepositoryPermissionsPolicy {
 		return &v
 	}).(RepositoryPermissionsPolicyPtrOutput)
 }
 
-type RepositoryPermissionsPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPermissionsPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPermissionsPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPermissionsPolicy)(nil))
@@ -327,6 +323,16 @@ func (o RepositoryPermissionsPolicyPtrOutput) ToRepositoryPermissionsPolicyPtrOu
 
 func (o RepositoryPermissionsPolicyPtrOutput) ToRepositoryPermissionsPolicyPtrOutputWithContext(ctx context.Context) RepositoryPermissionsPolicyPtrOutput {
 	return o
+}
+
+func (o RepositoryPermissionsPolicyPtrOutput) Elem() RepositoryPermissionsPolicyOutput {
+	return o.ApplyT(func(v *RepositoryPermissionsPolicy) RepositoryPermissionsPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPermissionsPolicy
+		return ret
+	}).(RepositoryPermissionsPolicyOutput)
 }
 
 type RepositoryPermissionsPolicyArrayOutput struct{ *pulumi.OutputState }

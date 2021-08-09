@@ -103,7 +103,7 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrO
 }
 
 func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return o.ApplyT(func(v FindingsFilterFindingCriteria) *FindingsFilterFindingCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilterFindingCriteria) *FindingsFilterFindingCriteria {
 		return &v
 	}).(FindingsFilterFindingCriteriaPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaP
 }
 
 func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) FindingsFilterFindingCriteria { return *v }).(FindingsFilterFindingCriteriaOutput)
+	return o.ApplyT(func(v *FindingsFilterFindingCriteria) FindingsFilterFindingCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret FindingsFilterFindingCriteria
+		return ret
+	}).(FindingsFilterFindingCriteriaOutput)
 }
 
 // A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
@@ -402,7 +408,7 @@ func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassi
 }
 
 func (o S3BucketAssociationClassificationTypeOutput) ToS3BucketAssociationClassificationTypePtrOutputWithContext(ctx context.Context) S3BucketAssociationClassificationTypePtrOutput {
-	return o.ApplyT(func(v S3BucketAssociationClassificationType) *S3BucketAssociationClassificationType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3BucketAssociationClassificationType) *S3BucketAssociationClassificationType {
 		return &v
 	}).(S3BucketAssociationClassificationTypePtrOutput)
 }
@@ -434,7 +440,13 @@ func (o S3BucketAssociationClassificationTypePtrOutput) ToS3BucketAssociationCla
 }
 
 func (o S3BucketAssociationClassificationTypePtrOutput) Elem() S3BucketAssociationClassificationTypeOutput {
-	return o.ApplyT(func(v *S3BucketAssociationClassificationType) S3BucketAssociationClassificationType { return *v }).(S3BucketAssociationClassificationTypeOutput)
+	return o.ApplyT(func(v *S3BucketAssociationClassificationType) S3BucketAssociationClassificationType {
+		if v != nil {
+			return *v
+		}
+		var ret S3BucketAssociationClassificationType
+		return ret
+	}).(S3BucketAssociationClassificationTypeOutput)
 }
 
 // A string value indicating that Macie perform a one-time classification of all of the existing objects in the bucket.

@@ -388,9 +388,7 @@ func (i JobDefinitionMap) ToJobDefinitionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMapOutput)
 }
 
-type JobDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JobDefinition)(nil))
@@ -409,14 +407,12 @@ func (o JobDefinitionOutput) ToJobDefinitionPtrOutput() JobDefinitionPtrOutput {
 }
 
 func (o JobDefinitionOutput) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
-	return o.ApplyT(func(v JobDefinition) *JobDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinition) *JobDefinition {
 		return &v
 	}).(JobDefinitionPtrOutput)
 }
 
-type JobDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type JobDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JobDefinition)(nil))
@@ -428,6 +424,16 @@ func (o JobDefinitionPtrOutput) ToJobDefinitionPtrOutput() JobDefinitionPtrOutpu
 
 func (o JobDefinitionPtrOutput) ToJobDefinitionPtrOutputWithContext(ctx context.Context) JobDefinitionPtrOutput {
 	return o
+}
+
+func (o JobDefinitionPtrOutput) Elem() JobDefinitionOutput {
+	return o.ApplyT(func(v *JobDefinition) JobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinition
+		return ret
+	}).(JobDefinitionOutput)
 }
 
 type JobDefinitionArrayOutput struct{ *pulumi.OutputState }

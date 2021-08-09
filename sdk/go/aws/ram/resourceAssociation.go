@@ -224,9 +224,7 @@ func (i ResourceAssociationMap) ToResourceAssociationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationMapOutput)
 }
 
-type ResourceAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceAssociation)(nil))
@@ -245,14 +243,12 @@ func (o ResourceAssociationOutput) ToResourceAssociationPtrOutput() ResourceAsso
 }
 
 func (o ResourceAssociationOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
-	return o.ApplyT(func(v ResourceAssociation) *ResourceAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceAssociation) *ResourceAssociation {
 		return &v
 	}).(ResourceAssociationPtrOutput)
 }
 
-type ResourceAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourceAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceAssociation)(nil))
@@ -264,6 +260,16 @@ func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutput() ResourceA
 
 func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
 	return o
+}
+
+func (o ResourceAssociationPtrOutput) Elem() ResourceAssociationOutput {
+	return o.ApplyT(func(v *ResourceAssociation) ResourceAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceAssociation
+		return ret
+	}).(ResourceAssociationOutput)
 }
 
 type ResourceAssociationArrayOutput struct{ *pulumi.OutputState }

@@ -215,9 +215,7 @@ func (i DefaultKmsKeyMap) ToDefaultKmsKeyMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultKmsKeyMapOutput)
 }
 
-type DefaultKmsKeyOutput struct {
-	*pulumi.OutputState
-}
+type DefaultKmsKeyOutput struct{ *pulumi.OutputState }
 
 func (DefaultKmsKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultKmsKey)(nil))
@@ -236,14 +234,12 @@ func (o DefaultKmsKeyOutput) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutput {
 }
 
 func (o DefaultKmsKeyOutput) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
-	return o.ApplyT(func(v DefaultKmsKey) *DefaultKmsKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultKmsKey) *DefaultKmsKey {
 		return &v
 	}).(DefaultKmsKeyPtrOutput)
 }
 
-type DefaultKmsKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type DefaultKmsKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (DefaultKmsKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DefaultKmsKey)(nil))
@@ -255,6 +251,16 @@ func (o DefaultKmsKeyPtrOutput) ToDefaultKmsKeyPtrOutput() DefaultKmsKeyPtrOutpu
 
 func (o DefaultKmsKeyPtrOutput) ToDefaultKmsKeyPtrOutputWithContext(ctx context.Context) DefaultKmsKeyPtrOutput {
 	return o
+}
+
+func (o DefaultKmsKeyPtrOutput) Elem() DefaultKmsKeyOutput {
+	return o.ApplyT(func(v *DefaultKmsKey) DefaultKmsKey {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultKmsKey
+		return ret
+	}).(DefaultKmsKeyOutput)
 }
 
 type DefaultKmsKeyArrayOutput struct{ *pulumi.OutputState }

@@ -338,9 +338,7 @@ func (i HostedPublicVirtualInterfaceMap) ToHostedPublicVirtualInterfaceMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPublicVirtualInterfaceMapOutput)
 }
 
-type HostedPublicVirtualInterfaceOutput struct {
-	*pulumi.OutputState
-}
+type HostedPublicVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (HostedPublicVirtualInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostedPublicVirtualInterface)(nil))
@@ -359,14 +357,12 @@ func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfacePtrOut
 }
 
 func (o HostedPublicVirtualInterfaceOutput) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
-	return o.ApplyT(func(v HostedPublicVirtualInterface) *HostedPublicVirtualInterface {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedPublicVirtualInterface) *HostedPublicVirtualInterface {
 		return &v
 	}).(HostedPublicVirtualInterfacePtrOutput)
 }
 
-type HostedPublicVirtualInterfacePtrOutput struct {
-	*pulumi.OutputState
-}
+type HostedPublicVirtualInterfacePtrOutput struct{ *pulumi.OutputState }
 
 func (HostedPublicVirtualInterfacePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HostedPublicVirtualInterface)(nil))
@@ -378,6 +374,16 @@ func (o HostedPublicVirtualInterfacePtrOutput) ToHostedPublicVirtualInterfacePtr
 
 func (o HostedPublicVirtualInterfacePtrOutput) ToHostedPublicVirtualInterfacePtrOutputWithContext(ctx context.Context) HostedPublicVirtualInterfacePtrOutput {
 	return o
+}
+
+func (o HostedPublicVirtualInterfacePtrOutput) Elem() HostedPublicVirtualInterfaceOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) HostedPublicVirtualInterface {
+		if v != nil {
+			return *v
+		}
+		var ret HostedPublicVirtualInterface
+		return ret
+	}).(HostedPublicVirtualInterfaceOutput)
 }
 
 type HostedPublicVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }

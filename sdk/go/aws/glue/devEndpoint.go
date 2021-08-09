@@ -444,9 +444,7 @@ func (i DevEndpointMap) ToDevEndpointMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DevEndpointMapOutput)
 }
 
-type DevEndpointOutput struct {
-	*pulumi.OutputState
-}
+type DevEndpointOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DevEndpoint)(nil))
@@ -465,14 +463,12 @@ func (o DevEndpointOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
 }
 
 func (o DevEndpointOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
-	return o.ApplyT(func(v DevEndpoint) *DevEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DevEndpoint) *DevEndpoint {
 		return &v
 	}).(DevEndpointPtrOutput)
 }
 
-type DevEndpointPtrOutput struct {
-	*pulumi.OutputState
-}
+type DevEndpointPtrOutput struct{ *pulumi.OutputState }
 
 func (DevEndpointPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DevEndpoint)(nil))
@@ -484,6 +480,16 @@ func (o DevEndpointPtrOutput) ToDevEndpointPtrOutput() DevEndpointPtrOutput {
 
 func (o DevEndpointPtrOutput) ToDevEndpointPtrOutputWithContext(ctx context.Context) DevEndpointPtrOutput {
 	return o
+}
+
+func (o DevEndpointPtrOutput) Elem() DevEndpointOutput {
+	return o.ApplyT(func(v *DevEndpoint) DevEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret DevEndpoint
+		return ret
+	}).(DevEndpointOutput)
 }
 
 type DevEndpointArrayOutput struct{ *pulumi.OutputState }

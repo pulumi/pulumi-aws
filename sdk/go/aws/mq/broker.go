@@ -519,9 +519,7 @@ func (i BrokerMap) ToBrokerMapOutputWithContext(ctx context.Context) BrokerMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BrokerMapOutput)
 }
 
-type BrokerOutput struct {
-	*pulumi.OutputState
-}
+type BrokerOutput struct{ *pulumi.OutputState }
 
 func (BrokerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Broker)(nil))
@@ -540,14 +538,12 @@ func (o BrokerOutput) ToBrokerPtrOutput() BrokerPtrOutput {
 }
 
 func (o BrokerOutput) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
-	return o.ApplyT(func(v Broker) *Broker {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Broker) *Broker {
 		return &v
 	}).(BrokerPtrOutput)
 }
 
-type BrokerPtrOutput struct {
-	*pulumi.OutputState
-}
+type BrokerPtrOutput struct{ *pulumi.OutputState }
 
 func (BrokerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Broker)(nil))
@@ -559,6 +555,16 @@ func (o BrokerPtrOutput) ToBrokerPtrOutput() BrokerPtrOutput {
 
 func (o BrokerPtrOutput) ToBrokerPtrOutputWithContext(ctx context.Context) BrokerPtrOutput {
 	return o
+}
+
+func (o BrokerPtrOutput) Elem() BrokerOutput {
+	return o.ApplyT(func(v *Broker) Broker {
+		if v != nil {
+			return *v
+		}
+		var ret Broker
+		return ret
+	}).(BrokerOutput)
 }
 
 type BrokerArrayOutput struct{ *pulumi.OutputState }

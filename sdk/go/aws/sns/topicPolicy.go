@@ -237,9 +237,7 @@ func (i TopicPolicyMap) ToTopicPolicyMapOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyMapOutput)
 }
 
-type TopicPolicyOutput struct {
-	*pulumi.OutputState
-}
+type TopicPolicyOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TopicPolicy)(nil))
@@ -258,14 +256,12 @@ func (o TopicPolicyOutput) ToTopicPolicyPtrOutput() TopicPolicyPtrOutput {
 }
 
 func (o TopicPolicyOutput) ToTopicPolicyPtrOutputWithContext(ctx context.Context) TopicPolicyPtrOutput {
-	return o.ApplyT(func(v TopicPolicy) *TopicPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicPolicy) *TopicPolicy {
 		return &v
 	}).(TopicPolicyPtrOutput)
 }
 
-type TopicPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type TopicPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TopicPolicy)(nil))
@@ -277,6 +273,16 @@ func (o TopicPolicyPtrOutput) ToTopicPolicyPtrOutput() TopicPolicyPtrOutput {
 
 func (o TopicPolicyPtrOutput) ToTopicPolicyPtrOutputWithContext(ctx context.Context) TopicPolicyPtrOutput {
 	return o
+}
+
+func (o TopicPolicyPtrOutput) Elem() TopicPolicyOutput {
+	return o.ApplyT(func(v *TopicPolicy) TopicPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret TopicPolicy
+		return ret
+	}).(TopicPolicyOutput)
 }
 
 type TopicPolicyArrayOutput struct{ *pulumi.OutputState }

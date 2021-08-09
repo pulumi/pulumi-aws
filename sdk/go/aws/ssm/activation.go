@@ -307,9 +307,7 @@ func (i ActivationMap) ToActivationMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActivationMapOutput)
 }
 
-type ActivationOutput struct {
-	*pulumi.OutputState
-}
+type ActivationOutput struct{ *pulumi.OutputState }
 
 func (ActivationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Activation)(nil))
@@ -328,14 +326,12 @@ func (o ActivationOutput) ToActivationPtrOutput() ActivationPtrOutput {
 }
 
 func (o ActivationOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
-	return o.ApplyT(func(v Activation) *Activation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Activation) *Activation {
 		return &v
 	}).(ActivationPtrOutput)
 }
 
-type ActivationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ActivationPtrOutput struct{ *pulumi.OutputState }
 
 func (ActivationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Activation)(nil))
@@ -347,6 +343,16 @@ func (o ActivationPtrOutput) ToActivationPtrOutput() ActivationPtrOutput {
 
 func (o ActivationPtrOutput) ToActivationPtrOutputWithContext(ctx context.Context) ActivationPtrOutput {
 	return o
+}
+
+func (o ActivationPtrOutput) Elem() ActivationOutput {
+	return o.ApplyT(func(v *Activation) Activation {
+		if v != nil {
+			return *v
+		}
+		var ret Activation
+		return ret
+	}).(ActivationOutput)
 }
 
 type ActivationArrayOutput struct{ *pulumi.OutputState }

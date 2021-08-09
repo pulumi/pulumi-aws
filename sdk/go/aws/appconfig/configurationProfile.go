@@ -304,9 +304,7 @@ func (i ConfigurationProfileMap) ToConfigurationProfileMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileMapOutput)
 }
 
-type ConfigurationProfileOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationProfile)(nil))
@@ -325,14 +323,12 @@ func (o ConfigurationProfileOutput) ToConfigurationProfilePtrOutput() Configurat
 }
 
 func (o ConfigurationProfileOutput) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfile) *ConfigurationProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfile) *ConfigurationProfile {
 		return &v
 	}).(ConfigurationProfilePtrOutput)
 }
 
-type ConfigurationProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfigurationProfile)(nil))
@@ -344,6 +340,16 @@ func (o ConfigurationProfilePtrOutput) ToConfigurationProfilePtrOutput() Configu
 
 func (o ConfigurationProfilePtrOutput) ToConfigurationProfilePtrOutputWithContext(ctx context.Context) ConfigurationProfilePtrOutput {
 	return o
+}
+
+func (o ConfigurationProfilePtrOutput) Elem() ConfigurationProfileOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfile
+		return ret
+	}).(ConfigurationProfileOutput)
 }
 
 type ConfigurationProfileArrayOutput struct{ *pulumi.OutputState }

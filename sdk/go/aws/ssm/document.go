@@ -419,9 +419,7 @@ func (i DocumentMap) ToDocumentMapOutputWithContext(ctx context.Context) Documen
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentMapOutput)
 }
 
-type DocumentOutput struct {
-	*pulumi.OutputState
-}
+type DocumentOutput struct{ *pulumi.OutputState }
 
 func (DocumentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Document)(nil))
@@ -440,14 +438,12 @@ func (o DocumentOutput) ToDocumentPtrOutput() DocumentPtrOutput {
 }
 
 func (o DocumentOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
-	return o.ApplyT(func(v Document) *Document {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Document) *Document {
 		return &v
 	}).(DocumentPtrOutput)
 }
 
-type DocumentPtrOutput struct {
-	*pulumi.OutputState
-}
+type DocumentPtrOutput struct{ *pulumi.OutputState }
 
 func (DocumentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Document)(nil))
@@ -459,6 +455,16 @@ func (o DocumentPtrOutput) ToDocumentPtrOutput() DocumentPtrOutput {
 
 func (o DocumentPtrOutput) ToDocumentPtrOutputWithContext(ctx context.Context) DocumentPtrOutput {
 	return o
+}
+
+func (o DocumentPtrOutput) Elem() DocumentOutput {
+	return o.ApplyT(func(v *Document) Document {
+		if v != nil {
+			return *v
+		}
+		var ret Document
+		return ret
+	}).(DocumentOutput)
 }
 
 type DocumentArrayOutput struct{ *pulumi.OutputState }

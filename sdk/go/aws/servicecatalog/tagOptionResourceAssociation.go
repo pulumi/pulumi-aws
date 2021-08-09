@@ -249,9 +249,7 @@ func (i TagOptionResourceAssociationMap) ToTagOptionResourceAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionResourceAssociationMapOutput)
 }
 
-type TagOptionResourceAssociationOutput struct {
-	*pulumi.OutputState
-}
+type TagOptionResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TagOptionResourceAssociation)(nil))
@@ -270,14 +268,12 @@ func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationPtrOut
 }
 
 func (o TagOptionResourceAssociationOutput) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
-	return o.ApplyT(func(v TagOptionResourceAssociation) *TagOptionResourceAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagOptionResourceAssociation) *TagOptionResourceAssociation {
 		return &v
 	}).(TagOptionResourceAssociationPtrOutput)
 }
 
-type TagOptionResourceAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type TagOptionResourceAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (TagOptionResourceAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TagOptionResourceAssociation)(nil))
@@ -289,6 +285,16 @@ func (o TagOptionResourceAssociationPtrOutput) ToTagOptionResourceAssociationPtr
 
 func (o TagOptionResourceAssociationPtrOutput) ToTagOptionResourceAssociationPtrOutputWithContext(ctx context.Context) TagOptionResourceAssociationPtrOutput {
 	return o
+}
+
+func (o TagOptionResourceAssociationPtrOutput) Elem() TagOptionResourceAssociationOutput {
+	return o.ApplyT(func(v *TagOptionResourceAssociation) TagOptionResourceAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret TagOptionResourceAssociation
+		return ret
+	}).(TagOptionResourceAssociationOutput)
 }
 
 type TagOptionResourceAssociationArrayOutput struct{ *pulumi.OutputState }

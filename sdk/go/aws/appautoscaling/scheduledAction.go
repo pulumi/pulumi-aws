@@ -355,9 +355,7 @@ func (i ScheduledActionMap) ToScheduledActionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionMapOutput)
 }
 
-type ScheduledActionOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ScheduledAction)(nil))
@@ -376,14 +374,12 @@ func (o ScheduledActionOutput) ToScheduledActionPtrOutput() ScheduledActionPtrOu
 }
 
 func (o ScheduledActionOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
-	return o.ApplyT(func(v ScheduledAction) *ScheduledAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledAction) *ScheduledAction {
 		return &v
 	}).(ScheduledActionPtrOutput)
 }
 
-type ScheduledActionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ScheduledActionPtrOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ScheduledAction)(nil))
@@ -395,6 +391,16 @@ func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutput() ScheduledActionPt
 
 func (o ScheduledActionPtrOutput) ToScheduledActionPtrOutputWithContext(ctx context.Context) ScheduledActionPtrOutput {
 	return o
+}
+
+func (o ScheduledActionPtrOutput) Elem() ScheduledActionOutput {
+	return o.ApplyT(func(v *ScheduledAction) ScheduledAction {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledAction
+		return ret
+	}).(ScheduledActionOutput)
 }
 
 type ScheduledActionArrayOutput struct{ *pulumi.OutputState }

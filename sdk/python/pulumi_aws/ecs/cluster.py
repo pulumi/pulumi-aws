@@ -269,6 +269,7 @@ class Cluster(pulumi.CustomResource):
         Provides an ECS cluster.
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
@@ -279,7 +280,7 @@ class Cluster(pulumi.CustomResource):
             value="enabled",
         )])
         ```
-        ## Example W/Log Configuration
+        ### Example W/Log Configuration
 
         ```python
         import pulumi
@@ -327,6 +328,7 @@ class Cluster(pulumi.CustomResource):
         Provides an ECS cluster.
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
@@ -337,7 +339,7 @@ class Cluster(pulumi.CustomResource):
             value="enabled",
         )])
         ```
-        ## Example W/Log Configuration
+        ### Example W/Log Configuration
 
         ```python
         import pulumi

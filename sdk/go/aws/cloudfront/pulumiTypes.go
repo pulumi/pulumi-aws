@@ -119,7 +119,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicy
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
@@ -171,7 +171,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePol
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOrigin
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
@@ -322,7 +326,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) 
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
 }
@@ -357,7 +361,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutpu
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
 }
 
@@ -474,7 +482,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesO
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
 }
@@ -502,7 +510,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesP
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput)
 }
 
@@ -613,7 +625,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) 
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
 }
@@ -648,7 +660,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutpu
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
 }
 
@@ -765,7 +781,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersO
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
 }
@@ -793,7 +809,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersP
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput)
 }
 
@@ -904,7 +924,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOut
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
 }
@@ -939,7 +959,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
 }
 
@@ -1056,7 +1080,7 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 }
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
-	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
 		return &v
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
 }
@@ -1084,7 +1108,11 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput {
 	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings
+		return ret
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput)
 }
 
@@ -1452,7 +1480,7 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 }
 
 func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehavior {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehavior {
 		return &v
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
@@ -1595,7 +1623,13 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBeh
 }
 
 func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCacheBehaviorOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior { return *v }).(DistributionDefaultCacheBehaviorOutput)
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionDefaultCacheBehavior
+		return ret
+	}).(DistributionDefaultCacheBehaviorOutput)
 }
 
 // Controls which HTTP methods CloudFront
@@ -1924,7 +1958,7 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) ToDistributionDef
 }
 
 func (o DistributionDefaultCacheBehaviorForwardedValuesOutput) ToDistributionDefaultCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorForwardedValuesPtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValues) *DistributionDefaultCacheBehaviorForwardedValues {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehaviorForwardedValues) *DistributionDefaultCacheBehaviorForwardedValues {
 		return &v
 	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
 }
@@ -1974,7 +2008,11 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesPtrOutput) ToDistribution
 
 func (o DistributionDefaultCacheBehaviorForwardedValuesPtrOutput) Elem() DistributionDefaultCacheBehaviorForwardedValuesOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehaviorForwardedValues) DistributionDefaultCacheBehaviorForwardedValues {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionDefaultCacheBehaviorForwardedValues
+		return ret
 	}).(DistributionDefaultCacheBehaviorForwardedValuesOutput)
 }
 
@@ -2132,7 +2170,7 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) ToDistribu
 }
 
 func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput) ToDistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput {
-	return o.ApplyT(func(v DistributionDefaultCacheBehaviorForwardedValuesCookies) *DistributionDefaultCacheBehaviorForwardedValuesCookies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehaviorForwardedValuesCookies) *DistributionDefaultCacheBehaviorForwardedValuesCookies {
 		return &v
 	}).(DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput)
 }
@@ -2168,7 +2206,11 @@ func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput) ToDistr
 
 func (o DistributionDefaultCacheBehaviorForwardedValuesCookiesPtrOutput) Elem() DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput {
 	return o.ApplyT(func(v *DistributionDefaultCacheBehaviorForwardedValuesCookies) DistributionDefaultCacheBehaviorForwardedValuesCookies {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionDefaultCacheBehaviorForwardedValuesCookies
+		return ret
 	}).(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput)
 }
 
@@ -2531,7 +2573,7 @@ func (o DistributionLoggingConfigOutput) ToDistributionLoggingConfigPtrOutput() 
 }
 
 func (o DistributionLoggingConfigOutput) ToDistributionLoggingConfigPtrOutputWithContext(ctx context.Context) DistributionLoggingConfigPtrOutput {
-	return o.ApplyT(func(v DistributionLoggingConfig) *DistributionLoggingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionLoggingConfig) *DistributionLoggingConfig {
 		return &v
 	}).(DistributionLoggingConfigPtrOutput)
 }
@@ -2569,7 +2611,13 @@ func (o DistributionLoggingConfigPtrOutput) ToDistributionLoggingConfigPtrOutput
 }
 
 func (o DistributionLoggingConfigPtrOutput) Elem() DistributionLoggingConfigOutput {
-	return o.ApplyT(func(v *DistributionLoggingConfig) DistributionLoggingConfig { return *v }).(DistributionLoggingConfigOutput)
+	return o.ApplyT(func(v *DistributionLoggingConfig) DistributionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionLoggingConfig
+		return ret
+	}).(DistributionLoggingConfigOutput)
 }
 
 // The Amazon S3 bucket to store the access logs in, for
@@ -3073,7 +3121,7 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrd
 }
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesPtrOutput {
-	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValues) *DistributionOrderedCacheBehaviorForwardedValues {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOrderedCacheBehaviorForwardedValues) *DistributionOrderedCacheBehaviorForwardedValues {
 		return &v
 	}).(DistributionOrderedCacheBehaviorForwardedValuesPtrOutput)
 }
@@ -3123,7 +3171,11 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) ToDistribution
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesPtrOutput) Elem() DistributionOrderedCacheBehaviorForwardedValuesOutput {
 	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValues) DistributionOrderedCacheBehaviorForwardedValues {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOrderedCacheBehaviorForwardedValues
+		return ret
 	}).(DistributionOrderedCacheBehaviorForwardedValuesOutput)
 }
 
@@ -3281,7 +3333,7 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistribu
 }
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput) ToDistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutputWithContext(ctx context.Context) DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput {
-	return o.ApplyT(func(v DistributionOrderedCacheBehaviorForwardedValuesCookies) *DistributionOrderedCacheBehaviorForwardedValuesCookies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOrderedCacheBehaviorForwardedValuesCookies) *DistributionOrderedCacheBehaviorForwardedValuesCookies {
 		return &v
 	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput)
 }
@@ -3317,7 +3369,11 @@ func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) ToDistr
 
 func (o DistributionOrderedCacheBehaviorForwardedValuesCookiesPtrOutput) Elem() DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput {
 	return o.ApplyT(func(v *DistributionOrderedCacheBehaviorForwardedValuesCookies) DistributionOrderedCacheBehaviorForwardedValuesCookies {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOrderedCacheBehaviorForwardedValuesCookies
+		return ret
 	}).(DistributionOrderedCacheBehaviorForwardedValuesCookiesOutput)
 }
 
@@ -3991,7 +4047,7 @@ func (o DistributionOriginCustomOriginConfigOutput) ToDistributionOriginCustomOr
 }
 
 func (o DistributionOriginCustomOriginConfigOutput) ToDistributionOriginCustomOriginConfigPtrOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigPtrOutput {
-	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *DistributionOriginCustomOriginConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginCustomOriginConfig) *DistributionOriginCustomOriginConfig {
 		return &v
 	}).(DistributionOriginCustomOriginConfigPtrOutput)
 }
@@ -4044,7 +4100,13 @@ func (o DistributionOriginCustomOriginConfigPtrOutput) ToDistributionOriginCusto
 }
 
 func (o DistributionOriginCustomOriginConfigPtrOutput) Elem() DistributionOriginCustomOriginConfigOutput {
-	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) DistributionOriginCustomOriginConfig { return *v }).(DistributionOriginCustomOriginConfigOutput)
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) DistributionOriginCustomOriginConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginCustomOriginConfig
+		return ret
+	}).(DistributionOriginCustomOriginConfigOutput)
 }
 
 // The HTTP port the custom origin listens on.
@@ -4471,7 +4533,7 @@ func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPt
 }
 
 func (o DistributionOriginOriginShieldOutput) ToDistributionOriginOriginShieldPtrOutputWithContext(ctx context.Context) DistributionOriginOriginShieldPtrOutput {
-	return o.ApplyT(func(v DistributionOriginOriginShield) *DistributionOriginOriginShield {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginOriginShield) *DistributionOriginOriginShield {
 		return &v
 	}).(DistributionOriginOriginShieldPtrOutput)
 }
@@ -4501,7 +4563,13 @@ func (o DistributionOriginOriginShieldPtrOutput) ToDistributionOriginOriginShiel
 }
 
 func (o DistributionOriginOriginShieldPtrOutput) Elem() DistributionOriginOriginShieldOutput {
-	return o.ApplyT(func(v *DistributionOriginOriginShield) DistributionOriginOriginShield { return *v }).(DistributionOriginOriginShieldOutput)
+	return o.ApplyT(func(v *DistributionOriginOriginShield) DistributionOriginOriginShield {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginOriginShield
+		return ret
+	}).(DistributionOriginOriginShieldOutput)
 }
 
 // A flag that specifies whether Origin Shield is enabled.
@@ -4619,7 +4687,7 @@ func (o DistributionOriginS3OriginConfigOutput) ToDistributionOriginS3OriginConf
 }
 
 func (o DistributionOriginS3OriginConfigOutput) ToDistributionOriginS3OriginConfigPtrOutputWithContext(ctx context.Context) DistributionOriginS3OriginConfigPtrOutput {
-	return o.ApplyT(func(v DistributionOriginS3OriginConfig) *DistributionOriginS3OriginConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginS3OriginConfig) *DistributionOriginS3OriginConfig {
 		return &v
 	}).(DistributionOriginS3OriginConfigPtrOutput)
 }
@@ -4645,7 +4713,13 @@ func (o DistributionOriginS3OriginConfigPtrOutput) ToDistributionOriginS3OriginC
 }
 
 func (o DistributionOriginS3OriginConfigPtrOutput) Elem() DistributionOriginS3OriginConfigOutput {
-	return o.ApplyT(func(v *DistributionOriginS3OriginConfig) DistributionOriginS3OriginConfig { return *v }).(DistributionOriginS3OriginConfigOutput)
+	return o.ApplyT(func(v *DistributionOriginS3OriginConfig) DistributionOriginS3OriginConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginS3OriginConfig
+		return ret
+	}).(DistributionOriginS3OriginConfigOutput)
 }
 
 // The [CloudFront origin access
@@ -4750,10 +4824,11 @@ func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutput() Di
 }
 
 func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutputWithContext(ctx context.Context) DistributionRestrictionsPtrOutput {
-	return o.ApplyT(func(v DistributionRestrictions) *DistributionRestrictions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionRestrictions) *DistributionRestrictions {
 		return &v
 	}).(DistributionRestrictionsPtrOutput)
 }
+
 func (o DistributionRestrictionsOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionOutput {
 	return o.ApplyT(func(v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
 }
@@ -4773,7 +4848,13 @@ func (o DistributionRestrictionsPtrOutput) ToDistributionRestrictionsPtrOutputWi
 }
 
 func (o DistributionRestrictionsPtrOutput) Elem() DistributionRestrictionsOutput {
-	return o.ApplyT(func(v *DistributionRestrictions) DistributionRestrictions { return *v }).(DistributionRestrictionsOutput)
+	return o.ApplyT(func(v *DistributionRestrictions) DistributionRestrictions {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionRestrictions
+		return ret
+	}).(DistributionRestrictionsOutput)
 }
 
 func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionPtrOutput {
@@ -4890,7 +4971,7 @@ func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictions
 }
 
 func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) *DistributionRestrictionsGeoRestriction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionRestrictionsGeoRestriction) *DistributionRestrictionsGeoRestriction {
 		return &v
 	}).(DistributionRestrictionsGeoRestrictionPtrOutput)
 }
@@ -4924,7 +5005,13 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) ToDistributionRestricti
 }
 
 func (o DistributionRestrictionsGeoRestrictionPtrOutput) Elem() DistributionRestrictionsGeoRestrictionOutput {
-	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) DistributionRestrictionsGeoRestriction { return *v }).(DistributionRestrictionsGeoRestrictionOutput)
+	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) DistributionRestrictionsGeoRestriction {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionRestrictionsGeoRestriction
+		return ret
+	}).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
 // The [ISO 3166-1-alpha-2 codes][4] for which you
@@ -5518,7 +5605,7 @@ func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrO
 }
 
 func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) DistributionViewerCertificatePtrOutput {
-	return o.ApplyT(func(v DistributionViewerCertificate) *DistributionViewerCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerCertificate) *DistributionViewerCertificate {
 		return &v
 	}).(DistributionViewerCertificatePtrOutput)
 }
@@ -5580,7 +5667,13 @@ func (o DistributionViewerCertificatePtrOutput) ToDistributionViewerCertificateP
 }
 
 func (o DistributionViewerCertificatePtrOutput) Elem() DistributionViewerCertificateOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) DistributionViewerCertificate { return *v }).(DistributionViewerCertificateOutput)
+	return o.ApplyT(func(v *DistributionViewerCertificate) DistributionViewerCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionViewerCertificate
+		return ret
+	}).(DistributionViewerCertificateOutput)
 }
 
 // The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -5743,7 +5836,7 @@ func (o MonitoringSubscriptionMonitoringSubscriptionOutput) ToMonitoringSubscrip
 }
 
 func (o MonitoringSubscriptionMonitoringSubscriptionOutput) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return o.ApplyT(func(v MonitoringSubscriptionMonitoringSubscription) *MonitoringSubscriptionMonitoringSubscription {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscriptionMonitoringSubscription) *MonitoringSubscriptionMonitoringSubscription {
 		return &v
 	}).(MonitoringSubscriptionMonitoringSubscriptionPtrOutput)
 }
@@ -5771,7 +5864,11 @@ func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) ToMonitoringSubsc
 
 func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) Elem() MonitoringSubscriptionMonitoringSubscriptionOutput {
 	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscription) MonitoringSubscriptionMonitoringSubscription {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSubscriptionMonitoringSubscription
+		return ret
 	}).(MonitoringSubscriptionMonitoringSubscriptionOutput)
 }
 
@@ -5878,7 +5975,7 @@ func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionC
 }
 
 func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o.ApplyT(func(v MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
 		return &v
 	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
 }
@@ -5906,7 +6003,11 @@ func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionC
 
 func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) Elem() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
 	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig
+		return ret
 	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
 }
 
@@ -6013,10 +6114,11 @@ func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConf
 }
 
 func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfig {
 		return &v
 	}).(OriginRequestPolicyCookiesConfigPtrOutput)
 }
+
 func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
@@ -6040,7 +6142,13 @@ func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesC
 }
 
 func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCookiesConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig { return *v }).(OriginRequestPolicyCookiesConfigOutput)
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyCookiesConfig
+		return ret
+	}).(OriginRequestPolicyCookiesConfigOutput)
 }
 
 func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
@@ -6152,10 +6260,11 @@ func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCook
 }
 
 func (o OriginRequestPolicyCookiesConfigCookiesOutput) ToOriginRequestPolicyCookiesConfigCookiesPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigCookiesPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyCookiesConfigCookies) *OriginRequestPolicyCookiesConfigCookies {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyCookiesConfigCookies) *OriginRequestPolicyCookiesConfigCookies {
 		return &v
 	}).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
 }
+
 func (o OriginRequestPolicyCookiesConfigCookiesOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfigCookies) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -6175,7 +6284,13 @@ func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) ToOriginRequestPolicyC
 }
 
 func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) Elem() OriginRequestPolicyCookiesConfigCookiesOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfigCookies) OriginRequestPolicyCookiesConfigCookies { return *v }).(OriginRequestPolicyCookiesConfigCookiesOutput)
+	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfigCookies) OriginRequestPolicyCookiesConfigCookies {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyCookiesConfigCookies
+		return ret
+	}).(OriginRequestPolicyCookiesConfigCookiesOutput)
 }
 
 func (o OriginRequestPolicyCookiesConfigCookiesPtrOutput) Items() pulumi.StringArrayOutput {
@@ -6280,10 +6395,11 @@ func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConf
 }
 
 func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfig {
 		return &v
 	}).(OriginRequestPolicyHeadersConfigPtrOutput)
 }
+
 func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *string { return v.HeaderBehavior }).(pulumi.StringPtrOutput)
 }
@@ -6307,7 +6423,13 @@ func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersC
 }
 
 func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHeadersConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig { return *v }).(OriginRequestPolicyHeadersConfigOutput)
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyHeadersConfig
+		return ret
+	}).(OriginRequestPolicyHeadersConfigOutput)
 }
 
 func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
@@ -6419,10 +6541,11 @@ func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHead
 }
 
 func (o OriginRequestPolicyHeadersConfigHeadersOutput) ToOriginRequestPolicyHeadersConfigHeadersPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigHeadersPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyHeadersConfigHeaders) *OriginRequestPolicyHeadersConfigHeaders {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyHeadersConfigHeaders) *OriginRequestPolicyHeadersConfigHeaders {
 		return &v
 	}).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
 }
+
 func (o OriginRequestPolicyHeadersConfigHeadersOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfigHeaders) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -6442,7 +6565,13 @@ func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) ToOriginRequestPolicyH
 }
 
 func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) Elem() OriginRequestPolicyHeadersConfigHeadersOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfigHeaders) OriginRequestPolicyHeadersConfigHeaders { return *v }).(OriginRequestPolicyHeadersConfigHeadersOutput)
+	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfigHeaders) OriginRequestPolicyHeadersConfigHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyHeadersConfigHeaders
+		return ret
+	}).(OriginRequestPolicyHeadersConfigHeadersOutput)
 }
 
 func (o OriginRequestPolicyHeadersConfigHeadersPtrOutput) Items() pulumi.StringArrayOutput {
@@ -6547,10 +6676,11 @@ func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryS
 }
 
 func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfig {
 		return &v
 	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
 }
+
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
@@ -6576,7 +6706,13 @@ func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQue
 }
 
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig { return *v }).(OriginRequestPolicyQueryStringsConfigOutput)
+	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyQueryStringsConfig
+		return ret
+	}).(OriginRequestPolicyQueryStringsConfigOutput)
 }
 
 func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
@@ -6688,10 +6824,11 @@ func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequest
 }
 
 func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) ToOriginRequestPolicyQueryStringsConfigQueryStringsPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
-	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfigQueryStrings) *OriginRequestPolicyQueryStringsConfigQueryStrings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyQueryStringsConfigQueryStrings) *OriginRequestPolicyQueryStringsConfigQueryStrings {
 		return &v
 	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
 }
+
 func (o OriginRequestPolicyQueryStringsConfigQueryStringsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfigQueryStrings) []string { return v.Items }).(pulumi.StringArrayOutput)
 }
@@ -6712,7 +6849,11 @@ func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) ToOriginRequ
 
 func (o OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigQueryStringsOutput {
 	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfigQueryStrings) OriginRequestPolicyQueryStringsConfigQueryStrings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OriginRequestPolicyQueryStringsConfigQueryStrings
+		return ret
 	}).(OriginRequestPolicyQueryStringsConfigQueryStringsOutput)
 }
 
@@ -6822,7 +6963,7 @@ func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutput() 
 }
 
 func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
-	return o.ApplyT(func(v RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpoint {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpoint {
 		return &v
 	}).(RealtimeLogConfigEndpointPtrOutput)
 }
@@ -6854,7 +6995,13 @@ func (o RealtimeLogConfigEndpointPtrOutput) ToRealtimeLogConfigEndpointPtrOutput
 }
 
 func (o RealtimeLogConfigEndpointPtrOutput) Elem() RealtimeLogConfigEndpointOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) RealtimeLogConfigEndpoint { return *v }).(RealtimeLogConfigEndpointOutput)
+	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) RealtimeLogConfigEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeLogConfigEndpoint
+		return ret
+	}).(RealtimeLogConfigEndpointOutput)
 }
 
 // The Amazon Kinesis data stream configuration.
@@ -6976,7 +7123,7 @@ func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigE
 }
 
 func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o.ApplyT(func(v RealtimeLogConfigEndpointKinesisStreamConfig) *RealtimeLogConfigEndpointKinesisStreamConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeLogConfigEndpointKinesisStreamConfig) *RealtimeLogConfigEndpointKinesisStreamConfig {
 		return &v
 	}).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
 }
@@ -7008,7 +7155,11 @@ func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ToRealtimeLogConf
 
 func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) Elem() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
 	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) RealtimeLogConfigEndpointKinesisStreamConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RealtimeLogConfigEndpointKinesisStreamConfig
+		return ret
 	}).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
 }
 

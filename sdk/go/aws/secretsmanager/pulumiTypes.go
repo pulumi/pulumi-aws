@@ -10,6 +10,139 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type SecretReplica struct {
+	// ARN, Key ID, or Alias.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Date that you last accessed the secret in the Region.
+	LastAccessedDate *string `pulumi:"lastAccessedDate"`
+	// Region for replicating the secret.
+	Region string `pulumi:"region"`
+	// Status can be `InProgress`, `Failed`, or `InSync`.
+	Status *string `pulumi:"status"`
+	// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+	StatusMessage *string `pulumi:"statusMessage"`
+}
+
+// SecretReplicaInput is an input type that accepts SecretReplicaArgs and SecretReplicaOutput values.
+// You can construct a concrete instance of `SecretReplicaInput` via:
+//
+//          SecretReplicaArgs{...}
+type SecretReplicaInput interface {
+	pulumi.Input
+
+	ToSecretReplicaOutput() SecretReplicaOutput
+	ToSecretReplicaOutputWithContext(context.Context) SecretReplicaOutput
+}
+
+type SecretReplicaArgs struct {
+	// ARN, Key ID, or Alias.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Date that you last accessed the secret in the Region.
+	LastAccessedDate pulumi.StringPtrInput `pulumi:"lastAccessedDate"`
+	// Region for replicating the secret.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Status can be `InProgress`, `Failed`, or `InSync`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
+}
+
+func (SecretReplicaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretReplica)(nil)).Elem()
+}
+
+func (i SecretReplicaArgs) ToSecretReplicaOutput() SecretReplicaOutput {
+	return i.ToSecretReplicaOutputWithContext(context.Background())
+}
+
+func (i SecretReplicaArgs) ToSecretReplicaOutputWithContext(ctx context.Context) SecretReplicaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaOutput)
+}
+
+// SecretReplicaArrayInput is an input type that accepts SecretReplicaArray and SecretReplicaArrayOutput values.
+// You can construct a concrete instance of `SecretReplicaArrayInput` via:
+//
+//          SecretReplicaArray{ SecretReplicaArgs{...} }
+type SecretReplicaArrayInput interface {
+	pulumi.Input
+
+	ToSecretReplicaArrayOutput() SecretReplicaArrayOutput
+	ToSecretReplicaArrayOutputWithContext(context.Context) SecretReplicaArrayOutput
+}
+
+type SecretReplicaArray []SecretReplicaInput
+
+func (SecretReplicaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecretReplica)(nil)).Elem()
+}
+
+func (i SecretReplicaArray) ToSecretReplicaArrayOutput() SecretReplicaArrayOutput {
+	return i.ToSecretReplicaArrayOutputWithContext(context.Background())
+}
+
+func (i SecretReplicaArray) ToSecretReplicaArrayOutputWithContext(ctx context.Context) SecretReplicaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaArrayOutput)
+}
+
+type SecretReplicaOutput struct{ *pulumi.OutputState }
+
+func (SecretReplicaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecretReplica)(nil)).Elem()
+}
+
+func (o SecretReplicaOutput) ToSecretReplicaOutput() SecretReplicaOutput {
+	return o
+}
+
+func (o SecretReplicaOutput) ToSecretReplicaOutputWithContext(ctx context.Context) SecretReplicaOutput {
+	return o
+}
+
+// ARN, Key ID, or Alias.
+func (o SecretReplicaOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretReplica) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Date that you last accessed the secret in the Region.
+func (o SecretReplicaOutput) LastAccessedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretReplica) *string { return v.LastAccessedDate }).(pulumi.StringPtrOutput)
+}
+
+// Region for replicating the secret.
+func (o SecretReplicaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v SecretReplica) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Status can be `InProgress`, `Failed`, or `InSync`.
+func (o SecretReplicaOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretReplica) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+func (o SecretReplicaOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecretReplica) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+type SecretReplicaArrayOutput struct{ *pulumi.OutputState }
+
+func (SecretReplicaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecretReplica)(nil)).Elem()
+}
+
+func (o SecretReplicaArrayOutput) ToSecretReplicaArrayOutput() SecretReplicaArrayOutput {
+	return o
+}
+
+func (o SecretReplicaArrayOutput) ToSecretReplicaArrayOutputWithContext(ctx context.Context) SecretReplicaArrayOutput {
+	return o
+}
+
+func (o SecretReplicaArrayOutput) Index(i pulumi.IntInput) SecretReplicaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecretReplica {
+		return vs[0].([]SecretReplica)[vs[1].(int)]
+	}).(SecretReplicaOutput)
+}
+
 type SecretRotationRotationRules struct {
 	// Specifies the number of days between automatic scheduled rotations of the secret.
 	AutomaticallyAfterDays int `pulumi:"automaticallyAfterDays"`
@@ -103,7 +236,7 @@ func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutpu
 }
 
 func (o SecretRotationRotationRulesOutput) ToSecretRotationRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRotationRulesPtrOutput {
-	return o.ApplyT(func(v SecretRotationRotationRules) *SecretRotationRotationRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretRotationRotationRules) *SecretRotationRotationRules {
 		return &v
 	}).(SecretRotationRotationRulesPtrOutput)
 }
@@ -128,7 +261,13 @@ func (o SecretRotationRotationRulesPtrOutput) ToSecretRotationRotationRulesPtrOu
 }
 
 func (o SecretRotationRotationRulesPtrOutput) Elem() SecretRotationRotationRulesOutput {
-	return o.ApplyT(func(v *SecretRotationRotationRules) SecretRotationRotationRules { return *v }).(SecretRotationRotationRulesOutput)
+	return o.ApplyT(func(v *SecretRotationRotationRules) SecretRotationRotationRules {
+		if v != nil {
+			return *v
+		}
+		var ret SecretRotationRotationRules
+		return ret
+	}).(SecretRotationRotationRulesOutput)
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret.
@@ -234,7 +373,7 @@ func (o SecretRotationRulesOutput) ToSecretRotationRulesPtrOutput() SecretRotati
 }
 
 func (o SecretRotationRulesOutput) ToSecretRotationRulesPtrOutputWithContext(ctx context.Context) SecretRotationRulesPtrOutput {
-	return o.ApplyT(func(v SecretRotationRules) *SecretRotationRules {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretRotationRules) *SecretRotationRules {
 		return &v
 	}).(SecretRotationRulesPtrOutput)
 }
@@ -259,7 +398,13 @@ func (o SecretRotationRulesPtrOutput) ToSecretRotationRulesPtrOutputWithContext(
 }
 
 func (o SecretRotationRulesPtrOutput) Elem() SecretRotationRulesOutput {
-	return o.ApplyT(func(v *SecretRotationRules) SecretRotationRules { return *v }).(SecretRotationRulesOutput)
+	return o.ApplyT(func(v *SecretRotationRules) SecretRotationRules {
+		if v != nil {
+			return *v
+		}
+		var ret SecretRotationRules
+		return ret
+	}).(SecretRotationRulesOutput)
 }
 
 // Specifies the number of days between automatic scheduled rotations of the secret.
@@ -461,6 +606,8 @@ func (o GetSecretRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRota
 }
 
 func init() {
+	pulumi.RegisterOutputType(SecretReplicaOutput{})
+	pulumi.RegisterOutputType(SecretReplicaArrayOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesPtrOutput{})
 	pulumi.RegisterOutputType(SecretRotationRulesOutput{})

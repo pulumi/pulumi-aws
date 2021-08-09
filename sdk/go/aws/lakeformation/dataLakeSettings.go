@@ -285,9 +285,7 @@ func (i DataLakeSettingsMap) ToDataLakeSettingsMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsMapOutput)
 }
 
-type DataLakeSettingsOutput struct {
-	*pulumi.OutputState
-}
+type DataLakeSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataLakeSettings)(nil))
@@ -306,14 +304,12 @@ func (o DataLakeSettingsOutput) ToDataLakeSettingsPtrOutput() DataLakeSettingsPt
 }
 
 func (o DataLakeSettingsOutput) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
-	return o.ApplyT(func(v DataLakeSettings) *DataLakeSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataLakeSettings) *DataLakeSettings {
 		return &v
 	}).(DataLakeSettingsPtrOutput)
 }
 
-type DataLakeSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataLakeSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataLakeSettings)(nil))
@@ -325,6 +321,16 @@ func (o DataLakeSettingsPtrOutput) ToDataLakeSettingsPtrOutput() DataLakeSetting
 
 func (o DataLakeSettingsPtrOutput) ToDataLakeSettingsPtrOutputWithContext(ctx context.Context) DataLakeSettingsPtrOutput {
 	return o
+}
+
+func (o DataLakeSettingsPtrOutput) Elem() DataLakeSettingsOutput {
+	return o.ApplyT(func(v *DataLakeSettings) DataLakeSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataLakeSettings
+		return ret
+	}).(DataLakeSettingsOutput)
 }
 
 type DataLakeSettingsArrayOutput struct{ *pulumi.OutputState }

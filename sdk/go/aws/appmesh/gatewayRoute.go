@@ -318,9 +318,7 @@ func (i GatewayRouteMap) ToGatewayRouteMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayRouteMapOutput)
 }
 
-type GatewayRouteOutput struct {
-	*pulumi.OutputState
-}
+type GatewayRouteOutput struct{ *pulumi.OutputState }
 
 func (GatewayRouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GatewayRoute)(nil))
@@ -339,14 +337,12 @@ func (o GatewayRouteOutput) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
 }
 
 func (o GatewayRouteOutput) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
-	return o.ApplyT(func(v GatewayRoute) *GatewayRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayRoute) *GatewayRoute {
 		return &v
 	}).(GatewayRoutePtrOutput)
 }
 
-type GatewayRoutePtrOutput struct {
-	*pulumi.OutputState
-}
+type GatewayRoutePtrOutput struct{ *pulumi.OutputState }
 
 func (GatewayRoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GatewayRoute)(nil))
@@ -358,6 +354,16 @@ func (o GatewayRoutePtrOutput) ToGatewayRoutePtrOutput() GatewayRoutePtrOutput {
 
 func (o GatewayRoutePtrOutput) ToGatewayRoutePtrOutputWithContext(ctx context.Context) GatewayRoutePtrOutput {
 	return o
+}
+
+func (o GatewayRoutePtrOutput) Elem() GatewayRouteOutput {
+	return o.ApplyT(func(v *GatewayRoute) GatewayRoute {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayRoute
+		return ret
+	}).(GatewayRouteOutput)
 }
 
 type GatewayRouteArrayOutput struct{ *pulumi.OutputState }

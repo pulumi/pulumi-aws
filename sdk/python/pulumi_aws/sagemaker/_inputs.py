@@ -36,6 +36,7 @@ __all__ = [
     'FeatureGroupOnlineStoreConfigSecurityConfigArgs',
     'ModelContainerArgs',
     'ModelContainerImageConfigArgs',
+    'ModelInferenceExecutionConfigArgs',
     'ModelPrimaryContainerArgs',
     'ModelPrimaryContainerImageConfigArgs',
     'ModelVpcConfigArgs',
@@ -48,6 +49,13 @@ __all__ = [
     'UserProfileUserSettingsSharingSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsArgs',
     'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs',
+    'WorkForceCognitoConfigArgs',
+    'WorkForceOidcConfigArgs',
+    'WorkForceSourceIpConfigArgs',
+    'WorkTeamMemberDefinitionArgs',
+    'WorkTeamMemberDefinitionCognitoMemberDefinitionArgs',
+    'WorkTeamMemberDefinitionOidcMemberDefinitionArgs',
+    'WorkTeamNotificationConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -1345,6 +1353,28 @@ class ModelContainerImageConfigArgs:
 
 
 @pulumi.input_type
+class ModelInferenceExecutionConfigArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
 class ModelPrimaryContainerArgs:
     def __init__(__self__, *,
                  image: pulumi.Input[str],
@@ -1904,5 +1934,327 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @sagemaker_image_arn.setter
     def sagemaker_image_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sagemaker_image_arn", value)
+
+
+@pulumi.input_type
+class WorkForceCognitoConfigArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 user_pool: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: The OIDC IdP client ID used to configure your private workforce.
+        :param pulumi.Input[str] user_pool: The id for your Amazon Cognito user pool.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "user_pool", user_pool)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP client ID used to configure your private workforce.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="userPool")
+    def user_pool(self) -> pulumi.Input[str]:
+        """
+        The id for your Amazon Cognito user pool.
+        """
+        return pulumi.get(self, "user_pool")
+
+    @user_pool.setter
+    def user_pool(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool", value)
+
+
+@pulumi.input_type
+class WorkForceOidcConfigArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: pulumi.Input[str],
+                 client_id: pulumi.Input[str],
+                 client_secret: pulumi.Input[str],
+                 issuer: pulumi.Input[str],
+                 jwks_uri: pulumi.Input[str],
+                 logout_endpoint: pulumi.Input[str],
+                 token_endpoint: pulumi.Input[str],
+                 user_info_endpoint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] authorization_endpoint: The OIDC IdP authorization endpoint used to configure your private workforce.
+        :param pulumi.Input[str] client_id: The OIDC IdP client ID used to configure your private workforce.
+        :param pulumi.Input[str] client_secret: The OIDC IdP client secret used to configure your private workforce.
+        :param pulumi.Input[str] issuer: The OIDC IdP issuer used to configure your private workforce.
+        :param pulumi.Input[str] jwks_uri: The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+        :param pulumi.Input[str] logout_endpoint: The OIDC IdP logout endpoint used to configure your private workforce.
+        :param pulumi.Input[str] token_endpoint: The OIDC IdP token endpoint used to configure your private workforce.
+        :param pulumi.Input[str] user_info_endpoint: The OIDC IdP user information endpoint used to configure your private workforce.
+        """
+        pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_secret", client_secret)
+        pulumi.set(__self__, "issuer", issuer)
+        pulumi.set(__self__, "jwks_uri", jwks_uri)
+        pulumi.set(__self__, "logout_endpoint", logout_endpoint)
+        pulumi.set(__self__, "token_endpoint", token_endpoint)
+        pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP authorization endpoint used to configure your private workforce.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP client ID used to configure your private workforce.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP client secret used to configure your private workforce.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP issuer used to configure your private workforce.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="jwksUri")
+    def jwks_uri(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+        """
+        return pulumi.get(self, "jwks_uri")
+
+    @jwks_uri.setter
+    def jwks_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jwks_uri", value)
+
+    @property
+    @pulumi.getter(name="logoutEndpoint")
+    def logout_endpoint(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP logout endpoint used to configure your private workforce.
+        """
+        return pulumi.get(self, "logout_endpoint")
+
+    @logout_endpoint.setter
+    def logout_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logout_endpoint", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP token endpoint used to configure your private workforce.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> pulumi.Input[str]:
+        """
+        The OIDC IdP user information endpoint used to configure your private workforce.
+        """
+        return pulumi.get(self, "user_info_endpoint")
+
+    @user_info_endpoint.setter
+    def user_info_endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_info_endpoint", value)
+
+
+@pulumi.input_type
+class WorkForceSourceIpConfigArgs:
+    def __init__(__self__, *,
+                 cidrs: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cidrs: A list of up to 10 CIDR values.
+        """
+        pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of up to 10 CIDR values.
+        """
+        return pulumi.get(self, "cidrs")
+
+    @cidrs.setter
+    def cidrs(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "cidrs", value)
+
+
+@pulumi.input_type
+class WorkTeamMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 cognito_member_definition: Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']] = None,
+                 oidc_member_definition: Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']] = None):
+        """
+        :param pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs'] cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+        :param pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs'] oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+        """
+        if cognito_member_definition is not None:
+            pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
+        if oidc_member_definition is not None:
+            pulumi.set(__self__, "oidc_member_definition", oidc_member_definition)
+
+    @property
+    @pulumi.getter(name="cognitoMemberDefinition")
+    def cognito_member_definition(self) -> Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']]:
+        """
+        The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+        """
+        return pulumi.get(self, "cognito_member_definition")
+
+    @cognito_member_definition.setter
+    def cognito_member_definition(self, value: Optional[pulumi.Input['WorkTeamMemberDefinitionCognitoMemberDefinitionArgs']]):
+        pulumi.set(self, "cognito_member_definition", value)
+
+    @property
+    @pulumi.getter(name="oidcMemberDefinition")
+    def oidc_member_definition(self) -> Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']]:
+        """
+        A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+        """
+        return pulumi.get(self, "oidc_member_definition")
+
+    @oidc_member_definition.setter
+    def oidc_member_definition(self, value: Optional[pulumi.Input['WorkTeamMemberDefinitionOidcMemberDefinitionArgs']]):
+        pulumi.set(self, "oidc_member_definition", value)
+
+
+@pulumi.input_type
+class WorkTeamMemberDefinitionCognitoMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[str],
+                 user_group: pulumi.Input[str],
+                 user_pool: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] client_id: An identifier for an application client. You must create the app client ID using Amazon Cognito.
+        :param pulumi.Input[str] user_group: An identifier for a user group.
+        :param pulumi.Input[str] user_pool: An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "user_group", user_group)
+        pulumi.set(__self__, "user_pool", user_pool)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[str]:
+        """
+        An identifier for an application client. You must create the app client ID using Amazon Cognito.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="userGroup")
+    def user_group(self) -> pulumi.Input[str]:
+        """
+        An identifier for a user group.
+        """
+        return pulumi.get(self, "user_group")
+
+    @user_group.setter
+    def user_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_group", value)
+
+    @property
+    @pulumi.getter(name="userPool")
+    def user_pool(self) -> pulumi.Input[str]:
+        """
+        An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+        """
+        return pulumi.get(self, "user_pool")
+
+    @user_pool.setter
+    def user_pool(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool", value)
+
+
+@pulumi.input_type
+class WorkTeamMemberDefinitionOidcMemberDefinitionArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+        """
+        pulumi.set(__self__, "groups", groups)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "groups", value)
+
+
+@pulumi.input_type
+class WorkTeamNotificationConfigurationArgs:
+    def __init__(__self__, *,
+                 notification_topic_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] notification_topic_arn: The ARN for the SNS topic to which notifications should be published.
+        """
+        if notification_topic_arn is not None:
+            pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
+
+    @property
+    @pulumi.getter(name="notificationTopicArn")
+    def notification_topic_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for the SNS topic to which notifications should be published.
+        """
+        return pulumi.get(self, "notification_topic_arn")
+
+    @notification_topic_arn.setter
+    def notification_topic_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_topic_arn", value)
 
 

@@ -296,9 +296,7 @@ func (i CloudFormationStackMap) ToCloudFormationStackMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationStackMapOutput)
 }
 
-type CloudFormationStackOutput struct {
-	*pulumi.OutputState
-}
+type CloudFormationStackOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationStackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CloudFormationStack)(nil))
@@ -317,14 +315,12 @@ func (o CloudFormationStackOutput) ToCloudFormationStackPtrOutput() CloudFormati
 }
 
 func (o CloudFormationStackOutput) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
-	return o.ApplyT(func(v CloudFormationStack) *CloudFormationStack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationStack) *CloudFormationStack {
 		return &v
 	}).(CloudFormationStackPtrOutput)
 }
 
-type CloudFormationStackPtrOutput struct {
-	*pulumi.OutputState
-}
+type CloudFormationStackPtrOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationStackPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CloudFormationStack)(nil))
@@ -336,6 +332,16 @@ func (o CloudFormationStackPtrOutput) ToCloudFormationStackPtrOutput() CloudForm
 
 func (o CloudFormationStackPtrOutput) ToCloudFormationStackPtrOutputWithContext(ctx context.Context) CloudFormationStackPtrOutput {
 	return o
+}
+
+func (o CloudFormationStackPtrOutput) Elem() CloudFormationStackOutput {
+	return o.ApplyT(func(v *CloudFormationStack) CloudFormationStack {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationStack
+		return ret
+	}).(CloudFormationStackOutput)
 }
 
 type CloudFormationStackArrayOutput struct{ *pulumi.OutputState }

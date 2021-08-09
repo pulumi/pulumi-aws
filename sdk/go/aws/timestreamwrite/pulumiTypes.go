@@ -107,7 +107,7 @@ func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutput() Ta
 }
 
 func (o TableRetentionPropertiesOutput) ToTableRetentionPropertiesPtrOutputWithContext(ctx context.Context) TableRetentionPropertiesPtrOutput {
-	return o.ApplyT(func(v TableRetentionProperties) *TableRetentionProperties {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableRetentionProperties) *TableRetentionProperties {
 		return &v
 	}).(TableRetentionPropertiesPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o TableRetentionPropertiesPtrOutput) ToTableRetentionPropertiesPtrOutputWi
 }
 
 func (o TableRetentionPropertiesPtrOutput) Elem() TableRetentionPropertiesOutput {
-	return o.ApplyT(func(v *TableRetentionProperties) TableRetentionProperties { return *v }).(TableRetentionPropertiesOutput)
+	return o.ApplyT(func(v *TableRetentionProperties) TableRetentionProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TableRetentionProperties
+		return ret
+	}).(TableRetentionPropertiesOutput)
 }
 
 // The duration for which data must be stored in the magnetic store. Minimum value of 1. Maximum value of 73000.

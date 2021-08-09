@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ecs
     /// Provides an ECS cluster.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -37,7 +38,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// }
     /// ```
-    /// ## Example W/Log Configuration
+    /// ### Example W/Log Configuration
     /// 
     /// ```csharp
     /// using Pulumi;

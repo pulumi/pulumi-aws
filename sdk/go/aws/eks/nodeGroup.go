@@ -482,9 +482,7 @@ func (i NodeGroupMap) ToNodeGroupMapOutputWithContext(ctx context.Context) NodeG
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupMapOutput)
 }
 
-type NodeGroupOutput struct {
-	*pulumi.OutputState
-}
+type NodeGroupOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NodeGroup)(nil))
@@ -503,14 +501,12 @@ func (o NodeGroupOutput) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
 }
 
 func (o NodeGroupOutput) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
-	return o.ApplyT(func(v NodeGroup) *NodeGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroup) *NodeGroup {
 		return &v
 	}).(NodeGroupPtrOutput)
 }
 
-type NodeGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type NodeGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NodeGroup)(nil))
@@ -522,6 +518,16 @@ func (o NodeGroupPtrOutput) ToNodeGroupPtrOutput() NodeGroupPtrOutput {
 
 func (o NodeGroupPtrOutput) ToNodeGroupPtrOutputWithContext(ctx context.Context) NodeGroupPtrOutput {
 	return o
+}
+
+func (o NodeGroupPtrOutput) Elem() NodeGroupOutput {
+	return o.ApplyT(func(v *NodeGroup) NodeGroup {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroup
+		return ret
+	}).(NodeGroupOutput)
 }
 
 type NodeGroupArrayOutput struct{ *pulumi.OutputState }

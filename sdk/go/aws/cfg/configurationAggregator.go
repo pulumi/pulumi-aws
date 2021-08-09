@@ -302,9 +302,7 @@ func (i ConfigurationAggregatorMap) ToConfigurationAggregatorMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAggregatorMapOutput)
 }
 
-type ConfigurationAggregatorOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationAggregatorOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfigurationAggregator)(nil))
@@ -323,14 +321,12 @@ func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutput() Conf
 }
 
 func (o ConfigurationAggregatorOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
-	return o.ApplyT(func(v ConfigurationAggregator) *ConfigurationAggregator {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAggregator) *ConfigurationAggregator {
 		return &v
 	}).(ConfigurationAggregatorPtrOutput)
 }
 
-type ConfigurationAggregatorPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfigurationAggregatorPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAggregatorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfigurationAggregator)(nil))
@@ -342,6 +338,16 @@ func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutput() C
 
 func (o ConfigurationAggregatorPtrOutput) ToConfigurationAggregatorPtrOutputWithContext(ctx context.Context) ConfigurationAggregatorPtrOutput {
 	return o
+}
+
+func (o ConfigurationAggregatorPtrOutput) Elem() ConfigurationAggregatorOutput {
+	return o.ApplyT(func(v *ConfigurationAggregator) ConfigurationAggregator {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationAggregator
+		return ret
+	}).(ConfigurationAggregatorOutput)
 }
 
 type ConfigurationAggregatorArrayOutput struct{ *pulumi.OutputState }

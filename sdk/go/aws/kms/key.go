@@ -297,9 +297,7 @@ func (i KeyMap) ToKeyMapOutputWithContext(ctx context.Context) KeyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeyMapOutput)
 }
 
-type KeyOutput struct {
-	*pulumi.OutputState
-}
+type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Key)(nil))
@@ -318,14 +316,12 @@ func (o KeyOutput) ToKeyPtrOutput() KeyPtrOutput {
 }
 
 func (o KeyOutput) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
-	return o.ApplyT(func(v Key) *Key {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Key) *Key {
 		return &v
 	}).(KeyPtrOutput)
 }
 
-type KeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type KeyPtrOutput struct{ *pulumi.OutputState }
 
 func (KeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Key)(nil))
@@ -337,6 +333,16 @@ func (o KeyPtrOutput) ToKeyPtrOutput() KeyPtrOutput {
 
 func (o KeyPtrOutput) ToKeyPtrOutputWithContext(ctx context.Context) KeyPtrOutput {
 	return o
+}
+
+func (o KeyPtrOutput) Elem() KeyOutput {
+	return o.ApplyT(func(v *Key) Key {
+		if v != nil {
+			return *v
+		}
+		var ret Key
+		return ret
+	}).(KeyOutput)
 }
 
 type KeyArrayOutput struct{ *pulumi.OutputState }

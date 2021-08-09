@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cache";
 export * from "./cachesIscsiVolume";
+export * from "./fileSystemAssociation";
 export * from "./gateway";
 export * from "./getLocalDisk";
 export * from "./nfsFileShare";
@@ -19,6 +20,7 @@ export * from "./workingStorage";
 // Import resources to register:
 import { Cache } from "./cache";
 import { CachesIscsiVolume } from "./cachesIscsiVolume";
+import { FileSystemAssociation } from "./fileSystemAssociation";
 import { Gateway } from "./gateway";
 import { NfsFileShare } from "./nfsFileShare";
 import { SmbFileShare } from "./smbFileShare";
@@ -35,6 +37,8 @@ const _module = {
                 return new Cache(name, <any>undefined, { urn })
             case "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume":
                 return new CachesIscsiVolume(name, <any>undefined, { urn })
+            case "aws:storagegateway/fileSystemAssociation:FileSystemAssociation":
+                return new FileSystemAssociation(name, <any>undefined, { urn })
             case "aws:storagegateway/gateway:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "aws:storagegateway/nfsFileShare:NfsFileShare":
@@ -56,6 +60,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "storagegateway/cache", _module)
 pulumi.runtime.registerResourceModule("aws", "storagegateway/cachesIscsiVolume", _module)
+pulumi.runtime.registerResourceModule("aws", "storagegateway/fileSystemAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "storagegateway/gateway", _module)
 pulumi.runtime.registerResourceModule("aws", "storagegateway/nfsFileShare", _module)
 pulumi.runtime.registerResourceModule("aws", "storagegateway/smbFileShare", _module)

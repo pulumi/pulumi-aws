@@ -224,9 +224,7 @@ func (i CacheMap) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheMapOutput)
 }
 
-type CacheOutput struct {
-	*pulumi.OutputState
-}
+type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cache)(nil))
@@ -245,14 +243,12 @@ func (o CacheOutput) ToCachePtrOutput() CachePtrOutput {
 }
 
 func (o CacheOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
-	return o.ApplyT(func(v Cache) *Cache {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Cache) *Cache {
 		return &v
 	}).(CachePtrOutput)
 }
 
-type CachePtrOutput struct {
-	*pulumi.OutputState
-}
+type CachePtrOutput struct{ *pulumi.OutputState }
 
 func (CachePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Cache)(nil))
@@ -264,6 +260,16 @@ func (o CachePtrOutput) ToCachePtrOutput() CachePtrOutput {
 
 func (o CachePtrOutput) ToCachePtrOutputWithContext(ctx context.Context) CachePtrOutput {
 	return o
+}
+
+func (o CachePtrOutput) Elem() CacheOutput {
+	return o.ApplyT(func(v *Cache) Cache {
+		if v != nil {
+			return *v
+		}
+		var ret Cache
+		return ret
+	}).(CacheOutput)
 }
 
 type CacheArrayOutput struct{ *pulumi.OutputState }

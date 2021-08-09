@@ -256,9 +256,7 @@ func (i HostMap) ToHostMapOutputWithContext(ctx context.Context) HostMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostMapOutput)
 }
 
-type HostOutput struct {
-	*pulumi.OutputState
-}
+type HostOutput struct{ *pulumi.OutputState }
 
 func (HostOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Host)(nil))
@@ -277,14 +275,12 @@ func (o HostOutput) ToHostPtrOutput() HostPtrOutput {
 }
 
 func (o HostOutput) ToHostPtrOutputWithContext(ctx context.Context) HostPtrOutput {
-	return o.ApplyT(func(v Host) *Host {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Host) *Host {
 		return &v
 	}).(HostPtrOutput)
 }
 
-type HostPtrOutput struct {
-	*pulumi.OutputState
-}
+type HostPtrOutput struct{ *pulumi.OutputState }
 
 func (HostPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Host)(nil))
@@ -296,6 +292,16 @@ func (o HostPtrOutput) ToHostPtrOutput() HostPtrOutput {
 
 func (o HostPtrOutput) ToHostPtrOutputWithContext(ctx context.Context) HostPtrOutput {
 	return o
+}
+
+func (o HostPtrOutput) Elem() HostOutput {
+	return o.ApplyT(func(v *Host) Host {
+		if v != nil {
+			return *v
+		}
+		var ret Host
+		return ret
+	}).(HostOutput)
 }
 
 type HostArrayOutput struct{ *pulumi.OutputState }

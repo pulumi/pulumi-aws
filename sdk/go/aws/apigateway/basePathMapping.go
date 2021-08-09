@@ -226,9 +226,7 @@ func (i BasePathMappingMap) ToBasePathMappingMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingMapOutput)
 }
 
-type BasePathMappingOutput struct {
-	*pulumi.OutputState
-}
+type BasePathMappingOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BasePathMapping)(nil))
@@ -247,14 +245,12 @@ func (o BasePathMappingOutput) ToBasePathMappingPtrOutput() BasePathMappingPtrOu
 }
 
 func (o BasePathMappingOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
-	return o.ApplyT(func(v BasePathMapping) *BasePathMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasePathMapping) *BasePathMapping {
 		return &v
 	}).(BasePathMappingPtrOutput)
 }
 
-type BasePathMappingPtrOutput struct {
-	*pulumi.OutputState
-}
+type BasePathMappingPtrOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BasePathMapping)(nil))
@@ -266,6 +262,16 @@ func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutput() BasePathMappingPt
 
 func (o BasePathMappingPtrOutput) ToBasePathMappingPtrOutputWithContext(ctx context.Context) BasePathMappingPtrOutput {
 	return o
+}
+
+func (o BasePathMappingPtrOutput) Elem() BasePathMappingOutput {
+	return o.ApplyT(func(v *BasePathMapping) BasePathMapping {
+		if v != nil {
+			return *v
+		}
+		var ret BasePathMapping
+		return ret
+	}).(BasePathMappingOutput)
 }
 
 type BasePathMappingArrayOutput struct{ *pulumi.OutputState }

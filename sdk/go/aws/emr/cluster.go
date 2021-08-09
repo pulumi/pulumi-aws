@@ -921,9 +921,7 @@ func (i ClusterMap) ToClusterMapOutputWithContext(ctx context.Context) ClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMapOutput)
 }
 
-type ClusterOutput struct {
-	*pulumi.OutputState
-}
+type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Cluster)(nil))
@@ -942,14 +940,12 @@ func (o ClusterOutput) ToClusterPtrOutput() ClusterPtrOutput {
 }
 
 func (o ClusterOutput) ToClusterPtrOutputWithContext(ctx context.Context) ClusterPtrOutput {
-	return o.ApplyT(func(v Cluster) *Cluster {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Cluster) *Cluster {
 		return &v
 	}).(ClusterPtrOutput)
 }
 
-type ClusterPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClusterPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Cluster)(nil))
@@ -961,6 +957,16 @@ func (o ClusterPtrOutput) ToClusterPtrOutput() ClusterPtrOutput {
 
 func (o ClusterPtrOutput) ToClusterPtrOutputWithContext(ctx context.Context) ClusterPtrOutput {
 	return o
+}
+
+func (o ClusterPtrOutput) Elem() ClusterOutput {
+	return o.ApplyT(func(v *Cluster) Cluster {
+		if v != nil {
+			return *v
+		}
+		var ret Cluster
+		return ret
+	}).(ClusterOutput)
 }
 
 type ClusterArrayOutput struct{ *pulumi.OutputState }

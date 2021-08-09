@@ -198,9 +198,7 @@ func (i LogServiceMap) ToLogServiceMapOutputWithContext(ctx context.Context) Log
 	return pulumi.ToOutputWithContext(ctx, i).(LogServiceMapOutput)
 }
 
-type LogServiceOutput struct {
-	*pulumi.OutputState
-}
+type LogServiceOutput struct{ *pulumi.OutputState }
 
 func (LogServiceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogService)(nil))
@@ -219,14 +217,12 @@ func (o LogServiceOutput) ToLogServicePtrOutput() LogServicePtrOutput {
 }
 
 func (o LogServiceOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
-	return o.ApplyT(func(v LogService) *LogService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogService) *LogService {
 		return &v
 	}).(LogServicePtrOutput)
 }
 
-type LogServicePtrOutput struct {
-	*pulumi.OutputState
-}
+type LogServicePtrOutput struct{ *pulumi.OutputState }
 
 func (LogServicePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogService)(nil))
@@ -238,6 +234,16 @@ func (o LogServicePtrOutput) ToLogServicePtrOutput() LogServicePtrOutput {
 
 func (o LogServicePtrOutput) ToLogServicePtrOutputWithContext(ctx context.Context) LogServicePtrOutput {
 	return o
+}
+
+func (o LogServicePtrOutput) Elem() LogServiceOutput {
+	return o.ApplyT(func(v *LogService) LogService {
+		if v != nil {
+			return *v
+		}
+		var ret LogService
+		return ret
+	}).(LogServiceOutput)
 }
 
 type LogServiceArrayOutput struct{ *pulumi.OutputState }

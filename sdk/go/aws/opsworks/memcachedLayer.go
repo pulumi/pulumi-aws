@@ -401,9 +401,7 @@ func (i MemcachedLayerMap) ToMemcachedLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MemcachedLayerMapOutput)
 }
 
-type MemcachedLayerOutput struct {
-	*pulumi.OutputState
-}
+type MemcachedLayerOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MemcachedLayer)(nil))
@@ -422,14 +420,12 @@ func (o MemcachedLayerOutput) ToMemcachedLayerPtrOutput() MemcachedLayerPtrOutpu
 }
 
 func (o MemcachedLayerOutput) ToMemcachedLayerPtrOutputWithContext(ctx context.Context) MemcachedLayerPtrOutput {
-	return o.ApplyT(func(v MemcachedLayer) *MemcachedLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemcachedLayer) *MemcachedLayer {
 		return &v
 	}).(MemcachedLayerPtrOutput)
 }
 
-type MemcachedLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type MemcachedLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (MemcachedLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MemcachedLayer)(nil))
@@ -441,6 +437,16 @@ func (o MemcachedLayerPtrOutput) ToMemcachedLayerPtrOutput() MemcachedLayerPtrOu
 
 func (o MemcachedLayerPtrOutput) ToMemcachedLayerPtrOutputWithContext(ctx context.Context) MemcachedLayerPtrOutput {
 	return o
+}
+
+func (o MemcachedLayerPtrOutput) Elem() MemcachedLayerOutput {
+	return o.ApplyT(func(v *MemcachedLayer) MemcachedLayer {
+		if v != nil {
+			return *v
+		}
+		var ret MemcachedLayer
+		return ret
+	}).(MemcachedLayerOutput)
 }
 
 type MemcachedLayerArrayOutput struct{ *pulumi.OutputState }

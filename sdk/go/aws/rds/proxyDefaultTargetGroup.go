@@ -269,9 +269,7 @@ func (i ProxyDefaultTargetGroupMap) ToProxyDefaultTargetGroupMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyDefaultTargetGroupMapOutput)
 }
 
-type ProxyDefaultTargetGroupOutput struct {
-	*pulumi.OutputState
-}
+type ProxyDefaultTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (ProxyDefaultTargetGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProxyDefaultTargetGroup)(nil))
@@ -290,14 +288,12 @@ func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupPtrOutput() Prox
 }
 
 func (o ProxyDefaultTargetGroupOutput) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
-	return o.ApplyT(func(v ProxyDefaultTargetGroup) *ProxyDefaultTargetGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyDefaultTargetGroup) *ProxyDefaultTargetGroup {
 		return &v
 	}).(ProxyDefaultTargetGroupPtrOutput)
 }
 
-type ProxyDefaultTargetGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProxyDefaultTargetGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ProxyDefaultTargetGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProxyDefaultTargetGroup)(nil))
@@ -309,6 +305,16 @@ func (o ProxyDefaultTargetGroupPtrOutput) ToProxyDefaultTargetGroupPtrOutput() P
 
 func (o ProxyDefaultTargetGroupPtrOutput) ToProxyDefaultTargetGroupPtrOutputWithContext(ctx context.Context) ProxyDefaultTargetGroupPtrOutput {
 	return o
+}
+
+func (o ProxyDefaultTargetGroupPtrOutput) Elem() ProxyDefaultTargetGroupOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroup) ProxyDefaultTargetGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyDefaultTargetGroup
+		return ret
+	}).(ProxyDefaultTargetGroupOutput)
 }
 
 type ProxyDefaultTargetGroupArrayOutput struct{ *pulumi.OutputState }

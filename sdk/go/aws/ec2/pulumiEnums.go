@@ -107,7 +107,7 @@ func (o InstancePlatformOutput) ToStringPtrOutputWithContext(ctx context.Context
 type InstancePlatformPtrOutput struct{ *pulumi.OutputState }
 
 func (InstancePlatformPtrOutput) ElementType() reflect.Type {
-	return instancePlatformPtrType
+	return reflect.TypeOf((**InstancePlatform)(nil)).Elem()
 }
 
 func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutput() InstancePlatformPtrOutput {
@@ -116,6 +116,16 @@ func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutput() InstancePlatfor
 
 func (o InstancePlatformPtrOutput) ToInstancePlatformPtrOutputWithContext(ctx context.Context) InstancePlatformPtrOutput {
 	return o
+}
+
+func (o InstancePlatformPtrOutput) Elem() InstancePlatformOutput {
+	return o.ApplyT(func(v *InstancePlatform) InstancePlatform {
+		if v != nil {
+			return *v
+		}
+		var ret InstancePlatform
+		return ret
+	}).(InstancePlatformOutput)
 }
 
 func (o InstancePlatformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -130,16 +140,6 @@ func (o InstancePlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o InstancePlatformPtrOutput) Elem() InstancePlatformOutput {
-	return o.ApplyT(func(v *InstancePlatform) InstancePlatform {
-		var ret InstancePlatform
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(InstancePlatformOutput)
 }
 
 // InstancePlatformInput is an input type that accepts InstancePlatformArgs and InstancePlatformOutput values.
@@ -648,7 +648,7 @@ func (o InstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 type InstanceTypePtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceTypePtrOutput) ElementType() reflect.Type {
-	return instanceTypePtrType
+	return reflect.TypeOf((**InstanceType)(nil)).Elem()
 }
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
@@ -657,6 +657,16 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
+}
+
+func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
+	return o.ApplyT(func(v *InstanceType) InstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceType
+		return ret
+	}).(InstanceTypeOutput)
 }
 
 func (o InstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -671,16 +681,6 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
-	return o.ApplyT(func(v *InstanceType) InstanceType {
-		var ret InstanceType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(InstanceTypeOutput)
 }
 
 // InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
@@ -817,7 +817,7 @@ func (o PlacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Contex
 type PlacementStrategyPtrOutput struct{ *pulumi.OutputState }
 
 func (PlacementStrategyPtrOutput) ElementType() reflect.Type {
-	return placementStrategyPtrType
+	return reflect.TypeOf((**PlacementStrategy)(nil)).Elem()
 }
 
 func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutput() PlacementStrategyPtrOutput {
@@ -826,6 +826,16 @@ func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutput() PlacementStra
 
 func (o PlacementStrategyPtrOutput) ToPlacementStrategyPtrOutputWithContext(ctx context.Context) PlacementStrategyPtrOutput {
 	return o
+}
+
+func (o PlacementStrategyPtrOutput) Elem() PlacementStrategyOutput {
+	return o.ApplyT(func(v *PlacementStrategy) PlacementStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret PlacementStrategy
+		return ret
+	}).(PlacementStrategyOutput)
 }
 
 func (o PlacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -840,16 +850,6 @@ func (o PlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o PlacementStrategyPtrOutput) Elem() PlacementStrategyOutput {
-	return o.ApplyT(func(v *PlacementStrategy) PlacementStrategy {
-		var ret PlacementStrategy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(PlacementStrategyOutput)
 }
 
 // PlacementStrategyInput is an input type that accepts PlacementStrategyArgs and PlacementStrategyOutput values.
@@ -983,7 +983,7 @@ func (o ProtocolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 type ProtocolTypePtrOutput struct{ *pulumi.OutputState }
 
 func (ProtocolTypePtrOutput) ElementType() reflect.Type {
-	return protocolTypePtrType
+	return reflect.TypeOf((**ProtocolType)(nil)).Elem()
 }
 
 func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
@@ -992,6 +992,16 @@ func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutput() ProtocolTypePtrOutput {
 
 func (o ProtocolTypePtrOutput) ToProtocolTypePtrOutputWithContext(ctx context.Context) ProtocolTypePtrOutput {
 	return o
+}
+
+func (o ProtocolTypePtrOutput) Elem() ProtocolTypeOutput {
+	return o.ApplyT(func(v *ProtocolType) ProtocolType {
+		if v != nil {
+			return *v
+		}
+		var ret ProtocolType
+		return ret
+	}).(ProtocolTypeOutput)
 }
 
 func (o ProtocolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -1006,16 +1016,6 @@ func (o ProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o ProtocolTypePtrOutput) Elem() ProtocolTypeOutput {
-	return o.ApplyT(func(v *ProtocolType) ProtocolType {
-		var ret ProtocolType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(ProtocolTypeOutput)
 }
 
 // ProtocolTypeInput is an input type that accepts ProtocolTypeArgs and ProtocolTypeOutput values.
@@ -1147,7 +1147,7 @@ func (o TenancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.
 type TenancyPtrOutput struct{ *pulumi.OutputState }
 
 func (TenancyPtrOutput) ElementType() reflect.Type {
-	return tenancyPtrType
+	return reflect.TypeOf((**Tenancy)(nil)).Elem()
 }
 
 func (o TenancyPtrOutput) ToTenancyPtrOutput() TenancyPtrOutput {
@@ -1156,6 +1156,16 @@ func (o TenancyPtrOutput) ToTenancyPtrOutput() TenancyPtrOutput {
 
 func (o TenancyPtrOutput) ToTenancyPtrOutputWithContext(ctx context.Context) TenancyPtrOutput {
 	return o
+}
+
+func (o TenancyPtrOutput) Elem() TenancyOutput {
+	return o.ApplyT(func(v *Tenancy) Tenancy {
+		if v != nil {
+			return *v
+		}
+		var ret Tenancy
+		return ret
+	}).(TenancyOutput)
 }
 
 func (o TenancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -1170,16 +1180,6 @@ func (o TenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o TenancyPtrOutput) Elem() TenancyOutput {
-	return o.ApplyT(func(v *Tenancy) Tenancy {
-		var ret Tenancy
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(TenancyOutput)
 }
 
 // TenancyInput is an input type that accepts TenancyArgs and TenancyOutput values.

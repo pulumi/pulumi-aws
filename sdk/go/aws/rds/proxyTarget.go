@@ -328,9 +328,7 @@ func (i ProxyTargetMap) ToProxyTargetMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProxyTargetMapOutput)
 }
 
-type ProxyTargetOutput struct {
-	*pulumi.OutputState
-}
+type ProxyTargetOutput struct{ *pulumi.OutputState }
 
 func (ProxyTargetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProxyTarget)(nil))
@@ -349,14 +347,12 @@ func (o ProxyTargetOutput) ToProxyTargetPtrOutput() ProxyTargetPtrOutput {
 }
 
 func (o ProxyTargetOutput) ToProxyTargetPtrOutputWithContext(ctx context.Context) ProxyTargetPtrOutput {
-	return o.ApplyT(func(v ProxyTarget) *ProxyTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProxyTarget) *ProxyTarget {
 		return &v
 	}).(ProxyTargetPtrOutput)
 }
 
-type ProxyTargetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProxyTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (ProxyTargetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProxyTarget)(nil))
@@ -368,6 +364,16 @@ func (o ProxyTargetPtrOutput) ToProxyTargetPtrOutput() ProxyTargetPtrOutput {
 
 func (o ProxyTargetPtrOutput) ToProxyTargetPtrOutputWithContext(ctx context.Context) ProxyTargetPtrOutput {
 	return o
+}
+
+func (o ProxyTargetPtrOutput) Elem() ProxyTargetOutput {
+	return o.ApplyT(func(v *ProxyTarget) ProxyTarget {
+		if v != nil {
+			return *v
+		}
+		var ret ProxyTarget
+		return ret
+	}).(ProxyTargetOutput)
 }
 
 type ProxyTargetArrayOutput struct{ *pulumi.OutputState }

@@ -276,9 +276,7 @@ func (i AnalyzerMap) ToAnalyzerMapOutputWithContext(ctx context.Context) Analyze
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerMapOutput)
 }
 
-type AnalyzerOutput struct {
-	*pulumi.OutputState
-}
+type AnalyzerOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Analyzer)(nil))
@@ -297,14 +295,12 @@ func (o AnalyzerOutput) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
 }
 
 func (o AnalyzerOutput) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
-	return o.ApplyT(func(v Analyzer) *Analyzer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Analyzer) *Analyzer {
 		return &v
 	}).(AnalyzerPtrOutput)
 }
 
-type AnalyzerPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyzerPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Analyzer)(nil))
@@ -316,6 +312,16 @@ func (o AnalyzerPtrOutput) ToAnalyzerPtrOutput() AnalyzerPtrOutput {
 
 func (o AnalyzerPtrOutput) ToAnalyzerPtrOutputWithContext(ctx context.Context) AnalyzerPtrOutput {
 	return o
+}
+
+func (o AnalyzerPtrOutput) Elem() AnalyzerOutput {
+	return o.ApplyT(func(v *Analyzer) Analyzer {
+		if v != nil {
+			return *v
+		}
+		var ret Analyzer
+		return ret
+	}).(AnalyzerOutput)
 }
 
 type AnalyzerArrayOutput struct{ *pulumi.OutputState }

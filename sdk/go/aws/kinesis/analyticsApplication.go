@@ -462,9 +462,7 @@ func (i AnalyticsApplicationMap) ToAnalyticsApplicationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsApplicationMapOutput)
 }
 
-type AnalyticsApplicationOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsApplicationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsApplication)(nil))
@@ -483,14 +481,12 @@ func (o AnalyticsApplicationOutput) ToAnalyticsApplicationPtrOutput() AnalyticsA
 }
 
 func (o AnalyticsApplicationOutput) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
-	return o.ApplyT(func(v AnalyticsApplication) *AnalyticsApplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsApplication) *AnalyticsApplication {
 		return &v
 	}).(AnalyticsApplicationPtrOutput)
 }
 
-type AnalyticsApplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsApplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsApplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsApplication)(nil))
@@ -502,6 +498,16 @@ func (o AnalyticsApplicationPtrOutput) ToAnalyticsApplicationPtrOutput() Analyti
 
 func (o AnalyticsApplicationPtrOutput) ToAnalyticsApplicationPtrOutputWithContext(ctx context.Context) AnalyticsApplicationPtrOutput {
 	return o
+}
+
+func (o AnalyticsApplicationPtrOutput) Elem() AnalyticsApplicationOutput {
+	return o.ApplyT(func(v *AnalyticsApplication) AnalyticsApplication {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsApplication
+		return ret
+	}).(AnalyticsApplicationOutput)
 }
 
 type AnalyticsApplicationArrayOutput struct{ *pulumi.OutputState }

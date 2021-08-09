@@ -335,9 +335,7 @@ func (i PublishingDestinationMap) ToPublishingDestinationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationMapOutput)
 }
 
-type PublishingDestinationOutput struct {
-	*pulumi.OutputState
-}
+type PublishingDestinationOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PublishingDestination)(nil))
@@ -356,14 +354,12 @@ func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutput() Publishi
 }
 
 func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
-	return o.ApplyT(func(v PublishingDestination) *PublishingDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublishingDestination) *PublishingDestination {
 		return &v
 	}).(PublishingDestinationPtrOutput)
 }
 
-type PublishingDestinationPtrOutput struct {
-	*pulumi.OutputState
-}
+type PublishingDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PublishingDestination)(nil))
@@ -375,6 +371,16 @@ func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutput() Publi
 
 func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
 	return o
+}
+
+func (o PublishingDestinationPtrOutput) Elem() PublishingDestinationOutput {
+	return o.ApplyT(func(v *PublishingDestination) PublishingDestination {
+		if v != nil {
+			return *v
+		}
+		var ret PublishingDestination
+		return ret
+	}).(PublishingDestinationOutput)
 }
 
 type PublishingDestinationArrayOutput struct{ *pulumi.OutputState }

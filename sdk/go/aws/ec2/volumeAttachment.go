@@ -320,9 +320,7 @@ func (i VolumeAttachmentMap) ToVolumeAttachmentMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeAttachmentMapOutput)
 }
 
-type VolumeAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type VolumeAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VolumeAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VolumeAttachment)(nil))
@@ -341,14 +339,12 @@ func (o VolumeAttachmentOutput) ToVolumeAttachmentPtrOutput() VolumeAttachmentPt
 }
 
 func (o VolumeAttachmentOutput) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
-	return o.ApplyT(func(v VolumeAttachment) *VolumeAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeAttachment) *VolumeAttachment {
 		return &v
 	}).(VolumeAttachmentPtrOutput)
 }
 
-type VolumeAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type VolumeAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (VolumeAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VolumeAttachment)(nil))
@@ -360,6 +356,16 @@ func (o VolumeAttachmentPtrOutput) ToVolumeAttachmentPtrOutput() VolumeAttachmen
 
 func (o VolumeAttachmentPtrOutput) ToVolumeAttachmentPtrOutputWithContext(ctx context.Context) VolumeAttachmentPtrOutput {
 	return o
+}
+
+func (o VolumeAttachmentPtrOutput) Elem() VolumeAttachmentOutput {
+	return o.ApplyT(func(v *VolumeAttachment) VolumeAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeAttachment
+		return ret
+	}).(VolumeAttachmentOutput)
 }
 
 type VolumeAttachmentArrayOutput struct{ *pulumi.OutputState }

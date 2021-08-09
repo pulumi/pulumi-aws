@@ -222,9 +222,7 @@ func (i VpcEndpointRouteTableAssociationMap) ToVpcEndpointRouteTableAssociationM
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointRouteTableAssociationMapOutput)
 }
 
-type VpcEndpointRouteTableAssociationOutput struct {
-	*pulumi.OutputState
-}
+type VpcEndpointRouteTableAssociationOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointRouteTableAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpcEndpointRouteTableAssociation)(nil))
@@ -243,14 +241,12 @@ func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociati
 }
 
 func (o VpcEndpointRouteTableAssociationOutput) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
-	return o.ApplyT(func(v VpcEndpointRouteTableAssociation) *VpcEndpointRouteTableAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointRouteTableAssociation) *VpcEndpointRouteTableAssociation {
 		return &v
 	}).(VpcEndpointRouteTableAssociationPtrOutput)
 }
 
-type VpcEndpointRouteTableAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcEndpointRouteTableAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointRouteTableAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpcEndpointRouteTableAssociation)(nil))
@@ -262,6 +258,16 @@ func (o VpcEndpointRouteTableAssociationPtrOutput) ToVpcEndpointRouteTableAssoci
 
 func (o VpcEndpointRouteTableAssociationPtrOutput) ToVpcEndpointRouteTableAssociationPtrOutputWithContext(ctx context.Context) VpcEndpointRouteTableAssociationPtrOutput {
 	return o
+}
+
+func (o VpcEndpointRouteTableAssociationPtrOutput) Elem() VpcEndpointRouteTableAssociationOutput {
+	return o.ApplyT(func(v *VpcEndpointRouteTableAssociation) VpcEndpointRouteTableAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointRouteTableAssociation
+		return ret
+	}).(VpcEndpointRouteTableAssociationOutput)
 }
 
 type VpcEndpointRouteTableAssociationArrayOutput struct{ *pulumi.OutputState }

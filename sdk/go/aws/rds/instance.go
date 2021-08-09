@@ -1226,9 +1226,7 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMapOutput)
 }
 
-type InstanceOutput struct {
-	*pulumi.OutputState
-}
+type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Instance)(nil))
@@ -1247,14 +1245,12 @@ func (o InstanceOutput) ToInstancePtrOutput() InstancePtrOutput {
 }
 
 func (o InstanceOutput) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
-	return o.ApplyT(func(v Instance) *Instance {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Instance) *Instance {
 		return &v
 	}).(InstancePtrOutput)
 }
 
-type InstancePtrOutput struct {
-	*pulumi.OutputState
-}
+type InstancePtrOutput struct{ *pulumi.OutputState }
 
 func (InstancePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Instance)(nil))
@@ -1266,6 +1262,16 @@ func (o InstancePtrOutput) ToInstancePtrOutput() InstancePtrOutput {
 
 func (o InstancePtrOutput) ToInstancePtrOutputWithContext(ctx context.Context) InstancePtrOutput {
 	return o
+}
+
+func (o InstancePtrOutput) Elem() InstanceOutput {
+	return o.ApplyT(func(v *Instance) Instance {
+		if v != nil {
+			return *v
+		}
+		var ret Instance
+		return ret
+	}).(InstanceOutput)
 }
 
 type InstanceArrayOutput struct{ *pulumi.OutputState }

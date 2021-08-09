@@ -107,7 +107,7 @@ func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutpu
 }
 
 func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetActionActionThresholdPtrOutput {
-	return o.ApplyT(func(v BudgetActionActionThreshold) *BudgetActionActionThreshold {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionActionThreshold) *BudgetActionActionThreshold {
 		return &v
 	}).(BudgetActionActionThresholdPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o BudgetActionActionThresholdPtrOutput) ToBudgetActionActionThresholdPtrOu
 }
 
 func (o BudgetActionActionThresholdPtrOutput) Elem() BudgetActionActionThresholdOutput {
-	return o.ApplyT(func(v *BudgetActionActionThreshold) BudgetActionActionThreshold { return *v }).(BudgetActionActionThresholdOutput)
+	return o.ApplyT(func(v *BudgetActionActionThreshold) BudgetActionActionThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionActionThreshold
+		return ret
+	}).(BudgetActionActionThresholdOutput)
 }
 
 // The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
@@ -261,7 +267,7 @@ func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutput() Budget
 }
 
 func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionPtrOutput {
-	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionDefinition) *BudgetActionDefinition {
 		return &v
 	}).(BudgetActionDefinitionPtrOutput)
 }
@@ -302,7 +308,13 @@ func (o BudgetActionDefinitionPtrOutput) ToBudgetActionDefinitionPtrOutputWithCo
 }
 
 func (o BudgetActionDefinitionPtrOutput) Elem() BudgetActionDefinitionOutput {
-	return o.ApplyT(func(v *BudgetActionDefinition) BudgetActionDefinition { return *v }).(BudgetActionDefinitionOutput)
+	return o.ApplyT(func(v *BudgetActionDefinition) BudgetActionDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionDefinition
+		return ret
+	}).(BudgetActionDefinitionOutput)
 }
 
 // The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
@@ -440,7 +452,7 @@ func (o BudgetActionDefinitionIamActionDefinitionOutput) ToBudgetActionDefinitio
 }
 
 func (o BudgetActionDefinitionIamActionDefinitionOutput) ToBudgetActionDefinitionIamActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionIamActionDefinitionPtrOutput {
-	return o.ApplyT(func(v BudgetActionDefinitionIamActionDefinition) *BudgetActionDefinitionIamActionDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionDefinitionIamActionDefinition) *BudgetActionDefinitionIamActionDefinition {
 		return &v
 	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
 }
@@ -481,7 +493,11 @@ func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) ToBudgetActionDefini
 
 func (o BudgetActionDefinitionIamActionDefinitionPtrOutput) Elem() BudgetActionDefinitionIamActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionIamActionDefinition) BudgetActionDefinitionIamActionDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionDefinitionIamActionDefinition
+		return ret
 	}).(BudgetActionDefinitionIamActionDefinitionOutput)
 }
 
@@ -622,7 +638,7 @@ func (o BudgetActionDefinitionScpActionDefinitionOutput) ToBudgetActionDefinitio
 }
 
 func (o BudgetActionDefinitionScpActionDefinitionOutput) ToBudgetActionDefinitionScpActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionScpActionDefinitionPtrOutput {
-	return o.ApplyT(func(v BudgetActionDefinitionScpActionDefinition) *BudgetActionDefinitionScpActionDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionDefinitionScpActionDefinition) *BudgetActionDefinitionScpActionDefinition {
 		return &v
 	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
 }
@@ -653,7 +669,11 @@ func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) ToBudgetActionDefini
 
 func (o BudgetActionDefinitionScpActionDefinitionPtrOutput) Elem() BudgetActionDefinitionScpActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionScpActionDefinition) BudgetActionDefinitionScpActionDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionDefinitionScpActionDefinition
+		return ret
 	}).(BudgetActionDefinitionScpActionDefinitionOutput)
 }
 
@@ -778,7 +798,7 @@ func (o BudgetActionDefinitionSsmActionDefinitionOutput) ToBudgetActionDefinitio
 }
 
 func (o BudgetActionDefinitionSsmActionDefinitionOutput) ToBudgetActionDefinitionSsmActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionSsmActionDefinitionPtrOutput {
-	return o.ApplyT(func(v BudgetActionDefinitionSsmActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionDefinitionSsmActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
 		return &v
 	}).(BudgetActionDefinitionSsmActionDefinitionPtrOutput)
 }
@@ -814,7 +834,11 @@ func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) ToBudgetActionDefini
 
 func (o BudgetActionDefinitionSsmActionDefinitionPtrOutput) Elem() BudgetActionDefinitionSsmActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetActionDefinitionSsmActionDefinition) BudgetActionDefinitionSsmActionDefinition {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BudgetActionDefinitionSsmActionDefinition
+		return ret
 	}).(BudgetActionDefinitionSsmActionDefinitionOutput)
 }
 
@@ -954,6 +978,64 @@ func (o BudgetActionSubscriberArrayOutput) Index(i pulumi.IntInput) BudgetAction
 	}).(BudgetActionSubscriberOutput)
 }
 
+type BudgetCostFilter struct {
+	// The name of a budget. Unique within accounts.
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// BudgetCostFilterInput is an input type that accepts BudgetCostFilterArgs and BudgetCostFilterOutput values.
+// You can construct a concrete instance of `BudgetCostFilterInput` via:
+//
+//          BudgetCostFilterArgs{...}
+type BudgetCostFilterInput interface {
+	pulumi.Input
+
+	ToBudgetCostFilterOutput() BudgetCostFilterOutput
+	ToBudgetCostFilterOutputWithContext(context.Context) BudgetCostFilterOutput
+}
+
+type BudgetCostFilterArgs struct {
+	// The name of a budget. Unique within accounts.
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetCostFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostFilter)(nil)).Elem()
+}
+
+func (i BudgetCostFilterArgs) ToBudgetCostFilterOutput() BudgetCostFilterOutput {
+	return i.ToBudgetCostFilterOutputWithContext(context.Background())
+}
+
+func (i BudgetCostFilterArgs) ToBudgetCostFilterOutputWithContext(ctx context.Context) BudgetCostFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostFilterOutput)
+}
+
+type BudgetCostFilterOutput struct{ *pulumi.OutputState }
+
+func (BudgetCostFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetCostFilter)(nil)).Elem()
+}
+
+func (o BudgetCostFilterOutput) ToBudgetCostFilterOutput() BudgetCostFilterOutput {
+	return o
+}
+
+func (o BudgetCostFilterOutput) ToBudgetCostFilterOutputWithContext(ctx context.Context) BudgetCostFilterOutput {
+	return o
+}
+
+// The name of a budget. Unique within accounts.
+func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
 type BudgetCostTypes struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`
 	IncludeCredit *bool `pulumi:"includeCredit"`
@@ -1087,7 +1169,7 @@ func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutput() BudgetCostTypesPtrOu
 }
 
 func (o BudgetCostTypesOutput) ToBudgetCostTypesPtrOutputWithContext(ctx context.Context) BudgetCostTypesPtrOutput {
-	return o.ApplyT(func(v BudgetCostTypes) *BudgetCostTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetCostTypes) *BudgetCostTypes {
 		return &v
 	}).(BudgetCostTypesPtrOutput)
 }
@@ -1162,7 +1244,13 @@ func (o BudgetCostTypesPtrOutput) ToBudgetCostTypesPtrOutputWithContext(ctx cont
 }
 
 func (o BudgetCostTypesPtrOutput) Elem() BudgetCostTypesOutput {
-	return o.ApplyT(func(v *BudgetCostTypes) BudgetCostTypes { return *v }).(BudgetCostTypesOutput)
+	return o.ApplyT(func(v *BudgetCostTypes) BudgetCostTypes {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetCostTypes
+		return ret
+	}).(BudgetCostTypesOutput)
 }
 
 // A boolean value whether to include credits in the cost budget. Defaults to `true`
@@ -1430,6 +1518,7 @@ func init() {
 	pulumi.RegisterOutputType(BudgetActionDefinitionSsmActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberArrayOutput{})
+	pulumi.RegisterOutputType(BudgetCostFilterOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})

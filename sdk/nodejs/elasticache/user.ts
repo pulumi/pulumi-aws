@@ -59,7 +59,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * Access permissions string used for this user.
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      */
     public readonly accessString!: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * Access permissions string used for this user.
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      */
     accessString?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface UserState {
  */
 export interface UserArgs {
     /**
-     * Access permissions string used for this user.
+     * Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
      */
     accessString: pulumi.Input<string>;
     /**

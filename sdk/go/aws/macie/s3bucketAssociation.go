@@ -238,9 +238,7 @@ func (i S3BucketAssociationMap) ToS3BucketAssociationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationMapOutput)
 }
 
-type S3BucketAssociationOutput struct {
-	*pulumi.OutputState
-}
+type S3BucketAssociationOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*S3BucketAssociation)(nil))
@@ -259,14 +257,12 @@ func (o S3BucketAssociationOutput) ToS3BucketAssociationPtrOutput() S3BucketAsso
 }
 
 func (o S3BucketAssociationOutput) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
-	return o.ApplyT(func(v S3BucketAssociation) *S3BucketAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3BucketAssociation) *S3BucketAssociation {
 		return &v
 	}).(S3BucketAssociationPtrOutput)
 }
 
-type S3BucketAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type S3BucketAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**S3BucketAssociation)(nil))
@@ -278,6 +274,16 @@ func (o S3BucketAssociationPtrOutput) ToS3BucketAssociationPtrOutput() S3BucketA
 
 func (o S3BucketAssociationPtrOutput) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
 	return o
+}
+
+func (o S3BucketAssociationPtrOutput) Elem() S3BucketAssociationOutput {
+	return o.ApplyT(func(v *S3BucketAssociation) S3BucketAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret S3BucketAssociation
+		return ret
+	}).(S3BucketAssociationOutput)
 }
 
 type S3BucketAssociationArrayOutput struct{ *pulumi.OutputState }

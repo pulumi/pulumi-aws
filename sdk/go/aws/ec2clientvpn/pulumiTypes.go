@@ -235,7 +235,7 @@ func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOut
 }
 
 func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
-	return o.ApplyT(func(v EndpointConnectionLogOptions) *EndpointConnectionLogOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConnectionLogOptions) *EndpointConnectionLogOptions {
 		return &v
 	}).(EndpointConnectionLogOptionsPtrOutput)
 }
@@ -270,7 +270,13 @@ func (o EndpointConnectionLogOptionsPtrOutput) ToEndpointConnectionLogOptionsPtr
 }
 
 func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptionsOutput {
-	return o.ApplyT(func(v *EndpointConnectionLogOptions) EndpointConnectionLogOptions { return *v }).(EndpointConnectionLogOptionsOutput)
+	return o.ApplyT(func(v *EndpointConnectionLogOptions) EndpointConnectionLogOptions {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConnectionLogOptions
+		return ret
+	}).(EndpointConnectionLogOptionsOutput)
 }
 
 // The name of the CloudWatch Logs log group.

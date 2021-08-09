@@ -295,9 +295,7 @@ func (i PeeringAttachmentMap) ToPeeringAttachmentMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringAttachmentMapOutput)
 }
 
-type PeeringAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type PeeringAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PeeringAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PeeringAttachment)(nil))
@@ -316,14 +314,12 @@ func (o PeeringAttachmentOutput) ToPeeringAttachmentPtrOutput() PeeringAttachmen
 }
 
 func (o PeeringAttachmentOutput) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
-	return o.ApplyT(func(v PeeringAttachment) *PeeringAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringAttachment) *PeeringAttachment {
 		return &v
 	}).(PeeringAttachmentPtrOutput)
 }
 
-type PeeringAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type PeeringAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (PeeringAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PeeringAttachment)(nil))
@@ -335,6 +331,16 @@ func (o PeeringAttachmentPtrOutput) ToPeeringAttachmentPtrOutput() PeeringAttach
 
 func (o PeeringAttachmentPtrOutput) ToPeeringAttachmentPtrOutputWithContext(ctx context.Context) PeeringAttachmentPtrOutput {
 	return o
+}
+
+func (o PeeringAttachmentPtrOutput) Elem() PeeringAttachmentOutput {
+	return o.ApplyT(func(v *PeeringAttachment) PeeringAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret PeeringAttachment
+		return ret
+	}).(PeeringAttachmentOutput)
 }
 
 type PeeringAttachmentArrayOutput struct{ *pulumi.OutputState }

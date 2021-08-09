@@ -107,7 +107,7 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutput() GroupResourceQ
 }
 
 func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
-	return o.ApplyT(func(v GroupResourceQuery) *GroupResourceQuery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupResourceQuery) *GroupResourceQuery {
 		return &v
 	}).(GroupResourceQueryPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ct
 }
 
 func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
-	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery { return *v }).(GroupResourceQueryOutput)
+	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery {
+		if v != nil {
+			return *v
+		}
+		var ret GroupResourceQuery
+		return ret
+	}).(GroupResourceQueryOutput)
 }
 
 // The resource query as a JSON string.

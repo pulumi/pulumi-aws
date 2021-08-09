@@ -235,9 +235,7 @@ func (i StaticIpAttachmentMap) ToStaticIpAttachmentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StaticIpAttachmentMapOutput)
 }
 
-type StaticIpAttachmentOutput struct {
-	*pulumi.OutputState
-}
+type StaticIpAttachmentOutput struct{ *pulumi.OutputState }
 
 func (StaticIpAttachmentOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticIpAttachment)(nil))
@@ -256,14 +254,12 @@ func (o StaticIpAttachmentOutput) ToStaticIpAttachmentPtrOutput() StaticIpAttach
 }
 
 func (o StaticIpAttachmentOutput) ToStaticIpAttachmentPtrOutputWithContext(ctx context.Context) StaticIpAttachmentPtrOutput {
-	return o.ApplyT(func(v StaticIpAttachment) *StaticIpAttachment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticIpAttachment) *StaticIpAttachment {
 		return &v
 	}).(StaticIpAttachmentPtrOutput)
 }
 
-type StaticIpAttachmentPtrOutput struct {
-	*pulumi.OutputState
-}
+type StaticIpAttachmentPtrOutput struct{ *pulumi.OutputState }
 
 func (StaticIpAttachmentPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StaticIpAttachment)(nil))
@@ -275,6 +271,16 @@ func (o StaticIpAttachmentPtrOutput) ToStaticIpAttachmentPtrOutput() StaticIpAtt
 
 func (o StaticIpAttachmentPtrOutput) ToStaticIpAttachmentPtrOutputWithContext(ctx context.Context) StaticIpAttachmentPtrOutput {
 	return o
+}
+
+func (o StaticIpAttachmentPtrOutput) Elem() StaticIpAttachmentOutput {
+	return o.ApplyT(func(v *StaticIpAttachment) StaticIpAttachment {
+		if v != nil {
+			return *v
+		}
+		var ret StaticIpAttachment
+		return ret
+	}).(StaticIpAttachmentOutput)
 }
 
 type StaticIpAttachmentArrayOutput struct{ *pulumi.OutputState }

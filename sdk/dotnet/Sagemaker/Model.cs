@@ -52,18 +52,25 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             AssumeRolePolicy = assumeRole.Apply(assumeRole =&gt; assumeRole.Json),
     ///         });
+    ///         var test = Output.Create(Aws.Sagemaker.GetPrebuiltEcrImage.InvokeAsync(new Aws.Sagemaker.GetPrebuiltEcrImageArgs
+    ///         {
+    ///             RepositoryName = "kmeans",
+    ///         }));
     ///         var exampleModel = new Aws.Sagemaker.Model("exampleModel", new Aws.Sagemaker.ModelArgs
     ///         {
     ///             ExecutionRoleArn = exampleRole.Arn,
     ///             PrimaryContainer = new Aws.Sagemaker.Inputs.ModelPrimaryContainerArgs
     ///             {
-    ///                 Image = "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
+    ///                 Image = test.Apply(test =&gt; test.RegistryPath),
     ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// ```
+    /// ## Inference Execution Config
+    /// 
+    /// * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
     /// 
     /// ## Import
     /// 
@@ -99,6 +106,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        /// </summary>
+        [Output("inferenceExecutionConfig")]
+        public Output<Outputs.ModelInferenceExecutionConfig> InferenceExecutionConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
@@ -201,6 +214,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
+        /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        /// </summary>
+        [Input("inferenceExecutionConfig")]
+        public Input<Inputs.ModelInferenceExecutionConfigArgs>? InferenceExecutionConfig { get; set; }
+
+        /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
@@ -278,6 +297,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
+
+        /// <summary>
+        /// Specifies details of how containers in a multi-container endpoint are called. see Inference Execution Config.
+        /// </summary>
+        [Input("inferenceExecutionConfig")]
+        public Input<Inputs.ModelInferenceExecutionConfigGetArgs>? InferenceExecutionConfig { get; set; }
 
         /// <summary>
         /// The name of the model (must be unique). If omitted, this provider will assign a random, unique name.

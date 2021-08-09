@@ -268,9 +268,7 @@ func (i LogSubscriptionFilterMap) ToLogSubscriptionFilterMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LogSubscriptionFilterMapOutput)
 }
 
-type LogSubscriptionFilterOutput struct {
-	*pulumi.OutputState
-}
+type LogSubscriptionFilterOutput struct{ *pulumi.OutputState }
 
 func (LogSubscriptionFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogSubscriptionFilter)(nil))
@@ -289,14 +287,12 @@ func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterPtrOutput() LogSubsc
 }
 
 func (o LogSubscriptionFilterOutput) ToLogSubscriptionFilterPtrOutputWithContext(ctx context.Context) LogSubscriptionFilterPtrOutput {
-	return o.ApplyT(func(v LogSubscriptionFilter) *LogSubscriptionFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogSubscriptionFilter) *LogSubscriptionFilter {
 		return &v
 	}).(LogSubscriptionFilterPtrOutput)
 }
 
-type LogSubscriptionFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogSubscriptionFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (LogSubscriptionFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogSubscriptionFilter)(nil))
@@ -308,6 +304,16 @@ func (o LogSubscriptionFilterPtrOutput) ToLogSubscriptionFilterPtrOutput() LogSu
 
 func (o LogSubscriptionFilterPtrOutput) ToLogSubscriptionFilterPtrOutputWithContext(ctx context.Context) LogSubscriptionFilterPtrOutput {
 	return o
+}
+
+func (o LogSubscriptionFilterPtrOutput) Elem() LogSubscriptionFilterOutput {
+	return o.ApplyT(func(v *LogSubscriptionFilter) LogSubscriptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret LogSubscriptionFilter
+		return ret
+	}).(LogSubscriptionFilterOutput)
 }
 
 type LogSubscriptionFilterArrayOutput struct{ *pulumi.OutputState }

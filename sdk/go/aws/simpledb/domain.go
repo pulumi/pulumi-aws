@@ -202,9 +202,7 @@ func (i DomainMap) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMapOutput)
 }
 
-type DomainOutput struct {
-	*pulumi.OutputState
-}
+type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Domain)(nil))
@@ -223,14 +221,12 @@ func (o DomainOutput) ToDomainPtrOutput() DomainPtrOutput {
 }
 
 func (o DomainOutput) ToDomainPtrOutputWithContext(ctx context.Context) DomainPtrOutput {
-	return o.ApplyT(func(v Domain) *Domain {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Domain) *Domain {
 		return &v
 	}).(DomainPtrOutput)
 }
 
-type DomainPtrOutput struct {
-	*pulumi.OutputState
-}
+type DomainPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Domain)(nil))
@@ -242,6 +238,16 @@ func (o DomainPtrOutput) ToDomainPtrOutput() DomainPtrOutput {
 
 func (o DomainPtrOutput) ToDomainPtrOutputWithContext(ctx context.Context) DomainPtrOutput {
 	return o
+}
+
+func (o DomainPtrOutput) Elem() DomainOutput {
+	return o.ApplyT(func(v *Domain) Domain {
+		if v != nil {
+			return *v
+		}
+		var ret Domain
+		return ret
+	}).(DomainOutput)
 }
 
 type DomainArrayOutput struct{ *pulumi.OutputState }

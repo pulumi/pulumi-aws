@@ -260,9 +260,7 @@ func (i RouteResponseMap) ToRouteResponseMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RouteResponseMapOutput)
 }
 
-type RouteResponseOutput struct {
-	*pulumi.OutputState
-}
+type RouteResponseOutput struct{ *pulumi.OutputState }
 
 func (RouteResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RouteResponse)(nil))
@@ -281,14 +279,12 @@ func (o RouteResponseOutput) ToRouteResponsePtrOutput() RouteResponsePtrOutput {
 }
 
 func (o RouteResponseOutput) ToRouteResponsePtrOutputWithContext(ctx context.Context) RouteResponsePtrOutput {
-	return o.ApplyT(func(v RouteResponse) *RouteResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouteResponse) *RouteResponse {
 		return &v
 	}).(RouteResponsePtrOutput)
 }
 
-type RouteResponsePtrOutput struct {
-	*pulumi.OutputState
-}
+type RouteResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (RouteResponsePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RouteResponse)(nil))
@@ -300,6 +296,16 @@ func (o RouteResponsePtrOutput) ToRouteResponsePtrOutput() RouteResponsePtrOutpu
 
 func (o RouteResponsePtrOutput) ToRouteResponsePtrOutputWithContext(ctx context.Context) RouteResponsePtrOutput {
 	return o
+}
+
+func (o RouteResponsePtrOutput) Elem() RouteResponseOutput {
+	return o.ApplyT(func(v *RouteResponse) RouteResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RouteResponse
+		return ret
+	}).(RouteResponseOutput)
 }
 
 type RouteResponseArrayOutput struct{ *pulumi.OutputState }

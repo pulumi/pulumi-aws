@@ -546,9 +546,7 @@ func (i WebAclMap) ToWebAclMapOutputWithContext(ctx context.Context) WebAclMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclMapOutput)
 }
 
-type WebAclOutput struct {
-	*pulumi.OutputState
-}
+type WebAclOutput struct{ *pulumi.OutputState }
 
 func (WebAclOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*WebAcl)(nil))
@@ -567,14 +565,12 @@ func (o WebAclOutput) ToWebAclPtrOutput() WebAclPtrOutput {
 }
 
 func (o WebAclOutput) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
-	return o.ApplyT(func(v WebAcl) *WebAcl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAcl) *WebAcl {
 		return &v
 	}).(WebAclPtrOutput)
 }
 
-type WebAclPtrOutput struct {
-	*pulumi.OutputState
-}
+type WebAclPtrOutput struct{ *pulumi.OutputState }
 
 func (WebAclPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**WebAcl)(nil))
@@ -586,6 +582,16 @@ func (o WebAclPtrOutput) ToWebAclPtrOutput() WebAclPtrOutput {
 
 func (o WebAclPtrOutput) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
 	return o
+}
+
+func (o WebAclPtrOutput) Elem() WebAclOutput {
+	return o.ApplyT(func(v *WebAcl) WebAcl {
+		if v != nil {
+			return *v
+		}
+		var ret WebAcl
+		return ret
+	}).(WebAclOutput)
 }
 
 type WebAclArrayOutput struct{ *pulumi.OutputState }

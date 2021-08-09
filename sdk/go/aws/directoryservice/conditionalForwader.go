@@ -239,9 +239,7 @@ func (i ConditionalForwaderMap) ToConditionalForwaderMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConditionalForwaderMapOutput)
 }
 
-type ConditionalForwaderOutput struct {
-	*pulumi.OutputState
-}
+type ConditionalForwaderOutput struct{ *pulumi.OutputState }
 
 func (ConditionalForwaderOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConditionalForwader)(nil))
@@ -260,14 +258,12 @@ func (o ConditionalForwaderOutput) ToConditionalForwaderPtrOutput() ConditionalF
 }
 
 func (o ConditionalForwaderOutput) ToConditionalForwaderPtrOutputWithContext(ctx context.Context) ConditionalForwaderPtrOutput {
-	return o.ApplyT(func(v ConditionalForwader) *ConditionalForwader {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionalForwader) *ConditionalForwader {
 		return &v
 	}).(ConditionalForwaderPtrOutput)
 }
 
-type ConditionalForwaderPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConditionalForwaderPtrOutput struct{ *pulumi.OutputState }
 
 func (ConditionalForwaderPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConditionalForwader)(nil))
@@ -279,6 +275,16 @@ func (o ConditionalForwaderPtrOutput) ToConditionalForwaderPtrOutput() Condition
 
 func (o ConditionalForwaderPtrOutput) ToConditionalForwaderPtrOutputWithContext(ctx context.Context) ConditionalForwaderPtrOutput {
 	return o
+}
+
+func (o ConditionalForwaderPtrOutput) Elem() ConditionalForwaderOutput {
+	return o.ApplyT(func(v *ConditionalForwader) ConditionalForwader {
+		if v != nil {
+			return *v
+		}
+		var ret ConditionalForwader
+		return ret
+	}).(ConditionalForwaderOutput)
 }
 
 type ConditionalForwaderArrayOutput struct{ *pulumi.OutputState }

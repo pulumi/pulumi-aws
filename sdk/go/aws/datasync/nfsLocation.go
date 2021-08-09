@@ -281,9 +281,7 @@ func (i NfsLocationMap) ToNfsLocationMapOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NfsLocationMapOutput)
 }
 
-type NfsLocationOutput struct {
-	*pulumi.OutputState
-}
+type NfsLocationOutput struct{ *pulumi.OutputState }
 
 func (NfsLocationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NfsLocation)(nil))
@@ -302,14 +300,12 @@ func (o NfsLocationOutput) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
 }
 
 func (o NfsLocationOutput) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
-	return o.ApplyT(func(v NfsLocation) *NfsLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsLocation) *NfsLocation {
 		return &v
 	}).(NfsLocationPtrOutput)
 }
 
-type NfsLocationPtrOutput struct {
-	*pulumi.OutputState
-}
+type NfsLocationPtrOutput struct{ *pulumi.OutputState }
 
 func (NfsLocationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NfsLocation)(nil))
@@ -321,6 +317,16 @@ func (o NfsLocationPtrOutput) ToNfsLocationPtrOutput() NfsLocationPtrOutput {
 
 func (o NfsLocationPtrOutput) ToNfsLocationPtrOutputWithContext(ctx context.Context) NfsLocationPtrOutput {
 	return o
+}
+
+func (o NfsLocationPtrOutput) Elem() NfsLocationOutput {
+	return o.ApplyT(func(v *NfsLocation) NfsLocation {
+		if v != nil {
+			return *v
+		}
+		var ret NfsLocation
+		return ret
+	}).(NfsLocationOutput)
 }
 
 type NfsLocationArrayOutput struct{ *pulumi.OutputState }

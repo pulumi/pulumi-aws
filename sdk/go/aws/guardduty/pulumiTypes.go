@@ -103,7 +103,7 @@ func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutput() DetectorData
 }
 
 func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesPtrOutput {
-	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasources) *DetectorDatasources {
 		return &v
 	}).(DetectorDatasourcesPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o DetectorDatasourcesPtrOutput) ToDetectorDatasourcesPtrOutputWithContext(
 }
 
 func (o DetectorDatasourcesPtrOutput) Elem() DetectorDatasourcesOutput {
-	return o.ApplyT(func(v *DetectorDatasources) DetectorDatasources { return *v }).(DetectorDatasourcesOutput)
+	return o.ApplyT(func(v *DetectorDatasources) DetectorDatasources {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasources
+		return ret
+	}).(DetectorDatasourcesOutput)
 }
 
 // Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
@@ -234,7 +240,7 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutput() 
 }
 
 func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesS3LogsPtrOutput {
-	return o.ApplyT(func(v DetectorDatasourcesS3Logs) *DetectorDatasourcesS3Logs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesS3Logs) *DetectorDatasourcesS3Logs {
 		return &v
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
@@ -259,7 +265,13 @@ func (o DetectorDatasourcesS3LogsPtrOutput) ToDetectorDatasourcesS3LogsPtrOutput
 }
 
 func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutput {
-	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) DetectorDatasourcesS3Logs { return *v }).(DetectorDatasourcesS3LogsOutput)
+	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) DetectorDatasourcesS3Logs {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesS3Logs
+		return ret
+	}).(DetectorDatasourcesS3LogsOutput)
 }
 
 // If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
@@ -363,10 +375,11 @@ func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaPtrOutput() FilterFi
 }
 
 func (o FilterFindingCriteriaOutput) ToFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FilterFindingCriteriaPtrOutput {
-	return o.ApplyT(func(v FilterFindingCriteria) *FilterFindingCriteria {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterFindingCriteria) *FilterFindingCriteria {
 		return &v
 	}).(FilterFindingCriteriaPtrOutput)
 }
+
 func (o FilterFindingCriteriaOutput) Criterions() FilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FilterFindingCriteria) []FilterFindingCriteriaCriterion { return v.Criterions }).(FilterFindingCriteriaCriterionArrayOutput)
 }
@@ -386,7 +399,13 @@ func (o FilterFindingCriteriaPtrOutput) ToFilterFindingCriteriaPtrOutputWithCont
 }
 
 func (o FilterFindingCriteriaPtrOutput) Elem() FilterFindingCriteriaOutput {
-	return o.ApplyT(func(v *FilterFindingCriteria) FilterFindingCriteria { return *v }).(FilterFindingCriteriaOutput)
+	return o.ApplyT(func(v *FilterFindingCriteria) FilterFindingCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret FilterFindingCriteria
+		return ret
+	}).(FilterFindingCriteriaOutput)
 }
 
 func (o FilterFindingCriteriaPtrOutput) Criterions() FilterFindingCriteriaCriterionArrayOutput {
@@ -642,7 +661,7 @@ func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationD
 }
 
 func (o OrganizationConfigurationDatasourcesOutput) ToOrganizationConfigurationDatasourcesPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasources {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasources) *OrganizationConfigurationDatasources {
 		return &v
 	}).(OrganizationConfigurationDatasourcesPtrOutput)
 }
@@ -669,7 +688,13 @@ func (o OrganizationConfigurationDatasourcesPtrOutput) ToOrganizationConfigurati
 }
 
 func (o OrganizationConfigurationDatasourcesPtrOutput) Elem() OrganizationConfigurationDatasourcesOutput {
-	return o.ApplyT(func(v *OrganizationConfigurationDatasources) OrganizationConfigurationDatasources { return *v }).(OrganizationConfigurationDatasourcesOutput)
+	return o.ApplyT(func(v *OrganizationConfigurationDatasources) OrganizationConfigurationDatasources {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasources
+		return ret
+	}).(OrganizationConfigurationDatasourcesOutput)
 }
 
 // Configuration for the builds to store logs to S3.
@@ -775,7 +800,7 @@ func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigur
 }
 
 func (o OrganizationConfigurationDatasourcesS3LogsOutput) ToOrganizationConfigurationDatasourcesS3LogsPtrOutputWithContext(ctx context.Context) OrganizationConfigurationDatasourcesS3LogsPtrOutput {
-	return o.ApplyT(func(v OrganizationConfigurationDatasourcesS3Logs) *OrganizationConfigurationDatasourcesS3Logs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationDatasourcesS3Logs) *OrganizationConfigurationDatasourcesS3Logs {
 		return &v
 	}).(OrganizationConfigurationDatasourcesS3LogsPtrOutput)
 }
@@ -801,7 +826,11 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) ToOrganizationConfi
 
 func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) Elem() OrganizationConfigurationDatasourcesS3LogsOutput {
 	return o.ApplyT(func(v *OrganizationConfigurationDatasourcesS3Logs) OrganizationConfigurationDatasourcesS3Logs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationDatasourcesS3Logs
+		return ret
 	}).(OrganizationConfigurationDatasourcesS3LogsOutput)
 }
 

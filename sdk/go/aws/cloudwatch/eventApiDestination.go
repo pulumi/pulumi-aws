@@ -276,9 +276,7 @@ func (i EventApiDestinationMap) ToEventApiDestinationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventApiDestinationMapOutput)
 }
 
-type EventApiDestinationOutput struct {
-	*pulumi.OutputState
-}
+type EventApiDestinationOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventApiDestination)(nil))
@@ -297,14 +295,12 @@ func (o EventApiDestinationOutput) ToEventApiDestinationPtrOutput() EventApiDest
 }
 
 func (o EventApiDestinationOutput) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
-	return o.ApplyT(func(v EventApiDestination) *EventApiDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventApiDestination) *EventApiDestination {
 		return &v
 	}).(EventApiDestinationPtrOutput)
 }
 
-type EventApiDestinationPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventApiDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (EventApiDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventApiDestination)(nil))
@@ -316,6 +312,16 @@ func (o EventApiDestinationPtrOutput) ToEventApiDestinationPtrOutput() EventApiD
 
 func (o EventApiDestinationPtrOutput) ToEventApiDestinationPtrOutputWithContext(ctx context.Context) EventApiDestinationPtrOutput {
 	return o
+}
+
+func (o EventApiDestinationPtrOutput) Elem() EventApiDestinationOutput {
+	return o.ApplyT(func(v *EventApiDestination) EventApiDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventApiDestination
+		return ret
+	}).(EventApiDestinationOutput)
 }
 
 type EventApiDestinationArrayOutput struct{ *pulumi.OutputState }

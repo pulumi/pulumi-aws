@@ -301,9 +301,7 @@ func (i CustomDataIdentifierMap) ToCustomDataIdentifierMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomDataIdentifierMapOutput)
 }
 
-type CustomDataIdentifierOutput struct {
-	*pulumi.OutputState
-}
+type CustomDataIdentifierOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CustomDataIdentifier)(nil))
@@ -322,14 +320,12 @@ func (o CustomDataIdentifierOutput) ToCustomDataIdentifierPtrOutput() CustomData
 }
 
 func (o CustomDataIdentifierOutput) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
-	return o.ApplyT(func(v CustomDataIdentifier) *CustomDataIdentifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDataIdentifier) *CustomDataIdentifier {
 		return &v
 	}).(CustomDataIdentifierPtrOutput)
 }
 
-type CustomDataIdentifierPtrOutput struct {
-	*pulumi.OutputState
-}
+type CustomDataIdentifierPtrOutput struct{ *pulumi.OutputState }
 
 func (CustomDataIdentifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CustomDataIdentifier)(nil))
@@ -341,6 +337,16 @@ func (o CustomDataIdentifierPtrOutput) ToCustomDataIdentifierPtrOutput() CustomD
 
 func (o CustomDataIdentifierPtrOutput) ToCustomDataIdentifierPtrOutputWithContext(ctx context.Context) CustomDataIdentifierPtrOutput {
 	return o
+}
+
+func (o CustomDataIdentifierPtrOutput) Elem() CustomDataIdentifierOutput {
+	return o.ApplyT(func(v *CustomDataIdentifier) CustomDataIdentifier {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDataIdentifier
+		return ret
+	}).(CustomDataIdentifierOutput)
 }
 
 type CustomDataIdentifierArrayOutput struct{ *pulumi.OutputState }

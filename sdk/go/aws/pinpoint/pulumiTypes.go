@@ -111,7 +111,7 @@ func (o AppCampaignHookOutput) ToAppCampaignHookPtrOutput() AppCampaignHookPtrOu
 }
 
 func (o AppCampaignHookOutput) ToAppCampaignHookPtrOutputWithContext(ctx context.Context) AppCampaignHookPtrOutput {
-	return o.ApplyT(func(v AppCampaignHook) *AppCampaignHook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppCampaignHook) *AppCampaignHook {
 		return &v
 	}).(AppCampaignHookPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AppCampaignHookPtrOutput) ToAppCampaignHookPtrOutputWithContext(ctx cont
 }
 
 func (o AppCampaignHookPtrOutput) Elem() AppCampaignHookOutput {
-	return o.ApplyT(func(v *AppCampaignHook) AppCampaignHook { return *v }).(AppCampaignHookOutput)
+	return o.ApplyT(func(v *AppCampaignHook) AppCampaignHook {
+		if v != nil {
+			return *v
+		}
+		var ret AppCampaignHook
+		return ret
+	}).(AppCampaignHookOutput)
 }
 
 // Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
@@ -284,7 +290,7 @@ func (o AppLimitsOutput) ToAppLimitsPtrOutput() AppLimitsPtrOutput {
 }
 
 func (o AppLimitsOutput) ToAppLimitsPtrOutputWithContext(ctx context.Context) AppLimitsPtrOutput {
-	return o.ApplyT(func(v AppLimits) *AppLimits {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppLimits) *AppLimits {
 		return &v
 	}).(AppLimitsPtrOutput)
 }
@@ -324,7 +330,13 @@ func (o AppLimitsPtrOutput) ToAppLimitsPtrOutputWithContext(ctx context.Context)
 }
 
 func (o AppLimitsPtrOutput) Elem() AppLimitsOutput {
-	return o.ApplyT(func(v *AppLimits) AppLimits { return *v }).(AppLimitsOutput)
+	return o.ApplyT(func(v *AppLimits) AppLimits {
+		if v != nil {
+			return *v
+		}
+		var ret AppLimits
+		return ret
+	}).(AppLimitsOutput)
 }
 
 // The maximum number of messages that the campaign can send daily.
@@ -464,7 +476,7 @@ func (o AppQuietTimeOutput) ToAppQuietTimePtrOutput() AppQuietTimePtrOutput {
 }
 
 func (o AppQuietTimeOutput) ToAppQuietTimePtrOutputWithContext(ctx context.Context) AppQuietTimePtrOutput {
-	return o.ApplyT(func(v AppQuietTime) *AppQuietTime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppQuietTime) *AppQuietTime {
 		return &v
 	}).(AppQuietTimePtrOutput)
 }
@@ -494,7 +506,13 @@ func (o AppQuietTimePtrOutput) ToAppQuietTimePtrOutputWithContext(ctx context.Co
 }
 
 func (o AppQuietTimePtrOutput) Elem() AppQuietTimeOutput {
-	return o.ApplyT(func(v *AppQuietTime) AppQuietTime { return *v }).(AppQuietTimeOutput)
+	return o.ApplyT(func(v *AppQuietTime) AppQuietTime {
+		if v != nil {
+			return *v
+		}
+		var ret AppQuietTime
+		return ret
+	}).(AppQuietTimeOutput)
 }
 
 // The default end time for quiet time in ISO 8601 format. Required if `start` is set

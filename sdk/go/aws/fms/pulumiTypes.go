@@ -105,7 +105,7 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutput() PolicyExcludeMapPt
 }
 
 func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx context.Context) PolicyExcludeMapPtrOutput {
-	return o.ApplyT(func(v PolicyExcludeMap) *PolicyExcludeMap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyExcludeMap) *PolicyExcludeMap {
 		return &v
 	}).(PolicyExcludeMapPtrOutput)
 }
@@ -134,7 +134,13 @@ func (o PolicyExcludeMapPtrOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx co
 }
 
 func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
-	return o.ApplyT(func(v *PolicyExcludeMap) PolicyExcludeMap { return *v }).(PolicyExcludeMapOutput)
+	return o.ApplyT(func(v *PolicyExcludeMap) PolicyExcludeMap {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyExcludeMap
+		return ret
+	}).(PolicyExcludeMapOutput)
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -251,7 +257,7 @@ func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutput() PolicyIncludeMapPt
 }
 
 func (o PolicyIncludeMapOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx context.Context) PolicyIncludeMapPtrOutput {
-	return o.ApplyT(func(v PolicyIncludeMap) *PolicyIncludeMap {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyIncludeMap) *PolicyIncludeMap {
 		return &v
 	}).(PolicyIncludeMapPtrOutput)
 }
@@ -280,7 +286,13 @@ func (o PolicyIncludeMapPtrOutput) ToPolicyIncludeMapPtrOutputWithContext(ctx co
 }
 
 func (o PolicyIncludeMapPtrOutput) Elem() PolicyIncludeMapOutput {
-	return o.ApplyT(func(v *PolicyIncludeMap) PolicyIncludeMap { return *v }).(PolicyIncludeMapOutput)
+	return o.ApplyT(func(v *PolicyIncludeMap) PolicyIncludeMap {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyIncludeMap
+		return ret
+	}).(PolicyIncludeMapOutput)
 }
 
 // A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
@@ -399,7 +411,7 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 }
 
 func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
-	return o.ApplyT(func(v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyData {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyData {
 		return &v
 	}).(PolicySecurityServicePolicyDataPtrOutput)
 }
@@ -429,7 +441,13 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyD
 }
 
 func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {
-	return o.ApplyT(func(v *PolicySecurityServicePolicyData) PolicySecurityServicePolicyData { return *v }).(PolicySecurityServicePolicyDataOutput)
+	return o.ApplyT(func(v *PolicySecurityServicePolicyData) PolicySecurityServicePolicyData {
+		if v != nil {
+			return *v
+		}
+		var ret PolicySecurityServicePolicyData
+		return ret
+	}).(PolicySecurityServicePolicyDataOutput)
 }
 
 // Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).

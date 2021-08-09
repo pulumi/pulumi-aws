@@ -227,9 +227,7 @@ func (i VpcEndpointServiceAllowedPrincipleMap) ToVpcEndpointServiceAllowedPrinci
 	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServiceAllowedPrincipleMapOutput)
 }
 
-type VpcEndpointServiceAllowedPrincipleOutput struct {
-	*pulumi.OutputState
-}
+type VpcEndpointServiceAllowedPrincipleOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointServiceAllowedPrincipleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpcEndpointServiceAllowedPrinciple)(nil))
@@ -248,14 +246,12 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 }
 
 func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
-	return o.ApplyT(func(v VpcEndpointServiceAllowedPrinciple) *VpcEndpointServiceAllowedPrinciple {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointServiceAllowedPrinciple) *VpcEndpointServiceAllowedPrinciple {
 		return &v
 	}).(VpcEndpointServiceAllowedPrinciplePtrOutput)
 }
 
-type VpcEndpointServiceAllowedPrinciplePtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcEndpointServiceAllowedPrinciplePtrOutput struct{ *pulumi.OutputState }
 
 func (VpcEndpointServiceAllowedPrinciplePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpcEndpointServiceAllowedPrinciple)(nil))
@@ -267,6 +263,16 @@ func (o VpcEndpointServiceAllowedPrinciplePtrOutput) ToVpcEndpointServiceAllowed
 
 func (o VpcEndpointServiceAllowedPrinciplePtrOutput) ToVpcEndpointServiceAllowedPrinciplePtrOutputWithContext(ctx context.Context) VpcEndpointServiceAllowedPrinciplePtrOutput {
 	return o
+}
+
+func (o VpcEndpointServiceAllowedPrinciplePtrOutput) Elem() VpcEndpointServiceAllowedPrincipleOutput {
+	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) VpcEndpointServiceAllowedPrinciple {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointServiceAllowedPrinciple
+		return ret
+	}).(VpcEndpointServiceAllowedPrincipleOutput)
 }
 
 type VpcEndpointServiceAllowedPrincipleArrayOutput struct{ *pulumi.OutputState }

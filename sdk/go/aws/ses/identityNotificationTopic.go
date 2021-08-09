@@ -244,9 +244,7 @@ func (i IdentityNotificationTopicMap) ToIdentityNotificationTopicMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityNotificationTopicMapOutput)
 }
 
-type IdentityNotificationTopicOutput struct {
-	*pulumi.OutputState
-}
+type IdentityNotificationTopicOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityNotificationTopic)(nil))
@@ -265,14 +263,12 @@ func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicPtrOutput() 
 }
 
 func (o IdentityNotificationTopicOutput) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
-	return o.ApplyT(func(v IdentityNotificationTopic) *IdentityNotificationTopic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityNotificationTopic) *IdentityNotificationTopic {
 		return &v
 	}).(IdentityNotificationTopicPtrOutput)
 }
 
-type IdentityNotificationTopicPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityNotificationTopicPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityNotificationTopicPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityNotificationTopic)(nil))
@@ -284,6 +280,16 @@ func (o IdentityNotificationTopicPtrOutput) ToIdentityNotificationTopicPtrOutput
 
 func (o IdentityNotificationTopicPtrOutput) ToIdentityNotificationTopicPtrOutputWithContext(ctx context.Context) IdentityNotificationTopicPtrOutput {
 	return o
+}
+
+func (o IdentityNotificationTopicPtrOutput) Elem() IdentityNotificationTopicOutput {
+	return o.ApplyT(func(v *IdentityNotificationTopic) IdentityNotificationTopic {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityNotificationTopic
+		return ret
+	}).(IdentityNotificationTopicOutput)
 }
 
 type IdentityNotificationTopicArrayOutput struct{ *pulumi.OutputState }

@@ -111,7 +111,7 @@ func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrO
 }
 
 func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsPtrOutput {
-	return o.ApplyT(func(v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptions) *DomainAdvancedSecurityOptions {
 		return &v
 	}).(DomainAdvancedSecurityOptionsPtrOutput)
 }
@@ -148,7 +148,13 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) ToDomainAdvancedSecurityOptionsP
 }
 
 func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsOutput {
-	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) DomainAdvancedSecurityOptions { return *v }).(DomainAdvancedSecurityOptionsOutput)
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) DomainAdvancedSecurityOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAdvancedSecurityOptions
+		return ret
+	}).(DomainAdvancedSecurityOptionsOutput)
 }
 
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
@@ -282,7 +288,7 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSe
 }
 
 func (o DomainAdvancedSecurityOptionsMasterUserOptionsOutput) ToDomainAdvancedSecurityOptionsMasterUserOptionsPtrOutputWithContext(ctx context.Context) DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput {
-	return o.ApplyT(func(v DomainAdvancedSecurityOptionsMasterUserOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAdvancedSecurityOptionsMasterUserOptions) *DomainAdvancedSecurityOptionsMasterUserOptions {
 		return &v
 	}).(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput)
 }
@@ -318,7 +324,11 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) ToDomainAdvance
 
 func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) Elem() DomainAdvancedSecurityOptionsMasterUserOptionsOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsMasterUserOptions) DomainAdvancedSecurityOptionsMasterUserOptions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainAdvancedSecurityOptionsMasterUserOptions
+		return ret
 	}).(DomainAdvancedSecurityOptionsMasterUserOptionsOutput)
 }
 
@@ -481,7 +491,7 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutput() DomainCluste
 }
 
 func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfig) *DomainClusterConfig {
 		return &v
 	}).(DomainClusterConfigPtrOutput)
 }
@@ -551,7 +561,13 @@ func (o DomainClusterConfigPtrOutput) ToDomainClusterConfigPtrOutputWithContext(
 }
 
 func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
-	return o.ApplyT(func(v *DomainClusterConfig) DomainClusterConfig { return *v }).(DomainClusterConfigOutput)
+	return o.ApplyT(func(v *DomainClusterConfig) DomainClusterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainClusterConfig
+		return ret
+	}).(DomainClusterConfigOutput)
 }
 
 // Number of dedicated main nodes in the cluster.
@@ -747,7 +763,7 @@ func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneA
 }
 
 func (o DomainClusterConfigZoneAwarenessConfigOutput) ToDomainClusterConfigZoneAwarenessConfigPtrOutputWithContext(ctx context.Context) DomainClusterConfigZoneAwarenessConfigPtrOutput {
-	return o.ApplyT(func(v DomainClusterConfigZoneAwarenessConfig) *DomainClusterConfigZoneAwarenessConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfigZoneAwarenessConfig) *DomainClusterConfigZoneAwarenessConfig {
 		return &v
 	}).(DomainClusterConfigZoneAwarenessConfigPtrOutput)
 }
@@ -772,7 +788,13 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) ToDomainClusterConfigZo
 }
 
 func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) Elem() DomainClusterConfigZoneAwarenessConfigOutput {
-	return o.ApplyT(func(v *DomainClusterConfigZoneAwarenessConfig) DomainClusterConfigZoneAwarenessConfig { return *v }).(DomainClusterConfigZoneAwarenessConfigOutput)
+	return o.ApplyT(func(v *DomainClusterConfigZoneAwarenessConfig) DomainClusterConfigZoneAwarenessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainClusterConfigZoneAwarenessConfig
+		return ret
+	}).(DomainClusterConfigZoneAwarenessConfigOutput)
 }
 
 // Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
@@ -890,7 +912,7 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutput() DomainCogn
 }
 
 func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(ctx context.Context) DomainCognitoOptionsPtrOutput {
-	return o.ApplyT(func(v DomainCognitoOptions) *DomainCognitoOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainCognitoOptions) *DomainCognitoOptions {
 		return &v
 	}).(DomainCognitoOptionsPtrOutput)
 }
@@ -930,7 +952,13 @@ func (o DomainCognitoOptionsPtrOutput) ToDomainCognitoOptionsPtrOutputWithContex
 }
 
 func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
-	return o.ApplyT(func(v *DomainCognitoOptions) DomainCognitoOptions { return *v }).(DomainCognitoOptionsOutput)
+	return o.ApplyT(func(v *DomainCognitoOptions) DomainCognitoOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainCognitoOptions
+		return ret
+	}).(DomainCognitoOptionsOutput)
 }
 
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
@@ -1080,7 +1108,7 @@ func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutpu
 }
 
 func (o DomainDomainEndpointOptionsOutput) ToDomainDomainEndpointOptionsPtrOutputWithContext(ctx context.Context) DomainDomainEndpointOptionsPtrOutput {
-	return o.ApplyT(func(v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainEndpointOptions) *DomainDomainEndpointOptions {
 		return &v
 	}).(DomainDomainEndpointOptionsPtrOutput)
 }
@@ -1124,7 +1152,13 @@ func (o DomainDomainEndpointOptionsPtrOutput) ToDomainDomainEndpointOptionsPtrOu
 }
 
 func (o DomainDomainEndpointOptionsPtrOutput) Elem() DomainDomainEndpointOptionsOutput {
-	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions { return *v }).(DomainDomainEndpointOptionsOutput)
+	return o.ApplyT(func(v *DomainDomainEndpointOptions) DomainDomainEndpointOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDomainEndpointOptions
+		return ret
+	}).(DomainDomainEndpointOptionsOutput)
 }
 
 // Fully qualified domain for your custom endpoint.
@@ -1281,7 +1315,7 @@ func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutput() DomainEbsOptionsPt
 }
 
 func (o DomainEbsOptionsOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx context.Context) DomainEbsOptionsPtrOutput {
-	return o.ApplyT(func(v DomainEbsOptions) *DomainEbsOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEbsOptions) *DomainEbsOptions {
 		return &v
 	}).(DomainEbsOptionsPtrOutput)
 }
@@ -1321,7 +1355,13 @@ func (o DomainEbsOptionsPtrOutput) ToDomainEbsOptionsPtrOutputWithContext(ctx co
 }
 
 func (o DomainEbsOptionsPtrOutput) Elem() DomainEbsOptionsOutput {
-	return o.ApplyT(func(v *DomainEbsOptions) DomainEbsOptions { return *v }).(DomainEbsOptionsOutput)
+	return o.ApplyT(func(v *DomainEbsOptions) DomainEbsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainEbsOptions
+		return ret
+	}).(DomainEbsOptionsOutput)
 }
 
 // Whether EBS volumes are attached to data nodes in the domain.
@@ -1461,7 +1501,7 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutput() DomainEncryp
 }
 
 func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx context.Context) DomainEncryptAtRestPtrOutput {
-	return o.ApplyT(func(v DomainEncryptAtRest) *DomainEncryptAtRest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainEncryptAtRest) *DomainEncryptAtRest {
 		return &v
 	}).(DomainEncryptAtRestPtrOutput)
 }
@@ -1491,7 +1531,13 @@ func (o DomainEncryptAtRestPtrOutput) ToDomainEncryptAtRestPtrOutputWithContext(
 }
 
 func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
-	return o.ApplyT(func(v *DomainEncryptAtRest) DomainEncryptAtRest { return *v }).(DomainEncryptAtRestOutput)
+	return o.ApplyT(func(v *DomainEncryptAtRest) DomainEncryptAtRest {
+		if v != nil {
+			return *v
+		}
+		var ret DomainEncryptAtRest
+		return ret
+	}).(DomainEncryptAtRestOutput)
 }
 
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
@@ -1722,7 +1768,7 @@ func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutput(
 }
 
 func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutputWithContext(ctx context.Context) DomainNodeToNodeEncryptionPtrOutput {
-	return o.ApplyT(func(v DomainNodeToNodeEncryption) *DomainNodeToNodeEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNodeToNodeEncryption) *DomainNodeToNodeEncryption {
 		return &v
 	}).(DomainNodeToNodeEncryptionPtrOutput)
 }
@@ -1747,7 +1793,13 @@ func (o DomainNodeToNodeEncryptionPtrOutput) ToDomainNodeToNodeEncryptionPtrOutp
 }
 
 func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOutput {
-	return o.ApplyT(func(v *DomainNodeToNodeEncryption) DomainNodeToNodeEncryption { return *v }).(DomainNodeToNodeEncryptionOutput)
+	return o.ApplyT(func(v *DomainNodeToNodeEncryption) DomainNodeToNodeEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNodeToNodeEncryption
+		return ret
+	}).(DomainNodeToNodeEncryptionOutput)
 }
 
 // Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
@@ -1877,7 +1929,7 @@ func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsPtrOut
 }
 
 func (o DomainSamlOptionsSamlOptionsOutput) ToDomainSamlOptionsSamlOptionsPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsPtrOutput {
-	return o.ApplyT(func(v DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSamlOptionsSamlOptions) *DomainSamlOptionsSamlOptions {
 		return &v
 	}).(DomainSamlOptionsSamlOptionsPtrOutput)
 }
@@ -1932,7 +1984,13 @@ func (o DomainSamlOptionsSamlOptionsPtrOutput) ToDomainSamlOptionsSamlOptionsPtr
 }
 
 func (o DomainSamlOptionsSamlOptionsPtrOutput) Elem() DomainSamlOptionsSamlOptionsOutput {
-	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) DomainSamlOptionsSamlOptions { return *v }).(DomainSamlOptionsSamlOptionsOutput)
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptions) DomainSamlOptionsSamlOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSamlOptionsSamlOptions
+		return ret
+	}).(DomainSamlOptionsSamlOptionsOutput)
 }
 
 // Whether SAML authentication is enabled.
@@ -2102,7 +2160,7 @@ func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdp
 }
 
 func (o DomainSamlOptionsSamlOptionsIdpOutput) ToDomainSamlOptionsSamlOptionsIdpPtrOutputWithContext(ctx context.Context) DomainSamlOptionsSamlOptionsIdpPtrOutput {
-	return o.ApplyT(func(v DomainSamlOptionsSamlOptionsIdp) *DomainSamlOptionsSamlOptionsIdp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSamlOptionsSamlOptionsIdp) *DomainSamlOptionsSamlOptionsIdp {
 		return &v
 	}).(DomainSamlOptionsSamlOptionsIdpPtrOutput)
 }
@@ -2132,7 +2190,13 @@ func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) ToDomainSamlOptionsSamlOptions
 }
 
 func (o DomainSamlOptionsSamlOptionsIdpPtrOutput) Elem() DomainSamlOptionsSamlOptionsIdpOutput {
-	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) DomainSamlOptionsSamlOptionsIdp { return *v }).(DomainSamlOptionsSamlOptionsIdpOutput)
+	return o.ApplyT(func(v *DomainSamlOptionsSamlOptionsIdp) DomainSamlOptionsSamlOptionsIdp {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSamlOptionsSamlOptionsIdp
+		return ret
+	}).(DomainSamlOptionsSamlOptionsIdpOutput)
 }
 
 // The unique Entity ID of the application in SAML Identity Provider.
@@ -2248,7 +2312,7 @@ func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutput() DomainSn
 }
 
 func (o DomainSnapshotOptionsOutput) ToDomainSnapshotOptionsPtrOutputWithContext(ctx context.Context) DomainSnapshotOptionsPtrOutput {
-	return o.ApplyT(func(v DomainSnapshotOptions) *DomainSnapshotOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSnapshotOptions) *DomainSnapshotOptions {
 		return &v
 	}).(DomainSnapshotOptionsPtrOutput)
 }
@@ -2273,7 +2337,13 @@ func (o DomainSnapshotOptionsPtrOutput) ToDomainSnapshotOptionsPtrOutputWithCont
 }
 
 func (o DomainSnapshotOptionsPtrOutput) Elem() DomainSnapshotOptionsOutput {
-	return o.ApplyT(func(v *DomainSnapshotOptions) DomainSnapshotOptions { return *v }).(DomainSnapshotOptionsOutput)
+	return o.ApplyT(func(v *DomainSnapshotOptions) DomainSnapshotOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSnapshotOptions
+		return ret
+	}).(DomainSnapshotOptionsOutput)
 }
 
 // Hour during which the service takes an automated daily snapshot of the indices in the domain.
@@ -2387,10 +2457,11 @@ func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutput() DomainVpcOptionsPt
 }
 
 func (o DomainVpcOptionsOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx context.Context) DomainVpcOptionsPtrOutput {
-	return o.ApplyT(func(v DomainVpcOptions) *DomainVpcOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainVpcOptions) *DomainVpcOptions {
 		return &v
 	}).(DomainVpcOptionsPtrOutput)
 }
+
 func (o DomainVpcOptionsOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainVpcOptions) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
@@ -2424,7 +2495,13 @@ func (o DomainVpcOptionsPtrOutput) ToDomainVpcOptionsPtrOutputWithContext(ctx co
 }
 
 func (o DomainVpcOptionsPtrOutput) Elem() DomainVpcOptionsOutput {
-	return o.ApplyT(func(v *DomainVpcOptions) DomainVpcOptions { return *v }).(DomainVpcOptionsOutput)
+	return o.ApplyT(func(v *DomainVpcOptions) DomainVpcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainVpcOptions
+		return ret
+	}).(DomainVpcOptionsOutput)
 }
 
 func (o DomainVpcOptionsPtrOutput) AvailabilityZones() pulumi.StringArrayOutput {

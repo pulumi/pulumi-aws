@@ -255,9 +255,7 @@ func (i PortfolioMap) ToPortfolioMapOutputWithContext(ctx context.Context) Portf
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioMapOutput)
 }
 
-type PortfolioOutput struct {
-	*pulumi.OutputState
-}
+type PortfolioOutput struct{ *pulumi.OutputState }
 
 func (PortfolioOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Portfolio)(nil))
@@ -276,14 +274,12 @@ func (o PortfolioOutput) ToPortfolioPtrOutput() PortfolioPtrOutput {
 }
 
 func (o PortfolioOutput) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
-	return o.ApplyT(func(v Portfolio) *Portfolio {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Portfolio) *Portfolio {
 		return &v
 	}).(PortfolioPtrOutput)
 }
 
-type PortfolioPtrOutput struct {
-	*pulumi.OutputState
-}
+type PortfolioPtrOutput struct{ *pulumi.OutputState }
 
 func (PortfolioPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Portfolio)(nil))
@@ -295,6 +291,16 @@ func (o PortfolioPtrOutput) ToPortfolioPtrOutput() PortfolioPtrOutput {
 
 func (o PortfolioPtrOutput) ToPortfolioPtrOutputWithContext(ctx context.Context) PortfolioPtrOutput {
 	return o
+}
+
+func (o PortfolioPtrOutput) Elem() PortfolioOutput {
+	return o.ApplyT(func(v *Portfolio) Portfolio {
+		if v != nil {
+			return *v
+		}
+		var ret Portfolio
+		return ret
+	}).(PortfolioOutput)
 }
 
 type PortfolioArrayOutput struct{ *pulumi.OutputState }

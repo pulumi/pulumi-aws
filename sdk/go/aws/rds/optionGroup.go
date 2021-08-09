@@ -322,9 +322,7 @@ func (i OptionGroupMap) ToOptionGroupMapOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OptionGroupMapOutput)
 }
 
-type OptionGroupOutput struct {
-	*pulumi.OutputState
-}
+type OptionGroupOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*OptionGroup)(nil))
@@ -343,14 +341,12 @@ func (o OptionGroupOutput) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
 }
 
 func (o OptionGroupOutput) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
-	return o.ApplyT(func(v OptionGroup) *OptionGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptionGroup) *OptionGroup {
 		return &v
 	}).(OptionGroupPtrOutput)
 }
 
-type OptionGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type OptionGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (OptionGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**OptionGroup)(nil))
@@ -362,6 +358,16 @@ func (o OptionGroupPtrOutput) ToOptionGroupPtrOutput() OptionGroupPtrOutput {
 
 func (o OptionGroupPtrOutput) ToOptionGroupPtrOutputWithContext(ctx context.Context) OptionGroupPtrOutput {
 	return o
+}
+
+func (o OptionGroupPtrOutput) Elem() OptionGroupOutput {
+	return o.ApplyT(func(v *OptionGroup) OptionGroup {
+		if v != nil {
+			return *v
+		}
+		var ret OptionGroup
+		return ret
+	}).(OptionGroupOutput)
 }
 
 type OptionGroupArrayOutput struct{ *pulumi.OutputState }

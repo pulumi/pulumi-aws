@@ -115,7 +115,7 @@ func (o HostVpcConfigurationOutput) ToHostVpcConfigurationPtrOutput() HostVpcCon
 }
 
 func (o HostVpcConfigurationOutput) ToHostVpcConfigurationPtrOutputWithContext(ctx context.Context) HostVpcConfigurationPtrOutput {
-	return o.ApplyT(func(v HostVpcConfiguration) *HostVpcConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostVpcConfiguration) *HostVpcConfiguration {
 		return &v
 	}).(HostVpcConfigurationPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o HostVpcConfigurationPtrOutput) ToHostVpcConfigurationPtrOutputWithContex
 }
 
 func (o HostVpcConfigurationPtrOutput) Elem() HostVpcConfigurationOutput {
-	return o.ApplyT(func(v *HostVpcConfiguration) HostVpcConfiguration { return *v }).(HostVpcConfigurationOutput)
+	return o.ApplyT(func(v *HostVpcConfiguration) HostVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret HostVpcConfiguration
+		return ret
+	}).(HostVpcConfigurationOutput)
 }
 
 // he ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.

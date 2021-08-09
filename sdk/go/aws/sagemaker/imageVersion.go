@@ -244,9 +244,7 @@ func (i ImageVersionMap) ToImageVersionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ImageVersionMapOutput)
 }
 
-type ImageVersionOutput struct {
-	*pulumi.OutputState
-}
+type ImageVersionOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ImageVersion)(nil))
@@ -265,14 +263,12 @@ func (o ImageVersionOutput) ToImageVersionPtrOutput() ImageVersionPtrOutput {
 }
 
 func (o ImageVersionOutput) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
-	return o.ApplyT(func(v ImageVersion) *ImageVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageVersion) *ImageVersion {
 		return &v
 	}).(ImageVersionPtrOutput)
 }
 
-type ImageVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ImageVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ImageVersion)(nil))
@@ -284,6 +280,16 @@ func (o ImageVersionPtrOutput) ToImageVersionPtrOutput() ImageVersionPtrOutput {
 
 func (o ImageVersionPtrOutput) ToImageVersionPtrOutputWithContext(ctx context.Context) ImageVersionPtrOutput {
 	return o
+}
+
+func (o ImageVersionPtrOutput) Elem() ImageVersionOutput {
+	return o.ApplyT(func(v *ImageVersion) ImageVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ImageVersion
+		return ret
+	}).(ImageVersionOutput)
 }
 
 type ImageVersionArrayOutput struct{ *pulumi.OutputState }

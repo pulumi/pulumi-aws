@@ -229,9 +229,7 @@ func (i TriggerMap) ToTriggerMapOutputWithContext(ctx context.Context) TriggerMa
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerMapOutput)
 }
 
-type TriggerOutput struct {
-	*pulumi.OutputState
-}
+type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Trigger)(nil))
@@ -250,14 +248,12 @@ func (o TriggerOutput) ToTriggerPtrOutput() TriggerPtrOutput {
 }
 
 func (o TriggerOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return o.ApplyT(func(v Trigger) *Trigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Trigger) *Trigger {
 		return &v
 	}).(TriggerPtrOutput)
 }
 
-type TriggerPtrOutput struct {
-	*pulumi.OutputState
-}
+type TriggerPtrOutput struct{ *pulumi.OutputState }
 
 func (TriggerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Trigger)(nil))
@@ -269,6 +265,16 @@ func (o TriggerPtrOutput) ToTriggerPtrOutput() TriggerPtrOutput {
 
 func (o TriggerPtrOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
 	return o
+}
+
+func (o TriggerPtrOutput) Elem() TriggerOutput {
+	return o.ApplyT(func(v *Trigger) Trigger {
+		if v != nil {
+			return *v
+		}
+		var ret Trigger
+		return ret
+	}).(TriggerOutput)
 }
 
 type TriggerArrayOutput struct{ *pulumi.OutputState }

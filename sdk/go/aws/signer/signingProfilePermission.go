@@ -300,9 +300,7 @@ func (i SigningProfilePermissionMap) ToSigningProfilePermissionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePermissionMapOutput)
 }
 
-type SigningProfilePermissionOutput struct {
-	*pulumi.OutputState
-}
+type SigningProfilePermissionOutput struct{ *pulumi.OutputState }
 
 func (SigningProfilePermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SigningProfilePermission)(nil))
@@ -321,14 +319,12 @@ func (o SigningProfilePermissionOutput) ToSigningProfilePermissionPtrOutput() Si
 }
 
 func (o SigningProfilePermissionOutput) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
-	return o.ApplyT(func(v SigningProfilePermission) *SigningProfilePermission {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningProfilePermission) *SigningProfilePermission {
 		return &v
 	}).(SigningProfilePermissionPtrOutput)
 }
 
-type SigningProfilePermissionPtrOutput struct {
-	*pulumi.OutputState
-}
+type SigningProfilePermissionPtrOutput struct{ *pulumi.OutputState }
 
 func (SigningProfilePermissionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SigningProfilePermission)(nil))
@@ -340,6 +336,16 @@ func (o SigningProfilePermissionPtrOutput) ToSigningProfilePermissionPtrOutput()
 
 func (o SigningProfilePermissionPtrOutput) ToSigningProfilePermissionPtrOutputWithContext(ctx context.Context) SigningProfilePermissionPtrOutput {
 	return o
+}
+
+func (o SigningProfilePermissionPtrOutput) Elem() SigningProfilePermissionOutput {
+	return o.ApplyT(func(v *SigningProfilePermission) SigningProfilePermission {
+		if v != nil {
+			return *v
+		}
+		var ret SigningProfilePermission
+		return ret
+	}).(SigningProfilePermissionOutput)
 }
 
 type SigningProfilePermissionArrayOutput struct{ *pulumi.OutputState }

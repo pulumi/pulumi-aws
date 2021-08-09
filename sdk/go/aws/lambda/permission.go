@@ -333,9 +333,7 @@ func (i PermissionMap) ToPermissionMapOutputWithContext(ctx context.Context) Per
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionMapOutput)
 }
 
-type PermissionOutput struct {
-	*pulumi.OutputState
-}
+type PermissionOutput struct{ *pulumi.OutputState }
 
 func (PermissionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Permission)(nil))
@@ -354,14 +352,12 @@ func (o PermissionOutput) ToPermissionPtrOutput() PermissionPtrOutput {
 }
 
 func (o PermissionOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
-	return o.ApplyT(func(v Permission) *Permission {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Permission) *Permission {
 		return &v
 	}).(PermissionPtrOutput)
 }
 
-type PermissionPtrOutput struct {
-	*pulumi.OutputState
-}
+type PermissionPtrOutput struct{ *pulumi.OutputState }
 
 func (PermissionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Permission)(nil))
@@ -373,6 +369,16 @@ func (o PermissionPtrOutput) ToPermissionPtrOutput() PermissionPtrOutput {
 
 func (o PermissionPtrOutput) ToPermissionPtrOutputWithContext(ctx context.Context) PermissionPtrOutput {
 	return o
+}
+
+func (o PermissionPtrOutput) Elem() PermissionOutput {
+	return o.ApplyT(func(v *Permission) Permission {
+		if v != nil {
+			return *v
+		}
+		var ret Permission
+		return ret
+	}).(PermissionOutput)
 }
 
 type PermissionArrayOutput struct{ *pulumi.OutputState }

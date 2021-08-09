@@ -54,7 +54,7 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         /// </summary>
         [Output("connectionsBandwidth")]
         public Output<string> ConnectionsBandwidth { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class LinkAggregationGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         /// </summary>
         [Input("connectionsBandwidth", required: true)]
         public Input<string> ConnectionsBandwidth { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+        /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         /// </summary>
         [Input("connectionsBandwidth")]
         public Input<string>? ConnectionsBandwidth { get; set; }

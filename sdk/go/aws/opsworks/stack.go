@@ -483,9 +483,7 @@ func (i StackMap) ToStackMapOutputWithContext(ctx context.Context) StackMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StackMapOutput)
 }
 
-type StackOutput struct {
-	*pulumi.OutputState
-}
+type StackOutput struct{ *pulumi.OutputState }
 
 func (StackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Stack)(nil))
@@ -504,14 +502,12 @@ func (o StackOutput) ToStackPtrOutput() StackPtrOutput {
 }
 
 func (o StackOutput) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
-	return o.ApplyT(func(v Stack) *Stack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Stack) *Stack {
 		return &v
 	}).(StackPtrOutput)
 }
 
-type StackPtrOutput struct {
-	*pulumi.OutputState
-}
+type StackPtrOutput struct{ *pulumi.OutputState }
 
 func (StackPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Stack)(nil))
@@ -523,6 +519,16 @@ func (o StackPtrOutput) ToStackPtrOutput() StackPtrOutput {
 
 func (o StackPtrOutput) ToStackPtrOutputWithContext(ctx context.Context) StackPtrOutput {
 	return o
+}
+
+func (o StackPtrOutput) Elem() StackOutput {
+	return o.ApplyT(func(v *Stack) Stack {
+		if v != nil {
+			return *v
+		}
+		var ret Stack
+		return ret
+	}).(StackOutput)
 }
 
 type StackArrayOutput struct{ *pulumi.OutputState }

@@ -115,7 +115,7 @@ func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecyclePt
 }
 
 func (o ApplicationAppversionLifecycleOutput) ToApplicationAppversionLifecyclePtrOutputWithContext(ctx context.Context) ApplicationAppversionLifecyclePtrOutput {
-	return o.ApplyT(func(v ApplicationAppversionLifecycle) *ApplicationAppversionLifecycle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationAppversionLifecycle) *ApplicationAppversionLifecycle {
 		return &v
 	}).(ApplicationAppversionLifecyclePtrOutput)
 }
@@ -155,7 +155,13 @@ func (o ApplicationAppversionLifecyclePtrOutput) ToApplicationAppversionLifecycl
 }
 
 func (o ApplicationAppversionLifecyclePtrOutput) Elem() ApplicationAppversionLifecycleOutput {
-	return o.ApplyT(func(v *ApplicationAppversionLifecycle) ApplicationAppversionLifecycle { return *v }).(ApplicationAppversionLifecycleOutput)
+	return o.ApplyT(func(v *ApplicationAppversionLifecycle) ApplicationAppversionLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationAppversionLifecycle
+		return ret
+	}).(ApplicationAppversionLifecycleOutput)
 }
 
 // Set to `true` to delete a version's source bundle from S3 when the application version is deleted.

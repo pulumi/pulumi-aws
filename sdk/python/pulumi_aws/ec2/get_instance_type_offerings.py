@@ -21,7 +21,7 @@ class GetInstanceTypeOfferingsResult:
     """
     A collection of values returned by getInstanceTypeOfferings.
     """
-    def __init__(__self__, filters=None, id=None, instance_types=None, location_type=None):
+    def __init__(__self__, filters=None, id=None, instance_types=None, location_type=None, location_types=None, locations=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -34,6 +34,12 @@ class GetInstanceTypeOfferingsResult:
         if location_type and not isinstance(location_type, str):
             raise TypeError("Expected argument 'location_type' to be a str")
         pulumi.set(__self__, "location_type", location_type)
+        if location_types and not isinstance(location_types, list):
+            raise TypeError("Expected argument 'location_types' to be a list")
+        pulumi.set(__self__, "location_types", location_types)
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        pulumi.set(__self__, "locations", locations)
 
     @property
     @pulumi.getter
@@ -52,7 +58,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="instanceTypes")
     def instance_types(self) -> Sequence[str]:
         """
-        Set of EC2 Instance Types.
+        List of EC2 Instance Types.
         """
         return pulumi.get(self, "instance_types")
 
@@ -60,6 +66,22 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="locationType")
     def location_type(self) -> Optional[str]:
         return pulumi.get(self, "location_type")
+
+    @property
+    @pulumi.getter(name="locationTypes")
+    def location_types(self) -> Sequence[str]:
+        """
+        List of location types.
+        """
+        return pulumi.get(self, "location_types")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence[str]:
+        """
+        List of locations.
+        """
+        return pulumi.get(self, "locations")
 
 
 class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
@@ -71,7 +93,9 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             filters=self.filters,
             id=self.id,
             instance_types=self.instance_types,
-            location_type=self.location_type)
+            location_type=self.location_type,
+            location_types=self.location_types,
+            locations=self.locations)
 
 
 def get_instance_type_offerings(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingsFilterArgs']]] = None,
@@ -119,4 +143,6 @@ def get_instance_type_offerings(filters: Optional[Sequence[pulumi.InputType['Get
         filters=__ret__.filters,
         id=__ret__.id,
         instance_types=__ret__.instance_types,
-        location_type=__ret__.location_type)
+        location_type=__ret__.location_type,
+        location_types=__ret__.location_types,
+        locations=__ret__.locations)

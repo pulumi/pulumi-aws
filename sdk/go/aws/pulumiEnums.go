@@ -124,7 +124,7 @@ func (o RegionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.S
 type RegionPtrOutput struct{ *pulumi.OutputState }
 
 func (RegionPtrOutput) ElementType() reflect.Type {
-	return regionPtrType
+	return reflect.TypeOf((**Region)(nil)).Elem()
 }
 
 func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
@@ -133,6 +133,16 @@ func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
 
 func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return o
+}
+
+func (o RegionPtrOutput) Elem() RegionOutput {
+	return o.ApplyT(func(v *Region) Region {
+		if v != nil {
+			return *v
+		}
+		var ret Region
+		return ret
+	}).(RegionOutput)
 }
 
 func (o RegionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -147,16 +157,6 @@ func (o RegionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o RegionPtrOutput) Elem() RegionOutput {
-	return o.ApplyT(func(v *Region) Region {
-		var ret Region
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(RegionOutput)
 }
 
 // RegionInput is an input type that accepts RegionArgs and RegionOutput values.

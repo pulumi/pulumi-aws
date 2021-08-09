@@ -24,7 +24,7 @@ class UserArgs:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user.
+        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] user_name: The username of the user.
@@ -52,7 +52,7 @@ class UserArgs:
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Input[str]:
         """
-        Access permissions string used for this user.
+        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         """
         return pulumi.get(self, "access_string")
 
@@ -168,7 +168,7 @@ class _UserState:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user.
+        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
@@ -200,7 +200,7 @@ class _UserState:
     @pulumi.getter(name="accessString")
     def access_string(self) -> Optional[pulumi.Input[str]]:
         """
-        Access permissions string used for this user.
+        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         """
         return pulumi.get(self, "access_string")
 
@@ -344,7 +344,7 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user.
+        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
@@ -463,7 +463,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_string: Access permissions string used for this user.
+        :param pulumi.Input[str] access_string: Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         :param pulumi.Input[str] arn: The ARN of the created ElastiCache User.
         :param pulumi.Input[str] engine: The current supported value is `REDIS`.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user.
@@ -491,7 +491,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="accessString")
     def access_string(self) -> pulumi.Output[str]:
         """
-        Access permissions string used for this user.
+        Access permissions string used for this user. See [Specifying Permissions Using an Access String](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html#Access-string) for more details.
         """
         return pulumi.get(self, "access_string")
 

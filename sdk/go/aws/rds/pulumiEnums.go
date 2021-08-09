@@ -103,7 +103,7 @@ func (o EngineModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type EngineModePtrOutput struct{ *pulumi.OutputState }
 
 func (EngineModePtrOutput) ElementType() reflect.Type {
-	return engineModePtrType
+	return reflect.TypeOf((**EngineMode)(nil)).Elem()
 }
 
 func (o EngineModePtrOutput) ToEngineModePtrOutput() EngineModePtrOutput {
@@ -112,6 +112,16 @@ func (o EngineModePtrOutput) ToEngineModePtrOutput() EngineModePtrOutput {
 
 func (o EngineModePtrOutput) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
 	return o
+}
+
+func (o EngineModePtrOutput) Elem() EngineModeOutput {
+	return o.ApplyT(func(v *EngineMode) EngineMode {
+		if v != nil {
+			return *v
+		}
+		var ret EngineMode
+		return ret
+	}).(EngineModeOutput)
 }
 
 func (o EngineModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -126,16 +136,6 @@ func (o EngineModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o EngineModePtrOutput) Elem() EngineModeOutput {
-	return o.ApplyT(func(v *EngineMode) EngineMode {
-		var ret EngineMode
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(EngineModeOutput)
 }
 
 // EngineModeInput is an input type that accepts EngineModeArgs and EngineModeOutput values.
@@ -268,7 +268,7 @@ func (o EngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 type EngineTypePtrOutput struct{ *pulumi.OutputState }
 
 func (EngineTypePtrOutput) ElementType() reflect.Type {
-	return engineTypePtrType
+	return reflect.TypeOf((**EngineType)(nil)).Elem()
 }
 
 func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
@@ -277,6 +277,16 @@ func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
 
 func (o EngineTypePtrOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
 	return o
+}
+
+func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
+	return o.ApplyT(func(v *EngineType) EngineType {
+		if v != nil {
+			return *v
+		}
+		var ret EngineType
+		return ret
+	}).(EngineTypeOutput)
 }
 
 func (o EngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -291,16 +301,6 @@ func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
-	return o.ApplyT(func(v *EngineType) EngineType {
-		var ret EngineType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(EngineTypeOutput)
 }
 
 // EngineTypeInput is an input type that accepts EngineTypeArgs and EngineTypeOutput values.
@@ -489,7 +489,7 @@ func (o InstanceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 type InstanceTypePtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceTypePtrOutput) ElementType() reflect.Type {
-	return instanceTypePtrType
+	return reflect.TypeOf((**InstanceType)(nil)).Elem()
 }
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
@@ -498,6 +498,16 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
+}
+
+func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
+	return o.ApplyT(func(v *InstanceType) InstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceType
+		return ret
+	}).(InstanceTypeOutput)
 }
 
 func (o InstanceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -512,16 +522,6 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
-	return o.ApplyT(func(v *InstanceType) InstanceType {
-		var ret InstanceType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(InstanceTypeOutput)
 }
 
 // InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
@@ -654,7 +654,7 @@ func (o StorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 type StorageTypePtrOutput struct{ *pulumi.OutputState }
 
 func (StorageTypePtrOutput) ElementType() reflect.Type {
-	return storageTypePtrType
+	return reflect.TypeOf((**StorageType)(nil)).Elem()
 }
 
 func (o StorageTypePtrOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
@@ -663,6 +663,16 @@ func (o StorageTypePtrOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
 
 func (o StorageTypePtrOutput) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
 	return o
+}
+
+func (o StorageTypePtrOutput) Elem() StorageTypeOutput {
+	return o.ApplyT(func(v *StorageType) StorageType {
+		if v != nil {
+			return *v
+		}
+		var ret StorageType
+		return ret
+	}).(StorageTypeOutput)
 }
 
 func (o StorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -677,16 +687,6 @@ func (o StorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageTypePtrOutput) Elem() StorageTypeOutput {
-	return o.ApplyT(func(v *StorageType) StorageType {
-		var ret StorageType
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(StorageTypeOutput)
 }
 
 // StorageTypeInput is an input type that accepts StorageTypeArgs and StorageTypeOutput values.

@@ -362,9 +362,7 @@ func (i FileSystemMap) ToFileSystemMapOutputWithContext(ctx context.Context) Fil
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemMapOutput)
 }
 
-type FileSystemOutput struct {
-	*pulumi.OutputState
-}
+type FileSystemOutput struct{ *pulumi.OutputState }
 
 func (FileSystemOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FileSystem)(nil))
@@ -383,14 +381,12 @@ func (o FileSystemOutput) ToFileSystemPtrOutput() FileSystemPtrOutput {
 }
 
 func (o FileSystemOutput) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
-	return o.ApplyT(func(v FileSystem) *FileSystem {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystem) *FileSystem {
 		return &v
 	}).(FileSystemPtrOutput)
 }
 
-type FileSystemPtrOutput struct {
-	*pulumi.OutputState
-}
+type FileSystemPtrOutput struct{ *pulumi.OutputState }
 
 func (FileSystemPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FileSystem)(nil))
@@ -402,6 +398,16 @@ func (o FileSystemPtrOutput) ToFileSystemPtrOutput() FileSystemPtrOutput {
 
 func (o FileSystemPtrOutput) ToFileSystemPtrOutputWithContext(ctx context.Context) FileSystemPtrOutput {
 	return o
+}
+
+func (o FileSystemPtrOutput) Elem() FileSystemOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystem
+		return ret
+	}).(FileSystemOutput)
 }
 
 type FileSystemArrayOutput struct{ *pulumi.OutputState }

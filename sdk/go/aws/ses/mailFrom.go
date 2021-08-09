@@ -269,9 +269,7 @@ func (i MailFromMap) ToMailFromMapOutputWithContext(ctx context.Context) MailFro
 	return pulumi.ToOutputWithContext(ctx, i).(MailFromMapOutput)
 }
 
-type MailFromOutput struct {
-	*pulumi.OutputState
-}
+type MailFromOutput struct{ *pulumi.OutputState }
 
 func (MailFromOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*MailFrom)(nil))
@@ -290,14 +288,12 @@ func (o MailFromOutput) ToMailFromPtrOutput() MailFromPtrOutput {
 }
 
 func (o MailFromOutput) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
-	return o.ApplyT(func(v MailFrom) *MailFrom {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MailFrom) *MailFrom {
 		return &v
 	}).(MailFromPtrOutput)
 }
 
-type MailFromPtrOutput struct {
-	*pulumi.OutputState
-}
+type MailFromPtrOutput struct{ *pulumi.OutputState }
 
 func (MailFromPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**MailFrom)(nil))
@@ -309,6 +305,16 @@ func (o MailFromPtrOutput) ToMailFromPtrOutput() MailFromPtrOutput {
 
 func (o MailFromPtrOutput) ToMailFromPtrOutputWithContext(ctx context.Context) MailFromPtrOutput {
 	return o
+}
+
+func (o MailFromPtrOutput) Elem() MailFromOutput {
+	return o.ApplyT(func(v *MailFrom) MailFrom {
+		if v != nil {
+			return *v
+		}
+		var ret MailFrom
+		return ret
+	}).(MailFromOutput)
 }
 
 type MailFromArrayOutput struct{ *pulumi.OutputState }

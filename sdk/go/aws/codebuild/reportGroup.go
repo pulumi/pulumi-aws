@@ -299,9 +299,7 @@ func (i ReportGroupMap) ToReportGroupMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupMapOutput)
 }
 
-type ReportGroupOutput struct {
-	*pulumi.OutputState
-}
+type ReportGroupOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ReportGroup)(nil))
@@ -320,14 +318,12 @@ func (o ReportGroupOutput) ToReportGroupPtrOutput() ReportGroupPtrOutput {
 }
 
 func (o ReportGroupOutput) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
-	return o.ApplyT(func(v ReportGroup) *ReportGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroup) *ReportGroup {
 		return &v
 	}).(ReportGroupPtrOutput)
 }
 
-type ReportGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ReportGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ReportGroup)(nil))
@@ -339,6 +335,16 @@ func (o ReportGroupPtrOutput) ToReportGroupPtrOutput() ReportGroupPtrOutput {
 
 func (o ReportGroupPtrOutput) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
 	return o
+}
+
+func (o ReportGroupPtrOutput) Elem() ReportGroupOutput {
+	return o.ApplyT(func(v *ReportGroup) ReportGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroup
+		return ret
+	}).(ReportGroupOutput)
 }
 
 type ReportGroupArrayOutput struct{ *pulumi.OutputState }

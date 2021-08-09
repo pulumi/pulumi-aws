@@ -247,9 +247,7 @@ func (i RegistryPolicyMap) ToRegistryPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyMapOutput)
 }
 
-type RegistryPolicyOutput struct {
-	*pulumi.OutputState
-}
+type RegistryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegistryPolicy)(nil))
@@ -268,14 +266,12 @@ func (o RegistryPolicyOutput) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutpu
 }
 
 func (o RegistryPolicyOutput) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
-	return o.ApplyT(func(v RegistryPolicy) *RegistryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryPolicy) *RegistryPolicy {
 		return &v
 	}).(RegistryPolicyPtrOutput)
 }
 
-type RegistryPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegistryPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegistryPolicy)(nil))
@@ -287,6 +283,16 @@ func (o RegistryPolicyPtrOutput) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOu
 
 func (o RegistryPolicyPtrOutput) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
 	return o
+}
+
+func (o RegistryPolicyPtrOutput) Elem() RegistryPolicyOutput {
+	return o.ApplyT(func(v *RegistryPolicy) RegistryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryPolicy
+		return ret
+	}).(RegistryPolicyOutput)
 }
 
 type RegistryPolicyArrayOutput struct{ *pulumi.OutputState }

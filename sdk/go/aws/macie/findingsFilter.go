@@ -296,9 +296,7 @@ func (i FindingsFilterMap) ToFindingsFilterMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterMapOutput)
 }
 
-type FindingsFilterOutput struct {
-	*pulumi.OutputState
-}
+type FindingsFilterOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FindingsFilter)(nil))
@@ -317,14 +315,12 @@ func (o FindingsFilterOutput) ToFindingsFilterPtrOutput() FindingsFilterPtrOutpu
 }
 
 func (o FindingsFilterOutput) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
-	return o.ApplyT(func(v FindingsFilter) *FindingsFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilter) *FindingsFilter {
 		return &v
 	}).(FindingsFilterPtrOutput)
 }
 
-type FindingsFilterPtrOutput struct {
-	*pulumi.OutputState
-}
+type FindingsFilterPtrOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FindingsFilter)(nil))
@@ -336,6 +332,16 @@ func (o FindingsFilterPtrOutput) ToFindingsFilterPtrOutput() FindingsFilterPtrOu
 
 func (o FindingsFilterPtrOutput) ToFindingsFilterPtrOutputWithContext(ctx context.Context) FindingsFilterPtrOutput {
 	return o
+}
+
+func (o FindingsFilterPtrOutput) Elem() FindingsFilterOutput {
+	return o.ApplyT(func(v *FindingsFilter) FindingsFilter {
+		if v != nil {
+			return *v
+		}
+		var ret FindingsFilter
+		return ret
+	}).(FindingsFilterOutput)
 }
 
 type FindingsFilterArrayOutput struct{ *pulumi.OutputState }

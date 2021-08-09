@@ -119,7 +119,7 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutput() ServerEn
 }
 
 func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
-	return o.ApplyT(func(v ServerEndpointDetails) *ServerEndpointDetails {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointDetails) *ServerEndpointDetails {
 		return &v
 	}).(ServerEndpointDetailsPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutputWithCont
 }
 
 func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
-	return o.ApplyT(func(v *ServerEndpointDetails) ServerEndpointDetails { return *v }).(ServerEndpointDetailsOutput)
+	return o.ApplyT(func(v *ServerEndpointDetails) ServerEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointDetails
+		return ret
+	}).(ServerEndpointDetailsOutput)
 }
 
 // A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
@@ -424,7 +430,7 @@ func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutput() UserPosixProfilePt
 }
 
 func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
-	return o.ApplyT(func(v UserPosixProfile) *UserPosixProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPosixProfile) *UserPosixProfile {
 		return &v
 	}).(UserPosixProfilePtrOutput)
 }
@@ -459,7 +465,13 @@ func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutputWithContext(ctx co
 }
 
 func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
-	return o.ApplyT(func(v *UserPosixProfile) UserPosixProfile { return *v }).(UserPosixProfileOutput)
+	return o.ApplyT(func(v *UserPosixProfile) UserPosixProfile {
+		if v != nil {
+			return *v
+		}
+		var ret UserPosixProfile
+		return ret
+	}).(UserPosixProfileOutput)
 }
 
 // The POSIX group ID used for all EFS operations by this user.

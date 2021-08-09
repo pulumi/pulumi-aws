@@ -28,7 +28,12 @@ import (
 // 		_, err := budgets.NewBudget(ctx, "ec2", &budgets.BudgetArgs{
 // 			BudgetType: pulumi.String("COST"),
 // 			CostFilters: pulumi.StringMap{
-// 				"Service": pulumi.String("Amazon Elastic Compute Cloud - Compute"),
+// 				pulumi.String{
+// 					Name: "Service",
+// 					Values: []string{
+// 						"Amazon Elastic Compute Cloud - Compute",
+// 					},
+// 				},
 // 			},
 // 			LimitAmount: pulumi.String("1200"),
 // 			LimitUnit:   pulumi.String("USD"),
@@ -198,9 +203,9 @@ type Budget struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
-	// Map of Cost Filters key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapOutput `pulumi:"costFilters"`
-	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
@@ -214,7 +219,7 @@ type Budget struct {
 	Notifications BudgetNotificationArrayOutput `pulumi:"notifications"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrOutput `pulumi:"timePeriodEnd"`
-	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringOutput `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringOutput `pulumi:"timeUnit"`
@@ -235,9 +240,6 @@ func NewBudget(ctx *pulumi.Context,
 	}
 	if args.LimitUnit == nil {
 		return nil, errors.New("invalid value for required argument 'LimitUnit'")
-	}
-	if args.TimePeriodStart == nil {
-		return nil, errors.New("invalid value for required argument 'TimePeriodStart'")
 	}
 	if args.TimeUnit == nil {
 		return nil, errors.New("invalid value for required argument 'TimeUnit'")
@@ -270,9 +272,9 @@ type budgetState struct {
 	Arn *string `pulumi:"arn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
-	// Map of Cost Filters key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters map[string]string `pulumi:"costFilters"`
-	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
@@ -286,7 +288,7 @@ type budgetState struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
-	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit *string `pulumi:"timeUnit"`
@@ -299,9 +301,9 @@ type BudgetState struct {
 	Arn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
-	// Map of Cost Filters key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapInput
-	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
@@ -315,7 +317,7 @@ type BudgetState struct {
 	Notifications BudgetNotificationArrayInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
-	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
 	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringPtrInput
@@ -330,9 +332,9 @@ type budgetArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
-	// Map of Cost Filters key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters map[string]string `pulumi:"costFilters"`
-	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount string `pulumi:"limitAmount"`
@@ -346,8 +348,8 @@ type budgetArgs struct {
 	Notifications []BudgetNotification `pulumi:"notifications"`
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd *string `pulumi:"timePeriodEnd"`
-	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-	TimePeriodStart string `pulumi:"timePeriodStart"`
+	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	TimePeriodStart *string `pulumi:"timePeriodStart"`
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit string `pulumi:"timeUnit"`
 }
@@ -358,9 +360,9 @@ type BudgetArgs struct {
 	AccountId pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
-	// Map of Cost Filters key/value pairs to apply to the budget.
+	// Map of CostFilters key/value pairs to apply to the budget.
 	CostFilters pulumi.StringMapInput
-	// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringInput
@@ -374,8 +376,8 @@ type BudgetArgs struct {
 	Notifications BudgetNotificationArrayInput
 	// The end of the time period covered by the budget. There are no restrictions on the end date. Format: `2017-01-01_12:00`.
 	TimePeriodEnd pulumi.StringPtrInput
-	// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
-	TimePeriodStart pulumi.StringInput
+	// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
+	TimePeriodStart pulumi.StringPtrInput
 	// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
 	TimeUnit pulumi.StringInput
 }
@@ -482,9 +484,7 @@ func (i BudgetMap) ToBudgetMapOutputWithContext(ctx context.Context) BudgetMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetMapOutput)
 }
 
-type BudgetOutput struct {
-	*pulumi.OutputState
-}
+type BudgetOutput struct{ *pulumi.OutputState }
 
 func (BudgetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Budget)(nil))
@@ -503,14 +503,12 @@ func (o BudgetOutput) ToBudgetPtrOutput() BudgetPtrOutput {
 }
 
 func (o BudgetOutput) ToBudgetPtrOutputWithContext(ctx context.Context) BudgetPtrOutput {
-	return o.ApplyT(func(v Budget) *Budget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Budget) *Budget {
 		return &v
 	}).(BudgetPtrOutput)
 }
 
-type BudgetPtrOutput struct {
-	*pulumi.OutputState
-}
+type BudgetPtrOutput struct{ *pulumi.OutputState }
 
 func (BudgetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Budget)(nil))
@@ -522,6 +520,16 @@ func (o BudgetPtrOutput) ToBudgetPtrOutput() BudgetPtrOutput {
 
 func (o BudgetPtrOutput) ToBudgetPtrOutputWithContext(ctx context.Context) BudgetPtrOutput {
 	return o
+}
+
+func (o BudgetPtrOutput) Elem() BudgetOutput {
+	return o.ApplyT(func(v *Budget) Budget {
+		if v != nil {
+			return *v
+		}
+		var ret Budget
+		return ret
+	}).(BudgetOutput)
 }
 
 type BudgetArrayOutput struct{ *pulumi.OutputState }

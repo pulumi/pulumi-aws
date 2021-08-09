@@ -115,7 +115,7 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 }
 
 func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
-	return o.ApplyT(func(v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
 		return &v
 	}).(EndpointElasticsearchSettingsPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsP
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSettingsOutput {
-	return o.ApplyT(func(v *EndpointElasticsearchSettings) EndpointElasticsearchSettings { return *v }).(EndpointElasticsearchSettingsOutput)
+	return o.ApplyT(func(v *EndpointElasticsearchSettings) EndpointElasticsearchSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointElasticsearchSettings
+		return ret
+	}).(EndpointElasticsearchSettingsOutput)
 }
 
 // Endpoint for the Elasticsearch cluster.
@@ -295,7 +301,7 @@ func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutput() Endpoint
 }
 
 func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
-	return o.ApplyT(func(v EndpointKafkaSettings) *EndpointKafkaSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKafkaSettings) *EndpointKafkaSettings {
 		return &v
 	}).(EndpointKafkaSettingsPtrOutput)
 }
@@ -325,7 +331,13 @@ func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutputWithCont
 }
 
 func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
-	return o.ApplyT(func(v *EndpointKafkaSettings) EndpointKafkaSettings { return *v }).(EndpointKafkaSettingsOutput)
+	return o.ApplyT(func(v *EndpointKafkaSettings) EndpointKafkaSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointKafkaSettings
+		return ret
+	}).(EndpointKafkaSettingsOutput)
 }
 
 // Kafka broker location. Specify in the form broker-hostname-or-ip:port.
@@ -449,7 +461,7 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutput() Endp
 }
 
 func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
-	return o.ApplyT(func(v EndpointKinesisSettings) *EndpointKinesisSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKinesisSettings) *EndpointKinesisSettings {
 		return &v
 	}).(EndpointKinesisSettingsPtrOutput)
 }
@@ -484,7 +496,13 @@ func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutputWith
 }
 
 func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
-	return o.ApplyT(func(v *EndpointKinesisSettings) EndpointKinesisSettings { return *v }).(EndpointKinesisSettingsOutput)
+	return o.ApplyT(func(v *EndpointKinesisSettings) EndpointKinesisSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointKinesisSettings
+		return ret
+	}).(EndpointKinesisSettingsOutput)
 }
 
 // Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
@@ -630,7 +648,7 @@ func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsPtrOutput() Endp
 }
 
 func (o EndpointMongodbSettingsOutput) ToEndpointMongodbSettingsPtrOutputWithContext(ctx context.Context) EndpointMongodbSettingsPtrOutput {
-	return o.ApplyT(func(v EndpointMongodbSettings) *EndpointMongodbSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMongodbSettings) *EndpointMongodbSettings {
 		return &v
 	}).(EndpointMongodbSettingsPtrOutput)
 }
@@ -680,7 +698,13 @@ func (o EndpointMongodbSettingsPtrOutput) ToEndpointMongodbSettingsPtrOutputWith
 }
 
 func (o EndpointMongodbSettingsPtrOutput) Elem() EndpointMongodbSettingsOutput {
-	return o.ApplyT(func(v *EndpointMongodbSettings) EndpointMongodbSettings { return *v }).(EndpointMongodbSettingsOutput)
+	return o.ApplyT(func(v *EndpointMongodbSettings) EndpointMongodbSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointMongodbSettings
+		return ret
+	}).(EndpointMongodbSettingsOutput)
 }
 
 // Authentication mechanism to access the MongoDB source endpoint. Defaults to `default`.
@@ -864,7 +888,7 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutput() EndpointS3Sett
 }
 
 func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx context.Context) EndpointS3SettingsPtrOutput {
-	return o.ApplyT(func(v EndpointS3Settings) *EndpointS3Settings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointS3Settings) *EndpointS3Settings {
 		return &v
 	}).(EndpointS3SettingsPtrOutput)
 }
@@ -924,7 +948,13 @@ func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutputWithContext(ct
 }
 
 func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
-	return o.ApplyT(func(v *EndpointS3Settings) EndpointS3Settings { return *v }).(EndpointS3SettingsOutput)
+	return o.ApplyT(func(v *EndpointS3Settings) EndpointS3Settings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointS3Settings
+		return ret
+	}).(EndpointS3SettingsOutput)
 }
 
 // S3 Bucket Object prefix.

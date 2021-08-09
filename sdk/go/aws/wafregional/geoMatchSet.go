@@ -223,9 +223,7 @@ func (i GeoMatchSetMap) ToGeoMatchSetMapOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GeoMatchSetMapOutput)
 }
 
-type GeoMatchSetOutput struct {
-	*pulumi.OutputState
-}
+type GeoMatchSetOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GeoMatchSet)(nil))
@@ -244,14 +242,12 @@ func (o GeoMatchSetOutput) ToGeoMatchSetPtrOutput() GeoMatchSetPtrOutput {
 }
 
 func (o GeoMatchSetOutput) ToGeoMatchSetPtrOutputWithContext(ctx context.Context) GeoMatchSetPtrOutput {
-	return o.ApplyT(func(v GeoMatchSet) *GeoMatchSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeoMatchSet) *GeoMatchSet {
 		return &v
 	}).(GeoMatchSetPtrOutput)
 }
 
-type GeoMatchSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type GeoMatchSetPtrOutput struct{ *pulumi.OutputState }
 
 func (GeoMatchSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GeoMatchSet)(nil))
@@ -263,6 +259,16 @@ func (o GeoMatchSetPtrOutput) ToGeoMatchSetPtrOutput() GeoMatchSetPtrOutput {
 
 func (o GeoMatchSetPtrOutput) ToGeoMatchSetPtrOutputWithContext(ctx context.Context) GeoMatchSetPtrOutput {
 	return o
+}
+
+func (o GeoMatchSetPtrOutput) Elem() GeoMatchSetOutput {
+	return o.ApplyT(func(v *GeoMatchSet) GeoMatchSet {
+		if v != nil {
+			return *v
+		}
+		var ret GeoMatchSet
+		return ret
+	}).(GeoMatchSetOutput)
 }
 
 type GeoMatchSetArrayOutput struct{ *pulumi.OutputState }

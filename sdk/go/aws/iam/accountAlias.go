@@ -210,9 +210,7 @@ func (i AccountAliasMap) ToAccountAliasMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasMapOutput)
 }
 
-type AccountAliasOutput struct {
-	*pulumi.OutputState
-}
+type AccountAliasOutput struct{ *pulumi.OutputState }
 
 func (AccountAliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AccountAlias)(nil))
@@ -231,14 +229,12 @@ func (o AccountAliasOutput) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
 }
 
 func (o AccountAliasOutput) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
-	return o.ApplyT(func(v AccountAlias) *AccountAlias {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountAlias) *AccountAlias {
 		return &v
 	}).(AccountAliasPtrOutput)
 }
 
-type AccountAliasPtrOutput struct {
-	*pulumi.OutputState
-}
+type AccountAliasPtrOutput struct{ *pulumi.OutputState }
 
 func (AccountAliasPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AccountAlias)(nil))
@@ -250,6 +246,16 @@ func (o AccountAliasPtrOutput) ToAccountAliasPtrOutput() AccountAliasPtrOutput {
 
 func (o AccountAliasPtrOutput) ToAccountAliasPtrOutputWithContext(ctx context.Context) AccountAliasPtrOutput {
 	return o
+}
+
+func (o AccountAliasPtrOutput) Elem() AccountAliasOutput {
+	return o.ApplyT(func(v *AccountAlias) AccountAlias {
+		if v != nil {
+			return *v
+		}
+		var ret AccountAlias
+		return ret
+	}).(AccountAliasOutput)
 }
 
 type AccountAliasArrayOutput struct{ *pulumi.OutputState }

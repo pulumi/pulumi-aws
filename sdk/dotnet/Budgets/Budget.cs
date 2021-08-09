@@ -27,7 +27,14 @@ namespace Pulumi.Aws.Budgets
     ///             BudgetType = "COST",
     ///             CostFilters = 
     ///             {
-    ///                 { "Service", "Amazon Elastic Compute Cloud - Compute" },
+    ///                 
+    ///                 {
+    ///                     { "name", "Service" },
+    ///                     { "values", 
+    ///                     {
+    ///                         "Amazon Elastic Compute Cloud - Compute",
+    ///                     } },
+    ///                 },
     ///             },
     ///             LimitAmount = "1200",
     ///             LimitUnit = "USD",
@@ -198,13 +205,13 @@ namespace Pulumi.Aws.Budgets
         public Output<string> BudgetType { get; private set; } = null!;
 
         /// <summary>
-        /// Map of Cost Filters key/value pairs to apply to the budget.
+        /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         [Output("costFilters")]
         public Output<ImmutableDictionary<string, string>> CostFilters { get; private set; } = null!;
 
         /// <summary>
-        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
         [Output("costTypes")]
         public Output<Outputs.BudgetCostTypes> CostTypes { get; private set; } = null!;
@@ -246,7 +253,7 @@ namespace Pulumi.Aws.Budgets
         public Output<string?> TimePeriodEnd { get; private set; } = null!;
 
         /// <summary>
-        /// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Output("timePeriodStart")]
         public Output<string> TimePeriodStart { get; private set; } = null!;
@@ -319,7 +326,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _costFilters;
 
         /// <summary>
-        /// Map of Cost Filters key/value pairs to apply to the budget.
+        /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         public InputMap<string> CostFilters
         {
@@ -328,7 +335,7 @@ namespace Pulumi.Aws.Budgets
         }
 
         /// <summary>
-        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesArgs>? CostTypes { get; set; }
@@ -376,10 +383,10 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? TimePeriodEnd { get; set; }
 
         /// <summary>
-        /// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
-        [Input("timePeriodStart", required: true)]
-        public Input<string> TimePeriodStart { get; set; } = null!;
+        [Input("timePeriodStart")]
+        public Input<string>? TimePeriodStart { get; set; }
 
         /// <summary>
         /// The length of time until a budget resets the actual and forecasted spend. Valid values: `MONTHLY`, `QUARTERLY`, `ANNUALLY`, and `DAILY`.
@@ -416,7 +423,7 @@ namespace Pulumi.Aws.Budgets
         private InputMap<string>? _costFilters;
 
         /// <summary>
-        /// Map of Cost Filters key/value pairs to apply to the budget.
+        /// Map of CostFilters key/value pairs to apply to the budget.
         /// </summary>
         public InputMap<string> CostFilters
         {
@@ -425,7 +432,7 @@ namespace Pulumi.Aws.Budgets
         }
 
         /// <summary>
-        /// Object containing Cost Types The types of cost included in a budget, such as tax and subscriptions..
+        /// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
         /// </summary>
         [Input("costTypes")]
         public Input<Inputs.BudgetCostTypesGetArgs>? CostTypes { get; set; }
@@ -473,7 +480,7 @@ namespace Pulumi.Aws.Budgets
         public Input<string>? TimePeriodEnd { get; set; }
 
         /// <summary>
-        /// The start of the time period covered by the budget. The start date must come before the end date. Format: `2017-01-01_12:00`.
+        /// The start of the time period covered by the budget. If you don't specify a start date, AWS defaults to the start of your chosen time period. The start date must come before the end date. Format: `2017-01-01_12:00`.
         /// </summary>
         [Input("timePeriodStart")]
         public Input<string>? TimePeriodStart { get; set; }

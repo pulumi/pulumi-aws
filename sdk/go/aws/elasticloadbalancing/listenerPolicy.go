@@ -332,9 +332,7 @@ func (i ListenerPolicyMap) ToListenerPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerPolicyMapOutput)
 }
 
-type ListenerPolicyOutput struct {
-	*pulumi.OutputState
-}
+type ListenerPolicyOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListenerPolicy)(nil))
@@ -353,14 +351,12 @@ func (o ListenerPolicyOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOutpu
 }
 
 func (o ListenerPolicyOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
-	return o.ApplyT(func(v ListenerPolicy) *ListenerPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerPolicy) *ListenerPolicy {
 		return &v
 	}).(ListenerPolicyPtrOutput)
 }
 
-type ListenerPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ListenerPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ListenerPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ListenerPolicy)(nil))
@@ -372,6 +368,16 @@ func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutput() ListenerPolicyPtrOu
 
 func (o ListenerPolicyPtrOutput) ToListenerPolicyPtrOutputWithContext(ctx context.Context) ListenerPolicyPtrOutput {
 	return o
+}
+
+func (o ListenerPolicyPtrOutput) Elem() ListenerPolicyOutput {
+	return o.ApplyT(func(v *ListenerPolicy) ListenerPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerPolicy
+		return ret
+	}).(ListenerPolicyOutput)
 }
 
 type ListenerPolicyArrayOutput struct{ *pulumi.OutputState }

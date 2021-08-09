@@ -316,9 +316,7 @@ func (i PipelineMap) ToPipelineMapOutputWithContext(ctx context.Context) Pipelin
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineMapOutput)
 }
 
-type PipelineOutput struct {
-	*pulumi.OutputState
-}
+type PipelineOutput struct{ *pulumi.OutputState }
 
 func (PipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Pipeline)(nil))
@@ -337,14 +335,12 @@ func (o PipelineOutput) ToPipelinePtrOutput() PipelinePtrOutput {
 }
 
 func (o PipelineOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
-	return o.ApplyT(func(v Pipeline) *Pipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Pipeline) *Pipeline {
 		return &v
 	}).(PipelinePtrOutput)
 }
 
-type PipelinePtrOutput struct {
-	*pulumi.OutputState
-}
+type PipelinePtrOutput struct{ *pulumi.OutputState }
 
 func (PipelinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Pipeline)(nil))
@@ -356,6 +352,16 @@ func (o PipelinePtrOutput) ToPipelinePtrOutput() PipelinePtrOutput {
 
 func (o PipelinePtrOutput) ToPipelinePtrOutputWithContext(ctx context.Context) PipelinePtrOutput {
 	return o
+}
+
+func (o PipelinePtrOutput) Elem() PipelineOutput {
+	return o.ApplyT(func(v *Pipeline) Pipeline {
+		if v != nil {
+			return *v
+		}
+		var ret Pipeline
+		return ret
+	}).(PipelineOutput)
 }
 
 type PipelineArrayOutput struct{ *pulumi.OutputState }

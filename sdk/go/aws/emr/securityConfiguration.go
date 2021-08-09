@@ -241,9 +241,7 @@ func (i SecurityConfigurationMap) ToSecurityConfigurationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationMapOutput)
 }
 
-type SecurityConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type SecurityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SecurityConfiguration)(nil))
@@ -262,14 +260,12 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationPtrOutput() Security
 }
 
 func (o SecurityConfigurationOutput) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
-	return o.ApplyT(func(v SecurityConfiguration) *SecurityConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfiguration) *SecurityConfiguration {
 		return &v
 	}).(SecurityConfigurationPtrOutput)
 }
 
-type SecurityConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type SecurityConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SecurityConfiguration)(nil))
@@ -281,6 +277,16 @@ func (o SecurityConfigurationPtrOutput) ToSecurityConfigurationPtrOutput() Secur
 
 func (o SecurityConfigurationPtrOutput) ToSecurityConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationPtrOutput {
 	return o
+}
+
+func (o SecurityConfigurationPtrOutput) Elem() SecurityConfigurationOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) SecurityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfiguration
+		return ret
+	}).(SecurityConfigurationOutput)
 }
 
 type SecurityConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -279,9 +279,7 @@ func (i ParameterGroupMap) ToParameterGroupMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupMapOutput)
 }
 
-type ParameterGroupOutput struct {
-	*pulumi.OutputState
-}
+type ParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ParameterGroup)(nil))
@@ -300,14 +298,12 @@ func (o ParameterGroupOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOutpu
 }
 
 func (o ParameterGroupOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
-	return o.ApplyT(func(v ParameterGroup) *ParameterGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ParameterGroup) *ParameterGroup {
 		return &v
 	}).(ParameterGroupPtrOutput)
 }
 
-type ParameterGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type ParameterGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ParameterGroup)(nil))
@@ -319,6 +315,16 @@ func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutput() ParameterGroupPtrOu
 
 func (o ParameterGroupPtrOutput) ToParameterGroupPtrOutputWithContext(ctx context.Context) ParameterGroupPtrOutput {
 	return o
+}
+
+func (o ParameterGroupPtrOutput) Elem() ParameterGroupOutput {
+	return o.ApplyT(func(v *ParameterGroup) ParameterGroup {
+		if v != nil {
+			return *v
+		}
+		var ret ParameterGroup
+		return ret
+	}).(ParameterGroupOutput)
 }
 
 type ParameterGroupArrayOutput struct{ *pulumi.OutputState }

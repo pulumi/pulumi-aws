@@ -242,9 +242,7 @@ func (i TransitGatewayPeeringAttachmentAccepterMap) ToTransitGatewayPeeringAttac
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayPeeringAttachmentAccepterMapOutput)
 }
 
-type TransitGatewayPeeringAttachmentAccepterOutput struct {
-	*pulumi.OutputState
-}
+type TransitGatewayPeeringAttachmentAccepterOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentAccepterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepter)(nil))
@@ -263,14 +261,12 @@ func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAt
 }
 
 func (o TransitGatewayPeeringAttachmentAccepterOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
-	return o.ApplyT(func(v TransitGatewayPeeringAttachmentAccepter) *TransitGatewayPeeringAttachmentAccepter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayPeeringAttachmentAccepter) *TransitGatewayPeeringAttachmentAccepter {
 		return &v
 	}).(TransitGatewayPeeringAttachmentAccepterPtrOutput)
 }
 
-type TransitGatewayPeeringAttachmentAccepterPtrOutput struct {
-	*pulumi.OutputState
-}
+type TransitGatewayPeeringAttachmentAccepterPtrOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPeeringAttachmentAccepterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TransitGatewayPeeringAttachmentAccepter)(nil))
@@ -282,6 +278,16 @@ func (o TransitGatewayPeeringAttachmentAccepterPtrOutput) ToTransitGatewayPeerin
 
 func (o TransitGatewayPeeringAttachmentAccepterPtrOutput) ToTransitGatewayPeeringAttachmentAccepterPtrOutputWithContext(ctx context.Context) TransitGatewayPeeringAttachmentAccepterPtrOutput {
 	return o
+}
+
+func (o TransitGatewayPeeringAttachmentAccepterPtrOutput) Elem() TransitGatewayPeeringAttachmentAccepterOutput {
+	return o.ApplyT(func(v *TransitGatewayPeeringAttachmentAccepter) TransitGatewayPeeringAttachmentAccepter {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGatewayPeeringAttachmentAccepter
+		return ret
+	}).(TransitGatewayPeeringAttachmentAccepterOutput)
 }
 
 type TransitGatewayPeeringAttachmentAccepterArrayOutput struct{ *pulumi.OutputState }

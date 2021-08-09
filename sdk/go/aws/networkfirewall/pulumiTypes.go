@@ -434,7 +434,7 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOut
 }
 
 func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicy {
 		return &v
 	}).(FirewallPolicyFirewallPolicyPtrOutput)
 }
@@ -487,7 +487,13 @@ func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtr
 }
 
 func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPolicyOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) FirewallPolicyFirewallPolicy { return *v }).(FirewallPolicyFirewallPolicyOutput)
+	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) FirewallPolicyFirewallPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallPolicyFirewallPolicy
+		return ret
+	}).(FirewallPolicyFirewallPolicyOutput)
 }
 
 // Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
@@ -1250,7 +1256,7 @@ func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLo
 }
 
 func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) *LoggingConfigurationLoggingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationLoggingConfiguration) *LoggingConfigurationLoggingConfiguration {
 		return &v
 	}).(LoggingConfigurationLoggingConfigurationPtrOutput)
 }
@@ -1277,7 +1283,13 @@ func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfiguratio
 }
 
 func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigurationLoggingConfigurationOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) LoggingConfigurationLoggingConfiguration { return *v }).(LoggingConfigurationLoggingConfigurationOutput)
+	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) LoggingConfigurationLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfigurationLoggingConfiguration
+		return ret
+	}).(LoggingConfigurationLoggingConfigurationOutput)
 }
 
 // Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
@@ -1515,7 +1527,7 @@ func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutput() RuleGroupRuleG
 }
 
 func (o RuleGroupRuleGroupOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroup) *RuleGroupRuleGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroup) *RuleGroupRuleGroup {
 		return &v
 	}).(RuleGroupRuleGroupPtrOutput)
 }
@@ -1545,7 +1557,13 @@ func (o RuleGroupRuleGroupPtrOutput) ToRuleGroupRuleGroupPtrOutputWithContext(ct
 }
 
 func (o RuleGroupRuleGroupPtrOutput) Elem() RuleGroupRuleGroupOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroup) RuleGroupRuleGroup { return *v }).(RuleGroupRuleGroupOutput)
+	return o.ApplyT(func(v *RuleGroupRuleGroup) RuleGroupRuleGroup {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroup
+		return ret
+	}).(RuleGroupRuleGroupOutput)
 }
 
 // A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
@@ -1665,7 +1683,7 @@ func (o RuleGroupRuleGroupRuleVariablesOutput) ToRuleGroupRuleGroupRuleVariables
 }
 
 func (o RuleGroupRuleGroupRuleVariablesOutput) ToRuleGroupRuleGroupRuleVariablesPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRuleVariablesPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRuleVariables) *RuleGroupRuleGroupRuleVariables {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRuleVariables) *RuleGroupRuleGroupRuleVariables {
 		return &v
 	}).(RuleGroupRuleGroupRuleVariablesPtrOutput)
 }
@@ -1695,7 +1713,13 @@ func (o RuleGroupRuleGroupRuleVariablesPtrOutput) ToRuleGroupRuleGroupRuleVariab
 }
 
 func (o RuleGroupRuleGroupRuleVariablesPtrOutput) Elem() RuleGroupRuleGroupRuleVariablesOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroupRuleVariables) RuleGroupRuleGroupRuleVariables { return *v }).(RuleGroupRuleGroupRuleVariablesOutput)
+	return o.ApplyT(func(v *RuleGroupRuleGroupRuleVariables) RuleGroupRuleGroupRuleVariables {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroupRuleVariables
+		return ret
+	}).(RuleGroupRuleGroupRuleVariablesOutput)
 }
 
 // Set of configuration blocks that define IP address information. See IP Sets below for details.
@@ -2141,7 +2165,7 @@ func (o RuleGroupRuleGroupRulesSourceOutput) ToRuleGroupRuleGroupRulesSourcePtrO
 }
 
 func (o RuleGroupRuleGroupRulesSourceOutput) ToRuleGroupRuleGroupRulesSourcePtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourcePtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSource) *RuleGroupRuleGroupRulesSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSource) *RuleGroupRuleGroupRulesSource {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourcePtrOutput)
 }
@@ -2187,7 +2211,13 @@ func (o RuleGroupRuleGroupRulesSourcePtrOutput) ToRuleGroupRuleGroupRulesSourceP
 }
 
 func (o RuleGroupRuleGroupRulesSourcePtrOutput) Elem() RuleGroupRuleGroupRulesSourceOutput {
-	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSource) RuleGroupRuleGroupRulesSource { return *v }).(RuleGroupRuleGroupRulesSourceOutput)
+	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSource) RuleGroupRuleGroupRulesSource {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroupRulesSource
+		return ret
+	}).(RuleGroupRuleGroupRulesSourceOutput)
 }
 
 // A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
@@ -2331,7 +2361,7 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ToRuleGroupRuleGroup
 }
 
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListOutput) ToRuleGroupRuleGroupRulesSourceRulesSourceListPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceRulesSourceList) *RuleGroupRuleGroupRulesSourceRulesSourceList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSourceRulesSourceList) *RuleGroupRuleGroupRulesSourceRulesSourceList {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput)
 }
@@ -2367,7 +2397,11 @@ func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) ToRuleGroupRuleGr
 
 func (o RuleGroupRuleGroupRulesSourceRulesSourceListPtrOutput) Elem() RuleGroupRuleGroupRulesSourceRulesSourceListOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSourceRulesSourceList) RuleGroupRuleGroupRulesSourceRulesSourceList {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroupRulesSourceRulesSourceList
+		return ret
 	}).(RuleGroupRuleGroupRulesSourceRulesSourceListOutput)
 }
 
@@ -2823,7 +2857,7 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput) ToRul
 }
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput) ToRuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutputWithContext(ctx context.Context) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput {
-	return o.ApplyT(func(v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions) *RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions) *RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
 		return &v
 	}).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput)
 }
@@ -2858,7 +2892,11 @@ func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) To
 
 func (o RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsPtrOutput) Elem() RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput {
 	return o.ApplyT(func(v *RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions) RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActions
+		return ret
 	}).(RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsOutput)
 }
 

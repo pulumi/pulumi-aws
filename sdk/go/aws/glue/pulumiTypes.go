@@ -107,7 +107,7 @@ func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabasePtrO
 }
 
 func (o CatalogDatabaseTargetDatabaseOutput) ToCatalogDatabaseTargetDatabasePtrOutputWithContext(ctx context.Context) CatalogDatabaseTargetDatabasePtrOutput {
-	return o.ApplyT(func(v CatalogDatabaseTargetDatabase) *CatalogDatabaseTargetDatabase {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogDatabaseTargetDatabase) *CatalogDatabaseTargetDatabase {
 		return &v
 	}).(CatalogDatabaseTargetDatabasePtrOutput)
 }
@@ -137,7 +137,13 @@ func (o CatalogDatabaseTargetDatabasePtrOutput) ToCatalogDatabaseTargetDatabaseP
 }
 
 func (o CatalogDatabaseTargetDatabasePtrOutput) Elem() CatalogDatabaseTargetDatabaseOutput {
-	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) CatalogDatabaseTargetDatabase { return *v }).(CatalogDatabaseTargetDatabaseOutput)
+	return o.ApplyT(func(v *CatalogDatabaseTargetDatabase) CatalogDatabaseTargetDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogDatabaseTargetDatabase
+		return ret
+	}).(CatalogDatabaseTargetDatabaseOutput)
 }
 
 // ID of the Data Catalog in which the database resides.
@@ -528,7 +534,7 @@ func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorPtrO
 }
 
 func (o CatalogTableStorageDescriptorOutput) ToCatalogTableStorageDescriptorPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableStorageDescriptor) *CatalogTableStorageDescriptor {
 		return &v
 	}).(CatalogTableStorageDescriptorPtrOutput)
 }
@@ -615,7 +621,13 @@ func (o CatalogTableStorageDescriptorPtrOutput) ToCatalogTableStorageDescriptorP
 }
 
 func (o CatalogTableStorageDescriptorPtrOutput) Elem() CatalogTableStorageDescriptorOutput {
-	return o.ApplyT(func(v *CatalogTableStorageDescriptor) CatalogTableStorageDescriptor { return *v }).(CatalogTableStorageDescriptorOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptor) CatalogTableStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableStorageDescriptor
+		return ret
+	}).(CatalogTableStorageDescriptorOutput)
 }
 
 // List of reducer grouping columns, clustering columns, and bucketing columns in the table.
@@ -973,7 +985,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorag
 }
 
 func (o CatalogTableStorageDescriptorSchemaReferenceOutput) ToCatalogTableStorageDescriptorSchemaReferencePtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferencePtrOutput {
-	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReference {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableStorageDescriptorSchemaReference) *CatalogTableStorageDescriptorSchemaReference {
 		return &v
 	}).(CatalogTableStorageDescriptorSchemaReferencePtrOutput)
 }
@@ -1011,7 +1023,11 @@ func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) ToCatalogTableSto
 
 func (o CatalogTableStorageDescriptorSchemaReferencePtrOutput) Elem() CatalogTableStorageDescriptorSchemaReferenceOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReference) CatalogTableStorageDescriptorSchemaReference {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableStorageDescriptorSchemaReference
+		return ret
 	}).(CatalogTableStorageDescriptorSchemaReferenceOutput)
 }
 
@@ -1146,7 +1162,7 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTab
 }
 
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput) ToCatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput {
-	return o.ApplyT(func(v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableStorageDescriptorSchemaReferenceSchemaId) *CatalogTableStorageDescriptorSchemaReferenceSchemaId {
 		return &v
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput)
 }
@@ -1182,7 +1198,11 @@ func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) ToCatalog
 
 func (o CatalogTableStorageDescriptorSchemaReferenceSchemaIdPtrOutput) Elem() CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput {
 	return o.ApplyT(func(v *CatalogTableStorageDescriptorSchemaReferenceSchemaId) CatalogTableStorageDescriptorSchemaReferenceSchemaId {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableStorageDescriptorSchemaReferenceSchemaId
+		return ret
 	}).(CatalogTableStorageDescriptorSchemaReferenceSchemaIdOutput)
 }
 
@@ -1317,7 +1337,7 @@ func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescr
 }
 
 func (o CatalogTableStorageDescriptorSerDeInfoOutput) ToCatalogTableStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSerDeInfoPtrOutput {
-	return o.ApplyT(func(v CatalogTableStorageDescriptorSerDeInfo) *CatalogTableStorageDescriptorSerDeInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableStorageDescriptorSerDeInfo) *CatalogTableStorageDescriptorSerDeInfo {
 		return &v
 	}).(CatalogTableStorageDescriptorSerDeInfoPtrOutput)
 }
@@ -1352,7 +1372,13 @@ func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) ToCatalogTableStorageDe
 }
 
 func (o CatalogTableStorageDescriptorSerDeInfoPtrOutput) Elem() CatalogTableStorageDescriptorSerDeInfoOutput {
-	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) CatalogTableStorageDescriptorSerDeInfo { return *v }).(CatalogTableStorageDescriptorSerDeInfoOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSerDeInfo) CatalogTableStorageDescriptorSerDeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableStorageDescriptorSerDeInfo
+		return ret
+	}).(CatalogTableStorageDescriptorSerDeInfoOutput)
 }
 
 // Name of the target table.
@@ -1486,7 +1512,7 @@ func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDesc
 }
 
 func (o CatalogTableStorageDescriptorSkewedInfoOutput) ToCatalogTableStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) CatalogTableStorageDescriptorSkewedInfoPtrOutput {
-	return o.ApplyT(func(v CatalogTableStorageDescriptorSkewedInfo) *CatalogTableStorageDescriptorSkewedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableStorageDescriptorSkewedInfo) *CatalogTableStorageDescriptorSkewedInfo {
 		return &v
 	}).(CatalogTableStorageDescriptorSkewedInfoPtrOutput)
 }
@@ -1523,7 +1549,13 @@ func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) ToCatalogTableStorageD
 }
 
 func (o CatalogTableStorageDescriptorSkewedInfoPtrOutput) Elem() CatalogTableStorageDescriptorSkewedInfoOutput {
-	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) CatalogTableStorageDescriptorSkewedInfo { return *v }).(CatalogTableStorageDescriptorSkewedInfoOutput)
+	return o.ApplyT(func(v *CatalogTableStorageDescriptorSkewedInfo) CatalogTableStorageDescriptorSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableStorageDescriptorSkewedInfo
+		return ret
+	}).(CatalogTableStorageDescriptorSkewedInfoOutput)
 }
 
 // List of names of columns that contain skewed values.
@@ -1763,7 +1795,7 @@ func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTablePtrOutput() Cata
 }
 
 func (o CatalogTableTargetTableOutput) ToCatalogTableTargetTablePtrOutputWithContext(ctx context.Context) CatalogTableTargetTablePtrOutput {
-	return o.ApplyT(func(v CatalogTableTargetTable) *CatalogTableTargetTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableTargetTable) *CatalogTableTargetTable {
 		return &v
 	}).(CatalogTableTargetTablePtrOutput)
 }
@@ -1798,7 +1830,13 @@ func (o CatalogTableTargetTablePtrOutput) ToCatalogTableTargetTablePtrOutputWith
 }
 
 func (o CatalogTableTargetTablePtrOutput) Elem() CatalogTableTargetTableOutput {
-	return o.ApplyT(func(v *CatalogTableTargetTable) CatalogTableTargetTable { return *v }).(CatalogTableTargetTableOutput)
+	return o.ApplyT(func(v *CatalogTableTargetTable) CatalogTableTargetTable {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableTargetTable
+		return ret
+	}).(CatalogTableTargetTableOutput)
 }
 
 // ID of the Data Catalog in which the table resides.
@@ -1944,7 +1982,7 @@ func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutput() Clas
 }
 
 func (o ClassifierCsvClassifierOutput) ToClassifierCsvClassifierPtrOutputWithContext(ctx context.Context) ClassifierCsvClassifierPtrOutput {
-	return o.ApplyT(func(v ClassifierCsvClassifier) *ClassifierCsvClassifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierCsvClassifier) *ClassifierCsvClassifier {
 		return &v
 	}).(ClassifierCsvClassifierPtrOutput)
 }
@@ -1994,7 +2032,13 @@ func (o ClassifierCsvClassifierPtrOutput) ToClassifierCsvClassifierPtrOutputWith
 }
 
 func (o ClassifierCsvClassifierPtrOutput) Elem() ClassifierCsvClassifierOutput {
-	return o.ApplyT(func(v *ClassifierCsvClassifier) ClassifierCsvClassifier { return *v }).(ClassifierCsvClassifierOutput)
+	return o.ApplyT(func(v *ClassifierCsvClassifier) ClassifierCsvClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierCsvClassifier
+		return ret
+	}).(ClassifierCsvClassifierOutput)
 }
 
 // Enables the processing of files that contain only one column.
@@ -2158,7 +2202,7 @@ func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutput() Cl
 }
 
 func (o ClassifierGrokClassifierOutput) ToClassifierGrokClassifierPtrOutputWithContext(ctx context.Context) ClassifierGrokClassifierPtrOutput {
-	return o.ApplyT(func(v ClassifierGrokClassifier) *ClassifierGrokClassifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierGrokClassifier) *ClassifierGrokClassifier {
 		return &v
 	}).(ClassifierGrokClassifierPtrOutput)
 }
@@ -2193,7 +2237,13 @@ func (o ClassifierGrokClassifierPtrOutput) ToClassifierGrokClassifierPtrOutputWi
 }
 
 func (o ClassifierGrokClassifierPtrOutput) Elem() ClassifierGrokClassifierOutput {
-	return o.ApplyT(func(v *ClassifierGrokClassifier) ClassifierGrokClassifier { return *v }).(ClassifierGrokClassifierOutput)
+	return o.ApplyT(func(v *ClassifierGrokClassifier) ClassifierGrokClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierGrokClassifier
+		return ret
+	}).(ClassifierGrokClassifierOutput)
 }
 
 // An identifier of the data format that the classifier matches.
@@ -2319,7 +2369,7 @@ func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutput() Cl
 }
 
 func (o ClassifierJsonClassifierOutput) ToClassifierJsonClassifierPtrOutputWithContext(ctx context.Context) ClassifierJsonClassifierPtrOutput {
-	return o.ApplyT(func(v ClassifierJsonClassifier) *ClassifierJsonClassifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierJsonClassifier) *ClassifierJsonClassifier {
 		return &v
 	}).(ClassifierJsonClassifierPtrOutput)
 }
@@ -2344,7 +2394,13 @@ func (o ClassifierJsonClassifierPtrOutput) ToClassifierJsonClassifierPtrOutputWi
 }
 
 func (o ClassifierJsonClassifierPtrOutput) Elem() ClassifierJsonClassifierOutput {
-	return o.ApplyT(func(v *ClassifierJsonClassifier) ClassifierJsonClassifier { return *v }).(ClassifierJsonClassifierOutput)
+	return o.ApplyT(func(v *ClassifierJsonClassifier) ClassifierJsonClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierJsonClassifier
+		return ret
+	}).(ClassifierJsonClassifierOutput)
 }
 
 // A `JsonPath` string defining the JSON data for the classifier to classify. AWS Glue supports a subset of `JsonPath`, as described in [Writing JsonPath Custom Classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json).
@@ -2454,7 +2510,7 @@ func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutput() Clas
 }
 
 func (o ClassifierXmlClassifierOutput) ToClassifierXmlClassifierPtrOutputWithContext(ctx context.Context) ClassifierXmlClassifierPtrOutput {
-	return o.ApplyT(func(v ClassifierXmlClassifier) *ClassifierXmlClassifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassifierXmlClassifier) *ClassifierXmlClassifier {
 		return &v
 	}).(ClassifierXmlClassifierPtrOutput)
 }
@@ -2484,7 +2540,13 @@ func (o ClassifierXmlClassifierPtrOutput) ToClassifierXmlClassifierPtrOutputWith
 }
 
 func (o ClassifierXmlClassifierPtrOutput) Elem() ClassifierXmlClassifierOutput {
-	return o.ApplyT(func(v *ClassifierXmlClassifier) ClassifierXmlClassifier { return *v }).(ClassifierXmlClassifierOutput)
+	return o.ApplyT(func(v *ClassifierXmlClassifier) ClassifierXmlClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret ClassifierXmlClassifier
+		return ret
+	}).(ClassifierXmlClassifierOutput)
 }
 
 // An identifier of the data format that the classifier matches.
@@ -2608,7 +2670,7 @@ func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConn
 }
 
 func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
-	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *ConnectionPhysicalConnectionRequirements {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPhysicalConnectionRequirements) *ConnectionPhysicalConnectionRequirements {
 		return &v
 	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
 }
@@ -2643,7 +2705,13 @@ func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalC
 }
 
 func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhysicalConnectionRequirementsOutput {
-	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements { return *v }).(ConnectionPhysicalConnectionRequirementsOutput)
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPhysicalConnectionRequirements
+		return ret
+	}).(ConnectionPhysicalConnectionRequirementsOutput)
 }
 
 // The availability zone of the connection. This field is redundant and implied by `subnetId`, but is currently an api requirement.
@@ -3105,7 +3173,7 @@ func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutpu
 }
 
 func (o CrawlerLineageConfigurationOutput) ToCrawlerLineageConfigurationPtrOutputWithContext(ctx context.Context) CrawlerLineageConfigurationPtrOutput {
-	return o.ApplyT(func(v CrawlerLineageConfiguration) *CrawlerLineageConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerLineageConfiguration) *CrawlerLineageConfiguration {
 		return &v
 	}).(CrawlerLineageConfigurationPtrOutput)
 }
@@ -3130,7 +3198,13 @@ func (o CrawlerLineageConfigurationPtrOutput) ToCrawlerLineageConfigurationPtrOu
 }
 
 func (o CrawlerLineageConfigurationPtrOutput) Elem() CrawlerLineageConfigurationOutput {
-	return o.ApplyT(func(v *CrawlerLineageConfiguration) CrawlerLineageConfiguration { return *v }).(CrawlerLineageConfigurationOutput)
+	return o.ApplyT(func(v *CrawlerLineageConfiguration) CrawlerLineageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerLineageConfiguration
+		return ret
+	}).(CrawlerLineageConfigurationOutput)
 }
 
 // Specifies whether data lineage is enabled for the crawler. Valid values are: `ENABLE` and `DISABLE`. Default value is `Disable`.
@@ -3351,7 +3425,7 @@ func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutput() CrawlerRec
 }
 
 func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(ctx context.Context) CrawlerRecrawlPolicyPtrOutput {
-	return o.ApplyT(func(v CrawlerRecrawlPolicy) *CrawlerRecrawlPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerRecrawlPolicy) *CrawlerRecrawlPolicy {
 		return &v
 	}).(CrawlerRecrawlPolicyPtrOutput)
 }
@@ -3376,7 +3450,13 @@ func (o CrawlerRecrawlPolicyPtrOutput) ToCrawlerRecrawlPolicyPtrOutputWithContex
 }
 
 func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
-	return o.ApplyT(func(v *CrawlerRecrawlPolicy) CrawlerRecrawlPolicy { return *v }).(CrawlerRecrawlPolicyOutput)
+	return o.ApplyT(func(v *CrawlerRecrawlPolicy) CrawlerRecrawlPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerRecrawlPolicy
+		return ret
+	}).(CrawlerRecrawlPolicyOutput)
 }
 
 // Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
@@ -3610,7 +3690,7 @@ func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutput() 
 }
 
 func (o CrawlerSchemaChangePolicyOutput) ToCrawlerSchemaChangePolicyPtrOutputWithContext(ctx context.Context) CrawlerSchemaChangePolicyPtrOutput {
-	return o.ApplyT(func(v CrawlerSchemaChangePolicy) *CrawlerSchemaChangePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrawlerSchemaChangePolicy) *CrawlerSchemaChangePolicy {
 		return &v
 	}).(CrawlerSchemaChangePolicyPtrOutput)
 }
@@ -3640,7 +3720,13 @@ func (o CrawlerSchemaChangePolicyPtrOutput) ToCrawlerSchemaChangePolicyPtrOutput
 }
 
 func (o CrawlerSchemaChangePolicyPtrOutput) Elem() CrawlerSchemaChangePolicyOutput {
-	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy { return *v }).(CrawlerSchemaChangePolicyOutput)
+	return o.ApplyT(func(v *CrawlerSchemaChangePolicy) CrawlerSchemaChangePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret CrawlerSchemaChangePolicy
+		return ret
+	}).(CrawlerSchemaChangePolicyOutput)
 }
 
 // The deletion behavior when the crawler finds a deleted object. Valid values: `LOG`, `DELETE_FROM_DATABASE`, or `DEPRECATE_IN_DATABASE`. Defaults to `DEPRECATE_IN_DATABASE`.
@@ -3760,7 +3846,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToData
 }
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
 		return &v
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
 }
@@ -3795,7 +3881,11 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToD
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettings
+		return ret
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
 }
 
@@ -3916,7 +4006,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 }
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
 		return &v
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
 }
@@ -3951,7 +4041,11 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption
+		return ret
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
 }
 
@@ -4072,7 +4166,7 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 }
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
 		return &v
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
@@ -4107,7 +4201,11 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
 	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
+		return ret
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
 }
 
@@ -4232,7 +4330,7 @@ func (o JobCommandOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
 }
 
 func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
-	return o.ApplyT(func(v JobCommand) *JobCommand {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCommand) *JobCommand {
 		return &v
 	}).(JobCommandPtrOutput)
 }
@@ -4267,7 +4365,13 @@ func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Contex
 }
 
 func (o JobCommandPtrOutput) Elem() JobCommandOutput {
-	return o.ApplyT(func(v *JobCommand) JobCommand { return *v }).(JobCommandOutput)
+	return o.ApplyT(func(v *JobCommand) JobCommand {
+		if v != nil {
+			return *v
+		}
+		var ret JobCommand
+		return ret
+	}).(JobCommandOutput)
 }
 
 // The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
@@ -4393,7 +4497,7 @@ func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutput() JobExecuti
 }
 
 func (o JobExecutionPropertyOutput) ToJobExecutionPropertyPtrOutputWithContext(ctx context.Context) JobExecutionPropertyPtrOutput {
-	return o.ApplyT(func(v JobExecutionProperty) *JobExecutionProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobExecutionProperty) *JobExecutionProperty {
 		return &v
 	}).(JobExecutionPropertyPtrOutput)
 }
@@ -4418,7 +4522,13 @@ func (o JobExecutionPropertyPtrOutput) ToJobExecutionPropertyPtrOutputWithContex
 }
 
 func (o JobExecutionPropertyPtrOutput) Elem() JobExecutionPropertyOutput {
-	return o.ApplyT(func(v *JobExecutionProperty) JobExecutionProperty { return *v }).(JobExecutionPropertyOutput)
+	return o.ApplyT(func(v *JobExecutionProperty) JobExecutionProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobExecutionProperty
+		return ret
+	}).(JobExecutionPropertyOutput)
 }
 
 // The maximum number of concurrent runs allowed for a job. The default is 1.
@@ -4524,7 +4634,7 @@ func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutput() JobN
 }
 
 func (o JobNotificationPropertyOutput) ToJobNotificationPropertyPtrOutputWithContext(ctx context.Context) JobNotificationPropertyPtrOutput {
-	return o.ApplyT(func(v JobNotificationProperty) *JobNotificationProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobNotificationProperty) *JobNotificationProperty {
 		return &v
 	}).(JobNotificationPropertyPtrOutput)
 }
@@ -4549,7 +4659,13 @@ func (o JobNotificationPropertyPtrOutput) ToJobNotificationPropertyPtrOutputWith
 }
 
 func (o JobNotificationPropertyPtrOutput) Elem() JobNotificationPropertyOutput {
-	return o.ApplyT(func(v *JobNotificationProperty) JobNotificationProperty { return *v }).(JobNotificationPropertyOutput)
+	return o.ApplyT(func(v *JobNotificationProperty) JobNotificationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret JobNotificationProperty
+		return ret
+	}).(JobNotificationPropertyOutput)
 }
 
 // After a job run starts, the number of minutes to wait before sending a job run delay notification.
@@ -4783,7 +4899,7 @@ func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutput() MLTransf
 }
 
 func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
-	return o.ApplyT(func(v MLTransformParameters) *MLTransformParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformParameters) *MLTransformParameters {
 		return &v
 	}).(MLTransformParametersPtrOutput)
 }
@@ -4815,7 +4931,13 @@ func (o MLTransformParametersPtrOutput) ToMLTransformParametersPtrOutputWithCont
 }
 
 func (o MLTransformParametersPtrOutput) Elem() MLTransformParametersOutput {
-	return o.ApplyT(func(v *MLTransformParameters) MLTransformParameters { return *v }).(MLTransformParametersOutput)
+	return o.ApplyT(func(v *MLTransformParameters) MLTransformParameters {
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformParameters
+		return ret
+	}).(MLTransformParametersOutput)
 }
 
 // The parameters for the find matches algorithm. see Find Matches Parameters.
@@ -4943,7 +5065,7 @@ func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParameter
 }
 
 func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
-	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *MLTransformParametersFindMatchesParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformParametersFindMatchesParameters) *MLTransformParametersFindMatchesParameters {
 		return &v
 	}).(MLTransformParametersFindMatchesParametersPtrOutput)
 }
@@ -4984,7 +5106,11 @@ func (o MLTransformParametersFindMatchesParametersPtrOutput) ToMLTransformParame
 
 func (o MLTransformParametersFindMatchesParametersPtrOutput) Elem() MLTransformParametersFindMatchesParametersOutput {
 	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) MLTransformParametersFindMatchesParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MLTransformParametersFindMatchesParameters
+		return ret
 	}).(MLTransformParametersFindMatchesParametersOutput)
 }
 
@@ -5271,7 +5397,7 @@ func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutput(
 }
 
 func (o PartitionStorageDescriptorOutput) ToPartitionStorageDescriptorPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorPtrOutput {
-	return o.ApplyT(func(v PartitionStorageDescriptor) *PartitionStorageDescriptor {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionStorageDescriptor) *PartitionStorageDescriptor {
 		return &v
 	}).(PartitionStorageDescriptorPtrOutput)
 }
@@ -5351,7 +5477,13 @@ func (o PartitionStorageDescriptorPtrOutput) ToPartitionStorageDescriptorPtrOutp
 }
 
 func (o PartitionStorageDescriptorPtrOutput) Elem() PartitionStorageDescriptorOutput {
-	return o.ApplyT(func(v *PartitionStorageDescriptor) PartitionStorageDescriptor { return *v }).(PartitionStorageDescriptorOutput)
+	return o.ApplyT(func(v *PartitionStorageDescriptor) PartitionStorageDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionStorageDescriptor
+		return ret
+	}).(PartitionStorageDescriptorOutput)
 }
 
 // A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
@@ -5690,7 +5822,7 @@ func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorS
 }
 
 func (o PartitionStorageDescriptorSerDeInfoOutput) ToPartitionStorageDescriptorSerDeInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSerDeInfoPtrOutput {
-	return o.ApplyT(func(v PartitionStorageDescriptorSerDeInfo) *PartitionStorageDescriptorSerDeInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionStorageDescriptorSerDeInfo) *PartitionStorageDescriptorSerDeInfo {
 		return &v
 	}).(PartitionStorageDescriptorSerDeInfoPtrOutput)
 }
@@ -5725,7 +5857,13 @@ func (o PartitionStorageDescriptorSerDeInfoPtrOutput) ToPartitionStorageDescript
 }
 
 func (o PartitionStorageDescriptorSerDeInfoPtrOutput) Elem() PartitionStorageDescriptorSerDeInfoOutput {
-	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) PartitionStorageDescriptorSerDeInfo { return *v }).(PartitionStorageDescriptorSerDeInfoOutput)
+	return o.ApplyT(func(v *PartitionStorageDescriptorSerDeInfo) PartitionStorageDescriptorSerDeInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionStorageDescriptorSerDeInfo
+		return ret
+	}).(PartitionStorageDescriptorSerDeInfoOutput)
 }
 
 // Name of the SerDe.
@@ -5859,7 +5997,7 @@ func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptor
 }
 
 func (o PartitionStorageDescriptorSkewedInfoOutput) ToPartitionStorageDescriptorSkewedInfoPtrOutputWithContext(ctx context.Context) PartitionStorageDescriptorSkewedInfoPtrOutput {
-	return o.ApplyT(func(v PartitionStorageDescriptorSkewedInfo) *PartitionStorageDescriptorSkewedInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionStorageDescriptorSkewedInfo) *PartitionStorageDescriptorSkewedInfo {
 		return &v
 	}).(PartitionStorageDescriptorSkewedInfoPtrOutput)
 }
@@ -5894,7 +6032,13 @@ func (o PartitionStorageDescriptorSkewedInfoPtrOutput) ToPartitionStorageDescrip
 }
 
 func (o PartitionStorageDescriptorSkewedInfoPtrOutput) Elem() PartitionStorageDescriptorSkewedInfoOutput {
-	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) PartitionStorageDescriptorSkewedInfo { return *v }).(PartitionStorageDescriptorSkewedInfoOutput)
+	return o.ApplyT(func(v *PartitionStorageDescriptorSkewedInfo) PartitionStorageDescriptorSkewedInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionStorageDescriptorSkewedInfo
+		return ret
+	}).(PartitionStorageDescriptorSkewedInfoOutput)
 }
 
 // A list of names of columns that contain skewed values.
@@ -6130,10 +6274,11 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurat
 }
 
 func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfiguration {
 		return &v
 	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
 }
+
 func (o SecurityConfigurationEncryptionConfigurationOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
 		return v.CloudwatchEncryption
@@ -6169,7 +6314,11 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigu
 
 func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfiguration
+		return ret
 	}).(SecurityConfigurationEncryptionConfigurationOutput)
 }
 
@@ -6298,7 +6447,7 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) 
 }
 
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
 		return &v
 	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput)
 }
@@ -6331,7 +6480,11 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutpu
 
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfigurationCloudwatchEncryption
+		return ret
 	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
@@ -6452,7 +6605,7 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 }
 
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
 		return &v
 	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput)
 }
@@ -6485,7 +6638,11 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOut
 
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
+		return ret
 	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
@@ -6606,7 +6763,7 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecuri
 }
 
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *SecurityConfigurationEncryptionConfigurationS3Encryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationS3Encryption) *SecurityConfigurationEncryptionConfigurationS3Encryption {
 		return &v
 	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput)
 }
@@ -6637,7 +6794,11 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) ToSec
 
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationS3Encryption) SecurityConfigurationEncryptionConfigurationS3Encryption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigurationEncryptionConfigurationS3Encryption
+		return ret
 	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
@@ -6896,7 +7057,7 @@ func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationProp
 }
 
 func (o TriggerActionNotificationPropertyOutput) ToTriggerActionNotificationPropertyPtrOutputWithContext(ctx context.Context) TriggerActionNotificationPropertyPtrOutput {
-	return o.ApplyT(func(v TriggerActionNotificationProperty) *TriggerActionNotificationProperty {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerActionNotificationProperty) *TriggerActionNotificationProperty {
 		return &v
 	}).(TriggerActionNotificationPropertyPtrOutput)
 }
@@ -6921,7 +7082,13 @@ func (o TriggerActionNotificationPropertyPtrOutput) ToTriggerActionNotificationP
 }
 
 func (o TriggerActionNotificationPropertyPtrOutput) Elem() TriggerActionNotificationPropertyOutput {
-	return o.ApplyT(func(v *TriggerActionNotificationProperty) TriggerActionNotificationProperty { return *v }).(TriggerActionNotificationPropertyOutput)
+	return o.ApplyT(func(v *TriggerActionNotificationProperty) TriggerActionNotificationProperty {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerActionNotificationProperty
+		return ret
+	}).(TriggerActionNotificationPropertyOutput)
 }
 
 // After a job run starts, the number of minutes to wait before sending a job run delay notification.
@@ -7031,7 +7198,7 @@ func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutput() TriggerPredicatePt
 }
 
 func (o TriggerPredicateOutput) ToTriggerPredicatePtrOutputWithContext(ctx context.Context) TriggerPredicatePtrOutput {
-	return o.ApplyT(func(v TriggerPredicate) *TriggerPredicate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TriggerPredicate) *TriggerPredicate {
 		return &v
 	}).(TriggerPredicatePtrOutput)
 }
@@ -7061,7 +7228,13 @@ func (o TriggerPredicatePtrOutput) ToTriggerPredicatePtrOutputWithContext(ctx co
 }
 
 func (o TriggerPredicatePtrOutput) Elem() TriggerPredicateOutput {
-	return o.ApplyT(func(v *TriggerPredicate) TriggerPredicate { return *v }).(TriggerPredicateOutput)
+	return o.ApplyT(func(v *TriggerPredicate) TriggerPredicate {
+		if v != nil {
+			return *v
+		}
+		var ret TriggerPredicate
+		return ret
+	}).(TriggerPredicateOutput)
 }
 
 // A list of the conditions that determine when the trigger will fire. See Conditions.

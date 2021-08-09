@@ -222,9 +222,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly engineMode!: pulumi.Output<string | undefined>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The running version of the database.
+     */
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
      * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
@@ -350,6 +354,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineMode"] = state ? state.engineMode : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
@@ -417,6 +422,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["clusterResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["engineVersionActual"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["readerEndpoint"] = undefined /*out*/;
         }
@@ -512,9 +518,13 @@ export interface ClusterState {
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The running version of the database.
+     */
+    engineVersionActual?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
@@ -680,7 +690,7 @@ export interface ClusterArgs {
      */
     engineMode?: pulumi.Input<string | enums.rds.EngineMode>;
     /**
-     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`.
+     * The database engine version. Updating this argument results in an outage. See the [Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Updates.html) and [Aurora Postgres](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Updates.html) documentation for your configured engine to determine this value. For example with Aurora MySQL 2, a potential value for this argument is `5.7.mysql_aurora.2.03.2`. The value can contain a partial version where supported by the API. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

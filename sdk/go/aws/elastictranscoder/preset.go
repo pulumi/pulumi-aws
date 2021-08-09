@@ -354,9 +354,7 @@ func (i PresetMap) ToPresetMapOutputWithContext(ctx context.Context) PresetMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(PresetMapOutput)
 }
 
-type PresetOutput struct {
-	*pulumi.OutputState
-}
+type PresetOutput struct{ *pulumi.OutputState }
 
 func (PresetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Preset)(nil))
@@ -375,14 +373,12 @@ func (o PresetOutput) ToPresetPtrOutput() PresetPtrOutput {
 }
 
 func (o PresetOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
-	return o.ApplyT(func(v Preset) *Preset {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Preset) *Preset {
 		return &v
 	}).(PresetPtrOutput)
 }
 
-type PresetPtrOutput struct {
-	*pulumi.OutputState
-}
+type PresetPtrOutput struct{ *pulumi.OutputState }
 
 func (PresetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Preset)(nil))
@@ -394,6 +390,16 @@ func (o PresetPtrOutput) ToPresetPtrOutput() PresetPtrOutput {
 
 func (o PresetPtrOutput) ToPresetPtrOutputWithContext(ctx context.Context) PresetPtrOutput {
 	return o
+}
+
+func (o PresetPtrOutput) Elem() PresetOutput {
+	return o.ApplyT(func(v *Preset) Preset {
+		if v != nil {
+			return *v
+		}
+		var ret Preset
+		return ret
+	}).(PresetOutput)
 }
 
 type PresetArrayOutput struct{ *pulumi.OutputState }

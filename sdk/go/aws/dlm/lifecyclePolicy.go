@@ -315,9 +315,7 @@ func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyMapOutput)
 }
 
-type LifecyclePolicyOutput struct {
-	*pulumi.OutputState
-}
+type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LifecyclePolicy)(nil))
@@ -336,14 +334,12 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOu
 }
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
-	return o.ApplyT(func(v LifecyclePolicy) *LifecyclePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicy) *LifecyclePolicy {
 		return &v
 	}).(LifecyclePolicyPtrOutput)
 }
 
-type LifecyclePolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type LifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LifecyclePolicy)(nil))
@@ -355,6 +351,16 @@ func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPt
 
 func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
 	return o
+}
+
+func (o LifecyclePolicyPtrOutput) Elem() LifecyclePolicyOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicy
+		return ret
+	}).(LifecyclePolicyOutput)
 }
 
 type LifecyclePolicyArrayOutput struct{ *pulumi.OutputState }

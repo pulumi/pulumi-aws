@@ -279,9 +279,7 @@ func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockMapOutput)
 }
 
-type BucketPublicAccessBlockOutput struct {
-	*pulumi.OutputState
-}
+type BucketPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BucketPublicAccessBlock)(nil))
@@ -300,14 +298,12 @@ func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutput() Buck
 }
 
 func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
-	return o.ApplyT(func(v BucketPublicAccessBlock) *BucketPublicAccessBlock {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPublicAccessBlock) *BucketPublicAccessBlock {
 		return &v
 	}).(BucketPublicAccessBlockPtrOutput)
 }
 
-type BucketPublicAccessBlockPtrOutput struct {
-	*pulumi.OutputState
-}
+type BucketPublicAccessBlockPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BucketPublicAccessBlock)(nil))
@@ -319,6 +315,16 @@ func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutput() B
 
 func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
 	return o
+}
+
+func (o BucketPublicAccessBlockPtrOutput) Elem() BucketPublicAccessBlockOutput {
+	return o.ApplyT(func(v *BucketPublicAccessBlock) BucketPublicAccessBlock {
+		if v != nil {
+			return *v
+		}
+		var ret BucketPublicAccessBlock
+		return ret
+	}).(BucketPublicAccessBlockOutput)
 }
 
 type BucketPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }

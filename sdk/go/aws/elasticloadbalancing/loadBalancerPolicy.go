@@ -215,9 +215,7 @@ func (i LoadBalancerPolicyMap) ToLoadBalancerPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyMapOutput)
 }
 
-type LoadBalancerPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerPolicy)(nil))
@@ -236,14 +234,12 @@ func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyPtrOutput() LoadBalancerPo
 }
 
 func (o LoadBalancerPolicyOutput) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
-	return o.ApplyT(func(v LoadBalancerPolicy) *LoadBalancerPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerPolicy) *LoadBalancerPolicy {
 		return &v
 	}).(LoadBalancerPolicyPtrOutput)
 }
 
-type LoadBalancerPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoadBalancerPolicy)(nil))
@@ -255,6 +251,16 @@ func (o LoadBalancerPolicyPtrOutput) ToLoadBalancerPolicyPtrOutput() LoadBalance
 
 func (o LoadBalancerPolicyPtrOutput) ToLoadBalancerPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerPolicyPtrOutput {
 	return o
+}
+
+func (o LoadBalancerPolicyPtrOutput) Elem() LoadBalancerPolicyOutput {
+	return o.ApplyT(func(v *LoadBalancerPolicy) LoadBalancerPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerPolicy
+		return ret
+	}).(LoadBalancerPolicyOutput)
 }
 
 type LoadBalancerPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -227,9 +227,7 @@ func (i CertificateValidationMap) ToCertificateValidationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationMapOutput)
 }
 
-type CertificateValidationOutput struct {
-	*pulumi.OutputState
-}
+type CertificateValidationOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CertificateValidation)(nil))
@@ -248,14 +246,12 @@ func (o CertificateValidationOutput) ToCertificateValidationPtrOutput() Certific
 }
 
 func (o CertificateValidationOutput) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
-	return o.ApplyT(func(v CertificateValidation) *CertificateValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateValidation) *CertificateValidation {
 		return &v
 	}).(CertificateValidationPtrOutput)
 }
 
-type CertificateValidationPtrOutput struct {
-	*pulumi.OutputState
-}
+type CertificateValidationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateValidationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CertificateValidation)(nil))
@@ -267,6 +263,16 @@ func (o CertificateValidationPtrOutput) ToCertificateValidationPtrOutput() Certi
 
 func (o CertificateValidationPtrOutput) ToCertificateValidationPtrOutputWithContext(ctx context.Context) CertificateValidationPtrOutput {
 	return o
+}
+
+func (o CertificateValidationPtrOutput) Elem() CertificateValidationOutput {
+	return o.ApplyT(func(v *CertificateValidation) CertificateValidation {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateValidation
+		return ret
+	}).(CertificateValidationOutput)
 }
 
 type CertificateValidationArrayOutput struct{ *pulumi.OutputState }

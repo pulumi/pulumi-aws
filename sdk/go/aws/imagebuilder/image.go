@@ -315,9 +315,7 @@ func (i ImageMap) ToImageMapOutputWithContext(ctx context.Context) ImageMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageMapOutput)
 }
 
-type ImageOutput struct {
-	*pulumi.OutputState
-}
+type ImageOutput struct{ *pulumi.OutputState }
 
 func (ImageOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Image)(nil))
@@ -336,14 +334,12 @@ func (o ImageOutput) ToImagePtrOutput() ImagePtrOutput {
 }
 
 func (o ImageOutput) ToImagePtrOutputWithContext(ctx context.Context) ImagePtrOutput {
-	return o.ApplyT(func(v Image) *Image {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Image) *Image {
 		return &v
 	}).(ImagePtrOutput)
 }
 
-type ImagePtrOutput struct {
-	*pulumi.OutputState
-}
+type ImagePtrOutput struct{ *pulumi.OutputState }
 
 func (ImagePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Image)(nil))
@@ -355,6 +351,16 @@ func (o ImagePtrOutput) ToImagePtrOutput() ImagePtrOutput {
 
 func (o ImagePtrOutput) ToImagePtrOutputWithContext(ctx context.Context) ImagePtrOutput {
 	return o
+}
+
+func (o ImagePtrOutput) Elem() ImageOutput {
+	return o.ApplyT(func(v *Image) Image {
+		if v != nil {
+			return *v
+		}
+		var ret Image
+		return ret
+	}).(ImageOutput)
 }
 
 type ImageArrayOutput struct{ *pulumi.OutputState }

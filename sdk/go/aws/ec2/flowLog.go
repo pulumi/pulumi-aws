@@ -405,9 +405,7 @@ func (i FlowLogMap) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMa
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogMapOutput)
 }
 
-type FlowLogOutput struct {
-	*pulumi.OutputState
-}
+type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FlowLog)(nil))
@@ -426,14 +424,12 @@ func (o FlowLogOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
 }
 
 func (o FlowLogOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
-	return o.ApplyT(func(v FlowLog) *FlowLog {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLog) *FlowLog {
 		return &v
 	}).(FlowLogPtrOutput)
 }
 
-type FlowLogPtrOutput struct {
-	*pulumi.OutputState
-}
+type FlowLogPtrOutput struct{ *pulumi.OutputState }
 
 func (FlowLogPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FlowLog)(nil))
@@ -445,6 +441,16 @@ func (o FlowLogPtrOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
 
 func (o FlowLogPtrOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
 	return o
+}
+
+func (o FlowLogPtrOutput) Elem() FlowLogOutput {
+	return o.ApplyT(func(v *FlowLog) FlowLog {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLog
+		return ret
+	}).(FlowLogOutput)
 }
 
 type FlowLogArrayOutput struct{ *pulumi.OutputState }

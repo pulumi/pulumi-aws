@@ -244,7 +244,7 @@ func (o GroupInstanceRefreshOutput) ToGroupInstanceRefreshPtrOutput() GroupInsta
 }
 
 func (o GroupInstanceRefreshOutput) ToGroupInstanceRefreshPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPtrOutput {
-	return o.ApplyT(func(v GroupInstanceRefresh) *GroupInstanceRefresh {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceRefresh) *GroupInstanceRefresh {
 		return &v
 	}).(GroupInstanceRefreshPtrOutput)
 }
@@ -279,7 +279,13 @@ func (o GroupInstanceRefreshPtrOutput) ToGroupInstanceRefreshPtrOutputWithContex
 }
 
 func (o GroupInstanceRefreshPtrOutput) Elem() GroupInstanceRefreshOutput {
-	return o.ApplyT(func(v *GroupInstanceRefresh) GroupInstanceRefresh { return *v }).(GroupInstanceRefreshOutput)
+	return o.ApplyT(func(v *GroupInstanceRefresh) GroupInstanceRefresh {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceRefresh
+		return ret
+	}).(GroupInstanceRefreshOutput)
 }
 
 // Override default parameters for Instance Refresh.
@@ -409,7 +415,7 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 }
 
 func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferencesPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesPtrOutput {
-	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferences {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferences {
 		return &v
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
@@ -439,7 +445,13 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) ToGroupInstanceRefreshPreferen
 }
 
 func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPreferencesOutput {
-	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) GroupInstanceRefreshPreferences { return *v }).(GroupInstanceRefreshPreferencesOutput)
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) GroupInstanceRefreshPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret GroupInstanceRefreshPreferences
+		return ret
+	}).(GroupInstanceRefreshPreferencesOutput)
 }
 
 // The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
@@ -563,7 +575,7 @@ func (o GroupLaunchTemplateOutput) ToGroupLaunchTemplatePtrOutput() GroupLaunchT
 }
 
 func (o GroupLaunchTemplateOutput) ToGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GroupLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v GroupLaunchTemplate) *GroupLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupLaunchTemplate) *GroupLaunchTemplate {
 		return &v
 	}).(GroupLaunchTemplatePtrOutput)
 }
@@ -598,7 +610,13 @@ func (o GroupLaunchTemplatePtrOutput) ToGroupLaunchTemplatePtrOutputWithContext(
 }
 
 func (o GroupLaunchTemplatePtrOutput) Elem() GroupLaunchTemplateOutput {
-	return o.ApplyT(func(v *GroupLaunchTemplate) GroupLaunchTemplate { return *v }).(GroupLaunchTemplateOutput)
+	return o.ApplyT(func(v *GroupLaunchTemplate) GroupLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret GroupLaunchTemplate
+		return ret
+	}).(GroupLaunchTemplateOutput)
 }
 
 // The ID of the launch template. Conflicts with `name`.
@@ -728,7 +746,7 @@ func (o GroupMixedInstancesPolicyOutput) ToGroupMixedInstancesPolicyPtrOutput() 
 }
 
 func (o GroupMixedInstancesPolicyOutput) ToGroupMixedInstancesPolicyPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyPtrOutput {
-	return o.ApplyT(func(v GroupMixedInstancesPolicy) *GroupMixedInstancesPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicy) *GroupMixedInstancesPolicy {
 		return &v
 	}).(GroupMixedInstancesPolicyPtrOutput)
 }
@@ -760,7 +778,13 @@ func (o GroupMixedInstancesPolicyPtrOutput) ToGroupMixedInstancesPolicyPtrOutput
 }
 
 func (o GroupMixedInstancesPolicyPtrOutput) Elem() GroupMixedInstancesPolicyOutput {
-	return o.ApplyT(func(v *GroupMixedInstancesPolicy) GroupMixedInstancesPolicy { return *v }).(GroupMixedInstancesPolicyOutput)
+	return o.ApplyT(func(v *GroupMixedInstancesPolicy) GroupMixedInstancesPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicy
+		return ret
+	}).(GroupMixedInstancesPolicyOutput)
 }
 
 // Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
@@ -896,7 +920,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToGroupMixedInstan
 }
 
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToGroupMixedInstancesPolicyInstancesDistributionPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyInstancesDistributionPtrOutput {
-	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *GroupMixedInstancesPolicyInstancesDistribution {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyInstancesDistribution) *GroupMixedInstancesPolicyInstancesDistribution {
 		return &v
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
@@ -949,7 +973,11 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) ToGroupMixedIns
 
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) Elem() GroupMixedInstancesPolicyInstancesDistributionOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) GroupMixedInstancesPolicyInstancesDistribution {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyInstancesDistribution
+		return ret
 	}).(GroupMixedInstancesPolicyInstancesDistributionOutput)
 }
 
@@ -1110,7 +1138,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToGroupMixedInstancesPoli
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToGroupMixedInstancesPolicyLaunchTemplatePtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplatePtrOutput {
-	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplate) *GroupMixedInstancesPolicyLaunchTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplate) *GroupMixedInstancesPolicyLaunchTemplate {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplatePtrOutput)
 }
@@ -1144,7 +1172,13 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) ToGroupMixedInstancesP
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOutput {
-	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplate) GroupMixedInstancesPolicyLaunchTemplate { return *v }).(GroupMixedInstancesPolicyLaunchTemplateOutput)
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplate) GroupMixedInstancesPolicyLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplate
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOutput)
 }
 
 // Override the instance launch template specification in the Launch Template.
@@ -1268,7 +1302,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput {
-	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput)
 }
@@ -1308,7 +1342,11 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification
+		return ret
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput)
 }
 
@@ -1560,7 +1598,7 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput {
-	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput)
 }
@@ -1602,7 +1640,11 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
+		return ret
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput)
 }
 
@@ -1855,7 +1897,7 @@ func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
 }
 
 func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
-	return o.ApplyT(func(v GroupWarmPool) *GroupWarmPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupWarmPool) *GroupWarmPool {
 		return &v
 	}).(GroupWarmPoolPtrOutput)
 }
@@ -1890,7 +1932,13 @@ func (o GroupWarmPoolPtrOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.
 }
 
 func (o GroupWarmPoolPtrOutput) Elem() GroupWarmPoolOutput {
-	return o.ApplyT(func(v *GroupWarmPool) GroupWarmPool { return *v }).(GroupWarmPoolOutput)
+	return o.ApplyT(func(v *GroupWarmPool) GroupWarmPool {
+		if v != nil {
+			return *v
+		}
+		var ret GroupWarmPool
+		return ret
+	}).(GroupWarmPoolOutput)
 }
 
 // Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
@@ -2032,7 +2080,7 @@ func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingCon
 }
 
 func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
-	return o.ApplyT(func(v PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfiguration {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
@@ -2079,7 +2127,13 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) ToPolicyPredictiveScaling
 }
 
 func (o PolicyPredictiveScalingConfigurationPtrOutput) Elem() PolicyPredictiveScalingConfigurationOutput {
-	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) PolicyPredictiveScalingConfiguration { return *v }).(PolicyPredictiveScalingConfigurationOutput)
+	return o.ApplyT(func(v *PolicyPredictiveScalingConfiguration) PolicyPredictiveScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPredictiveScalingConfiguration
+		return ret
+	}).(PolicyPredictiveScalingConfigurationOutput)
 }
 
 // Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
@@ -2237,7 +2291,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyP
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
 }
@@ -2284,7 +2338,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToPoli
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPredictiveScalingConfigurationMetricSpecification
+		return ret
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
 }
 
@@ -2425,7 +2483,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
@@ -2460,7 +2518,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification
+		return ret
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
 }
 
@@ -2581,7 +2643,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
@@ -2616,7 +2678,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification
+		return ret
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
 }
 
@@ -2737,7 +2803,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
@@ -2772,7 +2838,11 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification
+		return ret
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
 }
 
@@ -3037,7 +3107,7 @@ func (o PolicyTargetTrackingConfigurationOutput) ToPolicyTargetTrackingConfigura
 }
 
 func (o PolicyTargetTrackingConfigurationOutput) ToPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfiguration {
 		return &v
 	}).(PolicyTargetTrackingConfigurationPtrOutput)
 }
@@ -3081,7 +3151,13 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) ToPolicyTargetTrackingConfig
 }
 
 func (o PolicyTargetTrackingConfigurationPtrOutput) Elem() PolicyTargetTrackingConfigurationOutput {
-	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) PolicyTargetTrackingConfiguration { return *v }).(PolicyTargetTrackingConfigurationOutput)
+	return o.ApplyT(func(v *PolicyTargetTrackingConfiguration) PolicyTargetTrackingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingConfiguration
+		return ret
+	}).(PolicyTargetTrackingConfigurationOutput)
 }
 
 // A customized metric. Conflicts with `predefinedMetricSpecification`.
@@ -3233,7 +3309,7 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) To
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
@@ -3281,7 +3357,11 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationCustomizedMetricSpecification) PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingConfigurationCustomizedMetricSpecification
+		return ret
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput)
 }
 
@@ -3542,7 +3622,7 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) To
 }
 
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput {
-	return o.ApplyT(func(v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
@@ -3575,7 +3655,11 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingConfigurationPredefinedMetricSpecification) PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret PolicyTargetTrackingConfigurationPredefinedMetricSpecification
+		return ret
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput)
 }
 

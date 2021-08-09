@@ -298,9 +298,7 @@ func (i ExternalKeyMap) ToExternalKeyMapOutputWithContext(ctx context.Context) E
 	return pulumi.ToOutputWithContext(ctx, i).(ExternalKeyMapOutput)
 }
 
-type ExternalKeyOutput struct {
-	*pulumi.OutputState
-}
+type ExternalKeyOutput struct{ *pulumi.OutputState }
 
 func (ExternalKeyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ExternalKey)(nil))
@@ -319,14 +317,12 @@ func (o ExternalKeyOutput) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
 }
 
 func (o ExternalKeyOutput) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
-	return o.ApplyT(func(v ExternalKey) *ExternalKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalKey) *ExternalKey {
 		return &v
 	}).(ExternalKeyPtrOutput)
 }
 
-type ExternalKeyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ExternalKeyPtrOutput struct{ *pulumi.OutputState }
 
 func (ExternalKeyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ExternalKey)(nil))
@@ -338,6 +334,16 @@ func (o ExternalKeyPtrOutput) ToExternalKeyPtrOutput() ExternalKeyPtrOutput {
 
 func (o ExternalKeyPtrOutput) ToExternalKeyPtrOutputWithContext(ctx context.Context) ExternalKeyPtrOutput {
 	return o
+}
+
+func (o ExternalKeyPtrOutput) Elem() ExternalKeyOutput {
+	return o.ApplyT(func(v *ExternalKey) ExternalKey {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalKey
+		return ret
+	}).(ExternalKeyOutput)
 }
 
 type ExternalKeyArrayOutput struct{ *pulumi.OutputState }

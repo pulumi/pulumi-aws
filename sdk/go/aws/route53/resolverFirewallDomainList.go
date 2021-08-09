@@ -238,9 +238,7 @@ func (i ResolverFirewallDomainListMap) ToResolverFirewallDomainListMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallDomainListMapOutput)
 }
 
-type ResolverFirewallDomainListOutput struct {
-	*pulumi.OutputState
-}
+type ResolverFirewallDomainListOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResolverFirewallDomainList)(nil))
@@ -259,14 +257,12 @@ func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListPtrOutput(
 }
 
 func (o ResolverFirewallDomainListOutput) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
-	return o.ApplyT(func(v ResolverFirewallDomainList) *ResolverFirewallDomainList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverFirewallDomainList) *ResolverFirewallDomainList {
 		return &v
 	}).(ResolverFirewallDomainListPtrOutput)
 }
 
-type ResolverFirewallDomainListPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResolverFirewallDomainListPtrOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallDomainListPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResolverFirewallDomainList)(nil))
@@ -278,6 +274,16 @@ func (o ResolverFirewallDomainListPtrOutput) ToResolverFirewallDomainListPtrOutp
 
 func (o ResolverFirewallDomainListPtrOutput) ToResolverFirewallDomainListPtrOutputWithContext(ctx context.Context) ResolverFirewallDomainListPtrOutput {
 	return o
+}
+
+func (o ResolverFirewallDomainListPtrOutput) Elem() ResolverFirewallDomainListOutput {
+	return o.ApplyT(func(v *ResolverFirewallDomainList) ResolverFirewallDomainList {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverFirewallDomainList
+		return ret
+	}).(ResolverFirewallDomainListOutput)
 }
 
 type ResolverFirewallDomainListArrayOutput struct{ *pulumi.OutputState }

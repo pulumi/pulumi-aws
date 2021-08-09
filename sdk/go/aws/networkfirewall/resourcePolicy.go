@@ -288,9 +288,7 @@ func (i ResourcePolicyMap) ToResourcePolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyMapOutput)
 }
 
-type ResourcePolicyOutput struct {
-	*pulumi.OutputState
-}
+type ResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourcePolicy)(nil))
@@ -309,14 +307,12 @@ func (o ResourcePolicyOutput) ToResourcePolicyPtrOutput() ResourcePolicyPtrOutpu
 }
 
 func (o ResourcePolicyOutput) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
-	return o.ApplyT(func(v ResourcePolicy) *ResourcePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourcePolicy) *ResourcePolicy {
 		return &v
 	}).(ResourcePolicyPtrOutput)
 }
 
-type ResourcePolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourcePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourcePolicy)(nil))
@@ -328,6 +324,16 @@ func (o ResourcePolicyPtrOutput) ToResourcePolicyPtrOutput() ResourcePolicyPtrOu
 
 func (o ResourcePolicyPtrOutput) ToResourcePolicyPtrOutputWithContext(ctx context.Context) ResourcePolicyPtrOutput {
 	return o
+}
+
+func (o ResourcePolicyPtrOutput) Elem() ResourcePolicyOutput {
+	return o.ApplyT(func(v *ResourcePolicy) ResourcePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ResourcePolicy
+		return ret
+	}).(ResourcePolicyOutput)
 }
 
 type ResourcePolicyArrayOutput struct{ *pulumi.OutputState }

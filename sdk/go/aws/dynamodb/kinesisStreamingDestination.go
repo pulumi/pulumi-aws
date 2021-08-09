@@ -246,9 +246,7 @@ func (i KinesisStreamingDestinationMap) ToKinesisStreamingDestinationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationMapOutput)
 }
 
-type KinesisStreamingDestinationOutput struct {
-	*pulumi.OutputState
-}
+type KinesisStreamingDestinationOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*KinesisStreamingDestination)(nil))
@@ -267,14 +265,12 @@ func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationPtrOutpu
 }
 
 func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
-	return o.ApplyT(func(v KinesisStreamingDestination) *KinesisStreamingDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KinesisStreamingDestination) *KinesisStreamingDestination {
 		return &v
 	}).(KinesisStreamingDestinationPtrOutput)
 }
 
-type KinesisStreamingDestinationPtrOutput struct {
-	*pulumi.OutputState
-}
+type KinesisStreamingDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**KinesisStreamingDestination)(nil))
@@ -286,6 +282,16 @@ func (o KinesisStreamingDestinationPtrOutput) ToKinesisStreamingDestinationPtrOu
 
 func (o KinesisStreamingDestinationPtrOutput) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
 	return o
+}
+
+func (o KinesisStreamingDestinationPtrOutput) Elem() KinesisStreamingDestinationOutput {
+	return o.ApplyT(func(v *KinesisStreamingDestination) KinesisStreamingDestination {
+		if v != nil {
+			return *v
+		}
+		var ret KinesisStreamingDestination
+		return ret
+	}).(KinesisStreamingDestinationOutput)
 }
 
 type KinesisStreamingDestinationArrayOutput struct{ *pulumi.OutputState }

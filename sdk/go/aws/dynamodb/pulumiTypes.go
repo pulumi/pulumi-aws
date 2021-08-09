@@ -620,7 +620,7 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutput() Ta
 }
 
 func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoveryPtrOutput {
-	return o.ApplyT(func(v TablePointInTimeRecovery) *TablePointInTimeRecovery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TablePointInTimeRecovery) *TablePointInTimeRecovery {
 		return &v
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
@@ -645,7 +645,13 @@ func (o TablePointInTimeRecoveryPtrOutput) ToTablePointInTimeRecoveryPtrOutputWi
 }
 
 func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput {
-	return o.ApplyT(func(v *TablePointInTimeRecovery) TablePointInTimeRecovery { return *v }).(TablePointInTimeRecoveryOutput)
+	return o.ApplyT(func(v *TablePointInTimeRecovery) TablePointInTimeRecovery {
+		if v != nil {
+			return *v
+		}
+		var ret TablePointInTimeRecovery
+		return ret
+	}).(TablePointInTimeRecoveryOutput)
 }
 
 // Indicates whether ttl is enabled (true) or disabled (false).
@@ -866,7 +872,7 @@ func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutput() 
 }
 
 func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) TableServerSideEncryptionPtrOutput {
-	return o.ApplyT(func(v TableServerSideEncryption) *TableServerSideEncryption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableServerSideEncryption) *TableServerSideEncryption {
 		return &v
 	}).(TableServerSideEncryptionPtrOutput)
 }
@@ -897,7 +903,13 @@ func (o TableServerSideEncryptionPtrOutput) ToTableServerSideEncryptionPtrOutput
 }
 
 func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutput {
-	return o.ApplyT(func(v *TableServerSideEncryption) TableServerSideEncryption { return *v }).(TableServerSideEncryptionOutput)
+	return o.ApplyT(func(v *TableServerSideEncryption) TableServerSideEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret TableServerSideEncryption
+		return ret
+	}).(TableServerSideEncryptionOutput)
 }
 
 // Indicates whether ttl is enabled (true) or disabled (false).
@@ -1024,7 +1036,7 @@ func (o TableTtlOutput) ToTableTtlPtrOutput() TableTtlPtrOutput {
 }
 
 func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) TableTtlPtrOutput {
-	return o.ApplyT(func(v TableTtl) *TableTtl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableTtl) *TableTtl {
 		return &v
 	}).(TableTtlPtrOutput)
 }
@@ -1060,7 +1072,13 @@ func (o TableTtlPtrOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) T
 }
 
 func (o TableTtlPtrOutput) Elem() TableTtlOutput {
-	return o.ApplyT(func(v *TableTtl) TableTtl { return *v }).(TableTtlOutput)
+	return o.ApplyT(func(v *TableTtl) TableTtl {
+		if v != nil {
+			return *v
+		}
+		var ret TableTtl
+		return ret
+	}).(TableTtlOutput)
 }
 
 // The name of the table attribute to store the TTL timestamp in.

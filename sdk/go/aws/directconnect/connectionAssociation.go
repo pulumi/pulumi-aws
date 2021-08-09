@@ -228,9 +228,7 @@ func (i ConnectionAssociationMap) ToConnectionAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAssociationMapOutput)
 }
 
-type ConnectionAssociationOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConnectionAssociation)(nil))
@@ -249,14 +247,12 @@ func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutput() Connecti
 }
 
 func (o ConnectionAssociationOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
-	return o.ApplyT(func(v ConnectionAssociation) *ConnectionAssociation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAssociation) *ConnectionAssociation {
 		return &v
 	}).(ConnectionAssociationPtrOutput)
 }
 
-type ConnectionAssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConnectionAssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConnectionAssociation)(nil))
@@ -268,6 +264,16 @@ func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutput() Conne
 
 func (o ConnectionAssociationPtrOutput) ToConnectionAssociationPtrOutputWithContext(ctx context.Context) ConnectionAssociationPtrOutput {
 	return o
+}
+
+func (o ConnectionAssociationPtrOutput) Elem() ConnectionAssociationOutput {
+	return o.ApplyT(func(v *ConnectionAssociation) ConnectionAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAssociation
+		return ret
+	}).(ConnectionAssociationOutput)
 }
 
 type ConnectionAssociationArrayOutput struct{ *pulumi.OutputState }

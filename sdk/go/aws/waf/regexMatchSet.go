@@ -238,9 +238,7 @@ func (i RegexMatchSetMap) ToRegexMatchSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RegexMatchSetMapOutput)
 }
 
-type RegexMatchSetOutput struct {
-	*pulumi.OutputState
-}
+type RegexMatchSetOutput struct{ *pulumi.OutputState }
 
 func (RegexMatchSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RegexMatchSet)(nil))
@@ -259,14 +257,12 @@ func (o RegexMatchSetOutput) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutput {
 }
 
 func (o RegexMatchSetOutput) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
-	return o.ApplyT(func(v RegexMatchSet) *RegexMatchSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegexMatchSet) *RegexMatchSet {
 		return &v
 	}).(RegexMatchSetPtrOutput)
 }
 
-type RegexMatchSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type RegexMatchSetPtrOutput struct{ *pulumi.OutputState }
 
 func (RegexMatchSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RegexMatchSet)(nil))
@@ -278,6 +274,16 @@ func (o RegexMatchSetPtrOutput) ToRegexMatchSetPtrOutput() RegexMatchSetPtrOutpu
 
 func (o RegexMatchSetPtrOutput) ToRegexMatchSetPtrOutputWithContext(ctx context.Context) RegexMatchSetPtrOutput {
 	return o
+}
+
+func (o RegexMatchSetPtrOutput) Elem() RegexMatchSetOutput {
+	return o.ApplyT(func(v *RegexMatchSet) RegexMatchSet {
+		if v != nil {
+			return *v
+		}
+		var ret RegexMatchSet
+		return ret
+	}).(RegexMatchSetOutput)
 }
 
 type RegexMatchSetArrayOutput struct{ *pulumi.OutputState }

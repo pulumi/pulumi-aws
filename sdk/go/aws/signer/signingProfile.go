@@ -309,9 +309,7 @@ func (i SigningProfileMap) ToSigningProfileMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileMapOutput)
 }
 
-type SigningProfileOutput struct {
-	*pulumi.OutputState
-}
+type SigningProfileOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SigningProfile)(nil))
@@ -330,14 +328,12 @@ func (o SigningProfileOutput) ToSigningProfilePtrOutput() SigningProfilePtrOutpu
 }
 
 func (o SigningProfileOutput) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
-	return o.ApplyT(func(v SigningProfile) *SigningProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningProfile) *SigningProfile {
 		return &v
 	}).(SigningProfilePtrOutput)
 }
 
-type SigningProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type SigningProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (SigningProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SigningProfile)(nil))
@@ -349,6 +345,16 @@ func (o SigningProfilePtrOutput) ToSigningProfilePtrOutput() SigningProfilePtrOu
 
 func (o SigningProfilePtrOutput) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
 	return o
+}
+
+func (o SigningProfilePtrOutput) Elem() SigningProfileOutput {
+	return o.ApplyT(func(v *SigningProfile) SigningProfile {
+		if v != nil {
+			return *v
+		}
+		var ret SigningProfile
+		return ret
+	}).(SigningProfileOutput)
 }
 
 type SigningProfileArrayOutput struct{ *pulumi.OutputState }

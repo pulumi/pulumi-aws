@@ -306,9 +306,7 @@ func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationMapOutput)
 }
 
-type RemediationConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type RemediationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RemediationConfiguration)(nil))
@@ -327,14 +325,12 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutput() Re
 }
 
 func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
-	return o.ApplyT(func(v RemediationConfiguration) *RemediationConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfiguration) *RemediationConfiguration {
 		return &v
 	}).(RemediationConfigurationPtrOutput)
 }
 
-type RemediationConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type RemediationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RemediationConfiguration)(nil))
@@ -346,6 +342,16 @@ func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutput()
 
 func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
 	return o
+}
+
+func (o RemediationConfigurationPtrOutput) Elem() RemediationConfigurationOutput {
+	return o.ApplyT(func(v *RemediationConfiguration) RemediationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RemediationConfiguration
+		return ret
+	}).(RemediationConfigurationOutput)
 }
 
 type RemediationConfigurationArrayOutput struct{ *pulumi.OutputState }

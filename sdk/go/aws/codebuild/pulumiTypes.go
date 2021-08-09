@@ -135,7 +135,7 @@ func (o ProjectArtifactsOutput) ToProjectArtifactsPtrOutput() ProjectArtifactsPt
 }
 
 func (o ProjectArtifactsOutput) ToProjectArtifactsPtrOutputWithContext(ctx context.Context) ProjectArtifactsPtrOutput {
-	return o.ApplyT(func(v ProjectArtifacts) *ProjectArtifacts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectArtifacts) *ProjectArtifacts {
 		return &v
 	}).(ProjectArtifactsPtrOutput)
 }
@@ -200,7 +200,13 @@ func (o ProjectArtifactsPtrOutput) ToProjectArtifactsPtrOutputWithContext(ctx co
 }
 
 func (o ProjectArtifactsPtrOutput) Elem() ProjectArtifactsOutput {
-	return o.ApplyT(func(v *ProjectArtifacts) ProjectArtifacts { return *v }).(ProjectArtifactsOutput)
+	return o.ApplyT(func(v *ProjectArtifacts) ProjectArtifacts {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectArtifacts
+		return ret
+	}).(ProjectArtifactsOutput)
 }
 
 // Artifact identifier. Must be the same specified inside the AWS CodeBuild build specification.
@@ -398,7 +404,7 @@ func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutput() Proj
 }
 
 func (o ProjectBuildBatchConfigOutput) ToProjectBuildBatchConfigPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigPtrOutput {
-	return o.ApplyT(func(v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildBatchConfig) *ProjectBuildBatchConfig {
 		return &v
 	}).(ProjectBuildBatchConfigPtrOutput)
 }
@@ -438,7 +444,13 @@ func (o ProjectBuildBatchConfigPtrOutput) ToProjectBuildBatchConfigPtrOutputWith
 }
 
 func (o ProjectBuildBatchConfigPtrOutput) Elem() ProjectBuildBatchConfigOutput {
-	return o.ApplyT(func(v *ProjectBuildBatchConfig) ProjectBuildBatchConfig { return *v }).(ProjectBuildBatchConfigOutput)
+	return o.ApplyT(func(v *ProjectBuildBatchConfig) ProjectBuildBatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBuildBatchConfig
+		return ret
+	}).(ProjectBuildBatchConfigOutput)
 }
 
 // Specifies if the build artifacts for the batch build should be combined into a single artifact location.
@@ -578,7 +590,7 @@ func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRest
 }
 
 func (o ProjectBuildBatchConfigRestrictionsOutput) ToProjectBuildBatchConfigRestrictionsPtrOutputWithContext(ctx context.Context) ProjectBuildBatchConfigRestrictionsPtrOutput {
-	return o.ApplyT(func(v ProjectBuildBatchConfigRestrictions) *ProjectBuildBatchConfigRestrictions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectBuildBatchConfigRestrictions) *ProjectBuildBatchConfigRestrictions {
 		return &v
 	}).(ProjectBuildBatchConfigRestrictionsPtrOutput)
 }
@@ -608,7 +620,13 @@ func (o ProjectBuildBatchConfigRestrictionsPtrOutput) ToProjectBuildBatchConfigR
 }
 
 func (o ProjectBuildBatchConfigRestrictionsPtrOutput) Elem() ProjectBuildBatchConfigRestrictionsOutput {
-	return o.ApplyT(func(v *ProjectBuildBatchConfigRestrictions) ProjectBuildBatchConfigRestrictions { return *v }).(ProjectBuildBatchConfigRestrictionsOutput)
+	return o.ApplyT(func(v *ProjectBuildBatchConfigRestrictions) ProjectBuildBatchConfigRestrictions {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectBuildBatchConfigRestrictions
+		return ret
+	}).(ProjectBuildBatchConfigRestrictionsOutput)
 }
 
 // An array of strings that specify the compute types that are allowed for the batch build. See [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the AWS CodeBuild User Guide for these values.
@@ -732,7 +750,7 @@ func (o ProjectCacheOutput) ToProjectCachePtrOutput() ProjectCachePtrOutput {
 }
 
 func (o ProjectCacheOutput) ToProjectCachePtrOutputWithContext(ctx context.Context) ProjectCachePtrOutput {
-	return o.ApplyT(func(v ProjectCache) *ProjectCache {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectCache) *ProjectCache {
 		return &v
 	}).(ProjectCachePtrOutput)
 }
@@ -767,7 +785,13 @@ func (o ProjectCachePtrOutput) ToProjectCachePtrOutputWithContext(ctx context.Co
 }
 
 func (o ProjectCachePtrOutput) Elem() ProjectCacheOutput {
-	return o.ApplyT(func(v *ProjectCache) ProjectCache { return *v }).(ProjectCacheOutput)
+	return o.ApplyT(func(v *ProjectCache) ProjectCache {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectCache
+		return ret
+	}).(ProjectCacheOutput)
 }
 
 // Location of the source code from git or s3.
@@ -921,7 +945,7 @@ func (o ProjectEnvironmentOutput) ToProjectEnvironmentPtrOutput() ProjectEnviron
 }
 
 func (o ProjectEnvironmentOutput) ToProjectEnvironmentPtrOutputWithContext(ctx context.Context) ProjectEnvironmentPtrOutput {
-	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironment) *ProjectEnvironment {
 		return &v
 	}).(ProjectEnvironmentPtrOutput)
 }
@@ -981,7 +1005,13 @@ func (o ProjectEnvironmentPtrOutput) ToProjectEnvironmentPtrOutputWithContext(ct
 }
 
 func (o ProjectEnvironmentPtrOutput) Elem() ProjectEnvironmentOutput {
-	return o.ApplyT(func(v *ProjectEnvironment) ProjectEnvironment { return *v }).(ProjectEnvironmentOutput)
+	return o.ApplyT(func(v *ProjectEnvironment) ProjectEnvironment {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironment
+		return ret
+	}).(ProjectEnvironmentOutput)
 }
 
 // ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
@@ -1276,7 +1306,7 @@ func (o ProjectEnvironmentRegistryCredentialOutput) ToProjectEnvironmentRegistry
 }
 
 func (o ProjectEnvironmentRegistryCredentialOutput) ToProjectEnvironmentRegistryCredentialPtrOutputWithContext(ctx context.Context) ProjectEnvironmentRegistryCredentialPtrOutput {
-	return o.ApplyT(func(v ProjectEnvironmentRegistryCredential) *ProjectEnvironmentRegistryCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironmentRegistryCredential) *ProjectEnvironmentRegistryCredential {
 		return &v
 	}).(ProjectEnvironmentRegistryCredentialPtrOutput)
 }
@@ -1306,7 +1336,13 @@ func (o ProjectEnvironmentRegistryCredentialPtrOutput) ToProjectEnvironmentRegis
 }
 
 func (o ProjectEnvironmentRegistryCredentialPtrOutput) Elem() ProjectEnvironmentRegistryCredentialOutput {
-	return o.ApplyT(func(v *ProjectEnvironmentRegistryCredential) ProjectEnvironmentRegistryCredential { return *v }).(ProjectEnvironmentRegistryCredentialOutput)
+	return o.ApplyT(func(v *ProjectEnvironmentRegistryCredential) ProjectEnvironmentRegistryCredential {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironmentRegistryCredential
+		return ret
+	}).(ProjectEnvironmentRegistryCredentialOutput)
 }
 
 // ARN or name of credentials created using AWS Secrets Manager.
@@ -1559,7 +1595,7 @@ func (o ProjectLogsConfigOutput) ToProjectLogsConfigPtrOutput() ProjectLogsConfi
 }
 
 func (o ProjectLogsConfigOutput) ToProjectLogsConfigPtrOutputWithContext(ctx context.Context) ProjectLogsConfigPtrOutput {
-	return o.ApplyT(func(v ProjectLogsConfig) *ProjectLogsConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectLogsConfig) *ProjectLogsConfig {
 		return &v
 	}).(ProjectLogsConfigPtrOutput)
 }
@@ -1589,7 +1625,13 @@ func (o ProjectLogsConfigPtrOutput) ToProjectLogsConfigPtrOutputWithContext(ctx 
 }
 
 func (o ProjectLogsConfigPtrOutput) Elem() ProjectLogsConfigOutput {
-	return o.ApplyT(func(v *ProjectLogsConfig) ProjectLogsConfig { return *v }).(ProjectLogsConfigOutput)
+	return o.ApplyT(func(v *ProjectLogsConfig) ProjectLogsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectLogsConfig
+		return ret
+	}).(ProjectLogsConfigOutput)
 }
 
 // Configuration block. Detailed below.
@@ -1713,7 +1755,7 @@ func (o ProjectLogsConfigCloudwatchLogsOutput) ToProjectLogsConfigCloudwatchLogs
 }
 
 func (o ProjectLogsConfigCloudwatchLogsOutput) ToProjectLogsConfigCloudwatchLogsPtrOutputWithContext(ctx context.Context) ProjectLogsConfigCloudwatchLogsPtrOutput {
-	return o.ApplyT(func(v ProjectLogsConfigCloudwatchLogs) *ProjectLogsConfigCloudwatchLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectLogsConfigCloudwatchLogs) *ProjectLogsConfigCloudwatchLogs {
 		return &v
 	}).(ProjectLogsConfigCloudwatchLogsPtrOutput)
 }
@@ -1748,7 +1790,13 @@ func (o ProjectLogsConfigCloudwatchLogsPtrOutput) ToProjectLogsConfigCloudwatchL
 }
 
 func (o ProjectLogsConfigCloudwatchLogsPtrOutput) Elem() ProjectLogsConfigCloudwatchLogsOutput {
-	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) ProjectLogsConfigCloudwatchLogs { return *v }).(ProjectLogsConfigCloudwatchLogsOutput)
+	return o.ApplyT(func(v *ProjectLogsConfigCloudwatchLogs) ProjectLogsConfigCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectLogsConfigCloudwatchLogs
+		return ret
+	}).(ProjectLogsConfigCloudwatchLogsOutput)
 }
 
 // Group name of the logs in CloudWatch Logs.
@@ -1882,7 +1930,7 @@ func (o ProjectLogsConfigS3LogsOutput) ToProjectLogsConfigS3LogsPtrOutput() Proj
 }
 
 func (o ProjectLogsConfigS3LogsOutput) ToProjectLogsConfigS3LogsPtrOutputWithContext(ctx context.Context) ProjectLogsConfigS3LogsPtrOutput {
-	return o.ApplyT(func(v ProjectLogsConfigS3Logs) *ProjectLogsConfigS3Logs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectLogsConfigS3Logs) *ProjectLogsConfigS3Logs {
 		return &v
 	}).(ProjectLogsConfigS3LogsPtrOutput)
 }
@@ -1917,7 +1965,13 @@ func (o ProjectLogsConfigS3LogsPtrOutput) ToProjectLogsConfigS3LogsPtrOutputWith
 }
 
 func (o ProjectLogsConfigS3LogsPtrOutput) Elem() ProjectLogsConfigS3LogsOutput {
-	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) ProjectLogsConfigS3Logs { return *v }).(ProjectLogsConfigS3LogsOutput)
+	return o.ApplyT(func(v *ProjectLogsConfigS3Logs) ProjectLogsConfigS3Logs {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectLogsConfigS3Logs
+		return ret
+	}).(ProjectLogsConfigS3LogsOutput)
 }
 
 // Whether to disable encrypting output artifacts. If `type` is set to `NO_ARTIFACTS`, this value is ignored. Defaults to `false`.
@@ -2410,7 +2464,7 @@ func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthPtrOutput(
 }
 
 func (o ProjectSecondarySourceAuthOutput) ToProjectSecondarySourceAuthPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceAuthPtrOutput {
-	return o.ApplyT(func(v ProjectSecondarySourceAuth) *ProjectSecondarySourceAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSecondarySourceAuth) *ProjectSecondarySourceAuth {
 		return &v
 	}).(ProjectSecondarySourceAuthPtrOutput)
 }
@@ -2444,7 +2498,13 @@ func (o ProjectSecondarySourceAuthPtrOutput) ToProjectSecondarySourceAuthPtrOutp
 }
 
 func (o ProjectSecondarySourceAuthPtrOutput) Elem() ProjectSecondarySourceAuthOutput {
-	return o.ApplyT(func(v *ProjectSecondarySourceAuth) ProjectSecondarySourceAuth { return *v }).(ProjectSecondarySourceAuthOutput)
+	return o.ApplyT(func(v *ProjectSecondarySourceAuth) ProjectSecondarySourceAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSecondarySourceAuth
+		return ret
+	}).(ProjectSecondarySourceAuthOutput)
 }
 
 // Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
@@ -2568,7 +2628,7 @@ func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceB
 }
 
 func (o ProjectSecondarySourceBuildStatusConfigOutput) ToProjectSecondarySourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceBuildStatusConfigPtrOutput {
-	return o.ApplyT(func(v ProjectSecondarySourceBuildStatusConfig) *ProjectSecondarySourceBuildStatusConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSecondarySourceBuildStatusConfig) *ProjectSecondarySourceBuildStatusConfig {
 		return &v
 	}).(ProjectSecondarySourceBuildStatusConfigPtrOutput)
 }
@@ -2598,7 +2658,13 @@ func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) ToProjectSecondarySour
 }
 
 func (o ProjectSecondarySourceBuildStatusConfigPtrOutput) Elem() ProjectSecondarySourceBuildStatusConfigOutput {
-	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) ProjectSecondarySourceBuildStatusConfig { return *v }).(ProjectSecondarySourceBuildStatusConfigOutput)
+	return o.ApplyT(func(v *ProjectSecondarySourceBuildStatusConfig) ProjectSecondarySourceBuildStatusConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSecondarySourceBuildStatusConfig
+		return ret
+	}).(ProjectSecondarySourceBuildStatusConfigOutput)
 }
 
 // Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
@@ -2714,7 +2780,7 @@ func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourc
 }
 
 func (o ProjectSecondarySourceGitSubmodulesConfigOutput) ToProjectSecondarySourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSecondarySourceGitSubmodulesConfigPtrOutput {
-	return o.ApplyT(func(v ProjectSecondarySourceGitSubmodulesConfig) *ProjectSecondarySourceGitSubmodulesConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSecondarySourceGitSubmodulesConfig) *ProjectSecondarySourceGitSubmodulesConfig {
 		return &v
 	}).(ProjectSecondarySourceGitSubmodulesConfigPtrOutput)
 }
@@ -2740,7 +2806,11 @@ func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) ToProjectSecondarySo
 
 func (o ProjectSecondarySourceGitSubmodulesConfigPtrOutput) Elem() ProjectSecondarySourceGitSubmodulesConfigOutput {
 	return o.ApplyT(func(v *ProjectSecondarySourceGitSubmodulesConfig) ProjectSecondarySourceGitSubmodulesConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSecondarySourceGitSubmodulesConfig
+		return ret
 	}).(ProjectSecondarySourceGitSubmodulesConfigOutput)
 }
 
@@ -2883,7 +2953,7 @@ func (o ProjectSourceOutput) ToProjectSourcePtrOutput() ProjectSourcePtrOutput {
 }
 
 func (o ProjectSourceOutput) ToProjectSourcePtrOutputWithContext(ctx context.Context) ProjectSourcePtrOutput {
-	return o.ApplyT(func(v ProjectSource) *ProjectSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSource) *ProjectSource {
 		return &v
 	}).(ProjectSourcePtrOutput)
 }
@@ -2950,7 +3020,13 @@ func (o ProjectSourcePtrOutput) ToProjectSourcePtrOutputWithContext(ctx context.
 }
 
 func (o ProjectSourcePtrOutput) Elem() ProjectSourceOutput {
-	return o.ApplyT(func(v *ProjectSource) ProjectSource { return *v }).(ProjectSourceOutput)
+	return o.ApplyT(func(v *ProjectSource) ProjectSource {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSource
+		return ret
+	}).(ProjectSourceOutput)
 }
 
 // Configuration block with the authorization settings for AWS CodeBuild to access the source code to be built. This information is for the AWS CodeBuild console's use only. Use the `codebuild.SourceCredential` resource instead. Auth blocks are documented below.
@@ -3150,7 +3226,7 @@ func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutput() ProjectSourceAut
 }
 
 func (o ProjectSourceAuthOutput) ToProjectSourceAuthPtrOutputWithContext(ctx context.Context) ProjectSourceAuthPtrOutput {
-	return o.ApplyT(func(v ProjectSourceAuth) *ProjectSourceAuth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSourceAuth) *ProjectSourceAuth {
 		return &v
 	}).(ProjectSourceAuthPtrOutput)
 }
@@ -3184,7 +3260,13 @@ func (o ProjectSourceAuthPtrOutput) ToProjectSourceAuthPtrOutputWithContext(ctx 
 }
 
 func (o ProjectSourceAuthPtrOutput) Elem() ProjectSourceAuthOutput {
-	return o.ApplyT(func(v *ProjectSourceAuth) ProjectSourceAuth { return *v }).(ProjectSourceAuthOutput)
+	return o.ApplyT(func(v *ProjectSourceAuth) ProjectSourceAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSourceAuth
+		return ret
+	}).(ProjectSourceAuthOutput)
 }
 
 // Resource value that applies to the specified authorization type. Use the `codebuild.SourceCredential` resource instead.
@@ -3308,7 +3390,7 @@ func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigPt
 }
 
 func (o ProjectSourceBuildStatusConfigOutput) ToProjectSourceBuildStatusConfigPtrOutputWithContext(ctx context.Context) ProjectSourceBuildStatusConfigPtrOutput {
-	return o.ApplyT(func(v ProjectSourceBuildStatusConfig) *ProjectSourceBuildStatusConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSourceBuildStatusConfig) *ProjectSourceBuildStatusConfig {
 		return &v
 	}).(ProjectSourceBuildStatusConfigPtrOutput)
 }
@@ -3338,7 +3420,13 @@ func (o ProjectSourceBuildStatusConfigPtrOutput) ToProjectSourceBuildStatusConfi
 }
 
 func (o ProjectSourceBuildStatusConfigPtrOutput) Elem() ProjectSourceBuildStatusConfigOutput {
-	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) ProjectSourceBuildStatusConfig { return *v }).(ProjectSourceBuildStatusConfigOutput)
+	return o.ApplyT(func(v *ProjectSourceBuildStatusConfig) ProjectSourceBuildStatusConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSourceBuildStatusConfig
+		return ret
+	}).(ProjectSourceBuildStatusConfigOutput)
 }
 
 // Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
@@ -3454,7 +3542,7 @@ func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConf
 }
 
 func (o ProjectSourceGitSubmodulesConfigOutput) ToProjectSourceGitSubmodulesConfigPtrOutputWithContext(ctx context.Context) ProjectSourceGitSubmodulesConfigPtrOutput {
-	return o.ApplyT(func(v ProjectSourceGitSubmodulesConfig) *ProjectSourceGitSubmodulesConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectSourceGitSubmodulesConfig) *ProjectSourceGitSubmodulesConfig {
 		return &v
 	}).(ProjectSourceGitSubmodulesConfigPtrOutput)
 }
@@ -3479,7 +3567,13 @@ func (o ProjectSourceGitSubmodulesConfigPtrOutput) ToProjectSourceGitSubmodulesC
 }
 
 func (o ProjectSourceGitSubmodulesConfigPtrOutput) Elem() ProjectSourceGitSubmodulesConfigOutput {
-	return o.ApplyT(func(v *ProjectSourceGitSubmodulesConfig) ProjectSourceGitSubmodulesConfig { return *v }).(ProjectSourceGitSubmodulesConfigOutput)
+	return o.ApplyT(func(v *ProjectSourceGitSubmodulesConfig) ProjectSourceGitSubmodulesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectSourceGitSubmodulesConfig
+		return ret
+	}).(ProjectSourceGitSubmodulesConfigOutput)
 }
 
 // Whether to fetch Git submodules for the AWS CodeBuild build project.
@@ -3593,7 +3687,7 @@ func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutput() ProjectVpcConfigPt
 }
 
 func (o ProjectVpcConfigOutput) ToProjectVpcConfigPtrOutputWithContext(ctx context.Context) ProjectVpcConfigPtrOutput {
-	return o.ApplyT(func(v ProjectVpcConfig) *ProjectVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectVpcConfig) *ProjectVpcConfig {
 		return &v
 	}).(ProjectVpcConfigPtrOutput)
 }
@@ -3628,7 +3722,13 @@ func (o ProjectVpcConfigPtrOutput) ToProjectVpcConfigPtrOutputWithContext(ctx co
 }
 
 func (o ProjectVpcConfigPtrOutput) Elem() ProjectVpcConfigOutput {
-	return o.ApplyT(func(v *ProjectVpcConfig) ProjectVpcConfig { return *v }).(ProjectVpcConfigOutput)
+	return o.ApplyT(func(v *ProjectVpcConfig) ProjectVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectVpcConfig
+		return ret
+	}).(ProjectVpcConfigOutput)
 }
 
 // Security group IDs to assign to running builds.
@@ -3758,7 +3858,7 @@ func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigPtrOutput() Repo
 }
 
 func (o ReportGroupExportConfigOutput) ToReportGroupExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigPtrOutput {
-	return o.ApplyT(func(v ReportGroupExportConfig) *ReportGroupExportConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupExportConfig) *ReportGroupExportConfig {
 		return &v
 	}).(ReportGroupExportConfigPtrOutput)
 }
@@ -3788,7 +3888,13 @@ func (o ReportGroupExportConfigPtrOutput) ToReportGroupExportConfigPtrOutputWith
 }
 
 func (o ReportGroupExportConfigPtrOutput) Elem() ReportGroupExportConfigOutput {
-	return o.ApplyT(func(v *ReportGroupExportConfig) ReportGroupExportConfig { return *v }).(ReportGroupExportConfigOutput)
+	return o.ApplyT(func(v *ReportGroupExportConfig) ReportGroupExportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupExportConfig
+		return ret
+	}).(ReportGroupExportConfigOutput)
 }
 
 // contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
@@ -3922,7 +4028,7 @@ func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3D
 }
 
 func (o ReportGroupExportConfigS3DestinationOutput) ToReportGroupExportConfigS3DestinationPtrOutputWithContext(ctx context.Context) ReportGroupExportConfigS3DestinationPtrOutput {
-	return o.ApplyT(func(v ReportGroupExportConfigS3Destination) *ReportGroupExportConfigS3Destination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupExportConfigS3Destination) *ReportGroupExportConfigS3Destination {
 		return &v
 	}).(ReportGroupExportConfigS3DestinationPtrOutput)
 }
@@ -3968,7 +4074,13 @@ func (o ReportGroupExportConfigS3DestinationPtrOutput) ToReportGroupExportConfig
 }
 
 func (o ReportGroupExportConfigS3DestinationPtrOutput) Elem() ReportGroupExportConfigS3DestinationOutput {
-	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) ReportGroupExportConfigS3Destination { return *v }).(ReportGroupExportConfigS3DestinationOutput)
+	return o.ApplyT(func(v *ReportGroupExportConfigS3Destination) ReportGroupExportConfigS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupExportConfigS3Destination
+		return ret
+	}).(ReportGroupExportConfigS3DestinationOutput)
 }
 
 // The name of the S3 bucket where the raw data of a report are exported.

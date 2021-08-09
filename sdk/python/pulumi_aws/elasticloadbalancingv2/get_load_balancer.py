@@ -249,6 +249,7 @@ def get_load_balancer(arn: Optional[str] = None,
 
     :param str arn: The full ARN of the load balancer.
     :param str name: The unique name of the load balancer.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
     """
     pulumi.log.warn("""get_load_balancer is deprecated: aws.elasticloadbalancingv2.getLoadBalancer has been deprecated in favor of aws.lb.getLoadBalancer""")
     __args__ = dict()

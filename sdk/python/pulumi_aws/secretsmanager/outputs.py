@@ -9,11 +9,99 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'SecretReplica',
     'SecretRotationRotationRules',
     'SecretRotationRules',
     'GetSecretRotationRotationRuleResult',
     'GetSecretRotationRuleResult',
 ]
+
+@pulumi.output_type
+class SecretReplica(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "lastAccessedDate":
+            suggest = "last_accessed_date"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecretReplica. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecretReplica.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecretReplica.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region: str,
+                 kms_key_id: Optional[str] = None,
+                 last_accessed_date: Optional[str] = None,
+                 status: Optional[str] = None,
+                 status_message: Optional[str] = None):
+        """
+        :param str region: Region for replicating the secret.
+        :param str kms_key_id: ARN, Key ID, or Alias.
+        :param str last_accessed_date: Date that you last accessed the secret in the Region.
+        :param str status: Status can be `InProgress`, `Failed`, or `InSync`.
+        :param str status_message: Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+        """
+        pulumi.set(__self__, "region", region)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if last_accessed_date is not None:
+            pulumi.set(__self__, "last_accessed_date", last_accessed_date)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Region for replicating the secret.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        ARN, Key ID, or Alias.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="lastAccessedDate")
+    def last_accessed_date(self) -> Optional[str]:
+        """
+        Date that you last accessed the secret in the Region.
+        """
+        return pulumi.get(self, "last_accessed_date")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status can be `InProgress`, `Failed`, or `InSync`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[str]:
+        """
+        Message such as `Replication succeeded` or `Secret with this name already exists in this region`.
+        """
+        return pulumi.get(self, "status_message")
+
 
 @pulumi.output_type
 class SecretRotationRotationRules(dict):

@@ -270,9 +270,7 @@ func (i ConfgurationSetMap) ToConfgurationSetMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfgurationSetMapOutput)
 }
 
-type ConfgurationSetOutput struct {
-	*pulumi.OutputState
-}
+type ConfgurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfgurationSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConfgurationSet)(nil))
@@ -291,14 +289,12 @@ func (o ConfgurationSetOutput) ToConfgurationSetPtrOutput() ConfgurationSetPtrOu
 }
 
 func (o ConfgurationSetOutput) ToConfgurationSetPtrOutputWithContext(ctx context.Context) ConfgurationSetPtrOutput {
-	return o.ApplyT(func(v ConfgurationSet) *ConfgurationSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfgurationSet) *ConfgurationSet {
 		return &v
 	}).(ConfgurationSetPtrOutput)
 }
 
-type ConfgurationSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConfgurationSetPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfgurationSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConfgurationSet)(nil))
@@ -310,6 +306,16 @@ func (o ConfgurationSetPtrOutput) ToConfgurationSetPtrOutput() ConfgurationSetPt
 
 func (o ConfgurationSetPtrOutput) ToConfgurationSetPtrOutputWithContext(ctx context.Context) ConfgurationSetPtrOutput {
 	return o
+}
+
+func (o ConfgurationSetPtrOutput) Elem() ConfgurationSetOutput {
+	return o.ApplyT(func(v *ConfgurationSet) ConfgurationSet {
+		if v != nil {
+			return *v
+		}
+		var ret ConfgurationSet
+		return ret
+	}).(ConfgurationSetOutput)
 }
 
 type ConfgurationSetArrayOutput struct{ *pulumi.OutputState }

@@ -210,9 +210,7 @@ func (i GlobalSettingsMap) ToGlobalSettingsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSettingsMapOutput)
 }
 
-type GlobalSettingsOutput struct {
-	*pulumi.OutputState
-}
+type GlobalSettingsOutput struct{ *pulumi.OutputState }
 
 func (GlobalSettingsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalSettings)(nil))
@@ -231,14 +229,12 @@ func (o GlobalSettingsOutput) ToGlobalSettingsPtrOutput() GlobalSettingsPtrOutpu
 }
 
 func (o GlobalSettingsOutput) ToGlobalSettingsPtrOutputWithContext(ctx context.Context) GlobalSettingsPtrOutput {
-	return o.ApplyT(func(v GlobalSettings) *GlobalSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalSettings) *GlobalSettings {
 		return &v
 	}).(GlobalSettingsPtrOutput)
 }
 
-type GlobalSettingsPtrOutput struct {
-	*pulumi.OutputState
-}
+type GlobalSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalSettingsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GlobalSettings)(nil))
@@ -250,6 +246,16 @@ func (o GlobalSettingsPtrOutput) ToGlobalSettingsPtrOutput() GlobalSettingsPtrOu
 
 func (o GlobalSettingsPtrOutput) ToGlobalSettingsPtrOutputWithContext(ctx context.Context) GlobalSettingsPtrOutput {
 	return o
+}
+
+func (o GlobalSettingsPtrOutput) Elem() GlobalSettingsOutput {
+	return o.ApplyT(func(v *GlobalSettings) GlobalSettings {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalSettings
+		return ret
+	}).(GlobalSettingsOutput)
 }
 
 type GlobalSettingsArrayOutput struct{ *pulumi.OutputState }

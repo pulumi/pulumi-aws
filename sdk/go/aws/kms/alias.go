@@ -251,9 +251,7 @@ func (i AliasMap) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(AliasMapOutput)
 }
 
-type AliasOutput struct {
-	*pulumi.OutputState
-}
+type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Alias)(nil))
@@ -272,14 +270,12 @@ func (o AliasOutput) ToAliasPtrOutput() AliasPtrOutput {
 }
 
 func (o AliasOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
-	return o.ApplyT(func(v Alias) *Alias {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Alias) *Alias {
 		return &v
 	}).(AliasPtrOutput)
 }
 
-type AliasPtrOutput struct {
-	*pulumi.OutputState
-}
+type AliasPtrOutput struct{ *pulumi.OutputState }
 
 func (AliasPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Alias)(nil))
@@ -291,6 +287,16 @@ func (o AliasPtrOutput) ToAliasPtrOutput() AliasPtrOutput {
 
 func (o AliasPtrOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
 	return o
+}
+
+func (o AliasPtrOutput) Elem() AliasOutput {
+	return o.ApplyT(func(v *Alias) Alias {
+		if v != nil {
+			return *v
+		}
+		var ret Alias
+		return ret
+	}).(AliasOutput)
 }
 
 type AliasArrayOutput struct{ *pulumi.OutputState }

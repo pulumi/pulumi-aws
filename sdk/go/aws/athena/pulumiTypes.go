@@ -107,7 +107,7 @@ func (o DatabaseEncryptionConfigurationOutput) ToDatabaseEncryptionConfiguration
 }
 
 func (o DatabaseEncryptionConfigurationOutput) ToDatabaseEncryptionConfigurationPtrOutputWithContext(ctx context.Context) DatabaseEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v DatabaseEncryptionConfiguration) *DatabaseEncryptionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseEncryptionConfiguration) *DatabaseEncryptionConfiguration {
 		return &v
 	}).(DatabaseEncryptionConfigurationPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o DatabaseEncryptionConfigurationPtrOutput) ToDatabaseEncryptionConfigurat
 }
 
 func (o DatabaseEncryptionConfigurationPtrOutput) Elem() DatabaseEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) DatabaseEncryptionConfiguration { return *v }).(DatabaseEncryptionConfigurationOutput)
+	return o.ApplyT(func(v *DatabaseEncryptionConfiguration) DatabaseEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseEncryptionConfiguration
+		return ret
+	}).(DatabaseEncryptionConfigurationOutput)
 }
 
 // The type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
@@ -265,7 +271,7 @@ func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationPtrOutput() Workgr
 }
 
 func (o WorkgroupConfigurationOutput) ToWorkgroupConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfiguration) *WorkgroupConfiguration {
 		return &v
 	}).(WorkgroupConfigurationPtrOutput)
 }
@@ -307,7 +313,13 @@ func (o WorkgroupConfigurationPtrOutput) ToWorkgroupConfigurationPtrOutputWithCo
 }
 
 func (o WorkgroupConfigurationPtrOutput) Elem() WorkgroupConfigurationOutput {
-	return o.ApplyT(func(v *WorkgroupConfiguration) WorkgroupConfiguration { return *v }).(WorkgroupConfigurationOutput)
+	return o.ApplyT(func(v *WorkgroupConfiguration) WorkgroupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfiguration
+		return ret
+	}).(WorkgroupConfigurationOutput)
 }
 
 // Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
@@ -447,7 +459,7 @@ func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfiguratio
 }
 
 func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfigurationResultConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfiguration {
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
@@ -480,7 +492,11 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) ToWorkgroupConfigura
 
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) WorkgroupConfigurationResultConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationResultConfiguration
+		return ret
 	}).(WorkgroupConfigurationResultConfigurationOutput)
 }
 
@@ -601,7 +617,7 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) 
 }
 
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput) ToWorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationResultConfigurationEncryptionConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		return &v
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
@@ -634,7 +650,11 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 
 func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationEncryptionConfiguration) WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationResultConfigurationEncryptionConfiguration
+		return ret
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput)
 }
 

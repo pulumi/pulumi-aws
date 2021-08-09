@@ -53,7 +53,7 @@ type LinkAggregationGroup struct {
 	// The ARN of the LAG.
 	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringOutput `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
@@ -108,7 +108,7 @@ type linkAggregationGroupState struct {
 	// The ARN of the LAG.
 	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn *string `pulumi:"arn"`
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth *string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -129,7 +129,7 @@ type LinkAggregationGroupState struct {
 	// The ARN of the LAG.
 	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn pulumi.StringPtrInput
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringPtrInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrInput
@@ -151,7 +151,7 @@ func (LinkAggregationGroupState) ElementType() reflect.Type {
 }
 
 type linkAggregationGroupArgs struct {
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy *bool `pulumi:"forceDestroy"`
@@ -167,7 +167,7 @@ type linkAggregationGroupArgs struct {
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
 type LinkAggregationGroupArgs struct {
-	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps and 10Gbps. Case sensitive.
+	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
 	ForceDestroy pulumi.BoolPtrInput
@@ -283,9 +283,7 @@ func (i LinkAggregationGroupMap) ToLinkAggregationGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAggregationGroupMapOutput)
 }
 
-type LinkAggregationGroupOutput struct {
-	*pulumi.OutputState
-}
+type LinkAggregationGroupOutput struct{ *pulumi.OutputState }
 
 func (LinkAggregationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LinkAggregationGroup)(nil))
@@ -304,14 +302,12 @@ func (o LinkAggregationGroupOutput) ToLinkAggregationGroupPtrOutput() LinkAggreg
 }
 
 func (o LinkAggregationGroupOutput) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
-	return o.ApplyT(func(v LinkAggregationGroup) *LinkAggregationGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkAggregationGroup) *LinkAggregationGroup {
 		return &v
 	}).(LinkAggregationGroupPtrOutput)
 }
 
-type LinkAggregationGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type LinkAggregationGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (LinkAggregationGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LinkAggregationGroup)(nil))
@@ -323,6 +319,16 @@ func (o LinkAggregationGroupPtrOutput) ToLinkAggregationGroupPtrOutput() LinkAgg
 
 func (o LinkAggregationGroupPtrOutput) ToLinkAggregationGroupPtrOutputWithContext(ctx context.Context) LinkAggregationGroupPtrOutput {
 	return o
+}
+
+func (o LinkAggregationGroupPtrOutput) Elem() LinkAggregationGroupOutput {
+	return o.ApplyT(func(v *LinkAggregationGroup) LinkAggregationGroup {
+		if v != nil {
+			return *v
+		}
+		var ret LinkAggregationGroup
+		return ret
+	}).(LinkAggregationGroupOutput)
 }
 
 type LinkAggregationGroupArrayOutput struct{ *pulumi.OutputState }

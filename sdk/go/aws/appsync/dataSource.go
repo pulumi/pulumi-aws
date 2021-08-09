@@ -342,9 +342,7 @@ func (i DataSourceMap) ToDataSourceMapOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMapOutput)
 }
 
-type DataSourceOutput struct {
-	*pulumi.OutputState
-}
+type DataSourceOutput struct{ *pulumi.OutputState }
 
 func (DataSourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataSource)(nil))
@@ -363,14 +361,12 @@ func (o DataSourceOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
 }
 
 func (o DataSourceOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
-	return o.ApplyT(func(v DataSource) *DataSource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSource) *DataSource {
 		return &v
 	}).(DataSourcePtrOutput)
 }
 
-type DataSourcePtrOutput struct {
-	*pulumi.OutputState
-}
+type DataSourcePtrOutput struct{ *pulumi.OutputState }
 
 func (DataSourcePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataSource)(nil))
@@ -382,6 +378,16 @@ func (o DataSourcePtrOutput) ToDataSourcePtrOutput() DataSourcePtrOutput {
 
 func (o DataSourcePtrOutput) ToDataSourcePtrOutputWithContext(ctx context.Context) DataSourcePtrOutput {
 	return o
+}
+
+func (o DataSourcePtrOutput) Elem() DataSourceOutput {
+	return o.ApplyT(func(v *DataSource) DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret DataSource
+		return ret
+	}).(DataSourceOutput)
 }
 
 type DataSourceArrayOutput struct{ *pulumi.OutputState }

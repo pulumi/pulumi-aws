@@ -141,7 +141,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * List of allowed callback URLs for the identity providers.
      */
-    public readonly callbackUrls!: pulumi.Output<string[] | undefined>;
+    public readonly callbackUrls!: pulumi.Output<string[]>;
     /**
      * Client secret of the user pool client.
      */
@@ -169,7 +169,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * List of allowed logout URLs for the identity providers.
      */
-    public readonly logoutUrls!: pulumi.Output<string[] | undefined>;
+    public readonly logoutUrls!: pulumi.Output<string[]>;
     /**
      * Name of the application client.
      */

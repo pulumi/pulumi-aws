@@ -528,9 +528,7 @@ func (i UserPoolMap) ToUserPoolMapOutputWithContext(ctx context.Context) UserPoo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolMapOutput)
 }
 
-type UserPoolOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolOutput struct{ *pulumi.OutputState }
 
 func (UserPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserPool)(nil))
@@ -549,14 +547,12 @@ func (o UserPoolOutput) ToUserPoolPtrOutput() UserPoolPtrOutput {
 }
 
 func (o UserPoolOutput) ToUserPoolPtrOutputWithContext(ctx context.Context) UserPoolPtrOutput {
-	return o.ApplyT(func(v UserPool) *UserPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPool) *UserPool {
 		return &v
 	}).(UserPoolPtrOutput)
 }
 
-type UserPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserPool)(nil))
@@ -568,6 +564,16 @@ func (o UserPoolPtrOutput) ToUserPoolPtrOutput() UserPoolPtrOutput {
 
 func (o UserPoolPtrOutput) ToUserPoolPtrOutputWithContext(ctx context.Context) UserPoolPtrOutput {
 	return o
+}
+
+func (o UserPoolPtrOutput) Elem() UserPoolOutput {
+	return o.ApplyT(func(v *UserPool) UserPool {
+		if v != nil {
+			return *v
+		}
+		var ret UserPool
+		return ret
+	}).(UserPoolOutput)
 }
 
 type UserPoolArrayOutput struct{ *pulumi.OutputState }

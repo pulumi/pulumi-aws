@@ -285,9 +285,7 @@ func (i UserProfileMap) ToUserProfileMapOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileMapOutput)
 }
 
-type UserProfileOutput struct {
-	*pulumi.OutputState
-}
+type UserProfileOutput struct{ *pulumi.OutputState }
 
 func (UserProfileOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserProfile)(nil))
@@ -306,14 +304,12 @@ func (o UserProfileOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
 }
 
 func (o UserProfileOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
-	return o.ApplyT(func(v UserProfile) *UserProfile {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfile) *UserProfile {
 		return &v
 	}).(UserProfilePtrOutput)
 }
 
-type UserProfilePtrOutput struct {
-	*pulumi.OutputState
-}
+type UserProfilePtrOutput struct{ *pulumi.OutputState }
 
 func (UserProfilePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserProfile)(nil))
@@ -325,6 +321,16 @@ func (o UserProfilePtrOutput) ToUserProfilePtrOutput() UserProfilePtrOutput {
 
 func (o UserProfilePtrOutput) ToUserProfilePtrOutputWithContext(ctx context.Context) UserProfilePtrOutput {
 	return o
+}
+
+func (o UserProfilePtrOutput) Elem() UserProfileOutput {
+	return o.ApplyT(func(v *UserProfile) UserProfile {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfile
+		return ret
+	}).(UserProfileOutput)
 }
 
 type UserProfileArrayOutput struct{ *pulumi.OutputState }

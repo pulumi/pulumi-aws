@@ -394,9 +394,7 @@ func (i StaticWebLayerMap) ToStaticWebLayerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerMapOutput)
 }
 
-type StaticWebLayerOutput struct {
-	*pulumi.OutputState
-}
+type StaticWebLayerOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*StaticWebLayer)(nil))
@@ -415,14 +413,12 @@ func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutpu
 }
 
 func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
-	return o.ApplyT(func(v StaticWebLayer) *StaticWebLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayer) *StaticWebLayer {
 		return &v
 	}).(StaticWebLayerPtrOutput)
 }
 
-type StaticWebLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type StaticWebLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**StaticWebLayer)(nil))
@@ -434,6 +430,16 @@ func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOu
 
 func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
 	return o
+}
+
+func (o StaticWebLayerPtrOutput) Elem() StaticWebLayerOutput {
+	return o.ApplyT(func(v *StaticWebLayer) StaticWebLayer {
+		if v != nil {
+			return *v
+		}
+		var ret StaticWebLayer
+		return ret
+	}).(StaticWebLayerOutput)
 }
 
 type StaticWebLayerArrayOutput struct{ *pulumi.OutputState }

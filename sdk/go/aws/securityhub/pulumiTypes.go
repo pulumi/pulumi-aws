@@ -451,7 +451,7 @@ func (o InsightFiltersOutput) ToInsightFiltersPtrOutput() InsightFiltersPtrOutpu
 }
 
 func (o InsightFiltersOutput) ToInsightFiltersPtrOutputWithContext(ctx context.Context) InsightFiltersPtrOutput {
-	return o.ApplyT(func(v InsightFilters) *InsightFilters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFilters) *InsightFilters {
 		return &v
 	}).(InsightFiltersPtrOutput)
 }
@@ -963,7 +963,13 @@ func (o InsightFiltersPtrOutput) ToInsightFiltersPtrOutputWithContext(ctx contex
 }
 
 func (o InsightFiltersPtrOutput) Elem() InsightFiltersOutput {
-	return o.ApplyT(func(v *InsightFilters) InsightFilters { return *v }).(InsightFiltersOutput)
+	return o.ApplyT(func(v *InsightFilters) InsightFilters {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFilters
+		return ret
+	}).(InsightFiltersOutput)
 }
 
 // AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -2491,7 +2497,7 @@ func (o InsightFiltersCreatedAtDateRangeOutput) ToInsightFiltersCreatedAtDateRan
 }
 
 func (o InsightFiltersCreatedAtDateRangeOutput) ToInsightFiltersCreatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersCreatedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersCreatedAtDateRange) *InsightFiltersCreatedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersCreatedAtDateRange) *InsightFiltersCreatedAtDateRange {
 		return &v
 	}).(InsightFiltersCreatedAtDateRangePtrOutput)
 }
@@ -2521,7 +2527,13 @@ func (o InsightFiltersCreatedAtDateRangePtrOutput) ToInsightFiltersCreatedAtDate
 }
 
 func (o InsightFiltersCreatedAtDateRangePtrOutput) Elem() InsightFiltersCreatedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersCreatedAtDateRange) InsightFiltersCreatedAtDateRange { return *v }).(InsightFiltersCreatedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersCreatedAtDateRange) InsightFiltersCreatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersCreatedAtDateRange
+		return ret
+	}).(InsightFiltersCreatedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.
@@ -3737,7 +3749,7 @@ func (o InsightFiltersFirstObservedAtDateRangeOutput) ToInsightFiltersFirstObser
 }
 
 func (o InsightFiltersFirstObservedAtDateRangeOutput) ToInsightFiltersFirstObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersFirstObservedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersFirstObservedAtDateRange) *InsightFiltersFirstObservedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersFirstObservedAtDateRange) *InsightFiltersFirstObservedAtDateRange {
 		return &v
 	}).(InsightFiltersFirstObservedAtDateRangePtrOutput)
 }
@@ -3767,7 +3779,13 @@ func (o InsightFiltersFirstObservedAtDateRangePtrOutput) ToInsightFiltersFirstOb
 }
 
 func (o InsightFiltersFirstObservedAtDateRangePtrOutput) Elem() InsightFiltersFirstObservedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersFirstObservedAtDateRange) InsightFiltersFirstObservedAtDateRange { return *v }).(InsightFiltersFirstObservedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersFirstObservedAtDateRange) InsightFiltersFirstObservedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersFirstObservedAtDateRange
+		return ret
+	}).(InsightFiltersFirstObservedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.
@@ -4311,7 +4329,7 @@ func (o InsightFiltersLastObservedAtDateRangeOutput) ToInsightFiltersLastObserve
 }
 
 func (o InsightFiltersLastObservedAtDateRangeOutput) ToInsightFiltersLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersLastObservedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersLastObservedAtDateRange) *InsightFiltersLastObservedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersLastObservedAtDateRange) *InsightFiltersLastObservedAtDateRange {
 		return &v
 	}).(InsightFiltersLastObservedAtDateRangePtrOutput)
 }
@@ -4341,7 +4359,13 @@ func (o InsightFiltersLastObservedAtDateRangePtrOutput) ToInsightFiltersLastObse
 }
 
 func (o InsightFiltersLastObservedAtDateRangePtrOutput) Elem() InsightFiltersLastObservedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersLastObservedAtDateRange) InsightFiltersLastObservedAtDateRange { return *v }).(InsightFiltersLastObservedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersLastObservedAtDateRange) InsightFiltersLastObservedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersLastObservedAtDateRange
+		return ret
+	}).(InsightFiltersLastObservedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.
@@ -6254,7 +6278,7 @@ func (o InsightFiltersNoteUpdatedAtDateRangeOutput) ToInsightFiltersNoteUpdatedA
 }
 
 func (o InsightFiltersNoteUpdatedAtDateRangeOutput) ToInsightFiltersNoteUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersNoteUpdatedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersNoteUpdatedAtDateRange) *InsightFiltersNoteUpdatedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersNoteUpdatedAtDateRange) *InsightFiltersNoteUpdatedAtDateRange {
 		return &v
 	}).(InsightFiltersNoteUpdatedAtDateRangePtrOutput)
 }
@@ -6284,7 +6308,13 @@ func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) ToInsightFiltersNoteUpdat
 }
 
 func (o InsightFiltersNoteUpdatedAtDateRangePtrOutput) Elem() InsightFiltersNoteUpdatedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersNoteUpdatedAtDateRange) InsightFiltersNoteUpdatedAtDateRange { return *v }).(InsightFiltersNoteUpdatedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersNoteUpdatedAtDateRange) InsightFiltersNoteUpdatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersNoteUpdatedAtDateRange
+		return ret
+	}).(InsightFiltersNoteUpdatedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.
@@ -6625,7 +6655,7 @@ func (o InsightFiltersProcessLaunchedAtDateRangeOutput) ToInsightFiltersProcessL
 }
 
 func (o InsightFiltersProcessLaunchedAtDateRangeOutput) ToInsightFiltersProcessLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersProcessLaunchedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersProcessLaunchedAtDateRange) *InsightFiltersProcessLaunchedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersProcessLaunchedAtDateRange) *InsightFiltersProcessLaunchedAtDateRange {
 		return &v
 	}).(InsightFiltersProcessLaunchedAtDateRangePtrOutput)
 }
@@ -6655,7 +6685,13 @@ func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) ToInsightFiltersProce
 }
 
 func (o InsightFiltersProcessLaunchedAtDateRangePtrOutput) Elem() InsightFiltersProcessLaunchedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersProcessLaunchedAtDateRange) InsightFiltersProcessLaunchedAtDateRange { return *v }).(InsightFiltersProcessLaunchedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersProcessLaunchedAtDateRange) InsightFiltersProcessLaunchedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersProcessLaunchedAtDateRange
+		return ret
+	}).(InsightFiltersProcessLaunchedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.
@@ -7334,7 +7370,7 @@ func (o InsightFiltersProcessTerminatedAtDateRangeOutput) ToInsightFiltersProces
 }
 
 func (o InsightFiltersProcessTerminatedAtDateRangeOutput) ToInsightFiltersProcessTerminatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersProcessTerminatedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersProcessTerminatedAtDateRange) *InsightFiltersProcessTerminatedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersProcessTerminatedAtDateRange) *InsightFiltersProcessTerminatedAtDateRange {
 		return &v
 	}).(InsightFiltersProcessTerminatedAtDateRangePtrOutput)
 }
@@ -7365,7 +7401,11 @@ func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) ToInsightFiltersPro
 
 func (o InsightFiltersProcessTerminatedAtDateRangePtrOutput) Elem() InsightFiltersProcessTerminatedAtDateRangeOutput {
 	return o.ApplyT(func(v *InsightFiltersProcessTerminatedAtDateRange) InsightFiltersProcessTerminatedAtDateRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersProcessTerminatedAtDateRange
+		return ret
 	}).(InsightFiltersProcessTerminatedAtDateRangeOutput)
 }
 
@@ -8866,7 +8906,7 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) ToInsight
 }
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput) ToInsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange) *InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange) *InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
 		return &v
 	}).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput)
 }
@@ -8897,7 +8937,11 @@ func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) ToInsi
 
 func (o InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangePtrOutput) Elem() InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput {
 	return o.ApplyT(func(v *InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange) InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRange
+		return ret
 	}).(InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeOutput)
 }
 
@@ -9453,7 +9497,7 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) ToInsight
 }
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput) ToInsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange) *InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange) *InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
 		return &v
 	}).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput)
 }
@@ -9484,7 +9528,11 @@ func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) ToInsi
 
 func (o InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangePtrOutput) Elem() InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput {
 	return o.ApplyT(func(v *InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange) InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRange
+		return ret
 	}).(InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeOutput)
 }
 
@@ -10358,7 +10406,7 @@ func (o InsightFiltersResourceContainerLaunchedAtDateRangeOutput) ToInsightFilte
 }
 
 func (o InsightFiltersResourceContainerLaunchedAtDateRangeOutput) ToInsightFiltersResourceContainerLaunchedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersResourceContainerLaunchedAtDateRange) *InsightFiltersResourceContainerLaunchedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersResourceContainerLaunchedAtDateRange) *InsightFiltersResourceContainerLaunchedAtDateRange {
 		return &v
 	}).(InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput)
 }
@@ -10389,7 +10437,11 @@ func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) ToInsightFi
 
 func (o InsightFiltersResourceContainerLaunchedAtDateRangePtrOutput) Elem() InsightFiltersResourceContainerLaunchedAtDateRangeOutput {
 	return o.ApplyT(func(v *InsightFiltersResourceContainerLaunchedAtDateRange) InsightFiltersResourceContainerLaunchedAtDateRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersResourceContainerLaunchedAtDateRange
+		return ret
 	}).(InsightFiltersResourceContainerLaunchedAtDateRangeOutput)
 }
 
@@ -11705,7 +11757,7 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) ToInsig
 }
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput) ToInsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersThreatIntelIndicatorLastObservedAtDateRange) *InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersThreatIntelIndicatorLastObservedAtDateRange) *InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
 		return &v
 	}).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput)
 }
@@ -11736,7 +11788,11 @@ func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) ToIn
 
 func (o InsightFiltersThreatIntelIndicatorLastObservedAtDateRangePtrOutput) Elem() InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput {
 	return o.ApplyT(func(v *InsightFiltersThreatIntelIndicatorLastObservedAtDateRange) InsightFiltersThreatIntelIndicatorLastObservedAtDateRange {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersThreatIntelIndicatorLastObservedAtDateRange
+		return ret
 	}).(InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeOutput)
 }
 
@@ -12608,7 +12664,7 @@ func (o InsightFiltersUpdatedAtDateRangeOutput) ToInsightFiltersUpdatedAtDateRan
 }
 
 func (o InsightFiltersUpdatedAtDateRangeOutput) ToInsightFiltersUpdatedAtDateRangePtrOutputWithContext(ctx context.Context) InsightFiltersUpdatedAtDateRangePtrOutput {
-	return o.ApplyT(func(v InsightFiltersUpdatedAtDateRange) *InsightFiltersUpdatedAtDateRange {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InsightFiltersUpdatedAtDateRange) *InsightFiltersUpdatedAtDateRange {
 		return &v
 	}).(InsightFiltersUpdatedAtDateRangePtrOutput)
 }
@@ -12638,7 +12694,13 @@ func (o InsightFiltersUpdatedAtDateRangePtrOutput) ToInsightFiltersUpdatedAtDate
 }
 
 func (o InsightFiltersUpdatedAtDateRangePtrOutput) Elem() InsightFiltersUpdatedAtDateRangeOutput {
-	return o.ApplyT(func(v *InsightFiltersUpdatedAtDateRange) InsightFiltersUpdatedAtDateRange { return *v }).(InsightFiltersUpdatedAtDateRangeOutput)
+	return o.ApplyT(func(v *InsightFiltersUpdatedAtDateRange) InsightFiltersUpdatedAtDateRange {
+		if v != nil {
+			return *v
+		}
+		var ret InsightFiltersUpdatedAtDateRange
+		return ret
+	}).(InsightFiltersUpdatedAtDateRangeOutput)
 }
 
 // A date range unit for the date filter. Valid values: `DAYS`.

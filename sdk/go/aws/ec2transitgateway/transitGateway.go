@@ -298,9 +298,7 @@ func (i TransitGatewayMap) ToTransitGatewayMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayMapOutput)
 }
 
-type TransitGatewayOutput struct {
-	*pulumi.OutputState
-}
+type TransitGatewayOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TransitGateway)(nil))
@@ -319,14 +317,12 @@ func (o TransitGatewayOutput) ToTransitGatewayPtrOutput() TransitGatewayPtrOutpu
 }
 
 func (o TransitGatewayOutput) ToTransitGatewayPtrOutputWithContext(ctx context.Context) TransitGatewayPtrOutput {
-	return o.ApplyT(func(v TransitGateway) *TransitGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGateway) *TransitGateway {
 		return &v
 	}).(TransitGatewayPtrOutput)
 }
 
-type TransitGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type TransitGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TransitGateway)(nil))
@@ -338,6 +334,16 @@ func (o TransitGatewayPtrOutput) ToTransitGatewayPtrOutput() TransitGatewayPtrOu
 
 func (o TransitGatewayPtrOutput) ToTransitGatewayPtrOutputWithContext(ctx context.Context) TransitGatewayPtrOutput {
 	return o
+}
+
+func (o TransitGatewayPtrOutput) Elem() TransitGatewayOutput {
+	return o.ApplyT(func(v *TransitGateway) TransitGateway {
+		if v != nil {
+			return *v
+		}
+		var ret TransitGateway
+		return ret
+	}).(TransitGatewayOutput)
 }
 
 type TransitGatewayArrayOutput struct{ *pulumi.OutputState }

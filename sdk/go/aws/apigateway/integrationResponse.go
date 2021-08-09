@@ -359,9 +359,7 @@ func (i IntegrationResponseMap) ToIntegrationResponseMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationResponseMapOutput)
 }
 
-type IntegrationResponseOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationResponseOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IntegrationResponse)(nil))
@@ -380,14 +378,12 @@ func (o IntegrationResponseOutput) ToIntegrationResponsePtrOutput() IntegrationR
 }
 
 func (o IntegrationResponseOutput) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
-	return o.ApplyT(func(v IntegrationResponse) *IntegrationResponse {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationResponse) *IntegrationResponse {
 		return &v
 	}).(IntegrationResponsePtrOutput)
 }
 
-type IntegrationResponsePtrOutput struct {
-	*pulumi.OutputState
-}
+type IntegrationResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (IntegrationResponsePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IntegrationResponse)(nil))
@@ -399,6 +395,16 @@ func (o IntegrationResponsePtrOutput) ToIntegrationResponsePtrOutput() Integrati
 
 func (o IntegrationResponsePtrOutput) ToIntegrationResponsePtrOutputWithContext(ctx context.Context) IntegrationResponsePtrOutput {
 	return o
+}
+
+func (o IntegrationResponsePtrOutput) Elem() IntegrationResponseOutput {
+	return o.ApplyT(func(v *IntegrationResponse) IntegrationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationResponse
+		return ret
+	}).(IntegrationResponseOutput)
 }
 
 type IntegrationResponseArrayOutput struct{ *pulumi.OutputState }

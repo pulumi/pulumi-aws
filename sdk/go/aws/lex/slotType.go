@@ -330,9 +330,7 @@ func (i SlotTypeMap) ToSlotTypeMapOutputWithContext(ctx context.Context) SlotTyp
 	return pulumi.ToOutputWithContext(ctx, i).(SlotTypeMapOutput)
 }
 
-type SlotTypeOutput struct {
-	*pulumi.OutputState
-}
+type SlotTypeOutput struct{ *pulumi.OutputState }
 
 func (SlotTypeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SlotType)(nil))
@@ -351,14 +349,12 @@ func (o SlotTypeOutput) ToSlotTypePtrOutput() SlotTypePtrOutput {
 }
 
 func (o SlotTypeOutput) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
-	return o.ApplyT(func(v SlotType) *SlotType {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SlotType) *SlotType {
 		return &v
 	}).(SlotTypePtrOutput)
 }
 
-type SlotTypePtrOutput struct {
-	*pulumi.OutputState
-}
+type SlotTypePtrOutput struct{ *pulumi.OutputState }
 
 func (SlotTypePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SlotType)(nil))
@@ -370,6 +366,16 @@ func (o SlotTypePtrOutput) ToSlotTypePtrOutput() SlotTypePtrOutput {
 
 func (o SlotTypePtrOutput) ToSlotTypePtrOutputWithContext(ctx context.Context) SlotTypePtrOutput {
 	return o
+}
+
+func (o SlotTypePtrOutput) Elem() SlotTypeOutput {
+	return o.ApplyT(func(v *SlotType) SlotType {
+		if v != nil {
+			return *v
+		}
+		var ret SlotType
+		return ret
+	}).(SlotTypeOutput)
 }
 
 type SlotTypeArrayOutput struct{ *pulumi.OutputState }

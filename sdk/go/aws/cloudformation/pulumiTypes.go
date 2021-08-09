@@ -107,7 +107,7 @@ func (o CloudFormationTypeLoggingConfigOutput) ToCloudFormationTypeLoggingConfig
 }
 
 func (o CloudFormationTypeLoggingConfigOutput) ToCloudFormationTypeLoggingConfigPtrOutputWithContext(ctx context.Context) CloudFormationTypeLoggingConfigPtrOutput {
-	return o.ApplyT(func(v CloudFormationTypeLoggingConfig) *CloudFormationTypeLoggingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationTypeLoggingConfig) *CloudFormationTypeLoggingConfig {
 		return &v
 	}).(CloudFormationTypeLoggingConfigPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o CloudFormationTypeLoggingConfigPtrOutput) ToCloudFormationTypeLoggingCon
 }
 
 func (o CloudFormationTypeLoggingConfigPtrOutput) Elem() CloudFormationTypeLoggingConfigOutput {
-	return o.ApplyT(func(v *CloudFormationTypeLoggingConfig) CloudFormationTypeLoggingConfig { return *v }).(CloudFormationTypeLoggingConfigOutput)
+	return o.ApplyT(func(v *CloudFormationTypeLoggingConfig) CloudFormationTypeLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CloudFormationTypeLoggingConfig
+		return ret
+	}).(CloudFormationTypeLoggingConfigOutput)
 }
 
 // Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
@@ -257,7 +263,7 @@ func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutput() StackS
 }
 
 func (o StackSetAutoDeploymentOutput) ToStackSetAutoDeploymentPtrOutputWithContext(ctx context.Context) StackSetAutoDeploymentPtrOutput {
-	return o.ApplyT(func(v StackSetAutoDeployment) *StackSetAutoDeployment {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetAutoDeployment) *StackSetAutoDeployment {
 		return &v
 	}).(StackSetAutoDeploymentPtrOutput)
 }
@@ -287,7 +293,13 @@ func (o StackSetAutoDeploymentPtrOutput) ToStackSetAutoDeploymentPtrOutputWithCo
 }
 
 func (o StackSetAutoDeploymentPtrOutput) Elem() StackSetAutoDeploymentOutput {
-	return o.ApplyT(func(v *StackSetAutoDeployment) StackSetAutoDeployment { return *v }).(StackSetAutoDeploymentOutput)
+	return o.ApplyT(func(v *StackSetAutoDeployment) StackSetAutoDeployment {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetAutoDeployment
+		return ret
+	}).(StackSetAutoDeploymentOutput)
 }
 
 // Whether or not auto-deployment is enabled.

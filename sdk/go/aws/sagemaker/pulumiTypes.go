@@ -107,7 +107,7 @@ func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGate
 }
 
 func (o AppImageConfigKernelGatewayImageConfigOutput) ToAppImageConfigKernelGatewayImageConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigPtrOutput {
-	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigKernelGatewayImageConfig) *AppImageConfigKernelGatewayImageConfig {
 		return &v
 	}).(AppImageConfigKernelGatewayImageConfigPtrOutput)
 }
@@ -141,7 +141,13 @@ func (o AppImageConfigKernelGatewayImageConfigPtrOutput) ToAppImageConfigKernelG
 }
 
 func (o AppImageConfigKernelGatewayImageConfigPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigOutput {
-	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfig { return *v }).(AppImageConfigKernelGatewayImageConfigOutput)
+	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfig) AppImageConfigKernelGatewayImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigKernelGatewayImageConfig
+		return ret
+	}).(AppImageConfigKernelGatewayImageConfigOutput)
 }
 
 // The URL where the Git repository is located. See File System Config details below.
@@ -265,7 +271,7 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImage
 }
 
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput) ToAppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput {
-	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigKernelGatewayImageConfigFileSystemConfig) *AppImageConfigKernelGatewayImageConfigFileSystemConfig {
 		return &v
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput)
 }
@@ -301,7 +307,11 @@ func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) ToAppIm
 
 func (o AppImageConfigKernelGatewayImageConfigFileSystemConfigPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigFileSystemConfig) AppImageConfigKernelGatewayImageConfigFileSystemConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigKernelGatewayImageConfigFileSystemConfig
+		return ret
 	}).(AppImageConfigKernelGatewayImageConfigFileSystemConfigOutput)
 }
 
@@ -432,7 +442,7 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfig
 }
 
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecOutput) ToAppImageConfigKernelGatewayImageConfigKernelSpecPtrOutputWithContext(ctx context.Context) AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput {
-	return o.ApplyT(func(v AppImageConfigKernelGatewayImageConfigKernelSpec) *AppImageConfigKernelGatewayImageConfigKernelSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppImageConfigKernelGatewayImageConfigKernelSpec) *AppImageConfigKernelGatewayImageConfigKernelSpec {
 		return &v
 	}).(AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput)
 }
@@ -463,7 +473,11 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) ToAppImageCon
 
 func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Elem() AppImageConfigKernelGatewayImageConfigKernelSpecOutput {
 	return o.ApplyT(func(v *AppImageConfigKernelGatewayImageConfigKernelSpec) AppImageConfigKernelGatewayImageConfigKernelSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret AppImageConfigKernelGatewayImageConfigKernelSpec
+		return ret
 	}).(AppImageConfigKernelGatewayImageConfigKernelSpecOutput)
 }
 
@@ -584,7 +598,7 @@ func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutput() AppResourceSpecPtrOu
 }
 
 func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context.Context) AppResourceSpecPtrOutput {
-	return o.ApplyT(func(v AppResourceSpec) *AppResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppResourceSpec) *AppResourceSpec {
 		return &v
 	}).(AppResourceSpecPtrOutput)
 }
@@ -614,7 +628,13 @@ func (o AppResourceSpecPtrOutput) ToAppResourceSpecPtrOutputWithContext(ctx cont
 }
 
 func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
-	return o.ApplyT(func(v *AppResourceSpec) AppResourceSpec { return *v }).(AppResourceSpecOutput)
+	return o.ApplyT(func(v *AppResourceSpec) AppResourceSpec {
+		if v != nil {
+			return *v
+		}
+		var ret AppResourceSpec
+		return ret
+	}).(AppResourceSpecOutput)
 }
 
 // The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
@@ -738,7 +758,7 @@ func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutput() Code
 }
 
 func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return o.ApplyT(func(v CodeRepositoryGitConfig) *CodeRepositoryGitConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryGitConfig) *CodeRepositoryGitConfig {
 		return &v
 	}).(CodeRepositoryGitConfigPtrOutput)
 }
@@ -773,7 +793,13 @@ func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWith
 }
 
 func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig { return *v }).(CodeRepositoryGitConfigOutput)
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryGitConfig
+		return ret
+	}).(CodeRepositoryGitConfigOutput)
 }
 
 // The default branch for the Git repository.
@@ -919,7 +945,7 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutput() 
 }
 
 func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettings) *DomainDefaultUserSettings {
 		return &v
 	}).(DomainDefaultUserSettingsPtrOutput)
 }
@@ -975,7 +1001,13 @@ func (o DomainDefaultUserSettingsPtrOutput) ToDomainDefaultUserSettingsPtrOutput
 }
 
 func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) DomainDefaultUserSettings { return *v }).(DomainDefaultUserSettingsOutput)
+	return o.ApplyT(func(v *DomainDefaultUserSettings) DomainDefaultUserSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettings
+		return ret
+	}).(DomainDefaultUserSettingsOutput)
 }
 
 // The execution role ARN for the user.
@@ -1131,7 +1163,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefault
 }
 
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterServerAppSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
 		return &v
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
 }
@@ -1159,7 +1191,11 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) ToDomainDefa
 
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsJupyterServerAppSettingsOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettings) DomainDefaultUserSettingsJupyterServerAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterServerAppSettings
+		return ret
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsOutput)
 }
 
@@ -1270,7 +1306,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 }
 
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return &v
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -1305,7 +1341,11 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec
+		return ret
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -1426,7 +1466,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefault
 }
 
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsKernelGatewayAppSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
 		return &v
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
@@ -1461,7 +1501,11 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) ToDomainDefa
 
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsKernelGatewayAppSettingsOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettings) DomainDefaultUserSettingsKernelGatewayAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsKernelGatewayAppSettings
+		return ret
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsOutput)
 }
 
@@ -1699,7 +1743,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 }
 
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return &v
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -1734,7 +1778,11 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec
+		return ret
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -1859,7 +1907,7 @@ func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSetti
 }
 
 func (o DomainDefaultUserSettingsSharingSettingsOutput) ToDomainDefaultUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsSharingSettingsPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsSharingSettings) *DomainDefaultUserSettingsSharingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsSharingSettings) *DomainDefaultUserSettingsSharingSettings {
 		return &v
 	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
 }
@@ -1894,7 +1942,13 @@ func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) ToDomainDefaultUserSe
 }
 
 func (o DomainDefaultUserSettingsSharingSettingsPtrOutput) Elem() DomainDefaultUserSettingsSharingSettingsOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) DomainDefaultUserSettingsSharingSettings { return *v }).(DomainDefaultUserSettingsSharingSettingsOutput)
+	return o.ApplyT(func(v *DomainDefaultUserSettingsSharingSettings) DomainDefaultUserSettingsSharingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsSharingSettings
+		return ret
+	}).(DomainDefaultUserSettingsSharingSettingsOutput)
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
@@ -2020,7 +2074,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUs
 }
 
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsTensorBoardAppSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
 		return &v
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
 }
@@ -2048,7 +2102,11 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) ToDomainDefaul
 
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) Elem() DomainDefaultUserSettingsTensorBoardAppSettingsOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettings) DomainDefaultUserSettingsTensorBoardAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsTensorBoardAppSettings
+		return ret
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsOutput)
 }
 
@@ -2159,7 +2217,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 }
 
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToDomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return &v
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -2194,7 +2252,11 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) Elem() DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec
+		return ret
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -2311,7 +2373,7 @@ func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutput() DomainRe
 }
 
 func (o DomainRetentionPolicyOutput) ToDomainRetentionPolicyPtrOutputWithContext(ctx context.Context) DomainRetentionPolicyPtrOutput {
-	return o.ApplyT(func(v DomainRetentionPolicy) *DomainRetentionPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRetentionPolicy) *DomainRetentionPolicy {
 		return &v
 	}).(DomainRetentionPolicyPtrOutput)
 }
@@ -2336,7 +2398,13 @@ func (o DomainRetentionPolicyPtrOutput) ToDomainRetentionPolicyPtrOutputWithCont
 }
 
 func (o DomainRetentionPolicyPtrOutput) Elem() DomainRetentionPolicyOutput {
-	return o.ApplyT(func(v *DomainRetentionPolicy) DomainRetentionPolicy { return *v }).(DomainRetentionPolicyOutput)
+	return o.ApplyT(func(v *DomainRetentionPolicy) DomainRetentionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRetentionPolicy
+		return ret
+	}).(DomainRetentionPolicyOutput)
 }
 
 // The retention policy for data stored on an Amazon Elastic File System (EFS) volume. Default value is `Retain`.
@@ -2462,7 +2530,7 @@ func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDat
 }
 
 func (o EndpointConfigurationDataCaptureConfigOutput) ToEndpointConfigurationDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigPtrOutput {
-	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationDataCaptureConfig) *EndpointConfigurationDataCaptureConfig {
 		return &v
 	}).(EndpointConfigurationDataCaptureConfigPtrOutput)
 }
@@ -2516,7 +2584,13 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) ToEndpointConfiguration
 }
 
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) Elem() EndpointConfigurationDataCaptureConfigOutput {
-	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) EndpointConfigurationDataCaptureConfig { return *v }).(EndpointConfigurationDataCaptureConfigOutput)
+	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) EndpointConfigurationDataCaptureConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationDataCaptureConfig
+		return ret
+	}).(EndpointConfigurationDataCaptureConfigOutput)
 }
 
 // The content type headers to capture. Fields are documented below.
@@ -2676,7 +2750,7 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) To
 }
 
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput) ToEndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput {
-	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
 		return &v
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 }
@@ -2711,7 +2785,11 @@ func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput)
 
 func (o EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderPtrOutput) Elem() EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader) EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader
+		return ret
 	}).(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput)
 }
 
@@ -3181,7 +3259,7 @@ func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigPt
 }
 
 func (o FeatureGroupOfflineStoreConfigOutput) ToFeatureGroupOfflineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigPtrOutput {
-	return o.ApplyT(func(v FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOfflineStoreConfig) *FeatureGroupOfflineStoreConfig {
 		return &v
 	}).(FeatureGroupOfflineStoreConfigPtrOutput)
 }
@@ -3220,7 +3298,13 @@ func (o FeatureGroupOfflineStoreConfigPtrOutput) ToFeatureGroupOfflineStoreConfi
 }
 
 func (o FeatureGroupOfflineStoreConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigOutput {
-	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) FeatureGroupOfflineStoreConfig { return *v }).(FeatureGroupOfflineStoreConfigOutput)
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfig) FeatureGroupOfflineStoreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOfflineStoreConfig
+		return ret
+	}).(FeatureGroupOfflineStoreConfigOutput)
 }
 
 // The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
@@ -3354,7 +3438,7 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOff
 }
 
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigOutput) ToFeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput {
-	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigDataCatalogConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOfflineStoreConfigDataCatalogConfig) *FeatureGroupOfflineStoreConfigDataCatalogConfig {
 		return &v
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput)
 }
@@ -3390,7 +3474,11 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) ToFeatureGroup
 
 func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigDataCatalogConfigOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigDataCatalogConfig) FeatureGroupOfflineStoreConfigDataCatalogConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOfflineStoreConfigDataCatalogConfig
+		return ret
 	}).(FeatureGroupOfflineStoreConfigDataCatalogConfigOutput)
 }
 
@@ -3521,7 +3609,7 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOffli
 }
 
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ToFeatureGroupOfflineStoreConfigS3StorageConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput {
-	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *FeatureGroupOfflineStoreConfigS3StorageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOfflineStoreConfigS3StorageConfig) *FeatureGroupOfflineStoreConfigS3StorageConfig {
 		return &v
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput)
 }
@@ -3552,7 +3640,11 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) ToFeatureGroupOf
 
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) Elem() FeatureGroupOfflineStoreConfigS3StorageConfigOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) FeatureGroupOfflineStoreConfigS3StorageConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOfflineStoreConfigS3StorageConfig
+		return ret
 	}).(FeatureGroupOfflineStoreConfigS3StorageConfigOutput)
 }
 
@@ -3673,7 +3765,7 @@ func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrO
 }
 
 func (o FeatureGroupOnlineStoreConfigOutput) ToFeatureGroupOnlineStoreConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigPtrOutput {
-	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfig {
 		return &v
 	}).(FeatureGroupOnlineStoreConfigPtrOutput)
 }
@@ -3705,7 +3797,13 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) ToFeatureGroupOnlineStoreConfigP
 }
 
 func (o FeatureGroupOnlineStoreConfigPtrOutput) Elem() FeatureGroupOnlineStoreConfigOutput {
-	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) FeatureGroupOnlineStoreConfig { return *v }).(FeatureGroupOnlineStoreConfigOutput)
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) FeatureGroupOnlineStoreConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOnlineStoreConfig
+		return ret
+	}).(FeatureGroupOnlineStoreConfigOutput)
 }
 
 // Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
@@ -3821,7 +3919,7 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineS
 }
 
 func (o FeatureGroupOnlineStoreConfigSecurityConfigOutput) ToFeatureGroupOnlineStoreConfigSecurityConfigPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput {
-	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigSecurityConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOnlineStoreConfigSecurityConfig) *FeatureGroupOnlineStoreConfigSecurityConfig {
 		return &v
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
 }
@@ -3847,7 +3945,11 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) ToFeatureGroupOnli
 
 func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) Elem() FeatureGroupOnlineStoreConfigSecurityConfigOutput {
 	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigSecurityConfig) FeatureGroupOnlineStoreConfigSecurityConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOnlineStoreConfigSecurityConfig
+		return ret
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigOutput)
 }
 
@@ -4099,7 +4201,7 @@ func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutput() 
 }
 
 func (o ModelContainerImageConfigOutput) ToModelContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigPtrOutput {
-	return o.ApplyT(func(v ModelContainerImageConfig) *ModelContainerImageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerImageConfig) *ModelContainerImageConfig {
 		return &v
 	}).(ModelContainerImageConfigPtrOutput)
 }
@@ -4124,7 +4226,13 @@ func (o ModelContainerImageConfigPtrOutput) ToModelContainerImageConfigPtrOutput
 }
 
 func (o ModelContainerImageConfigPtrOutput) Elem() ModelContainerImageConfigOutput {
-	return o.ApplyT(func(v *ModelContainerImageConfig) ModelContainerImageConfig { return *v }).(ModelContainerImageConfigOutput)
+	return o.ApplyT(func(v *ModelContainerImageConfig) ModelContainerImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerImageConfig
+		return ret
+	}).(ModelContainerImageConfigOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
@@ -4134,6 +4242,143 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.String
 			return nil
 		}
 		return &v.RepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelInferenceExecutionConfig struct {
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode string `pulumi:"mode"`
+}
+
+// ModelInferenceExecutionConfigInput is an input type that accepts ModelInferenceExecutionConfigArgs and ModelInferenceExecutionConfigOutput values.
+// You can construct a concrete instance of `ModelInferenceExecutionConfigInput` via:
+//
+//          ModelInferenceExecutionConfigArgs{...}
+type ModelInferenceExecutionConfigInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput
+	ToModelInferenceExecutionConfigOutputWithContext(context.Context) ModelInferenceExecutionConfigOutput
+}
+
+type ModelInferenceExecutionConfigArgs struct {
+	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (ModelInferenceExecutionConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput {
+	return i.ToModelInferenceExecutionConfigOutputWithContext(context.Background())
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigOutput)
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return i.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelInferenceExecutionConfigArgs) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigOutput).ToModelInferenceExecutionConfigPtrOutputWithContext(ctx)
+}
+
+// ModelInferenceExecutionConfigPtrInput is an input type that accepts ModelInferenceExecutionConfigArgs, ModelInferenceExecutionConfigPtr and ModelInferenceExecutionConfigPtrOutput values.
+// You can construct a concrete instance of `ModelInferenceExecutionConfigPtrInput` via:
+//
+//          ModelInferenceExecutionConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelInferenceExecutionConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput
+	ToModelInferenceExecutionConfigPtrOutputWithContext(context.Context) ModelInferenceExecutionConfigPtrOutput
+}
+
+type modelInferenceExecutionConfigPtrType ModelInferenceExecutionConfigArgs
+
+func ModelInferenceExecutionConfigPtr(v *ModelInferenceExecutionConfigArgs) ModelInferenceExecutionConfigPtrInput {
+	return (*modelInferenceExecutionConfigPtrType)(v)
+}
+
+func (*modelInferenceExecutionConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (i *modelInferenceExecutionConfigPtrType) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return i.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelInferenceExecutionConfigPtrType) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelInferenceExecutionConfigPtrOutput)
+}
+
+type ModelInferenceExecutionConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigOutput() ModelInferenceExecutionConfigOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return o.ToModelInferenceExecutionConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelInferenceExecutionConfigOutput) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelInferenceExecutionConfig) *ModelInferenceExecutionConfig {
+		return &v
+	}).(ModelInferenceExecutionConfigPtrOutput)
+}
+
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+func (o ModelInferenceExecutionConfigOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelInferenceExecutionConfig) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type ModelInferenceExecutionConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelInferenceExecutionConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelInferenceExecutionConfig)(nil)).Elem()
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) ToModelInferenceExecutionConfigPtrOutput() ModelInferenceExecutionConfigPtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) ToModelInferenceExecutionConfigPtrOutputWithContext(ctx context.Context) ModelInferenceExecutionConfigPtrOutput {
+	return o
+}
+
+func (o ModelInferenceExecutionConfigPtrOutput) Elem() ModelInferenceExecutionConfigOutput {
+	return o.ApplyT(func(v *ModelInferenceExecutionConfig) ModelInferenceExecutionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelInferenceExecutionConfig
+		return ret
+	}).(ModelInferenceExecutionConfigOutput)
+}
+
+// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+func (o ModelInferenceExecutionConfigPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelInferenceExecutionConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4252,7 +4497,7 @@ func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutput() ModelPri
 }
 
 func (o ModelPrimaryContainerOutput) ToModelPrimaryContainerPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerPtrOutput {
-	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainer) *ModelPrimaryContainer {
 		return &v
 	}).(ModelPrimaryContainerPtrOutput)
 }
@@ -4303,7 +4548,13 @@ func (o ModelPrimaryContainerPtrOutput) ToModelPrimaryContainerPtrOutputWithCont
 }
 
 func (o ModelPrimaryContainerPtrOutput) Elem() ModelPrimaryContainerOutput {
-	return o.ApplyT(func(v *ModelPrimaryContainer) ModelPrimaryContainer { return *v }).(ModelPrimaryContainerOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainer) ModelPrimaryContainer {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainer
+		return ret
+	}).(ModelPrimaryContainerOutput)
 }
 
 // The DNS host name for the container.
@@ -4460,7 +4711,7 @@ func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConf
 }
 
 func (o ModelPrimaryContainerImageConfigOutput) ToModelPrimaryContainerImageConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigPtrOutput {
-	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfig {
 		return &v
 	}).(ModelPrimaryContainerImageConfigPtrOutput)
 }
@@ -4485,7 +4736,13 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) ToModelPrimaryContainerImageC
 }
 
 func (o ModelPrimaryContainerImageConfigPtrOutput) Elem() ModelPrimaryContainerImageConfigOutput {
-	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) ModelPrimaryContainerImageConfig { return *v }).(ModelPrimaryContainerImageConfigOutput)
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) ModelPrimaryContainerImageConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerImageConfig
+		return ret
+	}).(ModelPrimaryContainerImageConfigOutput)
 }
 
 // Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
@@ -4591,10 +4848,11 @@ func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutput() ModelVpcConfigPtrOutpu
 }
 
 func (o ModelVpcConfigOutput) ToModelVpcConfigPtrOutputWithContext(ctx context.Context) ModelVpcConfigPtrOutput {
-	return o.ApplyT(func(v ModelVpcConfig) *ModelVpcConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelVpcConfig) *ModelVpcConfig {
 		return &v
 	}).(ModelVpcConfigPtrOutput)
 }
+
 func (o ModelVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ModelVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
@@ -4618,7 +4876,13 @@ func (o ModelVpcConfigPtrOutput) ToModelVpcConfigPtrOutputWithContext(ctx contex
 }
 
 func (o ModelVpcConfigPtrOutput) Elem() ModelVpcConfigOutput {
-	return o.ApplyT(func(v *ModelVpcConfig) ModelVpcConfig { return *v }).(ModelVpcConfigOutput)
+	return o.ApplyT(func(v *ModelVpcConfig) ModelVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelVpcConfig
+		return ret
+	}).(ModelVpcConfigOutput)
 }
 
 func (o ModelVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
@@ -4752,7 +5016,7 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutput() User
 }
 
 func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileUserSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettings) *UserProfileUserSettings {
 		return &v
 	}).(UserProfileUserSettingsPtrOutput)
 }
@@ -4808,7 +5072,13 @@ func (o UserProfileUserSettingsPtrOutput) ToUserProfileUserSettingsPtrOutputWith
 }
 
 func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
-	return o.ApplyT(func(v *UserProfileUserSettings) UserProfileUserSettings { return *v }).(UserProfileUserSettingsOutput)
+	return o.ApplyT(func(v *UserProfileUserSettings) UserProfileUserSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettings
+		return ret
+	}).(UserProfileUserSettingsOutput)
 }
 
 // The execution role ARN for the user.
@@ -4964,7 +5234,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUser
 }
 
 func (o UserProfileUserSettingsJupyterServerAppSettingsOutput) ToUserProfileUserSettingsJupyterServerAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterServerAppSettings) *UserProfileUserSettingsJupyterServerAppSettings {
 		return &v
 	}).(UserProfileUserSettingsJupyterServerAppSettingsPtrOutput)
 }
@@ -4992,7 +5262,11 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) ToUserProfileU
 
 func (o UserProfileUserSettingsJupyterServerAppSettingsPtrOutput) Elem() UserProfileUserSettingsJupyterServerAppSettingsOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettings) UserProfileUserSettingsJupyterServerAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterServerAppSettings
+		return ret
 	}).(UserProfileUserSettingsJupyterServerAppSettingsOutput)
 }
 
@@ -5103,7 +5377,7 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput
 }
 
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
 		return &v
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -5138,7 +5412,11 @@ func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOut
 
 func (o UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec) UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec
+		return ret
 	}).(UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -5259,7 +5537,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUser
 }
 
 func (o UserProfileUserSettingsKernelGatewayAppSettingsOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsKernelGatewayAppSettings) *UserProfileUserSettingsKernelGatewayAppSettings {
 		return &v
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput)
 }
@@ -5294,7 +5572,11 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) ToUserProfileU
 
 func (o UserProfileUserSettingsKernelGatewayAppSettingsPtrOutput) Elem() UserProfileUserSettingsKernelGatewayAppSettingsOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettings) UserProfileUserSettingsKernelGatewayAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsKernelGatewayAppSettings
+		return ret
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsOutput)
 }
 
@@ -5530,7 +5812,7 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput
 }
 
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
 		return &v
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -5565,7 +5847,11 @@ func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOut
 
 func (o UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec
+		return ret
 	}).(UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -5690,7 +5976,7 @@ func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsS
 }
 
 func (o UserProfileUserSettingsSharingSettingsOutput) ToUserProfileUserSettingsSharingSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsSharingSettingsPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsSharingSettings) *UserProfileUserSettingsSharingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsSharingSettings) *UserProfileUserSettingsSharingSettings {
 		return &v
 	}).(UserProfileUserSettingsSharingSettingsPtrOutput)
 }
@@ -5725,7 +6011,13 @@ func (o UserProfileUserSettingsSharingSettingsPtrOutput) ToUserProfileUserSettin
 }
 
 func (o UserProfileUserSettingsSharingSettingsPtrOutput) Elem() UserProfileUserSettingsSharingSettingsOutput {
-	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) UserProfileUserSettingsSharingSettings { return *v }).(UserProfileUserSettingsSharingSettingsOutput)
+	return o.ApplyT(func(v *UserProfileUserSettingsSharingSettings) UserProfileUserSettingsSharingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsSharingSettings
+		return ret
+	}).(UserProfileUserSettingsSharingSettingsOutput)
 }
 
 // Whether to include the notebook cell output when sharing the notebook. The default is `Disabled`. Valid values are `Allowed` and `Disabled`.
@@ -5851,7 +6143,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSe
 }
 
 func (o UserProfileUserSettingsTensorBoardAppSettingsOutput) ToUserProfileUserSettingsTensorBoardAppSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsTensorBoardAppSettings) *UserProfileUserSettingsTensorBoardAppSettings {
 		return &v
 	}).(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput)
 }
@@ -5879,7 +6171,11 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) ToUserProfileUse
 
 func (o UserProfileUserSettingsTensorBoardAppSettingsPtrOutput) Elem() UserProfileUserSettingsTensorBoardAppSettingsOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettings) UserProfileUserSettingsTensorBoardAppSettings {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsTensorBoardAppSettings
+		return ret
 	}).(UserProfileUserSettingsTensorBoardAppSettingsOutput)
 }
 
@@ -5990,7 +6286,7 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) 
 }
 
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) ToUserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput {
-	return o.ApplyT(func(v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
 		return &v
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
@@ -6025,7 +6321,11 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 
 func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) Elem() UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec) UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec
+		return ret
 	}).(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
@@ -6046,6 +6346,1128 @@ func (o UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutpu
 			return nil
 		}
 		return v.SagemakerImageArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkForceCognitoConfig struct {
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId string `pulumi:"clientId"`
+	// The id for your Amazon Cognito user pool.
+	UserPool string `pulumi:"userPool"`
+}
+
+// WorkForceCognitoConfigInput is an input type that accepts WorkForceCognitoConfigArgs and WorkForceCognitoConfigOutput values.
+// You can construct a concrete instance of `WorkForceCognitoConfigInput` via:
+//
+//          WorkForceCognitoConfigArgs{...}
+type WorkForceCognitoConfigInput interface {
+	pulumi.Input
+
+	ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput
+	ToWorkForceCognitoConfigOutputWithContext(context.Context) WorkForceCognitoConfigOutput
+}
+
+type WorkForceCognitoConfigArgs struct {
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The id for your Amazon Cognito user pool.
+	UserPool pulumi.StringInput `pulumi:"userPool"`
+}
+
+func (WorkForceCognitoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceCognitoConfig)(nil)).Elem()
+}
+
+func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput {
+	return i.ToWorkForceCognitoConfigOutputWithContext(context.Background())
+}
+
+func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigOutputWithContext(ctx context.Context) WorkForceCognitoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigOutput)
+}
+
+func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
+	return i.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WorkForceCognitoConfigArgs) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigOutput).ToWorkForceCognitoConfigPtrOutputWithContext(ctx)
+}
+
+// WorkForceCognitoConfigPtrInput is an input type that accepts WorkForceCognitoConfigArgs, WorkForceCognitoConfigPtr and WorkForceCognitoConfigPtrOutput values.
+// You can construct a concrete instance of `WorkForceCognitoConfigPtrInput` via:
+//
+//          WorkForceCognitoConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkForceCognitoConfigPtrInput interface {
+	pulumi.Input
+
+	ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput
+	ToWorkForceCognitoConfigPtrOutputWithContext(context.Context) WorkForceCognitoConfigPtrOutput
+}
+
+type workForceCognitoConfigPtrType WorkForceCognitoConfigArgs
+
+func WorkForceCognitoConfigPtr(v *WorkForceCognitoConfigArgs) WorkForceCognitoConfigPtrInput {
+	return (*workForceCognitoConfigPtrType)(v)
+}
+
+func (*workForceCognitoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceCognitoConfig)(nil)).Elem()
+}
+
+func (i *workForceCognitoConfigPtrType) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
+	return i.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *workForceCognitoConfigPtrType) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceCognitoConfigPtrOutput)
+}
+
+type WorkForceCognitoConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkForceCognitoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceCognitoConfig)(nil)).Elem()
+}
+
+func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigOutput() WorkForceCognitoConfigOutput {
+	return o
+}
+
+func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigOutputWithContext(ctx context.Context) WorkForceCognitoConfigOutput {
+	return o
+}
+
+func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
+	return o.ToWorkForceCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WorkForceCognitoConfigOutput) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceCognitoConfig) *WorkForceCognitoConfig {
+		return &v
+	}).(WorkForceCognitoConfigPtrOutput)
+}
+
+// The OIDC IdP client ID used to configure your private workforce.
+func (o WorkForceCognitoConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceCognitoConfig) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The id for your Amazon Cognito user pool.
+func (o WorkForceCognitoConfigOutput) UserPool() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceCognitoConfig) string { return v.UserPool }).(pulumi.StringOutput)
+}
+
+type WorkForceCognitoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkForceCognitoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceCognitoConfig)(nil)).Elem()
+}
+
+func (o WorkForceCognitoConfigPtrOutput) ToWorkForceCognitoConfigPtrOutput() WorkForceCognitoConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceCognitoConfigPtrOutput) ToWorkForceCognitoConfigPtrOutputWithContext(ctx context.Context) WorkForceCognitoConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceCognitoConfigPtrOutput) Elem() WorkForceCognitoConfigOutput {
+	return o.ApplyT(func(v *WorkForceCognitoConfig) WorkForceCognitoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WorkForceCognitoConfig
+		return ret
+	}).(WorkForceCognitoConfigOutput)
+}
+
+// The OIDC IdP client ID used to configure your private workforce.
+func (o WorkForceCognitoConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The id for your Amazon Cognito user pool.
+func (o WorkForceCognitoConfigPtrOutput) UserPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPool
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkForceOidcConfig struct {
+	// The OIDC IdP authorization endpoint used to configure your private workforce.
+	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId string `pulumi:"clientId"`
+	// The OIDC IdP client secret used to configure your private workforce.
+	ClientSecret string `pulumi:"clientSecret"`
+	// The OIDC IdP issuer used to configure your private workforce.
+	Issuer string `pulumi:"issuer"`
+	// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+	JwksUri string `pulumi:"jwksUri"`
+	// The OIDC IdP logout endpoint used to configure your private workforce.
+	LogoutEndpoint string `pulumi:"logoutEndpoint"`
+	// The OIDC IdP token endpoint used to configure your private workforce.
+	TokenEndpoint string `pulumi:"tokenEndpoint"`
+	// The OIDC IdP user information endpoint used to configure your private workforce.
+	UserInfoEndpoint string `pulumi:"userInfoEndpoint"`
+}
+
+// WorkForceOidcConfigInput is an input type that accepts WorkForceOidcConfigArgs and WorkForceOidcConfigOutput values.
+// You can construct a concrete instance of `WorkForceOidcConfigInput` via:
+//
+//          WorkForceOidcConfigArgs{...}
+type WorkForceOidcConfigInput interface {
+	pulumi.Input
+
+	ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput
+	ToWorkForceOidcConfigOutputWithContext(context.Context) WorkForceOidcConfigOutput
+}
+
+type WorkForceOidcConfigArgs struct {
+	// The OIDC IdP authorization endpoint used to configure your private workforce.
+	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
+	// The OIDC IdP client ID used to configure your private workforce.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The OIDC IdP client secret used to configure your private workforce.
+	ClientSecret pulumi.StringInput `pulumi:"clientSecret"`
+	// The OIDC IdP issuer used to configure your private workforce.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+	JwksUri pulumi.StringInput `pulumi:"jwksUri"`
+	// The OIDC IdP logout endpoint used to configure your private workforce.
+	LogoutEndpoint pulumi.StringInput `pulumi:"logoutEndpoint"`
+	// The OIDC IdP token endpoint used to configure your private workforce.
+	TokenEndpoint pulumi.StringInput `pulumi:"tokenEndpoint"`
+	// The OIDC IdP user information endpoint used to configure your private workforce.
+	UserInfoEndpoint pulumi.StringInput `pulumi:"userInfoEndpoint"`
+}
+
+func (WorkForceOidcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceOidcConfig)(nil)).Elem()
+}
+
+func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput {
+	return i.ToWorkForceOidcConfigOutputWithContext(context.Background())
+}
+
+func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigOutputWithContext(ctx context.Context) WorkForceOidcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigOutput)
+}
+
+func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
+	return i.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WorkForceOidcConfigArgs) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigOutput).ToWorkForceOidcConfigPtrOutputWithContext(ctx)
+}
+
+// WorkForceOidcConfigPtrInput is an input type that accepts WorkForceOidcConfigArgs, WorkForceOidcConfigPtr and WorkForceOidcConfigPtrOutput values.
+// You can construct a concrete instance of `WorkForceOidcConfigPtrInput` via:
+//
+//          WorkForceOidcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkForceOidcConfigPtrInput interface {
+	pulumi.Input
+
+	ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput
+	ToWorkForceOidcConfigPtrOutputWithContext(context.Context) WorkForceOidcConfigPtrOutput
+}
+
+type workForceOidcConfigPtrType WorkForceOidcConfigArgs
+
+func WorkForceOidcConfigPtr(v *WorkForceOidcConfigArgs) WorkForceOidcConfigPtrInput {
+	return (*workForceOidcConfigPtrType)(v)
+}
+
+func (*workForceOidcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceOidcConfig)(nil)).Elem()
+}
+
+func (i *workForceOidcConfigPtrType) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
+	return i.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *workForceOidcConfigPtrType) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceOidcConfigPtrOutput)
+}
+
+type WorkForceOidcConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkForceOidcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceOidcConfig)(nil)).Elem()
+}
+
+func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigOutput() WorkForceOidcConfigOutput {
+	return o
+}
+
+func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigOutputWithContext(ctx context.Context) WorkForceOidcConfigOutput {
+	return o
+}
+
+func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
+	return o.ToWorkForceOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WorkForceOidcConfigOutput) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceOidcConfig) *WorkForceOidcConfig {
+		return &v
+	}).(WorkForceOidcConfigPtrOutput)
+}
+
+// The OIDC IdP authorization endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) AuthorizationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP client ID used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP client secret used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) ClientSecret() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.ClientSecret }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP issuer used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) JwksUri() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.JwksUri }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP logout endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) LogoutEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.LogoutEndpoint }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP token endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) TokenEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.TokenEndpoint }).(pulumi.StringOutput)
+}
+
+// The OIDC IdP user information endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigOutput) UserInfoEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkForceOidcConfig) string { return v.UserInfoEndpoint }).(pulumi.StringOutput)
+}
+
+type WorkForceOidcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkForceOidcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceOidcConfig)(nil)).Elem()
+}
+
+func (o WorkForceOidcConfigPtrOutput) ToWorkForceOidcConfigPtrOutput() WorkForceOidcConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceOidcConfigPtrOutput) ToWorkForceOidcConfigPtrOutputWithContext(ctx context.Context) WorkForceOidcConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceOidcConfigPtrOutput) Elem() WorkForceOidcConfigOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) WorkForceOidcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WorkForceOidcConfig
+		return ret
+	}).(WorkForceOidcConfigOutput)
+}
+
+// The OIDC IdP authorization endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP client ID used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP client secret used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP issuer used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) JwksUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.JwksUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP logout endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) LogoutEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogoutEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP token endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC IdP user information endpoint used to configure your private workforce.
+func (o WorkForceOidcConfigPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkForceOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserInfoEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkForceSourceIpConfig struct {
+	// A list of up to 10 CIDR values.
+	Cidrs []string `pulumi:"cidrs"`
+}
+
+// WorkForceSourceIpConfigInput is an input type that accepts WorkForceSourceIpConfigArgs and WorkForceSourceIpConfigOutput values.
+// You can construct a concrete instance of `WorkForceSourceIpConfigInput` via:
+//
+//          WorkForceSourceIpConfigArgs{...}
+type WorkForceSourceIpConfigInput interface {
+	pulumi.Input
+
+	ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput
+	ToWorkForceSourceIpConfigOutputWithContext(context.Context) WorkForceSourceIpConfigOutput
+}
+
+type WorkForceSourceIpConfigArgs struct {
+	// A list of up to 10 CIDR values.
+	Cidrs pulumi.StringArrayInput `pulumi:"cidrs"`
+}
+
+func (WorkForceSourceIpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceSourceIpConfig)(nil)).Elem()
+}
+
+func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput {
+	return i.ToWorkForceSourceIpConfigOutputWithContext(context.Background())
+}
+
+func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigOutputWithContext(ctx context.Context) WorkForceSourceIpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigOutput)
+}
+
+func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
+	return i.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i WorkForceSourceIpConfigArgs) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigOutput).ToWorkForceSourceIpConfigPtrOutputWithContext(ctx)
+}
+
+// WorkForceSourceIpConfigPtrInput is an input type that accepts WorkForceSourceIpConfigArgs, WorkForceSourceIpConfigPtr and WorkForceSourceIpConfigPtrOutput values.
+// You can construct a concrete instance of `WorkForceSourceIpConfigPtrInput` via:
+//
+//          WorkForceSourceIpConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkForceSourceIpConfigPtrInput interface {
+	pulumi.Input
+
+	ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput
+	ToWorkForceSourceIpConfigPtrOutputWithContext(context.Context) WorkForceSourceIpConfigPtrOutput
+}
+
+type workForceSourceIpConfigPtrType WorkForceSourceIpConfigArgs
+
+func WorkForceSourceIpConfigPtr(v *WorkForceSourceIpConfigArgs) WorkForceSourceIpConfigPtrInput {
+	return (*workForceSourceIpConfigPtrType)(v)
+}
+
+func (*workForceSourceIpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceSourceIpConfig)(nil)).Elem()
+}
+
+func (i *workForceSourceIpConfigPtrType) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
+	return i.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *workForceSourceIpConfigPtrType) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkForceSourceIpConfigPtrOutput)
+}
+
+type WorkForceSourceIpConfigOutput struct{ *pulumi.OutputState }
+
+func (WorkForceSourceIpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkForceSourceIpConfig)(nil)).Elem()
+}
+
+func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigOutput() WorkForceSourceIpConfigOutput {
+	return o
+}
+
+func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigOutputWithContext(ctx context.Context) WorkForceSourceIpConfigOutput {
+	return o
+}
+
+func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
+	return o.ToWorkForceSourceIpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o WorkForceSourceIpConfigOutput) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkForceSourceIpConfig) *WorkForceSourceIpConfig {
+		return &v
+	}).(WorkForceSourceIpConfigPtrOutput)
+}
+
+// A list of up to 10 CIDR values.
+func (o WorkForceSourceIpConfigOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkForceSourceIpConfig) []string { return v.Cidrs }).(pulumi.StringArrayOutput)
+}
+
+type WorkForceSourceIpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkForceSourceIpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkForceSourceIpConfig)(nil)).Elem()
+}
+
+func (o WorkForceSourceIpConfigPtrOutput) ToWorkForceSourceIpConfigPtrOutput() WorkForceSourceIpConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceSourceIpConfigPtrOutput) ToWorkForceSourceIpConfigPtrOutputWithContext(ctx context.Context) WorkForceSourceIpConfigPtrOutput {
+	return o
+}
+
+func (o WorkForceSourceIpConfigPtrOutput) Elem() WorkForceSourceIpConfigOutput {
+	return o.ApplyT(func(v *WorkForceSourceIpConfig) WorkForceSourceIpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret WorkForceSourceIpConfig
+		return ret
+	}).(WorkForceSourceIpConfigOutput)
+}
+
+// A list of up to 10 CIDR values.
+func (o WorkForceSourceIpConfigPtrOutput) Cidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkForceSourceIpConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Cidrs
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkTeamMemberDefinition struct {
+	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+	CognitoMemberDefinition *WorkTeamMemberDefinitionCognitoMemberDefinition `pulumi:"cognitoMemberDefinition"`
+	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+	OidcMemberDefinition *WorkTeamMemberDefinitionOidcMemberDefinition `pulumi:"oidcMemberDefinition"`
+}
+
+// WorkTeamMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionArgs and WorkTeamMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionInput` via:
+//
+//          WorkTeamMemberDefinitionArgs{...}
+type WorkTeamMemberDefinitionInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput
+	ToWorkTeamMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionOutput
+}
+
+type WorkTeamMemberDefinitionArgs struct {
+	// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+	CognitoMemberDefinition WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput `pulumi:"cognitoMemberDefinition"`
+	// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+	OidcMemberDefinition WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput `pulumi:"oidcMemberDefinition"`
+}
+
+func (WorkTeamMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinition)(nil)).Elem()
+}
+
+func (i WorkTeamMemberDefinitionArgs) ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput {
+	return i.ToWorkTeamMemberDefinitionOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionArgs) ToWorkTeamMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOutput)
+}
+
+// WorkTeamMemberDefinitionArrayInput is an input type that accepts WorkTeamMemberDefinitionArray and WorkTeamMemberDefinitionArrayOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionArrayInput` via:
+//
+//          WorkTeamMemberDefinitionArray{ WorkTeamMemberDefinitionArgs{...} }
+type WorkTeamMemberDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput
+	ToWorkTeamMemberDefinitionArrayOutputWithContext(context.Context) WorkTeamMemberDefinitionArrayOutput
+}
+
+type WorkTeamMemberDefinitionArray []WorkTeamMemberDefinitionInput
+
+func (WorkTeamMemberDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkTeamMemberDefinition)(nil)).Elem()
+}
+
+func (i WorkTeamMemberDefinitionArray) ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput {
+	return i.ToWorkTeamMemberDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionArray) ToWorkTeamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionArrayOutput)
+}
+
+type WorkTeamMemberDefinitionOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionOutput) ToWorkTeamMemberDefinitionOutput() WorkTeamMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionOutput) ToWorkTeamMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOutput {
+	return o
+}
+
+// The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+func (o WorkTeamMemberDefinitionOutput) CognitoMemberDefinition() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinition) *WorkTeamMemberDefinitionCognitoMemberDefinition {
+		return v.CognitoMemberDefinition
+	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+}
+
+// A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+func (o WorkTeamMemberDefinitionOutput) OidcMemberDefinition() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinition) *WorkTeamMemberDefinitionOidcMemberDefinition {
+		return v.OidcMemberDefinition
+	}).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+}
+
+type WorkTeamMemberDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkTeamMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionArrayOutput) ToWorkTeamMemberDefinitionArrayOutput() WorkTeamMemberDefinitionArrayOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionArrayOutput) ToWorkTeamMemberDefinitionArrayOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionArrayOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionArrayOutput) Index(i pulumi.IntInput) WorkTeamMemberDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkTeamMemberDefinition {
+		return vs[0].([]WorkTeamMemberDefinition)[vs[1].(int)]
+	}).(WorkTeamMemberDefinitionOutput)
+}
+
+type WorkTeamMemberDefinitionCognitoMemberDefinition struct {
+	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+	ClientId string `pulumi:"clientId"`
+	// An identifier for a user group.
+	UserGroup string `pulumi:"userGroup"`
+	// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+	UserPool string `pulumi:"userPool"`
+}
+
+// WorkTeamMemberDefinitionCognitoMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionCognitoMemberDefinitionArgs and WorkTeamMemberDefinitionCognitoMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionCognitoMemberDefinitionInput` via:
+//
+//          WorkTeamMemberDefinitionCognitoMemberDefinitionArgs{...}
+type WorkTeamMemberDefinitionCognitoMemberDefinitionInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput
+	ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput
+}
+
+type WorkTeamMemberDefinitionCognitoMemberDefinitionArgs struct {
+	// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// An identifier for a user group.
+	UserGroup pulumi.StringInput `pulumi:"userGroup"`
+	// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+	UserPool pulumi.StringInput `pulumi:"userPool"`
+}
+
+func (WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput)
+}
+
+func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput).ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx)
+}
+
+// WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput is an input type that accepts WorkTeamMemberDefinitionCognitoMemberDefinitionArgs, WorkTeamMemberDefinitionCognitoMemberDefinitionPtr and WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput` via:
+//
+//          WorkTeamMemberDefinitionCognitoMemberDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput
+	ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput
+}
+
+type workTeamMemberDefinitionCognitoMemberDefinitionPtrType WorkTeamMemberDefinitionCognitoMemberDefinitionArgs
+
+func WorkTeamMemberDefinitionCognitoMemberDefinitionPtr(v *WorkTeamMemberDefinitionCognitoMemberDefinitionArgs) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrInput {
+	return (*workTeamMemberDefinitionCognitoMemberDefinitionPtrType)(v)
+}
+
+func (*workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (i *workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return i.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *workTeamMemberDefinitionCognitoMemberDefinitionPtrType) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+}
+
+type WorkTeamMemberDefinitionCognitoMemberDefinitionOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamMemberDefinitionCognitoMemberDefinition) *WorkTeamMemberDefinitionCognitoMemberDefinition {
+		return &v
+	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput)
+}
+
+// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// An identifier for a user group.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) UserGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.UserGroup }).(pulumi.StringOutput)
+}
+
+// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionOutput) UserPool() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinitionCognitoMemberDefinition) string { return v.UserPool }).(pulumi.StringOutput)
+}
+
+type WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamMemberDefinitionCognitoMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput() WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) Elem() WorkTeamMemberDefinitionCognitoMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) WorkTeamMemberDefinitionCognitoMemberDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WorkTeamMemberDefinitionCognitoMemberDefinition
+		return ret
+	}).(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput)
+}
+
+// An identifier for an application client. You must create the app client ID using Amazon Cognito.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// An identifier for a user group.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// An identifier for a user pool. The user pool must be in the same region as the service that you are calling.
+func (o WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput) UserPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionCognitoMemberDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPool
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkTeamMemberDefinitionOidcMemberDefinition struct {
+	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+	Groups []string `pulumi:"groups"`
+}
+
+// WorkTeamMemberDefinitionOidcMemberDefinitionInput is an input type that accepts WorkTeamMemberDefinitionOidcMemberDefinitionArgs and WorkTeamMemberDefinitionOidcMemberDefinitionOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionOidcMemberDefinitionInput` via:
+//
+//          WorkTeamMemberDefinitionOidcMemberDefinitionArgs{...}
+type WorkTeamMemberDefinitionOidcMemberDefinitionInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput
+	ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput
+}
+
+type WorkTeamMemberDefinitionOidcMemberDefinitionArgs struct {
+	// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+	Groups pulumi.StringArrayInput `pulumi:"groups"`
+}
+
+func (WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+}
+
+func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput)
+}
+
+func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkTeamMemberDefinitionOidcMemberDefinitionArgs) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput).ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx)
+}
+
+// WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput is an input type that accepts WorkTeamMemberDefinitionOidcMemberDefinitionArgs, WorkTeamMemberDefinitionOidcMemberDefinitionPtr and WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput values.
+// You can construct a concrete instance of `WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput` via:
+//
+//          WorkTeamMemberDefinitionOidcMemberDefinitionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput
+	ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput
+}
+
+type workTeamMemberDefinitionOidcMemberDefinitionPtrType WorkTeamMemberDefinitionOidcMemberDefinitionArgs
+
+func WorkTeamMemberDefinitionOidcMemberDefinitionPtr(v *WorkTeamMemberDefinitionOidcMemberDefinitionArgs) WorkTeamMemberDefinitionOidcMemberDefinitionPtrInput {
+	return (*workTeamMemberDefinitionOidcMemberDefinitionPtrType)(v)
+}
+
+func (*workTeamMemberDefinitionOidcMemberDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+}
+
+func (i *workTeamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return i.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *workTeamMemberDefinitionOidcMemberDefinitionPtrType) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+}
+
+type WorkTeamMemberDefinitionOidcMemberDefinitionOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutput() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamMemberDefinitionOidcMemberDefinition) *WorkTeamMemberDefinitionOidcMemberDefinition {
+		return &v
+	}).(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput)
+}
+
+// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkTeamMemberDefinitionOidcMemberDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
+}
+
+type WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamMemberDefinitionOidcMemberDefinition)(nil)).Elem()
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput() WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) ToWorkTeamMemberDefinitionOidcMemberDefinitionPtrOutputWithContext(ctx context.Context) WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput {
+	return o
+}
+
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) Elem() WorkTeamMemberDefinitionOidcMemberDefinitionOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionOidcMemberDefinition) WorkTeamMemberDefinitionOidcMemberDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret WorkTeamMemberDefinitionOidcMemberDefinition
+		return ret
+	}).(WorkTeamMemberDefinitionOidcMemberDefinitionOutput)
+}
+
+// A list of comma separated strings that identifies user groups in your OIDC IdP. Each user group is made up of a group of private workers.
+func (o WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkTeamMemberDefinitionOidcMemberDefinition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Groups
+	}).(pulumi.StringArrayOutput)
+}
+
+type WorkTeamNotificationConfiguration struct {
+	// The ARN for the SNS topic to which notifications should be published.
+	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
+}
+
+// WorkTeamNotificationConfigurationInput is an input type that accepts WorkTeamNotificationConfigurationArgs and WorkTeamNotificationConfigurationOutput values.
+// You can construct a concrete instance of `WorkTeamNotificationConfigurationInput` via:
+//
+//          WorkTeamNotificationConfigurationArgs{...}
+type WorkTeamNotificationConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput
+	ToWorkTeamNotificationConfigurationOutputWithContext(context.Context) WorkTeamNotificationConfigurationOutput
+}
+
+type WorkTeamNotificationConfigurationArgs struct {
+	// The ARN for the SNS topic to which notifications should be published.
+	NotificationTopicArn pulumi.StringPtrInput `pulumi:"notificationTopicArn"`
+}
+
+func (WorkTeamNotificationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamNotificationConfiguration)(nil)).Elem()
+}
+
+func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput {
+	return i.ToWorkTeamNotificationConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationOutput)
+}
+
+func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
+	return i.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkTeamNotificationConfigurationArgs) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationOutput).ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkTeamNotificationConfigurationPtrInput is an input type that accepts WorkTeamNotificationConfigurationArgs, WorkTeamNotificationConfigurationPtr and WorkTeamNotificationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkTeamNotificationConfigurationPtrInput` via:
+//
+//          WorkTeamNotificationConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkTeamNotificationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput
+	ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Context) WorkTeamNotificationConfigurationPtrOutput
+}
+
+type workTeamNotificationConfigurationPtrType WorkTeamNotificationConfigurationArgs
+
+func WorkTeamNotificationConfigurationPtr(v *WorkTeamNotificationConfigurationArgs) WorkTeamNotificationConfigurationPtrInput {
+	return (*workTeamNotificationConfigurationPtrType)(v)
+}
+
+func (*workTeamNotificationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamNotificationConfiguration)(nil)).Elem()
+}
+
+func (i *workTeamNotificationConfigurationPtrType) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
+	return i.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workTeamNotificationConfigurationPtrType) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkTeamNotificationConfigurationPtrOutput)
+}
+
+type WorkTeamNotificationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamNotificationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkTeamNotificationConfiguration)(nil)).Elem()
+}
+
+func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationOutput() WorkTeamNotificationConfigurationOutput {
+	return o
+}
+
+func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationOutput {
+	return o
+}
+
+func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
+	return o.ToWorkTeamNotificationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkTeamNotificationConfigurationOutput) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkTeamNotificationConfiguration) *WorkTeamNotificationConfiguration {
+		return &v
+	}).(WorkTeamNotificationConfigurationPtrOutput)
+}
+
+// The ARN for the SNS topic to which notifications should be published.
+func (o WorkTeamNotificationConfigurationOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkTeamNotificationConfiguration) *string { return v.NotificationTopicArn }).(pulumi.StringPtrOutput)
+}
+
+type WorkTeamNotificationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkTeamNotificationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkTeamNotificationConfiguration)(nil)).Elem()
+}
+
+func (o WorkTeamNotificationConfigurationPtrOutput) ToWorkTeamNotificationConfigurationPtrOutput() WorkTeamNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkTeamNotificationConfigurationPtrOutput) ToWorkTeamNotificationConfigurationPtrOutputWithContext(ctx context.Context) WorkTeamNotificationConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkTeamNotificationConfigurationPtrOutput) Elem() WorkTeamNotificationConfigurationOutput {
+	return o.ApplyT(func(v *WorkTeamNotificationConfiguration) WorkTeamNotificationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkTeamNotificationConfiguration
+		return ret
+	}).(WorkTeamNotificationConfigurationOutput)
+}
+
+// The ARN for the SNS topic to which notifications should be published.
+func (o WorkTeamNotificationConfigurationPtrOutput) NotificationTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkTeamNotificationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationTopicArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6104,6 +7526,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigOutput{})
+	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigOutput{})
@@ -6128,4 +7552,18 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(WorkForceCognitoConfigOutput{})
+	pulumi.RegisterOutputType(WorkForceCognitoConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkForceOidcConfigOutput{})
+	pulumi.RegisterOutputType(WorkForceOidcConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkForceSourceIpConfigOutput{})
+	pulumi.RegisterOutputType(WorkForceSourceIpConfigPtrOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionCognitoMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionCognitoMemberDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOidcMemberDefinitionOutput{})
+	pulumi.RegisterOutputType(WorkTeamMemberDefinitionOidcMemberDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(WorkTeamNotificationConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkTeamNotificationConfigurationPtrOutput{})
 }

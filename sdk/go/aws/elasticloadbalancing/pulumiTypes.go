@@ -115,7 +115,7 @@ func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutput() LoadBa
 }
 
 func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) LoadBalancerAccessLogsPtrOutput {
-	return o.ApplyT(func(v LoadBalancerAccessLogs) *LoadBalancerAccessLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerAccessLogs) *LoadBalancerAccessLogs {
 		return &v
 	}).(LoadBalancerAccessLogsPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o LoadBalancerAccessLogsPtrOutput) ToLoadBalancerAccessLogsPtrOutputWithCo
 }
 
 func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
-	return o.ApplyT(func(v *LoadBalancerAccessLogs) LoadBalancerAccessLogs { return *v }).(LoadBalancerAccessLogsOutput)
+	return o.ApplyT(func(v *LoadBalancerAccessLogs) LoadBalancerAccessLogs {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerAccessLogs
+		return ret
+	}).(LoadBalancerAccessLogsOutput)
 }
 
 // The S3 bucket name to store the logs in.
@@ -313,7 +319,7 @@ func (o LoadBalancerHealthCheckOutput) ToLoadBalancerHealthCheckPtrOutput() Load
 }
 
 func (o LoadBalancerHealthCheckOutput) ToLoadBalancerHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckPtrOutput {
-	return o.ApplyT(func(v LoadBalancerHealthCheck) *LoadBalancerHealthCheck {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerHealthCheck) *LoadBalancerHealthCheck {
 		return &v
 	}).(LoadBalancerHealthCheckPtrOutput)
 }
@@ -361,7 +367,13 @@ func (o LoadBalancerHealthCheckPtrOutput) ToLoadBalancerHealthCheckPtrOutputWith
 }
 
 func (o LoadBalancerHealthCheckPtrOutput) Elem() LoadBalancerHealthCheckOutput {
-	return o.ApplyT(func(v *LoadBalancerHealthCheck) LoadBalancerHealthCheck { return *v }).(LoadBalancerHealthCheckOutput)
+	return o.ApplyT(func(v *LoadBalancerHealthCheck) LoadBalancerHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerHealthCheck
+		return ret
+	}).(LoadBalancerHealthCheckOutput)
 }
 
 // The number of checks before the instance is declared healthy.

@@ -320,9 +320,7 @@ func (i ConformancePackMap) ToConformancePackMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackMapOutput)
 }
 
-type ConformancePackOutput struct {
-	*pulumi.OutputState
-}
+type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ConformancePack)(nil))
@@ -341,14 +339,12 @@ func (o ConformancePackOutput) ToConformancePackPtrOutput() ConformancePackPtrOu
 }
 
 func (o ConformancePackOutput) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
-	return o.ApplyT(func(v ConformancePack) *ConformancePack {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConformancePack) *ConformancePack {
 		return &v
 	}).(ConformancePackPtrOutput)
 }
 
-type ConformancePackPtrOutput struct {
-	*pulumi.OutputState
-}
+type ConformancePackPtrOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ConformancePack)(nil))
@@ -360,6 +356,16 @@ func (o ConformancePackPtrOutput) ToConformancePackPtrOutput() ConformancePackPt
 
 func (o ConformancePackPtrOutput) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
 	return o
+}
+
+func (o ConformancePackPtrOutput) Elem() ConformancePackOutput {
+	return o.ApplyT(func(v *ConformancePack) ConformancePack {
+		if v != nil {
+			return *v
+		}
+		var ret ConformancePack
+		return ret
+	}).(ConformancePackOutput)
 }
 
 type ConformancePackArrayOutput struct{ *pulumi.OutputState }

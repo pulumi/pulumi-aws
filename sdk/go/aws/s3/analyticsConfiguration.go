@@ -289,9 +289,7 @@ func (i AnalyticsConfigurationMap) ToAnalyticsConfigurationMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationMapOutput)
 }
 
-type AnalyticsConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AnalyticsConfiguration)(nil))
@@ -310,14 +308,12 @@ func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationPtrOutput() Analyt
 }
 
 func (o AnalyticsConfigurationOutput) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
-	return o.ApplyT(func(v AnalyticsConfiguration) *AnalyticsConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfiguration) *AnalyticsConfiguration {
 		return &v
 	}).(AnalyticsConfigurationPtrOutput)
 }
 
-type AnalyticsConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type AnalyticsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AnalyticsConfiguration)(nil))
@@ -329,6 +325,16 @@ func (o AnalyticsConfigurationPtrOutput) ToAnalyticsConfigurationPtrOutput() Ana
 
 func (o AnalyticsConfigurationPtrOutput) ToAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationPtrOutput) Elem() AnalyticsConfigurationOutput {
+	return o.ApplyT(func(v *AnalyticsConfiguration) AnalyticsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyticsConfiguration
+		return ret
+	}).(AnalyticsConfigurationOutput)
 }
 
 type AnalyticsConfigurationArrayOutput struct{ *pulumi.OutputState }

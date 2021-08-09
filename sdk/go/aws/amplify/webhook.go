@@ -256,9 +256,7 @@ func (i WebhookMap) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMa
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookMapOutput)
 }
 
-type WebhookOutput struct {
-	*pulumi.OutputState
-}
+type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Webhook)(nil))
@@ -277,14 +275,12 @@ func (o WebhookOutput) ToWebhookPtrOutput() WebhookPtrOutput {
 }
 
 func (o WebhookOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
-	return o.ApplyT(func(v Webhook) *Webhook {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Webhook) *Webhook {
 		return &v
 	}).(WebhookPtrOutput)
 }
 
-type WebhookPtrOutput struct {
-	*pulumi.OutputState
-}
+type WebhookPtrOutput struct{ *pulumi.OutputState }
 
 func (WebhookPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Webhook)(nil))
@@ -296,6 +292,16 @@ func (o WebhookPtrOutput) ToWebhookPtrOutput() WebhookPtrOutput {
 
 func (o WebhookPtrOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
 	return o
+}
+
+func (o WebhookPtrOutput) Elem() WebhookOutput {
+	return o.ApplyT(func(v *Webhook) Webhook {
+		if v != nil {
+			return *v
+		}
+		var ret Webhook
+		return ret
+	}).(WebhookOutput)
 }
 
 type WebhookArrayOutput struct{ *pulumi.OutputState }

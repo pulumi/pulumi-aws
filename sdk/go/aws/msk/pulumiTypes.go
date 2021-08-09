@@ -119,7 +119,7 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutput(
 }
 
 func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
-	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfo {
 		return &v
 	}).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutp
 }
 
 func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo { return *v }).(ClusterBrokerNodeGroupInfoOutput)
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfo
+		return ret
+	}).(ClusterBrokerNodeGroupInfoOutput)
 }
 
 // The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
@@ -314,7 +320,7 @@ func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutpu
 }
 
 func (o ClusterClientAuthenticationOutput) ToClusterClientAuthenticationPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationPtrOutput {
-	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthentication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClientAuthentication) *ClusterClientAuthentication {
 		return &v
 	}).(ClusterClientAuthenticationPtrOutput)
 }
@@ -344,7 +350,13 @@ func (o ClusterClientAuthenticationPtrOutput) ToClusterClientAuthenticationPtrOu
 }
 
 func (o ClusterClientAuthenticationPtrOutput) Elem() ClusterClientAuthenticationOutput {
-	return o.ApplyT(func(v *ClusterClientAuthentication) ClusterClientAuthentication { return *v }).(ClusterClientAuthenticationOutput)
+	return o.ApplyT(func(v *ClusterClientAuthentication) ClusterClientAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterClientAuthentication
+		return ret
+	}).(ClusterClientAuthenticationOutput)
 }
 
 // Configuration block for specifying SASL client authentication. See below.
@@ -464,7 +476,7 @@ func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSasl
 }
 
 func (o ClusterClientAuthenticationSaslOutput) ToClusterClientAuthenticationSaslPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationSaslPtrOutput {
-	return o.ApplyT(func(v ClusterClientAuthenticationSasl) *ClusterClientAuthenticationSasl {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClientAuthenticationSasl) *ClusterClientAuthenticationSasl {
 		return &v
 	}).(ClusterClientAuthenticationSaslPtrOutput)
 }
@@ -494,7 +506,13 @@ func (o ClusterClientAuthenticationSaslPtrOutput) ToClusterClientAuthenticationS
 }
 
 func (o ClusterClientAuthenticationSaslPtrOutput) Elem() ClusterClientAuthenticationSaslOutput {
-	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) ClusterClientAuthenticationSasl { return *v }).(ClusterClientAuthenticationSaslOutput)
+	return o.ApplyT(func(v *ClusterClientAuthenticationSasl) ClusterClientAuthenticationSasl {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterClientAuthenticationSasl
+		return ret
+	}).(ClusterClientAuthenticationSaslOutput)
 }
 
 // Enables IAM client authentication. Defaults to `false`.
@@ -610,7 +628,7 @@ func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPt
 }
 
 func (o ClusterClientAuthenticationTlsOutput) ToClusterClientAuthenticationTlsPtrOutputWithContext(ctx context.Context) ClusterClientAuthenticationTlsPtrOutput {
-	return o.ApplyT(func(v ClusterClientAuthenticationTls) *ClusterClientAuthenticationTls {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterClientAuthenticationTls) *ClusterClientAuthenticationTls {
 		return &v
 	}).(ClusterClientAuthenticationTlsPtrOutput)
 }
@@ -635,7 +653,13 @@ func (o ClusterClientAuthenticationTlsPtrOutput) ToClusterClientAuthenticationTl
 }
 
 func (o ClusterClientAuthenticationTlsPtrOutput) Elem() ClusterClientAuthenticationTlsOutput {
-	return o.ApplyT(func(v *ClusterClientAuthenticationTls) ClusterClientAuthenticationTls { return *v }).(ClusterClientAuthenticationTlsOutput)
+	return o.ApplyT(func(v *ClusterClientAuthenticationTls) ClusterClientAuthenticationTls {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterClientAuthenticationTls
+		return ret
+	}).(ClusterClientAuthenticationTlsOutput)
 }
 
 // List of ACM Certificate Authority Amazon Resource Names (ARNs).
@@ -745,7 +769,7 @@ func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoPtrOutput() Cl
 }
 
 func (o ClusterConfigurationInfoOutput) ToClusterConfigurationInfoPtrOutputWithContext(ctx context.Context) ClusterConfigurationInfoPtrOutput {
-	return o.ApplyT(func(v ClusterConfigurationInfo) *ClusterConfigurationInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterConfigurationInfo) *ClusterConfigurationInfo {
 		return &v
 	}).(ClusterConfigurationInfoPtrOutput)
 }
@@ -775,7 +799,13 @@ func (o ClusterConfigurationInfoPtrOutput) ToClusterConfigurationInfoPtrOutputWi
 }
 
 func (o ClusterConfigurationInfoPtrOutput) Elem() ClusterConfigurationInfoOutput {
-	return o.ApplyT(func(v *ClusterConfigurationInfo) ClusterConfigurationInfo { return *v }).(ClusterConfigurationInfoOutput)
+	return o.ApplyT(func(v *ClusterConfigurationInfo) ClusterConfigurationInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterConfigurationInfo
+		return ret
+	}).(ClusterConfigurationInfoOutput)
 }
 
 // Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
@@ -895,7 +925,7 @@ func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutput() ClusterE
 }
 
 func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutputWithContext(ctx context.Context) ClusterEncryptionInfoPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionInfo) *ClusterEncryptionInfo {
 		return &v
 	}).(ClusterEncryptionInfoPtrOutput)
 }
@@ -925,7 +955,13 @@ func (o ClusterEncryptionInfoPtrOutput) ToClusterEncryptionInfoPtrOutputWithCont
 }
 
 func (o ClusterEncryptionInfoPtrOutput) Elem() ClusterEncryptionInfoOutput {
-	return o.ApplyT(func(v *ClusterEncryptionInfo) ClusterEncryptionInfo { return *v }).(ClusterEncryptionInfoOutput)
+	return o.ApplyT(func(v *ClusterEncryptionInfo) ClusterEncryptionInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionInfo
+		return ret
+	}).(ClusterEncryptionInfoOutput)
 }
 
 // You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
@@ -1045,7 +1081,7 @@ func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoE
 }
 
 func (o ClusterEncryptionInfoEncryptionInTransitOutput) ToClusterEncryptionInfoEncryptionInTransitPtrOutputWithContext(ctx context.Context) ClusterEncryptionInfoEncryptionInTransitPtrOutput {
-	return o.ApplyT(func(v ClusterEncryptionInfoEncryptionInTransit) *ClusterEncryptionInfoEncryptionInTransit {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterEncryptionInfoEncryptionInTransit) *ClusterEncryptionInfoEncryptionInTransit {
 		return &v
 	}).(ClusterEncryptionInfoEncryptionInTransitPtrOutput)
 }
@@ -1075,7 +1111,13 @@ func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) ToClusterEncryptionIn
 }
 
 func (o ClusterEncryptionInfoEncryptionInTransitPtrOutput) Elem() ClusterEncryptionInfoEncryptionInTransitOutput {
-	return o.ApplyT(func(v *ClusterEncryptionInfoEncryptionInTransit) ClusterEncryptionInfoEncryptionInTransit { return *v }).(ClusterEncryptionInfoEncryptionInTransitOutput)
+	return o.ApplyT(func(v *ClusterEncryptionInfoEncryptionInTransit) ClusterEncryptionInfoEncryptionInTransit {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterEncryptionInfoEncryptionInTransit
+		return ret
+	}).(ClusterEncryptionInfoEncryptionInTransitOutput)
 }
 
 // Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
@@ -1191,7 +1233,7 @@ func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutput() ClusterLogging
 }
 
 func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoPtrOutput {
-	return o.ApplyT(func(v ClusterLoggingInfo) *ClusterLoggingInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfo) *ClusterLoggingInfo {
 		return &v
 	}).(ClusterLoggingInfoPtrOutput)
 }
@@ -1216,7 +1258,13 @@ func (o ClusterLoggingInfoPtrOutput) ToClusterLoggingInfoPtrOutputWithContext(ct
 }
 
 func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
-	return o.ApplyT(func(v *ClusterLoggingInfo) ClusterLoggingInfo { return *v }).(ClusterLoggingInfoOutput)
+	return o.ApplyT(func(v *ClusterLoggingInfo) ClusterLoggingInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingInfo
+		return ret
+	}).(ClusterLoggingInfoOutput)
 }
 
 // Configuration block for Broker Logs settings for logging info. See below.
@@ -1324,10 +1372,11 @@ func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsPtrOut
 }
 
 func (o ClusterLoggingInfoBrokerLogsOutput) ToClusterLoggingInfoBrokerLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsPtrOutput {
-	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogs {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsPtrOutput)
 }
+
 func (o ClusterLoggingInfoBrokerLogsOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
 		return v.CloudwatchLogs
@@ -1357,7 +1406,13 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) ToClusterLoggingInfoBrokerLogsPtr
 }
 
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLogsOutput {
-	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogs) ClusterLoggingInfoBrokerLogs { return *v }).(ClusterLoggingInfoBrokerLogsOutput)
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogs) ClusterLoggingInfoBrokerLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingInfoBrokerLogs
+		return ret
+	}).(ClusterLoggingInfoBrokerLogsOutput)
 }
 
 func (o ClusterLoggingInfoBrokerLogsPtrOutput) CloudwatchLogs() ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
@@ -1484,7 +1539,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBr
 }
 
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput {
-	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogsCloudwatchLogs) *ClusterLoggingInfoBrokerLogsCloudwatchLogs {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
@@ -1515,7 +1570,11 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) ToClusterLoggingInf
 
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Elem() ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) ClusterLoggingInfoBrokerLogsCloudwatchLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingInfoBrokerLogsCloudwatchLogs
+		return ret
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
 }
 
@@ -1636,7 +1695,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLo
 }
 
 func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) ToClusterLoggingInfoBrokerLogsFirehosePtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsFirehosePtrOutput {
-	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *ClusterLoggingInfoBrokerLogsFirehose {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogsFirehose) *ClusterLoggingInfoBrokerLogsFirehose {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsFirehosePtrOutput)
 }
@@ -1666,7 +1725,13 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) ToClusterLoggingInfoBroke
 }
 
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Elem() ClusterLoggingInfoBrokerLogsFirehoseOutput {
-	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) ClusterLoggingInfoBrokerLogsFirehose { return *v }).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) ClusterLoggingInfoBrokerLogsFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingInfoBrokerLogsFirehose
+		return ret
+	}).(ClusterLoggingInfoBrokerLogsFirehoseOutput)
 }
 
 // Name of the Kinesis Data Firehose delivery stream to deliver logs to.
@@ -1790,7 +1855,7 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3Pt
 }
 
 func (o ClusterLoggingInfoBrokerLogsS3Output) ToClusterLoggingInfoBrokerLogsS3PtrOutputWithContext(ctx context.Context) ClusterLoggingInfoBrokerLogsS3PtrOutput {
-	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *ClusterLoggingInfoBrokerLogsS3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterLoggingInfoBrokerLogsS3) *ClusterLoggingInfoBrokerLogsS3 {
 		return &v
 	}).(ClusterLoggingInfoBrokerLogsS3PtrOutput)
 }
@@ -1825,7 +1890,13 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) ToClusterLoggingInfoBrokerLogsS
 }
 
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Elem() ClusterLoggingInfoBrokerLogsS3Output {
-	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) ClusterLoggingInfoBrokerLogsS3 { return *v }).(ClusterLoggingInfoBrokerLogsS3Output)
+	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) ClusterLoggingInfoBrokerLogsS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterLoggingInfoBrokerLogsS3
+		return ret
+	}).(ClusterLoggingInfoBrokerLogsS3Output)
 }
 
 // Name of the S3 bucket to deliver logs to.
@@ -1951,7 +2022,7 @@ func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutput() ClusterO
 }
 
 func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPtrOutput {
-	return o.ApplyT(func(v ClusterOpenMonitoring) *ClusterOpenMonitoring {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOpenMonitoring) *ClusterOpenMonitoring {
 		return &v
 	}).(ClusterOpenMonitoringPtrOutput)
 }
@@ -1976,7 +2047,13 @@ func (o ClusterOpenMonitoringPtrOutput) ToClusterOpenMonitoringPtrOutputWithCont
 }
 
 func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
-	return o.ApplyT(func(v *ClusterOpenMonitoring) ClusterOpenMonitoring { return *v }).(ClusterOpenMonitoringOutput)
+	return o.ApplyT(func(v *ClusterOpenMonitoring) ClusterOpenMonitoring {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOpenMonitoring
+		return ret
+	}).(ClusterOpenMonitoringOutput)
 }
 
 // Configuration block for Prometheus settings for open monitoring. See below.
@@ -2086,7 +2163,7 @@ func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheus
 }
 
 func (o ClusterOpenMonitoringPrometheusOutput) ToClusterOpenMonitoringPrometheusPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusPtrOutput {
-	return o.ApplyT(func(v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheus {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOpenMonitoringPrometheus) *ClusterOpenMonitoringPrometheus {
 		return &v
 	}).(ClusterOpenMonitoringPrometheusPtrOutput)
 }
@@ -2120,7 +2197,13 @@ func (o ClusterOpenMonitoringPrometheusPtrOutput) ToClusterOpenMonitoringPrometh
 }
 
 func (o ClusterOpenMonitoringPrometheusPtrOutput) Elem() ClusterOpenMonitoringPrometheusOutput {
-	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) ClusterOpenMonitoringPrometheus { return *v }).(ClusterOpenMonitoringPrometheusOutput)
+	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheus) ClusterOpenMonitoringPrometheus {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOpenMonitoringPrometheus
+		return ret
+	}).(ClusterOpenMonitoringPrometheusOutput)
 }
 
 // Configuration block for JMX Exporter. See below.
@@ -2236,7 +2319,7 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitorin
 }
 
 func (o ClusterOpenMonitoringPrometheusJmxExporterOutput) ToClusterOpenMonitoringPrometheusJmxExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusJmxExporterPtrOutput {
-	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusJmxExporter) *ClusterOpenMonitoringPrometheusJmxExporter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOpenMonitoringPrometheusJmxExporter) *ClusterOpenMonitoringPrometheusJmxExporter {
 		return &v
 	}).(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput)
 }
@@ -2262,7 +2345,11 @@ func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) ToClusterOpenMonito
 
 func (o ClusterOpenMonitoringPrometheusJmxExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusJmxExporterOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusJmxExporter) ClusterOpenMonitoringPrometheusJmxExporter {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOpenMonitoringPrometheusJmxExporter
+		return ret
 	}).(ClusterOpenMonitoringPrometheusJmxExporterOutput)
 }
 
@@ -2369,7 +2456,7 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitori
 }
 
 func (o ClusterOpenMonitoringPrometheusNodeExporterOutput) ToClusterOpenMonitoringPrometheusNodeExporterPtrOutputWithContext(ctx context.Context) ClusterOpenMonitoringPrometheusNodeExporterPtrOutput {
-	return o.ApplyT(func(v ClusterOpenMonitoringPrometheusNodeExporter) *ClusterOpenMonitoringPrometheusNodeExporter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOpenMonitoringPrometheusNodeExporter) *ClusterOpenMonitoringPrometheusNodeExporter {
 		return &v
 	}).(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput)
 }
@@ -2395,7 +2482,11 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) ToClusterOpenMonit
 
 func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) Elem() ClusterOpenMonitoringPrometheusNodeExporterOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoringPrometheusNodeExporter) ClusterOpenMonitoringPrometheusNodeExporter {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOpenMonitoringPrometheusNodeExporter
+		return ret
 	}).(ClusterOpenMonitoringPrometheusNodeExporterOutput)
 }
 

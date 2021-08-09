@@ -214,9 +214,7 @@ func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyMapOutput)
 }
 
-type PermissionSetInlinePolicyOutput struct {
-	*pulumi.OutputState
-}
+type PermissionSetInlinePolicyOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PermissionSetInlinePolicy)(nil))
@@ -235,14 +233,12 @@ func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutput() 
 }
 
 func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
-	return o.ApplyT(func(v PermissionSetInlinePolicy) *PermissionSetInlinePolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionSetInlinePolicy) *PermissionSetInlinePolicy {
 		return &v
 	}).(PermissionSetInlinePolicyPtrOutput)
 }
 
-type PermissionSetInlinePolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type PermissionSetInlinePolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil))
@@ -254,6 +250,16 @@ func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutput
 
 func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
 	return o
+}
+
+func (o PermissionSetInlinePolicyPtrOutput) Elem() PermissionSetInlinePolicyOutput {
+	return o.ApplyT(func(v *PermissionSetInlinePolicy) PermissionSetInlinePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionSetInlinePolicy
+		return ret
+	}).(PermissionSetInlinePolicyOutput)
 }
 
 type PermissionSetInlinePolicyArrayOutput struct{ *pulumi.OutputState }

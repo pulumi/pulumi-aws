@@ -448,9 +448,7 @@ func (i VpcPeeringConnectionMap) ToVpcPeeringConnectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionMapOutput)
 }
 
-type VpcPeeringConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VpcPeeringConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpcPeeringConnection)(nil))
@@ -469,14 +467,12 @@ func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionPtrOutput() VpcPeering
 }
 
 func (o VpcPeeringConnectionOutput) ToVpcPeeringConnectionPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionPtrOutput {
-	return o.ApplyT(func(v VpcPeeringConnection) *VpcPeeringConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnection) *VpcPeeringConnection {
 		return &v
 	}).(VpcPeeringConnectionPtrOutput)
 }
 
-type VpcPeeringConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpcPeeringConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (VpcPeeringConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpcPeeringConnection)(nil))
@@ -488,6 +484,16 @@ func (o VpcPeeringConnectionPtrOutput) ToVpcPeeringConnectionPtrOutput() VpcPeer
 
 func (o VpcPeeringConnectionPtrOutput) ToVpcPeeringConnectionPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionPtrOutput {
 	return o
+}
+
+func (o VpcPeeringConnectionPtrOutput) Elem() VpcPeeringConnectionOutput {
+	return o.ApplyT(func(v *VpcPeeringConnection) VpcPeeringConnection {
+		if v != nil {
+			return *v
+		}
+		var ret VpcPeeringConnection
+		return ret
+	}).(VpcPeeringConnectionOutput)
 }
 
 type VpcPeeringConnectionArrayOutput struct{ *pulumi.OutputState }

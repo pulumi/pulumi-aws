@@ -308,9 +308,7 @@ func (i DeploymentStrategyMap) ToDeploymentStrategyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentStrategyMapOutput)
 }
 
-type DeploymentStrategyOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentStrategyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentStrategy)(nil))
@@ -329,14 +327,12 @@ func (o DeploymentStrategyOutput) ToDeploymentStrategyPtrOutput() DeploymentStra
 }
 
 func (o DeploymentStrategyOutput) ToDeploymentStrategyPtrOutputWithContext(ctx context.Context) DeploymentStrategyPtrOutput {
-	return o.ApplyT(func(v DeploymentStrategy) *DeploymentStrategy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentStrategy) *DeploymentStrategy {
 		return &v
 	}).(DeploymentStrategyPtrOutput)
 }
 
-type DeploymentStrategyPtrOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentStrategyPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentStrategyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentStrategy)(nil))
@@ -348,6 +344,16 @@ func (o DeploymentStrategyPtrOutput) ToDeploymentStrategyPtrOutput() DeploymentS
 
 func (o DeploymentStrategyPtrOutput) ToDeploymentStrategyPtrOutputWithContext(ctx context.Context) DeploymentStrategyPtrOutput {
 	return o
+}
+
+func (o DeploymentStrategyPtrOutput) Elem() DeploymentStrategyOutput {
+	return o.ApplyT(func(v *DeploymentStrategy) DeploymentStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentStrategy
+		return ret
+	}).(DeploymentStrategyOutput)
 }
 
 type DeploymentStrategyArrayOutput struct{ *pulumi.OutputState }

@@ -256,9 +256,7 @@ func (i AssociationMap) ToAssociationMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationMapOutput)
 }
 
-type AssociationOutput struct {
-	*pulumi.OutputState
-}
+type AssociationOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Association)(nil))
@@ -277,14 +275,12 @@ func (o AssociationOutput) ToAssociationPtrOutput() AssociationPtrOutput {
 }
 
 func (o AssociationOutput) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
-	return o.ApplyT(func(v Association) *Association {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Association) *Association {
 		return &v
 	}).(AssociationPtrOutput)
 }
 
-type AssociationPtrOutput struct {
-	*pulumi.OutputState
-}
+type AssociationPtrOutput struct{ *pulumi.OutputState }
 
 func (AssociationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Association)(nil))
@@ -296,6 +292,16 @@ func (o AssociationPtrOutput) ToAssociationPtrOutput() AssociationPtrOutput {
 
 func (o AssociationPtrOutput) ToAssociationPtrOutputWithContext(ctx context.Context) AssociationPtrOutput {
 	return o
+}
+
+func (o AssociationPtrOutput) Elem() AssociationOutput {
+	return o.ApplyT(func(v *Association) Association {
+		if v != nil {
+			return *v
+		}
+		var ret Association
+		return ret
+	}).(AssociationOutput)
 }
 
 type AssociationArrayOutput struct{ *pulumi.OutputState }

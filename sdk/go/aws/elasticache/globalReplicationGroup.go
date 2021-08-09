@@ -319,9 +319,7 @@ func (i GlobalReplicationGroupMap) ToGlobalReplicationGroupMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMapOutput)
 }
 
-type GlobalReplicationGroupOutput struct {
-	*pulumi.OutputState
-}
+type GlobalReplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GlobalReplicationGroup)(nil))
@@ -340,14 +338,12 @@ func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupPtrOutput() Global
 }
 
 func (o GlobalReplicationGroupOutput) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
-	return o.ApplyT(func(v GlobalReplicationGroup) *GlobalReplicationGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalReplicationGroup) *GlobalReplicationGroup {
 		return &v
 	}).(GlobalReplicationGroupPtrOutput)
 }
 
-type GlobalReplicationGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type GlobalReplicationGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GlobalReplicationGroup)(nil))
@@ -359,6 +355,16 @@ func (o GlobalReplicationGroupPtrOutput) ToGlobalReplicationGroupPtrOutput() Glo
 
 func (o GlobalReplicationGroupPtrOutput) ToGlobalReplicationGroupPtrOutputWithContext(ctx context.Context) GlobalReplicationGroupPtrOutput {
 	return o
+}
+
+func (o GlobalReplicationGroupPtrOutput) Elem() GlobalReplicationGroupOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) GlobalReplicationGroup {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalReplicationGroup
+		return ret
+	}).(GlobalReplicationGroupOutput)
 }
 
 type GlobalReplicationGroupArrayOutput struct{ *pulumi.OutputState }

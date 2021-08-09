@@ -270,9 +270,7 @@ func (i BuildMap) ToBuildMapOutputWithContext(ctx context.Context) BuildMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BuildMapOutput)
 }
 
-type BuildOutput struct {
-	*pulumi.OutputState
-}
+type BuildOutput struct{ *pulumi.OutputState }
 
 func (BuildOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Build)(nil))
@@ -291,14 +289,12 @@ func (o BuildOutput) ToBuildPtrOutput() BuildPtrOutput {
 }
 
 func (o BuildOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
-	return o.ApplyT(func(v Build) *Build {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Build) *Build {
 		return &v
 	}).(BuildPtrOutput)
 }
 
-type BuildPtrOutput struct {
-	*pulumi.OutputState
-}
+type BuildPtrOutput struct{ *pulumi.OutputState }
 
 func (BuildPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Build)(nil))
@@ -310,6 +306,16 @@ func (o BuildPtrOutput) ToBuildPtrOutput() BuildPtrOutput {
 
 func (o BuildPtrOutput) ToBuildPtrOutputWithContext(ctx context.Context) BuildPtrOutput {
 	return o
+}
+
+func (o BuildPtrOutput) Elem() BuildOutput {
+	return o.ApplyT(func(v *Build) Build {
+		if v != nil {
+			return *v
+		}
+		var ret Build
+		return ret
+	}).(BuildOutput)
 }
 
 type BuildArrayOutput struct{ *pulumi.OutputState }

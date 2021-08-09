@@ -115,7 +115,7 @@ func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrO
 }
 
 func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParameters) *EventConnectionAuthParameters {
 		return &v
 	}).(EventConnectionAuthParametersPtrOutput)
 }
@@ -157,7 +157,13 @@ func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersP
 }
 
 func (o EventConnectionAuthParametersPtrOutput) Elem() EventConnectionAuthParametersOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) EventConnectionAuthParameters { return *v }).(EventConnectionAuthParametersOutput)
+	return o.ApplyT(func(v *EventConnectionAuthParameters) EventConnectionAuthParameters {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParameters
+		return ret
+	}).(EventConnectionAuthParametersOutput)
 }
 
 // Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -297,7 +303,7 @@ func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParamete
 }
 
 func (o EventConnectionAuthParametersApiKeyOutput) ToEventConnectionAuthParametersApiKeyPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersApiKeyPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersApiKey) *EventConnectionAuthParametersApiKey {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersApiKey) *EventConnectionAuthParametersApiKey {
 		return &v
 	}).(EventConnectionAuthParametersApiKeyPtrOutput)
 }
@@ -327,7 +333,13 @@ func (o EventConnectionAuthParametersApiKeyPtrOutput) ToEventConnectionAuthParam
 }
 
 func (o EventConnectionAuthParametersApiKeyPtrOutput) Elem() EventConnectionAuthParametersApiKeyOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) EventConnectionAuthParametersApiKey { return *v }).(EventConnectionAuthParametersApiKeyOutput)
+	return o.ApplyT(func(v *EventConnectionAuthParametersApiKey) EventConnectionAuthParametersApiKey {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersApiKey
+		return ret
+	}).(EventConnectionAuthParametersApiKeyOutput)
 }
 
 // Header Name.
@@ -447,7 +459,7 @@ func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParameter
 }
 
 func (o EventConnectionAuthParametersBasicOutput) ToEventConnectionAuthParametersBasicPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersBasicPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersBasic) *EventConnectionAuthParametersBasic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersBasic) *EventConnectionAuthParametersBasic {
 		return &v
 	}).(EventConnectionAuthParametersBasicPtrOutput)
 }
@@ -477,7 +489,13 @@ func (o EventConnectionAuthParametersBasicPtrOutput) ToEventConnectionAuthParame
 }
 
 func (o EventConnectionAuthParametersBasicPtrOutput) Elem() EventConnectionAuthParametersBasicOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) EventConnectionAuthParametersBasic { return *v }).(EventConnectionAuthParametersBasicOutput)
+	return o.ApplyT(func(v *EventConnectionAuthParametersBasic) EventConnectionAuthParametersBasic {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersBasic
+		return ret
+	}).(EventConnectionAuthParametersBasicOutput)
 }
 
 // A password for the authorization. Created and stored in AWS Secrets Manager.
@@ -601,7 +619,7 @@ func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConn
 }
 
 func (o EventConnectionAuthParametersInvocationHttpParametersOutput) ToEventConnectionAuthParametersInvocationHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersInvocationHttpParameters) *EventConnectionAuthParametersInvocationHttpParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersInvocationHttpParameters) *EventConnectionAuthParametersInvocationHttpParameters {
 		return &v
 	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
 }
@@ -643,7 +661,11 @@ func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) ToEventC
 
 func (o EventConnectionAuthParametersInvocationHttpParametersPtrOutput) Elem() EventConnectionAuthParametersInvocationHttpParametersOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersInvocationHttpParameters) EventConnectionAuthParametersInvocationHttpParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersInvocationHttpParameters
+		return ret
 	}).(EventConnectionAuthParametersInvocationHttpParametersOutput)
 }
 
@@ -1127,7 +1149,7 @@ func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParameter
 }
 
 func (o EventConnectionAuthParametersOauthOutput) ToEventConnectionAuthParametersOauthPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersOauth) *EventConnectionAuthParametersOauth {
 		return &v
 	}).(EventConnectionAuthParametersOauthPtrOutput)
 }
@@ -1171,7 +1193,13 @@ func (o EventConnectionAuthParametersOauthPtrOutput) ToEventConnectionAuthParame
 }
 
 func (o EventConnectionAuthParametersOauthPtrOutput) Elem() EventConnectionAuthParametersOauthOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauth { return *v }).(EventConnectionAuthParametersOauthOutput)
+	return o.ApplyT(func(v *EventConnectionAuthParametersOauth) EventConnectionAuthParametersOauth {
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersOauth
+		return ret
+	}).(EventConnectionAuthParametersOauthOutput)
 }
 
 // The URL to the authorization endpoint.
@@ -1311,7 +1339,7 @@ func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnect
 }
 
 func (o EventConnectionAuthParametersOauthClientParametersOutput) ToEventConnectionAuthParametersOauthClientParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthClientParametersPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersOauthClientParameters) *EventConnectionAuthParametersOauthClientParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersOauthClientParameters) *EventConnectionAuthParametersOauthClientParameters {
 		return &v
 	}).(EventConnectionAuthParametersOauthClientParametersPtrOutput)
 }
@@ -1342,7 +1370,11 @@ func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) ToEventConn
 
 func (o EventConnectionAuthParametersOauthClientParametersPtrOutput) Elem() EventConnectionAuthParametersOauthClientParametersOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthClientParameters) EventConnectionAuthParametersOauthClientParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersOauthClientParameters
+		return ret
 	}).(EventConnectionAuthParametersOauthClientParametersOutput)
 }
 
@@ -1467,7 +1499,7 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConn
 }
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersOutput) ToEventConnectionAuthParametersOauthOauthHttpParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput {
-	return o.ApplyT(func(v EventConnectionAuthParametersOauthOauthHttpParameters) *EventConnectionAuthParametersOauthOauthHttpParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParametersOauthOauthHttpParameters) *EventConnectionAuthParametersOauthOauthHttpParameters {
 		return &v
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput)
 }
@@ -1509,7 +1541,11 @@ func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) ToEventC
 
 func (o EventConnectionAuthParametersOauthOauthHttpParametersPtrOutput) Elem() EventConnectionAuthParametersOauthOauthHttpParametersOutput {
 	return o.ApplyT(func(v *EventConnectionAuthParametersOauthOauthHttpParameters) EventConnectionAuthParametersOauthOauthHttpParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EventConnectionAuthParametersOauthOauthHttpParameters
+		return ret
 	}).(EventConnectionAuthParametersOauthOauthHttpParametersOutput)
 }
 
@@ -1989,7 +2025,7 @@ func (o EventPermissionConditionOutput) ToEventPermissionConditionPtrOutput() Ev
 }
 
 func (o EventPermissionConditionOutput) ToEventPermissionConditionPtrOutputWithContext(ctx context.Context) EventPermissionConditionPtrOutput {
-	return o.ApplyT(func(v EventPermissionCondition) *EventPermissionCondition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventPermissionCondition) *EventPermissionCondition {
 		return &v
 	}).(EventPermissionConditionPtrOutput)
 }
@@ -2024,7 +2060,13 @@ func (o EventPermissionConditionPtrOutput) ToEventPermissionConditionPtrOutputWi
 }
 
 func (o EventPermissionConditionPtrOutput) Elem() EventPermissionConditionOutput {
-	return o.ApplyT(func(v *EventPermissionCondition) EventPermissionCondition { return *v }).(EventPermissionConditionOutput)
+	return o.ApplyT(func(v *EventPermissionCondition) EventPermissionCondition {
+		if v != nil {
+			return *v
+		}
+		var ret EventPermissionCondition
+		return ret
+	}).(EventPermissionConditionOutput)
 }
 
 // Key for the condition. Valid values: `aws:PrincipalOrgID`.
@@ -2162,7 +2204,7 @@ func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetPtrOutput() EventT
 }
 
 func (o EventTargetBatchTargetOutput) ToEventTargetBatchTargetPtrOutputWithContext(ctx context.Context) EventTargetBatchTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetBatchTarget) *EventTargetBatchTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetBatchTarget) *EventTargetBatchTarget {
 		return &v
 	}).(EventTargetBatchTargetPtrOutput)
 }
@@ -2202,7 +2244,13 @@ func (o EventTargetBatchTargetPtrOutput) ToEventTargetBatchTargetPtrOutputWithCo
 }
 
 func (o EventTargetBatchTargetPtrOutput) Elem() EventTargetBatchTargetOutput {
-	return o.ApplyT(func(v *EventTargetBatchTarget) EventTargetBatchTarget { return *v }).(EventTargetBatchTargetOutput)
+	return o.ApplyT(func(v *EventTargetBatchTarget) EventTargetBatchTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetBatchTarget
+		return ret
+	}).(EventTargetBatchTargetOutput)
 }
 
 // The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
@@ -2338,7 +2386,7 @@ func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutpu
 }
 
 func (o EventTargetDeadLetterConfigOutput) ToEventTargetDeadLetterConfigPtrOutputWithContext(ctx context.Context) EventTargetDeadLetterConfigPtrOutput {
-	return o.ApplyT(func(v EventTargetDeadLetterConfig) *EventTargetDeadLetterConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetDeadLetterConfig) *EventTargetDeadLetterConfig {
 		return &v
 	}).(EventTargetDeadLetterConfigPtrOutput)
 }
@@ -2363,7 +2411,13 @@ func (o EventTargetDeadLetterConfigPtrOutput) ToEventTargetDeadLetterConfigPtrOu
 }
 
 func (o EventTargetDeadLetterConfigPtrOutput) Elem() EventTargetDeadLetterConfigOutput {
-	return o.ApplyT(func(v *EventTargetDeadLetterConfig) EventTargetDeadLetterConfig { return *v }).(EventTargetDeadLetterConfigOutput)
+	return o.ApplyT(func(v *EventTargetDeadLetterConfig) EventTargetDeadLetterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetDeadLetterConfig
+		return ret
+	}).(EventTargetDeadLetterConfigOutput)
 }
 
 // - ARN of the SQS queue specified as the target for the dead-letter queue.
@@ -2509,7 +2563,7 @@ func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutput() EventTarge
 }
 
 func (o EventTargetEcsTargetOutput) ToEventTargetEcsTargetPtrOutputWithContext(ctx context.Context) EventTargetEcsTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetEcsTarget) *EventTargetEcsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetEcsTarget) *EventTargetEcsTarget {
 		return &v
 	}).(EventTargetEcsTargetPtrOutput)
 }
@@ -2584,7 +2638,13 @@ func (o EventTargetEcsTargetPtrOutput) ToEventTargetEcsTargetPtrOutputWithContex
 }
 
 func (o EventTargetEcsTargetPtrOutput) Elem() EventTargetEcsTargetOutput {
-	return o.ApplyT(func(v *EventTargetEcsTarget) EventTargetEcsTarget { return *v }).(EventTargetEcsTargetOutput)
+	return o.ApplyT(func(v *EventTargetEcsTarget) EventTargetEcsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetEcsTarget
+		return ret
+	}).(EventTargetEcsTargetOutput)
 }
 
 // Specifies whether to enable Amazon ECS managed tags for the task.
@@ -2798,7 +2858,7 @@ func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNe
 }
 
 func (o EventTargetEcsTargetNetworkConfigurationOutput) ToEventTargetEcsTargetNetworkConfigurationPtrOutputWithContext(ctx context.Context) EventTargetEcsTargetNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v EventTargetEcsTargetNetworkConfiguration) *EventTargetEcsTargetNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetEcsTargetNetworkConfiguration) *EventTargetEcsTargetNetworkConfiguration {
 		return &v
 	}).(EventTargetEcsTargetNetworkConfigurationPtrOutput)
 }
@@ -2833,7 +2893,13 @@ func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) ToEventTargetEcsTarge
 }
 
 func (o EventTargetEcsTargetNetworkConfigurationPtrOutput) Elem() EventTargetEcsTargetNetworkConfigurationOutput {
-	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) EventTargetEcsTargetNetworkConfiguration { return *v }).(EventTargetEcsTargetNetworkConfigurationOutput)
+	return o.ApplyT(func(v *EventTargetEcsTargetNetworkConfiguration) EventTargetEcsTargetNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetEcsTargetNetworkConfiguration
+		return ret
+	}).(EventTargetEcsTargetNetworkConfigurationOutput)
 }
 
 // Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Default `false`.
@@ -3073,7 +3139,7 @@ func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutput() EventTar
 }
 
 func (o EventTargetHttpTargetOutput) ToEventTargetHttpTargetPtrOutputWithContext(ctx context.Context) EventTargetHttpTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetHttpTarget) *EventTargetHttpTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetHttpTarget) *EventTargetHttpTarget {
 		return &v
 	}).(EventTargetHttpTargetPtrOutput)
 }
@@ -3108,7 +3174,13 @@ func (o EventTargetHttpTargetPtrOutput) ToEventTargetHttpTargetPtrOutputWithCont
 }
 
 func (o EventTargetHttpTargetPtrOutput) Elem() EventTargetHttpTargetOutput {
-	return o.ApplyT(func(v *EventTargetHttpTarget) EventTargetHttpTarget { return *v }).(EventTargetHttpTargetOutput)
+	return o.ApplyT(func(v *EventTargetHttpTarget) EventTargetHttpTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetHttpTarget
+		return ret
+	}).(EventTargetHttpTargetOutput)
 }
 
 // Enables you to specify HTTP headers to add to the request.
@@ -3244,7 +3316,7 @@ func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutpu
 }
 
 func (o EventTargetInputTransformerOutput) ToEventTargetInputTransformerPtrOutputWithContext(ctx context.Context) EventTargetInputTransformerPtrOutput {
-	return o.ApplyT(func(v EventTargetInputTransformer) *EventTargetInputTransformer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetInputTransformer) *EventTargetInputTransformer {
 		return &v
 	}).(EventTargetInputTransformerPtrOutput)
 }
@@ -3277,7 +3349,13 @@ func (o EventTargetInputTransformerPtrOutput) ToEventTargetInputTransformerPtrOu
 }
 
 func (o EventTargetInputTransformerPtrOutput) Elem() EventTargetInputTransformerOutput {
-	return o.ApplyT(func(v *EventTargetInputTransformer) EventTargetInputTransformer { return *v }).(EventTargetInputTransformerOutput)
+	return o.ApplyT(func(v *EventTargetInputTransformer) EventTargetInputTransformer {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetInputTransformer
+		return ret
+	}).(EventTargetInputTransformerOutput)
 }
 
 // Key value pairs specified in the form of JSONPath (for example, time = $.time)
@@ -3396,7 +3474,7 @@ func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetPtrOutput() Ev
 }
 
 func (o EventTargetKinesisTargetOutput) ToEventTargetKinesisTargetPtrOutputWithContext(ctx context.Context) EventTargetKinesisTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetKinesisTarget) *EventTargetKinesisTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetKinesisTarget) *EventTargetKinesisTarget {
 		return &v
 	}).(EventTargetKinesisTargetPtrOutput)
 }
@@ -3421,7 +3499,13 @@ func (o EventTargetKinesisTargetPtrOutput) ToEventTargetKinesisTargetPtrOutputWi
 }
 
 func (o EventTargetKinesisTargetPtrOutput) Elem() EventTargetKinesisTargetOutput {
-	return o.ApplyT(func(v *EventTargetKinesisTarget) EventTargetKinesisTarget { return *v }).(EventTargetKinesisTargetOutput)
+	return o.ApplyT(func(v *EventTargetKinesisTarget) EventTargetKinesisTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetKinesisTarget
+		return ret
+	}).(EventTargetKinesisTargetOutput)
 }
 
 // The JSON path to be extracted from the event and used as the partition key.
@@ -3547,7 +3631,7 @@ func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutput() 
 }
 
 func (o EventTargetRedshiftTargetOutput) ToEventTargetRedshiftTargetPtrOutputWithContext(ctx context.Context) EventTargetRedshiftTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetRedshiftTarget) *EventTargetRedshiftTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetRedshiftTarget) *EventTargetRedshiftTarget {
 		return &v
 	}).(EventTargetRedshiftTargetPtrOutput)
 }
@@ -3597,7 +3681,13 @@ func (o EventTargetRedshiftTargetPtrOutput) ToEventTargetRedshiftTargetPtrOutput
 }
 
 func (o EventTargetRedshiftTargetPtrOutput) Elem() EventTargetRedshiftTargetOutput {
-	return o.ApplyT(func(v *EventTargetRedshiftTarget) EventTargetRedshiftTarget { return *v }).(EventTargetRedshiftTargetOutput)
+	return o.ApplyT(func(v *EventTargetRedshiftTarget) EventTargetRedshiftTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetRedshiftTarget
+		return ret
+	}).(EventTargetRedshiftTargetOutput)
 }
 
 // The name of the database.
@@ -3757,7 +3847,7 @@ func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutput() EventT
 }
 
 func (o EventTargetRetryPolicyOutput) ToEventTargetRetryPolicyPtrOutputWithContext(ctx context.Context) EventTargetRetryPolicyPtrOutput {
-	return o.ApplyT(func(v EventTargetRetryPolicy) *EventTargetRetryPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetRetryPolicy) *EventTargetRetryPolicy {
 		return &v
 	}).(EventTargetRetryPolicyPtrOutput)
 }
@@ -3787,7 +3877,13 @@ func (o EventTargetRetryPolicyPtrOutput) ToEventTargetRetryPolicyPtrOutputWithCo
 }
 
 func (o EventTargetRetryPolicyPtrOutput) Elem() EventTargetRetryPolicyOutput {
-	return o.ApplyT(func(v *EventTargetRetryPolicy) EventTargetRetryPolicy { return *v }).(EventTargetRetryPolicyOutput)
+	return o.ApplyT(func(v *EventTargetRetryPolicy) EventTargetRetryPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetRetryPolicy
+		return ret
+	}).(EventTargetRetryPolicyOutput)
 }
 
 // The age in seconds to continue to make retry attempts.
@@ -4009,7 +4105,7 @@ func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetPtrOutput() EventTarge
 }
 
 func (o EventTargetSqsTargetOutput) ToEventTargetSqsTargetPtrOutputWithContext(ctx context.Context) EventTargetSqsTargetPtrOutput {
-	return o.ApplyT(func(v EventTargetSqsTarget) *EventTargetSqsTarget {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTargetSqsTarget) *EventTargetSqsTarget {
 		return &v
 	}).(EventTargetSqsTargetPtrOutput)
 }
@@ -4034,7 +4130,13 @@ func (o EventTargetSqsTargetPtrOutput) ToEventTargetSqsTargetPtrOutputWithContex
 }
 
 func (o EventTargetSqsTargetPtrOutput) Elem() EventTargetSqsTargetOutput {
-	return o.ApplyT(func(v *EventTargetSqsTarget) EventTargetSqsTarget { return *v }).(EventTargetSqsTargetOutput)
+	return o.ApplyT(func(v *EventTargetSqsTarget) EventTargetSqsTarget {
+		if v != nil {
+			return *v
+		}
+		var ret EventTargetSqsTarget
+		return ret
+	}).(EventTargetSqsTargetOutput)
 }
 
 // The FIFO message group ID to use as the target.
@@ -4160,7 +4262,7 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 }
 
 func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
-	return o.ApplyT(func(v LogMetricFilterMetricTransformation) *LogMetricFilterMetricTransformation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricFilterMetricTransformation) *LogMetricFilterMetricTransformation {
 		return &v
 	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
@@ -4210,7 +4312,13 @@ func (o LogMetricFilterMetricTransformationPtrOutput) ToLogMetricFilterMetricTra
 }
 
 func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetricTransformationOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation { return *v }).(LogMetricFilterMetricTransformationOutput)
+	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation {
+		if v != nil {
+			return *v
+		}
+		var ret LogMetricFilterMetricTransformation
+		return ret
+	}).(LogMetricFilterMetricTransformationOutput)
 }
 
 // The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
@@ -4525,7 +4633,7 @@ func (o MetricAlarmMetricQueryMetricOutput) ToMetricAlarmMetricQueryMetricPtrOut
 }
 
 func (o MetricAlarmMetricQueryMetricOutput) ToMetricAlarmMetricQueryMetricPtrOutputWithContext(ctx context.Context) MetricAlarmMetricQueryMetricPtrOutput {
-	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) *MetricAlarmMetricQueryMetric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricAlarmMetricQueryMetric) *MetricAlarmMetricQueryMetric {
 		return &v
 	}).(MetricAlarmMetricQueryMetricPtrOutput)
 }
@@ -4578,7 +4686,13 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) ToMetricAlarmMetricQueryMetricPtr
 }
 
 func (o MetricAlarmMetricQueryMetricPtrOutput) Elem() MetricAlarmMetricQueryMetricOutput {
-	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) MetricAlarmMetricQueryMetric { return *v }).(MetricAlarmMetricQueryMetricOutput)
+	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) MetricAlarmMetricQueryMetric {
+		if v != nil {
+			return *v
+		}
+		var ret MetricAlarmMetricQueryMetric
+		return ret
+	}).(MetricAlarmMetricQueryMetricOutput)
 }
 
 // The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).

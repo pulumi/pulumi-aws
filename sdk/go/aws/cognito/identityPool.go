@@ -286,9 +286,7 @@ func (i IdentityPoolMap) ToIdentityPoolMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolMapOutput)
 }
 
-type IdentityPoolOutput struct {
-	*pulumi.OutputState
-}
+type IdentityPoolOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IdentityPool)(nil))
@@ -307,14 +305,12 @@ func (o IdentityPoolOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
 }
 
 func (o IdentityPoolOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
-	return o.ApplyT(func(v IdentityPool) *IdentityPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPool) *IdentityPool {
 		return &v
 	}).(IdentityPoolPtrOutput)
 }
 
-type IdentityPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type IdentityPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IdentityPool)(nil))
@@ -326,6 +322,16 @@ func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutput() IdentityPoolPtrOutput {
 
 func (o IdentityPoolPtrOutput) ToIdentityPoolPtrOutputWithContext(ctx context.Context) IdentityPoolPtrOutput {
 	return o
+}
+
+func (o IdentityPoolPtrOutput) Elem() IdentityPoolOutput {
+	return o.ApplyT(func(v *IdentityPool) IdentityPool {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityPool
+		return ret
+	}).(IdentityPoolOutput)
 }
 
 type IdentityPoolArrayOutput struct{ *pulumi.OutputState }

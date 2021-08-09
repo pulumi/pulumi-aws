@@ -285,9 +285,7 @@ func (i DeliveryChannelMap) ToDeliveryChannelMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryChannelMapOutput)
 }
 
-type DeliveryChannelOutput struct {
-	*pulumi.OutputState
-}
+type DeliveryChannelOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeliveryChannel)(nil))
@@ -306,14 +304,12 @@ func (o DeliveryChannelOutput) ToDeliveryChannelPtrOutput() DeliveryChannelPtrOu
 }
 
 func (o DeliveryChannelOutput) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
-	return o.ApplyT(func(v DeliveryChannel) *DeliveryChannel {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryChannel) *DeliveryChannel {
 		return &v
 	}).(DeliveryChannelPtrOutput)
 }
 
-type DeliveryChannelPtrOutput struct {
-	*pulumi.OutputState
-}
+type DeliveryChannelPtrOutput struct{ *pulumi.OutputState }
 
 func (DeliveryChannelPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeliveryChannel)(nil))
@@ -325,6 +321,16 @@ func (o DeliveryChannelPtrOutput) ToDeliveryChannelPtrOutput() DeliveryChannelPt
 
 func (o DeliveryChannelPtrOutput) ToDeliveryChannelPtrOutputWithContext(ctx context.Context) DeliveryChannelPtrOutput {
 	return o
+}
+
+func (o DeliveryChannelPtrOutput) Elem() DeliveryChannelOutput {
+	return o.ApplyT(func(v *DeliveryChannel) DeliveryChannel {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryChannel
+		return ret
+	}).(DeliveryChannelOutput)
 }
 
 type DeliveryChannelArrayOutput struct{ *pulumi.OutputState }

@@ -248,9 +248,7 @@ func (i ApiMappingMap) ToApiMappingMapOutputWithContext(ctx context.Context) Api
 	return pulumi.ToOutputWithContext(ctx, i).(ApiMappingMapOutput)
 }
 
-type ApiMappingOutput struct {
-	*pulumi.OutputState
-}
+type ApiMappingOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ApiMapping)(nil))
@@ -269,14 +267,12 @@ func (o ApiMappingOutput) ToApiMappingPtrOutput() ApiMappingPtrOutput {
 }
 
 func (o ApiMappingOutput) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
-	return o.ApplyT(func(v ApiMapping) *ApiMapping {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiMapping) *ApiMapping {
 		return &v
 	}).(ApiMappingPtrOutput)
 }
 
-type ApiMappingPtrOutput struct {
-	*pulumi.OutputState
-}
+type ApiMappingPtrOutput struct{ *pulumi.OutputState }
 
 func (ApiMappingPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ApiMapping)(nil))
@@ -288,6 +284,16 @@ func (o ApiMappingPtrOutput) ToApiMappingPtrOutput() ApiMappingPtrOutput {
 
 func (o ApiMappingPtrOutput) ToApiMappingPtrOutputWithContext(ctx context.Context) ApiMappingPtrOutput {
 	return o
+}
+
+func (o ApiMappingPtrOutput) Elem() ApiMappingOutput {
+	return o.ApplyT(func(v *ApiMapping) ApiMapping {
+		if v != nil {
+			return *v
+		}
+		var ret ApiMapping
+		return ret
+	}).(ApiMappingOutput)
 }
 
 type ApiMappingArrayOutput struct{ *pulumi.OutputState }

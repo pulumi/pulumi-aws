@@ -242,9 +242,7 @@ func (i ServiceActionMap) ToServiceActionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionMapOutput)
 }
 
-type ServiceActionOutput struct {
-	*pulumi.OutputState
-}
+type ServiceActionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceAction)(nil))
@@ -263,14 +261,12 @@ func (o ServiceActionOutput) ToServiceActionPtrOutput() ServiceActionPtrOutput {
 }
 
 func (o ServiceActionOutput) ToServiceActionPtrOutputWithContext(ctx context.Context) ServiceActionPtrOutput {
-	return o.ApplyT(func(v ServiceAction) *ServiceAction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAction) *ServiceAction {
 		return &v
 	}).(ServiceActionPtrOutput)
 }
 
-type ServiceActionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceActionPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceAction)(nil))
@@ -282,6 +278,16 @@ func (o ServiceActionPtrOutput) ToServiceActionPtrOutput() ServiceActionPtrOutpu
 
 func (o ServiceActionPtrOutput) ToServiceActionPtrOutputWithContext(ctx context.Context) ServiceActionPtrOutput {
 	return o
+}
+
+func (o ServiceActionPtrOutput) Elem() ServiceActionOutput {
+	return o.ApplyT(func(v *ServiceAction) ServiceAction {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAction
+		return ret
+	}).(ServiceActionOutput)
 }
 
 type ServiceActionArrayOutput struct{ *pulumi.OutputState }

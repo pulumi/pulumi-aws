@@ -277,9 +277,7 @@ func (i LoadBalancerCookieStickinessPolicyMap) ToLoadBalancerCookieStickinessPol
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerCookieStickinessPolicyMapOutput)
 }
 
-type LoadBalancerCookieStickinessPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerCookieStickinessPolicyOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerCookieStickinessPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoadBalancerCookieStickinessPolicy)(nil))
@@ -298,14 +296,12 @@ func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickiness
 }
 
 func (o LoadBalancerCookieStickinessPolicyOutput) ToLoadBalancerCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyPtrOutput {
-	return o.ApplyT(func(v LoadBalancerCookieStickinessPolicy) *LoadBalancerCookieStickinessPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerCookieStickinessPolicy) *LoadBalancerCookieStickinessPolicy {
 		return &v
 	}).(LoadBalancerCookieStickinessPolicyPtrOutput)
 }
 
-type LoadBalancerCookieStickinessPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type LoadBalancerCookieStickinessPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerCookieStickinessPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoadBalancerCookieStickinessPolicy)(nil))
@@ -317,6 +313,16 @@ func (o LoadBalancerCookieStickinessPolicyPtrOutput) ToLoadBalancerCookieStickin
 
 func (o LoadBalancerCookieStickinessPolicyPtrOutput) ToLoadBalancerCookieStickinessPolicyPtrOutputWithContext(ctx context.Context) LoadBalancerCookieStickinessPolicyPtrOutput {
 	return o
+}
+
+func (o LoadBalancerCookieStickinessPolicyPtrOutput) Elem() LoadBalancerCookieStickinessPolicyOutput {
+	return o.ApplyT(func(v *LoadBalancerCookieStickinessPolicy) LoadBalancerCookieStickinessPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerCookieStickinessPolicy
+		return ret
+	}).(LoadBalancerCookieStickinessPolicyOutput)
 }
 
 type LoadBalancerCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }

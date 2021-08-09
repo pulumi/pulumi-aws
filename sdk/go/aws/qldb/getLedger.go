@@ -48,11 +48,10 @@ type LookupLedgerArgs struct {
 
 // A collection of values returned by getLedger.
 type LookupLedgerResult struct {
-	// Amazon Resource Name (ARN) of the ledger.
-	Arn string `pulumi:"arn"`
-	// Deletion protection on the QLDB Ledger instance. Set to `true` by default.
-	DeletionProtection bool `pulumi:"deletionProtection"`
+	Arn                string `pulumi:"arn"`
+	DeletionProtection bool   `pulumi:"deletionProtection"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id              string `pulumi:"id"`
+	Name            string `pulumi:"name"`
+	PermissionsMode string `pulumi:"permissionsMode"`
 }

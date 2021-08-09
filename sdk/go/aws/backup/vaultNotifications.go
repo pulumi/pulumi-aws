@@ -260,9 +260,7 @@ func (i VaultNotificationsMap) ToVaultNotificationsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VaultNotificationsMapOutput)
 }
 
-type VaultNotificationsOutput struct {
-	*pulumi.OutputState
-}
+type VaultNotificationsOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VaultNotifications)(nil))
@@ -281,14 +279,12 @@ func (o VaultNotificationsOutput) ToVaultNotificationsPtrOutput() VaultNotificat
 }
 
 func (o VaultNotificationsOutput) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
-	return o.ApplyT(func(v VaultNotifications) *VaultNotifications {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultNotifications) *VaultNotifications {
 		return &v
 	}).(VaultNotificationsPtrOutput)
 }
 
-type VaultNotificationsPtrOutput struct {
-	*pulumi.OutputState
-}
+type VaultNotificationsPtrOutput struct{ *pulumi.OutputState }
 
 func (VaultNotificationsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VaultNotifications)(nil))
@@ -300,6 +296,16 @@ func (o VaultNotificationsPtrOutput) ToVaultNotificationsPtrOutput() VaultNotifi
 
 func (o VaultNotificationsPtrOutput) ToVaultNotificationsPtrOutputWithContext(ctx context.Context) VaultNotificationsPtrOutput {
 	return o
+}
+
+func (o VaultNotificationsPtrOutput) Elem() VaultNotificationsOutput {
+	return o.ApplyT(func(v *VaultNotifications) VaultNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret VaultNotifications
+		return ret
+	}).(VaultNotificationsOutput)
 }
 
 type VaultNotificationsArrayOutput struct{ *pulumi.OutputState }

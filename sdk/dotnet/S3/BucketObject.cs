@@ -129,6 +129,20 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
+    /// ```
+    /// 
+    ///  Additionally, s3 url syntax can be used, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObject:BucketObject")]
     public partial class BucketObject : Pulumi.CustomResource

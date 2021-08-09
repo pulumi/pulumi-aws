@@ -325,9 +325,7 @@ func (i RestApiMap) ToRestApiMapOutputWithContext(ctx context.Context) RestApiMa
 	return pulumi.ToOutputWithContext(ctx, i).(RestApiMapOutput)
 }
 
-type RestApiOutput struct {
-	*pulumi.OutputState
-}
+type RestApiOutput struct{ *pulumi.OutputState }
 
 func (RestApiOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RestApi)(nil))
@@ -346,14 +344,12 @@ func (o RestApiOutput) ToRestApiPtrOutput() RestApiPtrOutput {
 }
 
 func (o RestApiOutput) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
-	return o.ApplyT(func(v RestApi) *RestApi {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestApi) *RestApi {
 		return &v
 	}).(RestApiPtrOutput)
 }
 
-type RestApiPtrOutput struct {
-	*pulumi.OutputState
-}
+type RestApiPtrOutput struct{ *pulumi.OutputState }
 
 func (RestApiPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RestApi)(nil))
@@ -365,6 +361,16 @@ func (o RestApiPtrOutput) ToRestApiPtrOutput() RestApiPtrOutput {
 
 func (o RestApiPtrOutput) ToRestApiPtrOutputWithContext(ctx context.Context) RestApiPtrOutput {
 	return o
+}
+
+func (o RestApiPtrOutput) Elem() RestApiOutput {
+	return o.ApplyT(func(v *RestApi) RestApi {
+		if v != nil {
+			return *v
+		}
+		var ret RestApi
+		return ret
+	}).(RestApiOutput)
 }
 
 type RestApiArrayOutput struct{ *pulumi.OutputState }

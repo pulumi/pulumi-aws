@@ -254,9 +254,7 @@ func (i EncryptionConfigMap) ToEncryptionConfigMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigMapOutput)
 }
 
-type EncryptionConfigOutput struct {
-	*pulumi.OutputState
-}
+type EncryptionConfigOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EncryptionConfig)(nil))
@@ -275,14 +273,12 @@ func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutput() EncryptionConfigPt
 }
 
 func (o EncryptionConfigOutput) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
-	return o.ApplyT(func(v EncryptionConfig) *EncryptionConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfig) *EncryptionConfig {
 		return &v
 	}).(EncryptionConfigPtrOutput)
 }
 
-type EncryptionConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type EncryptionConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EncryptionConfig)(nil))
@@ -294,6 +290,16 @@ func (o EncryptionConfigPtrOutput) ToEncryptionConfigPtrOutput() EncryptionConfi
 
 func (o EncryptionConfigPtrOutput) ToEncryptionConfigPtrOutputWithContext(ctx context.Context) EncryptionConfigPtrOutput {
 	return o
+}
+
+func (o EncryptionConfigPtrOutput) Elem() EncryptionConfigOutput {
+	return o.ApplyT(func(v *EncryptionConfig) EncryptionConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EncryptionConfig
+		return ret
+	}).(EncryptionConfigOutput)
 }
 
 type EncryptionConfigArrayOutput struct{ *pulumi.OutputState }

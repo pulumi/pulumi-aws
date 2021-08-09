@@ -265,9 +265,7 @@ func (i HsmMap) ToHsmMapOutputWithContext(ctx context.Context) HsmMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HsmMapOutput)
 }
 
-type HsmOutput struct {
-	*pulumi.OutputState
-}
+type HsmOutput struct{ *pulumi.OutputState }
 
 func (HsmOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Hsm)(nil))
@@ -286,14 +284,12 @@ func (o HsmOutput) ToHsmPtrOutput() HsmPtrOutput {
 }
 
 func (o HsmOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
-	return o.ApplyT(func(v Hsm) *Hsm {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Hsm) *Hsm {
 		return &v
 	}).(HsmPtrOutput)
 }
 
-type HsmPtrOutput struct {
-	*pulumi.OutputState
-}
+type HsmPtrOutput struct{ *pulumi.OutputState }
 
 func (HsmPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Hsm)(nil))
@@ -305,6 +301,16 @@ func (o HsmPtrOutput) ToHsmPtrOutput() HsmPtrOutput {
 
 func (o HsmPtrOutput) ToHsmPtrOutputWithContext(ctx context.Context) HsmPtrOutput {
 	return o
+}
+
+func (o HsmPtrOutput) Elem() HsmOutput {
+	return o.ApplyT(func(v *Hsm) Hsm {
+		if v != nil {
+			return *v
+		}
+		var ret Hsm
+		return ret
+	}).(HsmOutput)
 }
 
 type HsmArrayOutput struct{ *pulumi.OutputState }

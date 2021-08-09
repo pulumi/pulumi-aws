@@ -299,9 +299,7 @@ func (i UserDefinedFunctionMap) ToUserDefinedFunctionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UserDefinedFunctionMapOutput)
 }
 
-type UserDefinedFunctionOutput struct {
-	*pulumi.OutputState
-}
+type UserDefinedFunctionOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedFunctionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*UserDefinedFunction)(nil))
@@ -320,14 +318,12 @@ func (o UserDefinedFunctionOutput) ToUserDefinedFunctionPtrOutput() UserDefinedF
 }
 
 func (o UserDefinedFunctionOutput) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
-	return o.ApplyT(func(v UserDefinedFunction) *UserDefinedFunction {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserDefinedFunction) *UserDefinedFunction {
 		return &v
 	}).(UserDefinedFunctionPtrOutput)
 }
 
-type UserDefinedFunctionPtrOutput struct {
-	*pulumi.OutputState
-}
+type UserDefinedFunctionPtrOutput struct{ *pulumi.OutputState }
 
 func (UserDefinedFunctionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**UserDefinedFunction)(nil))
@@ -339,6 +335,16 @@ func (o UserDefinedFunctionPtrOutput) ToUserDefinedFunctionPtrOutput() UserDefin
 
 func (o UserDefinedFunctionPtrOutput) ToUserDefinedFunctionPtrOutputWithContext(ctx context.Context) UserDefinedFunctionPtrOutput {
 	return o
+}
+
+func (o UserDefinedFunctionPtrOutput) Elem() UserDefinedFunctionOutput {
+	return o.ApplyT(func(v *UserDefinedFunction) UserDefinedFunction {
+		if v != nil {
+			return *v
+		}
+		var ret UserDefinedFunction
+		return ret
+	}).(UserDefinedFunctionOutput)
 }
 
 type UserDefinedFunctionArrayOutput struct{ *pulumi.OutputState }

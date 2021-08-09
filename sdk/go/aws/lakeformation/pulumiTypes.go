@@ -319,7 +319,7 @@ func (o PermissionsDataLocationOutput) ToPermissionsDataLocationPtrOutput() Perm
 }
 
 func (o PermissionsDataLocationOutput) ToPermissionsDataLocationPtrOutputWithContext(ctx context.Context) PermissionsDataLocationPtrOutput {
-	return o.ApplyT(func(v PermissionsDataLocation) *PermissionsDataLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsDataLocation) *PermissionsDataLocation {
 		return &v
 	}).(PermissionsDataLocationPtrOutput)
 }
@@ -349,7 +349,13 @@ func (o PermissionsDataLocationPtrOutput) ToPermissionsDataLocationPtrOutputWith
 }
 
 func (o PermissionsDataLocationPtrOutput) Elem() PermissionsDataLocationOutput {
-	return o.ApplyT(func(v *PermissionsDataLocation) PermissionsDataLocation { return *v }).(PermissionsDataLocationOutput)
+	return o.ApplyT(func(v *PermissionsDataLocation) PermissionsDataLocation {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsDataLocation
+		return ret
+	}).(PermissionsDataLocationOutput)
 }
 
 // Amazon Resource Name (ARN) that uniquely identifies the data location resource.
@@ -469,7 +475,7 @@ func (o PermissionsDatabaseOutput) ToPermissionsDatabasePtrOutput() PermissionsD
 }
 
 func (o PermissionsDatabaseOutput) ToPermissionsDatabasePtrOutputWithContext(ctx context.Context) PermissionsDatabasePtrOutput {
-	return o.ApplyT(func(v PermissionsDatabase) *PermissionsDatabase {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsDatabase) *PermissionsDatabase {
 		return &v
 	}).(PermissionsDatabasePtrOutput)
 }
@@ -499,7 +505,13 @@ func (o PermissionsDatabasePtrOutput) ToPermissionsDatabasePtrOutputWithContext(
 }
 
 func (o PermissionsDatabasePtrOutput) Elem() PermissionsDatabaseOutput {
-	return o.ApplyT(func(v *PermissionsDatabase) PermissionsDatabase { return *v }).(PermissionsDatabaseOutput)
+	return o.ApplyT(func(v *PermissionsDatabase) PermissionsDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsDatabase
+		return ret
+	}).(PermissionsDatabaseOutput)
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -625,7 +637,7 @@ func (o PermissionsTableOutput) ToPermissionsTablePtrOutput() PermissionsTablePt
 }
 
 func (o PermissionsTableOutput) ToPermissionsTablePtrOutputWithContext(ctx context.Context) PermissionsTablePtrOutput {
-	return o.ApplyT(func(v PermissionsTable) *PermissionsTable {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsTable) *PermissionsTable {
 		return &v
 	}).(PermissionsTablePtrOutput)
 }
@@ -664,7 +676,13 @@ func (o PermissionsTablePtrOutput) ToPermissionsTablePtrOutputWithContext(ctx co
 }
 
 func (o PermissionsTablePtrOutput) Elem() PermissionsTableOutput {
-	return o.ApplyT(func(v *PermissionsTable) PermissionsTable { return *v }).(PermissionsTableOutput)
+	return o.ApplyT(func(v *PermissionsTable) PermissionsTable {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsTable
+		return ret
+	}).(PermissionsTableOutput)
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -815,7 +833,7 @@ func (o PermissionsTableWithColumnsOutput) ToPermissionsTableWithColumnsPtrOutpu
 }
 
 func (o PermissionsTableWithColumnsOutput) ToPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) PermissionsTableWithColumnsPtrOutput {
-	return o.ApplyT(func(v PermissionsTableWithColumns) *PermissionsTableWithColumns {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsTableWithColumns) *PermissionsTableWithColumns {
 		return &v
 	}).(PermissionsTableWithColumnsPtrOutput)
 }
@@ -863,7 +881,13 @@ func (o PermissionsTableWithColumnsPtrOutput) ToPermissionsTableWithColumnsPtrOu
 }
 
 func (o PermissionsTableWithColumnsPtrOutput) Elem() PermissionsTableWithColumnsOutput {
-	return o.ApplyT(func(v *PermissionsTableWithColumns) PermissionsTableWithColumns { return *v }).(PermissionsTableWithColumnsOutput)
+	return o.ApplyT(func(v *PermissionsTableWithColumns) PermissionsTableWithColumns {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsTableWithColumns
+		return ret
+	}).(PermissionsTableWithColumnsOutput)
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.

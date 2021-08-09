@@ -145,6 +145,10 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
+     * The database engine version
+     */
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
+    /**
      * The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
      */
     public readonly identifier!: pulumi.Output<string>;
@@ -246,6 +250,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             inputs["identifier"] = state ? state.identifier : undefined;
             inputs["identifierPrefix"] = state ? state.identifierPrefix : undefined;
             inputs["instanceClass"] = state ? state.instanceClass : undefined;
@@ -297,6 +302,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["dbiResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["engineVersionActual"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
@@ -369,6 +375,10 @@ export interface ClusterInstanceState {
      * The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The database engine version
+     */
+    engineVersionActual?: pulumi.Input<string>;
     /**
      * The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
      */

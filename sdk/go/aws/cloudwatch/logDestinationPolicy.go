@@ -232,9 +232,7 @@ func (i LogDestinationPolicyMap) ToLogDestinationPolicyMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LogDestinationPolicyMapOutput)
 }
 
-type LogDestinationPolicyOutput struct {
-	*pulumi.OutputState
-}
+type LogDestinationPolicyOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationPolicyOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LogDestinationPolicy)(nil))
@@ -253,14 +251,12 @@ func (o LogDestinationPolicyOutput) ToLogDestinationPolicyPtrOutput() LogDestina
 }
 
 func (o LogDestinationPolicyOutput) ToLogDestinationPolicyPtrOutputWithContext(ctx context.Context) LogDestinationPolicyPtrOutput {
-	return o.ApplyT(func(v LogDestinationPolicy) *LogDestinationPolicy {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogDestinationPolicy) *LogDestinationPolicy {
 		return &v
 	}).(LogDestinationPolicyPtrOutput)
 }
 
-type LogDestinationPolicyPtrOutput struct {
-	*pulumi.OutputState
-}
+type LogDestinationPolicyPtrOutput struct{ *pulumi.OutputState }
 
 func (LogDestinationPolicyPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LogDestinationPolicy)(nil))
@@ -272,6 +268,16 @@ func (o LogDestinationPolicyPtrOutput) ToLogDestinationPolicyPtrOutput() LogDest
 
 func (o LogDestinationPolicyPtrOutput) ToLogDestinationPolicyPtrOutputWithContext(ctx context.Context) LogDestinationPolicyPtrOutput {
 	return o
+}
+
+func (o LogDestinationPolicyPtrOutput) Elem() LogDestinationPolicyOutput {
+	return o.ApplyT(func(v *LogDestinationPolicy) LogDestinationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret LogDestinationPolicy
+		return ret
+	}).(LogDestinationPolicyOutput)
 }
 
 type LogDestinationPolicyArrayOutput struct{ *pulumi.OutputState }

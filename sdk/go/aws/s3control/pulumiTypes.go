@@ -240,7 +240,7 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) To
 }
 
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput) ToBucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
 		return &v
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
@@ -268,7 +268,11 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 
 func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput) Elem() BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload) BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload
+		return ret
 	}).(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput)
 }
 
@@ -383,7 +387,7 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfi
 }
 
 func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfigurationRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleExpirationPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *BucketLifecycleConfigurationRuleExpiration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleExpiration) *BucketLifecycleConfigurationRuleExpiration {
 		return &v
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
@@ -419,7 +423,11 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) ToBucketLifecycleCo
 
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecycleConfigurationRuleExpirationOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) BucketLifecycleConfigurationRuleExpiration {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfigurationRuleExpiration
+		return ret
 	}).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
@@ -550,7 +558,7 @@ func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigura
 }
 
 func (o BucketLifecycleConfigurationRuleFilterOutput) ToBucketLifecycleConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationRuleFilterPtrOutput {
-	return o.ApplyT(func(v BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationRuleFilter) *BucketLifecycleConfigurationRuleFilter {
 		return &v
 	}).(BucketLifecycleConfigurationRuleFilterPtrOutput)
 }
@@ -580,7 +588,13 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) ToBucketLifecycleConfig
 }
 
 func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Elem() BucketLifecycleConfigurationRuleFilterOutput {
-	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) BucketLifecycleConfigurationRuleFilter { return *v }).(BucketLifecycleConfigurationRuleFilterOutput)
+	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleFilter) BucketLifecycleConfigurationRuleFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketLifecycleConfigurationRuleFilter
+		return ret
+	}).(BucketLifecycleConfigurationRuleFilterOutput)
 }
 
 // Object prefix for rule filtering.

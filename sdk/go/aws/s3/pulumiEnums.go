@@ -108,7 +108,7 @@ func (o CannedAclOutput) ToStringPtrOutputWithContext(ctx context.Context) pulum
 type CannedAclPtrOutput struct{ *pulumi.OutputState }
 
 func (CannedAclPtrOutput) ElementType() reflect.Type {
-	return cannedAclPtrType
+	return reflect.TypeOf((**CannedAcl)(nil)).Elem()
 }
 
 func (o CannedAclPtrOutput) ToCannedAclPtrOutput() CannedAclPtrOutput {
@@ -117,6 +117,16 @@ func (o CannedAclPtrOutput) ToCannedAclPtrOutput() CannedAclPtrOutput {
 
 func (o CannedAclPtrOutput) ToCannedAclPtrOutputWithContext(ctx context.Context) CannedAclPtrOutput {
 	return o
+}
+
+func (o CannedAclPtrOutput) Elem() CannedAclOutput {
+	return o.ApplyT(func(v *CannedAcl) CannedAcl {
+		if v != nil {
+			return *v
+		}
+		var ret CannedAcl
+		return ret
+	}).(CannedAclOutput)
 }
 
 func (o CannedAclPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
@@ -131,16 +141,6 @@ func (o CannedAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o CannedAclPtrOutput) Elem() CannedAclOutput {
-	return o.ApplyT(func(v *CannedAcl) CannedAcl {
-		var ret CannedAcl
-		if v != nil {
-			ret = *v
-		}
-		return ret
-	}).(CannedAclOutput)
 }
 
 // CannedAclInput is an input type that accepts CannedAclArgs and CannedAclOutput values.

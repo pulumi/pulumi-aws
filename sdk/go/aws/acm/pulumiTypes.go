@@ -227,7 +227,7 @@ func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutput() CertificateOpt
 }
 
 func (o CertificateOptionsOutput) ToCertificateOptionsPtrOutputWithContext(ctx context.Context) CertificateOptionsPtrOutput {
-	return o.ApplyT(func(v CertificateOptions) *CertificateOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateOptions) *CertificateOptions {
 		return &v
 	}).(CertificateOptionsPtrOutput)
 }
@@ -252,7 +252,13 @@ func (o CertificateOptionsPtrOutput) ToCertificateOptionsPtrOutputWithContext(ct
 }
 
 func (o CertificateOptionsPtrOutput) Elem() CertificateOptionsOutput {
-	return o.ApplyT(func(v *CertificateOptions) CertificateOptions { return *v }).(CertificateOptionsOutput)
+	return o.ApplyT(func(v *CertificateOptions) CertificateOptions {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateOptions
+		return ret
+	}).(CertificateOptionsOutput)
 }
 
 // Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.

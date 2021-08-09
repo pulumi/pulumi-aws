@@ -316,9 +316,7 @@ func (i ThreatIntelSetMap) ToThreatIntelSetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ThreatIntelSetMapOutput)
 }
 
-type ThreatIntelSetOutput struct {
-	*pulumi.OutputState
-}
+type ThreatIntelSetOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ThreatIntelSet)(nil))
@@ -337,14 +335,12 @@ func (o ThreatIntelSetOutput) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOutpu
 }
 
 func (o ThreatIntelSetOutput) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
-	return o.ApplyT(func(v ThreatIntelSet) *ThreatIntelSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThreatIntelSet) *ThreatIntelSet {
 		return &v
 	}).(ThreatIntelSetPtrOutput)
 }
 
-type ThreatIntelSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type ThreatIntelSetPtrOutput struct{ *pulumi.OutputState }
 
 func (ThreatIntelSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ThreatIntelSet)(nil))
@@ -356,6 +352,16 @@ func (o ThreatIntelSetPtrOutput) ToThreatIntelSetPtrOutput() ThreatIntelSetPtrOu
 
 func (o ThreatIntelSetPtrOutput) ToThreatIntelSetPtrOutputWithContext(ctx context.Context) ThreatIntelSetPtrOutput {
 	return o
+}
+
+func (o ThreatIntelSetPtrOutput) Elem() ThreatIntelSetOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) ThreatIntelSet {
+		if v != nil {
+			return *v
+		}
+		var ret ThreatIntelSet
+		return ret
+	}).(ThreatIntelSetOutput)
 }
 
 type ThreatIntelSetArrayOutput struct{ *pulumi.OutputState }

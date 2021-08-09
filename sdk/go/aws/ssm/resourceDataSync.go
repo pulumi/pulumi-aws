@@ -236,9 +236,7 @@ func (i ResourceDataSyncMap) ToResourceDataSyncMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncMapOutput)
 }
 
-type ResourceDataSyncOutput struct {
-	*pulumi.OutputState
-}
+type ResourceDataSyncOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResourceDataSync)(nil))
@@ -257,14 +255,12 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutput() ResourceDataSyncPt
 }
 
 func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
-	return o.ApplyT(func(v ResourceDataSync) *ResourceDataSync {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSync) *ResourceDataSync {
 		return &v
 	}).(ResourceDataSyncPtrOutput)
 }
 
-type ResourceDataSyncPtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourceDataSyncPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResourceDataSync)(nil))
@@ -276,6 +272,16 @@ func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutput() ResourceDataSyn
 
 func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
 	return o
+}
+
+func (o ResourceDataSyncPtrOutput) Elem() ResourceDataSyncOutput {
+	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSync {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDataSync
+		return ret
+	}).(ResourceDataSyncOutput)
 }
 
 type ResourceDataSyncArrayOutput struct{ *pulumi.OutputState }

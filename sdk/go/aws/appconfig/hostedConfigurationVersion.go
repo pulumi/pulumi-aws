@@ -282,9 +282,7 @@ func (i HostedConfigurationVersionMap) ToHostedConfigurationVersionMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionMapOutput)
 }
 
-type HostedConfigurationVersionOutput struct {
-	*pulumi.OutputState
-}
+type HostedConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (HostedConfigurationVersionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostedConfigurationVersion)(nil))
@@ -303,14 +301,12 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionPtrOutput(
 }
 
 func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionPtrOutputWithContext(ctx context.Context) HostedConfigurationVersionPtrOutput {
-	return o.ApplyT(func(v HostedConfigurationVersion) *HostedConfigurationVersion {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedConfigurationVersion) *HostedConfigurationVersion {
 		return &v
 	}).(HostedConfigurationVersionPtrOutput)
 }
 
-type HostedConfigurationVersionPtrOutput struct {
-	*pulumi.OutputState
-}
+type HostedConfigurationVersionPtrOutput struct{ *pulumi.OutputState }
 
 func (HostedConfigurationVersionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HostedConfigurationVersion)(nil))
@@ -322,6 +318,16 @@ func (o HostedConfigurationVersionPtrOutput) ToHostedConfigurationVersionPtrOutp
 
 func (o HostedConfigurationVersionPtrOutput) ToHostedConfigurationVersionPtrOutputWithContext(ctx context.Context) HostedConfigurationVersionPtrOutput {
 	return o
+}
+
+func (o HostedConfigurationVersionPtrOutput) Elem() HostedConfigurationVersionOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) HostedConfigurationVersion {
+		if v != nil {
+			return *v
+		}
+		var ret HostedConfigurationVersion
+		return ret
+	}).(HostedConfigurationVersionOutput)
 }
 
 type HostedConfigurationVersionArrayOutput struct{ *pulumi.OutputState }

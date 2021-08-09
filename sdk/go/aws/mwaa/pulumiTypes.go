@@ -334,7 +334,7 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 }
 
 func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfiguration) *EnvironmentLoggingConfiguration {
 		return &v
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
@@ -387,7 +387,13 @@ func (o EnvironmentLoggingConfigurationPtrOutput) ToEnvironmentLoggingConfigurat
 }
 
 func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfigurationOutput {
-	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) EnvironmentLoggingConfiguration { return *v }).(EnvironmentLoggingConfigurationOutput)
+	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) EnvironmentLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfiguration
+		return ret
+	}).(EnvironmentLoggingConfigurationOutput)
 }
 
 // (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
@@ -539,10 +545,11 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) ToEnvironmentLog
 }
 
 func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) ToEnvironmentLoggingConfigurationDagProcessingLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfigurationDagProcessingLogs) *EnvironmentLoggingConfigurationDagProcessingLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationDagProcessingLogs) *EnvironmentLoggingConfigurationDagProcessingLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput)
 }
+
 func (o EnvironmentLoggingConfigurationDagProcessingLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationDagProcessingLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -573,7 +580,11 @@ func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) ToEnvironment
 
 func (o EnvironmentLoggingConfigurationDagProcessingLogsPtrOutput) Elem() EnvironmentLoggingConfigurationDagProcessingLogsOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationDagProcessingLogs) EnvironmentLoggingConfigurationDagProcessingLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfigurationDagProcessingLogs
+		return ret
 	}).(EnvironmentLoggingConfigurationDagProcessingLogsOutput)
 }
 
@@ -705,10 +716,11 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) ToEnvironmentLogging
 }
 
 func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) ToEnvironmentLoggingConfigurationSchedulerLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationSchedulerLogsPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfigurationSchedulerLogs) *EnvironmentLoggingConfigurationSchedulerLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationSchedulerLogs) *EnvironmentLoggingConfigurationSchedulerLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationSchedulerLogsPtrOutput)
 }
+
 func (o EnvironmentLoggingConfigurationSchedulerLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationSchedulerLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -739,7 +751,11 @@ func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) ToEnvironmentLogg
 
 func (o EnvironmentLoggingConfigurationSchedulerLogsPtrOutput) Elem() EnvironmentLoggingConfigurationSchedulerLogsOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationSchedulerLogs) EnvironmentLoggingConfigurationSchedulerLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfigurationSchedulerLogs
+		return ret
 	}).(EnvironmentLoggingConfigurationSchedulerLogsOutput)
 }
 
@@ -871,10 +887,11 @@ func (o EnvironmentLoggingConfigurationTaskLogsOutput) ToEnvironmentLoggingConfi
 }
 
 func (o EnvironmentLoggingConfigurationTaskLogsOutput) ToEnvironmentLoggingConfigurationTaskLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationTaskLogsPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfigurationTaskLogs) *EnvironmentLoggingConfigurationTaskLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationTaskLogs) *EnvironmentLoggingConfigurationTaskLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationTaskLogsPtrOutput)
 }
+
 func (o EnvironmentLoggingConfigurationTaskLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationTaskLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -904,7 +921,13 @@ func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) ToEnvironmentLoggingCo
 }
 
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) Elem() EnvironmentLoggingConfigurationTaskLogsOutput {
-	return o.ApplyT(func(v *EnvironmentLoggingConfigurationTaskLogs) EnvironmentLoggingConfigurationTaskLogs { return *v }).(EnvironmentLoggingConfigurationTaskLogsOutput)
+	return o.ApplyT(func(v *EnvironmentLoggingConfigurationTaskLogs) EnvironmentLoggingConfigurationTaskLogs {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfigurationTaskLogs
+		return ret
+	}).(EnvironmentLoggingConfigurationTaskLogsOutput)
 }
 
 func (o EnvironmentLoggingConfigurationTaskLogsPtrOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
@@ -1035,10 +1058,11 @@ func (o EnvironmentLoggingConfigurationWebserverLogsOutput) ToEnvironmentLogging
 }
 
 func (o EnvironmentLoggingConfigurationWebserverLogsOutput) ToEnvironmentLoggingConfigurationWebserverLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationWebserverLogsPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfigurationWebserverLogs) *EnvironmentLoggingConfigurationWebserverLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationWebserverLogs) *EnvironmentLoggingConfigurationWebserverLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationWebserverLogsPtrOutput)
 }
+
 func (o EnvironmentLoggingConfigurationWebserverLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWebserverLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -1069,7 +1093,11 @@ func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) ToEnvironmentLogg
 
 func (o EnvironmentLoggingConfigurationWebserverLogsPtrOutput) Elem() EnvironmentLoggingConfigurationWebserverLogsOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWebserverLogs) EnvironmentLoggingConfigurationWebserverLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfigurationWebserverLogs
+		return ret
 	}).(EnvironmentLoggingConfigurationWebserverLogsOutput)
 }
 
@@ -1201,10 +1229,11 @@ func (o EnvironmentLoggingConfigurationWorkerLogsOutput) ToEnvironmentLoggingCon
 }
 
 func (o EnvironmentLoggingConfigurationWorkerLogsOutput) ToEnvironmentLoggingConfigurationWorkerLogsPtrOutputWithContext(ctx context.Context) EnvironmentLoggingConfigurationWorkerLogsPtrOutput {
-	return o.ApplyT(func(v EnvironmentLoggingConfigurationWorkerLogs) *EnvironmentLoggingConfigurationWorkerLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentLoggingConfigurationWorkerLogs) *EnvironmentLoggingConfigurationWorkerLogs {
 		return &v
 	}).(EnvironmentLoggingConfigurationWorkerLogsPtrOutput)
 }
+
 func (o EnvironmentLoggingConfigurationWorkerLogsOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfigurationWorkerLogs) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -1235,7 +1264,11 @@ func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) ToEnvironmentLogging
 
 func (o EnvironmentLoggingConfigurationWorkerLogsPtrOutput) Elem() EnvironmentLoggingConfigurationWorkerLogsOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfigurationWorkerLogs) EnvironmentLoggingConfigurationWorkerLogs {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentLoggingConfigurationWorkerLogs
+		return ret
 	}).(EnvironmentLoggingConfigurationWorkerLogsOutput)
 }
 
@@ -1365,7 +1398,7 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 }
 
 func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v EnvironmentNetworkConfiguration) *EnvironmentNetworkConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentNetworkConfiguration) *EnvironmentNetworkConfiguration {
 		return &v
 	}).(EnvironmentNetworkConfigurationPtrOutput)
 }
@@ -1395,7 +1428,13 @@ func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurat
 }
 
 func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfigurationOutput {
-	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) EnvironmentNetworkConfiguration { return *v }).(EnvironmentNetworkConfigurationOutput)
+	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) EnvironmentNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentNetworkConfiguration
+		return ret
+	}).(EnvironmentNetworkConfigurationOutput)
 }
 
 // Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.

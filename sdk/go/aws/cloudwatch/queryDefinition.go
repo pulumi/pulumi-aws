@@ -240,9 +240,7 @@ func (i QueryDefinitionMap) ToQueryDefinitionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(QueryDefinitionMapOutput)
 }
 
-type QueryDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type QueryDefinitionOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*QueryDefinition)(nil))
@@ -261,14 +259,12 @@ func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutput() QueryDefinitionPtrOu
 }
 
 func (o QueryDefinitionOutput) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
-	return o.ApplyT(func(v QueryDefinition) *QueryDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDefinition) *QueryDefinition {
 		return &v
 	}).(QueryDefinitionPtrOutput)
 }
 
-type QueryDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type QueryDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (QueryDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**QueryDefinition)(nil))
@@ -280,6 +276,16 @@ func (o QueryDefinitionPtrOutput) ToQueryDefinitionPtrOutput() QueryDefinitionPt
 
 func (o QueryDefinitionPtrOutput) ToQueryDefinitionPtrOutputWithContext(ctx context.Context) QueryDefinitionPtrOutput {
 	return o
+}
+
+func (o QueryDefinitionPtrOutput) Elem() QueryDefinitionOutput {
+	return o.ApplyT(func(v *QueryDefinition) QueryDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDefinition
+		return ret
+	}).(QueryDefinitionOutput)
 }
 
 type QueryDefinitionArrayOutput struct{ *pulumi.OutputState }

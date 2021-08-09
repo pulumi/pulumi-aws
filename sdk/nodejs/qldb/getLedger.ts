@@ -46,17 +46,12 @@ export interface GetLedgerArgs {
  * A collection of values returned by getLedger.
  */
 export interface GetLedgerResult {
-    /**
-     * Amazon Resource Name (ARN) of the ledger.
-     */
     readonly arn: string;
-    /**
-     * Deletion protection on the QLDB Ledger instance. Set to `true` by default.
-     */
     readonly deletionProtection: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly name: string;
+    readonly permissionsMode: string;
 }

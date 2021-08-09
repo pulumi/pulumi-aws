@@ -221,9 +221,7 @@ func (i SqlInjectionMatchSetMap) ToSqlInjectionMatchSetMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlInjectionMatchSetMapOutput)
 }
 
-type SqlInjectionMatchSetOutput struct {
-	*pulumi.OutputState
-}
+type SqlInjectionMatchSetOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SqlInjectionMatchSet)(nil))
@@ -242,14 +240,12 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetPtrOutput() SqlInjecti
 }
 
 func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
-	return o.ApplyT(func(v SqlInjectionMatchSet) *SqlInjectionMatchSet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlInjectionMatchSet) *SqlInjectionMatchSet {
 		return &v
 	}).(SqlInjectionMatchSetPtrOutput)
 }
 
-type SqlInjectionMatchSetPtrOutput struct {
-	*pulumi.OutputState
-}
+type SqlInjectionMatchSetPtrOutput struct{ *pulumi.OutputState }
 
 func (SqlInjectionMatchSetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SqlInjectionMatchSet)(nil))
@@ -261,6 +257,16 @@ func (o SqlInjectionMatchSetPtrOutput) ToSqlInjectionMatchSetPtrOutput() SqlInje
 
 func (o SqlInjectionMatchSetPtrOutput) ToSqlInjectionMatchSetPtrOutputWithContext(ctx context.Context) SqlInjectionMatchSetPtrOutput {
 	return o
+}
+
+func (o SqlInjectionMatchSetPtrOutput) Elem() SqlInjectionMatchSetOutput {
+	return o.ApplyT(func(v *SqlInjectionMatchSet) SqlInjectionMatchSet {
+		if v != nil {
+			return *v
+		}
+		var ret SqlInjectionMatchSet
+		return ret
+	}).(SqlInjectionMatchSetOutput)
 }
 
 type SqlInjectionMatchSetArrayOutput struct{ *pulumi.OutputState }

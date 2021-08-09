@@ -342,9 +342,7 @@ func (i CapacityReservationMap) ToCapacityReservationMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityReservationMapOutput)
 }
 
-type CapacityReservationOutput struct {
-	*pulumi.OutputState
-}
+type CapacityReservationOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CapacityReservation)(nil))
@@ -363,14 +361,12 @@ func (o CapacityReservationOutput) ToCapacityReservationPtrOutput() CapacityRese
 }
 
 func (o CapacityReservationOutput) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
-	return o.ApplyT(func(v CapacityReservation) *CapacityReservation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityReservation) *CapacityReservation {
 		return &v
 	}).(CapacityReservationPtrOutput)
 }
 
-type CapacityReservationPtrOutput struct {
-	*pulumi.OutputState
-}
+type CapacityReservationPtrOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CapacityReservation)(nil))
@@ -382,6 +378,16 @@ func (o CapacityReservationPtrOutput) ToCapacityReservationPtrOutput() CapacityR
 
 func (o CapacityReservationPtrOutput) ToCapacityReservationPtrOutputWithContext(ctx context.Context) CapacityReservationPtrOutput {
 	return o
+}
+
+func (o CapacityReservationPtrOutput) Elem() CapacityReservationOutput {
+	return o.ApplyT(func(v *CapacityReservation) CapacityReservation {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityReservation
+		return ret
+	}).(CapacityReservationOutput)
 }
 
 type CapacityReservationArrayOutput struct{ *pulumi.OutputState }

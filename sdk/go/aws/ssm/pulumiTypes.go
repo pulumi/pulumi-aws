@@ -107,7 +107,7 @@ func (o AssociationOutputLocationOutput) ToAssociationOutputLocationPtrOutput() 
 }
 
 func (o AssociationOutputLocationOutput) ToAssociationOutputLocationPtrOutputWithContext(ctx context.Context) AssociationOutputLocationPtrOutput {
-	return o.ApplyT(func(v AssociationOutputLocation) *AssociationOutputLocation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssociationOutputLocation) *AssociationOutputLocation {
 		return &v
 	}).(AssociationOutputLocationPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o AssociationOutputLocationPtrOutput) ToAssociationOutputLocationPtrOutput
 }
 
 func (o AssociationOutputLocationPtrOutput) Elem() AssociationOutputLocationOutput {
-	return o.ApplyT(func(v *AssociationOutputLocation) AssociationOutputLocation { return *v }).(AssociationOutputLocationOutput)
+	return o.ApplyT(func(v *AssociationOutputLocation) AssociationOutputLocation {
+		if v != nil {
+			return *v
+		}
+		var ret AssociationOutputLocation
+		return ret
+	}).(AssociationOutputLocationOutput)
 }
 
 // The S3 bucket name.
@@ -807,7 +813,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindow
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskTaskInvocationParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParameters) *MaintenanceWindowTaskTaskInvocationParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersPtrOutput)
 }
@@ -856,7 +862,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) ToMaintenanceWin
 
 func (o MaintenanceWindowTaskTaskInvocationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParameters) MaintenanceWindowTaskTaskInvocationParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParameters
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersOutput)
 }
 
@@ -997,7 +1007,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) *MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) *MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput)
 }
@@ -1032,7 +1042,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutp
 
 func (o MaintenanceWindowTaskTaskInvocationParametersAutomationParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersAutomationParameters) MaintenanceWindowTaskTaskInvocationParametersAutomationParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersAutomationParameters
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersAutomationParametersOutput)
 }
 
@@ -1267,7 +1281,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToM
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) *MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) *MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput)
 }
@@ -1303,7 +1317,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) 
 
 func (o MaintenanceWindowTaskTaskInvocationParametersLambdaParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersLambdaParameters) MaintenanceWindowTaskTaskInvocationParametersLambdaParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersLambdaParameters
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersLambdaParametersOutput)
 }
 
@@ -1470,7 +1488,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput)
 }
@@ -1566,7 +1584,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 }
 
@@ -1777,7 +1799,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput)
 }
@@ -1812,7 +1834,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigOutput)
 }
 
@@ -1937,7 +1963,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) ToMaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput)
 }
@@ -1979,7 +2005,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
 }
 
@@ -2220,7 +2250,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutp
 }
 
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput) ToMaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutputWithContext(ctx context.Context) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput {
-	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) *MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters {
 		return &v
 	}).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput)
 }
@@ -2251,7 +2281,11 @@ func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrO
 
 func (o MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersPtrOutput) Elem() MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters) MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters
+		return ret
 	}).(MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersOutput)
 }
 
@@ -2832,7 +2866,7 @@ func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrO
 }
 
 func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
-	return o.ApplyT(func(v ResourceDataSyncS3Destination) *ResourceDataSyncS3Destination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSyncS3Destination) *ResourceDataSyncS3Destination {
 		return &v
 	}).(ResourceDataSyncS3DestinationPtrOutput)
 }
@@ -2877,7 +2911,13 @@ func (o ResourceDataSyncS3DestinationPtrOutput) ToResourceDataSyncS3DestinationP
 }
 
 func (o ResourceDataSyncS3DestinationPtrOutput) Elem() ResourceDataSyncS3DestinationOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) ResourceDataSyncS3Destination { return *v }).(ResourceDataSyncS3DestinationOutput)
+	return o.ApplyT(func(v *ResourceDataSyncS3Destination) ResourceDataSyncS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDataSyncS3Destination
+		return ret
+	}).(ResourceDataSyncS3DestinationOutput)
 }
 
 // Name of S3 bucket where the aggregated data is stored.

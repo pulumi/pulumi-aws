@@ -268,9 +268,7 @@ func (i RouteMap) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapOutput)
 }
 
-type RouteOutput struct {
-	*pulumi.OutputState
-}
+type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Route)(nil))
@@ -289,14 +287,12 @@ func (o RouteOutput) ToRoutePtrOutput() RoutePtrOutput {
 }
 
 func (o RouteOutput) ToRoutePtrOutputWithContext(ctx context.Context) RoutePtrOutput {
-	return o.ApplyT(func(v Route) *Route {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Route) *Route {
 		return &v
 	}).(RoutePtrOutput)
 }
 
-type RoutePtrOutput struct {
-	*pulumi.OutputState
-}
+type RoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Route)(nil))
@@ -308,6 +304,16 @@ func (o RoutePtrOutput) ToRoutePtrOutput() RoutePtrOutput {
 
 func (o RoutePtrOutput) ToRoutePtrOutputWithContext(ctx context.Context) RoutePtrOutput {
 	return o
+}
+
+func (o RoutePtrOutput) Elem() RouteOutput {
+	return o.ApplyT(func(v *Route) Route {
+		if v != nil {
+			return *v
+		}
+		var ret Route
+		return ret
+	}).(RouteOutput)
 }
 
 type RouteArrayOutput struct{ *pulumi.OutputState }

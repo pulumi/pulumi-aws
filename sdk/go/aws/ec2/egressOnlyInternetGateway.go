@@ -231,9 +231,7 @@ func (i EgressOnlyInternetGatewayMap) ToEgressOnlyInternetGatewayMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayMapOutput)
 }
 
-type EgressOnlyInternetGatewayOutput struct {
-	*pulumi.OutputState
-}
+type EgressOnlyInternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EgressOnlyInternetGateway)(nil))
@@ -252,14 +250,12 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayPtrOutput() 
 }
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
-	return o.ApplyT(func(v EgressOnlyInternetGateway) *EgressOnlyInternetGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EgressOnlyInternetGateway) *EgressOnlyInternetGateway {
 		return &v
 	}).(EgressOnlyInternetGatewayPtrOutput)
 }
 
-type EgressOnlyInternetGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type EgressOnlyInternetGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (EgressOnlyInternetGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EgressOnlyInternetGateway)(nil))
@@ -271,6 +267,16 @@ func (o EgressOnlyInternetGatewayPtrOutput) ToEgressOnlyInternetGatewayPtrOutput
 
 func (o EgressOnlyInternetGatewayPtrOutput) ToEgressOnlyInternetGatewayPtrOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayPtrOutput {
 	return o
+}
+
+func (o EgressOnlyInternetGatewayPtrOutput) Elem() EgressOnlyInternetGatewayOutput {
+	return o.ApplyT(func(v *EgressOnlyInternetGateway) EgressOnlyInternetGateway {
+		if v != nil {
+			return *v
+		}
+		var ret EgressOnlyInternetGateway
+		return ret
+	}).(EgressOnlyInternetGatewayOutput)
 }
 
 type EgressOnlyInternetGatewayArrayOutput struct{ *pulumi.OutputState }

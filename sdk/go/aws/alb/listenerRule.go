@@ -479,9 +479,7 @@ func (i ListenerRuleMap) ToListenerRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleMapOutput)
 }
 
-type ListenerRuleOutput struct {
-	*pulumi.OutputState
-}
+type ListenerRuleOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ListenerRule)(nil))
@@ -500,14 +498,12 @@ func (o ListenerRuleOutput) ToListenerRulePtrOutput() ListenerRulePtrOutput {
 }
 
 func (o ListenerRuleOutput) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
-	return o.ApplyT(func(v ListenerRule) *ListenerRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRule) *ListenerRule {
 		return &v
 	}).(ListenerRulePtrOutput)
 }
 
-type ListenerRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ListenerRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ListenerRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ListenerRule)(nil))
@@ -519,6 +515,16 @@ func (o ListenerRulePtrOutput) ToListenerRulePtrOutput() ListenerRulePtrOutput {
 
 func (o ListenerRulePtrOutput) ToListenerRulePtrOutputWithContext(ctx context.Context) ListenerRulePtrOutput {
 	return o
+}
+
+func (o ListenerRulePtrOutput) Elem() ListenerRuleOutput {
+	return o.ApplyT(func(v *ListenerRule) ListenerRule {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerRule
+		return ret
+	}).(ListenerRuleOutput)
 }
 
 type ListenerRuleArrayOutput struct{ *pulumi.OutputState }

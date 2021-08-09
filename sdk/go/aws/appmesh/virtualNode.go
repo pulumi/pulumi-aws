@@ -469,9 +469,7 @@ func (i VirtualNodeMap) ToVirtualNodeMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNodeMapOutput)
 }
 
-type VirtualNodeOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNodeOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualNode)(nil))
@@ -490,14 +488,12 @@ func (o VirtualNodeOutput) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
 }
 
 func (o VirtualNodeOutput) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
-	return o.ApplyT(func(v VirtualNode) *VirtualNode {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNode) *VirtualNode {
 		return &v
 	}).(VirtualNodePtrOutput)
 }
 
-type VirtualNodePtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualNodePtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualNodePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualNode)(nil))
@@ -509,6 +505,16 @@ func (o VirtualNodePtrOutput) ToVirtualNodePtrOutput() VirtualNodePtrOutput {
 
 func (o VirtualNodePtrOutput) ToVirtualNodePtrOutputWithContext(ctx context.Context) VirtualNodePtrOutput {
 	return o
+}
+
+func (o VirtualNodePtrOutput) Elem() VirtualNodeOutput {
+	return o.ApplyT(func(v *VirtualNode) VirtualNode {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNode
+		return ret
+	}).(VirtualNodeOutput)
 }
 
 type VirtualNodeArrayOutput struct{ *pulumi.OutputState }

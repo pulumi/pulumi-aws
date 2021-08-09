@@ -248,9 +248,7 @@ func (i ResourceMap) ToResourceMapOutputWithContext(ctx context.Context) Resourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceMapOutput)
 }
 
-type ResourceOutput struct {
-	*pulumi.OutputState
-}
+type ResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Resource)(nil))
@@ -269,14 +267,12 @@ func (o ResourceOutput) ToResourcePtrOutput() ResourcePtrOutput {
 }
 
 func (o ResourceOutput) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
-	return o.ApplyT(func(v Resource) *Resource {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Resource) *Resource {
 		return &v
 	}).(ResourcePtrOutput)
 }
 
-type ResourcePtrOutput struct {
-	*pulumi.OutputState
-}
+type ResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (ResourcePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Resource)(nil))
@@ -288,6 +284,16 @@ func (o ResourcePtrOutput) ToResourcePtrOutput() ResourcePtrOutput {
 
 func (o ResourcePtrOutput) ToResourcePtrOutputWithContext(ctx context.Context) ResourcePtrOutput {
 	return o
+}
+
+func (o ResourcePtrOutput) Elem() ResourceOutput {
+	return o.ApplyT(func(v *Resource) Resource {
+		if v != nil {
+			return *v
+		}
+		var ret Resource
+		return ret
+	}).(ResourceOutput)
 }
 
 type ResourceArrayOutput struct{ *pulumi.OutputState }

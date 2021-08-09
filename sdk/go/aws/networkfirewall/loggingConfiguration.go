@@ -300,9 +300,7 @@ func (i LoggingConfigurationMap) ToLoggingConfigurationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationMapOutput)
 }
 
-type LoggingConfigurationOutput struct {
-	*pulumi.OutputState
-}
+type LoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*LoggingConfiguration)(nil))
@@ -321,14 +319,12 @@ func (o LoggingConfigurationOutput) ToLoggingConfigurationPtrOutput() LoggingCon
 }
 
 func (o LoggingConfigurationOutput) ToLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationPtrOutput {
-	return o.ApplyT(func(v LoggingConfiguration) *LoggingConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfiguration) *LoggingConfiguration {
 		return &v
 	}).(LoggingConfigurationPtrOutput)
 }
 
-type LoggingConfigurationPtrOutput struct {
-	*pulumi.OutputState
-}
+type LoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**LoggingConfiguration)(nil))
@@ -340,6 +336,16 @@ func (o LoggingConfigurationPtrOutput) ToLoggingConfigurationPtrOutput() Logging
 
 func (o LoggingConfigurationPtrOutput) ToLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationPtrOutput {
 	return o
+}
+
+func (o LoggingConfigurationPtrOutput) Elem() LoggingConfigurationOutput {
+	return o.ApplyT(func(v *LoggingConfiguration) LoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret LoggingConfiguration
+		return ret
+	}).(LoggingConfigurationOutput)
 }
 
 type LoggingConfigurationArrayOutput struct{ *pulumi.OutputState }

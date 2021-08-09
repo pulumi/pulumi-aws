@@ -331,9 +331,7 @@ func (i ClassifierMap) ToClassifierMapOutputWithContext(ctx context.Context) Cla
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierMapOutput)
 }
 
-type ClassifierOutput struct {
-	*pulumi.OutputState
-}
+type ClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Classifier)(nil))
@@ -352,14 +350,12 @@ func (o ClassifierOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
 }
 
 func (o ClassifierOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
-	return o.ApplyT(func(v Classifier) *Classifier {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Classifier) *Classifier {
 		return &v
 	}).(ClassifierPtrOutput)
 }
 
-type ClassifierPtrOutput struct {
-	*pulumi.OutputState
-}
+type ClassifierPtrOutput struct{ *pulumi.OutputState }
 
 func (ClassifierPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Classifier)(nil))
@@ -371,6 +367,16 @@ func (o ClassifierPtrOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
 
 func (o ClassifierPtrOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
 	return o
+}
+
+func (o ClassifierPtrOutput) Elem() ClassifierOutput {
+	return o.ApplyT(func(v *Classifier) Classifier {
+		if v != nil {
+			return *v
+		}
+		var ret Classifier
+		return ret
+	}).(ClassifierOutput)
 }
 
 type ClassifierArrayOutput struct{ *pulumi.OutputState }

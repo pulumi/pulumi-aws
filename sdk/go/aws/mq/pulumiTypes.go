@@ -107,7 +107,7 @@ func (o BrokerConfigurationOutput) ToBrokerConfigurationPtrOutput() BrokerConfig
 }
 
 func (o BrokerConfigurationOutput) ToBrokerConfigurationPtrOutputWithContext(ctx context.Context) BrokerConfigurationPtrOutput {
-	return o.ApplyT(func(v BrokerConfiguration) *BrokerConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerConfiguration) *BrokerConfiguration {
 		return &v
 	}).(BrokerConfigurationPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o BrokerConfigurationPtrOutput) ToBrokerConfigurationPtrOutputWithContext(
 }
 
 func (o BrokerConfigurationPtrOutput) Elem() BrokerConfigurationOutput {
-	return o.ApplyT(func(v *BrokerConfiguration) BrokerConfiguration { return *v }).(BrokerConfigurationOutput)
+	return o.ApplyT(func(v *BrokerConfiguration) BrokerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret BrokerConfiguration
+		return ret
+	}).(BrokerConfigurationOutput)
 }
 
 // The Configuration ID.
@@ -257,7 +263,7 @@ func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsPtrOutput() Brok
 }
 
 func (o BrokerEncryptionOptionsOutput) ToBrokerEncryptionOptionsPtrOutputWithContext(ctx context.Context) BrokerEncryptionOptionsPtrOutput {
-	return o.ApplyT(func(v BrokerEncryptionOptions) *BrokerEncryptionOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerEncryptionOptions) *BrokerEncryptionOptions {
 		return &v
 	}).(BrokerEncryptionOptionsPtrOutput)
 }
@@ -287,7 +293,13 @@ func (o BrokerEncryptionOptionsPtrOutput) ToBrokerEncryptionOptionsPtrOutputWith
 }
 
 func (o BrokerEncryptionOptionsPtrOutput) Elem() BrokerEncryptionOptionsOutput {
-	return o.ApplyT(func(v *BrokerEncryptionOptions) BrokerEncryptionOptions { return *v }).(BrokerEncryptionOptionsOutput)
+	return o.ApplyT(func(v *BrokerEncryptionOptions) BrokerEncryptionOptions {
+		if v != nil {
+			return *v
+		}
+		var ret BrokerEncryptionOptions
+		return ret
+	}).(BrokerEncryptionOptionsOutput)
 }
 
 // Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `useAwsOwnedKey` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
@@ -549,7 +561,7 @@ func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutput() Br
 }
 
 func (o BrokerLdapServerMetadataOutput) ToBrokerLdapServerMetadataPtrOutputWithContext(ctx context.Context) BrokerLdapServerMetadataPtrOutput {
-	return o.ApplyT(func(v BrokerLdapServerMetadata) *BrokerLdapServerMetadata {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerLdapServerMetadata) *BrokerLdapServerMetadata {
 		return &v
 	}).(BrokerLdapServerMetadataPtrOutput)
 }
@@ -624,7 +636,13 @@ func (o BrokerLdapServerMetadataPtrOutput) ToBrokerLdapServerMetadataPtrOutputWi
 }
 
 func (o BrokerLdapServerMetadataPtrOutput) Elem() BrokerLdapServerMetadataOutput {
-	return o.ApplyT(func(v *BrokerLdapServerMetadata) BrokerLdapServerMetadata { return *v }).(BrokerLdapServerMetadataOutput)
+	return o.ApplyT(func(v *BrokerLdapServerMetadata) BrokerLdapServerMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret BrokerLdapServerMetadata
+		return ret
+	}).(BrokerLdapServerMetadataOutput)
 }
 
 // List of a fully qualified domain name of the LDAP server and an optional failover server.
@@ -834,7 +852,7 @@ func (o BrokerLogsOutput) ToBrokerLogsPtrOutput() BrokerLogsPtrOutput {
 }
 
 func (o BrokerLogsOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Context) BrokerLogsPtrOutput {
-	return o.ApplyT(func(v BrokerLogs) *BrokerLogs {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerLogs) *BrokerLogs {
 		return &v
 	}).(BrokerLogsPtrOutput)
 }
@@ -864,7 +882,13 @@ func (o BrokerLogsPtrOutput) ToBrokerLogsPtrOutputWithContext(ctx context.Contex
 }
 
 func (o BrokerLogsPtrOutput) Elem() BrokerLogsOutput {
-	return o.ApplyT(func(v *BrokerLogs) BrokerLogs { return *v }).(BrokerLogsOutput)
+	return o.ApplyT(func(v *BrokerLogs) BrokerLogs {
+		if v != nil {
+			return *v
+		}
+		var ret BrokerLogs
+		return ret
+	}).(BrokerLogsOutput)
 }
 
 // Enables audit logging. Auditing is only possible for `engineType` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
@@ -988,7 +1012,7 @@ func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTi
 }
 
 func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTimePtrOutputWithContext(ctx context.Context) BrokerMaintenanceWindowStartTimePtrOutput {
-	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) *BrokerMaintenanceWindowStartTime {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BrokerMaintenanceWindowStartTime) *BrokerMaintenanceWindowStartTime {
 		return &v
 	}).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
@@ -1023,7 +1047,13 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) ToBrokerMaintenanceWindowStar
 }
 
 func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindowStartTimeOutput {
-	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) BrokerMaintenanceWindowStartTime { return *v }).(BrokerMaintenanceWindowStartTimeOutput)
+	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) BrokerMaintenanceWindowStartTime {
+		if v != nil {
+			return *v
+		}
+		var ret BrokerMaintenanceWindowStartTime
+		return ret
+	}).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
 // Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.

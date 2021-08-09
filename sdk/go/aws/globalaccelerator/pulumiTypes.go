@@ -111,7 +111,7 @@ func (o AcceleratorAttributesOutput) ToAcceleratorAttributesPtrOutput() Accelera
 }
 
 func (o AcceleratorAttributesOutput) ToAcceleratorAttributesPtrOutputWithContext(ctx context.Context) AcceleratorAttributesPtrOutput {
-	return o.ApplyT(func(v AcceleratorAttributes) *AcceleratorAttributes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcceleratorAttributes) *AcceleratorAttributes {
 		return &v
 	}).(AcceleratorAttributesPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o AcceleratorAttributesPtrOutput) ToAcceleratorAttributesPtrOutputWithCont
 }
 
 func (o AcceleratorAttributesPtrOutput) Elem() AcceleratorAttributesOutput {
-	return o.ApplyT(func(v *AcceleratorAttributes) AcceleratorAttributes { return *v }).(AcceleratorAttributesOutput)
+	return o.ApplyT(func(v *AcceleratorAttributes) AcceleratorAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret AcceleratorAttributes
+		return ret
+	}).(AcceleratorAttributesOutput)
 }
 
 // Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.

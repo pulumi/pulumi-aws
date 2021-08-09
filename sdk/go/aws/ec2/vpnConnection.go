@@ -839,9 +839,7 @@ func (i VpnConnectionMap) ToVpnConnectionMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionMapOutput)
 }
 
-type VpnConnectionOutput struct {
-	*pulumi.OutputState
-}
+type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VpnConnection)(nil))
@@ -860,14 +858,12 @@ func (o VpnConnectionOutput) ToVpnConnectionPtrOutput() VpnConnectionPtrOutput {
 }
 
 func (o VpnConnectionOutput) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
-	return o.ApplyT(func(v VpnConnection) *VpnConnection {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnection) *VpnConnection {
 		return &v
 	}).(VpnConnectionPtrOutput)
 }
 
-type VpnConnectionPtrOutput struct {
-	*pulumi.OutputState
-}
+type VpnConnectionPtrOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VpnConnection)(nil))
@@ -879,6 +875,16 @@ func (o VpnConnectionPtrOutput) ToVpnConnectionPtrOutput() VpnConnectionPtrOutpu
 
 func (o VpnConnectionPtrOutput) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
 	return o
+}
+
+func (o VpnConnectionPtrOutput) Elem() VpnConnectionOutput {
+	return o.ApplyT(func(v *VpnConnection) VpnConnection {
+		if v != nil {
+			return *v
+		}
+		var ret VpnConnection
+		return ret
+	}).(VpnConnectionOutput)
 }
 
 type VpnConnectionArrayOutput struct{ *pulumi.OutputState }

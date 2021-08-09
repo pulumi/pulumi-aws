@@ -280,9 +280,7 @@ func (i SourceCredentialMap) ToSourceCredentialMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCredentialMapOutput)
 }
 
-type SourceCredentialOutput struct {
-	*pulumi.OutputState
-}
+type SourceCredentialOutput struct{ *pulumi.OutputState }
 
 func (SourceCredentialOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SourceCredential)(nil))
@@ -301,14 +299,12 @@ func (o SourceCredentialOutput) ToSourceCredentialPtrOutput() SourceCredentialPt
 }
 
 func (o SourceCredentialOutput) ToSourceCredentialPtrOutputWithContext(ctx context.Context) SourceCredentialPtrOutput {
-	return o.ApplyT(func(v SourceCredential) *SourceCredential {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceCredential) *SourceCredential {
 		return &v
 	}).(SourceCredentialPtrOutput)
 }
 
-type SourceCredentialPtrOutput struct {
-	*pulumi.OutputState
-}
+type SourceCredentialPtrOutput struct{ *pulumi.OutputState }
 
 func (SourceCredentialPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SourceCredential)(nil))
@@ -320,6 +316,16 @@ func (o SourceCredentialPtrOutput) ToSourceCredentialPtrOutput() SourceCredentia
 
 func (o SourceCredentialPtrOutput) ToSourceCredentialPtrOutputWithContext(ctx context.Context) SourceCredentialPtrOutput {
 	return o
+}
+
+func (o SourceCredentialPtrOutput) Elem() SourceCredentialOutput {
+	return o.ApplyT(func(v *SourceCredential) SourceCredential {
+		if v != nil {
+			return *v
+		}
+		var ret SourceCredential
+		return ret
+	}).(SourceCredentialOutput)
 }
 
 type SourceCredentialArrayOutput struct{ *pulumi.OutputState }

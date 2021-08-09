@@ -107,7 +107,7 @@ func (o EfsLocationEc2ConfigOutput) ToEfsLocationEc2ConfigPtrOutput() EfsLocatio
 }
 
 func (o EfsLocationEc2ConfigOutput) ToEfsLocationEc2ConfigPtrOutputWithContext(ctx context.Context) EfsLocationEc2ConfigPtrOutput {
-	return o.ApplyT(func(v EfsLocationEc2Config) *EfsLocationEc2Config {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EfsLocationEc2Config) *EfsLocationEc2Config {
 		return &v
 	}).(EfsLocationEc2ConfigPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o EfsLocationEc2ConfigPtrOutput) ToEfsLocationEc2ConfigPtrOutputWithContex
 }
 
 func (o EfsLocationEc2ConfigPtrOutput) Elem() EfsLocationEc2ConfigOutput {
-	return o.ApplyT(func(v *EfsLocationEc2Config) EfsLocationEc2Config { return *v }).(EfsLocationEc2ConfigOutput)
+	return o.ApplyT(func(v *EfsLocationEc2Config) EfsLocationEc2Config {
+		if v != nil {
+			return *v
+		}
+		var ret EfsLocationEc2Config
+		return ret
+	}).(EfsLocationEc2ConfigOutput)
 }
 
 // List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
@@ -253,7 +259,7 @@ func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutput() Loca
 }
 
 func (o LocationSmbMountOptionsOutput) ToLocationSmbMountOptionsPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsPtrOutput {
-	return o.ApplyT(func(v LocationSmbMountOptions) *LocationSmbMountOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationSmbMountOptions) *LocationSmbMountOptions {
 		return &v
 	}).(LocationSmbMountOptionsPtrOutput)
 }
@@ -278,7 +284,13 @@ func (o LocationSmbMountOptionsPtrOutput) ToLocationSmbMountOptionsPtrOutputWith
 }
 
 func (o LocationSmbMountOptionsPtrOutput) Elem() LocationSmbMountOptionsOutput {
-	return o.ApplyT(func(v *LocationSmbMountOptions) LocationSmbMountOptions { return *v }).(LocationSmbMountOptionsOutput)
+	return o.ApplyT(func(v *LocationSmbMountOptions) LocationSmbMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LocationSmbMountOptions
+		return ret
+	}).(LocationSmbMountOptionsOutput)
 }
 
 // The specific SMB version that you want DataSync to use for mounting your SMB share. Valid values: `AUTOMATIC`, `SMB2`, and `SMB3`. Default: `AUTOMATIC`
@@ -384,7 +396,7 @@ func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutput() NfsL
 }
 
 func (o NfsLocationMountOptionsOutput) ToNfsLocationMountOptionsPtrOutputWithContext(ctx context.Context) NfsLocationMountOptionsPtrOutput {
-	return o.ApplyT(func(v NfsLocationMountOptions) *NfsLocationMountOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsLocationMountOptions) *NfsLocationMountOptions {
 		return &v
 	}).(NfsLocationMountOptionsPtrOutput)
 }
@@ -409,7 +421,13 @@ func (o NfsLocationMountOptionsPtrOutput) ToNfsLocationMountOptionsPtrOutputWith
 }
 
 func (o NfsLocationMountOptionsPtrOutput) Elem() NfsLocationMountOptionsOutput {
-	return o.ApplyT(func(v *NfsLocationMountOptions) NfsLocationMountOptions { return *v }).(NfsLocationMountOptionsOutput)
+	return o.ApplyT(func(v *NfsLocationMountOptions) NfsLocationMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret NfsLocationMountOptions
+		return ret
+	}).(NfsLocationMountOptionsOutput)
 }
 
 // The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
@@ -515,7 +533,7 @@ func (o NfsLocationOnPremConfigOutput) ToNfsLocationOnPremConfigPtrOutput() NfsL
 }
 
 func (o NfsLocationOnPremConfigOutput) ToNfsLocationOnPremConfigPtrOutputWithContext(ctx context.Context) NfsLocationOnPremConfigPtrOutput {
-	return o.ApplyT(func(v NfsLocationOnPremConfig) *NfsLocationOnPremConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsLocationOnPremConfig) *NfsLocationOnPremConfig {
 		return &v
 	}).(NfsLocationOnPremConfigPtrOutput)
 }
@@ -540,7 +558,13 @@ func (o NfsLocationOnPremConfigPtrOutput) ToNfsLocationOnPremConfigPtrOutputWith
 }
 
 func (o NfsLocationOnPremConfigPtrOutput) Elem() NfsLocationOnPremConfigOutput {
-	return o.ApplyT(func(v *NfsLocationOnPremConfig) NfsLocationOnPremConfig { return *v }).(NfsLocationOnPremConfigOutput)
+	return o.ApplyT(func(v *NfsLocationOnPremConfig) NfsLocationOnPremConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NfsLocationOnPremConfig
+		return ret
+	}).(NfsLocationOnPremConfigOutput)
 }
 
 // List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
@@ -646,7 +670,7 @@ func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigPtrOutput() S3LocationS3Co
 }
 
 func (o S3LocationS3ConfigOutput) ToS3LocationS3ConfigPtrOutputWithContext(ctx context.Context) S3LocationS3ConfigPtrOutput {
-	return o.ApplyT(func(v S3LocationS3Config) *S3LocationS3Config {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3LocationS3Config) *S3LocationS3Config {
 		return &v
 	}).(S3LocationS3ConfigPtrOutput)
 }
@@ -671,7 +695,13 @@ func (o S3LocationS3ConfigPtrOutput) ToS3LocationS3ConfigPtrOutputWithContext(ct
 }
 
 func (o S3LocationS3ConfigPtrOutput) Elem() S3LocationS3ConfigOutput {
-	return o.ApplyT(func(v *S3LocationS3Config) S3LocationS3Config { return *v }).(S3LocationS3ConfigOutput)
+	return o.ApplyT(func(v *S3LocationS3Config) S3LocationS3Config {
+		if v != nil {
+			return *v
+		}
+		var ret S3LocationS3Config
+		return ret
+	}).(S3LocationS3ConfigOutput)
 }
 
 // Amazon Resource Names (ARN) of the IAM Role used to connect to the S3 Bucket.
@@ -781,7 +811,7 @@ func (o TaskExcludesOutput) ToTaskExcludesPtrOutput() TaskExcludesPtrOutput {
 }
 
 func (o TaskExcludesOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Context) TaskExcludesPtrOutput {
-	return o.ApplyT(func(v TaskExcludes) *TaskExcludes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskExcludes) *TaskExcludes {
 		return &v
 	}).(TaskExcludesPtrOutput)
 }
@@ -811,7 +841,13 @@ func (o TaskExcludesPtrOutput) ToTaskExcludesPtrOutputWithContext(ctx context.Co
 }
 
 func (o TaskExcludesPtrOutput) Elem() TaskExcludesOutput {
-	return o.ApplyT(func(v *TaskExcludes) TaskExcludes { return *v }).(TaskExcludesOutput)
+	return o.ApplyT(func(v *TaskExcludes) TaskExcludes {
+		if v != nil {
+			return *v
+		}
+		var ret TaskExcludes
+		return ret
+	}).(TaskExcludesOutput)
 }
 
 // The type of filter rule to apply. Valid values: `SIMPLE_PATTERN`.
@@ -975,7 +1011,7 @@ func (o TaskOptionsOutput) ToTaskOptionsPtrOutput() TaskOptionsPtrOutput {
 }
 
 func (o TaskOptionsOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Context) TaskOptionsPtrOutput {
-	return o.ApplyT(func(v TaskOptions) *TaskOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskOptions) *TaskOptions {
 		return &v
 	}).(TaskOptionsPtrOutput)
 }
@@ -1060,7 +1096,13 @@ func (o TaskOptionsPtrOutput) ToTaskOptionsPtrOutputWithContext(ctx context.Cont
 }
 
 func (o TaskOptionsPtrOutput) Elem() TaskOptionsOutput {
-	return o.ApplyT(func(v *TaskOptions) TaskOptions { return *v }).(TaskOptionsOutput)
+	return o.ApplyT(func(v *TaskOptions) TaskOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TaskOptions
+		return ret
+	}).(TaskOptionsOutput)
 }
 
 // A file metadata that shows the last time a file was accessed (that is when the file was read or written to). If set to `BEST_EFFORT`, the DataSync Task attempts to preserve the original (that is, the version before sync `PREPARING` phase) `atime` attribute on all source files. Valid values: `BEST_EFFORT`, `NONE`. Default: `BEST_EFFORT`.
@@ -1286,7 +1328,7 @@ func (o TaskScheduleOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
 }
 
 func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
-	return o.ApplyT(func(v TaskSchedule) *TaskSchedule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSchedule) *TaskSchedule {
 		return &v
 	}).(TaskSchedulePtrOutput)
 }
@@ -1311,7 +1353,13 @@ func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Co
 }
 
 func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
-	return o.ApplyT(func(v *TaskSchedule) TaskSchedule { return *v }).(TaskScheduleOutput)
+	return o.ApplyT(func(v *TaskSchedule) TaskSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSchedule
+		return ret
+	}).(TaskScheduleOutput)
 }
 
 // Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).

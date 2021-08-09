@@ -103,7 +103,7 @@ func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPt
 }
 
 func (o ConfgurationSetDeliveryOptionsOutput) ToConfgurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfgurationSetDeliveryOptionsPtrOutput {
-	return o.ApplyT(func(v ConfgurationSetDeliveryOptions) *ConfgurationSetDeliveryOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfgurationSetDeliveryOptions) *ConfgurationSetDeliveryOptions {
 		return &v
 	}).(ConfgurationSetDeliveryOptionsPtrOutput)
 }
@@ -128,7 +128,13 @@ func (o ConfgurationSetDeliveryOptionsPtrOutput) ToConfgurationSetDeliveryOption
 }
 
 func (o ConfgurationSetDeliveryOptionsPtrOutput) Elem() ConfgurationSetDeliveryOptionsOutput {
-	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) ConfgurationSetDeliveryOptions { return *v }).(ConfgurationSetDeliveryOptionsOutput)
+	return o.ApplyT(func(v *ConfgurationSetDeliveryOptions) ConfgurationSetDeliveryOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfgurationSetDeliveryOptions
+		return ret
+	}).(ConfgurationSetDeliveryOptionsOutput)
 }
 
 // Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
@@ -234,7 +240,7 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 }
 
 func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptionsPtrOutputWithContext(ctx context.Context) ConfigurationSetDeliveryOptionsPtrOutput {
-	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *ConfigurationSetDeliveryOptions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationSetDeliveryOptions) *ConfigurationSetDeliveryOptions {
 		return &v
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
@@ -259,7 +265,13 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) ToConfigurationSetDeliveryOpti
 }
 
 func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliveryOptionsOutput {
-	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) ConfigurationSetDeliveryOptions { return *v }).(ConfigurationSetDeliveryOptionsOutput)
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) ConfigurationSetDeliveryOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationSetDeliveryOptions
+		return ret
+	}).(ConfigurationSetDeliveryOptionsOutput)
 }
 
 // Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
@@ -484,7 +496,7 @@ func (o EventDestinationKinesisDestinationOutput) ToEventDestinationKinesisDesti
 }
 
 func (o EventDestinationKinesisDestinationOutput) ToEventDestinationKinesisDestinationPtrOutputWithContext(ctx context.Context) EventDestinationKinesisDestinationPtrOutput {
-	return o.ApplyT(func(v EventDestinationKinesisDestination) *EventDestinationKinesisDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDestinationKinesisDestination) *EventDestinationKinesisDestination {
 		return &v
 	}).(EventDestinationKinesisDestinationPtrOutput)
 }
@@ -514,7 +526,13 @@ func (o EventDestinationKinesisDestinationPtrOutput) ToEventDestinationKinesisDe
 }
 
 func (o EventDestinationKinesisDestinationPtrOutput) Elem() EventDestinationKinesisDestinationOutput {
-	return o.ApplyT(func(v *EventDestinationKinesisDestination) EventDestinationKinesisDestination { return *v }).(EventDestinationKinesisDestinationOutput)
+	return o.ApplyT(func(v *EventDestinationKinesisDestination) EventDestinationKinesisDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventDestinationKinesisDestination
+		return ret
+	}).(EventDestinationKinesisDestinationOutput)
 }
 
 // The ARN of the role that has permissions to access the Kinesis Stream
@@ -630,7 +648,7 @@ func (o EventDestinationSnsDestinationOutput) ToEventDestinationSnsDestinationPt
 }
 
 func (o EventDestinationSnsDestinationOutput) ToEventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) EventDestinationSnsDestinationPtrOutput {
-	return o.ApplyT(func(v EventDestinationSnsDestination) *EventDestinationSnsDestination {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventDestinationSnsDestination) *EventDestinationSnsDestination {
 		return &v
 	}).(EventDestinationSnsDestinationPtrOutput)
 }
@@ -655,7 +673,13 @@ func (o EventDestinationSnsDestinationPtrOutput) ToEventDestinationSnsDestinatio
 }
 
 func (o EventDestinationSnsDestinationPtrOutput) Elem() EventDestinationSnsDestinationOutput {
-	return o.ApplyT(func(v *EventDestinationSnsDestination) EventDestinationSnsDestination { return *v }).(EventDestinationSnsDestinationOutput)
+	return o.ApplyT(func(v *EventDestinationSnsDestination) EventDestinationSnsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret EventDestinationSnsDestination
+		return ret
+	}).(EventDestinationSnsDestinationOutput)
 }
 
 // The ARN of the SNS topic

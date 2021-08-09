@@ -113,7 +113,7 @@ func (o DeploymentConfigMinimumHealthyHostsOutput) ToDeploymentConfigMinimumHeal
 }
 
 func (o DeploymentConfigMinimumHealthyHostsOutput) ToDeploymentConfigMinimumHealthyHostsPtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPtrOutput {
-	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHosts) *DeploymentConfigMinimumHealthyHosts {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigMinimumHealthyHosts) *DeploymentConfigMinimumHealthyHosts {
 		return &v
 	}).(DeploymentConfigMinimumHealthyHostsPtrOutput)
 }
@@ -146,7 +146,13 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) ToDeploymentConfigMinimumH
 }
 
 func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Elem() DeploymentConfigMinimumHealthyHostsOutput {
-	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHosts) DeploymentConfigMinimumHealthyHosts { return *v }).(DeploymentConfigMinimumHealthyHostsOutput)
+	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHosts) DeploymentConfigMinimumHealthyHosts {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigMinimumHealthyHosts
+		return ret
+	}).(DeploymentConfigMinimumHealthyHostsOutput)
 }
 
 // The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
@@ -273,7 +279,7 @@ func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRou
 }
 
 func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigPtrOutput {
-	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTrafficRoutingConfig {
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
@@ -312,7 +318,13 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) ToDeploymentConfigTraffic
 }
 
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigOutput {
-	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) DeploymentConfigTrafficRoutingConfig { return *v }).(DeploymentConfigTrafficRoutingConfigOutput)
+	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) DeploymentConfigTrafficRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigTrafficRoutingConfig
+		return ret
+	}).(DeploymentConfigTrafficRoutingConfigOutput)
 }
 
 // The time based canary configuration information. If `type` is `TimeBasedLinear`, use `timeBasedLinear` instead.
@@ -442,7 +454,7 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ToDeploymentC
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput) ToDeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput {
-	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigTrafficRoutingConfigTimeBasedCanary) *DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput)
 }
@@ -473,7 +485,11 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) ToDeployme
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedCanaryPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfigTimeBasedCanary) DeploymentConfigTrafficRoutingConfigTimeBasedCanary {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigTrafficRoutingConfigTimeBasedCanary
+		return ret
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedCanaryOutput)
 }
 
@@ -594,7 +610,7 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ToDeploymentC
 }
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput) ToDeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutputWithContext(ctx context.Context) DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput {
-	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigTrafficRoutingConfigTimeBasedLinear) *DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
 		return &v
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput)
 }
@@ -625,7 +641,11 @@ func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) ToDeployme
 
 func (o DeploymentConfigTrafficRoutingConfigTimeBasedLinearPtrOutput) Elem() DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfigTimeBasedLinear) DeploymentConfigTrafficRoutingConfigTimeBasedLinear {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigTrafficRoutingConfigTimeBasedLinear
+		return ret
 	}).(DeploymentConfigTrafficRoutingConfigTimeBasedLinearOutput)
 }
 
@@ -754,7 +774,7 @@ func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigura
 }
 
 func (o DeploymentGroupAlarmConfigurationOutput) ToDeploymentGroupAlarmConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAlarmConfigurationPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupAlarmConfiguration) *DeploymentGroupAlarmConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAlarmConfiguration) *DeploymentGroupAlarmConfiguration {
 		return &v
 	}).(DeploymentGroupAlarmConfigurationPtrOutput)
 }
@@ -791,7 +811,13 @@ func (o DeploymentGroupAlarmConfigurationPtrOutput) ToDeploymentGroupAlarmConfig
 }
 
 func (o DeploymentGroupAlarmConfigurationPtrOutput) Elem() DeploymentGroupAlarmConfigurationOutput {
-	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) DeploymentGroupAlarmConfiguration { return *v }).(DeploymentGroupAlarmConfigurationOutput)
+	return o.ApplyT(func(v *DeploymentGroupAlarmConfiguration) DeploymentGroupAlarmConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupAlarmConfiguration
+		return ret
+	}).(DeploymentGroupAlarmConfigurationOutput)
 }
 
 // A list of alarms configured for the deployment group. _A maximum of 10 alarms can be added to a deployment group_.
@@ -923,7 +949,7 @@ func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRol
 }
 
 func (o DeploymentGroupAutoRollbackConfigurationOutput) ToDeploymentGroupAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) DeploymentGroupAutoRollbackConfigurationPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupAutoRollbackConfiguration) *DeploymentGroupAutoRollbackConfiguration {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupAutoRollbackConfiguration) *DeploymentGroupAutoRollbackConfiguration {
 		return &v
 	}).(DeploymentGroupAutoRollbackConfigurationPtrOutput)
 }
@@ -953,7 +979,13 @@ func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) ToDeploymentGroupAuto
 }
 
 func (o DeploymentGroupAutoRollbackConfigurationPtrOutput) Elem() DeploymentGroupAutoRollbackConfigurationOutput {
-	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) DeploymentGroupAutoRollbackConfiguration { return *v }).(DeploymentGroupAutoRollbackConfigurationOutput)
+	return o.ApplyT(func(v *DeploymentGroupAutoRollbackConfiguration) DeploymentGroupAutoRollbackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupAutoRollbackConfiguration
+		return ret
+	}).(DeploymentGroupAutoRollbackConfigurationOutput)
 }
 
 // Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
@@ -1077,7 +1109,7 @@ func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGre
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigOutput) ToDeploymentGroupBlueGreenDeploymentConfigPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfig) *DeploymentGroupBlueGreenDeploymentConfig {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigPtrOutput)
 }
@@ -1118,7 +1150,13 @@ func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) ToDeploymentGroupBlue
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigOutput {
-	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfig { return *v }).(DeploymentGroupBlueGreenDeploymentConfigOutput)
+	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfig) DeploymentGroupBlueGreenDeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueGreenDeploymentConfig
+		return ret
+	}).(DeploymentGroupBlueGreenDeploymentConfigOutput)
 }
 
 // Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
@@ -1252,7 +1290,7 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToD
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput)
 }
@@ -1287,7 +1325,11 @@ func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) 
 
 func (o DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption) DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption
+		return ret
 	}).(DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionOutput)
 }
 
@@ -1410,7 +1452,7 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutp
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput) ToDeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput)
 }
@@ -1438,7 +1480,11 @@ func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrO
 
 func (o DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption) DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption
+		return ret
 	}).(DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionOutput)
 }
 
@@ -1555,7 +1601,7 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 }
 
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput) ToDeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutputWithContext(ctx context.Context) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
 		return &v
 	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput)
 }
@@ -1592,7 +1638,11 @@ func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployme
 
 func (o DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessPtrOutput) Elem() DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput {
 	return o.ApplyT(func(v *DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess) DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess
+		return ret
 	}).(DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessOutput)
 }
 
@@ -1715,7 +1765,7 @@ func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePt
 }
 
 func (o DeploymentGroupDeploymentStyleOutput) ToDeploymentGroupDeploymentStylePtrOutputWithContext(ctx context.Context) DeploymentGroupDeploymentStylePtrOutput {
-	return o.ApplyT(func(v DeploymentGroupDeploymentStyle) *DeploymentGroupDeploymentStyle {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupDeploymentStyle) *DeploymentGroupDeploymentStyle {
 		return &v
 	}).(DeploymentGroupDeploymentStylePtrOutput)
 }
@@ -1745,7 +1795,13 @@ func (o DeploymentGroupDeploymentStylePtrOutput) ToDeploymentGroupDeploymentStyl
 }
 
 func (o DeploymentGroupDeploymentStylePtrOutput) Elem() DeploymentGroupDeploymentStyleOutput {
-	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle { return *v }).(DeploymentGroupDeploymentStyleOutput)
+	return o.ApplyT(func(v *DeploymentGroupDeploymentStyle) DeploymentGroupDeploymentStyle {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupDeploymentStyle
+		return ret
+	}).(DeploymentGroupDeploymentStyleOutput)
 }
 
 // Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
@@ -2192,7 +2248,7 @@ func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServicePtrOutput() 
 }
 
 func (o DeploymentGroupEcsServiceOutput) ToDeploymentGroupEcsServicePtrOutputWithContext(ctx context.Context) DeploymentGroupEcsServicePtrOutput {
-	return o.ApplyT(func(v DeploymentGroupEcsService) *DeploymentGroupEcsService {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupEcsService) *DeploymentGroupEcsService {
 		return &v
 	}).(DeploymentGroupEcsServicePtrOutput)
 }
@@ -2222,7 +2278,13 @@ func (o DeploymentGroupEcsServicePtrOutput) ToDeploymentGroupEcsServicePtrOutput
 }
 
 func (o DeploymentGroupEcsServicePtrOutput) Elem() DeploymentGroupEcsServiceOutput {
-	return o.ApplyT(func(v *DeploymentGroupEcsService) DeploymentGroupEcsService { return *v }).(DeploymentGroupEcsServiceOutput)
+	return o.ApplyT(func(v *DeploymentGroupEcsService) DeploymentGroupEcsService {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupEcsService
+		return ret
+	}).(DeploymentGroupEcsServiceOutput)
 }
 
 // The name of the ECS cluster.
@@ -2346,7 +2408,7 @@ func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfo
 }
 
 func (o DeploymentGroupLoadBalancerInfoOutput) ToDeploymentGroupLoadBalancerInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfo) *DeploymentGroupLoadBalancerInfo {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoPtrOutput)
 }
@@ -2385,7 +2447,13 @@ func (o DeploymentGroupLoadBalancerInfoPtrOutput) ToDeploymentGroupLoadBalancerI
 }
 
 func (o DeploymentGroupLoadBalancerInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoOutput {
-	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfo { return *v }).(DeploymentGroupLoadBalancerInfoOutput)
+	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfo) DeploymentGroupLoadBalancerInfo {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupLoadBalancerInfo
+		return ret
+	}).(DeploymentGroupLoadBalancerInfoOutput)
 }
 
 // The Classic Elastic Load Balancer to use in a deployment. Conflicts with `targetGroupInfo` and `targetGroupPairInfo`.
@@ -2713,7 +2781,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGr
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput {
-	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput)
 }
@@ -2755,7 +2823,11 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) ToDeploymen
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoPtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput {
 	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfo) DeploymentGroupLoadBalancerInfoTargetGroupPairInfo {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupLoadBalancerInfoTargetGroupPairInfo
+		return ret
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoOutput)
 }
 
@@ -2882,7 +2954,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput {
-	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput)
 }
@@ -2910,7 +2982,11 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOut
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoutePtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput {
 	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute
+		return ret
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteOutput)
 }
 
@@ -3114,7 +3190,7 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput
 }
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput) ToDeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutputWithContext(ctx context.Context) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput {
-	return o.ApplyT(func(v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
 		return &v
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput)
 }
@@ -3142,7 +3218,11 @@ func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOut
 
 func (o DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoutePtrOutput) Elem() DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput {
 	return o.ApplyT(func(v *DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute) DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute
+		return ret
 	}).(DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteOutput)
 }
 

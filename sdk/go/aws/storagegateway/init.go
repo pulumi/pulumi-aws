@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cache{}
 	case "aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume":
 		r = &CachesIscsiVolume{}
+	case "aws:storagegateway/fileSystemAssociation:FileSystemAssociation":
+		r = &FileSystemAssociation{}
 	case "aws:storagegateway/gateway:Gateway":
 		r = &Gateway{}
 	case "aws:storagegateway/nfsFileShare:NfsFileShare":
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"storagegateway/cachesIscsiVolume",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"storagegateway/fileSystemAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

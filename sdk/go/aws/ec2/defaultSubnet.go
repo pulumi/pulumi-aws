@@ -300,9 +300,7 @@ func (i DefaultSubnetMap) ToDefaultSubnetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultSubnetMapOutput)
 }
 
-type DefaultSubnetOutput struct {
-	*pulumi.OutputState
-}
+type DefaultSubnetOutput struct{ *pulumi.OutputState }
 
 func (DefaultSubnetOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DefaultSubnet)(nil))
@@ -321,14 +319,12 @@ func (o DefaultSubnetOutput) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutput {
 }
 
 func (o DefaultSubnetOutput) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
-	return o.ApplyT(func(v DefaultSubnet) *DefaultSubnet {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultSubnet) *DefaultSubnet {
 		return &v
 	}).(DefaultSubnetPtrOutput)
 }
 
-type DefaultSubnetPtrOutput struct {
-	*pulumi.OutputState
-}
+type DefaultSubnetPtrOutput struct{ *pulumi.OutputState }
 
 func (DefaultSubnetPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DefaultSubnet)(nil))
@@ -340,6 +336,16 @@ func (o DefaultSubnetPtrOutput) ToDefaultSubnetPtrOutput() DefaultSubnetPtrOutpu
 
 func (o DefaultSubnetPtrOutput) ToDefaultSubnetPtrOutputWithContext(ctx context.Context) DefaultSubnetPtrOutput {
 	return o
+}
+
+func (o DefaultSubnetPtrOutput) Elem() DefaultSubnetOutput {
+	return o.ApplyT(func(v *DefaultSubnet) DefaultSubnet {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultSubnet
+		return ret
+	}).(DefaultSubnetOutput)
 }
 
 type DefaultSubnetArrayOutput struct{ *pulumi.OutputState }

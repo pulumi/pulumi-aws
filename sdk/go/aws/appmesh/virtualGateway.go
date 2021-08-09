@@ -344,9 +344,7 @@ func (i VirtualGatewayMap) ToVirtualGatewayMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualGatewayMapOutput)
 }
 
-type VirtualGatewayOutput struct {
-	*pulumi.OutputState
-}
+type VirtualGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualGateway)(nil))
@@ -365,14 +363,12 @@ func (o VirtualGatewayOutput) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOutpu
 }
 
 func (o VirtualGatewayOutput) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
-	return o.ApplyT(func(v VirtualGateway) *VirtualGateway {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualGateway) *VirtualGateway {
 		return &v
 	}).(VirtualGatewayPtrOutput)
 }
 
-type VirtualGatewayPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualGatewayPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualGatewayPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualGateway)(nil))
@@ -384,6 +380,16 @@ func (o VirtualGatewayPtrOutput) ToVirtualGatewayPtrOutput() VirtualGatewayPtrOu
 
 func (o VirtualGatewayPtrOutput) ToVirtualGatewayPtrOutputWithContext(ctx context.Context) VirtualGatewayPtrOutput {
 	return o
+}
+
+func (o VirtualGatewayPtrOutput) Elem() VirtualGatewayOutput {
+	return o.ApplyT(func(v *VirtualGateway) VirtualGateway {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualGateway
+		return ret
+	}).(VirtualGatewayOutput)
 }
 
 type VirtualGatewayArrayOutput struct{ *pulumi.OutputState }

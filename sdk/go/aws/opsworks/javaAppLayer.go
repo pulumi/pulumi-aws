@@ -441,9 +441,7 @@ func (i JavaAppLayerMap) ToJavaAppLayerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(JavaAppLayerMapOutput)
 }
 
-type JavaAppLayerOutput struct {
-	*pulumi.OutputState
-}
+type JavaAppLayerOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*JavaAppLayer)(nil))
@@ -462,14 +460,12 @@ func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
 }
 
 func (o JavaAppLayerOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
-	return o.ApplyT(func(v JavaAppLayer) *JavaAppLayer {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JavaAppLayer) *JavaAppLayer {
 		return &v
 	}).(JavaAppLayerPtrOutput)
 }
 
-type JavaAppLayerPtrOutput struct {
-	*pulumi.OutputState
-}
+type JavaAppLayerPtrOutput struct{ *pulumi.OutputState }
 
 func (JavaAppLayerPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**JavaAppLayer)(nil))
@@ -481,6 +477,16 @@ func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutput() JavaAppLayerPtrOutput {
 
 func (o JavaAppLayerPtrOutput) ToJavaAppLayerPtrOutputWithContext(ctx context.Context) JavaAppLayerPtrOutput {
 	return o
+}
+
+func (o JavaAppLayerPtrOutput) Elem() JavaAppLayerOutput {
+	return o.ApplyT(func(v *JavaAppLayer) JavaAppLayer {
+		if v != nil {
+			return *v
+		}
+		var ret JavaAppLayer
+		return ret
+	}).(JavaAppLayerOutput)
 }
 
 type JavaAppLayerArrayOutput struct{ *pulumi.OutputState }

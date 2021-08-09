@@ -336,9 +336,7 @@ func (i ResolverRuleMap) ToResolverRuleMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleMapOutput)
 }
 
-type ResolverRuleOutput struct {
-	*pulumi.OutputState
-}
+type ResolverRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ResolverRule)(nil))
@@ -357,14 +355,12 @@ func (o ResolverRuleOutput) ToResolverRulePtrOutput() ResolverRulePtrOutput {
 }
 
 func (o ResolverRuleOutput) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
-	return o.ApplyT(func(v ResolverRule) *ResolverRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRule) *ResolverRule {
 		return &v
 	}).(ResolverRulePtrOutput)
 }
 
-type ResolverRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type ResolverRulePtrOutput struct{ *pulumi.OutputState }
 
 func (ResolverRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ResolverRule)(nil))
@@ -376,6 +372,16 @@ func (o ResolverRulePtrOutput) ToResolverRulePtrOutput() ResolverRulePtrOutput {
 
 func (o ResolverRulePtrOutput) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
 	return o
+}
+
+func (o ResolverRulePtrOutput) Elem() ResolverRuleOutput {
+	return o.ApplyT(func(v *ResolverRule) ResolverRule {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverRule
+		return ret
+	}).(ResolverRuleOutput)
 }
 
 type ResolverRuleArrayOutput struct{ *pulumi.OutputState }

@@ -337,9 +337,7 @@ func (i DeploymentConfigMap) ToDeploymentConfigMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMapOutput)
 }
 
-type DeploymentConfigOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeploymentConfig)(nil))
@@ -358,14 +356,12 @@ func (o DeploymentConfigOutput) ToDeploymentConfigPtrOutput() DeploymentConfigPt
 }
 
 func (o DeploymentConfigOutput) ToDeploymentConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigPtrOutput {
-	return o.ApplyT(func(v DeploymentConfig) *DeploymentConfig {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfig) *DeploymentConfig {
 		return &v
 	}).(DeploymentConfigPtrOutput)
 }
 
-type DeploymentConfigPtrOutput struct {
-	*pulumi.OutputState
-}
+type DeploymentConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DeploymentConfig)(nil))
@@ -377,6 +373,16 @@ func (o DeploymentConfigPtrOutput) ToDeploymentConfigPtrOutput() DeploymentConfi
 
 func (o DeploymentConfigPtrOutput) ToDeploymentConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigPtrOutput {
 	return o
+}
+
+func (o DeploymentConfigPtrOutput) Elem() DeploymentConfigOutput {
+	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfig
+		return ret
+	}).(DeploymentConfigOutput)
 }
 
 type DeploymentConfigArrayOutput struct{ *pulumi.OutputState }

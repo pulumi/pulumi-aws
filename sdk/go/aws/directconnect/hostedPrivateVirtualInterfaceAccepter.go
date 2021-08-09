@@ -286,9 +286,7 @@ func (i HostedPrivateVirtualInterfaceAccepterMap) ToHostedPrivateVirtualInterfac
 	return pulumi.ToOutputWithContext(ctx, i).(HostedPrivateVirtualInterfaceAccepterMapOutput)
 }
 
-type HostedPrivateVirtualInterfaceAccepterOutput struct {
-	*pulumi.OutputState
-}
+type HostedPrivateVirtualInterfaceAccepterOutput struct{ *pulumi.OutputState }
 
 func (HostedPrivateVirtualInterfaceAccepterOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*HostedPrivateVirtualInterfaceAccepter)(nil))
@@ -307,14 +305,12 @@ func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInter
 }
 
 func (o HostedPrivateVirtualInterfaceAccepterOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
-	return o.ApplyT(func(v HostedPrivateVirtualInterfaceAccepter) *HostedPrivateVirtualInterfaceAccepter {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostedPrivateVirtualInterfaceAccepter) *HostedPrivateVirtualInterfaceAccepter {
 		return &v
 	}).(HostedPrivateVirtualInterfaceAccepterPtrOutput)
 }
 
-type HostedPrivateVirtualInterfaceAccepterPtrOutput struct {
-	*pulumi.OutputState
-}
+type HostedPrivateVirtualInterfaceAccepterPtrOutput struct{ *pulumi.OutputState }
 
 func (HostedPrivateVirtualInterfaceAccepterPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**HostedPrivateVirtualInterfaceAccepter)(nil))
@@ -326,6 +322,16 @@ func (o HostedPrivateVirtualInterfaceAccepterPtrOutput) ToHostedPrivateVirtualIn
 
 func (o HostedPrivateVirtualInterfaceAccepterPtrOutput) ToHostedPrivateVirtualInterfaceAccepterPtrOutputWithContext(ctx context.Context) HostedPrivateVirtualInterfaceAccepterPtrOutput {
 	return o
+}
+
+func (o HostedPrivateVirtualInterfaceAccepterPtrOutput) Elem() HostedPrivateVirtualInterfaceAccepterOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterfaceAccepter) HostedPrivateVirtualInterfaceAccepter {
+		if v != nil {
+			return *v
+		}
+		var ret HostedPrivateVirtualInterfaceAccepter
+		return ret
+	}).(HostedPrivateVirtualInterfaceAccepterOutput)
 }
 
 type HostedPrivateVirtualInterfaceAccepterArrayOutput struct{ *pulumi.OutputState }

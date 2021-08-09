@@ -291,9 +291,7 @@ func (i ManagedPrefixListMap) ToManagedPrefixListMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListMapOutput)
 }
 
-type ManagedPrefixListOutput struct {
-	*pulumi.OutputState
-}
+type ManagedPrefixListOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ManagedPrefixList)(nil))
@@ -312,14 +310,12 @@ func (o ManagedPrefixListOutput) ToManagedPrefixListPtrOutput() ManagedPrefixLis
 }
 
 func (o ManagedPrefixListOutput) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
-	return o.ApplyT(func(v ManagedPrefixList) *ManagedPrefixList {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedPrefixList) *ManagedPrefixList {
 		return &v
 	}).(ManagedPrefixListPtrOutput)
 }
 
-type ManagedPrefixListPtrOutput struct {
-	*pulumi.OutputState
-}
+type ManagedPrefixListPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ManagedPrefixList)(nil))
@@ -331,6 +327,16 @@ func (o ManagedPrefixListPtrOutput) ToManagedPrefixListPtrOutput() ManagedPrefix
 
 func (o ManagedPrefixListPtrOutput) ToManagedPrefixListPtrOutputWithContext(ctx context.Context) ManagedPrefixListPtrOutput {
 	return o
+}
+
+func (o ManagedPrefixListPtrOutput) Elem() ManagedPrefixListOutput {
+	return o.ApplyT(func(v *ManagedPrefixList) ManagedPrefixList {
+		if v != nil {
+			return *v
+		}
+		var ret ManagedPrefixList
+		return ret
+	}).(ManagedPrefixListOutput)
 }
 
 type ManagedPrefixListArrayOutput struct{ *pulumi.OutputState }

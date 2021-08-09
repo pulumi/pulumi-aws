@@ -330,9 +330,7 @@ func (i FeatureGroupMap) ToFeatureGroupMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupMapOutput)
 }
 
-type FeatureGroupOutput struct {
-	*pulumi.OutputState
-}
+type FeatureGroupOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FeatureGroup)(nil))
@@ -351,14 +349,12 @@ func (o FeatureGroupOutput) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
 }
 
 func (o FeatureGroupOutput) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
-	return o.ApplyT(func(v FeatureGroup) *FeatureGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroup) *FeatureGroup {
 		return &v
 	}).(FeatureGroupPtrOutput)
 }
 
-type FeatureGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type FeatureGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FeatureGroup)(nil))
@@ -370,6 +366,16 @@ func (o FeatureGroupPtrOutput) ToFeatureGroupPtrOutput() FeatureGroupPtrOutput {
 
 func (o FeatureGroupPtrOutput) ToFeatureGroupPtrOutputWithContext(ctx context.Context) FeatureGroupPtrOutput {
 	return o
+}
+
+func (o FeatureGroupPtrOutput) Elem() FeatureGroupOutput {
+	return o.ApplyT(func(v *FeatureGroup) FeatureGroup {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroup
+		return ret
+	}).(FeatureGroupOutput)
 }
 
 type FeatureGroupArrayOutput struct{ *pulumi.OutputState }
