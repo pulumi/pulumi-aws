@@ -168,11 +168,13 @@ type Instance struct {
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The engine version to use. If `autoMinorVersionUpgrade`
-	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
+	// The running version of the database.
+	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -408,11 +410,13 @@ type instanceState struct {
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
 	// The engine version to use. If `autoMinorVersionUpgrade`
-	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
 	EngineVersion *string `pulumi:"engineVersion"`
+	// The running version of the database.
+	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -617,11 +621,13 @@ type InstanceState struct {
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
 	// The engine version to use. If `autoMinorVersionUpgrade`
-	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
 	EngineVersion pulumi.StringPtrInput
+	// The running version of the database.
+	EngineVersionActual pulumi.StringPtrInput
 	// The name of your final DB snapshot
 	// when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
 	// set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -824,8 +830,8 @@ type instanceArgs struct {
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
 	// The engine version to use. If `autoMinorVersionUpgrade`
-	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
 	EngineVersion *string `pulumi:"engineVersion"`
@@ -1018,8 +1024,8 @@ type InstanceArgs struct {
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
 	// The engine version to use. If `autoMinorVersionUpgrade`
-	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-	// this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+	// is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+	// The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	// For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
 	// Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
 	EngineVersion pulumi.StringPtrInput

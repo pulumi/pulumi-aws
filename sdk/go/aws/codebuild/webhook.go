@@ -34,6 +34,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := codebuild.NewWebhook(ctx, "example", &codebuild.WebhookArgs{
 // 			ProjectName: pulumi.Any(aws_codebuild_project.Example.Name),
+// 			BuildType:   pulumi.String("BUILD"),
 // 			FilterGroups: codebuild.WebhookFilterGroupArray{
 // 				&codebuild.WebhookFilterGroupArgs{
 // 					Filters: codebuild.WebhookFilterGroupFilterArray{
@@ -112,6 +113,8 @@ type Webhook struct {
 
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrOutput `pulumi:"branchFilter"`
+	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	BuildType pulumi.StringPtrOutput `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayOutput `pulumi:"filterGroups"`
 	// The CodeBuild endpoint where webhook events are sent.
@@ -158,6 +161,8 @@ func GetWebhook(ctx *pulumi.Context,
 type webhookState struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
+	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
 	// The CodeBuild endpoint where webhook events are sent.
@@ -173,6 +178,8 @@ type webhookState struct {
 type WebhookState struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
+	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayInput
 	// The CodeBuild endpoint where webhook events are sent.
@@ -192,6 +199,8 @@ func (WebhookState) ElementType() reflect.Type {
 type webhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
+	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	BuildType *string `pulumi:"buildType"`
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups []WebhookFilterGroup `pulumi:"filterGroups"`
 	// The name of the build project.
@@ -202,6 +211,8 @@ type webhookArgs struct {
 type WebhookArgs struct {
 	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
+	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+	BuildType pulumi.StringPtrInput
 	// Information about the webhook's trigger. Filter group blocks are documented below.
 	FilterGroups WebhookFilterGroupArrayInput
 	// The name of the build project.

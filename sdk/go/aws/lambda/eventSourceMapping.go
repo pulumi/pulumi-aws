@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
 //
 // For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
 // For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -152,6 +152,78 @@ import (
 // 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
 // 			EventSourceArn: pulumi.Any(aws_sqs_queue.Sqs_queue_test.Arn),
 // 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Amazon MQ (ActiveMQ)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 			BatchSize:      pulumi.Int(10),
+// 			EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
+// 			Enabled:        pulumi.Bool(true),
+// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+// 			Queues: pulumi.StringArray{
+// 				pulumi.String("example"),
+// 			},
+// 			SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+// 					Type: pulumi.String("BASIC_AUTH"),
+// 					Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Amazon MQ (RabbitMQ)
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lambda.NewEventSourceMapping(ctx, "example", &lambda.EventSourceMappingArgs{
+// 			BatchSize:      pulumi.Int(1),
+// 			EventSourceArn: pulumi.Any(aws_mq_broker.Example.Arn),
+// 			Enabled:        pulumi.Bool(true),
+// 			FunctionName:   pulumi.Any(aws_lambda_function.Example.Arn),
+// 			Queues: pulumi.StringArray{
+// 				pulumi.String("example"),
+// 			},
+// 			SourceAccessConfigurations: lambda.EventSourceMappingSourceAccessConfigurationArray{
+// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+// 					Type: pulumi.String("VIRTUAL_HOST"),
+// 					Uri:  pulumi.String("/example"),
+// 				},
+// 				&lambda.EventSourceMappingSourceAccessConfigurationArgs{
+// 					Type: pulumi.String("BASIC_AUTH"),
+// 					Uri:  pulumi.Any(aws_secretsmanager_secret_version.Example.Arn),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err

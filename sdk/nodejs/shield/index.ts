@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./protection";
+export * from "./protectionGroup";
 
 // Import resources to register:
 import { Protection } from "./protection";
+import { ProtectionGroup } from "./protectionGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:shield/protection:Protection":
                 return new Protection(name, <any>undefined, { urn })
+            case "aws:shield/protectionGroup:ProtectionGroup":
+                return new ProtectionGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "shield/protection", _module)
+pulumi.runtime.registerResourceModule("aws", "shield/protectionGroup", _module)

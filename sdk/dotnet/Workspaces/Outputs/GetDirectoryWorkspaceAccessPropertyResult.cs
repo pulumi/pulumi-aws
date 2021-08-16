@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// </summary>
         public readonly string DeviceTypeIos;
         /// <summary>
+        /// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+        /// </summary>
+        public readonly string DeviceTypeLinux;
+        /// <summary>
         /// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
         /// </summary>
         public readonly string DeviceTypeOsx;
@@ -50,6 +54,8 @@ namespace Pulumi.Aws.Workspaces.Outputs
 
             string deviceTypeIos,
 
+            string deviceTypeLinux,
+
             string deviceTypeOsx,
 
             string deviceTypeWeb,
@@ -61,6 +67,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
             DeviceTypeAndroid = deviceTypeAndroid;
             DeviceTypeChromeos = deviceTypeChromeos;
             DeviceTypeIos = deviceTypeIos;
+            DeviceTypeLinux = deviceTypeLinux;
             DeviceTypeOsx = deviceTypeOsx;
             DeviceTypeWeb = deviceTypeWeb;
             DeviceTypeWindows = deviceTypeWindows;

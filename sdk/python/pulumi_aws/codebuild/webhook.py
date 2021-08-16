@@ -17,16 +17,20 @@ class WebhookArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[str],
                  branch_filter: Optional[pulumi.Input[str]] = None,
+                 build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None):
         """
         The set of arguments for constructing a Webhook resource.
         :param pulumi.Input[str] project_name: The name of the build project.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         """
         pulumi.set(__self__, "project_name", project_name)
         if branch_filter is not None:
             pulumi.set(__self__, "branch_filter", branch_filter)
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
 
@@ -55,6 +59,18 @@ class WebhookArgs:
         pulumi.set(self, "branch_filter", value)
 
     @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        """
+        return pulumi.get(self, "build_type")
+
+    @build_type.setter
+    def build_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_type", value)
+
+    @property
     @pulumi.getter(name="filterGroups")
     def filter_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]]:
         """
@@ -71,6 +87,7 @@ class WebhookArgs:
 class _WebhookState:
     def __init__(__self__, *,
                  branch_filter: Optional[pulumi.Input[str]] = None,
+                 build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]]] = None,
                  payload_url: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
@@ -79,6 +96,7 @@ class _WebhookState:
         """
         Input properties used for looking up and filtering Webhook resources.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupArgs']]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[str] project_name: The name of the build project.
@@ -87,6 +105,8 @@ class _WebhookState:
         """
         if branch_filter is not None:
             pulumi.set(__self__, "branch_filter", branch_filter)
+        if build_type is not None:
+            pulumi.set(__self__, "build_type", build_type)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
         if payload_url is not None:
@@ -109,6 +129,18 @@ class _WebhookState:
     @branch_filter.setter
     def branch_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch_filter", value)
+
+    @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        """
+        return pulumi.get(self, "build_type")
+
+    @build_type.setter
+    def build_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_type", value)
 
     @property
     @pulumi.getter(name="filterGroups")
@@ -177,6 +209,7 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_filter: Optional[pulumi.Input[str]] = None,
+                 build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -198,6 +231,7 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example",
             project_name=aws_codebuild_project["example"]["name"],
+            build_type="BUILD",
             filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
                 filters=[
                     aws.codebuild.WebhookFilterGroupFilterArgs(
@@ -246,6 +280,7 @@ class Webhook(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] project_name: The name of the build project.
         """
@@ -273,6 +308,7 @@ class Webhook(pulumi.CustomResource):
 
         example = aws.codebuild.Webhook("example",
             project_name=aws_codebuild_project["example"]["name"],
+            build_type="BUILD",
             filter_groups=[aws.codebuild.WebhookFilterGroupArgs(
                 filters=[
                     aws.codebuild.WebhookFilterGroupFilterArgs(
@@ -334,6 +370,7 @@ class Webhook(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  branch_filter: Optional[pulumi.Input[str]] = None,
+                 build_type: Optional[pulumi.Input[str]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -349,6 +386,7 @@ class Webhook(pulumi.CustomResource):
             __props__ = WebhookArgs.__new__(WebhookArgs)
 
             __props__.__dict__["branch_filter"] = branch_filter
+            __props__.__dict__["build_type"] = build_type
             __props__.__dict__["filter_groups"] = filter_groups
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
@@ -367,6 +405,7 @@ class Webhook(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             branch_filter: Optional[pulumi.Input[str]] = None,
+            build_type: Optional[pulumi.Input[str]] = None,
             filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]]] = None,
             payload_url: Optional[pulumi.Input[str]] = None,
             project_name: Optional[pulumi.Input[str]] = None,
@@ -380,6 +419,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch_filter: A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
+        :param pulumi.Input[str] build_type: The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterGroupArgs']]]] filter_groups: Information about the webhook's trigger. Filter group blocks are documented below.
         :param pulumi.Input[str] payload_url: The CodeBuild endpoint where webhook events are sent.
         :param pulumi.Input[str] project_name: The name of the build project.
@@ -391,6 +431,7 @@ class Webhook(pulumi.CustomResource):
         __props__ = _WebhookState.__new__(_WebhookState)
 
         __props__.__dict__["branch_filter"] = branch_filter
+        __props__.__dict__["build_type"] = build_type
         __props__.__dict__["filter_groups"] = filter_groups
         __props__.__dict__["payload_url"] = payload_url
         __props__.__dict__["project_name"] = project_name
@@ -405,6 +446,14 @@ class Webhook(pulumi.CustomResource):
         A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filter_group` over `branch_filter`.
         """
         return pulumi.get(self, "branch_filter")
+
+    @property
+    @pulumi.getter(name="buildType")
+    def build_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        """
+        return pulumi.get(self, "build_type")
 
     @property
     @pulumi.getter(name="filterGroups")

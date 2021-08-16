@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:shield/protection:Protection":
 		r = &Protection{}
+	case "aws:shield/protectionGroup:ProtectionGroup":
+		r = &ProtectionGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"shield/protection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"shield/protectionGroup",
 		&module{version},
 	)
 }

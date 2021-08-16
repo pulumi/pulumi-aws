@@ -1644,7 +1644,9 @@ class MetricAlarmMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "returnData":
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "returnData":
             suggest = "return_data"
 
         if suggest:
@@ -1660,6 +1662,7 @@ class MetricAlarmMetricQuery(dict):
 
     def __init__(__self__, *,
                  id: str,
+                 account_id: Optional[str] = None,
                  expression: Optional[str] = None,
                  label: Optional[str] = None,
                  metric: Optional['outputs.MetricAlarmMetricQueryMetric'] = None,
@@ -1672,6 +1675,8 @@ class MetricAlarmMetricQuery(dict):
         :param bool return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         """
         pulumi.set(__self__, "id", id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if label is not None:
@@ -1688,6 +1693,11 @@ class MetricAlarmMetricQuery(dict):
         A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[str]:
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter

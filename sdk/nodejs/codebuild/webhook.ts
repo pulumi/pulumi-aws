@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.codebuild.Webhook("example", {
  *     projectName: aws_codebuild_project.example.name,
+ *     buildType: "BUILD",
  *     filterGroups: [{
  *         filters: [
  *             {
@@ -103,6 +104,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly branchFilter!: pulumi.Output<string | undefined>;
     /**
+     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     */
+    public readonly buildType!: pulumi.Output<string | undefined>;
+    /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
     public readonly filterGroups!: pulumi.Output<outputs.codebuild.WebhookFilterGroup[] | undefined>;
@@ -137,6 +142,7 @@ export class Webhook extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
             inputs["branchFilter"] = state ? state.branchFilter : undefined;
+            inputs["buildType"] = state ? state.buildType : undefined;
             inputs["filterGroups"] = state ? state.filterGroups : undefined;
             inputs["payloadUrl"] = state ? state.payloadUrl : undefined;
             inputs["projectName"] = state ? state.projectName : undefined;
@@ -148,6 +154,7 @@ export class Webhook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'projectName'");
             }
             inputs["branchFilter"] = args ? args.branchFilter : undefined;
+            inputs["buildType"] = args ? args.buildType : undefined;
             inputs["filterGroups"] = args ? args.filterGroups : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
             inputs["payloadUrl"] = undefined /*out*/;
@@ -169,6 +176,10 @@ export interface WebhookState {
      * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
      */
     branchFilter?: pulumi.Input<string>;
+    /**
+     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     */
+    buildType?: pulumi.Input<string>;
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */
@@ -199,6 +210,10 @@ export interface WebhookArgs {
      * A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
      */
     branchFilter?: pulumi.Input<string>;
+    /**
+     * The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+     */
+    buildType?: pulumi.Input<string>;
     /**
      * Information about the webhook's trigger. Filter group blocks are documented below.
      */

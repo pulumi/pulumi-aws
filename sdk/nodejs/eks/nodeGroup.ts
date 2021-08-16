@@ -135,7 +135,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly forceUpdateVersion!: pulumi.Output<boolean | undefined>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
      */
     public readonly instanceTypes!: pulumi.Output<string[]>;
     /**
@@ -307,7 +307,7 @@ export interface NodeGroupState {
      */
     forceUpdateVersion?: pulumi.Input<boolean>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
      */
     instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -397,7 +397,7 @@ export interface NodeGroupArgs {
      */
     forceUpdateVersion?: pulumi.Input<boolean>;
     /**
-     * List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+     * Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
      */
     instanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

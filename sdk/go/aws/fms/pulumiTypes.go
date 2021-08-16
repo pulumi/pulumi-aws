@@ -13,6 +13,7 @@ import (
 type PolicyExcludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
+	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -30,6 +31,7 @@ type PolicyExcludeMapInput interface {
 type PolicyExcludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -115,6 +117,7 @@ func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
+// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -153,6 +156,7 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -165,6 +169,7 @@ func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 type PolicyIncludeMap struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
+	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits []string `pulumi:"orgunits"`
 }
 
@@ -182,6 +187,7 @@ type PolicyIncludeMapInput interface {
 type PolicyIncludeMapArgs struct {
 	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
+	// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
 }
 
@@ -267,6 +273,7 @@ func (o PolicyIncludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
+// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyIncludeMapOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIncludeMap) []string { return v.Orgunits }).(pulumi.StringArrayOutput)
 }
@@ -305,6 +312,7 @@ func (o PolicyIncludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 func (o PolicyIncludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyIncludeMap) []string {
 		if v == nil {

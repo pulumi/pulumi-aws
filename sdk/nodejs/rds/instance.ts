@@ -208,12 +208,16 @@ export class Instance extends pulumi.CustomResource {
     public readonly engine!: pulumi.Output<string>;
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-     * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
     public readonly engineVersion!: pulumi.Output<string>;
+    /**
+     * The running version of the database.
+     */
+    public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -464,6 +468,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
+            inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["iamDatabaseAuthenticationEnabled"] = state ? state.iamDatabaseAuthenticationEnabled : undefined;
@@ -568,6 +573,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["address"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["engineVersionActual"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["latestRestorableTime"] = undefined /*out*/;
             inputs["replicas"] = undefined /*out*/;
@@ -695,12 +701,16 @@ export interface InstanceState {
     engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-     * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * The running version of the database.
+     */
+    engineVersionActual?: pulumi.Input<string>;
     /**
      * The name of your final DB snapshot
      * when this DB instance is deleted. Must be provided if `skipFinalSnapshot` is
@@ -1019,8 +1029,8 @@ export interface InstanceArgs {
     engine?: pulumi.Input<string>;
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
-     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-     * this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+     * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
      */

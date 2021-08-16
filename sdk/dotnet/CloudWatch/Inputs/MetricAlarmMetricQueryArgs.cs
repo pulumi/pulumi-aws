@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class MetricAlarmMetricQueryArgs : Pulumi.ResourceArgs
     {
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         /// <summary>
         /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
         /// </summary>

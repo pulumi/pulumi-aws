@@ -173,6 +173,8 @@ type WorkgroupConfiguration struct {
 	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
+	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. Documented below.
 	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
 }
@@ -195,6 +197,8 @@ type WorkgroupConfigurationArgs struct {
 	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
+	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
 	// Configuration block with result settings. Documented below.
 	ResultConfiguration WorkgroupConfigurationResultConfigurationPtrInput `pulumi:"resultConfiguration"`
 }
@@ -291,6 +295,11 @@ func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.B
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+func (o WorkgroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Configuration block with result settings. Documented below.
 func (o WorkgroupConfigurationOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
@@ -349,6 +358,16 @@ func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulum
 			return nil
 		}
 		return v.PublishCloudwatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+func (o WorkgroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequesterPaysEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

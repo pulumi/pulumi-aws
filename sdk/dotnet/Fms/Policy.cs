@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Fms
         public Output<bool?> DeleteAllPolicyResources { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        /// A map of lists of accounts and OU's to exclude from the policy.
         /// </summary>
         [Output("excludeMap")]
         public Output<Outputs.PolicyExcludeMap?> ExcludeMap { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Fms
         public Output<bool> ExcludeResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        /// A map of lists of accounts and OU's to include in the policy.
         /// </summary>
         [Output("includeMap")]
         public Output<Outputs.PolicyIncludeMap?> IncludeMap { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? DeleteAllPolicyResources { get; set; }
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        /// A map of lists of accounts and OU's to exclude from the policy.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapArgs>? ExcludeMap { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        /// A map of lists of accounts and OU's to include in the policy.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapArgs>? IncludeMap { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? DeleteAllPolicyResources { get; set; }
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        /// A map of lists of accounts and OU's to exclude from the policy.
         /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyExcludeMapGetArgs>? ExcludeMap { get; set; }
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Fms
         public Input<bool>? ExcludeResourceTags { get; set; }
 
         /// <summary>
-        /// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        /// A map of lists of accounts and OU's to include in the policy.
         /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIncludeMapGetArgs>? IncludeMap { get; set; }
