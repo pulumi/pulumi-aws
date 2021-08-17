@@ -59,6 +59,7 @@ const (
 	backupMod                   = "Backup"                   // Backup
 	batchMod                    = "Batch"                    // Batch
 	budgetsMod                  = "Budgets"                  // Budgets
+	chimeMod                    = "Chime"                    // Chime
 	cloud9Mod                   = "Cloud9"                   // Cloud9
 	cloudformationMod           = "CloudFormation"           // Cloud Formation
 	cloudhsmv2Mod               = "CloudHsmV2"               // Cloud HSM
@@ -678,6 +679,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Budgets
 			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
+			// Chime
+			"aws_chime_voice_connector": {Tok: awsResource(chimeMod, "VoiceConnector")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -2206,7 +2209,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ses_event_destination":            {Tok: awsResource(sesMod, "EventDestination")},
 			"aws_ses_template":                     {Tok: awsResource(sesMod, "Template")},
 			// Shield
-			"aws_shield_protection": {Tok: awsResource(shieldMod, "Protection")},
+			"aws_shield_protection":       {Tok: awsResource(shieldMod, "Protection")},
+			"aws_shield_protection_group": {Tok: awsResource(shieldMod, "ProtectionGroup")},
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {

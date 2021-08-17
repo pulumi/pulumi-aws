@@ -113,6 +113,7 @@ import (
 // 				DeviceTypeAndroid:    pulumi.String("ALLOW"),
 // 				DeviceTypeChromeos:   pulumi.String("ALLOW"),
 // 				DeviceTypeIos:        pulumi.String("ALLOW"),
+// 				DeviceTypeLinux:      pulumi.String("DENY"),
 // 				DeviceTypeOsx:        pulumi.String("ALLOW"),
 // 				DeviceTypeWeb:        pulumi.String("DENY"),
 // 				DeviceTypeWindows:    pulumi.String("DENY"),

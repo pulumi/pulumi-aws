@@ -70,6 +70,8 @@ if typing.TYPE_CHECKING:
     budgets = __budgets
     import pulumi_aws.cfg as __cfg
     cfg = __cfg
+    import pulumi_aws.chime as __chime
+    chime = __chime
     import pulumi_aws.cloud9 as __cloud9
     cloud9 = __cloud9
     import pulumi_aws.cloudformation as __cloudformation
@@ -328,6 +330,7 @@ else:
     batch = _utilities.lazy_import('pulumi_aws.batch')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
+    chime = _utilities.lazy_import('pulumi_aws.chime')
     cloud9 = _utilities.lazy_import('pulumi_aws.cloud9')
     cloudformation = _utilities.lazy_import('pulumi_aws.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws.cloudfront')
@@ -1392,6 +1395,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cfg",
   "classes": {
    "aws:cfg/rule:Rule": "Rule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/voiceConnector",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnector:VoiceConnector": "VoiceConnector"
   }
  },
  {
@@ -6136,6 +6147,14 @@ _utilities.register(
   "fqn": "pulumi_aws.shield",
   "classes": {
    "aws:shield/protection:Protection": "Protection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/protectionGroup",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/protectionGroup:ProtectionGroup": "ProtectionGroup"
   }
  },
  {

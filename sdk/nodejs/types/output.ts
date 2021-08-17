@@ -4538,6 +4538,10 @@ export namespace athena {
          */
         publishCloudwatchMetricsEnabled?: boolean;
         /**
+         * If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+         */
+        requesterPaysEnabled?: boolean;
+        /**
          * Configuration block with result settings. Documented below.
          */
         resultConfiguration?: outputs.athena.WorkgroupConfigurationResultConfiguration;
@@ -7037,6 +7041,7 @@ export namespace cloudwatch {
     }
 
     export interface MetricAlarmMetricQuery {
+        accountId?: string;
         /**
          * The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
          */
@@ -15280,6 +15285,9 @@ export namespace fms {
          * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
          */
         accounts?: string[];
+        /**
+         * A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+         */
         orgunits?: string[];
     }
 
@@ -15288,6 +15296,9 @@ export namespace fms {
          * A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
          */
         accounts?: string[];
+        /**
+         * A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+         */
         orgunits?: string[];
     }
 
@@ -69361,6 +69372,10 @@ export namespace workspaces {
          */
         deviceTypeIos?: string;
         /**
+         * Indicates whether users can use Linux clients to access their WorkSpaces.
+         */
+        deviceTypeLinux?: string;
+        /**
          * Indicates whether users can use macOS clients to access their WorkSpaces.
          */
         deviceTypeOsx?: string;
@@ -69458,6 +69473,10 @@ export namespace workspaces {
          * (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
          */
         deviceTypeIos: string;
+        /**
+         * (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+         */
+        deviceTypeLinux: string;
         /**
          * (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
          */

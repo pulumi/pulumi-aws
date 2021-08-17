@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public Input<string>? DeviceTypeIos { get; set; }
 
         /// <summary>
+        /// Indicates whether users can use Linux clients to access their WorkSpaces.
+        /// </summary>
+        [Input("deviceTypeLinux")]
+        public Input<string>? DeviceTypeLinux { get; set; }
+
+        /// <summary>
         /// Indicates whether users can use macOS clients to access their WorkSpaces.
         /// </summary>
         [Input("deviceTypeOsx")]

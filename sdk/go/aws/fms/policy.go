@@ -88,11 +88,11 @@ type Policy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrOutput `pulumi:"deleteAllPolicyResources"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrOutput `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolOutput `pulumi:"excludeResourceTags"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+	// A map of lists of accounts and OU's to include in the policy.
 	IncludeMap PolicyIncludeMapPtrOutput `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -148,11 +148,11 @@ type policyState struct {
 	Arn *string `pulumi:"arn"`
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags *bool `pulumi:"excludeResourceTags"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+	// A map of lists of accounts and OU's to include in the policy.
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
@@ -174,11 +174,11 @@ type PolicyState struct {
 	Arn pulumi.StringPtrInput
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrInput
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolPtrInput
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+	// A map of lists of accounts and OU's to include in the policy.
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput
@@ -203,11 +203,11 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap *PolicyExcludeMap `pulumi:"excludeMap"`
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags bool `pulumi:"excludeResourceTags"`
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+	// A map of lists of accounts and OU's to include in the policy.
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
@@ -227,11 +227,11 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
 	DeleteAllPolicyResources pulumi.BoolPtrInput
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+	// A map of lists of accounts and OU's to exclude from the policy.
 	ExcludeMap PolicyExcludeMapPtrInput
 	// A boolean value, if true the tags that are specified in the `resourceTags` are not protected by this policy. If set to false and resourceTags are populated, resources that contain tags will be protected by this policy.
 	ExcludeResourceTags pulumi.BoolInput
-	// A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+	// A map of lists of accounts and OU's to include in the policy.
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput

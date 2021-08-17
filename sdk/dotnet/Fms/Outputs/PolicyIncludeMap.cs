@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Fms.Outputs
         /// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
+        /// <summary>
+        /// A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        /// </summary>
         public readonly ImmutableArray<string> Orgunits;
 
         [OutputConstructor]

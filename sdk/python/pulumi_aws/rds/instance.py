@@ -117,8 +117,8 @@ class InstanceArgs:
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade`
-               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-               this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+               The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -576,8 +576,8 @@ class InstanceArgs:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         The engine version to use. If `auto_minor_version_upgrade`
-        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-        this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+        The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         """
@@ -1085,6 +1085,7 @@ class _InstanceState:
                  endpoint: Optional[pulumi.Input[str]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
                  iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1174,10 +1175,11 @@ class _InstanceState:
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade`
-               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-               this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+               The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+        :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -1316,6 +1318,8 @@ class _InstanceState:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if engine_version_actual is not None:
+            pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if final_snapshot_identifier is not None:
             pulumi.set(__self__, "final_snapshot_identifier", final_snapshot_identifier)
         if hosted_zone_id is not None:
@@ -1680,8 +1684,8 @@ class _InstanceState:
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
         The engine version to use. If `auto_minor_version_upgrade`
-        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-        this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+        The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         """
@@ -1690,6 +1694,18 @@ class _InstanceState:
     @engine_version.setter
     def engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "engine_version", value)
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
+        """
+        The running version of the database.
+        """
+        return pulumi.get(self, "engine_version_actual")
+
+    @engine_version_actual.setter
+    def engine_version_actual(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version_actual", value)
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")
@@ -2403,8 +2419,8 @@ class Instance(pulumi.CustomResource):
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade`
-               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-               this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+               The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
@@ -2707,6 +2723,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["address"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["engine_version_actual"] = None
             __props__.__dict__["hosted_zone_id"] = None
             __props__.__dict__["latest_restorable_time"] = None
             __props__.__dict__["replicas"] = None
@@ -2744,6 +2761,7 @@ class Instance(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[str]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
+            engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             hosted_zone_id: Optional[pulumi.Input[str]] = None,
             iam_database_authentication_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2838,10 +2856,11 @@ class Instance(pulumi.CustomResource):
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
         :param pulumi.Input[str] engine_version: The engine version to use. If `auto_minor_version_upgrade`
-               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-               this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+               is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+               The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
                For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
                Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
+        :param pulumi.Input[str] engine_version_actual: The running version of the database.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB instance is deleted. Must be provided if `skip_final_snapshot` is
                set to `false`. The value must begin with a letter, only contain alphanumeric characters and hyphens, and not end with a hyphen or contain two consecutive hyphens. Must not be provided when deleting a read replica.
@@ -2962,6 +2981,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
+        __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
         __props__.__dict__["iam_database_authentication_enabled"] = iam_database_authentication_enabled
@@ -3202,12 +3222,20 @@ class Instance(pulumi.CustomResource):
     def engine_version(self) -> pulumi.Output[str]:
         """
         The engine version to use. If `auto_minor_version_upgrade`
-        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`) and
-        this attribute will ignore differences in the patch version automatically (e.g. `5.7.17`).
+        is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
+        The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
         Note that for Amazon Aurora instances the engine version must match the `DB cluster`'s engine version'.
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="engineVersionActual")
+    def engine_version_actual(self) -> pulumi.Output[str]:
+        """
+        The running version of the database.
+        """
+        return pulumi.get(self, "engine_version_actual")
 
     @property
     @pulumi.getter(name="finalSnapshotIdentifier")

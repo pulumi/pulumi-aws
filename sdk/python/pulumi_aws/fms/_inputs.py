@@ -21,6 +21,7 @@ class PolicyExcludeMapArgs:
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] orgunits: A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -42,6 +43,9 @@ class PolicyExcludeMapArgs:
     @property
     @pulumi.getter
     def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        """
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter
@@ -56,6 +60,7 @@ class PolicyIncludeMapArgs:
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] orgunits: A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
         """
         if accounts is not None:
             pulumi.set(__self__, "accounts", accounts)
@@ -77,6 +82,9 @@ class PolicyIncludeMapArgs:
     @property
     @pulumi.getter
     def orgunits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        """
         return pulumi.get(self, "orgunits")
 
     @orgunits.setter

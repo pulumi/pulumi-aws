@@ -13,6 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
     [OutputType]
     public sealed class MetricAlarmMetricQuery
     {
+        public readonly string? AccountId;
         /// <summary>
         /// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
         /// </summary>
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
         [OutputConstructor]
         private MetricAlarmMetricQuery(
+            string? accountId,
+
             string? expression,
 
             string id,
@@ -46,6 +49,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
 
             bool? returnData)
         {
+            AccountId = accountId;
             Expression = expression;
             Id = id;
             Label = label;

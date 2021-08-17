@@ -65,6 +65,7 @@ import * as utilities from "../utilities";
  *         deviceTypeAndroid: "ALLOW",
  *         deviceTypeChromeos: "ALLOW",
  *         deviceTypeIos: "ALLOW",
+ *         deviceTypeLinux: "DENY",
  *         deviceTypeOsx: "ALLOW",
  *         deviceTypeWeb: "DENY",
  *         deviceTypeWindows: "DENY",

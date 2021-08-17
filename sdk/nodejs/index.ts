@@ -53,6 +53,7 @@ import * as backup from "./backup";
 import * as batch from "./batch";
 import * as budgets from "./budgets";
 import * as cfg from "./cfg";
+import * as chime from "./chime";
 import * as cloud9 from "./cloud9";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
@@ -196,6 +197,7 @@ export {
     batch,
     budgets,
     cfg,
+    chime,
     cloud9,
     cloudformation,
     cloudfront,

@@ -30,8 +30,8 @@ class PolicyArgs:
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         :param pulumi.Input['PolicySecurityServicePolicyDataArgs'] security_service_policy_data: The objects to include in Security Service Policy Data. Documented below.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
-        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
+        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
@@ -97,7 +97,7 @@ class PolicyArgs:
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        A map of lists of accounts and OU's to exclude from the policy.
         """
         return pulumi.get(self, "exclude_map")
 
@@ -109,7 +109,7 @@ class PolicyArgs:
     @pulumi.getter(name="includeMap")
     def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        A map of lists of accounts and OU's to include in the policy.
         """
         return pulumi.get(self, "include_map")
 
@@ -196,9 +196,9 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy.
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[str] policy_update_token: A unique identifier for each update to the policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
@@ -257,7 +257,7 @@ class _PolicyState:
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> Optional[pulumi.Input['PolicyExcludeMapArgs']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        A map of lists of accounts and OU's to exclude from the policy.
         """
         return pulumi.get(self, "exclude_map")
 
@@ -281,7 +281,7 @@ class _PolicyState:
     @pulumi.getter(name="includeMap")
     def include_map(self) -> Optional[pulumi.Input['PolicyIncludeMapArgs']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        A map of lists of accounts and OU's to include in the policy.
         """
         return pulumi.get(self, "include_map")
 
@@ -434,9 +434,9 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
@@ -574,9 +574,9 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] delete_all_policy_resources: If true, the request will also perform a clean-up process. Defaults to `true`. More information can be found here [AWS Firewall Manager delete policy](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_DeletePolicy.html)
-        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        :param pulumi.Input[pulumi.InputType['PolicyExcludeMapArgs']] exclude_map: A map of lists of accounts and OU's to exclude from the policy.
         :param pulumi.Input[bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
-        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        :param pulumi.Input[pulumi.InputType['PolicyIncludeMapArgs']] include_map: A map of lists of accounts and OU's to include in the policy.
         :param pulumi.Input[str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[str] policy_update_token: A unique identifier for each update to the policy.
         :param pulumi.Input[bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
@@ -620,7 +620,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="excludeMap")
     def exclude_map(self) -> pulumi.Output[Optional['outputs.PolicyExcludeMap']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to exclude from this policy.
+        A map of lists of accounts and OU's to exclude from the policy.
         """
         return pulumi.get(self, "exclude_map")
 
@@ -636,7 +636,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="includeMap")
     def include_map(self) -> pulumi.Output[Optional['outputs.PolicyIncludeMap']]:
         """
-        A map of lists, with a single key named 'account' with a list of AWS Account IDs to include for this policy.
+        A map of lists of accounts and OU's to include in the policy.
         """
         return pulumi.get(self, "include_map")
 

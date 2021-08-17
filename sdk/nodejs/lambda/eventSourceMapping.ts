@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+ * Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
  *
  * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
  * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -89,6 +89,48 @@ import * as utilities from "../utilities";
  * const example = new aws.lambda.EventSourceMapping("example", {
  *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
  *     functionName: aws_lambda_function.example.arn,
+ * });
+ * ```
+ * ### Amazon MQ (ActiveMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 10,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [{
+ *         type: "BASIC_AUTH",
+ *         uri: aws_secretsmanager_secret_version.example.arn,
+ *     }],
+ * });
+ * ```
+ * ### Amazon MQ (RabbitMQ)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     batchSize: 1,
+ *     eventSourceArn: aws_mq_broker.example.arn,
+ *     enabled: true,
+ *     functionName: aws_lambda_function.example.arn,
+ *     queues: ["example"],
+ *     sourceAccessConfigurations: [
+ *         {
+ *             type: "VIRTUAL_HOST",
+ *             uri: "/example",
+ *         },
+ *         {
+ *             type: "BASIC_AUTH",
+ *             uri: aws_secretsmanager_secret_version.example.arn,
+ *         },
+ *     ],
  * });
  * ```
  * ### Managed Streaming for Kafka (MSK)

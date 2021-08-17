@@ -32,6 +32,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         var example = new Aws.CodeBuild.Webhook("example", new Aws.CodeBuild.WebhookArgs
     ///         {
     ///             ProjectName = aws_codebuild_project.Example.Name,
+    ///             BuildType = "BUILD",
     ///             FilterGroups = 
     ///             {
     ///                 new Aws.CodeBuild.Inputs.WebhookFilterGroupArgs
@@ -112,6 +113,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Output("branchFilter")]
         public Output<string?> BranchFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// </summary>
+        [Output("buildType")]
+        public Output<string?> BuildType { get; private set; } = null!;
 
         /// <summary>
         /// Information about the webhook's trigger. Filter group blocks are documented below.
@@ -195,6 +202,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }
 
+        /// <summary>
+        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// </summary>
+        [Input("buildType")]
+        public Input<string>? BuildType { get; set; }
+
         [Input("filterGroups")]
         private InputList<Inputs.WebhookFilterGroupArgs>? _filterGroups;
 
@@ -225,6 +238,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("branchFilter")]
         public Input<string>? BranchFilter { get; set; }
+
+        /// <summary>
+        /// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
+        /// </summary>
+        [Input("buildType")]
+        public Input<string>? BuildType { get; set; }
 
         [Input("filterGroups")]
         private InputList<Inputs.WebhookFilterGroupGetArgs>? _filterGroups;

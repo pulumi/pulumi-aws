@@ -109,6 +109,7 @@ class DirectoryWorkspaceAccessPropertiesArgs:
                  device_type_android: Optional[pulumi.Input[str]] = None,
                  device_type_chromeos: Optional[pulumi.Input[str]] = None,
                  device_type_ios: Optional[pulumi.Input[str]] = None,
+                 device_type_linux: Optional[pulumi.Input[str]] = None,
                  device_type_osx: Optional[pulumi.Input[str]] = None,
                  device_type_web: Optional[pulumi.Input[str]] = None,
                  device_type_windows: Optional[pulumi.Input[str]] = None,
@@ -117,6 +118,7 @@ class DirectoryWorkspaceAccessPropertiesArgs:
         :param pulumi.Input[str] device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
         :param pulumi.Input[str] device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
         :param pulumi.Input[str] device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
+        :param pulumi.Input[str] device_type_linux: Indicates whether users can use Linux clients to access their WorkSpaces.
         :param pulumi.Input[str] device_type_osx: Indicates whether users can use macOS clients to access their WorkSpaces.
         :param pulumi.Input[str] device_type_web: Indicates whether users can access their WorkSpaces through a web browser.
         :param pulumi.Input[str] device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
@@ -128,6 +130,8 @@ class DirectoryWorkspaceAccessPropertiesArgs:
             pulumi.set(__self__, "device_type_chromeos", device_type_chromeos)
         if device_type_ios is not None:
             pulumi.set(__self__, "device_type_ios", device_type_ios)
+        if device_type_linux is not None:
+            pulumi.set(__self__, "device_type_linux", device_type_linux)
         if device_type_osx is not None:
             pulumi.set(__self__, "device_type_osx", device_type_osx)
         if device_type_web is not None:
@@ -172,6 +176,18 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @device_type_ios.setter
     def device_type_ios(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_type_ios", value)
+
+    @property
+    @pulumi.getter(name="deviceTypeLinux")
+    def device_type_linux(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether users can use Linux clients to access their WorkSpaces.
+        """
+        return pulumi.get(self, "device_type_linux")
+
+    @device_type_linux.setter
+    def device_type_linux(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "device_type_linux", value)
 
     @property
     @pulumi.getter(name="deviceTypeOsx")

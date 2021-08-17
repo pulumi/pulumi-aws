@@ -230,6 +230,8 @@ type DirectoryWorkspaceAccessProperties struct {
 	DeviceTypeChromeos *string `pulumi:"deviceTypeChromeos"`
 	// Indicates whether users can use iOS devices to access their WorkSpaces.
 	DeviceTypeIos *string `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux *string `pulumi:"deviceTypeLinux"`
 	// Indicates whether users can use macOS clients to access their WorkSpaces.
 	DeviceTypeOsx *string `pulumi:"deviceTypeOsx"`
 	// Indicates whether users can access their WorkSpaces through a web browser.
@@ -258,6 +260,8 @@ type DirectoryWorkspaceAccessPropertiesArgs struct {
 	DeviceTypeChromeos pulumi.StringPtrInput `pulumi:"deviceTypeChromeos"`
 	// Indicates whether users can use iOS devices to access their WorkSpaces.
 	DeviceTypeIos pulumi.StringPtrInput `pulumi:"deviceTypeIos"`
+	// Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux pulumi.StringPtrInput `pulumi:"deviceTypeLinux"`
 	// Indicates whether users can use macOS clients to access their WorkSpaces.
 	DeviceTypeOsx pulumi.StringPtrInput `pulumi:"deviceTypeOsx"`
 	// Indicates whether users can access their WorkSpaces through a web browser.
@@ -360,6 +364,11 @@ func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeIos() pulumi.StringP
 	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeIos }).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether users can use Linux clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeLinux() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeLinux }).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether users can use macOS clients to access their WorkSpaces.
 func (o DirectoryWorkspaceAccessPropertiesOutput) DeviceTypeOsx() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryWorkspaceAccessProperties) *string { return v.DeviceTypeOsx }).(pulumi.StringPtrOutput)
@@ -431,6 +440,16 @@ func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeIos() pulumi.Stri
 			return nil
 		}
 		return v.DeviceTypeIos
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether users can use Linux clients to access their WorkSpaces.
+func (o DirectoryWorkspaceAccessPropertiesPtrOutput) DeviceTypeLinux() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryWorkspaceAccessProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeviceTypeLinux
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1437,6 +1456,8 @@ type GetDirectoryWorkspaceAccessProperty struct {
 	DeviceTypeChromeos string `pulumi:"deviceTypeChromeos"`
 	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
 	DeviceTypeIos string `pulumi:"deviceTypeIos"`
+	// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux string `pulumi:"deviceTypeLinux"`
 	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
 	DeviceTypeOsx string `pulumi:"deviceTypeOsx"`
 	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
@@ -1465,6 +1486,8 @@ type GetDirectoryWorkspaceAccessPropertyArgs struct {
 	DeviceTypeChromeos pulumi.StringInput `pulumi:"deviceTypeChromeos"`
 	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
 	DeviceTypeIos pulumi.StringInput `pulumi:"deviceTypeIos"`
+	// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+	DeviceTypeLinux pulumi.StringInput `pulumi:"deviceTypeLinux"`
 	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
 	DeviceTypeOsx pulumi.StringInput `pulumi:"deviceTypeOsx"`
 	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
@@ -1539,6 +1562,11 @@ func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeChromeos() pulumi.S
 // (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
 func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeIos() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeIos }).(pulumi.StringOutput)
+}
+
+// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
+func (o GetDirectoryWorkspaceAccessPropertyOutput) DeviceTypeLinux() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryWorkspaceAccessProperty) string { return v.DeviceTypeLinux }).(pulumi.StringOutput)
 }
 
 // (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.

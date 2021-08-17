@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+    /// Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
     /// 
     /// For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
     /// For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -142,6 +142,77 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
     ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Amazon MQ (ActiveMQ)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             BatchSize = 10,
+    ///             EventSourceArn = aws_mq_broker.Example.Arn,
+    ///             Enabled = true,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             Queues = 
+    ///             {
+    ///                 "example",
+    ///             },
+    ///             SourceAccessConfigurations = 
+    ///             {
+    ///                 new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///                 {
+    ///                     Type = "BASIC_AUTH",
+    ///                     Uri = aws_secretsmanager_secret_version.Example.Arn,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Amazon MQ (RabbitMQ)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             BatchSize = 1,
+    ///             EventSourceArn = aws_mq_broker.Example.Arn,
+    ///             Enabled = true,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             Queues = 
+    ///             {
+    ///                 "example",
+    ///             },
+    ///             SourceAccessConfigurations = 
+    ///             {
+    ///                 new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///                 {
+    ///                     Type = "VIRTUAL_HOST",
+    ///                     Uri = "/example",
+    ///                 },
+    ///                 new Aws.Lambda.Inputs.EventSourceMappingSourceAccessConfigurationArgs
+    ///                 {
+    ///                     Type = "BASIC_AUTH",
+    ///                     Uri = aws_secretsmanager_secret_version.Example.Arn,
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 

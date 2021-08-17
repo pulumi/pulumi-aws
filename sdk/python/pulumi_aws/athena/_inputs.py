@@ -59,11 +59,13 @@ class WorkgroupConfigurationArgs:
                  bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
                  enforce_workgroup_configuration: Optional[pulumi.Input[bool]] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
+                 requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
         """
         :param pulumi.Input[int] bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param pulumi.Input[bool] enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
         :param pulumi.Input[bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+        :param pulumi.Input[bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. Documented below.
         """
         if bytes_scanned_cutoff_per_query is not None:
@@ -72,6 +74,8 @@ class WorkgroupConfigurationArgs:
             pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
+        if requester_pays_enabled is not None:
+            pulumi.set(__self__, "requester_pays_enabled", requester_pays_enabled)
         if result_configuration is not None:
             pulumi.set(__self__, "result_configuration", result_configuration)
 
@@ -110,6 +114,18 @@ class WorkgroupConfigurationArgs:
     @publish_cloudwatch_metrics_enabled.setter
     def publish_cloudwatch_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "publish_cloudwatch_metrics_enabled", value)
+
+    @property
+    @pulumi.getter(name="requesterPaysEnabled")
+    def requester_pays_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+        """
+        return pulumi.get(self, "requester_pays_enabled")
+
+    @requester_pays_enabled.setter
+    def requester_pays_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requester_pays_enabled", value)
 
     @property
     @pulumi.getter(name="resultConfiguration")

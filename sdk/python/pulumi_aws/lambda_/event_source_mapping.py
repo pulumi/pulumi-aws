@@ -696,7 +696,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  tumbling_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+        Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
 
         For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
         For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -775,6 +775,46 @@ class EventSourceMapping(pulumi.CustomResource):
         example = aws.lambda_.EventSourceMapping("example",
             event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
             function_name=aws_lambda_function["example"]["arn"])
+        ```
+        ### Amazon MQ (ActiveMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=aws_mq_broker["example"]["arn"],
+            enabled=True,
+            function_name=aws_lambda_function["example"]["arn"],
+            queues=["example"],
+            source_access_configurations=[aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=aws_secretsmanager_secret_version["example"]["arn"],
+            )])
+        ```
+        ### Amazon MQ (RabbitMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=aws_mq_broker["example"]["arn"],
+            enabled=True,
+            function_name=aws_lambda_function["example"]["arn"],
+            queues=["example"],
+            source_access_configurations=[
+                aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                ),
+            ])
         ```
         ### Managed Streaming for Kafka (MSK)
 
@@ -825,7 +865,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  args: EventSourceMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS and Managed Streaming for Apache Kafka (MSK).
+        Provides a Lambda event source mapping. This allows Lambda functions to get events from Kinesis, DynamoDB, SQS, Amazon MQ and Managed Streaming for Apache Kafka (MSK).
 
         For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
         For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
@@ -904,6 +944,46 @@ class EventSourceMapping(pulumi.CustomResource):
         example = aws.lambda_.EventSourceMapping("example",
             event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
             function_name=aws_lambda_function["example"]["arn"])
+        ```
+        ### Amazon MQ (ActiveMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=10,
+            event_source_arn=aws_mq_broker["example"]["arn"],
+            enabled=True,
+            function_name=aws_lambda_function["example"]["arn"],
+            queues=["example"],
+            source_access_configurations=[aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                type="BASIC_AUTH",
+                uri=aws_secretsmanager_secret_version["example"]["arn"],
+            )])
+        ```
+        ### Amazon MQ (RabbitMQ)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            batch_size=1,
+            event_source_arn=aws_mq_broker["example"]["arn"],
+            enabled=True,
+            function_name=aws_lambda_function["example"]["arn"],
+            queues=["example"],
+            source_access_configurations=[
+                aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                    type="VIRTUAL_HOST",
+                    uri="/example",
+                ),
+                aws.lambda..EventSourceMappingSourceAccessConfigurationArgs(
+                    type="BASIC_AUTH",
+                    uri=aws_secretsmanager_secret_version["example"]["arn"],
+                ),
+            ])
         ```
         ### Managed Streaming for Kafka (MSK)
 

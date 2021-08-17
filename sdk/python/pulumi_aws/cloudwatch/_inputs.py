@@ -1577,6 +1577,7 @@ class LogMetricFilterMetricTransformationArgs:
 class MetricAlarmMetricQueryArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input['MetricAlarmMetricQueryMetricArgs']] = None,
@@ -1589,6 +1590,8 @@ class MetricAlarmMetricQueryArgs:
         :param pulumi.Input[bool] return_data: Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
         """
         pulumi.set(__self__, "id", id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
         if label is not None:
@@ -1609,6 +1612,15 @@ class MetricAlarmMetricQueryArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter

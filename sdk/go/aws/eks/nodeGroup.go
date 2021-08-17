@@ -125,7 +125,7 @@ type NodeGroup struct {
 	DiskSize pulumi.IntOutput `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrOutput `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayOutput `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
@@ -212,7 +212,7 @@ type nodeGroupState struct {
 	DiskSize *int `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -259,7 +259,7 @@ type NodeGroupState struct {
 	DiskSize pulumi.IntPtrInput
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrInput
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput
@@ -308,7 +308,7 @@ type nodeGroupArgs struct {
 	DiskSize *int `pulumi:"diskSize"`
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion *bool `pulumi:"forceUpdateVersion"`
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes []string `pulumi:"instanceTypes"`
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels map[string]string `pulumi:"labels"`
@@ -350,7 +350,7 @@ type NodeGroupArgs struct {
 	DiskSize pulumi.IntPtrInput
 	// Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
 	ForceUpdateVersion pulumi.BoolPtrInput
-	// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+	// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
 	InstanceTypes pulumi.StringArrayInput
 	// Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
 	Labels pulumi.StringMapInput

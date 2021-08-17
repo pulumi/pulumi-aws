@@ -103,6 +103,7 @@ namespace Pulumi.Aws.Workspaces
     ///                 DeviceTypeAndroid = "ALLOW",
     ///                 DeviceTypeChromeos = "ALLOW",
     ///                 DeviceTypeIos = "ALLOW",
+    ///                 DeviceTypeLinux = "DENY",
     ///                 DeviceTypeOsx = "ALLOW",
     ///                 DeviceTypeWeb = "DENY",
     ///                 DeviceTypeWindows = "DENY",
