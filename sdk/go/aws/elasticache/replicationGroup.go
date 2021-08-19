@@ -526,7 +526,6 @@ type replicationGroupArgs struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string           `pulumi:"subnetGroupName"`
 	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -590,7 +589,6 @@ type ReplicationGroupArgs struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }

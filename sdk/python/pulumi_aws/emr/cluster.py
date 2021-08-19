@@ -39,7 +39,6 @@ class ClusterArgs:
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None):
         """
@@ -116,8 +115,6 @@ class ClusterArgs:
             pulumi.set(__self__, "steps", steps)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if termination_protection is not None:
             pulumi.set(__self__, "termination_protection", termination_protection)
         if visible_to_all_users is not None:
@@ -407,15 +404,6 @@ class ClusterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="terminationProtection")
@@ -945,7 +933,6 @@ class Cluster(pulumi.CustomResource):
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -2076,7 +2063,6 @@ class Cluster(pulumi.CustomResource):
                  step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
                  visible_to_all_users: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -2119,12 +2105,12 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["step_concurrency_level"] = step_concurrency_level
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["termination_protection"] = termination_protection
             __props__.__dict__["visible_to_all_users"] = visible_to_all_users
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_state"] = None
             __props__.__dict__["master_public_dns"] = None
+            __props__.__dict__["tags_all"] = None
         super(Cluster, __self__).__init__(
             'aws:emr/cluster:Cluster',
             resource_name,

@@ -32,7 +32,6 @@ class DistributionArgs:
                  price_class: Optional[pulumi.Input[str]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None):
         """
@@ -72,7 +71,6 @@ class DistributionArgs:
                deleting it when destroying the resource. If this is set,
                the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] wait_for_deployment: If enabled, the resource will wait for
                the distribution status to change from `InProgress` to `Deployed`. Setting
                this to`false` will skip the process. Default: `true`.
@@ -113,8 +111,6 @@ class DistributionArgs:
             pulumi.set(__self__, "retain_on_delete", retain_on_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_deployment is not None:
             pulumi.set(__self__, "wait_for_deployment", wait_for_deployment)
         if web_acl_id is not None:
@@ -341,18 +337,6 @@ class DistributionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="waitForDeployment")
@@ -968,7 +952,6 @@ class Distribution(pulumi.CustomResource):
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
@@ -1209,7 +1192,6 @@ class Distribution(pulumi.CustomResource):
                deleting it when destroying the resource. If this is set,
                the distribution needs to be deleted manually afterwards. Default: `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']] viewer_certificate: The SSL
                configuration for this distribution (maximum
                one).
@@ -1463,7 +1445,6 @@ class Distribution(pulumi.CustomResource):
                  restrictions: Optional[pulumi.Input[pulumi.InputType['DistributionRestrictionsArgs']]] = None,
                  retain_on_delete: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  viewer_certificate: Optional[pulumi.Input[pulumi.InputType['DistributionViewerCertificateArgs']]] = None,
                  wait_for_deployment: Optional[pulumi.Input[bool]] = None,
                  web_acl_id: Optional[pulumi.Input[str]] = None,
@@ -1503,7 +1484,6 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["retain_on_delete"] = retain_on_delete
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if viewer_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
@@ -1517,6 +1497,7 @@ class Distribution(pulumi.CustomResource):
             __props__.__dict__["in_progress_validation_batches"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["trusted_key_groups"] = None
             __props__.__dict__["trusted_signers"] = None
         super(Distribution, __self__).__init__(

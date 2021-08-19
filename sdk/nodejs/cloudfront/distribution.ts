@@ -361,7 +361,7 @@ export class Distribution extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
      * See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
@@ -471,7 +471,6 @@ export class Distribution extends pulumi.CustomResource {
             inputs["restrictions"] = args ? args.restrictions : undefined;
             inputs["retainOnDelete"] = args ? args.retainOnDelete : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["viewerCertificate"] = args ? args.viewerCertificate : undefined;
             inputs["waitForDeployment"] = args ? args.waitForDeployment : undefined;
             inputs["webAclId"] = args ? args.webAclId : undefined;
@@ -483,6 +482,7 @@ export class Distribution extends pulumi.CustomResource {
             inputs["inProgressValidationBatches"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["trustedKeyGroups"] = undefined /*out*/;
             inputs["trustedSigners"] = undefined /*out*/;
         }
@@ -739,10 +739,6 @@ export interface DistributionArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The SSL
      * configuration for this distribution (maximum

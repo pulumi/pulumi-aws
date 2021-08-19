@@ -106,7 +106,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A string token used when updating a firewall.
      */
@@ -161,10 +161,10 @@ export class Firewall extends pulumi.CustomResource {
             inputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
             inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["firewallStatuses"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["updateToken"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -268,10 +268,6 @@ export interface FirewallArgs {
      * Map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique identifier of the VPC where AWS Network Firewall should create the firewall.
      */

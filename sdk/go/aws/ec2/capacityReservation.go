@@ -207,7 +207,6 @@ type capacityReservationArgs struct {
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutpostArn *string           `pulumi:"outpostArn"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy *string `pulumi:"tenancy"`
 }
@@ -235,7 +234,6 @@ type CapacityReservationArgs struct {
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutpostArn pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
 	Tenancy pulumi.StringPtrInput
 }

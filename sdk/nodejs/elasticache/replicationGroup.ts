@@ -309,7 +309,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
      */
@@ -400,7 +400,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["clusterEnabled"] = undefined /*out*/;
@@ -409,6 +408,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["memberClusters"] = undefined /*out*/;
             inputs["primaryEndpointAddress"] = undefined /*out*/;
             inputs["readerEndpointAddress"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -686,7 +686,6 @@ export interface ReplicationGroupArgs {
      */
     subnetGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
      */

@@ -23,7 +23,6 @@ class TriggerArgs:
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
@@ -51,8 +50,6 @@ class TriggerArgs:
             pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if workflow_name is not None:
             pulumi.set(__self__, "workflow_name", workflow_name)
 
@@ -151,15 +148,6 @@ class TriggerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="workflowName")
@@ -382,7 +370,6 @@ class Trigger(pulumi.CustomResource):
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -618,7 +605,6 @@ class Trigger(pulumi.CustomResource):
                  predicate: Optional[pulumi.Input[pulumi.InputType['TriggerPredicateArgs']]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -642,13 +628,13 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["predicate"] = predicate
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tags_all"] = None
         super(Trigger, __self__).__init__(
             'aws:glue/trigger:Trigger',
             resource_name,

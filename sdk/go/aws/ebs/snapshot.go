@@ -169,8 +169,7 @@ type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
 	// A map of tags for the snapshot.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -180,8 +179,7 @@ type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
 	// A map of tags for the snapshot.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput
 }

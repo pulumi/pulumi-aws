@@ -410,8 +410,6 @@ type gatewayArgs struct {
 	SmbSecurityStrategy *string `pulumi:"smbSecurityStrategy"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType *string `pulumi:"tapeDriveType"`
 }
@@ -448,8 +446,6 @@ type GatewayArgs struct {
 	SmbSecurityStrategy pulumi.StringPtrInput
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
 	TapeDriveType pulumi.StringPtrInput
 }

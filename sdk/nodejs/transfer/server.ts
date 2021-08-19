@@ -168,7 +168,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
@@ -218,11 +218,11 @@ export class Server extends pulumi.CustomResource {
             inputs["protocols"] = args ? args.protocols : undefined;
             inputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["url"] = args ? args.url : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostKeyFingerprint"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -354,7 +354,6 @@ export interface ServerArgs {
      */
     securityPolicyName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */

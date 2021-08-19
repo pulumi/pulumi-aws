@@ -104,7 +104,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly registryName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the schema. Valid values: `OpenApi3`.
      */
@@ -158,10 +158,10 @@ export class Schema extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["lastModified"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
             inputs["versionCreatedDate"] = undefined /*out*/;
         }
@@ -237,7 +237,6 @@ export interface SchemaArgs {
      */
     registryName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the schema. Valid values: `OpenApi3`.
      */

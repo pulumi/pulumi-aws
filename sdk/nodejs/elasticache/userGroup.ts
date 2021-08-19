@@ -69,7 +69,7 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user group.
      */
@@ -109,9 +109,9 @@ export class UserGroup extends pulumi.CustomResource {
             inputs["arn"] = args ? args.arn : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userGroupId"] = args ? args.userGroupId : undefined;
             inputs["userIds"] = args ? args.userIds : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -151,7 +151,6 @@ export interface UserGroupArgs {
      */
     engine: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user group.
      */

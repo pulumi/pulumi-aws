@@ -127,7 +127,6 @@ type discovererArgs struct {
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn string            `pulumi:"sourceArn"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Discoverer resource.
@@ -137,7 +136,6 @@ type DiscovererArgs struct {
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 }
 
 func (DiscovererArgs) ElementType() reflect.Type {

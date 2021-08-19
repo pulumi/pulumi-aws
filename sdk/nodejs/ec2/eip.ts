@@ -200,7 +200,7 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */
@@ -248,7 +248,6 @@ export class Eip extends pulumi.CustomResource {
             inputs["networkInterface"] = args ? args.networkInterface : undefined;
             inputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpc"] = args ? args.vpc : undefined;
             inputs["allocationId"] = undefined /*out*/;
             inputs["associationId"] = undefined /*out*/;
@@ -259,6 +258,7 @@ export class Eip extends pulumi.CustomResource {
             inputs["privateIp"] = undefined /*out*/;
             inputs["publicDns"] = undefined /*out*/;
             inputs["publicIp"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -376,7 +376,6 @@ export interface EipArgs {
      */
     publicIpv4Pool?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.
      */

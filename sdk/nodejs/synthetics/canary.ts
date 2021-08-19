@@ -139,7 +139,7 @@ export class Canary extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
      */
@@ -219,13 +219,13 @@ export class Canary extends pulumi.CustomResource {
             inputs["startCanary"] = args ? args.startCanary : undefined;
             inputs["successRetentionPeriod"] = args ? args.successRetentionPeriod : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["zipFile"] = args ? args.zipFile : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["engineArn"] = undefined /*out*/;
             inputs["sourceLocationArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["timelines"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -389,10 +389,6 @@ export interface CanaryArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. Detailed below.
      */

@@ -65,7 +65,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 VPC.
      */
@@ -99,9 +99,9 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             }
             inputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
             inputs["localGatewayId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -136,7 +136,6 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
      */
     localGatewayRouteTableId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.
      */

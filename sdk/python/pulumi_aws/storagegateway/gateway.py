@@ -30,7 +30,6 @@ class GatewayArgs:
                  smb_guest_password: Optional[pulumi.Input[str]] = None,
                  smb_security_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tape_drive_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Gateway resource.
@@ -49,7 +48,6 @@ class GatewayArgs:
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         pulumi.set(__self__, "gateway_name", gateway_name)
@@ -80,8 +78,6 @@ class GatewayArgs:
             pulumi.set(__self__, "smb_security_strategy", smb_security_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if tape_drive_type is not None:
             pulumi.set(__self__, "tape_drive_type", tape_drive_type)
 
@@ -264,18 +260,6 @@ class GatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="tapeDriveType")
@@ -686,7 +670,6 @@ class Gateway(pulumi.CustomResource):
                  smb_guest_password: Optional[pulumi.Input[str]] = None,
                  smb_security_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tape_drive_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -806,7 +789,6 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] smb_guest_password: Guest password for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `GuestAccess` authentication SMB file shares. This provider can only detect drift of the existence of a guest password, not its actual value from the gateway. This provider can however update the password with changing the argument.
         :param pulumi.Input[str] smb_security_strategy: Specifies the type of security strategy. Valid values are: `ClientSpecified`, `MandatorySigning`, and `MandatoryEncryption`. See [Setting a Security Level for Your Gateway](https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-gateway-file.html#security-strategy) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] tape_drive_type: Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
         """
         ...
@@ -945,7 +927,6 @@ class Gateway(pulumi.CustomResource):
                  smb_guest_password: Optional[pulumi.Input[str]] = None,
                  smb_security_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tape_drive_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -978,7 +959,6 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["smb_guest_password"] = smb_guest_password
             __props__.__dict__["smb_security_strategy"] = smb_security_strategy
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["tape_drive_type"] = tape_drive_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["ec2_instance_id"] = None
@@ -986,6 +966,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_id"] = None
             __props__.__dict__["gateway_network_interfaces"] = None
             __props__.__dict__["host_environment"] = None
+            __props__.__dict__["tags_all"] = None
         super(Gateway, __self__).__init__(
             'aws:storagegateway/gateway:Gateway',
             resource_name,

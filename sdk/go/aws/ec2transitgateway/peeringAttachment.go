@@ -174,7 +174,6 @@ type peeringAttachmentArgs struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
 	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -188,7 +187,6 @@ type PeeringAttachmentArgs struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringInput
 	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringInput
 }

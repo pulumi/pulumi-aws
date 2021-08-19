@@ -170,9 +170,8 @@ type managedPrefixListArgs struct {
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries int `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ManagedPrefixList resource.
@@ -184,9 +183,8 @@ type ManagedPrefixListArgs struct {
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntInput
 	// Name of this resource. The name must not start with `com.amazonaws`.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (ManagedPrefixListArgs) ElementType() reflect.Type {

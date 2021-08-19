@@ -126,7 +126,7 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */
@@ -171,7 +171,6 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["performanceMode"] = args ? args.performanceMode : undefined;
             inputs["provisionedThroughputInMibps"] = args ? args.provisionedThroughputInMibps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throughputMode"] = args ? args.throughputMode : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["availabilityZoneId"] = undefined /*out*/;
@@ -179,6 +178,7 @@ export class FileSystem extends pulumi.CustomResource {
             inputs["numberOfMountTargets"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["sizeInBytes"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -290,7 +290,6 @@ export interface FileSystemArgs {
      */
     provisionedThroughputInMibps?: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
      */

@@ -372,14 +372,6 @@ namespace Pulumi.Aws.Glue
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         /// </summary>

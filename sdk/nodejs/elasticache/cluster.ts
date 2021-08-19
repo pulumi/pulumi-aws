@@ -216,7 +216,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -285,12 +285,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             inputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cacheNodes"] = undefined /*out*/;
             inputs["clusterAddress"] = undefined /*out*/;
             inputs["configurationEndpoint"] = undefined /*out*/;
             inputs["engineVersionActual"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -516,5 +516,4 @@ export interface ClusterArgs {
      */
     subnetGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

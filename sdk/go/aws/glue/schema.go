@@ -191,8 +191,7 @@ type schemaArgs struct {
 	// The Name of the schema.
 	SchemaName string `pulumi:"schemaName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -210,8 +209,7 @@ type SchemaArgs struct {
 	// The Name of the schema.
 	SchemaName pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {

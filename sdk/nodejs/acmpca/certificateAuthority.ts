@@ -169,7 +169,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */
@@ -213,7 +213,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
             inputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["certificate"] = undefined /*out*/;
@@ -223,6 +222,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             inputs["notBefore"] = undefined /*out*/;
             inputs["serial"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -321,10 +321,6 @@ export interface CertificateAuthorityArgs {
      * Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the certificate authority. Defaults to `SUBORDINATE`. Valid values: `ROOT` and `SUBORDINATE`.
      */

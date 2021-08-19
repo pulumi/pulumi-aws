@@ -17,8 +17,7 @@ class AutoScalingConfigurationVersionArgs:
                  max_concurrency: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingConfigurationVersion resource.
         :param pulumi.Input[str] auto_scaling_configuration_name: Name of the auto scaling configuration.
@@ -26,7 +25,6 @@ class AutoScalingConfigurationVersionArgs:
         :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
         :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "auto_scaling_configuration_name", auto_scaling_configuration_name)
         if max_concurrency is not None:
@@ -37,8 +35,6 @@ class AutoScalingConfigurationVersionArgs:
             pulumi.set(__self__, "min_size", min_size)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="autoScalingConfigurationName")
@@ -99,18 +95,6 @@ class AutoScalingConfigurationVersionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -291,7 +275,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an App Runner AutoScaling Configuration Version.
@@ -327,7 +310,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[int] max_size: The maximal number of instances that App Runner provisions for your service.
         :param pulumi.Input[int] min_size: The minimal number of instances that App Runner provisions for your service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -382,7 +364,6 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -402,11 +383,11 @@ class AutoScalingConfigurationVersion(pulumi.CustomResource):
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["auto_scaling_configuration_revision"] = None
             __props__.__dict__["latest"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(AutoScalingConfigurationVersion, __self__).__init__(
             'aws:apprunner/autoScalingConfigurationVersion:AutoScalingConfigurationVersion',
             resource_name,

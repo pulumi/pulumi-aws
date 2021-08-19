@@ -217,18 +217,6 @@ namespace Pulumi.Aws.AppMesh
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         /// <summary>
         /// The name of the virtual gateway to associate the gateway route with. Must be between 1 and 255 characters in length.
         /// </summary>

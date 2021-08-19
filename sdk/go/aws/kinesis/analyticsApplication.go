@@ -332,7 +332,6 @@ type analyticsApplicationArgs struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool             `pulumi:"startApplication"`
 	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
@@ -357,7 +356,6 @@ type AnalyticsApplicationArgs struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
 	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
 }
 
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {

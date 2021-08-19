@@ -123,7 +123,6 @@ type groupArgs struct {
 	// The name of the group.
 	GroupName string            `pulumi:"groupName"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -133,7 +132,6 @@ type GroupArgs struct {
 	// The name of the group.
 	GroupName pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

@@ -467,8 +467,6 @@ type roleArgs struct {
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM role. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Role resource.
@@ -495,8 +493,6 @@ type RoleArgs struct {
 	PermissionsBoundary pulumi.StringPtrInput
 	// Key-value mapping of tags for the IAM role. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 }
 
 func (RoleArgs) ElementType() reflect.Type {

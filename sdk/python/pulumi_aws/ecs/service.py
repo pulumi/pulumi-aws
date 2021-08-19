@@ -38,7 +38,6 @@ class ServiceArgs:
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
@@ -115,8 +114,6 @@ class ServiceArgs:
             pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
             pulumi.set(__self__, "task_definition", task_definition)
         if wait_for_steady_state is not None:
@@ -397,15 +394,6 @@ class ServiceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="taskDefinition")
@@ -880,7 +868,6 @@ class Service(pulumi.CustomResource):
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1108,7 +1095,6 @@ class Service(pulumi.CustomResource):
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1146,9 +1132,9 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
+            __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
             resource_name,

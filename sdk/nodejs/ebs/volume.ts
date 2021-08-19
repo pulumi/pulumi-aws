@@ -94,7 +94,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */
@@ -144,10 +144,10 @@ export class Volume extends pulumi.CustomResource {
             inputs["size"] = args ? args.size : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throughput"] = args ? args.throughput : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -239,7 +239,6 @@ export interface VolumeArgs {
      */
     snapshotId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
      */

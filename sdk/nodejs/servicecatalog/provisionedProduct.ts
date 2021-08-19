@@ -166,7 +166,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
      */
@@ -226,7 +226,6 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             inputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
             inputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cloudwatchDashboardNames"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
@@ -236,6 +235,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             inputs["launchRoleArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["statusMessage"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -411,8 +411,4 @@ export interface ProvisionedProductArgs {
      * Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

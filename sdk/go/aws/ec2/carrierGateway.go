@@ -117,16 +117,14 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringInput
 }

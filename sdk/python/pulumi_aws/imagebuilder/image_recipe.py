@@ -22,7 +22,6 @@ class ImageRecipeArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ImageRecipe resource.
@@ -33,7 +32,6 @@ class ImageRecipeArgs:
         :param pulumi.Input[str] description: Description of the image recipe.
         :param pulumi.Input[str] name: Name of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
         pulumi.set(__self__, "components", components)
@@ -47,8 +45,6 @@ class ImageRecipeArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if working_directory is not None:
             pulumi.set(__self__, "working_directory", working_directory)
 
@@ -135,18 +131,6 @@ class ImageRecipeArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="workingDirectory")
@@ -388,7 +372,6 @@ class ImageRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -433,7 +416,6 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the image recipe.
         :param pulumi.Input[str] parent_image: Platform of the image recipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the image recipe. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] version: Version of the image recipe.
         :param pulumi.Input[str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -497,7 +479,6 @@ class ImageRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parent_image: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  working_directory: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -522,7 +503,6 @@ class ImageRecipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parent_image'")
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
@@ -531,6 +511,7 @@ class ImageRecipe(pulumi.CustomResource):
             __props__.__dict__["date_created"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["platform"] = None
+            __props__.__dict__["tags_all"] = None
         super(ImageRecipe, __self__).__init__(
             'aws:imagebuilder/imageRecipe:ImageRecipe',
             resource_name,

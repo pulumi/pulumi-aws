@@ -346,7 +346,6 @@ type eipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool *string           `pulumi:"publicIpv4Pool"`
 	Tags           map[string]string `pulumi:"tags"`
-	TagsAll        map[string]string `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc *bool `pulumi:"vpc"`
 }
@@ -368,7 +367,6 @@ type EipArgs struct {
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
 	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolPtrInput
 }

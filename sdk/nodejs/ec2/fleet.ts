@@ -85,7 +85,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */
@@ -141,11 +141,11 @@ export class Fleet extends pulumi.CustomResource {
             inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             inputs["spotOptions"] = args ? args.spotOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
             inputs["terminateInstances"] = args ? args.terminateInstances : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -223,7 +223,6 @@ export interface FleetArgs {
      */
     spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
      */

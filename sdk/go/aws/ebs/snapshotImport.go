@@ -180,8 +180,7 @@ type snapshotImportArgs struct {
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName *string `pulumi:"roleName"`
 	// A map of tags to assign to the snapshot.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotImport resource.
@@ -199,8 +198,7 @@ type SnapshotImportArgs struct {
 	// The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
 	RoleName pulumi.StringPtrInput
 	// A map of tags to assign to the snapshot.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotImportArgs) ElementType() reflect.Type {

@@ -178,7 +178,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly solutionStackName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment
@@ -257,7 +257,6 @@ export class Environment extends pulumi.CustomResource {
             inputs["settings"] = args ? args.settings : undefined;
             inputs["solutionStackName"] = args ? args.solutionStackName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["templateName"] = args ? args.templateName : undefined;
             inputs["tier"] = args ? args.tier : undefined;
             inputs["version"] = args ? args.version : undefined;
@@ -271,6 +270,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["launchConfigurations"] = undefined /*out*/;
             inputs["loadBalancers"] = undefined /*out*/;
             inputs["queues"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["triggers"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -438,7 +438,6 @@ export interface EnvironmentArgs {
      */
     solutionStackName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration
      * template to use in deployment

@@ -91,7 +91,7 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
      */
     public readonly sessionNumber!: pulumi.Output<number>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ID of the traffic mirror filter to be used
      */
@@ -148,12 +148,12 @@ export class TrafficMirrorSession extends pulumi.CustomResource {
             inputs["packetLength"] = args ? args.packetLength : undefined;
             inputs["sessionNumber"] = args ? args.sessionNumber : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["trafficMirrorFilterId"] = args ? args.trafficMirrorFilterId : undefined;
             inputs["trafficMirrorTargetId"] = args ? args.trafficMirrorTargetId : undefined;
             inputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -227,7 +227,6 @@ export interface TrafficMirrorSessionArgs {
      */
     sessionNumber: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ID of the traffic mirror filter to be used
      */

@@ -96,7 +96,7 @@ export class Snapshot extends pulumi.CustomResource {
      * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Volume ID of which to make a snapshot.
      */
@@ -137,7 +137,6 @@ export class Snapshot extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
@@ -145,6 +144,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -213,7 +213,6 @@ export interface SnapshotArgs {
      * A map of tags for the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.
      */

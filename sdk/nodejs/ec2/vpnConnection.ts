@@ -131,7 +131,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * When associated with an EC2 Transit Gateway (`transitGatewayId` argument), the attachment ID. See also the `aws.ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
      */
@@ -431,7 +431,6 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             inputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["tunnel1DpdTimeoutAction"] = args ? args.tunnel1DpdTimeoutAction : undefined;
             inputs["tunnel1DpdTimeoutSeconds"] = args ? args.tunnel1DpdTimeoutSeconds : undefined;
@@ -475,6 +474,7 @@ export class VpnConnection extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["customerGatewayConfiguration"] = undefined /*out*/;
             inputs["routes"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["transitGatewayAttachmentId"] = undefined /*out*/;
             inputs["tunnel1Address"] = undefined /*out*/;
             inputs["tunnel1BgpAsn"] = undefined /*out*/;
@@ -787,10 +787,6 @@ export interface VpnConnectionArgs {
      * Tags to apply to the connection. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway.
      */

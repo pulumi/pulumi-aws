@@ -233,7 +233,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */
@@ -317,7 +317,6 @@ export class Environment extends pulumi.CustomResource {
             inputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
             inputs["sourceBucketArn"] = args ? args.sourceBucketArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             inputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -325,6 +324,7 @@ export class Environment extends pulumi.CustomResource {
             inputs["lastUpdateds"] = undefined /*out*/;
             inputs["serviceRoleArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["webserverUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -514,10 +514,6 @@ export interface EnvironmentArgs {
      * A map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
      */

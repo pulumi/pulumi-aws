@@ -140,7 +140,6 @@ type trafficMirrorTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string           `pulumi:"networkLoadBalancerArn"`
 	Tags                   map[string]string `pulumi:"tags"`
-	TagsAll                map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
@@ -152,7 +151,6 @@ type TrafficMirrorTargetArgs struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
 	Tags                   pulumi.StringMapInput
-	TagsAll                pulumi.StringMapInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {

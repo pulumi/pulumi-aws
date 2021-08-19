@@ -106,7 +106,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */
@@ -164,7 +164,6 @@ export class Workspace extends pulumi.CustomResource {
             inputs["directoryId"] = args ? args.directoryId : undefined;
             inputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userName"] = args ? args.userName : undefined;
             inputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
             inputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
@@ -172,6 +171,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["computerName"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -254,10 +254,6 @@ export interface WorkspaceArgs {
      * The tags for the WorkSpace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
      */

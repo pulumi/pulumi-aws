@@ -25,7 +25,6 @@ class StageArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  documentation_version: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -40,7 +39,6 @@ class StageArgs:
         :param pulumi.Input[str] description: The description of the stage
         :param pulumi.Input[str] documentation_version: The version of the associated API documentation
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
@@ -61,8 +59,6 @@ class StageArgs:
             pulumi.set(__self__, "documentation_version", documentation_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
         if xray_tracing_enabled is not None:
@@ -187,18 +183,6 @@ class StageArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -510,7 +494,6 @@ class Stage(pulumi.CustomResource):
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -561,7 +544,6 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] rest_api: The ID of the associated REST API
         :param pulumi.Input[str] stage_name: The name of the stage
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map that defines the stage variables
         :param pulumi.Input[bool] xray_tracing_enabled: Whether active tracing with X-ray is enabled. Defaults to `false`.
         """
@@ -631,7 +613,6 @@ class Stage(pulumi.CustomResource):
                  rest_api: Optional[pulumi.Input[str]] = None,
                  stage_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  xray_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -662,12 +643,12 @@ class Stage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stage_name'")
             __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["variables"] = variables
             __props__.__dict__["xray_tracing_enabled"] = xray_tracing_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["execution_arn"] = None
             __props__.__dict__["invoke_url"] = None
+            __props__.__dict__["tags_all"] = None
         super(Stage, __self__).__init__(
             'aws:apigateway/stage:Stage',
             resource_name,

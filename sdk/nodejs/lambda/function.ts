@@ -282,7 +282,7 @@ export class Function extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */
@@ -377,7 +377,6 @@ export class Function extends pulumi.CustomResource {
             inputs["s3ObjectVersion"] = args ? args.s3ObjectVersion : undefined;
             inputs["sourceCodeHash"] = args ? args.sourceCodeHash : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["tracingConfig"] = args ? args.tracingConfig : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
@@ -388,6 +387,7 @@ export class Function extends pulumi.CustomResource {
             inputs["signingJobArn"] = undefined /*out*/;
             inputs["signingProfileVersionArn"] = undefined /*out*/;
             inputs["sourceCodeSize"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -640,10 +640,6 @@ export interface FunctionArgs {
      * Map of tags to assign to the object.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
      */

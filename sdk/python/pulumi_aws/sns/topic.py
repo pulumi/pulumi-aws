@@ -36,8 +36,7 @@ class TopicArgs:
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] application_failure_feedback_role_arn: IAM role for failure feedback
@@ -64,7 +63,6 @@ class TopicArgs:
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if application_failure_feedback_role_arn is not None:
             pulumi.set(__self__, "application_failure_feedback_role_arn", application_failure_feedback_role_arn)
@@ -114,8 +112,6 @@ class TopicArgs:
             pulumi.set(__self__, "sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="applicationFailureFeedbackRoleArn")
@@ -404,18 +400,6 @@ class TopicArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -887,7 +871,6 @@ class Topic(pulumi.CustomResource):
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an SNS topic resource
@@ -985,7 +968,6 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] sqs_success_feedback_sample_rate: Percentage of success to sample
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         ...
     @overload
@@ -1102,7 +1084,6 @@ class Topic(pulumi.CustomResource):
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  sqs_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -1139,9 +1120,9 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["sqs_success_feedback_role_arn"] = sqs_success_feedback_role_arn
             __props__.__dict__["sqs_success_feedback_sample_rate"] = sqs_success_feedback_sample_rate
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner"] = None
+            __props__.__dict__["tags_all"] = None
         super(Topic, __self__).__init__(
             'aws:sns/topic:Topic',
             resource_name,

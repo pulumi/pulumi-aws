@@ -80,7 +80,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */
@@ -137,7 +137,6 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
@@ -145,6 +144,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             inputs["dnsSupport"] = undefined /*out*/;
             inputs["ipv6Support"] = undefined /*out*/;
             inputs["subnetIds"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["transitGatewayId"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
             inputs["vpcOwnerId"] = undefined /*out*/;
@@ -209,7 +209,6 @@ export interface VpcAttachmentAccepterState {
  */
 export interface VpcAttachmentAccepterArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.
      */

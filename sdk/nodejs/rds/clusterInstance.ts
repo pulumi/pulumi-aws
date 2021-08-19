@@ -218,7 +218,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -298,7 +298,6 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["promotionTier"] = args ? args.promotionTier : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dbiResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
@@ -306,6 +305,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["writer"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -559,8 +559,4 @@ export interface ClusterInstanceArgs {
      * A map of tags to assign to the instance. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

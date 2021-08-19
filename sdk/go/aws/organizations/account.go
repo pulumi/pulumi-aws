@@ -183,8 +183,6 @@ type accountArgs struct {
 	RoleName *string `pulumi:"roleName"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -201,8 +199,6 @@ type AccountArgs struct {
 	RoleName pulumi.StringPtrInput
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

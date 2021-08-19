@@ -154,7 +154,7 @@ export class AmiCopy extends pulumi.CustomResource {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -224,7 +224,6 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["sourceAmiId"] = args ? args.sourceAmiId : undefined;
             inputs["sourceAmiRegion"] = args ? args.sourceAmiRegion : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["architecture"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["enaSupport"] = undefined /*out*/;
@@ -242,6 +241,7 @@ export class AmiCopy extends pulumi.CustomResource {
             inputs["rootDeviceName"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
             inputs["sriovNetSupport"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["usageOperation"] = undefined /*out*/;
             inputs["virtualizationType"] = undefined /*out*/;
         }
@@ -409,5 +409,4 @@ export interface AmiCopyArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

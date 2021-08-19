@@ -261,8 +261,6 @@ type certificateArgs struct {
 	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
 	// A map of tags to assign to the resource..
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod *string `pulumi:"validationMethod"`
 }
@@ -287,8 +285,6 @@ type CertificateArgs struct {
 	SubjectAlternativeNames pulumi.StringArrayInput
 	// A map of tags to assign to the resource..
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
 	ValidationMethod pulumi.StringPtrInput
 }

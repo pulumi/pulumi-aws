@@ -92,7 +92,7 @@ export class LocationFsxWindows extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the FSx for Windows location that was described.
      */
@@ -146,10 +146,10 @@ export class LocationFsxWindows extends pulumi.CustomResource {
             inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             inputs["subdirectory"] = args ? args.subdirectory : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["user"] = args ? args.user : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -237,10 +237,6 @@ export interface LocationFsxWindowsArgs {
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who has the permissions to access files and folders in the FSx for Windows file system.
      */

@@ -317,8 +317,6 @@ type queueArgs struct {
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds *int `pulumi:"visibilityTimeoutSeconds"`
 }
@@ -355,8 +353,6 @@ type QueueArgs struct {
 	RedrivePolicy pulumi.StringPtrInput
 	// A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll pulumi.StringMapInput
 	// The visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
 	VisibilityTimeoutSeconds pulumi.IntPtrInput
 }

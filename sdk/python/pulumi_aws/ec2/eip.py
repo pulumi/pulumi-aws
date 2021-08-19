@@ -21,7 +21,6 @@ class EipArgs:
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Eip resource.
@@ -50,8 +49,6 @@ class EipArgs:
             pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
             pulumi.set(__self__, "vpc", vpc)
 
@@ -147,15 +144,6 @@ class EipArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -487,7 +475,6 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -714,7 +701,6 @@ class Eip(pulumi.CustomResource):
                  network_interface: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         if opts is None:
@@ -736,7 +722,6 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpc"] = vpc
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["association_id"] = None
@@ -747,6 +732,7 @@ class Eip(pulumi.CustomResource):
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns"] = None
             __props__.__dict__["public_ip"] = None
+            __props__.__dict__["tags_all"] = None
         super(Eip, __self__).__init__(
             'aws:ec2/eip:Eip',
             resource_name,

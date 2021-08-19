@@ -181,7 +181,6 @@ type volumeArgs struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string           `pulumi:"snapshotId"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -206,7 +205,6 @@ type VolumeArgs struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).

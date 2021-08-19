@@ -180,8 +180,7 @@ type defaultSubnetArgs struct {
 	MapPublicIpOnLaunch *bool   `pulumi:"mapPublicIpOnLaunch"`
 	OutpostArn          *string `pulumi:"outpostArn"`
 	// Map of tags to assign to the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultSubnet resource.
@@ -194,8 +193,7 @@ type DefaultSubnetArgs struct {
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	OutpostArn          pulumi.StringPtrInput
 	// Map of tags to assign to the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (DefaultSubnetArgs) ElementType() reflect.Type {

@@ -229,7 +229,7 @@ export class Branch extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The content Time To Live (TTL) for the website in seconds.
      */
@@ -295,13 +295,13 @@ export class Branch extends pulumi.CustomResource {
             inputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
             inputs["stage"] = args ? args.stage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["associatedResources"] = undefined /*out*/;
             inputs["customDomains"] = undefined /*out*/;
             inputs["destinationBranch"] = undefined /*out*/;
             inputs["sourceBranch"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -476,10 +476,6 @@ export interface BranchArgs {
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The content Time To Live (TTL) for the website in seconds.
      */

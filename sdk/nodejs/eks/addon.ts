@@ -108,7 +108,7 @@ export class Addon extends pulumi.CustomResource {
     /**
      * (Optional) Key-value map of resource tags, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Addon resource with the given unique name, arguments, and options.
@@ -147,10 +147,10 @@ export class Addon extends pulumi.CustomResource {
             inputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             inputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["modifiedAt"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -251,8 +251,4 @@ export interface AddonArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * (Optional) Key-value map of resource tags, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

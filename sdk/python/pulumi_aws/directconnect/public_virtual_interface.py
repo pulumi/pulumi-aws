@@ -22,8 +22,7 @@ class PublicVirtualInterfaceArgs:
                  bgp_auth_key: Optional[pulumi.Input[str]] = None,
                  customer_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PublicVirtualInterface resource.
         :param pulumi.Input[str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -36,7 +35,6 @@ class PublicVirtualInterfaceArgs:
         :param pulumi.Input[str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -53,8 +51,6 @@ class PublicVirtualInterfaceArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -175,18 +171,6 @@ class PublicVirtualInterfaceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -431,7 +415,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -475,7 +458,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name for the virtual interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[int] vlan: The VLAN ID.
         """
         ...
@@ -538,7 +520,6 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vlan: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         if opts is None:
@@ -569,13 +550,13 @@ class PublicVirtualInterface(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_filter_prefixes'")
             __props__.__dict__["route_filter_prefixes"] = route_filter_prefixes
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__.__dict__["vlan"] = vlan
             __props__.__dict__["amazon_side_asn"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_device"] = None
+            __props__.__dict__["tags_all"] = None
         super(PublicVirtualInterface, __self__).__init__(
             'aws:directconnect/publicVirtualInterface:PublicVirtualInterface',
             resource_name,

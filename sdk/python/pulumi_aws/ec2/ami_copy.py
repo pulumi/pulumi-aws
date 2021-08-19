@@ -24,8 +24,7 @@ class AmiCopyArgs:
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
         :param pulumi.Input[str] source_ami_id: The id of the AMI to copy. This id must be valid in the region
@@ -64,8 +63,6 @@ class AmiCopyArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="sourceAmiId")
@@ -193,15 +190,6 @@ class AmiCopyArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -689,7 +677,6 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The "AMI copy" resource allows duplication of an Amazon Machine Image (AMI),
@@ -798,7 +785,6 @@ class AmiCopy(pulumi.CustomResource):
                  source_ami_id: Optional[pulumi.Input[str]] = None,
                  source_ami_region: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -825,7 +811,6 @@ class AmiCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_ami_region'")
             __props__.__dict__["source_ami_region"] = source_ami_region
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["architecture"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["ena_support"] = None
@@ -843,6 +828,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["root_device_name"] = None
             __props__.__dict__["root_snapshot_id"] = None
             __props__.__dict__["sriov_net_support"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
         super(AmiCopy, __self__).__init__(

@@ -411,7 +411,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */
@@ -463,8 +463,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["versionId"] = args ? args.versionId : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -590,7 +590,6 @@ export interface FirehoseDeliveryStreamArgs {
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
      */

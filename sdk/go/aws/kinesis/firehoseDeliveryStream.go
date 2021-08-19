@@ -529,7 +529,6 @@ type firehoseDeliveryStreamArgs struct {
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	Tags                map[string]string                          `pulumi:"tags"`
-	TagsAll             map[string]string                          `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -565,7 +564,6 @@ type FirehoseDeliveryStreamArgs struct {
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	Tags                pulumi.StringMapInput
-	TagsAll             pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }

@@ -282,8 +282,6 @@ type apiArgs struct {
 	RouteSelectionExpression *string `pulumi:"routeSelectionExpression"`
 	// A map of tags to assign to the API. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.
@@ -323,8 +321,6 @@ type ApiArgs struct {
 	RouteSelectionExpression pulumi.StringPtrInput
 	// A map of tags to assign to the API. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
 	// For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
 	// The type of the integration will be `HTTP_PROXY` or `AWS_PROXY`, respectively. Applicable for HTTP APIs.

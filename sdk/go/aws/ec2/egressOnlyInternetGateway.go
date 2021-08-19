@@ -115,16 +115,14 @@ func (EgressOnlyInternetGatewayState) ElementType() reflect.Type {
 }
 
 type egressOnlyInternetGatewayArgs struct {
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a EgressOnlyInternetGateway resource.
 type EgressOnlyInternetGatewayArgs struct {
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringInput
 }

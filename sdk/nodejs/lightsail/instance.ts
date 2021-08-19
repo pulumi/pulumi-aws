@@ -168,7 +168,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * launch script to configure server with additional user data
      */
@@ -223,7 +223,6 @@ export class Instance extends pulumi.CustomResource {
             inputs["keyPairName"] = args ? args.keyPairName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userData"] = args ? args.userData : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["cpuCount"] = undefined /*out*/;
@@ -234,6 +233,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["publicIpAddress"] = undefined /*out*/;
             inputs["ramSize"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["username"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -337,10 +337,6 @@ export interface InstanceArgs {
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */

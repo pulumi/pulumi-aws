@@ -127,7 +127,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
@@ -215,12 +215,12 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             inputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
             inputs["snapshotId"] = args ? args.snapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetName"] = args ? args.targetName : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["chapEnabled"] = undefined /*out*/;
             inputs["lunNumber"] = undefined /*out*/;
             inputs["networkInterfacePort"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["targetArn"] = undefined /*out*/;
             inputs["volumeAttachmentStatus"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
@@ -357,10 +357,6 @@ export interface StoredIscsiVolumeArgs {
      * Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
      */

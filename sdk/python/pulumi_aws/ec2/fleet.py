@@ -22,7 +22,6 @@ class FleetArgs:
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input['FleetSpotOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -50,8 +49,6 @@ class FleetArgs:
             pulumi.set(__self__, "spot_options", spot_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if terminate_instances is not None:
             pulumi.set(__self__, "terminate_instances", terminate_instances)
         if terminate_instances_with_expiration is not None:
@@ -139,15 +136,6 @@ class FleetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="terminateInstances")
@@ -373,7 +361,6 @@ class Fleet(pulumi.CustomResource):
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -478,7 +465,6 @@ class Fleet(pulumi.CustomResource):
                  replace_unhealthy_instances: Optional[pulumi.Input[bool]] = None,
                  spot_options: Optional[pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity_specification: Optional[pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']]] = None,
                  terminate_instances: Optional[pulumi.Input[bool]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
@@ -503,13 +489,13 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_options"] = spot_options
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if target_capacity_specification is None and not opts.urn:
                 raise TypeError("Missing required property 'target_capacity_specification'")
             __props__.__dict__["target_capacity_specification"] = target_capacity_specification
             __props__.__dict__["terminate_instances"] = terminate_instances
             __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
             __props__.__dict__["type"] = type
+            __props__.__dict__["tags_all"] = None
         super(Fleet, __self__).__init__(
             'aws:ec2/fleet:Fleet',
             resource_name,

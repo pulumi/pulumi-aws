@@ -268,7 +268,7 @@ export class Domain extends pulumi.CustomResource {
      * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      */
@@ -323,12 +323,12 @@ export class Domain extends pulumi.CustomResource {
             inputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
             inputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["kibanaEndpoint"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -474,7 +474,6 @@ export interface DomainArgs {
      * Map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
      */

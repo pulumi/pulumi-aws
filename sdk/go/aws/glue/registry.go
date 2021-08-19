@@ -122,8 +122,7 @@ type registryArgs struct {
 	// The Name of the registry.
 	RegistryName string `pulumi:"registryName"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -133,8 +132,7 @@ type RegistryArgs struct {
 	// The Name of the registry.
 	RegistryName pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {

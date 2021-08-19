@@ -173,7 +173,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
      */
@@ -220,11 +220,11 @@ export class Certificate extends pulumi.CustomResource {
             inputs["privateKey"] = args ? args.privateKey : undefined;
             inputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["validationMethod"] = args ? args.validationMethod : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainValidationOptions"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["validationEmails"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -336,10 +336,6 @@ export interface CertificateArgs {
      * A map of tags to assign to the resource..
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */

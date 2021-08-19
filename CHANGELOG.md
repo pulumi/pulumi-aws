@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure that resources do not allow `tagsAll` to be set - it should be an output only. This is technically a "breaking"
+  change but these properties were never actually able to set set.
 
 ---
 

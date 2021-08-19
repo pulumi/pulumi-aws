@@ -229,7 +229,7 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */
@@ -294,7 +294,6 @@ export class Gateway extends pulumi.CustomResource {
             inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
             inputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ec2InstanceId"] = undefined /*out*/;
@@ -302,6 +301,7 @@ export class Gateway extends pulumi.CustomResource {
             inputs["gatewayId"] = undefined /*out*/;
             inputs["gatewayNetworkInterfaces"] = undefined /*out*/;
             inputs["hostEnvironment"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -472,10 +472,6 @@ export interface GatewayArgs {
      * Key-value map of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of tape drive to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `IBM-ULT3580-TD5`.
      */

@@ -673,7 +673,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */
@@ -758,12 +758,12 @@ export class Cluster extends pulumi.CustomResource {
             inputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
             inputs["steps"] = args ? args.steps : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["terminationProtection"] = args ? args.terminationProtection : undefined;
             inputs["visibleToAllUsers"] = args ? args.visibleToAllUsers : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["clusterState"] = undefined /*out*/;
             inputs["masterPublicDns"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -984,7 +984,6 @@ export interface ClusterArgs {
      */
     steps?: pulumi.Input<pulumi.Input<inputs.emr.ClusterStep>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
      */

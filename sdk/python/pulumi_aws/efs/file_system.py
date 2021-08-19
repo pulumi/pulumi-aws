@@ -23,7 +23,6 @@ class FileSystemArgs:
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FileSystem resource.
@@ -55,8 +54,6 @@ class FileSystemArgs:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if throughput_mode is not None:
             pulumi.set(__self__, "throughput_mode", throughput_mode)
 
@@ -155,15 +152,6 @@ class FileSystemArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="throughputMode")
@@ -453,7 +441,6 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -565,7 +552,6 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[str]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -587,7 +573,6 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zone_id"] = None
@@ -595,6 +580,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["number_of_mount_targets"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["size_in_bytes"] = None
+            __props__.__dict__["tags_all"] = None
         super(FileSystem, __self__).__init__(
             'aws:efs/fileSystem:FileSystem',
             resource_name,

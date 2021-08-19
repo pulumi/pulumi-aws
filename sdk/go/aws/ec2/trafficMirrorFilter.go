@@ -121,7 +121,6 @@ type trafficMirrorFilterArgs struct {
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices []string          `pulumi:"networkServices"`
 	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a TrafficMirrorFilter resource.
@@ -131,7 +130,6 @@ type TrafficMirrorFilterArgs struct {
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 }
 
 func (TrafficMirrorFilterArgs) ElementType() reflect.Type {
