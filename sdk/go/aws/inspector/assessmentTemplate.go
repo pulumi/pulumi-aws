@@ -153,8 +153,6 @@ type assessmentTemplateArgs struct {
 	RulesPackageArns []string `pulumi:"rulesPackageArns"`
 	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The assessment target ARN to attach the template to.
 	TargetArn string `pulumi:"targetArn"`
 }
@@ -169,8 +167,6 @@ type AssessmentTemplateArgs struct {
 	RulesPackageArns pulumi.StringArrayInput
 	// Key-value map of tags for the Inspector assessment template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// The assessment target ARN to attach the template to.
 	TargetArn pulumi.StringInput
 }

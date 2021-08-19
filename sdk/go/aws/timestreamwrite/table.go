@@ -165,8 +165,6 @@ type tableArgs struct {
 	// The name of the Timestream table.
 	TableName string            `pulumi:"tableName"`
 	Tags      map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -178,8 +176,6 @@ type TableArgs struct {
 	// The name of the Timestream table.
 	TableName pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

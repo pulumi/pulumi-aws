@@ -138,9 +138,8 @@ func (UserGroupState) ElementType() reflect.Type {
 type userGroupArgs struct {
 	Arn *string `pulumi:"arn"`
 	// The current supported value is `REDIS`.
-	Engine  string            `pulumi:"engine"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Engine string            `pulumi:"engine"`
+	Tags   map[string]string `pulumi:"tags"`
 	// The ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// The list of user IDs that belong to the user group.
@@ -151,9 +150,8 @@ type userGroupArgs struct {
 type UserGroupArgs struct {
 	Arn pulumi.StringPtrInput
 	// The current supported value is `REDIS`.
-	Engine  pulumi.StringInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Engine pulumi.StringInput
+	Tags   pulumi.StringMapInput
 	// The ID of the user group.
 	UserGroupId pulumi.StringInput
 	// The list of user IDs that belong to the user group.

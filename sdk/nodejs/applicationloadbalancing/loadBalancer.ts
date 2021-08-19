@@ -216,7 +216,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
     /**
      * The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
@@ -280,10 +280,10 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["arnSuffix"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
@@ -466,8 +466,4 @@ export interface LoadBalancerArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

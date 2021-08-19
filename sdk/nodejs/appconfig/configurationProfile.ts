@@ -99,7 +99,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */
@@ -142,10 +142,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["retrievalRoleArn"] = args ? args.retrievalRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["validators"] = args ? args.validators : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["configurationProfileId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -228,10 +228,6 @@ export interface ConfigurationProfileArgs {
      * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A set of methods for validating the configuration. Maximum of 2. See Validator below for more details.
      */

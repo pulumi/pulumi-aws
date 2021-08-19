@@ -91,7 +91,7 @@ export class Agent extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      */
@@ -129,9 +129,9 @@ export class Agent extends pulumi.CustomResource {
             inputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             inputs["subnetArns"] = args ? args.subnetArns : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -218,10 +218,6 @@ export interface AgentArgs {
      * Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
      */

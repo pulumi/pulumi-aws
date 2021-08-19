@@ -25,7 +25,6 @@ class MLTransformArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
@@ -60,8 +59,6 @@ class MLTransformArgs:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if worker_type is not None:
@@ -186,15 +183,6 @@ class MLTransformArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -496,7 +484,6 @@ class MLTransform(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -742,7 +729,6 @@ class MLTransform(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -773,12 +759,12 @@ class MLTransform(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["worker_type"] = worker_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["label_count"] = None
             __props__.__dict__["schemas"] = None
+            __props__.__dict__["tags_all"] = None
         super(MLTransform, __self__).__init__(
             'aws:glue/mLTransform:MLTransform',
             resource_name,

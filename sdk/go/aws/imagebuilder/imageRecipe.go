@@ -204,8 +204,6 @@ type imageRecipeArgs struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version of the image recipe.
 	Version string `pulumi:"version"`
 	// The working directory to be used during build and test workflows.
@@ -226,8 +224,6 @@ type ImageRecipeArgs struct {
 	ParentImage pulumi.StringInput
 	// Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Version of the image recipe.
 	Version pulumi.StringInput
 	// The working directory to be used during build and test workflows.

@@ -139,7 +139,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.
@@ -199,12 +199,12 @@ export class Api extends pulumi.CustomResource {
             inputs["routeKey"] = args ? args.routeKey : undefined;
             inputs["routeSelectionExpression"] = args ? args.routeSelectionExpression : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["apiEndpoint"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["executionArn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -357,10 +357,6 @@ export interface ApiArgs {
      * A map of tags to assign to the API. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Part of _quick create_. Quick create produces an API with an integration, a default catch-all route, and a default stage which is configured to automatically deploy changes.
      * For HTTP integrations, specify a fully qualified URL. For Lambda integrations, specify a function ARN.

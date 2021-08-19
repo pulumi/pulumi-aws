@@ -131,7 +131,6 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
 	Tags                     map[string]string `pulumi:"tags"`
-	TagsAll                  map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -141,7 +140,6 @@ type LocalGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringInput
 	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
 	// Identifier of EC2 VPC.
 	VpcId pulumi.StringInput
 }

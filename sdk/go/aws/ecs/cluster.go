@@ -189,7 +189,6 @@ type clusterArgs struct {
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting  `pulumi:"settings"`
 	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -205,7 +204,6 @@ type ClusterArgs struct {
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
 	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

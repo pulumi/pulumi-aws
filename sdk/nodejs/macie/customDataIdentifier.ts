@@ -98,7 +98,7 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CustomDataIdentifier resource with the given unique name, arguments, and options.
@@ -134,9 +134,9 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
             inputs["namePrefix"] = args ? args.namePrefix : undefined;
             inputs["regex"] = args ? args.regex : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -222,5 +222,4 @@ export interface CustomDataIdentifierArgs {
      * A map of key-value pairs that specifies the tags to associate with the custom data identifier.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

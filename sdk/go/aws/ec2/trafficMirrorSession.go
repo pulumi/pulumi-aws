@@ -190,7 +190,6 @@ type trafficMirrorSessionArgs struct {
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber int               `pulumi:"sessionNumber"`
 	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -210,7 +209,6 @@ type TrafficMirrorSessionArgs struct {
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringInput
 	// ID of the traffic mirror target to be used

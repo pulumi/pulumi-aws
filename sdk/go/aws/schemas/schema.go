@@ -200,7 +200,6 @@ type schemaArgs struct {
 	// The name of the registry in which this schema belongs.
 	RegistryName string            `pulumi:"registryName"`
 	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type string `pulumi:"type"`
 }
@@ -216,7 +215,6 @@ type SchemaArgs struct {
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringInput
 	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type pulumi.StringInput
 }

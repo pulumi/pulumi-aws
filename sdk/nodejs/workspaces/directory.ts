@@ -207,7 +207,7 @@ export class Directory extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */
@@ -260,7 +260,6 @@ export class Directory extends pulumi.CustomResource {
             inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
             inputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
             inputs["alias"] = undefined /*out*/;
@@ -270,6 +269,7 @@ export class Directory extends pulumi.CustomResource {
             inputs["dnsIpAddresses"] = undefined /*out*/;
             inputs["iamRoleId"] = undefined /*out*/;
             inputs["registrationCode"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -373,10 +373,6 @@ export interface DirectoryArgs {
      * A map of tags assigned to the WorkSpaces directory. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies which devices and operating systems users can use to access their WorkSpaces. Defined below.
      */

@@ -190,7 +190,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
      */
@@ -251,10 +251,10 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
             inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["sourceSecurityGroupId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -425,5 +425,4 @@ export interface LoadBalancerArgs {
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

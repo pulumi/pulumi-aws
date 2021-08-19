@@ -299,7 +299,7 @@ export class TaskDefinition extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */
@@ -363,11 +363,11 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["revision"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -518,10 +518,6 @@ export interface TaskDefinitionArgs {
      * Key-value map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
      */

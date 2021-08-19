@@ -127,9 +127,8 @@ type applicationArgs struct {
 	// Short description of the application
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -138,9 +137,8 @@ type ApplicationArgs struct {
 	// Short description of the application
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

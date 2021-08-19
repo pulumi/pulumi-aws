@@ -112,7 +112,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -149,11 +149,11 @@ export class Account extends pulumi.CustomResource {
             inputs["parentId"] = args ? args.parentId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["joinedMethod"] = undefined /*out*/;
             inputs["joinedTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -231,8 +231,4 @@ export interface AccountArgs {
      * Key-value mapping of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

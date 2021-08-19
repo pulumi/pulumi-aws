@@ -126,16 +126,14 @@ func (TransitGatewayPeeringAttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type transitGatewayPeeringAttachmentAccepterArgs struct {
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
 }
 
 // The set of arguments for constructing a TransitGatewayPeeringAttachmentAccepter resource.
 type TransitGatewayPeeringAttachmentAccepterArgs struct {
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringInput
 }

@@ -96,7 +96,7 @@ export class LocationSmb extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
@@ -151,9 +151,9 @@ export class LocationSmb extends pulumi.CustomResource {
             inputs["serverHostname"] = args ? args.serverHostname : undefined;
             inputs["subdirectory"] = args ? args.subdirectory : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["user"] = args ? args.user : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -242,10 +242,6 @@ export interface LocationSmbArgs {
      * Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user who can mount the share and has file and folder permissions in the SMB share.
      */

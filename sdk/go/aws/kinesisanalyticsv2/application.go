@@ -437,7 +437,6 @@ type applicationArgs struct {
 	// Whether to start or stop the application.
 	StartApplication *bool             `pulumi:"startApplication"`
 	Tags             map[string]string `pulumi:"tags"`
-	TagsAll          map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -459,7 +458,6 @@ type ApplicationArgs struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
 	Tags             pulumi.StringMapInput
-	TagsAll          pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

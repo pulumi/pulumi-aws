@@ -115,9 +115,8 @@ type registryArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
@@ -125,9 +124,8 @@ type RegistryArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {

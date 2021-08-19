@@ -101,7 +101,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly shardLevelMetrics!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -140,7 +140,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -228,5 +228,4 @@ export interface StreamArgs {
      */
     shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

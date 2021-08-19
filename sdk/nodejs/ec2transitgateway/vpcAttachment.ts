@@ -73,7 +73,7 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */
@@ -135,11 +135,11 @@ export class VpcAttachment extends pulumi.CustomResource {
             inputs["ipv6Support"] = args ? args.ipv6Support : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
             inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["vpcId"] = args ? args.vpcId : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcOwnerId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -214,7 +214,6 @@ export interface VpcAttachmentArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
      */

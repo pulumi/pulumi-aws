@@ -147,7 +147,6 @@ type keyPairArgs struct {
 	// The public key material.
 	PublicKey string            `pulumi:"publicKey"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -159,7 +158,6 @@ type KeyPairArgs struct {
 	// The public key material.
 	PublicKey pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {

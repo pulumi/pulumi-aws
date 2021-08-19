@@ -319,8 +319,7 @@ type domainArgs struct {
 	// Configuration block for snapshot related options. Detailed below.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	// Map of tags to assign to the resource.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -353,8 +352,7 @@ type DomainArgs struct {
 	// Configuration block for snapshot related options. Detailed below.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	// Map of tags to assign to the resource.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
 }

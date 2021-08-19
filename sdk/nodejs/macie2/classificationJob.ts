@@ -111,7 +111,7 @@ export class ClassificationJob extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
      */
@@ -165,10 +165,10 @@ export class ClassificationJob extends pulumi.CustomResource {
             inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             inputs["scheduleFrequency"] = args ? args.scheduleFrequency : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["createdAt"] = undefined /*out*/;
             inputs["jobArn"] = undefined /*out*/;
             inputs["jobId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["userPausedDetails"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -281,5 +281,4 @@ export interface ClassificationJobArgs {
      * A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

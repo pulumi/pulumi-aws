@@ -322,7 +322,6 @@ type loadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string          `pulumi:"subnets"`
 	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
@@ -362,7 +361,6 @@ type LoadBalancerArgs struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
 }
 
 func (LoadBalancerArgs) ElementType() reflect.Type {

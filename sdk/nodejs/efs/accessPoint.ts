@@ -75,7 +75,7 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly rootDirectory!: pulumi.Output<outputs.efs.AccessPointRootDirectory>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -107,10 +107,10 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["posixUser"] = args ? args.posixUser : undefined;
             inputs["rootDirectory"] = args ? args.rootDirectory : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileSystemArn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -165,5 +165,4 @@ export interface AccessPointArgs {
      */
     rootDirectory?: pulumi.Input<inputs.efs.AccessPointRootDirectory>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

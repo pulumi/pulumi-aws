@@ -106,7 +106,7 @@ export class Member extends pulumi.CustomResource {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time, in UTC and extended RFC 3339 format, of the most recent change to the status of the relationship between the account and the administrator account.
      */
@@ -154,12 +154,12 @@ export class Member extends pulumi.CustomResource {
             inputs["invite"] = args ? args.invite : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["administratorAccountId"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["invitedAt"] = undefined /*out*/;
             inputs["masterAccountId"] = undefined /*out*/;
             inputs["relationshipStatus"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -257,5 +257,4 @@ export interface MemberArgs {
      * A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -197,7 +197,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */
@@ -278,7 +278,6 @@ export class UserPool extends pulumi.CustomResource {
             inputs["smsVerificationMessage"] = args ? args.smsVerificationMessage : undefined;
             inputs["softwareTokenMfaConfiguration"] = args ? args.softwareTokenMfaConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             inputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             inputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
@@ -290,6 +289,7 @@ export class UserPool extends pulumi.CustomResource {
             inputs["endpoint"] = undefined /*out*/;
             inputs["estimatedNumberOfUsers"] = undefined /*out*/;
             inputs["lastModifiedDate"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -500,10 +500,6 @@ export interface UserPoolArgs {
      * Map of tags to assign to the User Pool. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for user pool add-ons to enable user pool advanced security mode features. Detailed below.
      */

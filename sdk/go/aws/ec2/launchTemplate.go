@@ -375,8 +375,6 @@ type launchTemplateArgs struct {
 	TagSpecifications []LaunchTemplateTagSpecification `pulumi:"tagSpecifications"`
 	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
@@ -456,8 +454,6 @@ type LaunchTemplateArgs struct {
 	TagSpecifications LaunchTemplateTagSpecificationArrayInput
 	// A map of tags to assign to the launch template. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.

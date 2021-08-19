@@ -314,7 +314,6 @@ type serverArgs struct {
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName *string           `pulumi:"securityPolicyName"`
 	Tags               map[string]string `pulumi:"tags"`
-	TagsAll            map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
@@ -347,7 +346,6 @@ type ServerArgs struct {
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
 	Tags               pulumi.StringMapInput
-	TagsAll            pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }

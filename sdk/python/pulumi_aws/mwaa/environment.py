@@ -32,7 +32,6 @@ class EnvironmentArgs:
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
         """
@@ -54,7 +53,6 @@ class EnvironmentArgs:
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
@@ -88,8 +86,6 @@ class EnvironmentArgs:
             pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if webserver_access_mode is not None:
             pulumi.set(__self__, "webserver_access_mode", webserver_access_mode)
         if weekly_maintenance_window_start is not None:
@@ -298,18 +294,6 @@ class EnvironmentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="webserverAccessMode")
@@ -780,7 +764,6 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -910,7 +893,6 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
         """
@@ -1059,7 +1041,6 @@ class Environment(pulumi.CustomResource):
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1099,7 +1080,6 @@ class Environment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_bucket_arn'")
             __props__.__dict__["source_bucket_arn"] = source_bucket_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
@@ -1107,6 +1087,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["last_updateds"] = None
             __props__.__dict__["service_role_arn"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["webserver_url"] = None
         super(Environment, __self__).__init__(
             'aws:mwaa/environment:Environment',

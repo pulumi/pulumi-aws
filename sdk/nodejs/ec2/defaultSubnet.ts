@@ -99,7 +99,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
      * Map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * VPC ID.
      */
@@ -144,7 +144,6 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             inputs["outpostArn"] = args ? args.outpostArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assignIpv6AddressOnCreation"] = undefined /*out*/;
             inputs["availabilityZoneId"] = undefined /*out*/;
@@ -152,6 +151,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             inputs["ipv6CidrBlock"] = undefined /*out*/;
             inputs["ipv6CidrBlockAssociationId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -229,5 +229,4 @@ export interface DefaultSubnetArgs {
      * Map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

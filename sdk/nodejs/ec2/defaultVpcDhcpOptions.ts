@@ -90,7 +90,7 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DefaultVpcDhcpOptions resource with the given unique name, arguments, and options.
@@ -120,11 +120,11 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             inputs["netbiosNodeType"] = args ? args.netbiosNodeType : undefined;
             inputs["ownerId"] = args ? args.ownerId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
             inputs["domainNameServers"] = undefined /*out*/;
             inputs["ntpServers"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -183,5 +183,4 @@ export interface DefaultVpcDhcpOptionsArgs {
      * A map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

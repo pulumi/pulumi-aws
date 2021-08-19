@@ -143,7 +143,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */
@@ -198,9 +198,9 @@ export class Webhook extends pulumi.CustomResource {
             inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetAction"] = args ? args.targetAction : undefined;
             inputs["targetPipeline"] = args ? args.targetPipeline : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -276,10 +276,6 @@ export interface WebhookArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
      */

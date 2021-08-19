@@ -371,7 +371,6 @@ type environmentArgs struct {
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string           `pulumi:"solutionStackName"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName *string `pulumi:"templateName"`
@@ -417,7 +416,6 @@ type EnvironmentArgs struct {
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrInput

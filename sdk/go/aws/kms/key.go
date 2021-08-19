@@ -176,9 +176,8 @@ type keyArgs struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage *string `pulumi:"keyUsage"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
-	Policy  *string           `pulumi:"policy"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Policy *string           `pulumi:"policy"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -200,9 +199,8 @@ type KeyArgs struct {
 	// Defaults to `ENCRYPT_DECRYPT`.
 	KeyUsage pulumi.StringPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
-	Policy  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Policy pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {

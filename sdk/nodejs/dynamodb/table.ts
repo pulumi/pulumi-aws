@@ -201,7 +201,7 @@ export class Table extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
@@ -266,12 +266,12 @@ export class Table extends pulumi.CustomResource {
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["writeCapacity"] = args ? args.writeCapacity : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["streamArn"] = undefined /*out*/;
             inputs["streamLabel"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -439,10 +439,6 @@ export interface TableArgs {
      * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */

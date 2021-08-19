@@ -20,8 +20,7 @@ class WorkteamArgs:
                  workforce_name: pulumi.Input[str],
                  workteam_name: pulumi.Input[str],
                  notification_configuration: Optional[pulumi.Input['WorkteamNotificationConfigurationArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workteam resource.
         :param pulumi.Input[str] description: A description of the work team.
@@ -30,7 +29,6 @@ class WorkteamArgs:
         :param pulumi.Input[str] workteam_name: The name of the workforce.
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "member_definitions", member_definitions)
@@ -40,8 +38,6 @@ class WorkteamArgs:
             pulumi.set(__self__, "notification_configuration", notification_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -114,18 +110,6 @@ class WorkteamArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -289,7 +273,6 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -346,7 +329,6 @@ class Workteam(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] workforce_name: The name of the Workteam (must be unique).
         :param pulumi.Input[str] workteam_name: The name of the workforce.
         """
@@ -422,7 +404,6 @@ class Workteam(pulumi.CustomResource):
                  member_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkteamMemberDefinitionArgs']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[pulumi.InputType['WorkteamNotificationConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workforce_name: Optional[pulumi.Input[str]] = None,
                  workteam_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -445,7 +426,6 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["member_definitions"] = member_definitions
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if workforce_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workforce_name'")
             __props__.__dict__["workforce_name"] = workforce_name
@@ -454,6 +434,7 @@ class Workteam(pulumi.CustomResource):
             __props__.__dict__["workteam_name"] = workteam_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["subdomain"] = None
+            __props__.__dict__["tags_all"] = None
         super(Workteam, __self__).__init__(
             'aws:sagemaker/workteam:Workteam',
             resource_name,

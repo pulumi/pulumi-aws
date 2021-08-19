@@ -110,7 +110,7 @@ export class ImageRecipe extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version of the image recipe.
      */
@@ -163,13 +163,13 @@ export class ImageRecipe extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["parentImage"] = args ? args.parentImage : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["workingDirectory"] = args ? args.workingDirectory : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -264,10 +264,6 @@ export interface ImageRecipeArgs {
      * Key-value map of resource tags for the image recipe. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the image recipe.
      */

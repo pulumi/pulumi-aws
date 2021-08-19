@@ -192,7 +192,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster
@@ -267,13 +267,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             inputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["clusterResourceId"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["hostedZoneId"] = undefined /*out*/;
             inputs["readerEndpoint"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -521,10 +521,6 @@ export interface ClusterArgs {
      * A map of tags to assign to the DB cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of VPC security groups to associate
      * with the Cluster

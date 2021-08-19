@@ -172,8 +172,6 @@ type userArgs struct {
 	PermissionsBoundary *string `pulumi:"permissionsBoundary"`
 	// Key-value mapping of tags for the IAM user
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -190,8 +188,6 @@ type UserArgs struct {
 	PermissionsBoundary pulumi.StringPtrInput
 	// Key-value mapping of tags for the IAM user
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll pulumi.StringMapInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

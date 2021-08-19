@@ -148,7 +148,7 @@ export class DevEndpoint extends pulumi.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * he ID of the VPC used by this endpoint.
      */
@@ -223,7 +223,6 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["workerType"] = args ? args.workerType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["availabilityZone"] = undefined /*out*/;
@@ -231,6 +230,7 @@ export class DevEndpoint extends pulumi.CustomResource {
             inputs["privateAddress"] = undefined /*out*/;
             inputs["publicAddress"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
             inputs["yarnEndpointAddress"] = undefined /*out*/;
             inputs["zeppelinRemoteSparkInterpreterPort"] = undefined /*out*/;
@@ -405,7 +405,6 @@ export interface DevEndpointArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
      */

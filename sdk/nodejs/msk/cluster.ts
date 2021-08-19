@@ -220,7 +220,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
@@ -280,13 +280,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["bootstrapBrokers"] = undefined /*out*/;
             inputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
             inputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
             inputs["bootstrapBrokersTls"] = undefined /*out*/;
             inputs["currentVersion"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["zookeeperConnectString"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -427,8 +427,4 @@ export interface ClusterArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

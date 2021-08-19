@@ -20,7 +20,6 @@ class TrafficMirrorSessionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  packet_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a TrafficMirrorSession resource.
@@ -42,8 +41,6 @@ class TrafficMirrorSessionArgs:
             pulumi.set(__self__, "packet_length", packet_length)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if virtual_network_id is not None:
             pulumi.set(__self__, "virtual_network_id", virtual_network_id)
 
@@ -127,15 +124,6 @@ class TrafficMirrorSessionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="virtualNetworkId")
@@ -336,7 +324,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  packet_length: Optional[pulumi.Input[int]] = None,
                  session_number: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None,
@@ -441,7 +428,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
                  packet_length: Optional[pulumi.Input[int]] = None,
                  session_number: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_mirror_filter_id: Optional[pulumi.Input[str]] = None,
                  traffic_mirror_target_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[int]] = None,
@@ -466,7 +452,6 @@ class TrafficMirrorSession(pulumi.CustomResource):
                 raise TypeError("Missing required property 'session_number'")
             __props__.__dict__["session_number"] = session_number
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if traffic_mirror_filter_id is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_mirror_filter_id'")
             __props__.__dict__["traffic_mirror_filter_id"] = traffic_mirror_filter_id
@@ -476,6 +461,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
             __props__.__dict__["virtual_network_id"] = virtual_network_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(TrafficMirrorSession, __self__).__init__(
             'aws:ec2/trafficMirrorSession:TrafficMirrorSession',
             resource_name,

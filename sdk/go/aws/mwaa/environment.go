@@ -270,8 +270,6 @@ type environmentArgs struct {
 	SourceBucketArn string `pulumi:"sourceBucketArn"`
 	// A map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
 	WebserverAccessMode *string `pulumi:"webserverAccessMode"`
 	// Specifies the start date for the weekly maintenance window.
@@ -314,8 +312,6 @@ type EnvironmentArgs struct {
 	SourceBucketArn pulumi.StringInput
 	// A map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
 	WebserverAccessMode pulumi.StringPtrInput
 	// Specifies the start date for the weekly maintenance window.

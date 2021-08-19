@@ -110,7 +110,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Type of the component.
      */
@@ -169,13 +169,13 @@ export class Component extends pulumi.CustomResource {
             inputs["platform"] = args ? args.platform : undefined;
             inputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["uri"] = args ? args.uri : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["encrypted"] = undefined /*out*/;
             inputs["owner"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -291,10 +291,6 @@ export interface ComponentArgs {
      * Key-value map of resource tags for the component. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * S3 URI with data of the component. Exactly one of `data` and `uri` can be specified.
      */

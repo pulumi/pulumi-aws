@@ -162,8 +162,6 @@ type agentArgs struct {
 	SubnetArns []string `pulumi:"subnetArns"`
 	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
@@ -184,8 +182,6 @@ type AgentArgs struct {
 	SubnetArns pulumi.StringArrayInput
 	// Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
 	VpcEndpointId pulumi.StringPtrInput
 }

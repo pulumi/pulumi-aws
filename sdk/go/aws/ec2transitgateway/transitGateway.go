@@ -171,7 +171,6 @@ type transitGatewayArgs struct {
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport *string           `pulumi:"dnsSupport"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -191,7 +190,6 @@ type TransitGatewayArgs struct {
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }

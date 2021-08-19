@@ -136,7 +136,6 @@ type accessPointArgs struct {
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	Tags          map[string]string         `pulumi:"tags"`
-	TagsAll       map[string]string         `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
@@ -148,7 +147,6 @@ type AccessPointArgs struct {
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
 }
 
 func (AccessPointArgs) ElementType() reflect.Type {

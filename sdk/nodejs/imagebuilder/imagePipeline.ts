@@ -126,7 +126,7 @@ export class ImagePipeline extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ImagePipeline resource with the given unique name, arguments, and options.
@@ -176,13 +176,13 @@ export class ImagePipeline extends pulumi.CustomResource {
             inputs["schedule"] = args ? args.schedule : undefined;
             inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["dateLastRun"] = undefined /*out*/;
             inputs["dateNextRun"] = undefined /*out*/;
             inputs["dateUpdated"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -309,8 +309,4 @@ export interface ImagePipelineArgs {
      * Key-value map of resource tags for the image pipeline. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

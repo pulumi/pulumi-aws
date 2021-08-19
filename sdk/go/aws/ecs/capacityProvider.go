@@ -141,9 +141,8 @@ type capacityProviderArgs struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CapacityProvider resource.
@@ -151,9 +150,8 @@ type CapacityProviderArgs struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// Name of the capacity provider.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (CapacityProviderArgs) ElementType() reflect.Type {

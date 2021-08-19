@@ -71,7 +71,7 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      */
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a TrafficMirrorFilter resource with the given unique name, arguments, and options.
@@ -96,8 +96,8 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["networkServices"] = args ? args.networkServices : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -139,5 +139,4 @@ export interface TrafficMirrorFilterArgs {
      */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

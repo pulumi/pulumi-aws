@@ -108,7 +108,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Version of the image.
      */
@@ -155,13 +155,13 @@ export class Image extends pulumi.CustomResource {
             inputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             inputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dateCreated"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["osVersion"] = undefined /*out*/;
             inputs["outputResources"] = undefined /*out*/;
             inputs["platform"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -261,8 +261,4 @@ export interface ImageArgs {
      * Key-value map of resource tags for the Image Builder Image. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

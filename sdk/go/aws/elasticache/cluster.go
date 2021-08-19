@@ -389,7 +389,6 @@ type clusterArgs struct {
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
 	SubnetGroupName *string           `pulumi:"subnetGroupName"`
 	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -443,7 +442,6 @@ type ClusterArgs struct {
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
 	SubnetGroupName pulumi.StringPtrInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

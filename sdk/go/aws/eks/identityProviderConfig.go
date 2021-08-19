@@ -131,9 +131,8 @@ type identityProviderConfigArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-	Oidc    IdentityProviderConfigOidc `pulumi:"oidc"`
-	Tags    map[string]string          `pulumi:"tags"`
-	TagsAll map[string]string          `pulumi:"tagsAll"`
+	Oidc IdentityProviderConfigOidc `pulumi:"oidc"`
+	Tags map[string]string          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityProviderConfig resource.
@@ -141,9 +140,8 @@ type IdentityProviderConfigArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-	Oidc    IdentityProviderConfigOidcInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Oidc IdentityProviderConfigOidcInput
+	Tags pulumi.StringMapInput
 }
 
 func (IdentityProviderConfigArgs) ElementType() reflect.Type {

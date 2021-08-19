@@ -29,7 +29,6 @@ class TableArgs:
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None):
         """
@@ -53,7 +52,6 @@ class TableArgs:
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input['TableTtlArgs'] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
@@ -83,8 +81,6 @@ class TableArgs:
             pulumi.set(__self__, "stream_view_type", stream_view_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
         if write_capacity is not None:
@@ -262,18 +258,6 @@ class TableArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider .
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -663,7 +647,6 @@ class Table(pulumi.CustomResource):
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -775,7 +758,6 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
         :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
@@ -901,7 +883,6 @@ class Table(pulumi.CustomResource):
                  stream_enabled: Optional[pulumi.Input[bool]] = None,
                  stream_view_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[pulumi.InputType['TableTtlArgs']]] = None,
                  write_capacity: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -934,12 +915,12 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["stream_enabled"] = stream_enabled
             __props__.__dict__["stream_view_type"] = stream_view_type
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["ttl"] = ttl
             __props__.__dict__["write_capacity"] = write_capacity
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
             __props__.__dict__["stream_label"] = None
+            __props__.__dict__["tags_all"] = None
         super(Table, __self__).__init__(
             'aws:dynamodb/table:Table',
             resource_name,

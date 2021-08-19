@@ -101,7 +101,7 @@ export class SnapshotImport extends pulumi.CustomResource {
      * A map of tags to assign to the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The size of the drive in GiBs.
      */
@@ -145,11 +145,11 @@ export class SnapshotImport extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["roleName"] = args ? args.roleName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -246,5 +246,4 @@ export interface SnapshotImportArgs {
      * A map of tags to assign to the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

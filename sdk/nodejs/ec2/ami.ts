@@ -165,7 +165,7 @@ export class Ami extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
@@ -229,7 +229,6 @@ export class Ami extends pulumi.CustomResource {
             inputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
             inputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hypervisor"] = undefined /*out*/;
@@ -241,6 +240,7 @@ export class Ami extends pulumi.CustomResource {
             inputs["platformDetails"] = undefined /*out*/;
             inputs["public"] = undefined /*out*/;
             inputs["rootSnapshotId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["usageOperation"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -419,10 +419,6 @@ export interface AmiArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

@@ -77,7 +77,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a IdentityProviderConfig resource with the given unique name, arguments, and options.
@@ -109,9 +109,9 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["oidc"] = args ? args.oidc : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -157,5 +157,4 @@ export interface IdentityProviderConfigArgs {
      */
     oidc: pulumi.Input<inputs.eks.IdentityProviderConfigOidc>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

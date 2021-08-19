@@ -314,8 +314,6 @@ type taskDefinitionArgs struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// Configuration block for volumes that containers in your task may use. Detailed below.
@@ -352,8 +350,6 @@ type TaskDefinitionArgs struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider.
-	TagsAll pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
 	TaskRoleArn pulumi.StringPtrInput
 	// Configuration block for volumes that containers in your task may use. Detailed below.

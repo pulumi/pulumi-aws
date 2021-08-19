@@ -105,7 +105,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly volumeId!: pulumi.Output<string>;
     /**
      * The size of the drive in GiBs.
@@ -152,11 +152,11 @@ export class SnapshotCopy extends pulumi.CustomResource {
             inputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             inputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["dataEncryptionKeyId"] = undefined /*out*/;
             inputs["ownerAlias"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["volumeId"] = undefined /*out*/;
             inputs["volumeSize"] = undefined /*out*/;
         }
@@ -249,5 +249,4 @@ export interface SnapshotCopyArgs {
      * A map of tags for the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

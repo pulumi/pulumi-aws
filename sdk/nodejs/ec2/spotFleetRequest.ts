@@ -271,7 +271,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is
@@ -364,7 +364,6 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["spotMaintenanceStrategies"] = args ? args.spotMaintenanceStrategies : undefined;
             inputs["spotPrice"] = args ? args.spotPrice : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["targetCapacity"] = args ? args.targetCapacity : undefined;
             inputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
@@ -373,6 +372,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             inputs["waitForFulfillment"] = args ? args.waitForFulfillment : undefined;
             inputs["clientToken"] = undefined /*out*/;
             inputs["spotRequestState"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -587,10 +587,6 @@ export interface SpotFleetRequestArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The number of units to request. You can choose to set the
      * target capacity in terms of instances or a performance characteristic that is

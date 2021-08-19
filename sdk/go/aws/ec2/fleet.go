@@ -173,7 +173,6 @@ type fleetArgs struct {
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -197,7 +196,6 @@ type FleetArgs struct {
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.

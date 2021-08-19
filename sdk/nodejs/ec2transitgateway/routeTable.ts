@@ -65,7 +65,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -96,11 +96,11 @@ export class RouteTable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transitGatewayId'");
             }
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["defaultAssociationRouteTable"] = undefined /*out*/;
             inputs["defaultPropagationRouteTable"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -138,7 +138,6 @@ export interface RouteTableState {
  */
 export interface RouteTableArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

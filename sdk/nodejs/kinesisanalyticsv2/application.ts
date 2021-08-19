@@ -296,7 +296,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
      */
@@ -347,11 +347,11 @@ export class Application extends pulumi.CustomResource {
             inputs["serviceExecutionRole"] = args ? args.serviceExecutionRole : undefined;
             inputs["startApplication"] = args ? args.startApplication : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createTimestamp"] = undefined /*out*/;
             inputs["lastUpdateTimestamp"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["versionId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -458,5 +458,4 @@ export interface ApplicationArgs {
      */
     startApplication?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

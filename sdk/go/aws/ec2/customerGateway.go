@@ -154,8 +154,6 @@ type customerGatewayArgs struct {
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
@@ -171,8 +169,6 @@ type CustomerGatewayArgs struct {
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// The type of customer gateway. The only type AWS
 	// supports at this time is "ipsec.1".
 	Type pulumi.StringInput

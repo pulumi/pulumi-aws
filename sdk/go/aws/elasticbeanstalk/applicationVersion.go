@@ -179,9 +179,8 @@ type applicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key string `pulumi:"key"`
 	// Unique name for the this Application Version.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
@@ -197,9 +196,8 @@ type ApplicationVersionArgs struct {
 	// S3 object that is the Application Version source bundle.
 	Key pulumi.StringInput
 	// Unique name for the this Application Version.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {

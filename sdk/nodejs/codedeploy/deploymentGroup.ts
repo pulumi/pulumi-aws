@@ -267,7 +267,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */
@@ -332,11 +332,11 @@ export class DeploymentGroup extends pulumi.CustomResource {
             inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["computePlatform"] = undefined /*out*/;
             inputs["deploymentGroupId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -495,10 +495,6 @@ export interface DeploymentGroupArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block(s) of the triggers for the deployment group (documented below).
      */

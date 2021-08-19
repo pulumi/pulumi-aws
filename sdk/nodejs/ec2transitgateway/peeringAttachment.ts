@@ -87,7 +87,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */
@@ -127,8 +127,8 @@ export class PeeringAttachment extends pulumi.CustomResource {
             inputs["peerRegion"] = args ? args.peerRegion : undefined;
             inputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -178,7 +178,6 @@ export interface PeeringAttachmentArgs {
      */
     peerTransitGatewayId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.
      */

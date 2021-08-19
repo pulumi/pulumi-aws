@@ -263,7 +263,7 @@ export class DomainName extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -314,13 +314,13 @@ export class DomainName extends pulumi.CustomResource {
             inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
             inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["certificateUploadDate"] = undefined /*out*/;
             inputs["cloudfrontDomainName"] = undefined /*out*/;
             inputs["cloudfrontZoneId"] = undefined /*out*/;
             inputs["regionalDomainName"] = undefined /*out*/;
             inputs["regionalZoneId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -483,8 +483,4 @@ export interface DomainNameArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

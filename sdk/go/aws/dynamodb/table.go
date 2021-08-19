@@ -355,8 +355,6 @@ type tableArgs struct {
 	StreamViewType *string `pulumi:"streamViewType"`
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -398,8 +396,6 @@ type TableArgs struct {
 	StreamViewType pulumi.StringPtrInput
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.

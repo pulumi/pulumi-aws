@@ -112,7 +112,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID associated with the DB cluster snapshot.
      */
@@ -159,7 +159,6 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             inputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["allocatedStorage"] = undefined /*out*/;
             inputs["availabilityZones"] = undefined /*out*/;
             inputs["dbClusterSnapshotArn"] = undefined /*out*/;
@@ -172,6 +171,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             inputs["sourceDbClusterSnapshotArn"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["storageEncrypted"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -265,8 +265,4 @@ export interface ClusterSnapshotArgs {
      * A map of tags to assign to the DB cluster. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

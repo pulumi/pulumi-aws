@@ -178,7 +178,6 @@ type streamArgs struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -201,7 +200,6 @@ type StreamArgs struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {

@@ -105,7 +105,7 @@ export class User extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider.
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The [unique ID][1] assigned by AWS.
      */
@@ -139,8 +139,8 @@ export class User extends pulumi.CustomResource {
             inputs["path"] = args ? args.path : undefined;
             inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -216,8 +216,4 @@ export interface UserArgs {
      * Key-value mapping of tags for the IAM user
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

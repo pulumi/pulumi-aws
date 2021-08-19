@@ -30,7 +30,6 @@ class JobArgs:
                  number_of_workers: Optional[pulumi.Input[int]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
@@ -81,8 +80,6 @@ class JobArgs:
             pulumi.set(__self__, "security_configuration", security_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if worker_type is not None:
@@ -267,15 +264,6 @@ class JobArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter
@@ -630,7 +618,6 @@ class Job(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -804,7 +791,6 @@ class Job(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  worker_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -838,10 +824,10 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["security_configuration"] = security_configuration
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["worker_type"] = worker_type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Job, __self__).__init__(
             'aws:glue/job:Job',
             resource_name,

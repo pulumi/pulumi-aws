@@ -197,8 +197,7 @@ type snapshotCopyArgs struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SnapshotCopy resource.
@@ -214,8 +213,7 @@ type SnapshotCopyArgs struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
 	// A map of tags for the snapshot.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (SnapshotCopyArgs) ElementType() reflect.Type {

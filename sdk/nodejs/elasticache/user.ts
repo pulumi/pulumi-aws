@@ -82,7 +82,7 @@ export class User extends pulumi.CustomResource {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the user.
      */
@@ -134,9 +134,9 @@ export class User extends pulumi.CustomResource {
             inputs["noPasswordRequired"] = args ? args.noPasswordRequired : undefined;
             inputs["passwords"] = args ? args.passwords : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userId"] = args ? args.userId : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -212,7 +212,6 @@ export interface UserArgs {
      * A list of tags to be added to this resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the user.
      */

@@ -20,7 +20,6 @@ class TransitGatewayArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TransitGateway resource.
@@ -46,8 +45,6 @@ class TransitGatewayArgs:
             pulumi.set(__self__, "dns_support", dns_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -131,15 +128,6 @@ class TransitGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")
@@ -374,7 +362,6 @@ class TransitGateway(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -455,7 +442,6 @@ class TransitGateway(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpn_ecmp_support: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -476,12 +462,12 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_support"] = dns_support
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
             __props__.__dict__["arn"] = None
             __props__.__dict__["association_default_route_table_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["propagation_default_route_table_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(TransitGateway, __self__).__init__(
             'aws:ec2transitgateway/transitGateway:TransitGateway',
             resource_name,
