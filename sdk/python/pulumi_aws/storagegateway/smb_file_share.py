@@ -1388,7 +1388,7 @@ class SmbFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oplocksEnabled")
-    def oplocks_enabled(self) -> pulumi.Output[Optional[bool]]:
+    def oplocks_enabled(self) -> pulumi.Output[bool]:
         """
         Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         """

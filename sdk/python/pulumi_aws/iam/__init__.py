@@ -15,6 +15,7 @@ from .get_instance_profile import *
 from .get_policy import *
 from .get_policy_document import *
 from .get_role import *
+from .get_roles import *
 from .get_server_certificate import *
 from .get_session_context import *
 from .get_user import *

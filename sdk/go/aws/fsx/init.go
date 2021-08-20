@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:fsx/backup:Backup":
+		r = &Backup{}
 	case "aws:fsx/lustreFileSystem:LustreFileSystem":
 		r = &LustreFileSystem{}
 	case "aws:fsx/windowsFileSystem:WindowsFileSystem":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/backup",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fsx/lustreFileSystem",

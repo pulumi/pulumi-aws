@@ -43,16 +43,46 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? CsvRowDelimiter { get; set; }
 
         /// <summary>
+        /// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+        /// </summary>
+        [Input("dataFormat")]
+        public Input<string>? DataFormat { get; set; }
+
+        /// <summary>
         /// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
         /// </summary>
         [Input("datePartitionEnabled")]
         public Input<bool>? DatePartitionEnabled { get; set; }
 
         /// <summary>
+        /// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// </summary>
+        [Input("encryptionMode")]
+        public Input<string>? EncryptionMode { get; set; }
+
+        /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
+
+        /// <summary>
+        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        /// </summary>
+        [Input("parquetTimestampInMillisecond")]
+        public Input<bool>? ParquetTimestampInMillisecond { get; set; }
+
+        /// <summary>
+        /// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        /// </summary>
+        [Input("parquetVersion")]
+        public Input<string>? ParquetVersion { get; set; }
+
+        /// <summary>
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// </summary>
+        [Input("serverSideEncryptionKmsKeyId")]
+        public Input<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.

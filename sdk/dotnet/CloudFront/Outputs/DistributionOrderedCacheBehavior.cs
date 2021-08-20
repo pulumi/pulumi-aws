@@ -79,7 +79,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? OriginRequestPolicyId;
         /// <summary>
-        /// The pattern (for example, `images/*.jpg)` that
+        /// The pattern (for example, `images/*.jpg`) that
         /// specifies which requests you want this cache behavior to apply to.
         /// </summary>
         public readonly string PathPattern;

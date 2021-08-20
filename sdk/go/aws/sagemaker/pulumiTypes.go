@@ -832,6 +832,162 @@ func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type DeviceFleetOutputConfig struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon Simple Storage (S3) bucker URI.
+	S3OutputLocation string `pulumi:"s3OutputLocation"`
+}
+
+// DeviceFleetOutputConfigInput is an input type that accepts DeviceFleetOutputConfigArgs and DeviceFleetOutputConfigOutput values.
+// You can construct a concrete instance of `DeviceFleetOutputConfigInput` via:
+//
+//          DeviceFleetOutputConfigArgs{...}
+type DeviceFleetOutputConfigInput interface {
+	pulumi.Input
+
+	ToDeviceFleetOutputConfigOutput() DeviceFleetOutputConfigOutput
+	ToDeviceFleetOutputConfigOutputWithContext(context.Context) DeviceFleetOutputConfigOutput
+}
+
+type DeviceFleetOutputConfigArgs struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon Simple Storage (S3) bucker URI.
+	S3OutputLocation pulumi.StringInput `pulumi:"s3OutputLocation"`
+}
+
+func (DeviceFleetOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceFleetOutputConfig)(nil)).Elem()
+}
+
+func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigOutput() DeviceFleetOutputConfigOutput {
+	return i.ToDeviceFleetOutputConfigOutputWithContext(context.Background())
+}
+
+func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigOutputWithContext(ctx context.Context) DeviceFleetOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigOutput)
+}
+
+func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
+	return i.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigOutput).ToDeviceFleetOutputConfigPtrOutputWithContext(ctx)
+}
+
+// DeviceFleetOutputConfigPtrInput is an input type that accepts DeviceFleetOutputConfigArgs, DeviceFleetOutputConfigPtr and DeviceFleetOutputConfigPtrOutput values.
+// You can construct a concrete instance of `DeviceFleetOutputConfigPtrInput` via:
+//
+//          DeviceFleetOutputConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type DeviceFleetOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput
+	ToDeviceFleetOutputConfigPtrOutputWithContext(context.Context) DeviceFleetOutputConfigPtrOutput
+}
+
+type deviceFleetOutputConfigPtrType DeviceFleetOutputConfigArgs
+
+func DeviceFleetOutputConfigPtr(v *DeviceFleetOutputConfigArgs) DeviceFleetOutputConfigPtrInput {
+	return (*deviceFleetOutputConfigPtrType)(v)
+}
+
+func (*deviceFleetOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceFleetOutputConfig)(nil)).Elem()
+}
+
+func (i *deviceFleetOutputConfigPtrType) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
+	return i.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deviceFleetOutputConfigPtrType) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigPtrOutput)
+}
+
+type DeviceFleetOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (DeviceFleetOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceFleetOutputConfig)(nil)).Elem()
+}
+
+func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigOutput() DeviceFleetOutputConfigOutput {
+	return o
+}
+
+func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigOutputWithContext(ctx context.Context) DeviceFleetOutputConfigOutput {
+	return o
+}
+
+func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
+	return o.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceFleetOutputConfig) *DeviceFleetOutputConfig {
+		return &v
+	}).(DeviceFleetOutputConfigPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+func (o DeviceFleetOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeviceFleetOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Simple Storage (S3) bucker URI.
+func (o DeviceFleetOutputConfigOutput) S3OutputLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v DeviceFleetOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
+}
+
+type DeviceFleetOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeviceFleetOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceFleetOutputConfig)(nil)).Elem()
+}
+
+func (o DeviceFleetOutputConfigPtrOutput) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
+	return o
+}
+
+func (o DeviceFleetOutputConfigPtrOutput) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
+	return o
+}
+
+func (o DeviceFleetOutputConfigPtrOutput) Elem() DeviceFleetOutputConfigOutput {
+	return o.ApplyT(func(v *DeviceFleetOutputConfig) DeviceFleetOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeviceFleetOutputConfig
+		return ret
+	}).(DeviceFleetOutputConfigOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+func (o DeviceFleetOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Simple Storage (S3) bucker URI.
+func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainDefaultUserSettings struct {
 	// The execution role ARN for the user.
 	ExecutionRole string `pulumi:"executionRole"`
@@ -3960,6 +4116,181 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.
 			return nil
 		}
 		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type HumanTaskUIUiTemplate struct {
+	// The content of the Liquid template for the worker user interface.
+	Content *string `pulumi:"content"`
+	// The SHA-256 digest of the contents of the template.
+	ContentSha256 *string `pulumi:"contentSha256"`
+	// The URL for the user interface template.
+	Url *string `pulumi:"url"`
+}
+
+// HumanTaskUIUiTemplateInput is an input type that accepts HumanTaskUIUiTemplateArgs and HumanTaskUIUiTemplateOutput values.
+// You can construct a concrete instance of `HumanTaskUIUiTemplateInput` via:
+//
+//          HumanTaskUIUiTemplateArgs{...}
+type HumanTaskUIUiTemplateInput interface {
+	pulumi.Input
+
+	ToHumanTaskUIUiTemplateOutput() HumanTaskUIUiTemplateOutput
+	ToHumanTaskUIUiTemplateOutputWithContext(context.Context) HumanTaskUIUiTemplateOutput
+}
+
+type HumanTaskUIUiTemplateArgs struct {
+	// The content of the Liquid template for the worker user interface.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+	// The SHA-256 digest of the contents of the template.
+	ContentSha256 pulumi.StringPtrInput `pulumi:"contentSha256"`
+	// The URL for the user interface template.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (HumanTaskUIUiTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HumanTaskUIUiTemplate)(nil)).Elem()
+}
+
+func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplateOutput() HumanTaskUIUiTemplateOutput {
+	return i.ToHumanTaskUIUiTemplateOutputWithContext(context.Background())
+}
+
+func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplateOutputWithContext(ctx context.Context) HumanTaskUIUiTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplateOutput)
+}
+
+func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
+	return i.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplateOutput).ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx)
+}
+
+// HumanTaskUIUiTemplatePtrInput is an input type that accepts HumanTaskUIUiTemplateArgs, HumanTaskUIUiTemplatePtr and HumanTaskUIUiTemplatePtrOutput values.
+// You can construct a concrete instance of `HumanTaskUIUiTemplatePtrInput` via:
+//
+//          HumanTaskUIUiTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type HumanTaskUIUiTemplatePtrInput interface {
+	pulumi.Input
+
+	ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput
+	ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Context) HumanTaskUIUiTemplatePtrOutput
+}
+
+type humanTaskUIUiTemplatePtrType HumanTaskUIUiTemplateArgs
+
+func HumanTaskUIUiTemplatePtr(v *HumanTaskUIUiTemplateArgs) HumanTaskUIUiTemplatePtrInput {
+	return (*humanTaskUIUiTemplatePtrType)(v)
+}
+
+func (*humanTaskUIUiTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HumanTaskUIUiTemplate)(nil)).Elem()
+}
+
+func (i *humanTaskUIUiTemplatePtrType) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
+	return i.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *humanTaskUIUiTemplatePtrType) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplatePtrOutput)
+}
+
+type HumanTaskUIUiTemplateOutput struct{ *pulumi.OutputState }
+
+func (HumanTaskUIUiTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HumanTaskUIUiTemplate)(nil)).Elem()
+}
+
+func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplateOutput() HumanTaskUIUiTemplateOutput {
+	return o
+}
+
+func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplateOutputWithContext(ctx context.Context) HumanTaskUIUiTemplateOutput {
+	return o
+}
+
+func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
+	return o.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HumanTaskUIUiTemplate) *HumanTaskUIUiTemplate {
+		return &v
+	}).(HumanTaskUIUiTemplatePtrOutput)
+}
+
+// The content of the Liquid template for the worker user interface.
+func (o HumanTaskUIUiTemplateOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+// The SHA-256 digest of the contents of the template.
+func (o HumanTaskUIUiTemplateOutput) ContentSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.ContentSha256 }).(pulumi.StringPtrOutput)
+}
+
+// The URL for the user interface template.
+func (o HumanTaskUIUiTemplateOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type HumanTaskUIUiTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (HumanTaskUIUiTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HumanTaskUIUiTemplate)(nil)).Elem()
+}
+
+func (o HumanTaskUIUiTemplatePtrOutput) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
+	return o
+}
+
+func (o HumanTaskUIUiTemplatePtrOutput) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
+	return o
+}
+
+func (o HumanTaskUIUiTemplatePtrOutput) Elem() HumanTaskUIUiTemplateOutput {
+	return o.ApplyT(func(v *HumanTaskUIUiTemplate) HumanTaskUIUiTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret HumanTaskUIUiTemplate
+		return ret
+	}).(HumanTaskUIUiTemplateOutput)
+}
+
+// The content of the Liquid template for the worker user interface.
+func (o HumanTaskUIUiTemplatePtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SHA-256 digest of the contents of the template.
+func (o HumanTaskUIUiTemplatePtrOutput) ContentSha256() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentSha256
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL for the user interface template.
+func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7482,6 +7813,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeviceFleetOutputConfigOutput{})
+	pulumi.RegisterOutputType(DeviceFleetOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
@@ -7522,6 +7855,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(HumanTaskUIUiTemplateOutput{})
+	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})

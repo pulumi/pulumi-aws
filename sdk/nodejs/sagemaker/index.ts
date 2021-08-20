@@ -8,11 +8,13 @@ import * as utilities from "../utilities";
 export * from "./app";
 export * from "./appImageConfig";
 export * from "./codeRepository";
+export * from "./deviceFleet";
 export * from "./domain";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
 export * from "./featureGroup";
 export * from "./getPrebuiltEcrImage";
+export * from "./humanTaskUI";
 export * from "./image";
 export * from "./imageVersion";
 export * from "./model";
@@ -27,10 +29,12 @@ export * from "./workteam";
 import { App } from "./app";
 import { AppImageConfig } from "./appImageConfig";
 import { CodeRepository } from "./codeRepository";
+import { DeviceFleet } from "./deviceFleet";
 import { Domain } from "./domain";
 import { Endpoint } from "./endpoint";
 import { EndpointConfiguration } from "./endpointConfiguration";
 import { FeatureGroup } from "./featureGroup";
+import { HumanTaskUI } from "./humanTaskUI";
 import { Image } from "./image";
 import { ImageVersion } from "./imageVersion";
 import { Model } from "./model";
@@ -51,6 +55,8 @@ const _module = {
                 return new AppImageConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/codeRepository:CodeRepository":
                 return new CodeRepository(name, <any>undefined, { urn })
+            case "aws:sagemaker/deviceFleet:DeviceFleet":
+                return new DeviceFleet(name, <any>undefined, { urn })
             case "aws:sagemaker/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:sagemaker/endpoint:Endpoint":
@@ -59,6 +65,8 @@ const _module = {
                 return new EndpointConfiguration(name, <any>undefined, { urn })
             case "aws:sagemaker/featureGroup:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
+            case "aws:sagemaker/humanTaskUI:HumanTaskUI":
+                return new HumanTaskUI(name, <any>undefined, { urn })
             case "aws:sagemaker/image:Image":
                 return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/imageVersion:ImageVersion":
@@ -85,10 +93,12 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "sagemaker/app", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/appImageConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/codeRepository", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/deviceFleet", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)

@@ -14,6 +14,7 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigKernelSpecArgs',
     'AppResourceSpecArgs',
     'CodeRepositoryGitConfigArgs',
+    'DeviceFleetOutputConfigArgs',
     'DomainDefaultUserSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsArgs',
     'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs',
@@ -34,6 +35,7 @@ __all__ = [
     'FeatureGroupOfflineStoreConfigS3StorageConfigArgs',
     'FeatureGroupOnlineStoreConfigArgs',
     'FeatureGroupOnlineStoreConfigSecurityConfigArgs',
+    'HumanTaskUIUiTemplateArgs',
     'ModelContainerArgs',
     'ModelContainerImageConfigArgs',
     'ModelInferenceExecutionConfigArgs',
@@ -280,6 +282,44 @@ class CodeRepositoryGitConfigArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
+
+
+@pulumi.input_type
+class DeviceFleetOutputConfigArgs:
+    def __init__(__self__, *,
+                 s3_output_location: pulumi.Input[str],
+                 kms_key_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] s3_output_location: The Amazon Simple Storage (S3) bucker URI.
+        :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        """
+        pulumi.set(__self__, "s3_output_location", s3_output_location)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3OutputLocation")
+    def s3_output_location(self) -> pulumi.Input[str]:
+        """
+        The Amazon Simple Storage (S3) bucker URI.
+        """
+        return pulumi.get(self, "s3_output_location")
+
+    @s3_output_location.setter
+    def s3_output_location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_output_location", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
 
 @pulumi.input_type
@@ -1224,6 +1264,61 @@ class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class HumanTaskUIUiTemplateArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_sha256: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content: The content of the Liquid template for the worker user interface.
+        :param pulumi.Input[str] content_sha256: The SHA-256 digest of the contents of the template.
+        :param pulumi.Input[str] url: The URL for the user interface template.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_sha256 is not None:
+            pulumi.set(__self__, "content_sha256", content_sha256)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The content of the Liquid template for the worker user interface.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentSha256")
+    def content_sha256(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SHA-256 digest of the contents of the template.
+        """
+        return pulumi.get(self, "content_sha256")
+
+    @content_sha256.setter
+    def content_sha256(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_sha256", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL for the user interface template.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.input_type

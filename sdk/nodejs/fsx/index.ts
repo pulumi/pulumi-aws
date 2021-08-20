@@ -5,10 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./backup";
 export * from "./lustreFileSystem";
 export * from "./windowsFileSystem";
 
 // Import resources to register:
+import { Backup } from "./backup";
 import { LustreFileSystem } from "./lustreFileSystem";
 import { WindowsFileSystem } from "./windowsFileSystem";
 
@@ -16,6 +18,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:fsx/backup:Backup":
+                return new Backup(name, <any>undefined, { urn })
             case "aws:fsx/lustreFileSystem:LustreFileSystem":
                 return new LustreFileSystem(name, <any>undefined, { urn })
             case "aws:fsx/windowsFileSystem:WindowsFileSystem":
@@ -25,5 +29,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "fsx/backup", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/lustreFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/windowsFileSystem", _module)

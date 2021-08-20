@@ -1168,7 +1168,7 @@ class DistributionOrderedCacheBehavior(dict):
                processes and forwards to your Amazon S3 bucket or your custom origin.
         :param Sequence[str] cached_methods: Controls whether CloudFront caches the
                response to requests using the specified HTTP methods.
-        :param str path_pattern: The pattern (for example, `images/*.jpg)` that
+        :param str path_pattern: The pattern (for example, `images/*.jpg`) that
                specifies which requests you want this cache behavior to apply to.
         :param str target_origin_id: The value of ID for the origin that you want
                CloudFront to route requests to when a request matches the path pattern
@@ -1268,7 +1268,7 @@ class DistributionOrderedCacheBehavior(dict):
     @pulumi.getter(name="pathPattern")
     def path_pattern(self) -> str:
         """
-        The pattern (for example, `images/*.jpg)` that
+        The pattern (for example, `images/*.jpg`) that
         specifies which requests you want this cache behavior to apply to.
         """
         return pulumi.get(self, "path_pattern")

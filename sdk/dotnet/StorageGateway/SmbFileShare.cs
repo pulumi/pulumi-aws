@@ -189,7 +189,7 @@ namespace Pulumi.Aws.StorageGateway
         /// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
         /// </summary>
         [Output("oplocksEnabled")]
-        public Output<bool?> OplocksEnabled { get; private set; } = null!;
+        public Output<bool> OplocksEnabled { get; private set; } = null!;
 
         /// <summary>
         /// File share path used by the NFS client to identify the mount point.

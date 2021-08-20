@@ -680,7 +680,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Chime
-			"aws_chime_voice_connector": {Tok: awsResource(chimeMod, "VoiceConnector")},
+			"aws_chime_voice_connector":       {Tok: awsResource(chimeMod, "VoiceConnector")},
+			"aws_chime_voice_connector_group": {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -1437,6 +1438,7 @@ func Provider() tfbridge.ProviderInfo {
 			// FSX
 			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
+			"aws_fsx_backup":              {Tok: awsResource(fsxMod, "Backup")},
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -2147,6 +2149,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
+			"aws_sagemaker_device_fleet":  {Tok: awsResource(sagemakerMod, "DeviceFleet")},
+			"aws_sagemaker_human_task_ui": {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
@@ -3814,6 +3818,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_security_groups":                     {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
 			"aws_subnet":                              {Tok: awsDataSource(ec2Mod, "getSubnet")},
 			"aws_subnet_ids":                          {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
+			"aws_subnets":                             {Tok: awsDataSource(ec2Mod, "getSubnets")},
 			"aws_vpc":                                 {Tok: awsDataSource(ec2Mod, "getVpc")},
 			"aws_vpc_dhcp_options":                    {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},
 			"aws_vpc_endpoint":                        {Tok: awsDataSource(ec2Mod, "getVpcEndpoint")},
@@ -3973,6 +3978,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_server_certificate": {Tok: awsDataSource(iamMod, "getServerCertificate")},
 			"aws_iam_user":               {Tok: awsDataSource(iamMod, "getUser")},
 			"aws_iam_session_context":    {Tok: awsDataSource(iamMod, "getSessionContext")},
+			"aws_iam_roles":              {Tok: awsDataSource(iamMod, "getRoles")},
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
 			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},

@@ -34,13 +34,33 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? CsvRowDelimiter;
         /// <summary>
+        /// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+        /// </summary>
+        public readonly string? DataFormat;
+        /// <summary>
         /// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
         /// </summary>
         public readonly bool? DatePartitionEnabled;
         /// <summary>
+        /// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        /// </summary>
+        public readonly string? EncryptionMode;
+        /// <summary>
         /// JSON document that describes how AWS DMS should interpret the data.
         /// </summary>
         public readonly string? ExternalTableDefinition;
+        /// <summary>
+        /// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        /// </summary>
+        public readonly bool? ParquetTimestampInMillisecond;
+        /// <summary>
+        /// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        /// </summary>
+        public readonly string? ParquetVersion;
+        /// <summary>
+        /// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        /// </summary>
+        public readonly string? ServerSideEncryptionKmsKeyId;
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
         /// </summary>
@@ -58,9 +78,19 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? csvRowDelimiter,
 
+            string? dataFormat,
+
             bool? datePartitionEnabled,
 
+            string? encryptionMode,
+
             string? externalTableDefinition,
+
+            bool? parquetTimestampInMillisecond,
+
+            string? parquetVersion,
+
+            string? serverSideEncryptionKmsKeyId,
 
             string? serviceAccessRoleArn)
         {
@@ -69,8 +99,13 @@ namespace Pulumi.Aws.Dms.Outputs
             CompressionType = compressionType;
             CsvDelimiter = csvDelimiter;
             CsvRowDelimiter = csvRowDelimiter;
+            DataFormat = dataFormat;
             DatePartitionEnabled = datePartitionEnabled;
+            EncryptionMode = encryptionMode;
             ExternalTableDefinition = externalTableDefinition;
+            ParquetTimestampInMillisecond = parquetTimestampInMillisecond;
+            ParquetVersion = parquetVersion;
+            ServerSideEncryptionKmsKeyId = serverSideEncryptionKmsKeyId;
             ServiceAccessRoleArn = serviceAccessRoleArn;
         }
     }

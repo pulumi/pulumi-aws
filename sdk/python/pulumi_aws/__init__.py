@@ -1407,6 +1407,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/voiceConnectorGroup",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorGroup:VoiceConnectorGroup": "VoiceConnectorGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloud9/environmentEC2",
   "fqn": "pulumi_aws.cloud9",
   "classes": {
@@ -3559,6 +3567,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "fsx/backup",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/backup:Backup": "Backup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fsx/lustreFileSystem",
   "fqn": "pulumi_aws.fsx",
   "classes": {
@@ -5615,6 +5631,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/deviceFleet",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/deviceFleet:DeviceFleet": "DeviceFleet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/domain",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -5643,6 +5667,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/featureGroup:FeatureGroup": "FeatureGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/humanTaskUI",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/humanTaskUI:HumanTaskUI": "HumanTaskUI"
   }
  },
  {

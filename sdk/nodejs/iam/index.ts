@@ -15,6 +15,7 @@ export * from "./getInstanceProfile";
 export * from "./getPolicy";
 export * from "./getPolicyDocument";
 export * from "./getRole";
+export * from "./getRoles";
 export * from "./getServerCertificate";
 export * from "./getSessionContext";
 export * from "./getUser";
