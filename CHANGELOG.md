@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.17.0 (2021-08-20)
 * Upgrade to v3.55.0 of the AWS Terraform Provider
 * Ensure that resources do not allow `tagsAll` to be set - it should be an output only. This is technically a "breaking"
   change but these properties were never actually able to be set.
 * Ensuring that the correct APN is being passed as part of requests to AWS.
-
----
 
 ## 4.16.0 (2021-08-17)
 * Upgrade to v3.54.0 of the AWS Terraform Provider
