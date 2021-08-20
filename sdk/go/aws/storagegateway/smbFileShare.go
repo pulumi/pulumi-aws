@@ -118,7 +118,7 @@ type SmbFileShare struct {
 	// Access Control List permission for S3 bucket objects. Defaults to `private`.
 	ObjectAcl pulumi.StringPtrOutput `pulumi:"objectAcl"`
 	// Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
-	OplocksEnabled pulumi.BoolPtrOutput `pulumi:"oplocksEnabled"`
+	OplocksEnabled pulumi.BoolOutput `pulumi:"oplocksEnabled"`
 	// File share path used by the NFS client to identify the mount point.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.

@@ -15,6 +15,7 @@ __all__ = [
     'AppImageConfigKernelGatewayImageConfigKernelSpec',
     'AppResourceSpec',
     'CodeRepositoryGitConfig',
+    'DeviceFleetOutputConfig',
     'DomainDefaultUserSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettings',
     'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec',
@@ -35,6 +36,7 @@ __all__ = [
     'FeatureGroupOfflineStoreConfigS3StorageConfig',
     'FeatureGroupOnlineStoreConfig',
     'FeatureGroupOnlineStoreConfigSecurityConfig',
+    'HumanTaskUIUiTemplate',
     'ModelContainer',
     'ModelContainerImageConfig',
     'ModelInferenceExecutionConfig',
@@ -328,6 +330,55 @@ class CodeRepositoryGitConfig(dict):
         The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class DeviceFleetOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputLocation":
+            suggest = "s3_output_location"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeviceFleetOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeviceFleetOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeviceFleetOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_location: str,
+                 kms_key_id: Optional[str] = None):
+        """
+        :param str s3_output_location: The Amazon Simple Storage (S3) bucker URI.
+        :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        """
+        pulumi.set(__self__, "s3_output_location", s3_output_location)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3OutputLocation")
+    def s3_output_location(self) -> str:
+        """
+        The Amazon Simple Storage (S3) bucker URI.
+        """
+        return pulumi.get(self, "s3_output_location")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
+        """
+        return pulumi.get(self, "kms_key_id")
 
 
 @pulumi.output_type
@@ -1466,6 +1517,66 @@ class FeatureGroupOnlineStoreConfigSecurityConfig(dict):
         The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class HumanTaskUIUiTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentSha256":
+            suggest = "content_sha256"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HumanTaskUIUiTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HumanTaskUIUiTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HumanTaskUIUiTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[str] = None,
+                 content_sha256: Optional[str] = None,
+                 url: Optional[str] = None):
+        """
+        :param str content: The content of the Liquid template for the worker user interface.
+        :param str content_sha256: The SHA-256 digest of the contents of the template.
+        :param str url: The URL for the user interface template.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_sha256 is not None:
+            pulumi.set(__self__, "content_sha256", content_sha256)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The content of the Liquid template for the worker user interface.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentSha256")
+    def content_sha256(self) -> Optional[str]:
+        """
+        The SHA-256 digest of the contents of the template.
+        """
+        return pulumi.get(self, "content_sha256")
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        """
+        The URL for the user interface template.
+        """
+        return pulumi.get(self, "url")
 
 
 @pulumi.output_type

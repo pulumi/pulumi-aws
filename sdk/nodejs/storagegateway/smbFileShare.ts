@@ -155,7 +155,7 @@ export class SmbFileShare extends pulumi.CustomResource {
     /**
      * Boolean to indicate Opportunistic lock (oplock) status. Defaults to `true`.
      */
-    public readonly oplocksEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly oplocksEnabled!: pulumi.Output<boolean>;
     /**
      * File share path used by the NFS client to identify the mount point.
      */

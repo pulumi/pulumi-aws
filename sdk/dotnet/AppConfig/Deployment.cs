@@ -100,6 +100,12 @@ namespace Pulumi.Aws.AppConfig
         public Output<string> EnvironmentId { get; private set; } = null!;
 
         /// <summary>
+        /// The state of the deployment.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -259,6 +265,12 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("environmentId")]
         public Input<string>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// The state of the deployment.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

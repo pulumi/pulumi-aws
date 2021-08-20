@@ -778,10 +778,20 @@ type EndpointS3Settings struct {
 	CsvDelimiter *string `pulumi:"csvDelimiter"`
 	// Delimiter used to separate rows in the source files. Defaults to `\n`.
 	CsvRowDelimiter *string `pulumi:"csvRowDelimiter"`
+	// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+	DataFormat *string `pulumi:"dataFormat"`
 	// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
 	DatePartitionEnabled *bool `pulumi:"datePartitionEnabled"`
+	// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	EncryptionMode *string `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition *string `pulumi:"externalTableDefinition"`
+	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+	ParquetTimestampInMillisecond *bool `pulumi:"parquetTimestampInMillisecond"`
+	// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+	ParquetVersion *string `pulumi:"parquetVersion"`
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 }
@@ -808,10 +818,20 @@ type EndpointS3SettingsArgs struct {
 	CsvDelimiter pulumi.StringPtrInput `pulumi:"csvDelimiter"`
 	// Delimiter used to separate rows in the source files. Defaults to `\n`.
 	CsvRowDelimiter pulumi.StringPtrInput `pulumi:"csvRowDelimiter"`
+	// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+	DataFormat pulumi.StringPtrInput `pulumi:"dataFormat"`
 	// Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
 	DatePartitionEnabled pulumi.BoolPtrInput `pulumi:"datePartitionEnabled"`
+	// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
 	// JSON document that describes how AWS DMS should interpret the data.
 	ExternalTableDefinition pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
+	// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+	ParquetTimestampInMillisecond pulumi.BoolPtrInput `pulumi:"parquetTimestampInMillisecond"`
+	// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+	ParquetVersion pulumi.StringPtrInput `pulumi:"parquetVersion"`
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 }
@@ -918,14 +938,39 @@ func (o EndpointS3SettingsOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.CsvRowDelimiter }).(pulumi.StringPtrOutput)
 }
 
+// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+func (o EndpointS3SettingsOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.DataFormat }).(pulumi.StringPtrOutput)
+}
+
 // Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
 func (o EndpointS3SettingsOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.DatePartitionEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
 // JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
+}
+
+// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+func (o EndpointS3SettingsOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.ParquetTimestampInMillisecond }).(pulumi.BoolPtrOutput)
+}
+
+// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+func (o EndpointS3SettingsOutput) ParquetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ParquetVersion }).(pulumi.StringPtrOutput)
+}
+
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+func (o EndpointS3SettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
@@ -1007,6 +1052,16 @@ func (o EndpointS3SettingsPtrOutput) CsvRowDelimiter() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+func (o EndpointS3SettingsPtrOutput) DataFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataFormat
+	}).(pulumi.StringPtrOutput)
+}
+
 // Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
 func (o EndpointS3SettingsPtrOutput) DatePartitionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *bool {
@@ -1017,6 +1072,16 @@ func (o EndpointS3SettingsPtrOutput) DatePartitionEnabled() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+func (o EndpointS3SettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // JSON document that describes how AWS DMS should interpret the data.
 func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
@@ -1024,6 +1089,36 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 			return nil
 		}
 		return v.ExternalTableDefinition
+	}).(pulumi.StringPtrOutput)
+}
+
+// - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+func (o EndpointS3SettingsPtrOutput) ParquetTimestampInMillisecond() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ParquetTimestampInMillisecond
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+func (o EndpointS3SettingsPtrOutput) ParquetVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParquetVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+func (o EndpointS3SettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -61,6 +61,7 @@ export * from "./getSecurityGroups";
 export * from "./getSpotPrice";
 export * from "./getSubnet";
 export * from "./getSubnetIds";
+export * from "./getSubnets";
 export * from "./getTransitGatewayRouteTables";
 export * from "./getVpc";
 export * from "./getVpcDhcpOptions";

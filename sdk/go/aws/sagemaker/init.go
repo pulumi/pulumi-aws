@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AppImageConfig{}
 	case "aws:sagemaker/codeRepository:CodeRepository":
 		r = &CodeRepository{}
+	case "aws:sagemaker/deviceFleet:DeviceFleet":
+		r = &DeviceFleet{}
 	case "aws:sagemaker/domain:Domain":
 		r = &Domain{}
 	case "aws:sagemaker/endpoint:Endpoint":
@@ -35,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointConfiguration{}
 	case "aws:sagemaker/featureGroup:FeatureGroup":
 		r = &FeatureGroup{}
+	case "aws:sagemaker/humanTaskUI:HumanTaskUI":
+		r = &HumanTaskUI{}
 	case "aws:sagemaker/image:Image":
 		r = &Image{}
 	case "aws:sagemaker/imageVersion:ImageVersion":
@@ -83,6 +87,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"sagemaker/deviceFleet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"sagemaker/domain",
 		&module{version},
 	)
@@ -99,6 +108,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/featureGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/humanTaskUI",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

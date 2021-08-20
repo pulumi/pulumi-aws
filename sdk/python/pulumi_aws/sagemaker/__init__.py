@@ -8,11 +8,13 @@ import typing
 from .app import *
 from .app_image_config import *
 from .code_repository import *
+from .device_fleet import *
 from .domain import *
 from .endpoint import *
 from .endpoint_configuration import *
 from .feature_group import *
 from .get_prebuilt_ecr_image import *
+from .human_task_ui import *
 from .image import *
 from .image_version import *
 from .model import *

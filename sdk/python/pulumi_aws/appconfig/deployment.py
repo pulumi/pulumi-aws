@@ -136,6 +136,7 @@ class _DeploymentState:
                  deployment_strategy_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -148,6 +149,7 @@ class _DeploymentState:
         :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] state: The state of the deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
@@ -167,6 +169,8 @@ class _DeploymentState:
             pulumi.set(__self__, "description", description)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -267,6 +271,18 @@ class _DeploymentState:
     @environment_id.setter
     def environment_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of the deployment.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
 
     @property
     @pulumi.getter
@@ -433,6 +449,7 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["deployment_number"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["tags_all"] = None
         super(Deployment, __self__).__init__(
             'aws:appconfig/deployment:Deployment',
@@ -452,6 +469,7 @@ class Deployment(pulumi.CustomResource):
             deployment_strategy_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Deployment':
         """
@@ -469,6 +487,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_strategy_id: The deployment strategy ID or name of a predefined deployment strategy. See [Predefined Deployment Strategies](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-deployment-strategy.html#appconfig-creating-deployment-strategy-predefined) for more details.
         :param pulumi.Input[str] description: The description of the deployment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: The environment ID. Must be between 4 and 7 characters in length.
+        :param pulumi.Input[str] state: The state of the deployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
@@ -484,6 +503,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["deployment_strategy_id"] = deployment_strategy_id
         __props__.__dict__["description"] = description
         __props__.__dict__["environment_id"] = environment_id
+        __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return Deployment(resource_name, opts=opts, __props__=__props__)
@@ -551,6 +571,14 @@ class Deployment(pulumi.CustomResource):
         The environment ID. Must be between 4 and 7 characters in length.
         """
         return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The state of the deployment.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

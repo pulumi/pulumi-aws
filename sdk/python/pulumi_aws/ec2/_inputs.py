@@ -136,6 +136,7 @@ __all__ = [
     'GetSpotPriceFilterArgs',
     'GetSubnetFilterArgs',
     'GetSubnetIdsFilterArgs',
+    'GetSubnetsFilterArgs',
     'GetTransitGatewayRouteTablesFilterArgs',
     'GetVpcDhcpOptionsFilterArgs',
     'GetVpcEndpointFilterArgs',
@@ -8227,6 +8228,49 @@ class GetSubnetFilterArgs:
 
 @pulumi.input_type
 class GetSubnetIdsFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+               For example, if matching against tag `Name`, use:
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               Subnet IDs will be selected if any one of the given values match.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+        For example, if matching against tag `Name`, use:
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        Subnet IDs will be selected if any one of the given values match.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetSubnetsFilterArgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

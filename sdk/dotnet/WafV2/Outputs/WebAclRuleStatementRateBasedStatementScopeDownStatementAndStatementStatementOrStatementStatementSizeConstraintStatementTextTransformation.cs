@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The transformation to apply, you can specify the following types: `NONE`, `COMPRESS_WHITE_SPACE`, `HTML_ENTITY_DECODE`, `LOWERCASE`, `CMD_LINE`, `URL_DECODE`. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
+        /// The transformation to apply, please refer to the Text Transformation [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_TextTransformation.html) for more details.
         /// </summary>
         public readonly string Type;
 

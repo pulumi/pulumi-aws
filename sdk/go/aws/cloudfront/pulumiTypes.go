@@ -2695,7 +2695,7 @@ type DistributionOrderedCacheBehavior struct {
 	// The unique identifier of the origin request policy
 	// that is attached to the behavior.
 	OriginRequestPolicyId *string `pulumi:"originRequestPolicyId"`
-	// The pattern (for example, `images/*.jpg)` that
+	// The pattern (for example, `images/*.jpg`) that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern string `pulumi:"pathPattern"`
 	// The ARN of the real-time log configuration
@@ -2775,7 +2775,7 @@ type DistributionOrderedCacheBehaviorArgs struct {
 	// The unique identifier of the origin request policy
 	// that is attached to the behavior.
 	OriginRequestPolicyId pulumi.StringPtrInput `pulumi:"originRequestPolicyId"`
-	// The pattern (for example, `images/*.jpg)` that
+	// The pattern (for example, `images/*.jpg`) that
 	// specifies which requests you want this cache behavior to apply to.
 	PathPattern pulumi.StringInput `pulumi:"pathPattern"`
 	// The ARN of the real-time log configuration
@@ -2936,7 +2936,7 @@ func (o DistributionOrderedCacheBehaviorOutput) OriginRequestPolicyId() pulumi.S
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) *string { return v.OriginRequestPolicyId }).(pulumi.StringPtrOutput)
 }
 
-// The pattern (for example, `images/*.jpg)` that
+// The pattern (for example, `images/*.jpg`) that
 // specifies which requests you want this cache behavior to apply to.
 func (o DistributionOrderedCacheBehaviorOutput) PathPattern() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrderedCacheBehavior) string { return v.PathPattern }).(pulumi.StringOutput)

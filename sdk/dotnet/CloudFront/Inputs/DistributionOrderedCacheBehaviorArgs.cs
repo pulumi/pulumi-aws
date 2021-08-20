@@ -126,7 +126,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string>? OriginRequestPolicyId { get; set; }
 
         /// <summary>
-        /// The pattern (for example, `images/*.jpg)` that
+        /// The pattern (for example, `images/*.jpg`) that
         /// specifies which requests you want this cache behavior to apply to.
         /// </summary>
         [Input("pathPattern", required: true)]

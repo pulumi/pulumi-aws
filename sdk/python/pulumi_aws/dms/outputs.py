@@ -307,10 +307,20 @@ class EndpointS3Settings(dict):
             suggest = "csv_delimiter"
         elif key == "csvRowDelimiter":
             suggest = "csv_row_delimiter"
+        elif key == "dataFormat":
+            suggest = "data_format"
         elif key == "datePartitionEnabled":
             suggest = "date_partition_enabled"
+        elif key == "encryptionMode":
+            suggest = "encryption_mode"
         elif key == "externalTableDefinition":
             suggest = "external_table_definition"
+        elif key == "parquetTimestampInMillisecond":
+            suggest = "parquet_timestamp_in_millisecond"
+        elif key == "parquetVersion":
+            suggest = "parquet_version"
+        elif key == "serverSideEncryptionKmsKeyId":
+            suggest = "server_side_encryption_kms_key_id"
         elif key == "serviceAccessRoleArn":
             suggest = "service_access_role_arn"
 
@@ -331,8 +341,13 @@ class EndpointS3Settings(dict):
                  compression_type: Optional[str] = None,
                  csv_delimiter: Optional[str] = None,
                  csv_row_delimiter: Optional[str] = None,
+                 data_format: Optional[str] = None,
                  date_partition_enabled: Optional[bool] = None,
+                 encryption_mode: Optional[str] = None,
                  external_table_definition: Optional[str] = None,
+                 parquet_timestamp_in_millisecond: Optional[bool] = None,
+                 parquet_version: Optional[str] = None,
+                 server_side_encryption_kms_key_id: Optional[str] = None,
                  service_access_role_arn: Optional[str] = None):
         """
         :param str bucket_folder: S3 Bucket Object prefix.
@@ -340,8 +355,13 @@ class EndpointS3Settings(dict):
         :param str compression_type: Set to compress target files. Defaults to `NONE`. Valid values are `GZIP` and `NONE`.
         :param str csv_delimiter: Delimiter used to separate columns in the source files. Defaults to `,`.
         :param str csv_row_delimiter: Delimiter used to separate rows in the source files. Defaults to `\n`.
+        :param str data_format: The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
         :param bool date_partition_enabled: Partition S3 bucket folders based on transaction commit dates. Defaults to `false`.
+        :param str encryption_mode: The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param str external_table_definition: JSON document that describes how AWS DMS should interpret the data.
+        :param bool parquet_timestamp_in_millisecond: - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        :param str parquet_version: The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
         :param str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket.
         """
         if bucket_folder is not None:
@@ -354,10 +374,20 @@ class EndpointS3Settings(dict):
             pulumi.set(__self__, "csv_delimiter", csv_delimiter)
         if csv_row_delimiter is not None:
             pulumi.set(__self__, "csv_row_delimiter", csv_row_delimiter)
+        if data_format is not None:
+            pulumi.set(__self__, "data_format", data_format)
         if date_partition_enabled is not None:
             pulumi.set(__self__, "date_partition_enabled", date_partition_enabled)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if parquet_timestamp_in_millisecond is not None:
+            pulumi.set(__self__, "parquet_timestamp_in_millisecond", parquet_timestamp_in_millisecond)
+        if parquet_version is not None:
+            pulumi.set(__self__, "parquet_version", parquet_version)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
         if service_access_role_arn is not None:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
 
@@ -402,6 +432,14 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "csv_row_delimiter")
 
     @property
+    @pulumi.getter(name="dataFormat")
+    def data_format(self) -> Optional[str]:
+        """
+        The output format for the files that AWS DMS uses to create S3 objects. Defaults to `csv`. Valid values are `csv` and `parquet`.
+        """
+        return pulumi.get(self, "data_format")
+
+    @property
     @pulumi.getter(name="datePartitionEnabled")
     def date_partition_enabled(self) -> Optional[bool]:
         """
@@ -410,12 +448,44 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "date_partition_enabled")
 
     @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[str]:
+        """
+        The server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[str]:
         """
         JSON document that describes how AWS DMS should interpret the data.
         """
         return pulumi.get(self, "external_table_definition")
+
+    @property
+    @pulumi.getter(name="parquetTimestampInMillisecond")
+    def parquet_timestamp_in_millisecond(self) -> Optional[bool]:
+        """
+        - Specifies the precision of any TIMESTAMP column values written to an S3 object file in .parquet format. Defaults to `false`.
+        """
+        return pulumi.get(self, "parquet_timestamp_in_millisecond")
+
+    @property
+    @pulumi.getter(name="parquetVersion")
+    def parquet_version(self) -> Optional[str]:
+        """
+        The version of the .parquet file format. Defaults to `parquet-1-0`. Valid values are `parquet-1-0` and `parquet-2-0`.
+        """
+        return pulumi.get(self, "parquet_version")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> Optional[str]:
+        """
+        If you set encryptionMode to `SSE_KMS`, set this parameter to the Amazon Resource Name (ARN) for the AWS KMS key.
+        """
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
 
     @property
     @pulumi.getter(name="serviceAccessRoleArn")

@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./voiceConnector";
+export * from "./voiceConnectorGroup";
 
 // Import resources to register:
 import { VoiceConnector } from "./voiceConnector";
+import { VoiceConnectorGroup } from "./voiceConnectorGroup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:chime/voiceConnector:VoiceConnector":
                 return new VoiceConnector(name, <any>undefined, { urn })
+            case "aws:chime/voiceConnectorGroup:VoiceConnectorGroup":
+                return new VoiceConnectorGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnector", _module)
+pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorGroup", _module)

@@ -95,6 +95,10 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly environmentId!: pulumi.Output<string>;
     /**
+     * The state of the deployment.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -124,6 +128,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["deploymentStrategyId"] = state ? state.deploymentStrategyId : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["environmentId"] = state ? state.environmentId : undefined;
+            inputs["state"] = state ? state.state : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -152,6 +157,7 @@ export class Deployment extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["deploymentNumber"] = undefined /*out*/;
+            inputs["state"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -197,6 +203,10 @@ export interface DeploymentState {
      * The environment ID. Must be between 4 and 7 characters in length.
      */
     environmentId?: pulumi.Input<string>;
+    /**
+     * The state of the deployment.
+     */
+    state?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
