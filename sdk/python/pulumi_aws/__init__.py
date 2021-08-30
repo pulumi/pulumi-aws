@@ -54,6 +54,8 @@ if typing.TYPE_CHECKING:
     appmesh = __appmesh
     import pulumi_aws.apprunner as __apprunner
     apprunner = __apprunner
+    import pulumi_aws.appstream as __appstream
+    appstream = __appstream
     import pulumi_aws.appsync as __appsync
     appsync = __appsync
     import pulumi_aws.athena as __athena
@@ -246,6 +248,10 @@ if typing.TYPE_CHECKING:
     resourcegroupstaggingapi = __resourcegroupstaggingapi
     import pulumi_aws.route53 as __route53
     route53 = __route53
+    import pulumi_aws.route53recoverycontrol as __route53recoverycontrol
+    route53recoverycontrol = __route53recoverycontrol
+    import pulumi_aws.route53recoveryreadiness as __route53recoveryreadiness
+    route53recoveryreadiness = __route53recoveryreadiness
     import pulumi_aws.s3 as __s3
     s3 = __s3
     import pulumi_aws.s3control as __s3control
@@ -322,6 +328,7 @@ else:
     applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
+    appstream = _utilities.lazy_import('pulumi_aws.appstream')
     appsync = _utilities.lazy_import('pulumi_aws.appsync')
     athena = _utilities.lazy_import('pulumi_aws.athena')
     autoscaling = _utilities.lazy_import('pulumi_aws.autoscaling')
@@ -418,6 +425,8 @@ else:
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
     route53 = _utilities.lazy_import('pulumi_aws.route53')
+    route53recoverycontrol = _utilities.lazy_import('pulumi_aws.route53recoverycontrol')
+    route53recoveryreadiness = _utilities.lazy_import('pulumi_aws.route53recoveryreadiness')
     s3 = _utilities.lazy_import('pulumi_aws.s3')
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
@@ -1095,6 +1104,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appstream/stack",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/stack:Stack": "Stack"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appsync/apiKey",
   "fqn": "pulumi_aws.appsync",
   "classes": {
@@ -1203,6 +1220,14 @@ _utilities.register(
   "fqn": "pulumi_aws.autoscaling",
   "classes": {
    "aws:autoscaling/schedule:Schedule": "Schedule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "autoscaling/tag",
+  "fqn": "pulumi_aws.autoscaling",
+  "classes": {
+   "aws:autoscaling/tag:Tag": "Tag"
   }
  },
  {
@@ -2311,6 +2336,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dynamodb/tag",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/tag:Tag": "Tag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ebs/defaultKmsKey",
   "fqn": "pulumi_aws.ebs",
   "classes": {
@@ -3107,6 +3140,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecs",
   "classes": {
    "aws:ecs/service:Service": "Service"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecs/tag",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/tag:Tag": "Tag"
   }
  },
  {
@@ -5475,6 +5516,70 @@ _utilities.register(
   "fqn": "pulumi_aws.route53",
   "classes": {
    "aws:route53/zoneAssociation:ZoneAssociation": "ZoneAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoverycontrol/cluster",
+  "fqn": "pulumi_aws.route53recoverycontrol",
+  "classes": {
+   "aws:route53recoverycontrol/cluster:Cluster": "Cluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoverycontrol/controlPanel",
+  "fqn": "pulumi_aws.route53recoverycontrol",
+  "classes": {
+   "aws:route53recoverycontrol/controlPanel:ControlPanel": "ControlPanel"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoverycontrol/routingControl",
+  "fqn": "pulumi_aws.route53recoverycontrol",
+  "classes": {
+   "aws:route53recoverycontrol/routingControl:RoutingControl": "RoutingControl"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoverycontrol/safetyRule",
+  "fqn": "pulumi_aws.route53recoverycontrol",
+  "classes": {
+   "aws:route53recoverycontrol/safetyRule:SafetyRule": "SafetyRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoveryreadiness/cell",
+  "fqn": "pulumi_aws.route53recoveryreadiness",
+  "classes": {
+   "aws:route53recoveryreadiness/cell:Cell": "Cell"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoveryreadiness/readinessCheck",
+  "fqn": "pulumi_aws.route53recoveryreadiness",
+  "classes": {
+   "aws:route53recoveryreadiness/readinessCheck:ReadinessCheck": "ReadinessCheck"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoveryreadiness/recoveryGroup",
+  "fqn": "pulumi_aws.route53recoveryreadiness",
+  "classes": {
+   "aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup": "RecoveryGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "route53recoveryreadiness/resourceSet",
+  "fqn": "pulumi_aws.route53recoveryreadiness",
+  "classes": {
+   "aws:route53recoveryreadiness/resourceSet:ResourceSet": "ResourceSet"
   }
  },
  {

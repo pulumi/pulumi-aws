@@ -50,6 +50,7 @@ export interface GetDelegationSetArgs {
  * A collection of values returned by getDelegationSet.
  */
 export interface GetDelegationSetResult {
+    readonly arn: string;
     readonly callerReference: string;
     readonly id: string;
     readonly nameServers: string[];

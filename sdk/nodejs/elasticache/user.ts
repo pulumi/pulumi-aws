@@ -5,23 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an ElastiCache user resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.User("test", {
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- *     userId: "testUserId",
- *     userName: "testUserName",
- * });
- * ```
- *
  * ## Import
  *
  * ElastiCache users can be imported using the `user_id`, e.g.

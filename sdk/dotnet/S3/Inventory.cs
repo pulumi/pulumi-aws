@@ -141,8 +141,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of optional fields that are included in the inventory results.
-        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
         [Output("optionalFields")]
         public Output<ImmutableArray<string>> OptionalFields { get; private set; } = null!;
@@ -239,8 +238,7 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _optionalFields;
 
         /// <summary>
-        /// List of optional fields that are included in the inventory results.
-        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
         public InputList<string> OptionalFields
         {
@@ -301,8 +299,7 @@ namespace Pulumi.Aws.S3
         private InputList<string>? _optionalFields;
 
         /// <summary>
-        /// List of optional fields that are included in the inventory results.
-        /// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        /// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         /// </summary>
         public InputList<string> OptionalFields
         {

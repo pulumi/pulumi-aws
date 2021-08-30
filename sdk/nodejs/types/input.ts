@@ -199,6 +199,7 @@ export interface ProviderEndpoint {
     mediapackage?: pulumi.Input<string>;
     mediastore?: pulumi.Input<string>;
     mediastoredata?: pulumi.Input<string>;
+    memorydb?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
     mwaa?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
@@ -4205,6 +4206,44 @@ export namespace apprunner {
     }
 }
 
+export namespace appstream {
+    export interface StackAccessEndpoint {
+        endpointType: pulumi.Input<string>;
+        vpceId?: pulumi.Input<string>;
+    }
+
+    export interface StackApplicationSettings {
+        enabled?: pulumi.Input<boolean>;
+        settingsGroup?: pulumi.Input<string>;
+    }
+
+    export interface StackStorageConnector {
+        /**
+         * Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+         */
+        connectorType: pulumi.Input<string>;
+        /**
+         * Names of the domains for the account.
+         */
+        domains?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the storage connector.
+         */
+        resourceIdentifier?: pulumi.Input<string>;
+    }
+
+    export interface StackUserSetting {
+        /**
+         * Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         */
+        permission: pulumi.Input<string>;
+    }
+}
+
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
         /**
@@ -4775,6 +4814,21 @@ export namespace autoscaling {
          * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
          */
         resourceLabel?: pulumi.Input<string>;
+    }
+
+    export interface TagTag {
+        /**
+         * Tag name.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Whether to propagate the tags to instances launched by the ASG.
+         */
+        propagateAtLaunch: pulumi.Input<boolean>;
+        /**
+         * Tag value.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -11847,6 +11901,17 @@ export namespace eks {
          * The value of the taint. Maximum length of 63.
          */
         value?: pulumi.Input<string>;
+    }
+
+    export interface NodeGroupUpdateConfig {
+        /**
+         * Desired max number of unavailable worker nodes during node group update.
+         */
+        maxUnavailable?: pulumi.Input<number>;
+        /**
+         * Desired max percentage of unavailable worker nodes during node group update.
+         */
+        maxUnavailablePercentage?: pulumi.Input<number>;
     }
 
 }
@@ -20952,6 +21017,104 @@ export namespace route53 {
          * Region of the VPC to associate. Defaults to AWS provider region.
          */
         vpcRegion?: pulumi.Input<string>;
+    }
+}
+
+export namespace route53recoverycontrol {
+    export interface ClusterClusterEndpoint {
+        /**
+         * Cluster endpoint.
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * Region of the endpoint.
+         */
+        region?: pulumi.Input<string>;
+    }
+
+    export interface SafetyRuleRuleConfig {
+        /**
+         * Logical negation of the rule.
+         */
+        inverted: pulumi.Input<boolean>;
+        /**
+         * Number of controls that must be set when you specify an `ATLEAST` type rule.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
+export namespace route53recoveryreadiness {
+    export interface ResourceSetResource {
+        componentId?: pulumi.Input<string>;
+        /**
+         * Component for DNS/Routing Control Readiness Checks.
+         */
+        dnsTargetResource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResource>;
+        /**
+         * Recovery group ARN or cell ARN that contains this resource set.
+         */
+        readinessScopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * ARN of the resource.
+         */
+        resourceArn?: pulumi.Input<string>;
+    }
+
+    export interface ResourceSetResourceDnsTargetResource {
+        /**
+         * Domain name that is targeted.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+         */
+        hostedZoneArn?: pulumi.Input<string>;
+        /**
+         * Resource record set ID that is targeted.
+         */
+        recordSetId?: pulumi.Input<string>;
+        /**
+         * Type of DNS Record of target resource.
+         */
+        recordType?: pulumi.Input<string>;
+        /**
+         * Target resource the R53 record specified with the above params points to.
+         */
+        targetResource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResource>;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResource {
+        /**
+         * NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
+         */
+        nlbResource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource>;
+        /**
+         * Route53 resource a DNS Target Resource record points to.
+         */
+        r53Resource?: pulumi.Input<inputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource>;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResourceNlbResource {
+        /**
+         * NLB resource ARN.
+         */
+        arn?: pulumi.Input<string>;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResourceR53Resource {
+        /**
+         * Domain name that is targeted.
+         */
+        domainName?: pulumi.Input<string>;
+        /**
+         * Resource record set ID that is targeted.
+         */
+        recordSetId?: pulumi.Input<string>;
     }
 }
 

@@ -24,10 +24,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.ProvisionedProduct("example", {
- *     owner: [aws_security_group.example.id],
- *     type: aws_subnet.main.id,
- *     provisioningArtifactParameters: [{
- *         templateUrl: "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
+ *     productName: "Example product",
+ *     provisioningArtifactName: "Example version",
+ *     provisioningParameters: [{
+ *         key: "foo",
+ *         value: "bar",
  *     }],
  *     tags: {
  *         foo: "bar",

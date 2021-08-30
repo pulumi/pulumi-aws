@@ -12,6 +12,7 @@ from .get_container_definition import *
 from .get_service import *
 from .get_task_definition import *
 from .service import *
+from .tag import *
 from .task_definition import *
 from ._inputs import *
 from . import outputs

@@ -113,6 +113,10 @@ namespace Pulumi.Aws.Route53
     public sealed class GetZoneResult
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// Caller Reference of the Hosted Zone.
         /// </summary>
         public readonly string CallerReference;
@@ -148,6 +152,8 @@ namespace Pulumi.Aws.Route53
 
         [OutputConstructor]
         private GetZoneResult(
+            string arn,
+
             string callerReference,
 
             string comment,
@@ -172,6 +178,7 @@ namespace Pulumi.Aws.Route53
 
             string zoneId)
         {
+            Arn = arn;
             CallerReference = callerReference;
             Comment = comment;
             Id = id;

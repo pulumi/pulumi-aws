@@ -324,6 +324,9 @@ namespace Pulumi.Aws.Inputs
         [Input("mediastoredata")]
         public Input<string>? Mediastoredata { get; set; }
 
+        [Input("memorydb")]
+        public Input<string>? Memorydb { get; set; }
+
         [Input("mq")]
         public Input<string>? Mq { get; set; }
 

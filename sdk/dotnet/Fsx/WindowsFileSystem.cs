@@ -136,6 +136,12 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> AutomaticBackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Output("backupId")]
+        public Output<string?> BackupId { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         /// </summary>
         [Output("copyTagsToBackups")]
@@ -214,7 +220,7 @@ namespace Pulumi.Aws.Fsx
         public Output<bool?> SkipFinalBackup { get; private set; } = null!;
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
         [Output("storageCapacity")]
         public Output<int> StorageCapacity { get; private set; } = null!;
@@ -338,6 +344,12 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Input("backupId")]
+        public Input<string>? BackupId { get; set; }
+
+        /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         /// </summary>
         [Input("copyTagsToBackups")]
@@ -392,10 +404,10 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity", required: true)]
-        public Input<int> StorageCapacity { get; set; } = null!;
+        [Input("storageCapacity")]
+        public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
         /// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
@@ -481,6 +493,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Input("backupId")]
+        public Input<string>? BackupId { get; set; }
 
         /// <summary>
         /// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
@@ -573,7 +591,7 @@ namespace Pulumi.Aws.Fsx
         public Input<bool>? SkipFinalBackup { get; set; }
 
         /// <summary>
-        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        /// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }

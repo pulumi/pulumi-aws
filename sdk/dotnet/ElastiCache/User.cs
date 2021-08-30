@@ -10,34 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ElastiCache
 {
     /// <summary>
-    /// Provides an ElastiCache user resource.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var test = new Aws.ElastiCache.User("test", new Aws.ElastiCache.UserArgs
-    ///         {
-    ///             AccessString = "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-    ///             Engine = "REDIS",
-    ///             Passwords = 
-    ///             {
-    ///                 "password123456789",
-    ///             },
-    ///             UserId = "testUserId",
-    ///             UserName = "testUserName",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// ElastiCache users can be imported using the `user_id`, e.g.

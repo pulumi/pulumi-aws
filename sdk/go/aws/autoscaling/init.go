@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Policy{}
 	case "aws:autoscaling/schedule:Schedule":
 		r = &Schedule{}
+	case "aws:autoscaling/tag:Tag":
+		r = &Tag{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"autoscaling/schedule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"autoscaling/tag",
 		&module{version},
 	)
 }

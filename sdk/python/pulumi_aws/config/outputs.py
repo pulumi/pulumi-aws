@@ -204,6 +204,7 @@ class Endpoints(dict):
                  mediapackage: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  mediastoredata: Optional[str] = None,
+                 memorydb: Optional[str] = None,
                  mq: Optional[str] = None,
                  mwaa: Optional[str] = None,
                  neptune: Optional[str] = None,
@@ -468,6 +469,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "mediastore", mediastore)
         if mediastoredata is not None:
             pulumi.set(__self__, "mediastoredata", mediastoredata)
+        if memorydb is not None:
+            pulumi.set(__self__, "memorydb", memorydb)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if mwaa is not None:
@@ -1100,6 +1103,11 @@ class Endpoints(dict):
     @pulumi.getter
     def mediastoredata(self) -> Optional[str]:
         return pulumi.get(self, "mediastoredata")
+
+    @property
+    @pulumi.getter
+    def memorydb(self) -> Optional[str]:
+        return pulumi.get(self, "memorydb")
 
     @property
     @pulumi.getter

@@ -249,6 +249,7 @@ class ProviderEndpointArgs:
                  mediapackage: Optional[pulumi.Input[str]] = None,
                  mediastore: Optional[pulumi.Input[str]] = None,
                  mediastoredata: Optional[pulumi.Input[str]] = None,
+                 memorydb: Optional[pulumi.Input[str]] = None,
                  mq: Optional[pulumi.Input[str]] = None,
                  mwaa: Optional[pulumi.Input[str]] = None,
                  neptune: Optional[pulumi.Input[str]] = None,
@@ -513,6 +514,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mediastore", mediastore)
         if mediastoredata is not None:
             pulumi.set(__self__, "mediastoredata", mediastoredata)
+        if memorydb is not None:
+            pulumi.set(__self__, "memorydb", memorydb)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if mwaa is not None:
@@ -1561,6 +1564,15 @@ class ProviderEndpointArgs:
     @mediastoredata.setter
     def mediastoredata(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mediastoredata", value)
+
+    @property
+    @pulumi.getter
+    def memorydb(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "memorydb")
+
+    @memorydb.setter
+    def memorydb(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "memorydb", value)
 
     @property
     @pulumi.getter

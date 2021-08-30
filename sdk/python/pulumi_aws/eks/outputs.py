@@ -25,6 +25,7 @@ __all__ = [
     'NodeGroupResourceAutoscalingGroup',
     'NodeGroupScalingConfig',
     'NodeGroupTaint',
+    'NodeGroupUpdateConfig',
     'GetClusterCertificateAuthorityResult',
     'GetClusterIdentityResult',
     'GetClusterIdentityOidcResult',
@@ -730,6 +731,56 @@ class NodeGroupTaint(dict):
         The value of the taint. Maximum length of 63.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class NodeGroupUpdateConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxUnavailable":
+            suggest = "max_unavailable"
+        elif key == "maxUnavailablePercentage":
+            suggest = "max_unavailable_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeGroupUpdateConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeGroupUpdateConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeGroupUpdateConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_unavailable: Optional[int] = None,
+                 max_unavailable_percentage: Optional[int] = None):
+        """
+        :param int max_unavailable: Desired max number of unavailable worker nodes during node group update.
+        :param int max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
+        """
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+        if max_unavailable_percentage is not None:
+            pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[int]:
+        """
+        Desired max number of unavailable worker nodes during node group update.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @property
+    @pulumi.getter(name="maxUnavailablePercentage")
+    def max_unavailable_percentage(self) -> Optional[int]:
+        """
+        Desired max percentage of unavailable worker nodes during node group update.
+        """
+        return pulumi.get(self, "max_unavailable_percentage")
 
 
 @pulumi.output_type

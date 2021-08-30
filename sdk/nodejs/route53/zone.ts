@@ -91,6 +91,10 @@ export class Zone extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */
     public readonly comment!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class Zone extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["delegationSetId"] = state ? state.delegationSetId : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
@@ -158,6 +163,7 @@ export class Zone extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcs"] = args ? args.vpcs : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
             inputs["zoneId"] = undefined /*out*/;
@@ -173,6 +179,10 @@ export class Zone extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Zone resources.
  */
 export interface ZoneState {
+    /**
+     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
      */

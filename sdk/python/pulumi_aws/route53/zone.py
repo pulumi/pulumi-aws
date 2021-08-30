@@ -121,6 +121,7 @@ class ZoneArgs:
 @pulumi.input_type
 class _ZoneState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  delegation_set_id: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -132,6 +133,7 @@ class _ZoneState:
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Zone resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
@@ -143,6 +145,8 @@ class _ZoneState:
         :param pulumi.Input[Sequence[pulumi.Input['ZoneVpcArgs']]] vpcs: Configuration block(s) specifying VPC(s) to associate with a private hosted zone. Conflicts with the `delegation_set_id` argument in this resource and any `route53.ZoneAssociation` resource specifying the same zone ID. Detailed below.
         :param pulumi.Input[str] zone_id: The Hosted Zone ID. This can be referenced by zone records.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if comment is None:
             comment = 'Managed by Pulumi'
         if comment is not None:
@@ -163,6 +167,18 @@ class _ZoneState:
             pulumi.set(__self__, "vpcs", vpcs)
         if zone_id is not None:
             pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Hosted Zone.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter
@@ -454,6 +470,7 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpcs"] = vpcs
+            __props__.__dict__["arn"] = None
             __props__.__dict__["name_servers"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zone_id"] = None
@@ -467,6 +484,7 @@ class Zone(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             delegation_set_id: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -483,6 +501,7 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
         :param pulumi.Input[str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[bool] force_destroy: Whether to destroy all records (possibly managed outside of this provider) in the zone when destroying the zone.
@@ -498,6 +517,7 @@ class Zone(pulumi.CustomResource):
 
         __props__ = _ZoneState.__new__(_ZoneState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["comment"] = comment
         __props__.__dict__["delegation_set_id"] = delegation_set_id
         __props__.__dict__["force_destroy"] = force_destroy
@@ -508,6 +528,14 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["vpcs"] = vpcs
         __props__.__dict__["zone_id"] = zone_id
         return Zone(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Hosted Zone.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter

@@ -11,37 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache user resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-// 			AccessString: pulumi.String("on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember"),
-// 			Engine:       pulumi.String("REDIS"),
-// 			Passwords: pulumi.StringArray{
-// 				pulumi.String("password123456789"),
-// 			},
-// 			UserId:   pulumi.String("testUserId"),
-// 			UserName: pulumi.String("testUserName"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // ElastiCache users can be imported using the `user_id`, e.g.

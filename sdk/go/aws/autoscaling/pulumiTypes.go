@@ -3683,6 +3683,181 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+type TagTag struct {
+	// Tag name.
+	Key string `pulumi:"key"`
+	// Whether to propagate the tags to instances launched by the ASG.
+	PropagateAtLaunch bool `pulumi:"propagateAtLaunch"`
+	// Tag value.
+	Value string `pulumi:"value"`
+}
+
+// TagTagInput is an input type that accepts TagTagArgs and TagTagOutput values.
+// You can construct a concrete instance of `TagTagInput` via:
+//
+//          TagTagArgs{...}
+type TagTagInput interface {
+	pulumi.Input
+
+	ToTagTagOutput() TagTagOutput
+	ToTagTagOutputWithContext(context.Context) TagTagOutput
+}
+
+type TagTagArgs struct {
+	// Tag name.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Whether to propagate the tags to instances launched by the ASG.
+	PropagateAtLaunch pulumi.BoolInput `pulumi:"propagateAtLaunch"`
+	// Tag value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TagTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagTag)(nil)).Elem()
+}
+
+func (i TagTagArgs) ToTagTagOutput() TagTagOutput {
+	return i.ToTagTagOutputWithContext(context.Background())
+}
+
+func (i TagTagArgs) ToTagTagOutputWithContext(ctx context.Context) TagTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagTagOutput)
+}
+
+func (i TagTagArgs) ToTagTagPtrOutput() TagTagPtrOutput {
+	return i.ToTagTagPtrOutputWithContext(context.Background())
+}
+
+func (i TagTagArgs) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagTagOutput).ToTagTagPtrOutputWithContext(ctx)
+}
+
+// TagTagPtrInput is an input type that accepts TagTagArgs, TagTagPtr and TagTagPtrOutput values.
+// You can construct a concrete instance of `TagTagPtrInput` via:
+//
+//          TagTagArgs{...}
+//
+//  or:
+//
+//          nil
+type TagTagPtrInput interface {
+	pulumi.Input
+
+	ToTagTagPtrOutput() TagTagPtrOutput
+	ToTagTagPtrOutputWithContext(context.Context) TagTagPtrOutput
+}
+
+type tagTagPtrType TagTagArgs
+
+func TagTagPtr(v *TagTagArgs) TagTagPtrInput {
+	return (*tagTagPtrType)(v)
+}
+
+func (*tagTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagTag)(nil)).Elem()
+}
+
+func (i *tagTagPtrType) ToTagTagPtrOutput() TagTagPtrOutput {
+	return i.ToTagTagPtrOutputWithContext(context.Background())
+}
+
+func (i *tagTagPtrType) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TagTagPtrOutput)
+}
+
+type TagTagOutput struct{ *pulumi.OutputState }
+
+func (TagTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagTag)(nil)).Elem()
+}
+
+func (o TagTagOutput) ToTagTagOutput() TagTagOutput {
+	return o
+}
+
+func (o TagTagOutput) ToTagTagOutputWithContext(ctx context.Context) TagTagOutput {
+	return o
+}
+
+func (o TagTagOutput) ToTagTagPtrOutput() TagTagPtrOutput {
+	return o.ToTagTagPtrOutputWithContext(context.Background())
+}
+
+func (o TagTagOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagTag) *TagTag {
+		return &v
+	}).(TagTagPtrOutput)
+}
+
+// Tag name.
+func (o TagTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TagTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether to propagate the tags to instances launched by the ASG.
+func (o TagTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v TagTag) bool { return v.PropagateAtLaunch }).(pulumi.BoolOutput)
+}
+
+// Tag value.
+func (o TagTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TagTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TagTagPtrOutput struct{ *pulumi.OutputState }
+
+func (TagTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagTag)(nil)).Elem()
+}
+
+func (o TagTagPtrOutput) ToTagTagPtrOutput() TagTagPtrOutput {
+	return o
+}
+
+func (o TagTagPtrOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
+	return o
+}
+
+func (o TagTagPtrOutput) Elem() TagTagOutput {
+	return o.ApplyT(func(v *TagTag) TagTag {
+		if v != nil {
+			return *v
+		}
+		var ret TagTag
+		return ret
+	}).(TagTagOutput)
+}
+
+// Tag name.
+func (o TagTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to propagate the tags to instances launched by the ASG.
+func (o TagTagPtrOutput) PropagateAtLaunch() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TagTag) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PropagateAtLaunch
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Tag value.
+func (o TagTagPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TagTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAmiIdsFilter struct {
 	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
 	Name string `pulumi:"name"`
@@ -3946,6 +4121,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TagTagOutput{})
+	pulumi.RegisterOutputType(TagTagPtrOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateOutput{})

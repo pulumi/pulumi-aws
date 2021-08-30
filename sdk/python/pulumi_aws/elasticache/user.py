@@ -305,22 +305,6 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache user resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
-        ```
-
         ## Import
 
         ElastiCache users can be imported using the `user_id`, e.g.
@@ -347,22 +331,6 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache user resource.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        test = aws.elasticache.User("test",
-            access_string="on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
-            engine="REDIS",
-            passwords=["password123456789"],
-            user_id="testUserId",
-            user_name="testUserName")
-        ```
-
         ## Import
 
         ElastiCache users can be imported using the `user_id`, e.g.

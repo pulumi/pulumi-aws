@@ -4349,6 +4349,45 @@ export namespace apprunner {
 
 }
 
+export namespace appstream {
+    export interface StackAccessEndpoint {
+        endpointType: string;
+        vpceId: string;
+    }
+
+    export interface StackApplicationSettings {
+        enabled?: boolean;
+        settingsGroup?: string;
+    }
+
+    export interface StackStorageConnector {
+        /**
+         * Type of storage connector. Valid values are: `HOMEFOLDERS`, `GOOGLE_DRIVE`, `ONE_DRIVE`.
+         */
+        connectorType: string;
+        /**
+         * Names of the domains for the account.
+         */
+        domains: string[];
+        /**
+         * ARN of the storage connector.
+         */
+        resourceIdentifier: string;
+    }
+
+    export interface StackUserSetting {
+        /**
+         * Action that is enabled or disabled. Valid values are: `CLIPBOARD_COPY_FROM_LOCAL_DEVICE`,  `CLIPBOARD_COPY_TO_LOCAL_DEVICE`, `FILE_UPLOAD`, `FILE_DOWNLOAD`, `PRINTING_TO_LOCAL_DEVICE`, `DOMAIN_PASSWORD_SIGNIN`, `DOMAIN_SMART_CARD_SIGNIN`.
+         */
+        action: string;
+        /**
+         * Indicates whether the action is enabled or disabled. Valid values are: `ENABLED`, `DISABLED`.
+         */
+        permission: string;
+    }
+
+}
+
 export namespace appsync {
     export interface DataSourceDynamodbConfig {
         /**
@@ -4933,6 +4972,21 @@ export namespace autoscaling {
          * A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
          */
         resourceLabel?: string;
+    }
+
+    export interface TagTag {
+        /**
+         * Tag name.
+         */
+        key: string;
+        /**
+         * Whether to propagate the tags to instances launched by the ASG.
+         */
+        propagateAtLaunch: boolean;
+        /**
+         * Tag value.
+         */
+        value: string;
     }
 
 }
@@ -8607,6 +8661,7 @@ export namespace config {
         mediapackage?: string;
         mediastore?: string;
         mediastoredata?: string;
+        memorydb?: string;
         mq?: string;
         mwaa?: string;
         neptune?: string;
@@ -13083,6 +13138,18 @@ export namespace eks {
          */
         value?: string;
     }
+
+    export interface NodeGroupUpdateConfig {
+        /**
+         * Desired max number of unavailable worker nodes during node group update.
+         */
+        maxUnavailable?: number;
+        /**
+         * Desired max percentage of unavailable worker nodes during node group update.
+         */
+        maxUnavailablePercentage?: number;
+    }
+
 }
 
 export namespace elasticache {
@@ -23193,6 +23260,106 @@ export namespace route53 {
          * Region of the VPC to associate. Defaults to AWS provider region.
          */
         vpcRegion: string;
+    }
+
+}
+
+export namespace route53recoverycontrol {
+    export interface ClusterClusterEndpoint {
+        /**
+         * Cluster endpoint.
+         */
+        endpoint: string;
+        /**
+         * Region of the endpoint.
+         */
+        region: string;
+    }
+
+    export interface SafetyRuleRuleConfig {
+        /**
+         * Logical negation of the rule.
+         */
+        inverted: boolean;
+        /**
+         * Number of controls that must be set when you specify an `ATLEAST` type rule.
+         */
+        threshold: number;
+        /**
+         * Rule type. Valid values are `ATLEAST`, `AND`, and `OR`.
+         */
+        type: string;
+    }
+
+}
+
+export namespace route53recoveryreadiness {
+    export interface ResourceSetResource {
+        componentId: string;
+        /**
+         * Component for DNS/Routing Control Readiness Checks.
+         */
+        dnsTargetResource?: outputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResource;
+        /**
+         * Recovery group ARN or cell ARN that contains this resource set.
+         */
+        readinessScopes?: string[];
+        /**
+         * ARN of the resource.
+         */
+        resourceArn?: string;
+    }
+
+    export interface ResourceSetResourceDnsTargetResource {
+        /**
+         * Domain name that is targeted.
+         */
+        domainName: string;
+        /**
+         * Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+         */
+        hostedZoneArn?: string;
+        /**
+         * Resource record set ID that is targeted.
+         */
+        recordSetId?: string;
+        /**
+         * Type of DNS Record of target resource.
+         */
+        recordType?: string;
+        /**
+         * Target resource the R53 record specified with the above params points to.
+         */
+        targetResource?: outputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResource;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResource {
+        /**
+         * NLB resource a DNS Target Resource points to. Required if `r53Resource` is not set.
+         */
+        nlbResource?: outputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource;
+        /**
+         * Route53 resource a DNS Target Resource record points to.
+         */
+        r53Resource?: outputs.route53recoveryreadiness.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResourceNlbResource {
+        /**
+         * NLB resource ARN.
+         */
+        arn?: string;
+    }
+
+    export interface ResourceSetResourceDnsTargetResourceTargetResourceR53Resource {
+        /**
+         * Domain name that is targeted.
+         */
+        domainName?: string;
+        /**
+         * Resource record set ID that is targeted.
+         */
+        recordSetId?: string;
     }
 
 }

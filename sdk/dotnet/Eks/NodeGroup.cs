@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Eks
     ///                 MaxSize = 1,
     ///                 MinSize = 1,
     ///             },
+    ///             UpdateConfig = new Aws.Eks.Inputs.NodeGroupUpdateConfigArgs
+    ///             {
+    ///                 MaxUnavailable = 2,
+    ///             },
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
@@ -260,6 +264,9 @@ namespace Pulumi.Aws.Eks
         [Output("taints")]
         public Output<ImmutableArray<Outputs.NodeGroupTaint>> Taints { get; private set; } = null!;
 
+        [Output("updateConfig")]
+        public Output<Outputs.NodeGroupUpdateConfig> UpdateConfig { get; private set; } = null!;
+
         /// <summary>
         /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
         /// </summary>
@@ -444,6 +451,9 @@ namespace Pulumi.Aws.Eks
             set => _taints = value;
         }
 
+        [Input("updateConfig")]
+        public Input<Inputs.NodeGroupUpdateConfigArgs>? UpdateConfig { get; set; }
+
         /// <summary>
         /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
         /// </summary>
@@ -624,6 +634,9 @@ namespace Pulumi.Aws.Eks
             get => _taints ?? (_taints = new InputList<Inputs.NodeGroupTaintGetArgs>());
             set => _taints = value;
         }
+
+        [Input("updateConfig")]
+        public Input<Inputs.NodeGroupUpdateConfigGetArgs>? UpdateConfig { get; set; }
 
         /// <summary>
         /// EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `default_version` or `latest_version` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.

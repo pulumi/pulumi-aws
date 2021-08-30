@@ -45,6 +45,7 @@ import * as appconfig from "./appconfig";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
+import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
 import * as autoscaling from "./autoscaling";
@@ -141,6 +142,8 @@ import * as redshift from "./redshift";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as route53 from "./route53";
+import * as route53recoverycontrol from "./route53recoverycontrol";
+import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
@@ -189,6 +192,7 @@ export {
     applicationloadbalancing,
     appmesh,
     apprunner,
+    appstream,
     appsync,
     athena,
     autoscaling,
@@ -285,6 +289,8 @@ export {
     resourcegroups,
     resourcegroupstaggingapi,
     route53,
+    route53recoverycontrol,
+    route53recoveryreadiness,
     s3,
     s3control,
     s3outposts,

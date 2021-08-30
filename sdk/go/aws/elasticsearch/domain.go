@@ -29,10 +29,7 @@ import (
 // 			ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
 // 				InstanceType: pulumi.String("r4.large.elasticsearch"),
 // 			},
-// 			ElasticsearchVersion: pulumi.String("1.5"),
-// 			SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
-// 				AutomatedSnapshotStartHour: pulumi.Int(23),
-// 			},
+// 			ElasticsearchVersion: pulumi.String("7.10"),
 // 			Tags: pulumi.StringMap{
 // 				"Domain": pulumi.String("TestDomain"),
 // 			},
@@ -169,9 +166,9 @@ type Domain struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayOutput `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionOutput `pulumi:"nodeToNodeEncryption"`
-	// Configuration block for snapshot related options. Detailed below.
+	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
@@ -238,9 +235,9 @@ type domainState struct {
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
-	// Configuration block for snapshot related options. Detailed below.
+	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
@@ -279,9 +276,9 @@ type DomainState struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
-	// Configuration block for snapshot related options. Detailed below.
+	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
@@ -316,9 +313,9 @@ type domainArgs struct {
 	LogPublishingOptions []DomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption *DomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryption"`
-	// Configuration block for snapshot related options. Detailed below.
+	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
@@ -349,9 +346,9 @@ type DomainArgs struct {
 	LogPublishingOptions DomainLogPublishingOptionArrayInput
 	// Configuration block for node-to-node encryption options. Detailed below.
 	NodeToNodeEncryption DomainNodeToNodeEncryptionPtrInput
-	// Configuration block for snapshot related options. Detailed below.
+	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// Map of tags to assign to the resource.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput

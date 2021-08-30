@@ -34,6 +34,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = efs.LookupFileSystem(ctx, &efs.LookupFileSystemArgs{
+// 			Tags: map[string]interface{}{
+// 				"Environment": "dev",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }
@@ -52,8 +60,9 @@ type LookupFileSystemArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken *string `pulumi:"creationToken"`
 	// The ID that identifies the file system (e.g. fs-ccfc0d65).
-	FileSystemId *string           `pulumi:"fileSystemId"`
-	Tags         map[string]string `pulumi:"tags"`
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// Restricts the list to the file system with these tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getFileSystem.

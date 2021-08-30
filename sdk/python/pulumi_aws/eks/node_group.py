@@ -32,6 +32,7 @@ class NodeGroupArgs:
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
+                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
@@ -84,6 +85,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if taints is not None:
             pulumi.set(__self__, "taints", taints)
+        if update_config is not None:
+            pulumi.set(__self__, "update_config", update_config)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -292,6 +295,15 @@ class NodeGroupArgs:
         pulumi.set(self, "taints", value)
 
     @property
+    @pulumi.getter(name="updateConfig")
+    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+        return pulumi.get(self, "update_config")
+
+    @update_config.setter
+    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+        pulumi.set(self, "update_config", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -328,6 +340,7 @@ class _NodeGroupState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
+                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
@@ -396,6 +409,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "tags_all", tags_all)
         if taints is not None:
             pulumi.set(__self__, "taints", taints)
+        if update_config is not None:
+            pulumi.set(__self__, "update_config", update_config)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -652,6 +667,15 @@ class _NodeGroupState:
         pulumi.set(self, "taints", value)
 
     @property
+    @pulumi.getter(name="updateConfig")
+    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+        return pulumi.get(self, "update_config")
+
+    @update_config.setter
+    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+        pulumi.set(self, "update_config", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
@@ -686,6 +710,7 @@ class NodeGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
+                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -705,6 +730,9 @@ class NodeGroup(pulumi.CustomResource):
                 desired_size=1,
                 max_size=1,
                 min_size=1,
+            ),
+            update_config=aws.eks.NodeGroupUpdateConfigArgs(
+                max_unavailable=2,
             ),
             opts=pulumi.ResourceOptions(depends_on=[
                     aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
@@ -806,6 +834,9 @@ class NodeGroup(pulumi.CustomResource):
                 max_size=1,
                 min_size=1,
             ),
+            update_config=aws.eks.NodeGroupUpdateConfigArgs(
+                max_unavailable=2,
+            ),
             opts=pulumi.ResourceOptions(depends_on=[
                     aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
                     aws_iam_role_policy_attachment["example-AmazonEKS_CNI_Policy"],
@@ -893,6 +924,7 @@ class NodeGroup(pulumi.CustomResource):
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
+                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -931,6 +963,7 @@ class NodeGroup(pulumi.CustomResource):
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["taints"] = taints
+            __props__.__dict__["update_config"] = update_config
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
             __props__.__dict__["resources"] = None
@@ -967,6 +1000,7 @@ class NodeGroup(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
+            update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'NodeGroup':
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
@@ -1023,6 +1057,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["taints"] = taints
+        __props__.__dict__["update_config"] = update_config
         __props__.__dict__["version"] = version
         return NodeGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -1193,6 +1228,11 @@ class NodeGroup(pulumi.CustomResource):
         The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
         """
         return pulumi.get(self, "taints")
+
+    @property
+    @pulumi.getter(name="updateConfig")
+    def update_config(self) -> pulumi.Output['outputs.NodeGroupUpdateConfig']:
+        return pulumi.get(self, "update_config")
 
     @property
     @pulumi.getter

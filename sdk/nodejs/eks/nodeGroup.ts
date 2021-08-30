@@ -23,6 +23,9 @@ import * as utilities from "../utilities";
  *         maxSize: 1,
  *         minSize: 1,
  *     },
+ *     updateConfig: {
+ *         maxUnavailable: 2,
+ *     },
  * }, {
  *     dependsOn: [
  *         aws_iam_role_policy_attachment["example-AmazonEKSWorkerNodePolicy"],
@@ -194,6 +197,7 @@ export class NodeGroup extends pulumi.CustomResource {
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
      */
     public readonly taints!: pulumi.Output<outputs.eks.NodeGroupTaint[] | undefined>;
+    public readonly updateConfig!: pulumi.Output<outputs.eks.NodeGroupUpdateConfig>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -233,6 +237,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["taints"] = state ? state.taints : undefined;
+            inputs["updateConfig"] = state ? state.updateConfig : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as NodeGroupArgs | undefined;
@@ -265,6 +270,7 @@ export class NodeGroup extends pulumi.CustomResource {
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taints"] = args ? args.taints : undefined;
+            inputs["updateConfig"] = args ? args.updateConfig : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["resources"] = undefined /*out*/;
@@ -366,6 +372,7 @@ export interface NodeGroupState {
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
      */
     taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
+    updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */
@@ -444,6 +451,7 @@ export interface NodeGroupArgs {
      * The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. Detailed below.
      */
     taints?: pulumi.Input<pulumi.Input<inputs.eks.NodeGroupTaint>[]>;
+    updateConfig?: pulumi.Input<inputs.eks.NodeGroupUpdateConfig>;
     /**
      * EC2 Launch Template version number. While the API accepts values like `$Default` and `$Latest`, the API will convert the value to the associated version number (e.g. `1`) on read and This provider will show a difference on next plan. Using the `defaultVersion` or `latestVersion` attribute of the `aws.ec2.LaunchTemplate` resource or data source is recommended for this argument.
      */

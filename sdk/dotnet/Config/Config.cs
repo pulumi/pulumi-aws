@@ -347,6 +347,7 @@ namespace Pulumi.Aws
                 public string? Mediapackage { get; set; } = null!;
                 public string? Mediastore { get; set; } = null!;
                 public string? Mediastoredata { get; set; } = null!;
+                public string? Memorydb { get; set; } = null!;
                 public string? Mq { get; set; } = null!;
                 public string? Mwaa { get; set; } = null!;
                 public string? Neptune { get; set; } = null!;

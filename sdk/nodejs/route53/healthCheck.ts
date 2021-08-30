@@ -118,6 +118,10 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the Health Check.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */
     public readonly childHealthThreshold!: pulumi.Output<number | undefined>;
@@ -147,7 +151,7 @@ export class HealthCheck extends pulumi.CustomResource {
     /**
      * The number of consecutive health checks that an endpoint must pass or fail.
      */
-    public readonly failureThreshold!: pulumi.Output<number | undefined>;
+    public readonly failureThreshold!: pulumi.Output<number>;
     /**
      * The fully qualified domain name of the endpoint to be checked.
      */
@@ -219,6 +223,7 @@ export class HealthCheck extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HealthCheckState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
             inputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
             inputs["cloudwatchAlarmName"] = state ? state.cloudwatchAlarmName : undefined;
@@ -265,6 +270,7 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["searchString"] = args ? args.searchString : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -278,6 +284,10 @@ export class HealthCheck extends pulumi.CustomResource {
  * Input properties used for looking up and filtering HealthCheck resources.
  */
 export interface HealthCheckState {
+    /**
+     * The Amazon Resource Name (ARN) of the Health Check.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
      */

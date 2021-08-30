@@ -13,12 +13,14 @@ export * from "./getContainerDefinition";
 export * from "./getService";
 export * from "./getTaskDefinition";
 export * from "./service";
+export * from "./tag";
 export * from "./taskDefinition";
 
 // Import resources to register:
 import { CapacityProvider } from "./capacityProvider";
 import { Cluster } from "./cluster";
 import { Service } from "./service";
+import { Tag } from "./tag";
 import { TaskDefinition } from "./taskDefinition";
 
 const _module = {
@@ -31,6 +33,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:ecs/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "aws:ecs/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             case "aws:ecs/taskDefinition:TaskDefinition":
                 return new TaskDefinition(name, <any>undefined, { urn })
             default:
@@ -41,4 +45,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "ecs/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/taskDefinition", _module)

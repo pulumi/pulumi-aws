@@ -21,10 +21,7 @@ import {PolicyDocument} from "../iam";
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
  *     },
- *     elasticsearchVersion: "1.5",
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
+ *     elasticsearchVersion: "7.10",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
@@ -129,6 +126,7 @@ import {PolicyDocument} from "../iam";
  *     elasticsearchVersion: "6.3",
  *     clusterConfig: {
  *         instanceType: "m4.large.elasticsearch",
+ *         zoneAwarenessEnabled: true,
  *     },
  *     vpcOptions: {
  *         subnetIds: [
@@ -152,9 +150,6 @@ import {PolicyDocument} from "../iam";
  * 	]
  * }
  * `),
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
  *     tags: {
  *         Domain: "TestDomain",
  *     },
@@ -261,11 +256,11 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * Configuration block for snapshot related options. Detailed below.
+     * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
@@ -403,11 +398,11 @@ export interface DomainState {
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * Configuration block for snapshot related options. Detailed below.
+     * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -467,11 +462,11 @@ export interface DomainArgs {
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
-     * Configuration block for snapshot related options. Detailed below.
+     * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
     /**
-     * Map of tags to assign to the resource.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

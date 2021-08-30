@@ -79,6 +79,8 @@ type LookupZoneArgs struct {
 
 // A collection of values returned by getZone.
 type LookupZoneResult struct {
+	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	Arn string `pulumi:"arn"`
 	// Caller Reference of the Hosted Zone.
 	CallerReference string `pulumi:"callerReference"`
 	// The comment field of the Hosted Zone.

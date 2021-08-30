@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Cluster{}
 	case "aws:ecs/service:Service":
 		r = &Service{}
+	case "aws:ecs/tag:Tag":
+		r = &Tag{}
 	case "aws:ecs/taskDefinition:TaskDefinition":
 		r = &TaskDefinition{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecs/service",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecs/tag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

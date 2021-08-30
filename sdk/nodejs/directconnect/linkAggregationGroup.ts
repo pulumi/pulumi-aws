@@ -60,7 +60,6 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
 
     /**
      * The ARN of the LAG.
-     * * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -85,13 +84,21 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The ID of the AWS account that owns the LAG.
+     */
+    public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * The name of the service provider associated with the LAG.
+     */
+    public readonly providerName!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
-    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a LinkAggregationGroup resource with the given unique name, arguments, and options.
@@ -113,6 +120,8 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            inputs["providerName"] = state ? state.providerName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -127,11 +136,13 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["providerName"] = args ? args.providerName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["hasLogicalRedundancy"] = undefined /*out*/;
             inputs["jumboFrameCapable"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            inputs["ownerAccountId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -146,7 +157,6 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
 export interface LinkAggregationGroupState {
     /**
      * The ARN of the LAG.
-     * * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -171,11 +181,19 @@ export interface LinkAggregationGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The ID of the AWS account that owns the LAG.
+     */
+    ownerAccountId?: pulumi.Input<string>;
+    /**
+     * The name of the service provider associated with the LAG.
+     */
+    providerName?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -201,7 +219,15 @@ export interface LinkAggregationGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * The name of the service provider associated with the LAG.
+     */
+    providerName?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

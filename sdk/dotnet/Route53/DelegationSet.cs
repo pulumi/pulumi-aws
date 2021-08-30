@@ -51,6 +51,12 @@ namespace Pulumi.Aws.Route53
     public partial class DelegationSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A list of authoritative name servers for the hosted zone
         /// (effectively a list of NS records).
         /// </summary>
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class DelegationSetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Delegation Set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("nameServers")]
         private InputList<string>? _nameServers;
 

@@ -85,6 +85,10 @@ export interface GetZoneArgs {
  */
 export interface GetZoneResult {
     /**
+     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     */
+    readonly arn: string;
+    /**
      * Caller Reference of the Hosted Zone.
      */
     readonly callerReference: string;

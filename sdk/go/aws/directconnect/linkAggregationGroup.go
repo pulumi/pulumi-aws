@@ -51,7 +51,6 @@ type LinkAggregationGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the LAG.
-	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringOutput `pulumi:"connectionsBandwidth"`
@@ -64,9 +63,13 @@ type LinkAggregationGroup struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the LAG.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the AWS account that owns the LAG.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The name of the service provider associated with the LAG.
+	ProviderName pulumi.StringPtrOutput `pulumi:"providerName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -106,7 +109,6 @@ func GetLinkAggregationGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LinkAggregationGroup resources.
 type linkAggregationGroupState struct {
 	// The ARN of the LAG.
-	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn *string `pulumi:"arn"`
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth *string `pulumi:"connectionsBandwidth"`
@@ -119,15 +121,18 @@ type linkAggregationGroupState struct {
 	Location *string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
+	// The ID of the AWS account that owns the LAG.
+	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// The name of the service provider associated with the LAG.
+	ProviderName *string `pulumi:"providerName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type LinkAggregationGroupState struct {
 	// The ARN of the LAG.
-	// * `jumboFrameCapable` -Indicates whether jumbo frames (9001 MTU) are supported.
 	Arn pulumi.StringPtrInput
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringPtrInput
@@ -140,9 +145,13 @@ type LinkAggregationGroupState struct {
 	Location pulumi.StringPtrInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
+	// The ID of the AWS account that owns the LAG.
+	OwnerAccountId pulumi.StringPtrInput
+	// The name of the service provider associated with the LAG.
+	ProviderName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -159,8 +168,12 @@ type linkAggregationGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the LAG.
 	Name *string `pulumi:"name"`
+	// The name of the service provider associated with the LAG.
+	ProviderName *string `pulumi:"providerName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
@@ -173,8 +186,12 @@ type LinkAggregationGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the LAG.
 	Name pulumi.StringPtrInput
+	// The name of the service provider associated with the LAG.
+	ProviderName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (LinkAggregationGroupArgs) ElementType() reflect.Type {

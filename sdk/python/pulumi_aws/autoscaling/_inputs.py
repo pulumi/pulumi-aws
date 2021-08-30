@@ -32,6 +32,7 @@ __all__ = [
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs',
     'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs',
+    'TagTagArgs',
     'GetAmiIdsFilterArgs',
 ]
 
@@ -1291,6 +1292,58 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs:
     @resource_label.setter
     def resource_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_label", value)
+
+
+@pulumi.input_type
+class TagTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 propagate_at_launch: pulumi.Input[bool],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Tag name.
+        :param pulumi.Input[bool] propagate_at_launch: Whether to propagate the tags to instances launched by the ASG.
+        :param pulumi.Input[str] value: Tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        Tag name.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="propagateAtLaunch")
+    def propagate_at_launch(self) -> pulumi.Input[bool]:
+        """
+        Whether to propagate the tags to instances launched by the ASG.
+        """
+        return pulumi.get(self, "propagate_at_launch")
+
+    @propagate_at_launch.setter
+    def propagate_at_launch(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "propagate_at_launch", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

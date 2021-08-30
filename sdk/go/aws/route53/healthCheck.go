@@ -151,6 +151,8 @@ import (
 type HealthCheck struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Health Check.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold pulumi.IntPtrOutput `pulumi:"childHealthThreshold"`
 	// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
@@ -167,7 +169,7 @@ type HealthCheck struct {
 	// A boolean value that indicates whether Route53 should send the `fqdn` to the endpoint when performing the health check. This defaults to AWS' defaults: when the `type` is "HTTPS" `enableSni` defaults to `true`, when `type` is anything else `enableSni` defaults to `false`.
 	EnableSni pulumi.BoolOutput `pulumi:"enableSni"`
 	// The number of consecutive health checks that an endpoint must pass or fail.
-	FailureThreshold pulumi.IntPtrOutput `pulumi:"failureThreshold"`
+	FailureThreshold pulumi.IntOutput `pulumi:"failureThreshold"`
 	// The fully qualified domain name of the endpoint to be checked.
 	Fqdn pulumi.StringPtrOutput `pulumi:"fqdn"`
 	// The status of the health check when CloudWatch has insufficient data about the state of associated alarm. Valid values are `Healthy` , `Unhealthy` and `LastKnownStatus`.
@@ -231,6 +233,8 @@ func GetHealthCheck(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HealthCheck resources.
 type healthCheckState struct {
+	// The Amazon Resource Name (ARN) of the Health Check.
+	Arn *string `pulumi:"arn"`
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold *int `pulumi:"childHealthThreshold"`
 	// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
@@ -280,6 +284,8 @@ type healthCheckState struct {
 }
 
 type HealthCheckState struct {
+	// The Amazon Resource Name (ARN) of the Health Check.
+	Arn pulumi.StringPtrInput
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold pulumi.IntPtrInput
 	// For a specified parent health check, a list of HealthCheckId values for the associated child health checks.

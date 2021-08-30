@@ -92,6 +92,10 @@ export class QueryLog extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * CloudWatch log group ARN to send query logs.
      */
     public readonly cloudwatchLogGroupArn!: pulumi.Output<string>;
@@ -113,6 +117,7 @@ export class QueryLog extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryLogState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
@@ -125,6 +130,7 @@ export class QueryLog extends pulumi.CustomResource {
             }
             inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
             inputs["zoneId"] = args ? args.zoneId : undefined;
+            inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -137,6 +143,10 @@ export class QueryLog extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueryLog resources.
  */
 export interface QueryLogState {
+    /**
+     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * CloudWatch log group ARN to send query logs.
      */

@@ -63,18 +63,22 @@ namespace Pulumi.Aws.Route53
     [OutputType]
     public sealed class GetDelegationSetResult
     {
+        public readonly string Arn;
         public readonly string CallerReference;
         public readonly string Id;
         public readonly ImmutableArray<string> NameServers;
 
         [OutputConstructor]
         private GetDelegationSetResult(
+            string arn,
+
             string callerReference,
 
             string id,
 
             ImmutableArray<string> nameServers)
         {
+            Arn = arn;
             CallerReference = callerReference;
             Id = id;
             NameServers = nameServers;

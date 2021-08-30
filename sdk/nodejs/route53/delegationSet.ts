@@ -55,6 +55,10 @@ export class DelegationSet extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the Delegation Set.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).
      */
@@ -78,11 +82,13 @@ export class DelegationSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegationSetState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["referenceName"] = state ? state.referenceName : undefined;
         } else {
             const args = argsOrState as DelegationSetArgs | undefined;
             inputs["referenceName"] = args ? args.referenceName : undefined;
+            inputs["arn"] = undefined /*out*/;
             inputs["nameServers"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -96,6 +102,10 @@ export class DelegationSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DelegationSet resources.
  */
 export interface DelegationSetState {
+    /**
+     * The Amazon Resource Name (ARN) of the Delegation Set.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A list of authoritative name servers for the hosted zone
      * (effectively a list of NS records).

@@ -123,6 +123,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number | undefined>;
     /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    public readonly backupId!: pulumi.Output<string | undefined>;
+    /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
     public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
@@ -175,7 +179,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly skipFinalBackup!: pulumi.Output<boolean | undefined>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
     public readonly storageCapacity!: pulumi.Output<number>;
     /**
@@ -225,6 +229,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["auditLogConfiguration"] = state ? state.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            inputs["backupId"] = state ? state.backupId : undefined;
             inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
             inputs["deploymentType"] = state ? state.deploymentType : undefined;
@@ -248,9 +253,6 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as WindowsFileSystemArgs | undefined;
-            if ((!args || args.storageCapacity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageCapacity'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
@@ -261,6 +263,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             inputs["aliases"] = args ? args.aliases : undefined;
             inputs["auditLogConfiguration"] = args ? args.auditLogConfiguration : undefined;
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            inputs["backupId"] = args ? args.backupId : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             inputs["deploymentType"] = args ? args.deploymentType : undefined;
@@ -316,6 +319,10 @@ export interface WindowsFileSystemState {
      */
     automaticBackupRetentionDays?: pulumi.Input<number>;
     /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    backupId?: pulumi.Input<string>;
+    /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
     copyTagsToBackups?: pulumi.Input<boolean>;
@@ -368,7 +375,7 @@ export interface WindowsFileSystemState {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
     storageCapacity?: pulumi.Input<number>;
     /**
@@ -422,6 +429,10 @@ export interface WindowsFileSystemArgs {
      */
     automaticBackupRetentionDays?: pulumi.Input<number>;
     /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    backupId?: pulumi.Input<string>;
+    /**
      * A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
      */
     copyTagsToBackups?: pulumi.Input<boolean>;
@@ -454,9 +465,9 @@ export interface WindowsFileSystemArgs {
      */
     skipFinalBackup?: pulumi.Input<boolean>;
     /**
-     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+     * Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
      */
-    storageCapacity: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number>;
     /**
      * Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
      */
