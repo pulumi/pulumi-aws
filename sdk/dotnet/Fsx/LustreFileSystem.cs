@@ -80,6 +80,12 @@ namespace Pulumi.Aws.Fsx
         public Output<int> AutomaticBackupRetentionDays { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Output("backupId")]
+        public Output<string?> BackupId { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         /// </summary>
         [Output("copyTagsToBackups")]
@@ -170,10 +176,10 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
         [Output("storageCapacity")]
-        public Output<int> StorageCapacity { get; private set; } = null!;
+        public Output<int?> StorageCapacity { get; private set; } = null!;
 
         /// <summary>
         /// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
@@ -270,6 +276,12 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
 
         /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Input("backupId")]
+        public Input<string>? BackupId { get; set; }
+
+        /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         /// </summary>
         [Input("copyTagsToBackups")]
@@ -342,10 +354,10 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
-        [Input("storageCapacity", required: true)]
-        public Input<int> StorageCapacity { get; set; } = null!;
+        [Input("storageCapacity")]
+        public Input<int>? StorageCapacity { get; set; }
 
         /// <summary>
         /// - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
@@ -401,6 +413,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("automaticBackupRetentionDays")]
         public Input<int>? AutomaticBackupRetentionDays { get; set; }
+
+        /// <summary>
+        /// The ID of the source backup to create the filesystem from.
+        /// </summary>
+        [Input("backupId")]
+        public Input<string>? BackupId { get; set; }
 
         /// <summary>
         /// A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
@@ -505,7 +523,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        /// The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         /// </summary>
         [Input("storageCapacity")]
         public Input<int>? StorageCapacity { get; set; }

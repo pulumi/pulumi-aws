@@ -15,13 +15,13 @@ __all__ = ['WindowsFileSystemArgs', 'WindowsFileSystem']
 @pulumi.input_type
 class WindowsFileSystemArgs:
     def __init__(__self__, *,
-                 storage_capacity: pulumi.Input[int],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  throughput_capacity: pulumi.Input[int],
                  active_directory_id: Optional[pulumi.Input[str]] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
@@ -30,18 +30,19 @@ class WindowsFileSystemArgs:
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
                  skip_final_backup: Optional[pulumi.Input[bool]] = None,
+                 storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WindowsFileSystem resource.
-        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[int] throughput_capacity: Throughput (megabytes per second) of the file system in power of 2 increments. Minimum of `8` and maximum of `2048`.
         :param pulumi.Input[str] active_directory_id: The ID for an existing Microsoft Active Directory instance that the file system should join when it's created. Cannot be specified with `self_managed_active_directory`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -50,11 +51,11 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
+        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        pulumi.set(__self__, "storage_capacity", storage_capacity)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "throughput_capacity", throughput_capacity)
         if active_directory_id is not None:
@@ -65,6 +66,8 @@ class WindowsFileSystemArgs:
             pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
@@ -81,24 +84,14 @@ class WindowsFileSystemArgs:
             pulumi.set(__self__, "self_managed_active_directory", self_managed_active_directory)
         if skip_final_backup is not None:
             pulumi.set(__self__, "skip_final_backup", skip_final_backup)
+        if storage_capacity is not None:
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
-
-    @property
-    @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> pulumi.Input[int]:
-        """
-        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
-        """
-        return pulumi.get(self, "storage_capacity")
-
-    @storage_capacity.setter
-    def storage_capacity(self, value: pulumi.Input[int]):
-        pulumi.set(self, "storage_capacity", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -171,6 +164,18 @@ class WindowsFileSystemArgs:
     @automatic_backup_retention_days.setter
     def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
+
+    @backup_id.setter
+    def backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_id", value)
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -269,6 +274,18 @@ class WindowsFileSystemArgs:
         pulumi.set(self, "skip_final_backup", value)
 
     @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
+        """
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity", value)
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -313,6 +330,7 @@ class _WindowsFileSystemState:
                  arn: Optional[pulumi.Input[str]] = None,
                  audit_log_configuration: Optional[pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs']] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
@@ -341,6 +359,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input['WindowsFileSystemAuditLogConfigurationArgs'] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -354,7 +373,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -373,6 +392,8 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "audit_log_configuration", audit_log_configuration)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
@@ -475,6 +496,18 @@ class _WindowsFileSystemState:
     @automatic_backup_retention_days.setter
     def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
+
+    @backup_id.setter
+    def backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_id", value)
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -636,7 +669,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -738,6 +771,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
@@ -826,6 +860,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -834,7 +869,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemSelfManagedActiveDirectoryArgs']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -933,6 +968,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
@@ -963,6 +999,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["aliases"] = aliases
             __props__.__dict__["audit_log_configuration"] = audit_log_configuration
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+            __props__.__dict__["backup_id"] = backup_id
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
             __props__.__dict__["deployment_type"] = deployment_type
@@ -971,8 +1008,6 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["self_managed_active_directory"] = self_managed_active_directory
             __props__.__dict__["skip_final_backup"] = skip_final_backup
-            if storage_capacity is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_capacity'")
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
             if subnet_ids is None and not opts.urn:
@@ -1006,6 +1041,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             audit_log_configuration: Optional[pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']]] = None,
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+            backup_id: Optional[pulumi.Input[str]] = None,
             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
             deployment_type: Optional[pulumi.Input[str]] = None,
@@ -1039,6 +1075,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemAuditLogConfigurationArgs']] audit_log_configuration: The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
@@ -1052,7 +1089,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[pulumi.InputType['WindowsFileSystemSelfManagedActiveDirectoryArgs']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
         :param pulumi.Input[bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
-        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        :param pulumi.Input[int] storage_capacity: Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deployment_type` to `MULTI_AZ_1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1070,6 +1107,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["audit_log_configuration"] = audit_log_configuration
         __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+        __props__.__dict__["backup_id"] = backup_id
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
         __props__.__dict__["deployment_type"] = deployment_type
@@ -1132,6 +1170,14 @@ class WindowsFileSystem(pulumi.CustomResource):
         The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -1241,7 +1287,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> pulumi.Output[int]:
         """
-        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+        Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 

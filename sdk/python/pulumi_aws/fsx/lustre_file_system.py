@@ -13,10 +13,10 @@ __all__ = ['LustreFileSystemArgs', 'LustreFileSystem']
 @pulumi.input_type
 class LustreFileSystemArgs:
     def __init__(__self__, *,
-                 storage_capacity: pulumi.Input[int],
                  subnet_ids: pulumi.Input[str],
                  auto_import_policy: Optional[pulumi.Input[str]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
@@ -28,15 +28,16 @@ class LustreFileSystemArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  per_unit_storage_throughput: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 storage_capacity: Optional[pulumi.Input[int]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LustreFileSystem resource.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
@@ -48,16 +49,18 @@ class LustreFileSystemArgs:
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] weekly_maintenance_start_time: The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
-        pulumi.set(__self__, "storage_capacity", storage_capacity)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if auto_import_policy is not None:
             pulumi.set(__self__, "auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
@@ -80,24 +83,14 @@ class LustreFileSystemArgs:
             pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if storage_capacity is not None:
+            pulumi.set(__self__, "storage_capacity", storage_capacity)
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
-
-    @property
-    @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> pulumi.Input[int]:
-        """
-        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
-        """
-        return pulumi.get(self, "storage_capacity")
-
-    @storage_capacity.setter
-    def storage_capacity(self, value: pulumi.Input[int]):
-        pulumi.set(self, "storage_capacity", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -134,6 +127,18 @@ class LustreFileSystemArgs:
     @automatic_backup_retention_days.setter
     def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
+
+    @backup_id.setter
+    def backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_id", value)
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -268,6 +273,18 @@ class LustreFileSystemArgs:
         pulumi.set(self, "security_group_ids", value)
 
     @property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
+        """
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "storage_capacity", value)
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -310,6 +327,7 @@ class _LustreFileSystemState:
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_import_policy: Optional[pulumi.Input[str]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
@@ -337,6 +355,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
@@ -352,7 +371,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -366,6 +385,8 @@ class _LustreFileSystemState:
             pulumi.set(__self__, "auto_import_policy", auto_import_policy)
         if automatic_backup_retention_days is not None:
             pulumi.set(__self__, "automatic_backup_retention_days", automatic_backup_retention_days)
+        if backup_id is not None:
+            pulumi.set(__self__, "backup_id", backup_id)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if daily_automatic_backup_start_time is not None:
@@ -446,6 +467,18 @@ class _LustreFileSystemState:
     @automatic_backup_retention_days.setter
     def automatic_backup_retention_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "automatic_backup_retention_days", value)
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
+
+    @backup_id.setter
+    def backup_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "backup_id", value)
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -631,7 +664,7 @@ class _LustreFileSystemState:
     @pulumi.getter(name="storageCapacity")
     def storage_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 
@@ -719,6 +752,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_import_policy: Optional[pulumi.Input[str]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
@@ -777,6 +811,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
@@ -788,7 +823,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, applicable for `PERSISTENT_1` deployment_type. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -854,6 +889,7 @@ class LustreFileSystem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_import_policy: Optional[pulumi.Input[str]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+                 backup_id: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
@@ -884,6 +920,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
             __props__.__dict__["auto_import_policy"] = auto_import_policy
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+            __props__.__dict__["backup_id"] = backup_id
             __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
             __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
             __props__.__dict__["data_compression_type"] = data_compression_type
@@ -895,8 +932,6 @@ class LustreFileSystem(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["per_unit_storage_throughput"] = per_unit_storage_throughput
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if storage_capacity is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_capacity'")
             __props__.__dict__["storage_capacity"] = storage_capacity
             __props__.__dict__["storage_type"] = storage_type
             if subnet_ids is None and not opts.urn:
@@ -924,6 +959,7 @@ class LustreFileSystem(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             auto_import_policy: Optional[pulumi.Input[str]] = None,
             automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
+            backup_id: Optional[pulumi.Input[str]] = None,
             copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
             data_compression_type: Optional[pulumi.Input[str]] = None,
@@ -956,6 +992,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name of the file system.
         :param pulumi.Input[str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details.
         :param pulumi.Input[int] automatic_backup_retention_days: The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
+        :param pulumi.Input[str] backup_id: The ID of the source backup to create the filesystem from.
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
@@ -971,7 +1008,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[int] per_unit_storage_throughput: - Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` deployment_type. Valid values for `SSD` storage_type are 50, 100, 200. Valid values for `HDD` storage_type are 12, 40.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
-        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         :param pulumi.Input[str] storage_type: - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[str] subnet_ids: A list of IDs for the subnets that the file system will be accessible from. File systems currently support only one subnet. The file server is also launched in that subnet's Availability Zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -986,6 +1023,7 @@ class LustreFileSystem(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auto_import_policy"] = auto_import_policy
         __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
+        __props__.__dict__["backup_id"] = backup_id
         __props__.__dict__["copy_tags_to_backups"] = copy_tags_to_backups
         __props__.__dict__["daily_automatic_backup_start_time"] = daily_automatic_backup_start_time
         __props__.__dict__["data_compression_type"] = data_compression_type
@@ -1033,6 +1071,14 @@ class LustreFileSystem(pulumi.CustomResource):
         The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
         """
         return pulumi.get(self, "automatic_backup_retention_days")
+
+    @property
+    @pulumi.getter(name="backupId")
+    def backup_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the source backup to create the filesystem from.
+        """
+        return pulumi.get(self, "backup_id")
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -1156,9 +1202,9 @@ class LustreFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageCapacity")
-    def storage_capacity(self) -> pulumi.Output[int]:
+    def storage_capacity(self) -> pulumi.Output[Optional[int]]:
         """
-        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+        The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
         """
         return pulumi.get(self, "storage_capacity")
 

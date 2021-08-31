@@ -19,7 +19,10 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, caller_reference=None, comment=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, arn=None, caller_reference=None, comment=None, id=None, linked_service_description=None, linked_service_principal=None, name=None, name_servers=None, private_zone=None, resource_record_set_count=None, tags=None, vpc_id=None, zone_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if caller_reference and not isinstance(caller_reference, str):
             raise TypeError("Expected argument 'caller_reference' to be a str")
         pulumi.set(__self__, "caller_reference", caller_reference)
@@ -56,6 +59,14 @@ class GetZoneResult:
         if zone_id and not isinstance(zone_id, str):
             raise TypeError("Expected argument 'zone_id' to be a str")
         pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Hosted Zone.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
@@ -145,6 +156,7 @@ class AwaitableGetZoneResult(GetZoneResult):
         if False:
             yield self
         return GetZoneResult(
+            arn=self.arn,
             caller_reference=self.caller_reference,
             comment=self.comment,
             id=self.id,
@@ -211,6 +223,7 @@ def get_zone(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getZone:getZone', __args__, opts=opts, typ=GetZoneResult).value
 
     return AwaitableGetZoneResult(
+        arn=__ret__.arn,
         caller_reference=__ret__.caller_reference,
         comment=__ret__.comment,
         id=__ret__.id,

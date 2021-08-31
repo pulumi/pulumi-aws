@@ -48,7 +48,6 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// The ARN of the LAG.
-        /// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -87,13 +86,25 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the AWS account that owns the LAG.
+        /// </summary>
+        [Output("ownerAccountId")]
+        public Output<string> OwnerAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the service provider associated with the LAG.
+        /// </summary>
+        [Output("providerName")]
+        public Output<string?> ProviderName { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -168,6 +179,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The name of the service provider associated with the LAG.
+        /// </summary>
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -180,6 +197,18 @@ namespace Pulumi.Aws.DirectConnect
             set => _tags = value;
         }
 
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public LinkAggregationGroupArgs()
         {
         }
@@ -189,7 +218,6 @@ namespace Pulumi.Aws.DirectConnect
     {
         /// <summary>
         /// The ARN of the LAG.
-        /// * `jumbo_frame_capable` -Indicates whether jumbo frames (9001 MTU) are supported.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -227,6 +255,18 @@ namespace Pulumi.Aws.DirectConnect
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the AWS account that owns the LAG.
+        /// </summary>
+        [Input("ownerAccountId")]
+        public Input<string>? OwnerAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the service provider associated with the LAG.
+        /// </summary>
+        [Input("providerName")]
+        public Input<string>? ProviderName { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -243,7 +283,7 @@ namespace Pulumi.Aws.DirectConnect
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

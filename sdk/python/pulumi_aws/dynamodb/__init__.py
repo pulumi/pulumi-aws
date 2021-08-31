@@ -10,5 +10,6 @@ from .global_table import *
 from .kinesis_streaming_destination import *
 from .table import *
 from .table_item import *
+from .tag import *
 from ._inputs import *
 from . import outputs

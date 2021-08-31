@@ -33,6 +33,7 @@ __all__ = [
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecification',
     'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension',
     'PolicyTargetTrackingConfigurationPredefinedMetricSpecification',
+    'TagTag',
     'GetAmiIdsFilterResult',
     'GetGroupLaunchTemplateResult',
 ]
@@ -1400,6 +1401,63 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
         A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
         """
         return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class TagTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propagateAtLaunch":
+            suggest = "propagate_at_launch"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TagTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TagTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TagTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: str,
+                 propagate_at_launch: bool,
+                 value: str):
+        """
+        :param str key: Tag name.
+        :param bool propagate_at_launch: Whether to propagate the tags to instances launched by the ASG.
+        :param str value: Tag value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "propagate_at_launch", propagate_at_launch)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Tag name.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter(name="propagateAtLaunch")
+    def propagate_at_launch(self) -> bool:
+        """
+        Whether to propagate the tags to instances launched by the ASG.
+        """
+        return pulumi.get(self, "propagate_at_launch")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Tag value.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

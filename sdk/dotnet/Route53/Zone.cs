@@ -107,6 +107,12 @@ namespace Pulumi.Aws.Route53
     public partial class Zone : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         /// </summary>
         [Output("comment")]
@@ -263,6 +269,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ZoneState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Hosted Zone.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         /// </summary>

@@ -221,11 +221,15 @@ def get_file_system(creation_token: Optional[str] = None,
     if file_system_id is None:
         file_system_id = ""
     by_id = aws.efs.get_file_system(file_system_id=file_system_id)
+    by_tag = aws.efs.get_file_system(tags={
+        "Environment": "dev",
+    })
     ```
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
     :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
+    :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
     __args__['creationToken'] = creation_token

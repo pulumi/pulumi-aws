@@ -19,7 +19,10 @@ class GetDelegationSetResult:
     """
     A collection of values returned by getDelegationSet.
     """
-    def __init__(__self__, caller_reference=None, id=None, name_servers=None):
+    def __init__(__self__, arn=None, caller_reference=None, id=None, name_servers=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if caller_reference and not isinstance(caller_reference, str):
             raise TypeError("Expected argument 'caller_reference' to be a str")
         pulumi.set(__self__, "caller_reference", caller_reference)
@@ -29,6 +32,11 @@ class GetDelegationSetResult:
         if name_servers and not isinstance(name_servers, list):
             raise TypeError("Expected argument 'name_servers' to be a list")
         pulumi.set(__self__, "name_servers", name_servers)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="callerReference")
@@ -52,6 +60,7 @@ class AwaitableGetDelegationSetResult(GetDelegationSetResult):
         if False:
             yield self
         return GetDelegationSetResult(
+            arn=self.arn,
             caller_reference=self.caller_reference,
             id=self.id,
             name_servers=self.name_servers)
@@ -87,6 +96,7 @@ def get_delegation_set(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:route53/getDelegationSet:getDelegationSet', __args__, opts=opts, typ=GetDelegationSetResult).value
 
     return AwaitableGetDelegationSetResult(
+        arn=__ret__.arn,
         caller_reference=__ret__.caller_reference,
         id=__ret__.id,
         name_servers=__ret__.name_servers)

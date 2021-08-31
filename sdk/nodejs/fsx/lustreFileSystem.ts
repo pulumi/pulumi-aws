@@ -83,6 +83,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly automaticBackupRetentionDays!: pulumi.Output<number>;
     /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    public readonly backupId!: pulumi.Output<string | undefined>;
+    /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
      */
     public readonly copyTagsToBackups!: pulumi.Output<boolean | undefined>;
@@ -143,9 +147,9 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
-    public readonly storageCapacity!: pulumi.Output<number>;
+    public readonly storageCapacity!: pulumi.Output<number | undefined>;
     /**
      * - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      */
@@ -187,6 +191,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["autoImportPolicy"] = state ? state.autoImportPolicy : undefined;
             inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            inputs["backupId"] = state ? state.backupId : undefined;
             inputs["copyTagsToBackups"] = state ? state.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
             inputs["dataCompressionType"] = state ? state.dataCompressionType : undefined;
@@ -211,14 +216,12 @@ export class LustreFileSystem extends pulumi.CustomResource {
             inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as LustreFileSystemArgs | undefined;
-            if ((!args || args.storageCapacity === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageCapacity'");
-            }
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
             inputs["autoImportPolicy"] = args ? args.autoImportPolicy : undefined;
             inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            inputs["backupId"] = args ? args.backupId : undefined;
             inputs["copyTagsToBackups"] = args ? args.copyTagsToBackups : undefined;
             inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             inputs["dataCompressionType"] = args ? args.dataCompressionType : undefined;
@@ -266,6 +269,10 @@ export interface LustreFileSystemState {
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
     automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    backupId?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
      */
@@ -327,7 +334,7 @@ export interface LustreFileSystemState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
     storageCapacity?: pulumi.Input<number>;
     /**
@@ -368,6 +375,10 @@ export interface LustreFileSystemArgs {
      * The number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` deployment_type.
      */
     automaticBackupRetentionDays?: pulumi.Input<number>;
+    /**
+     * The ID of the source backup to create the filesystem from.
+     */
+    backupId?: pulumi.Input<string>;
     /**
      * A boolean flag indicating whether tags for the file system should be copied to backups. Applicable for `PERSISTENT_1` deployment_type. The default value is false.
      */
@@ -413,9 +424,9 @@ export interface LustreFileSystemArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity).
+     * The storage capacity (GiB) of the file system. Minimum of `1200`. See more details at [Allowed values for Fsx storage capacity](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileSystem.html#FSx-CreateFileSystem-request-StorageCapacity). Update is allowed only for `SCRATCH_2` and `PERSISTENT_1` deployment types, See more details at [Fsx Storage Capacity Update](https://docs.aws.amazon.com/fsx/latest/APIReference/API_UpdateFileSystem.html#FSx-UpdateFileSystem-request-StorageCapacity). Required when not creating filesystem for a backup.
      */
-    storageCapacity: pulumi.Input<number>;
+    storageCapacity?: pulumi.Input<number>;
     /**
      * - The filesystem storage type. Either `SSD` or `HDD`, defaults to `SSD`. `HDD` is only supported on `PERSISTENT_1` deployment types.
      */

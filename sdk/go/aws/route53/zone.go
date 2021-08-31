@@ -116,6 +116,8 @@ import (
 type Zone struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment pulumi.StringOutput `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
@@ -169,6 +171,8 @@ func GetZone(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Zone resources.
 type zoneState struct {
+	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	Arn *string `pulumi:"arn"`
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment *string `pulumi:"comment"`
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
@@ -191,6 +195,8 @@ type zoneState struct {
 }
 
 type ZoneState struct {
+	// The Amazon Resource Name (ARN) of the Hosted Zone.
+	Arn pulumi.StringPtrInput
 	// A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
 	Comment pulumi.StringPtrInput
 	// The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.

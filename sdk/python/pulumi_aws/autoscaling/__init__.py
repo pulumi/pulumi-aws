@@ -14,5 +14,6 @@ from .lifecycle_hook import *
 from .notification import *
 from .policy import *
 from .schedule import *
+from .tag import *
 from ._inputs import *
 from . import outputs

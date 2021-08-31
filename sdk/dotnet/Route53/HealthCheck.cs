@@ -136,6 +136,12 @@ namespace Pulumi.Aws.Route53
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Health Check.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         /// </summary>
         [Output("childHealthThreshold")]
@@ -178,7 +184,7 @@ namespace Pulumi.Aws.Route53
         /// The number of consecutive health checks that an endpoint must pass or fail.
         /// </summary>
         [Output("failureThreshold")]
-        public Output<int?> FailureThreshold { get; private set; } = null!;
+        public Output<int> FailureThreshold { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of the endpoint to be checked.
@@ -460,6 +466,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class HealthCheckState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Health Check.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         /// </summary>

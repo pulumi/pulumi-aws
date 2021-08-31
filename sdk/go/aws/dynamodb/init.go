@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Table{}
 	case "aws:dynamodb/tableItem:TableItem":
 		r = &TableItem{}
+	case "aws:dynamodb/tag:Tag":
+		r = &Tag{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/tableItem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/tag",
 		&module{version},
 	)
 }

@@ -47,6 +47,7 @@ const (
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
 	appConfigMod                = "AppConfig"                // AppConfig
+	appStreamMod                = "AppStream"                // AppStream
 	appsyncMod                  = "AppSync"                  // AppSync
 	appmeshMod                  = "AppMesh"                  // AppMesh
 	apigatewayMod               = "ApiGateway"               // API Gateway
@@ -146,6 +147,8 @@ const (
 	resourcegroupsMod           = "ResourceGroups"           // Resource Groups
 	resourcegroupsTaggingApiMod = "ResourceGroupsTaggingApi" // Resource Groups Tagging Api
 	route53Mod                  = "Route53"                  // Route 53 (DNS)
+	route53RecoveryControlMod   = "Route53RecoveryControl"   // Route 53 Recovery Control
+	route53RecoveryReadinessMod = "Route53RecoveryReadiness" // Route 53 Recovery Readiness
 	sagemakerMod                = "Sagemaker"                // Sagemaker
 	schemasMod                  = "Schemas"                  // Schemas
 	securityhubMod              = "SecurityHub"              // SecurityHub
@@ -655,6 +658,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_autoscaling_policy":   {Tok: awsResource(autoscalingMod, "Policy")},
 			"aws_autoscaling_schedule": {Tok: awsResource(autoscalingMod, "Schedule")},
+			"aws_autoscaling_group_tag": {
+				Tok: awsResource(autoscalingMod, "Tag"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"tag": {
+						CSharpName: "TagDetails",
+					},
+				},
+			},
 			// Autoscaling Plans
 			"aws_autoscalingplans_scaling_plan": {Tok: awsResource(autoscalingPlansMod, "ScalingPlan")},
 			// Backup
@@ -960,6 +971,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_dynamodb_table_item":                    {Tok: awsResource(dynamodbMod, "TableItem")},
 			"aws_dynamodb_kinesis_streaming_destination": {Tok: awsResource(dynamodbMod, "KinesisStreamingDestination")},
+			"aws_dynamodb_tag":                           {Tok: awsResource(dynamodbMod, "Tag")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
@@ -1337,6 +1349,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_ecs_task_definition":   {Tok: awsResource(ecsMod, "TaskDefinition")},
 			"aws_ecs_capacity_provider": {Tok: awsResource(ecsMod, "CapacityProvider")},
+			"aws_ecs_tag":               {Tok: awsResource(ecsMod, "Tag")},
 			// Elastic File System
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
@@ -2130,6 +2143,16 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroupAssociation"),
 			},
 			"aws_route53_resolver_firewall_config": {Tok: awsResource(route53Mod, "ResolverFirewallConfig")},
+			// Rout53 Recovery Control
+			"aws_route53recoverycontrolconfig_cluster":         {Tok: awsResource(route53RecoveryControlMod, "Cluster")},
+			"aws_route53recoverycontrolconfig_control_panel":   {Tok: awsResource(route53RecoveryControlMod, "ControlPanel")},
+			"aws_route53recoverycontrolconfig_routing_control": {Tok: awsResource(route53RecoveryControlMod, "RoutingControl")},
+			"aws_route53recoverycontrolconfig_safety_rule":     {Tok: awsResource(route53RecoveryControlMod, "SafetyRule")},
+			// Route53 Recovery Readiness
+			"aws_route53recoveryreadiness_cell":            {Tok: awsResource(route53RecoveryReadinessMod, "Cell")},
+			"aws_route53recoveryreadiness_readiness_check": {Tok: awsResource(route53RecoveryReadinessMod, "ReadinessCheck")},
+			"aws_route53recoveryreadiness_recovery_group":  {Tok: awsResource(route53RecoveryReadinessMod, "RecoveryGroup")},
+			"aws_route53recoveryreadiness_resource_set":    {Tok: awsResource(route53RecoveryReadinessMod, "ResourceSet")},
 			// Sagemaker
 			"aws_sagemaker_endpoint":               {Tok: awsResource(sagemakerMod, "Endpoint")},
 			"aws_sagemaker_endpoint_configuration": {Tok: awsResource(sagemakerMod, "EndpointConfiguration")},
@@ -2699,6 +2722,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_environment":                  {Tok: awsResource(appConfigMod, "Environment")},
 			"aws_appconfig_hosted_configuration_version": {Tok: awsResource(appConfigMod, "HostedConfigurationVersion")},
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
+
+			// AppStream
+			"aws_appstream_stack": {Tok: awsResource(appStreamMod, "Stack")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3780,7 +3806,10 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			// DX
-			"aws_dx_gateway": {Tok: awsDataSource(dxMod, "getGateway")},
+			"aws_dx_gateway":    {Tok: awsDataSource(dxMod, "getGateway")},
+			"aws_dx_connection": {Tok: awsDataSource(dxMod, "getConnection")},
+			"aws_dx_location":   {Tok: awsDataSource(dxMod, "getLocation")},
+			"aws_dx_locations":  {Tok: awsDataSource(dxMod, "getLocations")},
 			// EC2
 			"aws_customer_gateway":     {Tok: awsDataSource(ec2Mod, "getCustomerGateway")},
 			"aws_instance":             {Tok: awsDataSource(ec2Mod, "getInstance")},

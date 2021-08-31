@@ -24,6 +24,7 @@ __all__ = [
     'NodeGroupResourceAutoscalingGroupArgs',
     'NodeGroupScalingConfigArgs',
     'NodeGroupTaintArgs',
+    'NodeGroupUpdateConfigArgs',
 ]
 
 @pulumi.input_type
@@ -723,5 +724,44 @@ class NodeGroupTaintArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class NodeGroupUpdateConfigArgs:
+    def __init__(__self__, *,
+                 max_unavailable: Optional[pulumi.Input[int]] = None,
+                 max_unavailable_percentage: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_unavailable: Desired max number of unavailable worker nodes during node group update.
+        :param pulumi.Input[int] max_unavailable_percentage: Desired max percentage of unavailable worker nodes during node group update.
+        """
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
+        if max_unavailable_percentage is not None:
+            pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+
+    @property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[pulumi.Input[int]]:
+        """
+        Desired max number of unavailable worker nodes during node group update.
+        """
+        return pulumi.get(self, "max_unavailable")
+
+    @max_unavailable.setter
+    def max_unavailable(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unavailable", value)
+
+    @property
+    @pulumi.getter(name="maxUnavailablePercentage")
+    def max_unavailable_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Desired max percentage of unavailable worker nodes during node group update.
+        """
+        return pulumi.get(self, "max_unavailable_percentage")
+
+    @max_unavailable_percentage.setter
+    def max_unavailable_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_unavailable_percentage", value)
 
 

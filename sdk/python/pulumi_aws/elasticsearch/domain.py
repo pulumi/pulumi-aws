@@ -43,8 +43,8 @@ class DomainArgs:
         :param pulumi.Input['DomainEncryptAtRestArgs'] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         if access_policies is not None:
@@ -223,7 +223,7 @@ class DomainArgs:
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         """
-        Configuration block for snapshot related options. Detailed below.
+        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -235,7 +235,7 @@ class DomainArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -296,8 +296,8 @@ class _DomainState:
         :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         if access_policies is not None:
@@ -534,7 +534,7 @@ class _DomainState:
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         """
-        Configuration block for snapshot related options. Detailed below.
+        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -546,7 +546,7 @@ class _DomainState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -611,10 +611,7 @@ class Domain(pulumi.CustomResource):
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            elasticsearch_version="1.5",
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+            elasticsearch_version="7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -716,6 +713,7 @@ class Domain(pulumi.CustomResource):
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="m4.large.elasticsearch",
+                zone_awareness_enabled=True,
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
@@ -739,9 +737,6 @@ class Domain(pulumi.CustomResource):
         	]
         }}
         \"\"\",
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
             tags={
                 "Domain": "TestDomain",
             },
@@ -769,8 +764,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainEncryptAtRestArgs']] encrypt_at_rest: Configuration block for encrypt at rest options. Only available for [certain instance types](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/aes-supported-instance-types.html). Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         ...
@@ -793,10 +788,7 @@ class Domain(pulumi.CustomResource):
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            elasticsearch_version="1.5",
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
+            elasticsearch_version="7.10",
             tags={
                 "Domain": "TestDomain",
             })
@@ -898,6 +890,7 @@ class Domain(pulumi.CustomResource):
             elasticsearch_version="6.3",
             cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
                 instance_type="m4.large.elasticsearch",
+                zone_awareness_enabled=True,
             ),
             vpc_options=aws.elasticsearch.DomainVpcOptionsArgs(
                 subnet_ids=[
@@ -921,9 +914,6 @@ class Domain(pulumi.CustomResource):
         	]
         }}
         \"\"\",
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
-                automated_snapshot_start_hour=23,
-            ),
             tags={
                 "Domain": "TestDomain",
             },
@@ -1052,8 +1042,8 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] kibana_endpoint: Domain-specific endpoint for kibana without https scheme.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionArgs']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
-        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource.
+        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-vpc-limitations)). Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1211,7 +1201,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> pulumi.Output[Optional['outputs.DomainSnapshotOptions']]:
         """
-        Configuration block for snapshot related options. Detailed below.
+        Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -1219,7 +1209,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the resource.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

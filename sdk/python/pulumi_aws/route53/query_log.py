@@ -51,17 +51,33 @@ class QueryLogArgs:
 @pulumi.input_type
 class _QueryLogState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  zone_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering QueryLog resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Query Logging Config.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if cloudwatch_log_group_arn is not None:
             pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         if zone_id is not None:
             pulumi.set(__self__, "zone_id", zone_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Query Logging Config.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")
@@ -248,6 +264,7 @@ class QueryLog(pulumi.CustomResource):
             if zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_id'")
             __props__.__dict__["zone_id"] = zone_id
+            __props__.__dict__["arn"] = None
         super(QueryLog, __self__).__init__(
             'aws:route53/queryLog:QueryLog',
             resource_name,
@@ -258,6 +275,7 @@ class QueryLog(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
             zone_id: Optional[pulumi.Input[str]] = None) -> 'QueryLog':
         """
@@ -267,6 +285,7 @@ class QueryLog(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Query Logging Config.
         :param pulumi.Input[str] cloudwatch_log_group_arn: CloudWatch log group ARN to send query logs.
         :param pulumi.Input[str] zone_id: Route53 hosted zone ID to enable query logs.
         """
@@ -274,9 +293,18 @@ class QueryLog(pulumi.CustomResource):
 
         __props__ = _QueryLogState.__new__(_QueryLogState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
         __props__.__dict__["zone_id"] = zone_id
         return QueryLog(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Query Logging Config.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="cloudwatchLogGroupArn")

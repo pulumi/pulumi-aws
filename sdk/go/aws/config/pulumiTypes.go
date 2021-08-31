@@ -255,6 +255,7 @@ type Endpoints struct {
 	Mediapackage                 *string `pulumi:"mediapackage"`
 	Mediastore                   *string `pulumi:"mediastore"`
 	Mediastoredata               *string `pulumi:"mediastoredata"`
+	Memorydb                     *string `pulumi:"memorydb"`
 	Mq                           *string `pulumi:"mq"`
 	Mwaa                         *string `pulumi:"mwaa"`
 	Neptune                      *string `pulumi:"neptune"`
@@ -429,6 +430,7 @@ type EndpointsArgs struct {
 	Mediapackage                 pulumi.StringPtrInput `pulumi:"mediapackage"`
 	Mediastore                   pulumi.StringPtrInput `pulumi:"mediastore"`
 	Mediastoredata               pulumi.StringPtrInput `pulumi:"mediastoredata"`
+	Memorydb                     pulumi.StringPtrInput `pulumi:"memorydb"`
 	Mq                           pulumi.StringPtrInput `pulumi:"mq"`
 	Mwaa                         pulumi.StringPtrInput `pulumi:"mwaa"`
 	Neptune                      pulumi.StringPtrInput `pulumi:"neptune"`
@@ -952,6 +954,10 @@ func (o EndpointsOutput) Mediastore() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Mediastoredata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mediastoredata }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Memorydb() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Memorydb }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Mq() pulumi.StringPtrOutput {

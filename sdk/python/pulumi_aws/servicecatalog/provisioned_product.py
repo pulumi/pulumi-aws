@@ -684,6 +684,23 @@ class ProvisionedProduct(pulumi.CustomResource):
         > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.ProvisionedProduct("example",
+            product_name="Example product",
+            provisioning_artifact_name="Example version",
+            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
+                key="foo",
+                value="bar",
+            )],
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 
@@ -728,6 +745,23 @@ class ProvisionedProduct(pulumi.CustomResource):
         > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.servicecatalog.ProvisionedProduct("example",
+            product_name="Example product",
+            provisioning_artifact_name="Example version",
+            provisioning_parameters=[aws.servicecatalog.ProvisionedProductProvisioningParameterArgs(
+                key="foo",
+                value="bar",
+            )],
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

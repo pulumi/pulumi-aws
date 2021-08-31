@@ -121,8 +121,7 @@ type Inventory struct {
 	IncludedObjectVersions pulumi.StringOutput `pulumi:"includedObjectVersions"`
 	// Unique identifier of the inventory configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// List of optional fields that are included in the inventory results.
-	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleOutput `pulumi:"schedule"`
@@ -181,8 +180,7 @@ type inventoryState struct {
 	IncludedObjectVersions *string `pulumi:"includedObjectVersions"`
 	// Unique identifier of the inventory configuration for the bucket.
 	Name *string `pulumi:"name"`
-	// List of optional fields that are included in the inventory results.
-	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule *InventorySchedule `pulumi:"schedule"`
@@ -201,8 +199,7 @@ type InventoryState struct {
 	IncludedObjectVersions pulumi.StringPtrInput
 	// Unique identifier of the inventory configuration for the bucket.
 	Name pulumi.StringPtrInput
-	// List of optional fields that are included in the inventory results.
-	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedulePtrInput
@@ -225,8 +222,7 @@ type inventoryArgs struct {
 	IncludedObjectVersions string `pulumi:"includedObjectVersions"`
 	// Unique identifier of the inventory configuration for the bucket.
 	Name *string `pulumi:"name"`
-	// List of optional fields that are included in the inventory results.
-	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedule `pulumi:"schedule"`
@@ -246,8 +242,7 @@ type InventoryArgs struct {
 	IncludedObjectVersions pulumi.StringInput
 	// Unique identifier of the inventory configuration for the bucket.
 	Name pulumi.StringPtrInput
-	// List of optional fields that are included in the inventory results.
-	// Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleInput

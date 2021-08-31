@@ -15,6 +15,7 @@ export * from "./notification";
 export * from "./notificationType";
 export * from "./policy";
 export * from "./schedule";
+export * from "./tag";
 
 // Export enums:
 export * from "../types/enums/autoscaling";
@@ -26,6 +27,7 @@ import { LifecycleHook } from "./lifecycleHook";
 import { Notification } from "./notification";
 import { Policy } from "./policy";
 import { Schedule } from "./schedule";
+import { Tag } from "./tag";
 
 const _module = {
     version: utilities.getVersion(),
@@ -43,6 +45,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "aws:autoscaling/schedule:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "aws:autoscaling/tag:Tag":
+                return new Tag(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -54,3 +58,4 @@ pulumi.runtime.registerResourceModule("aws", "autoscaling/lifecycleHook", _modul
 pulumi.runtime.registerResourceModule("aws", "autoscaling/notification", _module)
 pulumi.runtime.registerResourceModule("aws", "autoscaling/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "autoscaling/schedule", _module)
+pulumi.runtime.registerResourceModule("aws", "autoscaling/tag", _module)

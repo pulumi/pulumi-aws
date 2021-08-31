@@ -348,6 +348,7 @@ class HealthCheckArgs:
 @pulumi.input_type
 class _HealthCheckState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
                  child_health_threshold: Optional[pulumi.Input[int]] = None,
                  child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cloudwatch_alarm_name: Optional[pulumi.Input[str]] = None,
@@ -371,6 +372,7 @@ class _HealthCheckState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HealthCheck resources.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Health Check.
         :param pulumi.Input[int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         :param pulumi.Input[str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
@@ -397,6 +399,8 @@ class _HealthCheckState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if child_health_threshold is not None:
             pulumi.set(__self__, "child_health_threshold", child_health_threshold)
         if child_healthchecks is not None:
@@ -439,6 +443,18 @@ class _HealthCheckState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Health Check.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="childHealthThreshold")
@@ -985,6 +1001,7 @@ class HealthCheck(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(HealthCheck, __self__).__init__(
             'aws:route53/healthCheck:HealthCheck',
@@ -996,6 +1013,7 @@ class HealthCheck(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
             child_health_threshold: Optional[pulumi.Input[int]] = None,
             child_healthchecks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cloudwatch_alarm_name: Optional[pulumi.Input[str]] = None,
@@ -1024,6 +1042,7 @@ class HealthCheck(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Health Check.
         :param pulumi.Input[int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         :param pulumi.Input[str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
@@ -1054,6 +1073,7 @@ class HealthCheck(pulumi.CustomResource):
 
         __props__ = _HealthCheckState.__new__(_HealthCheckState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["child_health_threshold"] = child_health_threshold
         __props__.__dict__["child_healthchecks"] = child_healthchecks
         __props__.__dict__["cloudwatch_alarm_name"] = cloudwatch_alarm_name
@@ -1076,6 +1096,14 @@ class HealthCheck(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
         return HealthCheck(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Health Check.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="childHealthThreshold")
@@ -1130,7 +1158,7 @@ class HealthCheck(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="failureThreshold")
-    def failure_threshold(self) -> pulumi.Output[Optional[int]]:
+    def failure_threshold(self) -> pulumi.Output[int]:
         """
         The number of consecutive health checks that an endpoint must pass or fail.
         """

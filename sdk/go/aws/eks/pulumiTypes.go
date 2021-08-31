@@ -2222,6 +2222,162 @@ func (o NodeGroupTaintArrayOutput) Index(i pulumi.IntInput) NodeGroupTaintOutput
 	}).(NodeGroupTaintOutput)
 }
 
+type NodeGroupUpdateConfig struct {
+	// Desired max number of unavailable worker nodes during node group update.
+	MaxUnavailable *int `pulumi:"maxUnavailable"`
+	// Desired max percentage of unavailable worker nodes during node group update.
+	MaxUnavailablePercentage *int `pulumi:"maxUnavailablePercentage"`
+}
+
+// NodeGroupUpdateConfigInput is an input type that accepts NodeGroupUpdateConfigArgs and NodeGroupUpdateConfigOutput values.
+// You can construct a concrete instance of `NodeGroupUpdateConfigInput` via:
+//
+//          NodeGroupUpdateConfigArgs{...}
+type NodeGroupUpdateConfigInput interface {
+	pulumi.Input
+
+	ToNodeGroupUpdateConfigOutput() NodeGroupUpdateConfigOutput
+	ToNodeGroupUpdateConfigOutputWithContext(context.Context) NodeGroupUpdateConfigOutput
+}
+
+type NodeGroupUpdateConfigArgs struct {
+	// Desired max number of unavailable worker nodes during node group update.
+	MaxUnavailable pulumi.IntPtrInput `pulumi:"maxUnavailable"`
+	// Desired max percentage of unavailable worker nodes during node group update.
+	MaxUnavailablePercentage pulumi.IntPtrInput `pulumi:"maxUnavailablePercentage"`
+}
+
+func (NodeGroupUpdateConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (i NodeGroupUpdateConfigArgs) ToNodeGroupUpdateConfigOutput() NodeGroupUpdateConfigOutput {
+	return i.ToNodeGroupUpdateConfigOutputWithContext(context.Background())
+}
+
+func (i NodeGroupUpdateConfigArgs) ToNodeGroupUpdateConfigOutputWithContext(ctx context.Context) NodeGroupUpdateConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupUpdateConfigOutput)
+}
+
+func (i NodeGroupUpdateConfigArgs) ToNodeGroupUpdateConfigPtrOutput() NodeGroupUpdateConfigPtrOutput {
+	return i.ToNodeGroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodeGroupUpdateConfigArgs) ToNodeGroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodeGroupUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupUpdateConfigOutput).ToNodeGroupUpdateConfigPtrOutputWithContext(ctx)
+}
+
+// NodeGroupUpdateConfigPtrInput is an input type that accepts NodeGroupUpdateConfigArgs, NodeGroupUpdateConfigPtr and NodeGroupUpdateConfigPtrOutput values.
+// You can construct a concrete instance of `NodeGroupUpdateConfigPtrInput` via:
+//
+//          NodeGroupUpdateConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type NodeGroupUpdateConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodeGroupUpdateConfigPtrOutput() NodeGroupUpdateConfigPtrOutput
+	ToNodeGroupUpdateConfigPtrOutputWithContext(context.Context) NodeGroupUpdateConfigPtrOutput
+}
+
+type nodeGroupUpdateConfigPtrType NodeGroupUpdateConfigArgs
+
+func NodeGroupUpdateConfigPtr(v *NodeGroupUpdateConfigArgs) NodeGroupUpdateConfigPtrInput {
+	return (*nodeGroupUpdateConfigPtrType)(v)
+}
+
+func (*nodeGroupUpdateConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (i *nodeGroupUpdateConfigPtrType) ToNodeGroupUpdateConfigPtrOutput() NodeGroupUpdateConfigPtrOutput {
+	return i.ToNodeGroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodeGroupUpdateConfigPtrType) ToNodeGroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodeGroupUpdateConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupUpdateConfigPtrOutput)
+}
+
+type NodeGroupUpdateConfigOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupUpdateConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (o NodeGroupUpdateConfigOutput) ToNodeGroupUpdateConfigOutput() NodeGroupUpdateConfigOutput {
+	return o
+}
+
+func (o NodeGroupUpdateConfigOutput) ToNodeGroupUpdateConfigOutputWithContext(ctx context.Context) NodeGroupUpdateConfigOutput {
+	return o
+}
+
+func (o NodeGroupUpdateConfigOutput) ToNodeGroupUpdateConfigPtrOutput() NodeGroupUpdateConfigPtrOutput {
+	return o.ToNodeGroupUpdateConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodeGroupUpdateConfigOutput) ToNodeGroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodeGroupUpdateConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupUpdateConfig) *NodeGroupUpdateConfig {
+		return &v
+	}).(NodeGroupUpdateConfigPtrOutput)
+}
+
+// Desired max number of unavailable worker nodes during node group update.
+func (o NodeGroupUpdateConfigOutput) MaxUnavailable() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupUpdateConfig) *int { return v.MaxUnavailable }).(pulumi.IntPtrOutput)
+}
+
+// Desired max percentage of unavailable worker nodes during node group update.
+func (o NodeGroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v NodeGroupUpdateConfig) *int { return v.MaxUnavailablePercentage }).(pulumi.IntPtrOutput)
+}
+
+type NodeGroupUpdateConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeGroupUpdateConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeGroupUpdateConfig)(nil)).Elem()
+}
+
+func (o NodeGroupUpdateConfigPtrOutput) ToNodeGroupUpdateConfigPtrOutput() NodeGroupUpdateConfigPtrOutput {
+	return o
+}
+
+func (o NodeGroupUpdateConfigPtrOutput) ToNodeGroupUpdateConfigPtrOutputWithContext(ctx context.Context) NodeGroupUpdateConfigPtrOutput {
+	return o
+}
+
+func (o NodeGroupUpdateConfigPtrOutput) Elem() NodeGroupUpdateConfigOutput {
+	return o.ApplyT(func(v *NodeGroupUpdateConfig) NodeGroupUpdateConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodeGroupUpdateConfig
+		return ret
+	}).(NodeGroupUpdateConfigOutput)
+}
+
+// Desired max number of unavailable worker nodes during node group update.
+func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailable() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupUpdateConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnavailable
+	}).(pulumi.IntPtrOutput)
+}
+
+// Desired max percentage of unavailable worker nodes during node group update.
+func (o NodeGroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NodeGroupUpdateConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxUnavailablePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
 type GetClusterCertificateAuthority struct {
 	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 	Data string `pulumi:"data"`
@@ -2702,6 +2858,8 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupTaintOutput{})
 	pulumi.RegisterOutputType(NodeGroupTaintArrayOutput{})
+	pulumi.RegisterOutputType(NodeGroupUpdateConfigOutput{})
+	pulumi.RegisterOutputType(NodeGroupUpdateConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})

@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Route53
     public partial class QueryLog : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// CloudWatch log group ARN to send query logs.
         /// </summary>
         [Output("cloudwatchLogGroupArn")]
@@ -187,6 +193,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class QueryLogState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// CloudWatch log group ARN to send query logs.
         /// </summary>

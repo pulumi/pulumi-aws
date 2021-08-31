@@ -105,6 +105,8 @@ import (
 type QueryLog struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringOutput `pulumi:"cloudwatchLogGroupArn"`
 	// Route53 hosted zone ID to enable query logs.
@@ -146,6 +148,8 @@ func GetQueryLog(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryLog resources.
 type queryLogState struct {
+	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	Arn *string `pulumi:"arn"`
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn *string `pulumi:"cloudwatchLogGroupArn"`
 	// Route53 hosted zone ID to enable query logs.
@@ -153,6 +157,8 @@ type queryLogState struct {
 }
 
 type QueryLogState struct {
+	// The Amazon Resource Name (ARN) of the Query Logging Config.
+	Arn pulumi.StringPtrInput
 	// CloudWatch log group ARN to send query logs.
 	CloudwatchLogGroupArn pulumi.StringPtrInput
 	// Route53 hosted zone ID to enable query logs.

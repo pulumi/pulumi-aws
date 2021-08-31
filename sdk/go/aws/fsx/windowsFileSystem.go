@@ -119,6 +119,8 @@ type WindowsFileSystem struct {
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationOutput `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
+	// The ID of the source backup to create the filesystem from.
+	BackupId pulumi.StringPtrOutput `pulumi:"backupId"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups pulumi.BoolPtrOutput `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -145,7 +147,7 @@ type WindowsFileSystem struct {
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrOutput `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
-	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
 	StorageCapacity pulumi.IntOutput `pulumi:"storageCapacity"`
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
@@ -170,9 +172,6 @@ func NewWindowsFileSystem(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.StorageCapacity == nil {
-		return nil, errors.New("invalid value for required argument 'StorageCapacity'")
-	}
 	if args.SubnetIds == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetIds'")
 	}
@@ -211,6 +210,8 @@ type windowsFileSystemState struct {
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
+	// The ID of the source backup to create the filesystem from.
+	BackupId *string `pulumi:"backupId"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -237,7 +238,7 @@ type windowsFileSystemState struct {
 	SelfManagedActiveDirectory *WindowsFileSystemSelfManagedActiveDirectory `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
-	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType *string `pulumi:"storageType"`
@@ -266,6 +267,8 @@ type WindowsFileSystemState struct {
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
+	// The ID of the source backup to create the filesystem from.
+	BackupId pulumi.StringPtrInput
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups pulumi.BoolPtrInput
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -292,7 +295,7 @@ type WindowsFileSystemState struct {
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
-	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
 	StorageCapacity pulumi.IntPtrInput
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrInput
@@ -323,6 +326,8 @@ type windowsFileSystemArgs struct {
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
+	// The ID of the source backup to create the filesystem from.
+	BackupId *string `pulumi:"backupId"`
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups *bool `pulumi:"copyTagsToBackups"`
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -339,8 +344,8 @@ type windowsFileSystemArgs struct {
 	SelfManagedActiveDirectory *WindowsFileSystemSelfManagedActiveDirectory `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
-	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
-	StorageCapacity int `pulumi:"storageCapacity"`
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
+	StorageCapacity *int `pulumi:"storageCapacity"`
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType *string `pulumi:"storageType"`
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.
@@ -363,6 +368,8 @@ type WindowsFileSystemArgs struct {
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
+	// The ID of the source backup to create the filesystem from.
+	BackupId pulumi.StringPtrInput
 	// A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
 	CopyTagsToBackups pulumi.BoolPtrInput
 	// The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
@@ -379,8 +386,8 @@ type WindowsFileSystemArgs struct {
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
-	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000.
-	StorageCapacity pulumi.IntInput
+	// Storage capacity (GiB) of the file system. Minimum of 32 and maximum of 65536. If the storage type is set to `HDD` the minimum value is 2000. Required when not creating filesystem for a backup.
+	StorageCapacity pulumi.IntPtrInput
 	// Specifies the storage type, Valid values are `SSD` and `HDD`. `HDD` is supported on `SINGLE_AZ_2` and `MULTI_AZ_1` Windows file system deployment types. Default value is `SSD`.
 	StorageType pulumi.StringPtrInput
 	// A list of IDs for the subnets that the file system will be accessible from. To specify more than a single subnet set `deploymentType` to `MULTI_AZ_1`.

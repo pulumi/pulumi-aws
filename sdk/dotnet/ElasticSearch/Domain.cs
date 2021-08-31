@@ -29,11 +29,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///             {
     ///                 InstanceType = "r4.large.elasticsearch",
     ///             },
-    ///             ElasticsearchVersion = "1.5",
-    ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///             {
-    ///                 AutomatedSnapshotStartHour = 23,
-    ///             },
+    ///             ElasticsearchVersion = "7.10",
     ///             Tags = 
     ///             {
     ///                 { "Domain", "TestDomain" },
@@ -195,6 +191,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///             ClusterConfig = new Aws.ElasticSearch.Inputs.DomainClusterConfigArgs
     ///             {
     ///                 InstanceType = "m4.large.elasticsearch",
+    ///                 ZoneAwarenessEnabled = true,
     ///             },
     ///             VpcOptions = new Aws.ElasticSearch.Inputs.DomainVpcOptionsArgs
     ///             {
@@ -229,10 +226,6 @@ namespace Pulumi.Aws.ElasticSearch
     /// }}
     /// ";
     ///             }),
-    ///             SnapshotOptions = new Aws.ElasticSearch.Inputs.DomainSnapshotOptionsArgs
-    ///             {
-    ///                 AutomatedSnapshotStartHour = 23,
-    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Domain", "TestDomain" },
@@ -354,13 +347,13 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<Outputs.DomainNodeToNodeEncryption> NodeToNodeEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for snapshot related options. Detailed below.
+        /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Output("snapshotOptions")]
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -501,7 +494,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainNodeToNodeEncryptionArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
-        /// Configuration block for snapshot related options. Detailed below.
+        /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
@@ -510,7 +503,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -636,7 +629,7 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainNodeToNodeEncryptionGetArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
-        /// Configuration block for snapshot related options. Detailed below.
+        /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsGetArgs>? SnapshotOptions { get; set; }
@@ -645,7 +638,7 @@ namespace Pulumi.Aws.ElasticSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

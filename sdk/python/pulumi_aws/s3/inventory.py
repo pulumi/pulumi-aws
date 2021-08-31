@@ -32,8 +32,7 @@ class InventoryArgs:
         :param pulumi.Input[bool] enabled: Specifies whether the inventory is enabled or disabled.
         :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
-               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "destination", destination)
@@ -136,8 +135,7 @@ class InventoryArgs:
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of optional fields that are included in the inventory results.
-        Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         return pulumi.get(self, "optional_fields")
 
@@ -165,8 +163,7 @@ class _InventoryState:
         :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
-               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         if bucket is not None:
@@ -262,8 +259,7 @@ class _InventoryState:
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of optional fields that are included in the inventory results.
-        Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         return pulumi.get(self, "optional_fields")
 
@@ -365,8 +361,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
-               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         ...
@@ -516,8 +511,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['InventoryFilterArgs']] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[str] name: Unique identifier of the inventory configuration for the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results.
-               Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         :param pulumi.Input[pulumi.InputType['InventoryScheduleArgs']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -586,8 +580,7 @@ class Inventory(pulumi.CustomResource):
     @pulumi.getter(name="optionalFields")
     def optional_fields(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        List of optional fields that are included in the inventory results.
-        Valid values: `Size`, `LastModifiedDate`, `StorageClass`, `ETag`, `IsMultipartUploaded`, `ReplicationStatus`, `EncryptionStatus`, `ObjectLockRetainUntilDate`, `ObjectLockMode`, `ObjectLockLegalHoldStatus`, `IntelligentTieringAccessTier`.
+        List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         return pulumi.get(self, "optional_fields")
 

@@ -32,6 +32,13 @@ namespace Pulumi.Aws.Efs
         ///         {
         ///             FileSystemId = fileSystemId,
         ///         }));
+        ///         var byTag = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Environment", "dev" },
+        ///             },
+        ///         }));
         ///     }
         /// 
         /// }
@@ -60,6 +67,10 @@ namespace Pulumi.Aws.Efs
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the file system with these tags.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());

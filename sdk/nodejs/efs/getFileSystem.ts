@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  * const byId = aws.efs.getFileSystem({
  *     fileSystemId: fileSystemId,
  * });
+ * const byTag = aws.efs.getFileSystem({
+ *     tags: {
+ *         Environment: "dev",
+ *     },
+ * });
  * ```
  */
 export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOptions): Promise<GetFileSystemResult> {
@@ -49,6 +54,9 @@ export interface GetFileSystemArgs {
      * The ID that identifies the file system (e.g. fs-ccfc0d65).
      */
     fileSystemId?: string;
+    /**
+     * Restricts the list to the file system with these tags.
+     */
     tags?: {[key: string]: string};
 }
 
