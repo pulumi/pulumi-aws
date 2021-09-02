@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `aws.lakeformation.Permissions` has no unnecessary default on `CatalogResource`
 
 ---
 
