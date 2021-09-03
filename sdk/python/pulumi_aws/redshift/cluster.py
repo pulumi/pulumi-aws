@@ -584,6 +584,7 @@ class _ClusterState:
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  cluster_public_key: Optional[pulumi.Input[str]] = None,
                  cluster_revision_number: Optional[pulumi.Input[str]] = None,
@@ -624,6 +625,7 @@ class _ClusterState:
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
                string.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
@@ -660,7 +662,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         if allow_version_upgrade is not None:
@@ -673,6 +675,8 @@ class _ClusterState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if cluster_identifier is not None:
             pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_nodes is not None:
+            pulumi.set(__self__, "cluster_nodes", cluster_nodes)
         if cluster_parameter_group_name is not None:
             pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
         if cluster_public_key is not None:
@@ -798,6 +802,18 @@ class _ClusterState:
     @cluster_identifier.setter
     def cluster_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="clusterNodes")
+    def cluster_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]]:
+        """
+        The nodes in the cluster. Cluster node blocks are documented below
+        """
+        return pulumi.get(self, "cluster_nodes")
+
+    @cluster_nodes.setter
+    def cluster_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterNodeArgs']]]]):
+        pulumi.set(self, "cluster_nodes", value)
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -1169,7 +1185,7 @@ class _ClusterState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1432,6 +1448,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
+            __props__.__dict__["cluster_nodes"] = None
             __props__.__dict__["dns_name"] = None
             __props__.__dict__["tags_all"] = None
         super(Cluster, __self__).__init__(
@@ -1449,6 +1466,7 @@ class Cluster(pulumi.CustomResource):
             automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             cluster_identifier: Optional[pulumi.Input[str]] = None,
+            cluster_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]]] = None,
             cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
             cluster_public_key: Optional[pulumi.Input[str]] = None,
             cluster_revision_number: Optional[pulumi.Input[str]] = None,
@@ -1494,6 +1512,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case
                string.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterNodeArgs']]]] cluster_nodes: The nodes in the cluster. Cluster node blocks are documented below
         :param pulumi.Input[str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
         :param pulumi.Input[str] cluster_public_key: The public key for the cluster
         :param pulumi.Input[str] cluster_revision_number: The specific revision number of the database in the cluster
@@ -1530,7 +1549,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterSnapshotCopyArgs']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[str] snapshot_identifier: The name of the snapshot from which to create the new cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1542,6 +1561,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["cluster_identifier"] = cluster_identifier
+        __props__.__dict__["cluster_nodes"] = cluster_nodes
         __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
         __props__.__dict__["cluster_public_key"] = cluster_public_key
         __props__.__dict__["cluster_revision_number"] = cluster_revision_number
@@ -1616,6 +1636,14 @@ class Cluster(pulumi.CustomResource):
         string.
         """
         return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter(name="clusterNodes")
+    def cluster_nodes(self) -> pulumi.Output[Sequence['outputs.ClusterClusterNode']]:
+        """
+        The nodes in the cluster. Cluster node blocks are documented below
+        """
+        return pulumi.get(self, "cluster_nodes")
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -1867,7 +1895,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

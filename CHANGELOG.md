@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.57.0 of the AWS Terraform Provider
 * Ensure `aws.lakeformation.Permissions` has no unnecessary default on `CatalogResource`
 
 ---

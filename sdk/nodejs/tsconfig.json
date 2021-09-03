@@ -1136,6 +1136,7 @@
         "servicediscovery/getDnsNamespace.ts",
         "servicediscovery/httpNamespace.ts",
         "servicediscovery/index.ts",
+        "servicediscovery/instance.ts",
         "servicediscovery/privateDnsNamespace.ts",
         "servicediscovery/publicDnsNamespace.ts",
         "servicediscovery/service.ts",

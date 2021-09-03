@@ -136,6 +136,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// </summary>
+        [Output("platformIdentifier")]
+        public Output<string> PlatformIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -279,6 +285,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// </summary>
+        [Input("platformIdentifier")]
+        public Input<string>? PlatformIdentifier { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -393,6 +405,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// </summary>
+        [Input("platformIdentifier")]
+        public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.

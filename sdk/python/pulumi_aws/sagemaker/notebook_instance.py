@@ -21,6 +21,7 @@ class NotebookInstanceArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class NotebookInstanceArgs:
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
@@ -57,6 +59,8 @@ class NotebookInstanceArgs:
             pulumi.set(__self__, "lifecycle_config_name", lifecycle_config_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if platform_identifier is not None:
+            pulumi.set(__self__, "platform_identifier", platform_identifier)
         if root_access is not None:
             pulumi.set(__self__, "root_access", root_access)
         if security_groups is not None:
@@ -166,6 +170,18 @@ class NotebookInstanceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="platformIdentifier")
+    def platform_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        """
+        return pulumi.get(self, "platform_identifier")
+
+    @platform_identifier.setter
+    def platform_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_identifier", value)
+
+    @property
     @pulumi.getter(name="rootAccess")
     def root_access(self) -> Optional[pulumi.Input[str]]:
         """
@@ -238,6 +254,7 @@ class _NotebookInstanceState:
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -258,6 +275,7 @@ class _NotebookInstanceState:
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] network_interface_id: The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
@@ -285,6 +303,8 @@ class _NotebookInstanceState:
             pulumi.set(__self__, "name", name)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if platform_identifier is not None:
+            pulumi.set(__self__, "platform_identifier", platform_identifier)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if root_access is not None:
@@ -412,6 +432,18 @@ class _NotebookInstanceState:
         pulumi.set(self, "network_interface_id", value)
 
     @property
+    @pulumi.getter(name="platformIdentifier")
+    def platform_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        """
+        return pulumi.get(self, "platform_identifier")
+
+    @platform_identifier.setter
+    def platform_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_identifier", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -520,6 +552,7 @@ class NotebookInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -582,6 +615,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
@@ -662,6 +696,7 @@ class NotebookInstance(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 platform_identifier: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  root_access: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -689,6 +724,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["platform_identifier"] = platform_identifier
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -720,6 +756,7 @@ class NotebookInstance(pulumi.CustomResource):
             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_interface_id: Optional[pulumi.Input[str]] = None,
+            platform_identifier: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             root_access: Optional[pulumi.Input[str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -745,6 +782,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] network_interface_id: The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
@@ -767,6 +805,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["platform_identifier"] = platform_identifier
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["root_access"] = root_access
         __props__.__dict__["security_groups"] = security_groups
@@ -849,6 +888,14 @@ class NotebookInstance(pulumi.CustomResource):
         The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="platformIdentifier")
+    def platform_identifier(self) -> pulumi.Output[str]:
+        """
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        """
+        return pulumi.get(self, "platform_identifier")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -9,11 +9,67 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ClusterClusterNodeArgs',
     'ClusterLoggingArgs',
     'ClusterSnapshotCopyArgs',
     'ParameterGroupParameterArgs',
     'SecurityGroupIngressArgs',
 ]
+
+@pulumi.input_type
+class ClusterClusterNodeArgs:
+    def __init__(__self__, *,
+                 node_role: Optional[pulumi.Input[str]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 public_ip_address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] node_role: Whether the node is a leader node or a compute node
+        :param pulumi.Input[str] private_ip_address: The private IP address of a node within a cluster
+        :param pulumi.Input[str] public_ip_address: The public IP address of a node within a cluster
+        """
+        if node_role is not None:
+            pulumi.set(__self__, "node_role", node_role)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter(name="nodeRole")
+    def node_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether the node is a leader node or a compute node
+        """
+        return pulumi.get(self, "node_role")
+
+    @node_role.setter
+    def node_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_role", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IP address of a node within a cluster
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address of a node within a cluster
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_ip_address", value)
+
 
 @pulumi.input_type
 class ClusterLoggingArgs:

@@ -126,6 +126,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<Outputs.ServiceDnsConfig?> DnsConfig { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+        /// </summary>
+        [Output("forceDestroy")]
+        public Output<bool?> ForceDestroy { get; private set; } = null!;
+
+        /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         /// </summary>
         [Output("healthCheckConfig")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<Inputs.ServiceDnsConfigArgs>? DnsConfig { get; set; }
 
         /// <summary>
+        /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
+
+        /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
         /// </summary>
         [Input("healthCheckConfig")]
@@ -279,6 +291,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("dnsConfig")]
         public Input<Inputs.ServiceDnsConfigGetArgs>? DnsConfig { get; set; }
+
+        /// <summary>
+        /// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+        /// </summary>
+        [Input("forceDestroy")]
+        public Input<bool>? ForceDestroy { get; set; }
 
         /// <summary>
         /// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.

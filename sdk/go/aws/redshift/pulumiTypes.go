@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ClusterClusterNode struct {
+	// Whether the node is a leader node or a compute node
+	NodeRole *string `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
+}
+
+// ClusterClusterNodeInput is an input type that accepts ClusterClusterNodeArgs and ClusterClusterNodeOutput values.
+// You can construct a concrete instance of `ClusterClusterNodeInput` via:
+//
+//          ClusterClusterNodeArgs{...}
+type ClusterClusterNodeInput interface {
+	pulumi.Input
+
+	ToClusterClusterNodeOutput() ClusterClusterNodeOutput
+	ToClusterClusterNodeOutputWithContext(context.Context) ClusterClusterNodeOutput
+}
+
+type ClusterClusterNodeArgs struct {
+	// Whether the node is a leader node or a compute node
+	NodeRole pulumi.StringPtrInput `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress pulumi.StringPtrInput `pulumi:"publicIpAddress"`
+}
+
+func (ClusterClusterNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterNode)(nil)).Elem()
+}
+
+func (i ClusterClusterNodeArgs) ToClusterClusterNodeOutput() ClusterClusterNodeOutput {
+	return i.ToClusterClusterNodeOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterNodeArgs) ToClusterClusterNodeOutputWithContext(ctx context.Context) ClusterClusterNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterNodeOutput)
+}
+
+// ClusterClusterNodeArrayInput is an input type that accepts ClusterClusterNodeArray and ClusterClusterNodeArrayOutput values.
+// You can construct a concrete instance of `ClusterClusterNodeArrayInput` via:
+//
+//          ClusterClusterNodeArray{ ClusterClusterNodeArgs{...} }
+type ClusterClusterNodeArrayInput interface {
+	pulumi.Input
+
+	ToClusterClusterNodeArrayOutput() ClusterClusterNodeArrayOutput
+	ToClusterClusterNodeArrayOutputWithContext(context.Context) ClusterClusterNodeArrayOutput
+}
+
+type ClusterClusterNodeArray []ClusterClusterNodeInput
+
+func (ClusterClusterNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClusterNode)(nil)).Elem()
+}
+
+func (i ClusterClusterNodeArray) ToClusterClusterNodeArrayOutput() ClusterClusterNodeArrayOutput {
+	return i.ToClusterClusterNodeArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterClusterNodeArray) ToClusterClusterNodeArrayOutputWithContext(ctx context.Context) ClusterClusterNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterNodeArrayOutput)
+}
+
+type ClusterClusterNodeOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterClusterNode)(nil)).Elem()
+}
+
+func (o ClusterClusterNodeOutput) ToClusterClusterNodeOutput() ClusterClusterNodeOutput {
+	return o
+}
+
+func (o ClusterClusterNodeOutput) ToClusterClusterNodeOutputWithContext(ctx context.Context) ClusterClusterNodeOutput {
+	return o
+}
+
+// Whether the node is a leader node or a compute node
+func (o ClusterClusterNodeOutput) NodeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterNode) *string { return v.NodeRole }).(pulumi.StringPtrOutput)
+}
+
+// The private IP address of a node within a cluster
+func (o ClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The public IP address of a node within a cluster
+func (o ClusterClusterNodeOutput) PublicIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterNode) *string { return v.PublicIpAddress }).(pulumi.StringPtrOutput)
+}
+
+type ClusterClusterNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterClusterNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterClusterNode)(nil)).Elem()
+}
+
+func (o ClusterClusterNodeArrayOutput) ToClusterClusterNodeArrayOutput() ClusterClusterNodeArrayOutput {
+	return o
+}
+
+func (o ClusterClusterNodeArrayOutput) ToClusterClusterNodeArrayOutputWithContext(ctx context.Context) ClusterClusterNodeArrayOutput {
+	return o
+}
+
+func (o ClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) ClusterClusterNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterClusterNode {
+		return vs[0].([]ClusterClusterNode)[vs[1].(int)]
+	}).(ClusterClusterNodeOutput)
+}
+
 type ClusterLogging struct {
 	// The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
 	// For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
@@ -589,6 +704,8 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 }
 
 func init() {
+	pulumi.RegisterOutputType(ClusterClusterNodeOutput{})
+	pulumi.RegisterOutputType(ClusterClusterNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSnapshotCopyOutput{})

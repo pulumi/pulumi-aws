@@ -23057,6 +23057,21 @@ export namespace rds {
 }
 
 export namespace redshift {
+    export interface ClusterClusterNode {
+        /**
+         * Whether the node is a leader node or a compute node
+         */
+        nodeRole: string;
+        /**
+         * The private IP address of a node within a cluster
+         */
+        privateIpAddress: string;
+        /**
+         * The public IP address of a node within a cluster
+         */
+        publicIpAddress: string;
+    }
+
     export interface ClusterLogging {
         /**
          * The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.

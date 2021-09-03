@@ -101,7 +101,7 @@ type LaunchTemplate struct {
 	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	// A list of security group IDs to associate with.
+	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -213,7 +213,7 @@ type launchTemplateState struct {
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
-	// A list of security group IDs to associate with.
+	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -297,7 +297,7 @@ type LaunchTemplateState struct {
 	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
-	// A list of security group IDs to associate with.
+	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -379,7 +379,7 @@ type launchTemplateArgs struct {
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData *string `pulumi:"userData"`
-	// A list of security group IDs to associate with.
+	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -458,7 +458,7 @@ type LaunchTemplateArgs struct {
 	UpdateDefaultVersion pulumi.BoolPtrInput
 	// The Base64-encoded user data to provide when launching the instance.
 	UserData pulumi.StringPtrInput
-	// A list of security group IDs to associate with.
+	// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 

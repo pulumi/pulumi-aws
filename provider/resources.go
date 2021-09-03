@@ -2221,6 +2221,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
 			"aws_service_discovery_public_dns_namespace":  {Tok: awsResource(servicediscoveryMod, "PublicDnsNamespace")},
 			"aws_service_discovery_service":               {Tok: awsResource(servicediscoveryMod, "Service")},
+			"aws_service_discovery_instance":              {Tok: awsResource(servicediscoveryMod, "Instance")},
 			// Simple Email Service (SES)
 			"aws_ses_active_receipt_rule_set":      {Tok: awsResource(sesMod, "ActiveReceiptRuleSet")},
 			"aws_ses_domain_dkim":                  {Tok: awsResource(sesMod, "DomainDkim")},

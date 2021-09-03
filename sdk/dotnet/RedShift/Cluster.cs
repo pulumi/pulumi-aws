@@ -79,6 +79,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The nodes in the cluster. Cluster node blocks are documented below
+        /// </summary>
+        [Output("clusterNodes")]
+        public Output<ImmutableArray<Outputs.ClusterClusterNode>> ClusterNodes { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the parameter group to be associated with this cluster.
         /// </summary>
         [Output("clusterParameterGroupName")]
@@ -265,7 +271,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -595,6 +601,18 @@ namespace Pulumi.Aws.RedShift
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
+        [Input("clusterNodes")]
+        private InputList<Inputs.ClusterClusterNodeGetArgs>? _clusterNodes;
+
+        /// <summary>
+        /// The nodes in the cluster. Cluster node blocks are documented below
+        /// </summary>
+        public InputList<Inputs.ClusterClusterNodeGetArgs> ClusterNodes
+        {
+            get => _clusterNodes ?? (_clusterNodes = new InputList<Inputs.ClusterClusterNodeGetArgs>());
+            set => _clusterNodes = value;
+        }
+
         /// <summary>
         /// The name of the parameter group to be associated with this cluster.
         /// </summary>
@@ -803,7 +821,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

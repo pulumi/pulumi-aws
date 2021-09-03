@@ -108,6 +108,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly dnsConfig!: pulumi.Output<outputs.servicediscovery.ServiceDnsConfig | undefined>;
     /**
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     */
+    public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
+    /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
     public readonly healthCheckConfig!: pulumi.Output<outputs.servicediscovery.ServiceHealthCheckConfig | undefined>;
@@ -148,6 +152,7 @@ export class Service extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["dnsConfig"] = state ? state.dnsConfig : undefined;
+            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["healthCheckConfig"] = state ? state.healthCheckConfig : undefined;
             inputs["healthCheckCustomConfig"] = state ? state.healthCheckCustomConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -158,6 +163,7 @@ export class Service extends pulumi.CustomResource {
             const args = argsOrState as ServiceArgs | undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["healthCheckConfig"] = args ? args.healthCheckConfig : undefined;
             inputs["healthCheckCustomConfig"] = args ? args.healthCheckCustomConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -189,6 +195,10 @@ export interface ServiceState {
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    /**
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */
@@ -227,6 +237,10 @@ export interface ServiceArgs {
      * A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
      */
     dnsConfig?: pulumi.Input<inputs.servicediscovery.ServiceDnsConfig>;
+    /**
+     * A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+     */
+    forceDestroy?: pulumi.Input<boolean>;
     /**
      * A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
      */

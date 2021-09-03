@@ -31,11 +31,12 @@ class HealthCheckArgs:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  request_interval: Optional[pulumi.Input[int]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None,
+                 routing_control_arn: Optional[pulumi.Input[str]] = None,
                  search_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a HealthCheck resource.
-        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         :param pulumi.Input[int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         :param pulumi.Input[str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
@@ -57,8 +58,9 @@ class HealthCheckArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         :param pulumi.Input[int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
+        :param pulumi.Input[str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "type", type)
         if child_health_threshold is not None:
@@ -95,6 +97,8 @@ class HealthCheckArgs:
             pulumi.set(__self__, "request_interval", request_interval)
         if resource_path is not None:
             pulumi.set(__self__, "resource_path", resource_path)
+        if routing_control_arn is not None:
+            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
         if search_string is not None:
             pulumi.set(__self__, "search_string", search_string)
         if tags is not None:
@@ -104,7 +108,7 @@ class HealthCheckArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         return pulumi.get(self, "type")
 
@@ -321,6 +325,18 @@ class HealthCheckArgs:
         pulumi.set(self, "resource_path", value)
 
     @property
+    @pulumi.getter(name="routingControlArn")
+    def routing_control_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        """
+        return pulumi.get(self, "routing_control_arn")
+
+    @routing_control_arn.setter
+    def routing_control_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_control_arn", value)
+
+    @property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[pulumi.Input[str]]:
         """
@@ -336,7 +352,7 @@ class HealthCheckArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -366,6 +382,7 @@ class _HealthCheckState:
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  request_interval: Optional[pulumi.Input[int]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None,
+                 routing_control_arn: Optional[pulumi.Input[str]] = None,
                  search_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -394,10 +411,11 @@ class _HealthCheckState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         :param pulumi.Input[int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
+        :param pulumi.Input[str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -435,6 +453,8 @@ class _HealthCheckState:
             pulumi.set(__self__, "request_interval", request_interval)
         if resource_path is not None:
             pulumi.set(__self__, "resource_path", resource_path)
+        if routing_control_arn is not None:
+            pulumi.set(__self__, "routing_control_arn", routing_control_arn)
         if search_string is not None:
             pulumi.set(__self__, "search_string", search_string)
         if tags is not None:
@@ -665,6 +685,18 @@ class _HealthCheckState:
         pulumi.set(self, "resource_path", value)
 
     @property
+    @pulumi.getter(name="routingControlArn")
+    def routing_control_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        """
+        return pulumi.get(self, "routing_control_arn")
+
+    @routing_control_arn.setter
+    def routing_control_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_control_arn", value)
+
+    @property
     @pulumi.getter(name="searchString")
     def search_string(self) -> Optional[pulumi.Input[str]]:
         """
@@ -680,7 +712,7 @@ class _HealthCheckState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -704,7 +736,7 @@ class _HealthCheckState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         return pulumi.get(self, "type")
 
@@ -735,6 +767,7 @@ class HealthCheck(pulumi.CustomResource):
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  request_interval: Optional[pulumi.Input[int]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None,
+                 routing_control_arn: Optional[pulumi.Input[str]] = None,
                  search_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -842,9 +875,10 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         :param pulumi.Input[int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
+        :param pulumi.Input[str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         ...
     @overload
@@ -964,6 +998,7 @@ class HealthCheck(pulumi.CustomResource):
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  request_interval: Optional[pulumi.Input[int]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None,
+                 routing_control_arn: Optional[pulumi.Input[str]] = None,
                  search_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -996,6 +1031,7 @@ class HealthCheck(pulumi.CustomResource):
             __props__.__dict__["regions"] = regions
             __props__.__dict__["request_interval"] = request_interval
             __props__.__dict__["resource_path"] = resource_path
+            __props__.__dict__["routing_control_arn"] = routing_control_arn
             __props__.__dict__["search_string"] = search_string
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
@@ -1031,6 +1067,7 @@ class HealthCheck(pulumi.CustomResource):
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             request_interval: Optional[pulumi.Input[int]] = None,
             resource_path: Optional[pulumi.Input[str]] = None,
+            routing_control_arn: Optional[pulumi.Input[str]] = None,
             search_string: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1064,10 +1101,11 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
         :param pulumi.Input[int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
+        :param pulumi.Input[str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        :param pulumi.Input[str] type: The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1091,6 +1129,7 @@ class HealthCheck(pulumi.CustomResource):
         __props__.__dict__["regions"] = regions
         __props__.__dict__["request_interval"] = request_interval
         __props__.__dict__["resource_path"] = resource_path
+        __props__.__dict__["routing_control_arn"] = routing_control_arn
         __props__.__dict__["search_string"] = search_string
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1246,6 +1285,14 @@ class HealthCheck(pulumi.CustomResource):
         return pulumi.get(self, "resource_path")
 
     @property
+    @pulumi.getter(name="routingControlArn")
+    def routing_control_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        """
+        return pulumi.get(self, "routing_control_arn")
+
+    @property
     @pulumi.getter(name="searchString")
     def search_string(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1257,7 +1304,7 @@ class HealthCheck(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1273,7 +1320,7 @@ class HealthCheck(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         """
         return pulumi.get(self, "type")
 

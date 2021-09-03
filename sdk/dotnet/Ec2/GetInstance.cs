@@ -193,6 +193,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// The IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
         /// The key name of the Instance.
         /// </summary>
         public readonly string KeyName;
@@ -325,6 +329,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceType,
 
+            ImmutableArray<string> ipv6Addresses,
+
             string keyName,
 
             ImmutableArray<Outputs.GetInstanceMetadataOptionResult> metadataOptions,
@@ -387,6 +393,7 @@ namespace Pulumi.Aws.Ec2
             InstanceState = instanceState;
             InstanceTags = instanceTags;
             InstanceType = instanceType;
+            Ipv6Addresses = ipv6Addresses;
             KeyName = keyName;
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;

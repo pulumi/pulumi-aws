@@ -7,12 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getDnsNamespace";
 export * from "./httpNamespace";
+export * from "./instance";
 export * from "./privateDnsNamespace";
 export * from "./publicDnsNamespace";
 export * from "./service";
 
 // Import resources to register:
 import { HttpNamespace } from "./httpNamespace";
+import { Instance } from "./instance";
 import { PrivateDnsNamespace } from "./privateDnsNamespace";
 import { PublicDnsNamespace } from "./publicDnsNamespace";
 import { Service } from "./service";
@@ -23,6 +25,8 @@ const _module = {
         switch (type) {
             case "aws:servicediscovery/httpNamespace:HttpNamespace":
                 return new HttpNamespace(name, <any>undefined, { urn })
+            case "aws:servicediscovery/instance:Instance":
+                return new Instance(name, <any>undefined, { urn })
             case "aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace":
                 return new PrivateDnsNamespace(name, <any>undefined, { urn })
             case "aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace":
@@ -35,6 +39,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "servicediscovery/httpNamespace", _module)
+pulumi.runtime.registerResourceModule("aws", "servicediscovery/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "servicediscovery/privateDnsNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "servicediscovery/publicDnsNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "servicediscovery/service", _module)

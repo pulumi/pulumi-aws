@@ -123,7 +123,7 @@ class BucketPolicy(pulumi.CustomResource):
                         f"{bucket_arn1}/*",
                     ],
                     "Condition": {
-                        "IpAddress": {
+                        "NotIpAddress": {
                             "aws:SourceIp": "8.8.8.8/32",
                         },
                     },
@@ -177,7 +177,7 @@ class BucketPolicy(pulumi.CustomResource):
                         f"{bucket_arn1}/*",
                     ],
                     "Condition": {
-                        "IpAddress": {
+                        "NotIpAddress": {
                             "aws:SourceIp": "8.8.8.8/32",
                         },
                     },

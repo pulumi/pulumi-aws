@@ -194,7 +194,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
-     * A list of security group IDs to associate with.
+     * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
     public readonly vpcSecurityGroupIds!: pulumi.Output<string[] | undefined>;
 
@@ -447,7 +447,7 @@ export interface LaunchTemplateState {
      */
     userData?: pulumi.Input<string>;
     /**
-     * A list of security group IDs to associate with.
+     * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -594,7 +594,7 @@ export interface LaunchTemplateArgs {
      */
     userData?: pulumi.Input<string>;
     /**
-     * A list of security group IDs to associate with.
+     * A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

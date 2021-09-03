@@ -118,6 +118,10 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfaceId!: pulumi.Output<string>;
     /**
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     */
+    public readonly platformIdentifier!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -172,6 +176,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            inputs["platformIdentifier"] = state ? state.platformIdentifier : undefined;
             inputs["roleArn"] = state ? state.roleArn : undefined;
             inputs["rootAccess"] = state ? state.rootAccess : undefined;
             inputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -195,6 +200,7 @@ export class NotebookInstance extends pulumi.CustomResource {
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["rootAccess"] = args ? args.rootAccess : undefined;
             inputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -254,6 +260,10 @@ export interface NotebookInstanceState {
      * The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnetId`.
      */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     */
+    platformIdentifier?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */
@@ -321,6 +331,10 @@ export interface NotebookInstanceArgs {
      * The name of the notebook instance (must be unique).
      */
     name?: pulumi.Input<string>;
+    /**
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     */
+    platformIdentifier?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
      */

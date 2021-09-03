@@ -11,45 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeCommit Trigger Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codecommit"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		testRepository, err := codecommit.NewRepository(ctx, "testRepository", &codecommit.RepositoryArgs{
-// 			RepositoryName: pulumi.String("test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = codecommit.NewTrigger(ctx, "testTrigger", &codecommit.TriggerArgs{
-// 			RepositoryName: testRepository.RepositoryName,
-// 			Triggers: codecommit.TriggerTriggerArray{
-// 				&codecommit.TriggerTriggerArgs{
-// 					Name: pulumi.String("all"),
-// 					Events: pulumi.StringArray{
-// 						pulumi.String("all"),
-// 					},
-// 					DestinationArn: pulumi.Any(aws_sns_topic.Test.Arn),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type Trigger struct {
 	pulumi.CustomResourceState
 
