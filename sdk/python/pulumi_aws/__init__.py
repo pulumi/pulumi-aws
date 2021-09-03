@@ -6112,6 +6112,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "servicediscovery/instance",
+  "fqn": "pulumi_aws.servicediscovery",
+  "classes": {
+   "aws:servicediscovery/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "servicediscovery/privateDnsNamespace",
   "fqn": "pulumi_aws.servicediscovery",
   "classes": {

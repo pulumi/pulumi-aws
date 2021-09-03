@@ -194,11 +194,15 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public readonly resourcePath!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     */
+    public readonly routingControlArn!: pulumi.Output<string | undefined>;
+    /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     public readonly searchString!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the health check. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -206,7 +210,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -241,6 +245,7 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["regions"] = state ? state.regions : undefined;
             inputs["requestInterval"] = state ? state.requestInterval : undefined;
             inputs["resourcePath"] = state ? state.resourcePath : undefined;
+            inputs["routingControlArn"] = state ? state.routingControlArn : undefined;
             inputs["searchString"] = state ? state.searchString : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -267,6 +272,7 @@ export class HealthCheck extends pulumi.CustomResource {
             inputs["regions"] = args ? args.regions : undefined;
             inputs["requestInterval"] = args ? args.requestInterval : undefined;
             inputs["resourcePath"] = args ? args.resourcePath : undefined;
+            inputs["routingControlArn"] = args ? args.routingControlArn : undefined;
             inputs["searchString"] = args ? args.searchString : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -361,11 +367,15 @@ export interface HealthCheckState {
      */
     resourcePath?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     */
+    routingControlArn?: pulumi.Input<string>;
+    /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     searchString?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the health check. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -373,7 +383,7 @@ export interface HealthCheckState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
     type?: pulumi.Input<string>;
 }
@@ -455,15 +465,19 @@ export interface HealthCheckArgs {
      */
     resourcePath?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     */
+    routingControlArn?: pulumi.Input<string>;
+    /**
      * String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
      */
     searchString?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the health check. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the health check. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+     * The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
      */
     type: pulumi.Input<string>;
 }

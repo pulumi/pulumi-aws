@@ -149,6 +149,10 @@ export interface GetInstanceResult {
      */
     readonly instanceType: string;
     /**
+     * The IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
+     */
+    readonly ipv6Addresses: string[];
+    /**
      * The key name of the Instance.
      */
     readonly keyName: string;

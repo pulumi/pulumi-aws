@@ -111,6 +111,8 @@ type LookupInstanceResult struct {
 	InstanceTags  map[string]string `pulumi:"instanceTags"`
 	// The type of the Instance.
 	InstanceType string `pulumi:"instanceType"`
+	// The IPv6 addresses associated to the Instance, if applicable. **NOTE**: Unlike the IPv4 address, this doesn't change if you attach an EIP to the instance.
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Instance.
 	KeyName string `pulumi:"keyName"`
 	// The metadata options of the Instance.

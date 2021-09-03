@@ -62,6 +62,8 @@ type Cluster struct {
 	// The Cluster Identifier. Must be a lower case
 	// string.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// The nodes in the cluster. Cluster node blocks are documented below
+	ClusterNodes ClusterClusterNodeArrayOutput `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringOutput `pulumi:"clusterParameterGroupName"`
 	// The public key for the cluster
@@ -128,7 +130,7 @@ type Cluster struct {
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -180,6 +182,8 @@ type clusterState struct {
 	// The Cluster Identifier. Must be a lower case
 	// string.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
+	// The nodes in the cluster. Cluster node blocks are documented below
+	ClusterNodes []ClusterClusterNode `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
 	// The public key for the cluster
@@ -246,7 +250,7 @@ type clusterState struct {
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -264,6 +268,8 @@ type ClusterState struct {
 	// The Cluster Identifier. Must be a lower case
 	// string.
 	ClusterIdentifier pulumi.StringPtrInput
+	// The nodes in the cluster. Cluster node blocks are documented below
+	ClusterNodes ClusterClusterNodeArrayInput
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringPtrInput
 	// The public key for the cluster
@@ -330,7 +336,7 @@ type ClusterState struct {
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput

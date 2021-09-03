@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:servicediscovery/httpNamespace:HttpNamespace":
 		r = &HttpNamespace{}
+	case "aws:servicediscovery/instance:Instance":
+		r = &Instance{}
 	case "aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace":
 		r = &PrivateDnsNamespace{}
 	case "aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace":
@@ -45,6 +47,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"servicediscovery/httpNamespace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"servicediscovery/instance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

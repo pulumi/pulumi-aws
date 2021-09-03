@@ -55,7 +55,7 @@ namespace Pulumi.Aws.S3
     ///                                  },
     ///                                 { "Condition", new Dictionary&lt;string, object?&gt;
     ///                                 {
-    ///                                     { "IpAddress", new Dictionary&lt;string, object?&gt;
+    ///                                     { "NotIpAddress", new Dictionary&lt;string, object?&gt;
     ///                                     {
     ///                                         { "aws:SourceIp", "8.8.8.8/32" },
     ///                                     } },

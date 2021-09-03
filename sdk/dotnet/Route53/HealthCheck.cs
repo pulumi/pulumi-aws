@@ -248,13 +248,19 @@ namespace Pulumi.Aws.Route53
         public Output<string?> ResourcePath { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// </summary>
+        [Output("routingControlArn")]
+        public Output<string?> RoutingControlArn { get; private set; } = null!;
+
+        /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
         [Output("searchString")]
         public Output<string?> SearchString { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -266,7 +272,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -436,6 +442,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ResourcePath { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// </summary>
+        [Input("routingControlArn")]
+        public Input<string>? RoutingControlArn { get; set; }
+
+        /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
         [Input("searchString")]
@@ -445,7 +457,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -454,7 +466,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -591,6 +603,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ResourcePath { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// </summary>
+        [Input("routingControlArn")]
+        public Input<string>? RoutingControlArn { get; set; }
+
+        /// <summary>
         /// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         /// </summary>
         [Input("searchString")]
@@ -600,7 +618,7 @@ namespace Pulumi.Aws.Route53
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the health check. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -621,7 +639,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED` and `CLOUDWATCH_METRIC`.
+        /// The protocol to use when performing health checks. Valid values are `HTTP`, `HTTPS`, `HTTP_STR_MATCH`, `HTTPS_STR_MATCH`, `TCP`, `CALCULATED`, `CLOUDWATCH_METRIC` and `RECOVERY_CONTROL`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

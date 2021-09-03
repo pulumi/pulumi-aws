@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### S3 Destination
+ * ### S3 Destination (deprecated)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

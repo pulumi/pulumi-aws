@@ -432,7 +432,7 @@ type Group struct {
 
 	// The ARN for this Auto Scaling Group
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
@@ -569,7 +569,7 @@ func GetGroup(ctx *pulumi.Context,
 type groupState struct {
 	// The ARN for this Auto Scaling Group
 	Arn *string `pulumi:"arn"`
-	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
@@ -672,7 +672,7 @@ type groupState struct {
 type GroupState struct {
 	// The ARN for this Auto Scaling Group
 	Arn pulumi.StringPtrInput
-	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
@@ -777,7 +777,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
@@ -879,7 +879,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+	// A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput

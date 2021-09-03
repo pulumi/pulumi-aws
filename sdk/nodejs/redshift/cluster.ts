@@ -82,6 +82,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string>;
     /**
+     * The nodes in the cluster. Cluster node blocks are documented below
+     */
+    public /*out*/ readonly clusterNodes!: pulumi.Output<outputs.redshift.ClusterClusterNode[]>;
+    /**
      * The name of the parameter group to be associated with this cluster.
      */
     public readonly clusterParameterGroupName!: pulumi.Output<string>;
@@ -208,7 +212,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -234,6 +238,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            inputs["clusterNodes"] = state ? state.clusterNodes : undefined;
             inputs["clusterParameterGroupName"] = state ? state.clusterParameterGroupName : undefined;
             inputs["clusterPublicKey"] = state ? state.clusterPublicKey : undefined;
             inputs["clusterRevisionNumber"] = state ? state.clusterRevisionNumber : undefined;
@@ -309,6 +314,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["clusterNodes"] = undefined /*out*/;
             inputs["dnsName"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
         }
@@ -344,6 +350,10 @@ export interface ClusterState {
      * string.
      */
     clusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The nodes in the cluster. Cluster node blocks are documented below
+     */
+    clusterNodes?: pulumi.Input<pulumi.Input<inputs.redshift.ClusterClusterNode>[]>;
     /**
      * The name of the parameter group to be associated with this cluster.
      */
@@ -471,7 +481,7 @@ export interface ClusterState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

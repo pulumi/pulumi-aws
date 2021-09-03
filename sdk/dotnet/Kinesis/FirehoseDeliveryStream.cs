@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// }
     /// ```
-    /// ### S3 Destination
+    /// ### S3 Destination (deprecated)
     /// 
     /// ```csharp
     /// using Pulumi;

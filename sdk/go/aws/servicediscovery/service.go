@@ -119,6 +119,8 @@ type Service struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfig ServiceDnsConfigPtrOutput `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 	HealthCheckConfig ServiceHealthCheckConfigPtrOutput `pulumi:"healthCheckConfig"`
 	// A complex type that contains settings for ECS managed health checks.
@@ -168,6 +170,8 @@ type serviceState struct {
 	Description *string `pulumi:"description"`
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfig *ServiceDnsConfig `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
 	// A complex type that contains settings for ECS managed health checks.
@@ -189,6 +193,8 @@ type ServiceState struct {
 	Description pulumi.StringPtrInput
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfig ServiceDnsConfigPtrInput
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrInput
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 	HealthCheckConfig ServiceHealthCheckConfigPtrInput
 	// A complex type that contains settings for ECS managed health checks.
@@ -212,6 +218,8 @@ type serviceArgs struct {
 	Description *string `pulumi:"description"`
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfig *ServiceDnsConfig `pulumi:"dnsConfig"`
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 	HealthCheckConfig *ServiceHealthCheckConfig `pulumi:"healthCheckConfig"`
 	// A complex type that contains settings for ECS managed health checks.
@@ -230,6 +238,8 @@ type ServiceArgs struct {
 	Description pulumi.StringPtrInput
 	// A complex type that contains information about the resource record sets that you want Amazon Route 53 to create when you register an instance.
 	DnsConfig ServiceDnsConfigPtrInput
+	// A boolean that indicates all instances should be deleted from the service so that the service can be destroyed without error. These instances are not recoverable.
+	ForceDestroy pulumi.BoolPtrInput
 	// A complex type that contains settings for an optional health check. Only for Public DNS namespaces.
 	HealthCheckConfig ServiceHealthCheckConfigPtrInput
 	// A complex type that contains settings for ECS managed health checks.

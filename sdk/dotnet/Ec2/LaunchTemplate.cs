@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security group IDs to associate with.
+        /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -541,7 +541,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs to associate with.
+        /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -827,7 +827,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of security group IDs to associate with.
+        /// A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

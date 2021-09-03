@@ -16,7 +16,7 @@ import (
 // For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
 //
 // ## Example Usage
-// ### S3 Destination
+// ### S3 Destination (deprecated)
 //
 // ```go
 // package main

@@ -334,7 +334,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -606,7 +606,7 @@ export interface GroupState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -776,7 +776,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * A list of one or more availability zones for the group. Used for EC2-Classic and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
+     * A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpcZoneIdentifier` argument. Conflicts with `vpcZoneIdentifier`.
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**

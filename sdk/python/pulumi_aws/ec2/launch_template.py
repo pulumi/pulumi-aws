@@ -91,7 +91,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         if block_device_mappings is not None:
             pulumi.set(__self__, "block_device_mappings", block_device_mappings)
@@ -557,7 +557,7 @@ class LaunchTemplateArgs:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group IDs to associate with.
+        A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -651,7 +651,7 @@ class _LaunchTemplateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -1159,7 +1159,7 @@ class _LaunchTemplateState:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group IDs to associate with.
+        A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         return pulumi.get(self, "vpc_security_group_ids")
 
@@ -1261,7 +1261,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the launch template. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         ...
     @overload
@@ -1473,7 +1473,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[bool] update_default_version: Whether to update Default Version each update. Conflicts with `default_version`.
         :param pulumi.Input[str] user_data: The Base64-encoded user data to provide when launching the instance.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1810,7 +1810,7 @@ class LaunchTemplate(pulumi.CustomResource):
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of security group IDs to associate with.
+        A list of security group IDs to associate with. Conflicts with `network_interfaces.security_groups`
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

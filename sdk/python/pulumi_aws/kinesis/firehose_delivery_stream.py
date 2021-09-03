@@ -574,7 +574,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### S3 Destination
+        ### S3 Destination (deprecated)
 
         ```python
         import pulumi
@@ -915,7 +915,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### S3 Destination
+        ### S3 Destination (deprecated)
 
         ```python
         import pulumi
