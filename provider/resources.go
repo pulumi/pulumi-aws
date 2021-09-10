@@ -691,8 +691,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Chime
-			"aws_chime_voice_connector":       {Tok: awsResource(chimeMod, "VoiceConnector")},
-			"aws_chime_voice_connector_group": {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
+			"aws_chime_voice_connector":             {Tok: awsResource(chimeMod, "VoiceConnector")},
+			"aws_chime_voice_connector_group":       {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
+			"aws_chime_voice_connector_origination": {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
+			"aws_chime_voice_connector_termination": {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -2528,8 +2530,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
-			"aws_quicksight_group": {Tok: awsResource(quicksightMod, "Group")},
-			"aws_quicksight_user":  {Tok: awsResource(quicksightMod, "User")},
+			"aws_quicksight_group":            {Tok: awsResource(quicksightMod, "Group")},
+			"aws_quicksight_user":             {Tok: awsResource(quicksightMod, "User")},
+			"aws_quicksight_group_membership": {Tok: awsResource(quicksightMod, "GroupMembership")},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// FMS

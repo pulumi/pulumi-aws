@@ -46,7 +46,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
         /// <summary>
         /// The statistic to apply to this metric.
-        /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+        /// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         /// </summary>
         [Input("stat", required: true)]
         public Input<string> Stat { get; set; } = null!;

@@ -66,14 +66,22 @@ import (
 // }
 // ```
 //
-// > **Note**: Any modifications to the `dbOptionGroup` are set to happen immediately as we default to applying immediately.
+// > **Note**: Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
+//
+// > **WARNING:** You can perform a destroy on a `rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
+//
+// If you try to delete an option group that is associated with an Amazon RDS resource, an error similar to the following is returned:
+//
+// > An error occurred (InvalidOptionGroupStateFault) when calling the DeleteOptionGroup operation: The option group 'optionGroupName' cannot be deleted because it is in use.
+//
+// More information about this can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html#USER_WorkingWithOptionGroups.Delete).
 //
 // ## Import
 //
 // DB Option groups can be imported using the `name`, e.g.
 //
 // ```sh
-//  $ pulumi import aws:rds/optionGroup:OptionGroup bar mysql-option-group
+//  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 // ```
 type OptionGroup struct {
 	pulumi.CustomResourceState

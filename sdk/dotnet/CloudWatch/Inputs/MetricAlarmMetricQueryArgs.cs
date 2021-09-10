@@ -12,6 +12,9 @@ namespace Pulumi.Aws.CloudWatch.Inputs
 
     public sealed class MetricAlarmMetricQueryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the account where the metrics are located, if this is a cross-account alarm.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

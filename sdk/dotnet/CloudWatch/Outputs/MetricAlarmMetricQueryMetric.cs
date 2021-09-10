@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         public readonly int Period;
         /// <summary>
         /// The statistic to apply to this metric.
-        /// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+        /// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
         /// </summary>
         public readonly string Stat;
         /// <summary>

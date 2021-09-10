@@ -6,10 +6,12 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./group";
+export * from "./groupMembership";
 export * from "./user";
 
 // Import resources to register:
 import { Group } from "./group";
+import { GroupMembership } from "./groupMembership";
 import { User } from "./user";
 
 const _module = {
@@ -18,6 +20,8 @@ const _module = {
         switch (type) {
             case "aws:quicksight/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws:quicksight/groupMembership:GroupMembership":
+                return new GroupMembership(name, <any>undefined, { urn })
             case "aws:quicksight/user:User":
                 return new User(name, <any>undefined, { urn })
             default:
@@ -26,4 +30,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "quicksight/group", _module)
+pulumi.runtime.registerResourceModule("aws", "quicksight/groupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "quicksight/user", _module)

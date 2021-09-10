@@ -107,8 +107,8 @@ class _SnapshotState:
         :param pulumi.Input[str] status: Specifies the status of this DB snapshot.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] vpc_id: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -379,7 +379,7 @@ class _SnapshotState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -391,7 +391,7 @@ class _SnapshotState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Provides the VPC ID associated with the DB snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -597,8 +597,8 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] status: Specifies the status of this DB snapshot.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] vpc_id: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -777,7 +777,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -785,7 +785,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[str]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Provides the VPC ID associated with the DB snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
