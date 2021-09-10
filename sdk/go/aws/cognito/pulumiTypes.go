@@ -128,7 +128,7 @@ func (o IdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInput)
 type IdentityPoolRoleAttachmentRoleMapping struct {
 	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
 	AmbiguousRoleResolution *string `pulumi:"ambiguousRoleResolution"`
-	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
 	IdentityProvider string `pulumi:"identityProvider"`
 	// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
 	MappingRules []IdentityPoolRoleAttachmentRoleMappingMappingRule `pulumi:"mappingRules"`
@@ -150,7 +150,7 @@ type IdentityPoolRoleAttachmentRoleMappingInput interface {
 type IdentityPoolRoleAttachmentRoleMappingArgs struct {
 	// Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
 	AmbiguousRoleResolution pulumi.StringPtrInput `pulumi:"ambiguousRoleResolution"`
-	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+	// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
 	IdentityProvider pulumi.StringInput `pulumi:"identityProvider"`
 	// The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
 	MappingRules IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput `pulumi:"mappingRules"`
@@ -214,7 +214,7 @@ func (o IdentityPoolRoleAttachmentRoleMappingOutput) AmbiguousRoleResolution() p
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) *string { return v.AmbiguousRoleResolution }).(pulumi.StringPtrOutput)
 }
 
-// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+// A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
 func (o IdentityPoolRoleAttachmentRoleMappingOutput) IdentityProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentityPoolRoleAttachmentRoleMapping) string { return v.IdentityProvider }).(pulumi.StringOutput)
 }

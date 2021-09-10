@@ -5719,6 +5719,29 @@ export namespace chime {
         voiceConnectorId: string;
     }
 
+    export interface VoiceConnectorOrganizationRoute {
+        /**
+         * The FQDN or IP address to contact for origination traffic.
+         */
+        host: string;
+        /**
+         * The designated origination route port. Defaults to `5060`.
+         */
+        port?: number;
+        /**
+         * The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+         */
+        priority: number;
+        /**
+         * The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+         */
+        protocol: string;
+        /**
+         * The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+         */
+        weight: number;
+    }
+
 }
 
 export namespace cloudformation {
@@ -7109,6 +7132,9 @@ export namespace cloudwatch {
     }
 
     export interface MetricAlarmMetricQuery {
+        /**
+         * The ID of the account where the metrics are located, if this is a cross-account alarm.
+         */
         accountId?: string;
         /**
          * The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
@@ -7153,7 +7179,7 @@ export namespace cloudwatch {
         period: number;
         /**
          * The statistic to apply to this metric.
-         * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+         * See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
          */
         stat: string;
         /**
@@ -8163,7 +8189,7 @@ export namespace cognito {
          */
         ambiguousRoleResolution?: string;
         /**
-         * A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".
+         * A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognitoIdentityProviders` set on `aws.cognito.IdentityPool` resource or a `aws.cognito.IdentityProvider` resource.
          */
         identityProvider: string;
         /**

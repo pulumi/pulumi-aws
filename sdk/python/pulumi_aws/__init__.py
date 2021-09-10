@@ -1440,6 +1440,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/voiceConnectorOrganization",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization": "VoiceConnectorOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/voiceConnectorTermination",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorTermination:VoiceConnectorTermination": "VoiceConnectorTermination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloud9/environmentEC2",
   "fqn": "pulumi_aws.cloud9",
   "classes": {
@@ -5092,6 +5108,14 @@ _utilities.register(
   "fqn": "pulumi_aws.quicksight",
   "classes": {
    "aws:quicksight/group:Group": "Group"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "quicksight/groupMembership",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/groupMembership:GroupMembership": "GroupMembership"
   }
  },
  {

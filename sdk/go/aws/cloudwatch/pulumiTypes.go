@@ -4382,6 +4382,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOu
 }
 
 type MetricAlarmMetricQuery struct {
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId *string `pulumi:"accountId"`
 	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
 	Expression *string `pulumi:"expression"`
@@ -4407,6 +4408,7 @@ type MetricAlarmMetricQueryInput interface {
 }
 
 type MetricAlarmMetricQueryArgs struct {
+	// The ID of the account where the metrics are located, if this is a cross-account alarm.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
@@ -4471,6 +4473,7 @@ func (o MetricAlarmMetricQueryOutput) ToMetricAlarmMetricQueryOutputWithContext(
 	return o
 }
 
+// The ID of the account where the metrics are located, if this is a cross-account alarm.
 func (o MetricAlarmMetricQueryOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQuery) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
@@ -4532,7 +4535,7 @@ type MetricAlarmMetricQueryMetric struct {
 	// The period in seconds over which the specified `stat` is applied.
 	Period int `pulumi:"period"`
 	// The statistic to apply to this metric.
-	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 	Stat string `pulumi:"stat"`
 	// The unit for this metric.
 	Unit *string `pulumi:"unit"`
@@ -4561,7 +4564,7 @@ type MetricAlarmMetricQueryMetricArgs struct {
 	// The period in seconds over which the specified `stat` is applied.
 	Period pulumi.IntInput `pulumi:"period"`
 	// The statistic to apply to this metric.
-	// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+	// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 	Stat pulumi.StringInput `pulumi:"stat"`
 	// The unit for this metric.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
@@ -4667,7 +4670,7 @@ func (o MetricAlarmMetricQueryMetricOutput) Period() pulumi.IntOutput {
 }
 
 // The statistic to apply to this metric.
-// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 func (o MetricAlarmMetricQueryMetricOutput) Stat() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricAlarmMetricQueryMetric) string { return v.Stat }).(pulumi.StringOutput)
 }
@@ -4744,7 +4747,7 @@ func (o MetricAlarmMetricQueryMetricPtrOutput) Period() pulumi.IntPtrOutput {
 }
 
 // The statistic to apply to this metric.
-// Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
+// See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
 func (o MetricAlarmMetricQueryMetricPtrOutput) Stat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarmMetricQueryMetric) *string {
 		if v == nil {
