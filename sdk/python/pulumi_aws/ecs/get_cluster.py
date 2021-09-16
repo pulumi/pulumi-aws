@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,25 @@ def get_cluster(cluster_name: Optional[str] = None,
         running_tasks_count=__ret__.running_tasks_count,
         settings=__ret__.settings,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    The ECS Cluster data source allows access to details of a specific
+    cluster within an AWS ECS service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ecs_mongo = aws.ecs.get_cluster(cluster_name="ecs-mongo-production")
+    ```
+
+
+    :param str cluster_name: The name of the ECS Cluster
+    """
+    ...

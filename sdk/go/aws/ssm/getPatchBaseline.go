@@ -4,6 +4,9 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -99,4 +102,79 @@ type LookupPatchBaselineResult struct {
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
+}
+
+func LookupPatchBaselineOutput(ctx *pulumi.Context, args LookupPatchBaselineOutputArgs, opts ...pulumi.InvokeOption) LookupPatchBaselineResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPatchBaselineResult, error) {
+			args := v.(LookupPatchBaselineArgs)
+			r, err := LookupPatchBaseline(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPatchBaselineResultOutput)
+}
+
+// A collection of arguments for invoking getPatchBaseline.
+type LookupPatchBaselineOutputArgs struct {
+	// Filters the results against the baselines defaultBaseline field.
+	DefaultBaseline pulumi.BoolPtrInput `pulumi:"defaultBaseline"`
+	// Filter results by the baseline name prefix.
+	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	// The specified OS for the baseline.
+	OperatingSystem pulumi.StringPtrInput `pulumi:"operatingSystem"`
+	// The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+	Owner pulumi.StringInput `pulumi:"owner"`
+}
+
+func (LookupPatchBaselineOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPatchBaselineArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPatchBaseline.
+type LookupPatchBaselineResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPatchBaselineResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPatchBaselineResult)(nil)).Elem()
+}
+
+func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutput() LookupPatchBaselineResultOutput {
+	return o
+}
+
+func (o LookupPatchBaselineResultOutput) ToLookupPatchBaselineResultOutputWithContext(ctx context.Context) LookupPatchBaselineResultOutput {
+	return o
+}
+
+func (o LookupPatchBaselineResultOutput) DefaultBaseline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *bool { return v.DefaultBaseline }).(pulumi.BoolPtrOutput)
+}
+
+// The description of the baseline.
+func (o LookupPatchBaselineResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPatchBaselineResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the baseline.
+func (o LookupPatchBaselineResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPatchBaselineResultOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPatchBaselineResultOutput) OperatingSystem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) *string { return v.OperatingSystem }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPatchBaselineResultOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPatchBaselineResultOutput{})
 }

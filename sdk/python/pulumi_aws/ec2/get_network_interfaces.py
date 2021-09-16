@@ -14,6 +14,7 @@ __all__ = [
     'GetNetworkInterfacesResult',
     'AwaitableGetNetworkInterfacesResult',
     'get_network_interfaces',
+    'get_network_interfaces_output',
 ]
 
 @pulumi.output_type
@@ -135,3 +136,54 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
         id=__ret__.id,
         ids=__ret__.ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_network_interfaces)
+def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']]]]] = None,
+                                  tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfacesResult]:
+    """
+    ## Example Usage
+
+    The following shows outputing all network interface ids in a region.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_network_interfaces = aws.ec2.get_network_interfaces()
+    pulumi.export("example", example_network_interfaces.ids)
+    ```
+
+    The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_network_interfaces(tags={
+        "Name": "test",
+    })
+    pulumi.export("example1", example.ids)
+    ```
+
+    The following example retrieves a network interface ids which associated
+    with specific subnet.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_network_interfaces = aws.ec2.get_network_interfaces(filters=[aws.ec2.GetNetworkInterfacesFilterArgs(
+        name="subnet-id",
+        values=[aws_subnet["test"]["id"]],
+    )])
+    pulumi.export("example", example_network_interfaces.ids)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired network interfaces.
+    """
+    ...

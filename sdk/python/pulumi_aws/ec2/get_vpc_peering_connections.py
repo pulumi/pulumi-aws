@@ -14,6 +14,7 @@ __all__ = [
     'GetVpcPeeringConnectionsResult',
     'AwaitableGetVpcPeeringConnectionsResult',
     'get_vpc_peering_connections',
+    'get_vpc_peering_connections_output',
 ]
 
 @pulumi.output_type
@@ -100,3 +101,19 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
         id=__ret__.id,
         ids=__ret__.ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_vpc_peering_connections)
+def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']]]]] = None,
+                                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionsResult]:
+    """
+    Use this data source to get IDs of Amazon VPC peering connections
+    To get more details on each connection, use the data resource `ec2.VpcPeeringConnection`
+
+
+    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired VPC Peering Connection.
+    """
+    ...

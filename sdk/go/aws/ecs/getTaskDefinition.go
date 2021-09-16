@@ -4,6 +4,9 @@
 package ecs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,4 +42,76 @@ type LookupTaskDefinitionResult struct {
 	TaskDefinition string `pulumi:"taskDefinition"`
 	// The ARN of the IAM role that containers in this task can assume
 	TaskRoleArn string `pulumi:"taskRoleArn"`
+}
+
+func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTaskDefinitionResult, error) {
+			args := v.(LookupTaskDefinitionArgs)
+			r, err := LookupTaskDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTaskDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getTaskDefinition.
+type LookupTaskDefinitionOutputArgs struct {
+	// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
+}
+
+func (LookupTaskDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTaskDefinition.
+type LookupTaskDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTaskDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTaskDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutput() LookupTaskDefinitionResultOutput {
+	return o
+}
+
+func (o LookupTaskDefinitionResultOutput) ToLookupTaskDefinitionResultOutputWithContext(ctx context.Context) LookupTaskDefinitionResultOutput {
+	return o
+}
+
+// The family of this task definition
+func (o LookupTaskDefinitionResultOutput) Family() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Family }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Docker networking mode to use for the containers in this task.
+func (o LookupTaskDefinitionResultOutput) NetworkMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.NetworkMode }).(pulumi.StringOutput)
+}
+
+// The revision of this task definition
+func (o LookupTaskDefinitionResultOutput) Revision() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) int { return v.Revision }).(pulumi.IntOutput)
+}
+
+// The status of this task definition
+func (o LookupTaskDefinitionResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o LookupTaskDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskDefinition }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that containers in this task can assume
+func (o LookupTaskDefinitionResultOutput) TaskRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.TaskRoleArn }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTaskDefinitionResultOutput{})
 }

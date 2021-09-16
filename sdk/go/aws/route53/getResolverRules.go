@@ -4,6 +4,9 @@
 package route53
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,4 +96,74 @@ type GetResolverRulesResult struct {
 	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
 	RuleType        *string  `pulumi:"ruleType"`
 	ShareStatus     *string  `pulumi:"shareStatus"`
+}
+
+func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverRulesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetResolverRulesResult, error) {
+			args := v.(GetResolverRulesArgs)
+			r, err := GetResolverRules(ctx, &args, opts...)
+			return *r, err
+		}).(GetResolverRulesResultOutput)
+}
+
+// A collection of arguments for invoking getResolverRules.
+type GetResolverRulesOutputArgs struct {
+	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// The ID of the outbound resolver endpoint for the desired resolver rules.
+	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
+	// The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+	RuleType pulumi.StringPtrInput `pulumi:"ruleType"`
+	// Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+	ShareStatus pulumi.StringPtrInput `pulumi:"shareStatus"`
+}
+
+func (GetResolverRulesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverRulesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getResolverRules.
+type GetResolverRulesResultOutput struct{ *pulumi.OutputState }
+
+func (GetResolverRulesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResolverRulesResult)(nil)).Elem()
+}
+
+func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutput() GetResolverRulesResultOutput {
+	return o
+}
+
+func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutputWithContext(ctx context.Context) GetResolverRulesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetResolverRulesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetResolverRulesResultOutput) OwnerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetResolverRulesResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the matched resolver rules.
+func (o GetResolverRulesResultOutput) ResolverRuleIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) []string { return v.ResolverRuleIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetResolverRulesResultOutput) RuleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.RuleType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetResolverRulesResultOutput) ShareStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.ShareStatus }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetResolverRulesResultOutput{})
 }

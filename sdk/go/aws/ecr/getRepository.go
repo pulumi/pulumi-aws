@@ -4,6 +4,9 @@
 package ecr
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,93 @@ type LookupRepositoryResult struct {
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRepositoryResult, error) {
+			args := v.(LookupRepositoryArgs)
+			r, err := LookupRepository(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRepositoryResultOutput)
+}
+
+// A collection of arguments for invoking getRepository.
+type LookupRepositoryOutputArgs struct {
+	// The name of the ECR Repository.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The registry ID where the repository was created.
+	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
+	// A map of tags assigned to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupRepositoryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepository.
+type LookupRepositoryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRepositoryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRepositoryResult)(nil)).Elem()
+}
+
+func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutput() LookupRepositoryResultOutput {
+	return o
+}
+
+func (o LookupRepositoryResultOutput) ToLookupRepositoryResultOutputWithContext(ctx context.Context) LookupRepositoryResultOutput {
+	return o
+}
+
+// Full ARN of the repository.
+func (o LookupRepositoryResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Encryption configuration for the repository. See Encryption Configuration below.
+func (o LookupRepositoryResultOutput) EncryptionConfigurations() GetRepositoryEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryEncryptionConfiguration {
+		return v.EncryptionConfigurations
+	}).(GetRepositoryEncryptionConfigurationArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Configuration block that defines image scanning configuration for the repository. See Image Scanning Configuration below.
+func (o LookupRepositoryResultOutput) ImageScanningConfigurations() GetRepositoryImageScanningConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) []GetRepositoryImageScanningConfiguration {
+		return v.ImageScanningConfigurations
+	}).(GetRepositoryImageScanningConfigurationArrayOutput)
+}
+
+// The tag mutability setting for the repository.
+func (o LookupRepositoryResultOutput) ImageTagMutability() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.ImageTagMutability }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RegistryId }).(pulumi.StringOutput)
+}
+
+// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+func (o LookupRepositoryResultOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the resource.
+func (o LookupRepositoryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRepositoryResultOutput{})
 }

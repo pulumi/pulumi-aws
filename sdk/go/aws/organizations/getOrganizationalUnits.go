@@ -4,6 +4,9 @@
 package organizations
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,56 @@ type GetOrganizationalUnitsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	ParentId string `pulumi:"parentId"`
+}
+
+func GetOrganizationalUnitsOutput(ctx *pulumi.Context, args GetOrganizationalUnitsOutputArgs, opts ...pulumi.InvokeOption) GetOrganizationalUnitsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOrganizationalUnitsResult, error) {
+			args := v.(GetOrganizationalUnitsArgs)
+			r, err := GetOrganizationalUnits(ctx, &args, opts...)
+			return *r, err
+		}).(GetOrganizationalUnitsResultOutput)
+}
+
+// A collection of arguments for invoking getOrganizationalUnits.
+type GetOrganizationalUnitsOutputArgs struct {
+	// The parent ID of the organizational unit.
+	ParentId pulumi.StringInput `pulumi:"parentId"`
+}
+
+func (GetOrganizationalUnitsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOrganizationalUnits.
+type GetOrganizationalUnitsResultOutput struct{ *pulumi.OutputState }
+
+func (GetOrganizationalUnitsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrganizationalUnitsResult)(nil)).Elem()
+}
+
+func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutput() GetOrganizationalUnitsResultOutput {
+	return o
+}
+
+func (o GetOrganizationalUnitsResultOutput) ToGetOrganizationalUnitsResultOutputWithContext(ctx context.Context) GetOrganizationalUnitsResultOutput {
+	return o
+}
+
+// List of child organizational units, which have the following attributes:
+func (o GetOrganizationalUnitsResultOutput) Childrens() GetOrganizationalUnitsChildrenArrayOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) []GetOrganizationalUnitsChildren { return v.Childrens }).(GetOrganizationalUnitsChildrenArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetOrganizationalUnitsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetOrganizationalUnitsResultOutput) ParentId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrganizationalUnitsResult) string { return v.ParentId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOrganizationalUnitsResultOutput{})
 }

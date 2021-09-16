@@ -12,6 +12,7 @@ __all__ = [
     'GetLocationResult',
     'AwaitableGetLocationResult',
     'get_location',
+    'get_location_output',
 ]
 
 @pulumi.output_type
@@ -93,7 +94,7 @@ def get_location(location_code: Optional[str] = None,
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
     These are the locations that can be specified when configuring [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
 
-    > **Note:** This data source is different from the [`directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+    > **Note:** This data source is different from the [`directconnect.get_locations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
 
     ## Example Usage
 
@@ -121,3 +122,27 @@ def get_location(location_code: Optional[str] = None,
         id=__ret__.id,
         location_code=__ret__.location_code,
         location_name=__ret__.location_name)
+
+
+@_utilities.lift_output_func(get_location)
+def get_location_output(location_code: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+    """
+    Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
+    These are the locations that can be specified when configuring [`directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+
+    > **Note:** This data source is different from the [`directconnect.get_locations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directconnect.get_location(location_code="CS32A-24FL")
+    ```
+
+
+    :param str location_code: The code for the location to retrieve.
+    """
+    ...

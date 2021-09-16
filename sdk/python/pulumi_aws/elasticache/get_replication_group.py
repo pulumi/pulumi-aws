@@ -12,6 +12,7 @@ __all__ = [
     'GetReplicationGroupResult',
     'AwaitableGetReplicationGroupResult',
     'get_replication_group',
+    'get_replication_group_output',
 ]
 
 @pulumi.output_type
@@ -261,3 +262,24 @@ def get_replication_group(replication_group_id: Optional[str] = None,
         replication_group_id=__ret__.replication_group_id,
         snapshot_retention_limit=__ret__.snapshot_retention_limit,
         snapshot_window=__ret__.snapshot_window)
+
+
+@_utilities.lift_output_func(get_replication_group)
+def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationGroupResult]:
+    """
+    Use this data source to get information about an Elasticache Replication Group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.elasticache.get_replication_group(replication_group_id="example")
+    ```
+
+
+    :param str replication_group_id: The identifier for the replication group.
+    """
+    ...

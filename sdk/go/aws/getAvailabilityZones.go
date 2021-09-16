@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -157,4 +160,92 @@ type GetAvailabilityZonesResult struct {
 	State *string  `pulumi:"state"`
 	// A list of the Availability Zone IDs available to the account.
 	ZoneIds []string `pulumi:"zoneIds"`
+}
+
+func GetAvailabilityZonesOutput(ctx *pulumi.Context, args GetAvailabilityZonesOutputArgs, opts ...pulumi.InvokeOption) GetAvailabilityZonesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAvailabilityZonesResult, error) {
+			args := v.(GetAvailabilityZonesArgs)
+			r, err := GetAvailabilityZones(ctx, &args, opts...)
+			return *r, err
+		}).(GetAvailabilityZonesResultOutput)
+}
+
+// A collection of arguments for invoking getAvailabilityZones.
+type GetAvailabilityZonesOutputArgs struct {
+	// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+	AllAvailabilityZones pulumi.BoolPtrInput `pulumi:"allAvailabilityZones"`
+	// List of Availability Zone names to exclude.
+	ExcludeNames pulumi.StringArrayInput `pulumi:"excludeNames"`
+	// List of Availability Zone IDs to exclude.
+	ExcludeZoneIds pulumi.StringArrayInput `pulumi:"excludeZoneIds"`
+	// Configuration block(s) for filtering. Detailed below.
+	Filters GetAvailabilityZonesFilterArrayInput `pulumi:"filters"`
+	// Allows to filter list of Availability Zones based on their
+	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
+	// `"unavailable"`. By default the list includes a complete set of Availability Zones
+	// to which the underlying AWS account has access, regardless of their state.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (GetAvailabilityZonesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZonesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAvailabilityZones.
+type GetAvailabilityZonesResultOutput struct{ *pulumi.OutputState }
+
+func (GetAvailabilityZonesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAvailabilityZonesResult)(nil)).Elem()
+}
+
+func (o GetAvailabilityZonesResultOutput) ToGetAvailabilityZonesResultOutput() GetAvailabilityZonesResultOutput {
+	return o
+}
+
+func (o GetAvailabilityZonesResultOutput) ToGetAvailabilityZonesResultOutputWithContext(ctx context.Context) GetAvailabilityZonesResultOutput {
+	return o
+}
+
+func (o GetAvailabilityZonesResultOutput) AllAvailabilityZones() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) *bool { return v.AllAvailabilityZones }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) ExcludeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.ExcludeNames }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) ExcludeZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.ExcludeZoneIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) Filters() GetAvailabilityZonesFilterArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []GetAvailabilityZonesFilter { return v.Filters }).(GetAvailabilityZonesFilterArrayOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) GroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.GroupNames }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAvailabilityZonesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of the Availability Zone names available to the account.
+func (o GetAvailabilityZonesResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// A list of the Availability Zone IDs available to the account.
+func (o GetAvailabilityZonesResultOutput) ZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.ZoneIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAvailabilityZonesResultOutput{})
 }

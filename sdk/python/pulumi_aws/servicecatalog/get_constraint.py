@@ -12,6 +12,7 @@ __all__ = [
     'GetConstraintResult',
     'AwaitableGetConstraintResult',
     'get_constraint',
+    'get_constraint_output',
 ]
 
 @pulumi.output_type
@@ -175,3 +176,30 @@ def get_constraint(accept_language: Optional[str] = None,
         product_id=__ret__.product_id,
         status=__ret__.status,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_constraint)
+def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
+                          description: Optional[pulumi.Input[Optional[str]]] = None,
+                          id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConstraintResult]:
+    """
+    Provides information on a Service Catalog Constraint.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_constraint(accept_language="en",
+        id="cons-hrvy0335")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str description: Description of the constraint.
+    :param str id: Constraint identifier.
+    """
+    ...

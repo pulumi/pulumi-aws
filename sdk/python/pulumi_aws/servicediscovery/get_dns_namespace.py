@@ -12,6 +12,7 @@ __all__ = [
     'GetDnsNamespaceResult',
     'AwaitableGetDnsNamespaceResult',
     'get_dns_namespace',
+    'get_dns_namespace_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,27 @@ def get_dns_namespace(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_dns_namespace)
+def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
+                             type: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsNamespaceResult]:
+    """
+    Retrieves information about a Service Discovery private or public DNS namespace.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.servicediscovery.get_dns_namespace(name="example.service.local",
+        type="DNS_PRIVATE")
+    ```
+
+
+    :param str name: The name of the namespace.
+    :param str type: The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+    """
+    ...

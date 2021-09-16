@@ -13,6 +13,7 @@ __all__ = [
     'GetSigningProfileResult',
     'AwaitableGetSigningProfileResult',
     'get_signing_profile',
+    'get_signing_profile_output',
 ]
 
 @pulumi.output_type
@@ -200,3 +201,26 @@ def get_signing_profile(name: Optional[str] = None,
         tags=__ret__.tags,
         version=__ret__.version,
         version_arn=__ret__.version_arn)
+
+
+@_utilities.lift_output_func(get_signing_profile)
+def get_signing_profile_output(name: Optional[pulumi.Input[str]] = None,
+                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
+    """
+    Provides information about a Signer Signing Profile.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    production_signing_profile = aws.signer.get_signing_profile(name="prod_profile_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK")
+    ```
+
+
+    :param str name: The name of the target signing profile.
+    :param Mapping[str, str] tags: A list of tags associated with the signing profile.
+    """
+    ...

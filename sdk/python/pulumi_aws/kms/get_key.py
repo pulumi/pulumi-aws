@@ -12,6 +12,7 @@ __all__ = [
     'GetKeyResult',
     'AwaitableGetKeyResult',
     'get_key',
+    'get_key_output',
 ]
 
 @pulumi.output_type
@@ -232,3 +233,36 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
         key_usage=__ret__.key_usage,
         origin=__ret__.origin,
         valid_to=__ret__.valid_to)
+
+
+@_utilities.lift_output_func(get_key)
+def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                   key_id: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
+    """
+    Use this data source to get detailed information about
+    the specified KMS Key with flexible key id input.
+    This can be useful to reference key alias
+    without having to hard code the ARN as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_alias = aws.kms.get_key(key_id="alias/my-key")
+    by_id = aws.kms.get_key(key_id="1234abcd-12ab-34cd-56ef-1234567890ab")
+    by_alias_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:alias/my-key")
+    by_key_arn = aws.kms.get_key(key_id="arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab")
+    ```
+
+
+    :param Sequence[str] grant_tokens: List of grant tokens
+    :param str key_id: Key identifier which can be one of the following format:
+           * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
+           * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+           * Alias name. E.g.: `alias/my-key`
+           * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    """
+    ...

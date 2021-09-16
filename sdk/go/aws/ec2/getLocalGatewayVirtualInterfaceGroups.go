@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,69 @@ type GetLocalGatewayVirtualInterfaceGroupsResult struct {
 	// Set of EC2 Local Gateway Virtual Interface identifiers.
 	LocalGatewayVirtualInterfaceIds []string          `pulumi:"localGatewayVirtualInterfaceIds"`
 	Tags                            map[string]string `pulumi:"tags"`
+}
+
+func GetLocalGatewayVirtualInterfaceGroupsOutput(ctx *pulumi.Context, args GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayVirtualInterfaceGroupsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLocalGatewayVirtualInterfaceGroupsResult, error) {
+			args := v.(GetLocalGatewayVirtualInterfaceGroupsArgs)
+			r, err := GetLocalGatewayVirtualInterfaceGroups(ctx, &args, opts...)
+			return *r, err
+		}).(GetLocalGatewayVirtualInterfaceGroupsResultOutput)
+}
+
+// A collection of arguments for invoking getLocalGatewayVirtualInterfaceGroups.
+type GetLocalGatewayVirtualInterfaceGroupsOutputArgs struct {
+	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+	Filters GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput `pulumi:"filters"`
+	// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetLocalGatewayVirtualInterfaceGroupsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLocalGatewayVirtualInterfaceGroups.
+type GetLocalGatewayVirtualInterfaceGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetLocalGatewayVirtualInterfaceGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocalGatewayVirtualInterfaceGroupsResult)(nil)).Elem()
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirtualInterfaceGroupsResultOutput() GetLocalGatewayVirtualInterfaceGroupsResultOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) ToGetLocalGatewayVirtualInterfaceGroupsResultOutputWithContext(ctx context.Context) GetLocalGatewayVirtualInterfaceGroupsResultOutput {
+	return o
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Filters() GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) []GetLocalGatewayVirtualInterfaceGroupsFilter {
+		return v.Filters
+	}).(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of EC2 Local Gateway Virtual Interface Group identifiers.
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+// Set of EC2 Local Gateway Virtual Interface identifiers.
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) LocalGatewayVirtualInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) []string { return v.LocalGatewayVirtualInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsResultOutput{})
 }

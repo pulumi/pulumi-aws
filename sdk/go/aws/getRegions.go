@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,4 +115,62 @@ type GetRegionsResult struct {
 	Id string `pulumi:"id"`
 	// Names of regions that meets the criteria.
 	Names []string `pulumi:"names"`
+}
+
+func GetRegionsOutput(ctx *pulumi.Context, args GetRegionsOutputArgs, opts ...pulumi.InvokeOption) GetRegionsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRegionsResult, error) {
+			args := v.(GetRegionsArgs)
+			r, err := GetRegions(ctx, &args, opts...)
+			return *r, err
+		}).(GetRegionsResultOutput)
+}
+
+// A collection of arguments for invoking getRegions.
+type GetRegionsOutputArgs struct {
+	// If true the source will query all regions regardless of availability.
+	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
+	// Configuration block(s) to use as filters. Detailed below.
+	Filters GetRegionsFilterArrayInput `pulumi:"filters"`
+}
+
+func (GetRegionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegionsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRegions.
+type GetRegionsResultOutput struct{ *pulumi.OutputState }
+
+func (GetRegionsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegionsResult)(nil)).Elem()
+}
+
+func (o GetRegionsResultOutput) ToGetRegionsResultOutput() GetRegionsResultOutput {
+	return o
+}
+
+func (o GetRegionsResultOutput) ToGetRegionsResultOutputWithContext(ctx context.Context) GetRegionsResultOutput {
+	return o
+}
+
+func (o GetRegionsResultOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRegionsResult) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetRegionsResultOutput) Filters() GetRegionsFilterArrayOutput {
+	return o.ApplyT(func(v GetRegionsResult) []GetRegionsFilter { return v.Filters }).(GetRegionsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRegionsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Names of regions that meets the criteria.
+func (o GetRegionsResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRegionsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRegionsResultOutput{})
 }

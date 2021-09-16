@@ -4,6 +4,9 @@
 package acmpca
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,67 @@ type LookupCertificateResult struct {
 	CertificateChain string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type LookupCertificateOutputArgs struct {
+	// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Amazon Resource Name (ARN) of the certificate authority.
+	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The PEM-encoded certificate value.
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) CertificateAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateAuthorityArn }).(pulumi.StringOutput)
+}
+
+// The PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
+func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

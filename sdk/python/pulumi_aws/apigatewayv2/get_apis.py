@@ -12,6 +12,7 @@ __all__ = [
     'GetApisResult',
     'AwaitableGetApisResult',
     'get_apis',
+    'get_apis_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,29 @@ def get_apis(name: Optional[str] = None,
         name=__ret__.name,
         protocol_type=__ret__.protocol_type,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_apis)
+def get_apis_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                    protocol_type: Optional[pulumi.Input[Optional[str]]] = None,
+                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApisResult]:
+    """
+    Provides details about multiple Amazon API Gateway Version 2 APIs.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigatewayv2.get_apis(protocol_type="HTTP")
+    ```
+
+
+    :param str name: The API name.
+    :param str protocol_type: The API protocol.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired APIs.
+    """
+    ...

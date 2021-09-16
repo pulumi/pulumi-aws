@@ -4,6 +4,9 @@
 package eks
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -56,4 +59,118 @@ type LookupClusterResult struct {
 	Version string `pulumi:"version"`
 	// Nested list containing VPC configuration for the cluster.
 	VpcConfig GetClusterVpcConfig `pulumi:"vpcConfig"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type LookupClusterOutputArgs struct {
+	// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Key-value map of resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the cluster.
+func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Nested attribute containing `certificate-authority-data` for your cluster.
+func (o LookupClusterResultOutput) CertificateAuthority() GetClusterCertificateAuthorityOutput {
+	return o.ApplyT(func(v LookupClusterResult) GetClusterCertificateAuthority { return v.CertificateAuthority }).(GetClusterCertificateAuthorityOutput)
+}
+
+// The Unix epoch time stamp in seconds for when the cluster was created.
+func (o LookupClusterResultOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// The enabled control plane logs.
+func (o LookupClusterResultOutput) EnabledClusterLogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.EnabledClusterLogTypes }).(pulumi.StringArrayOutput)
+}
+
+// The endpoint for your Kubernetes API server.
+func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Nested attribute containing identity provider information for your cluster. Only available on Kubernetes version 1.13 and 1.14 clusters created or upgraded on or after September 3, 2019. For an example using this information to enable IAM Roles for Service Accounts, see the `eks.Cluster` resource documentation.
+func (o LookupClusterResultOutput) Identities() GetClusterIdentityArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterIdentity { return v.Identities }).(GetClusterIdentityArrayOutput)
+}
+
+// Nested list containing Kubernetes Network Configuration.
+func (o LookupClusterResultOutput) KubernetesNetworkConfigs() GetClusterKubernetesNetworkConfigArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterKubernetesNetworkConfig { return v.KubernetesNetworkConfigs }).(GetClusterKubernetesNetworkConfigArrayOutput)
+}
+
+func (o LookupClusterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The platform version for the cluster.
+func (o LookupClusterResultOutput) PlatformVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.PlatformVersion }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+func (o LookupClusterResultOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
+func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags.
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The Kubernetes server version for the cluster.
+func (o LookupClusterResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// Nested list containing VPC configuration for the cluster.
+func (o LookupClusterResultOutput) VpcConfig() GetClusterVpcConfigOutput {
+	return o.ApplyT(func(v LookupClusterResult) GetClusterVpcConfig { return v.VpcConfig }).(GetClusterVpcConfigOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

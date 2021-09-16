@@ -4,6 +4,9 @@
 package codestarconnections
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,78 @@ type LookupConnectionResult struct {
 	ProviderType string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConnectionResult, error) {
+			args := v.(LookupConnectionArgs)
+			r, err := LookupConnection(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConnectionResultOutput)
+}
+
+// A collection of arguments for invoking getConnection.
+type LookupConnectionOutputArgs struct {
+	// The CodeStar Connection ARN.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Map of key-value resource tags to associate with the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupConnectionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getConnection.
+type LookupConnectionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConnectionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConnectionResult)(nil)).Elem()
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutput() LookupConnectionResultOutput {
+	return o
+}
+
+func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(ctx context.Context) LookupConnectionResultOutput {
+	return o
+}
+
+func (o LookupConnectionResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The CodeStar Connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
+func (o LookupConnectionResultOutput) ConnectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.ConnectionStatus }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the host associated with the connection.
+func (o LookupConnectionResultOutput) HostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.HostArn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupConnectionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the CodeStar Connection. The name is unique in the calling AWS account.
+func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
+func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+// Map of key-value resource tags to associate with the resource.
+func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConnectionResultOutput{})
 }

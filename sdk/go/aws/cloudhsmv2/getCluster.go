@@ -4,6 +4,9 @@
 package cloudhsmv2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -68,4 +71,83 @@ type LookupClusterResult struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId string `pulumi:"vpcId"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type LookupClusterOutputArgs struct {
+	// The id of Cloud HSM v2 cluster.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// The state of the cluster to be found.
+	ClusterState pulumi.StringPtrInput `pulumi:"clusterState"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// The list of cluster certificates.
+// * `cluster_certificates.0.cluster_certificate` - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+// * `cluster_certificates.0.cluster_csr` - The certificate signing request (CSR). Available only in UNINITIALIZED state.
+// * `cluster_certificates.0.aws_hardware_certificate` - The HSM hardware certificate issued (signed) by AWS CloudHSM.
+// * `cluster_certificates.0.hsm_certificate` - The HSM certificate issued (signed) by the HSM hardware.
+// * `cluster_certificates.0.manufacturer_hardware_certificate` - The HSM hardware certificate issued (signed) by the hardware manufacturer.
+//   The number of available cluster certificates may vary depending on state of the cluster.
+func (o LookupClusterResultOutput) ClusterCertificates() GetClusterClusterCertificatesOutput {
+	return o.ApplyT(func(v LookupClusterResult) GetClusterClusterCertificates { return v.ClusterCertificates }).(GetClusterClusterCertificatesOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterState }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ID of the security group associated with the CloudHSM cluster.
+func (o LookupClusterResultOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The IDs of subnets in which cluster operates.
+func (o LookupClusterResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The id of the VPC that the CloudHSM cluster resides in.
+func (o LookupClusterResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

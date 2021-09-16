@@ -4,6 +4,9 @@
 package workspaces
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,75 @@ type GetImageResult struct {
 	RequiredTenancy string `pulumi:"requiredTenancy"`
 	// The status of the image.
 	State string `pulumi:"state"`
+}
+
+func GetImageOutput(ctx *pulumi.Context, args GetImageOutputArgs, opts ...pulumi.InvokeOption) GetImageResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetImageResult, error) {
+			args := v.(GetImageArgs)
+			r, err := GetImage(ctx, &args, opts...)
+			return *r, err
+		}).(GetImageResultOutput)
+}
+
+// A collection of arguments for invoking getImage.
+type GetImageOutputArgs struct {
+	// The ID of the image.
+	ImageId pulumi.StringInput `pulumi:"imageId"`
+}
+
+func (GetImageOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getImage.
+type GetImageResultOutput struct{ *pulumi.OutputState }
+
+func (GetImageResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageResult)(nil)).Elem()
+}
+
+func (o GetImageResultOutput) ToGetImageResultOutput() GetImageResultOutput {
+	return o
+}
+
+func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Context) GetImageResultOutput {
+	return o
+}
+
+// The description of the image.
+func (o GetImageResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetImageResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.ImageId }).(pulumi.StringOutput)
+}
+
+// The name of the image.
+func (o GetImageResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) OperatingSystemType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.OperatingSystemType }).(pulumi.StringOutput)
+}
+
+// Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
+func (o GetImageResultOutput) RequiredTenancy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.RequiredTenancy }).(pulumi.StringOutput)
+}
+
+// The status of the image.
+func (o GetImageResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetImageResultOutput{})
 }

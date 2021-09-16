@@ -4,6 +4,9 @@
 package ssm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,73 @@ type LookupParameterResult struct {
 	Value          string `pulumi:"value"`
 	Version        int    `pulumi:"version"`
 	WithDecryption *bool  `pulumi:"withDecryption"`
+}
+
+func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupParameterResult, error) {
+			args := v.(LookupParameterArgs)
+			r, err := LookupParameter(ctx, &args, opts...)
+			return *r, err
+		}).(LookupParameterResultOutput)
+}
+
+// A collection of arguments for invoking getParameter.
+type LookupParameterOutputArgs struct {
+	// The name of the parameter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to return decrypted `SecureString` value. Defaults to `true`.
+	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
+}
+
+func (LookupParameterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupParameterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getParameter.
+type LookupParameterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupParameterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupParameterResult)(nil)).Elem()
+}
+
+func (o LookupParameterResultOutput) ToLookupParameterResultOutput() LookupParameterResultOutput {
+	return o
+}
+
+func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ctx context.Context) LookupParameterResultOutput {
+	return o
+}
+
+func (o LookupParameterResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupParameterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) Version() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupParameterResult) int { return v.Version }).(pulumi.IntOutput)
+}
+
+func (o LookupParameterResultOutput) WithDecryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupParameterResult) *bool { return v.WithDecryption }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupParameterResultOutput{})
 }

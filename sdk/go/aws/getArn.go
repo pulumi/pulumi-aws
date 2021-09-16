@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,78 @@ type GetArnResult struct {
 	Resource string `pulumi:"resource"`
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
 	Service string `pulumi:"service"`
+}
+
+func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.InvokeOption) GetArnResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetArnResult, error) {
+			args := v.(GetArnArgs)
+			r, err := GetArn(ctx, &args, opts...)
+			return *r, err
+		}).(GetArnResultOutput)
+}
+
+// A collection of arguments for invoking getArn.
+type GetArnOutputArgs struct {
+	// The ARN to parse.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetArnOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetArnArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getArn.
+type GetArnResultOutput struct{ *pulumi.OutputState }
+
+func (GetArnResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetArnResult)(nil)).Elem()
+}
+
+func (o GetArnResultOutput) ToGetArnResultOutput() GetArnResultOutput {
+	return o
+}
+
+func (o GetArnResultOutput) ToGetArnResultOutputWithContext(ctx context.Context) GetArnResultOutput {
+	return o
+}
+
+// The [ID](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS account that owns the resource, without the hyphens.
+func (o GetArnResultOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Account }).(pulumi.StringOutput)
+}
+
+func (o GetArnResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetArnResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The partition that the resource is in.
+func (o GetArnResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+// The region the resource resides in.
+// Note that the ARNs for some resources do not require a region, so this component might be omitted.
+func (o GetArnResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The content of this part of the ARN varies by service.
+// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+func (o GetArnResultOutput) Resource() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Resource }).(pulumi.StringOutput)
+}
+
+// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
+func (o GetArnResultOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetArnResult) string { return v.Service }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetArnResultOutput{})
 }

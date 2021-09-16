@@ -4,6 +4,9 @@
 package secretsmanager
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,4 +103,99 @@ type LookupSecretResult struct {
 	RotationRules []GetSecretRotationRule `pulumi:"rotationRules"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecretResult, error) {
+			args := v.(LookupSecretArgs)
+			r, err := LookupSecret(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecretResultOutput)
+}
+
+// A collection of arguments for invoking getSecret.
+type LookupSecretOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the secret to retrieve.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The name of the secret to retrieve.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupSecretOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecret.
+type LookupSecretResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecretResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretResult)(nil)).Elem()
+}
+
+func (o LookupSecretResultOutput) ToLookupSecretResultOutput() LookupSecretResultOutput {
+	return o
+}
+
+func (o LookupSecretResultOutput) ToLookupSecretResultOutputWithContext(ctx context.Context) LookupSecretResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o LookupSecretResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// A description of the secret.
+func (o LookupSecretResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource-based policy document that's attached to the secret.
+func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Whether rotation is enabled or not.
+//
+// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
+func (o LookupSecretResultOutput) RotationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSecretResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
+}
+
+// Rotation Lambda function Amazon Resource Name (ARN) if rotation is enabled.
+//
+// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
+func (o LookupSecretResultOutput) RotationLambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
+}
+
+// Rotation rules if rotation is enabled.
+//
+// Deprecated: Use the aws_secretsmanager_secret_rotation data source instead
+func (o LookupSecretResultOutput) RotationRules() GetSecretRotationRuleArrayOutput {
+	return o.ApplyT(func(v LookupSecretResult) []GetSecretRotationRule { return v.RotationRules }).(GetSecretRotationRuleArrayOutput)
+}
+
+// Tags of the secret.
+func (o LookupSecretResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSecretResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecretResultOutput{})
 }

@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,4 +39,63 @@ type GetVpcsResult struct {
 	// A list of all the VPC Ids found. This data source will fail if none are found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.InvokeOption) GetVpcsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVpcsResult, error) {
+			args := v.(GetVpcsArgs)
+			r, err := GetVpcs(ctx, &args, opts...)
+			return *r, err
+		}).(GetVpcsResultOutput)
+}
+
+// A collection of arguments for invoking getVpcs.
+type GetVpcsOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetVpcsFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired vpcs.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetVpcsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVpcs.
+type GetVpcsResultOutput struct{ *pulumi.OutputState }
+
+func (GetVpcsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcsResult)(nil)).Elem()
+}
+
+func (o GetVpcsResultOutput) ToGetVpcsResultOutput() GetVpcsResultOutput {
+	return o
+}
+
+func (o GetVpcsResultOutput) ToGetVpcsResultOutputWithContext(ctx context.Context) GetVpcsResultOutput {
+	return o
+}
+
+func (o GetVpcsResultOutput) Filters() GetVpcsFilterArrayOutput {
+	return o.ApplyT(func(v GetVpcsResult) []GetVpcsFilter { return v.Filters }).(GetVpcsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVpcsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of all the VPC Ids found. This data source will fail if none are found.
+func (o GetVpcsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetVpcsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVpcsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVpcsResultOutput{})
 }

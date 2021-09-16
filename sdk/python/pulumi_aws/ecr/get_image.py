@@ -12,6 +12,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,31 @@ def get_image(image_digest: Optional[str] = None,
         image_tags=__ret__.image_tags,
         registry_id=__ret__.registry_id,
         repository_name=__ret__.repository_name)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(image_digest: Optional[pulumi.Input[Optional[str]]] = None,
+                     image_tag: Optional[pulumi.Input[Optional[str]]] = None,
+                     registry_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     repository_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    service_image = aws.ecr.get_image(image_tag="latest",
+        repository_name="my/service")
+    ```
+
+
+    :param str image_digest: The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+    :param str image_tag: The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+    :param str registry_id: The ID of the Registry where the repository resides.
+    :param str repository_name: The name of the ECR Repository.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetStreamConsumerResult',
     'AwaitableGetStreamConsumerResult',
     'get_stream_consumer',
+    'get_stream_consumer_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,31 @@ def get_stream_consumer(arn: Optional[str] = None,
         name=__ret__.name,
         status=__ret__.status,
         stream_arn=__ret__.stream_arn)
+
+
+@_utilities.lift_output_func(get_stream_consumer)
+def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                               name: Optional[pulumi.Input[Optional[str]]] = None,
+                               stream_arn: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamConsumerResult]:
+    """
+    Provides details about a Kinesis Stream Consumer.
+
+    For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.kinesis.get_stream_consumer(name="example-consumer",
+        stream_arn=aws_kinesis_stream["example"]["arn"])
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the stream consumer.
+    :param str name: Name of the stream consumer.
+    :param str stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+    """
+    ...

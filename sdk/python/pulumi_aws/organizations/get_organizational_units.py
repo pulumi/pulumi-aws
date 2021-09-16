@@ -13,6 +13,7 @@ __all__ = [
     'GetOrganizationalUnitsResult',
     'AwaitableGetOrganizationalUnitsResult',
     'get_organizational_units',
+    'get_organizational_units_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,25 @@ def get_organizational_units(parent_id: Optional[str] = None,
         childrens=__ret__.childrens,
         id=__ret__.id,
         parent_id=__ret__.parent_id)
+
+
+@_utilities.lift_output_func(get_organizational_units)
+def get_organizational_units_output(parent_id: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationalUnitsResult]:
+    """
+    Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    org = aws.organizations.get_organization()
+    ou = aws.organizations.get_organizational_units(parent_id=org.roots[0].id)
+    ```
+
+
+    :param str parent_id: The parent ID of the organizational unit.
+    """
+    ...

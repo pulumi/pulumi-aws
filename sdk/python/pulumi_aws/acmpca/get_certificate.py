@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,27 @@ def get_certificate(arn: Optional[str] = None,
         certificate_authority_arn=__ret__.certificate_authority_arn,
         certificate_chain=__ret__.certificate_chain,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(arn: Optional[pulumi.Input[str]] = None,
+                           certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.acmpca.get_certificate(arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
+        certificate_authority_arn="arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+    :param str certificate_authority_arn: Amazon Resource Name (ARN) of the certificate authority.
+    """
+    ...

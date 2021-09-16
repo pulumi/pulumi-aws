@@ -12,6 +12,7 @@ __all__ = [
     'GetEventConnectionResult',
     'AwaitableGetEventConnectionResult',
     'get_event_connection',
+    'get_event_connection_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,26 @@ def get_event_connection(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         secret_arn=__ret__.secret_arn)
+
+
+@_utilities.lift_output_func(get_event_connection)
+def get_event_connection_output(name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventConnectionResult]:
+    """
+    Use this data source to retrieve information about a EventBridge connection.
+
+    > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.cloudwatch.get_event_connection(name="test")
+    ```
+
+
+    :param str name: The name of the connection.
+    """
+    ...

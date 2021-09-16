@@ -4,6 +4,9 @@
 package kms
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,68 @@ type GetCipherTextResult struct {
 	Id        string `pulumi:"id"`
 	KeyId     string `pulumi:"keyId"`
 	Plaintext string `pulumi:"plaintext"`
+}
+
+func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts ...pulumi.InvokeOption) GetCipherTextResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCipherTextResult, error) {
+			args := v.(GetCipherTextArgs)
+			r, err := GetCipherText(ctx, &args, opts...)
+			return *r, err
+		}).(GetCipherTextResultOutput)
+}
+
+// A collection of arguments for invoking getCipherText.
+type GetCipherTextOutputArgs struct {
+	// An optional mapping that makes up the encryption context.
+	Context pulumi.StringMapInput `pulumi:"context"`
+	// Globally unique key ID for the customer master key.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
+	Plaintext pulumi.StringInput `pulumi:"plaintext"`
+}
+
+func (GetCipherTextOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCipherTextArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCipherText.
+type GetCipherTextResultOutput struct{ *pulumi.OutputState }
+
+func (GetCipherTextResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCipherTextResult)(nil)).Elem()
+}
+
+func (o GetCipherTextResultOutput) ToGetCipherTextResultOutput() GetCipherTextResultOutput {
+	return o
+}
+
+func (o GetCipherTextResultOutput) ToGetCipherTextResultOutputWithContext(ctx context.Context) GetCipherTextResultOutput {
+	return o
+}
+
+// Base64 encoded ciphertext
+func (o GetCipherTextResultOutput) CiphertextBlob() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCipherTextResult) string { return v.CiphertextBlob }).(pulumi.StringOutput)
+}
+
+func (o GetCipherTextResultOutput) Context() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCipherTextResult) map[string]string { return v.Context }).(pulumi.StringMapOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCipherTextResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCipherTextResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCipherTextResultOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCipherTextResult) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func (o GetCipherTextResultOutput) Plaintext() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCipherTextResult) string { return v.Plaintext }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCipherTextResultOutput{})
 }

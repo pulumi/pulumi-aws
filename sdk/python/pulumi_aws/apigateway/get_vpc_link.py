@@ -12,6 +12,7 @@ __all__ = [
     'GetVpcLinkResult',
     'AwaitableGetVpcLinkResult',
     'get_vpc_link',
+    'get_vpc_link_output',
 ]
 
 @pulumi.output_type
@@ -151,3 +152,30 @@ def get_vpc_link(name: Optional[str] = None,
         status_message=__ret__.status_message,
         tags=__ret__.tags,
         target_arns=__ret__.target_arns)
+
+
+@_utilities.lift_output_func(get_vpc_link)
+def get_vpc_link_output(name: Optional[pulumi.Input[str]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
+    """
+    Use this data source to get the id of a VPC Link in
+    API Gateway. To fetch the VPC Link you must provide a name to match against.
+    As there is no unique name constraint on API Gateway VPC Links this data source will
+    error if there is more than one match.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_api_gateway_vpc_link = aws.apigateway.get_vpc_link(name="my-vpc-link")
+    ```
+
+
+    :param str name: The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+           If multiple API Gateway VPC Links are found with this name, an error will be returned.
+    :param Mapping[str, str] tags: Key-value map of resource tags
+    """
+    ...

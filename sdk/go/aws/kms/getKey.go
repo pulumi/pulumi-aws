@@ -4,6 +4,9 @@
 package kms
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,4 +95,113 @@ type LookupKeyResult struct {
 	KeyUsage   string `pulumi:"keyUsage"`
 	Origin     string `pulumi:"origin"`
 	ValidTo    string `pulumi:"validTo"`
+}
+
+func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupKeyResult, error) {
+			args := v.(LookupKeyArgs)
+			r, err := LookupKey(ctx, &args, opts...)
+			return *r, err
+		}).(LookupKeyResultOutput)
+}
+
+// A collection of arguments for invoking getKey.
+type LookupKeyOutputArgs struct {
+	// List of grant tokens
+	GrantTokens pulumi.StringArrayInput `pulumi:"grantTokens"`
+	// Key identifier which can be one of the following format:
+	// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
+	// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+	// * Alias name. E.g.: `alias/my-key`
+	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+}
+
+func (LookupKeyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getKey.
+type LookupKeyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupKeyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupKeyResult)(nil)).Elem()
+}
+
+func (o LookupKeyResultOutput) ToLookupKeyResultOutput() LookupKeyResultOutput {
+	return o
+}
+
+func (o LookupKeyResultOutput) ToLookupKeyResultOutputWithContext(ctx context.Context) LookupKeyResultOutput {
+	return o
+}
+
+func (o LookupKeyResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) AwsAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.AwsAccountId }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) CreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) CustomerMasterKeySpec() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomerMasterKeySpec }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) DeletionDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.DeletionDate }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupKeyResultOutput) ExpirationModel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.ExpirationModel }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) GrantTokens() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupKeyResult) []string { return v.GrantTokens }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupKeyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) KeyManager() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyManager }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) KeyState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyState }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) KeyUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyUsage }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) ValidTo() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.ValidTo }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupKeyResultOutput{})
 }

@@ -4,6 +4,9 @@
 package route53
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -93,4 +96,83 @@ type LookupResolverEndpointResult struct {
 	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
 	Status             string   `pulumi:"status"`
 	VpcId              string   `pulumi:"vpcId"`
+}
+
+func LookupResolverEndpointOutput(ctx *pulumi.Context, args LookupResolverEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupResolverEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResolverEndpointResult, error) {
+			args := v.(LookupResolverEndpointArgs)
+			r, err := LookupResolverEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResolverEndpointResultOutput)
+}
+
+// A collection of arguments for invoking getResolverEndpoint.
+type LookupResolverEndpointOutputArgs struct {
+	// One or more name/value pairs to use as filters. There are
+	// several valid keys, for a full reference, check out
+	// [Route53resolver Filter value in the AWS API reference][1].
+	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
+	// The ID of the Route53 Resolver Endpoint.
+	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
+}
+
+func (LookupResolverEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResolverEndpointArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getResolverEndpoint.
+type LookupResolverEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResolverEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResolverEndpointResult)(nil)).Elem()
+}
+
+func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput() LookupResolverEndpointResultOutput {
+	return o
+}
+
+func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutputWithContext(ctx context.Context) LookupResolverEndpointResultOutput {
+	return o
+}
+
+func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Filters() GetResolverEndpointFilterArrayOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) []GetResolverEndpointFilter { return v.Filters }).(GetResolverEndpointFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupResolverEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.ResolverEndpointId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResolverEndpointResultOutput{})
 }

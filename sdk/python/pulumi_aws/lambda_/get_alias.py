@@ -12,6 +12,7 @@ __all__ = [
     'GetAliasResult',
     'AwaitableGetAliasResult',
     'get_alias',
+    'get_alias_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,27 @@ def get_alias(function_name: Optional[str] = None,
         id=__ret__.id,
         invoke_arn=__ret__.invoke_arn,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_alias)
+def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
+                     name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
+    """
+    Provides information about a Lambda Alias.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    production = aws.lambda.get_alias(function_name="my-lambda-func",
+        name="production")
+    ```
+
+
+    :param str function_name: Name of the aliased Lambda function.
+    :param str name: Name of the Lambda alias.
+    """
+    ...

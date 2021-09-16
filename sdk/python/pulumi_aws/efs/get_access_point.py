@@ -13,6 +13,7 @@ __all__ = [
     'GetAccessPointResult',
     'AwaitableGetAccessPointResult',
     'get_access_point',
+    'get_access_point_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,26 @@ def get_access_point(access_point_id: Optional[str] = None,
         posix_users=__ret__.posix_users,
         root_directories=__ret__.root_directories,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_access_point)
+def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
+    """
+    Provides information about an Elastic File System (EFS) Access Point.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.efs.get_access_point(access_point_id="fsap-12345678")
+    ```
+
+
+    :param str access_point_id: The ID that identifies the file system.
+    :param Mapping[str, str] tags: Key-value mapping of resource tags.
+    """
+    ...

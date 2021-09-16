@@ -12,6 +12,7 @@ __all__ = [
     'GetBucketObjectsResult',
     'AwaitableGetBucketObjectsResult',
     'get_bucket_objects',
+    'get_bucket_objects_output',
 ]
 
 @pulumi.output_type
@@ -189,3 +190,29 @@ def get_bucket_objects(bucket: Optional[str] = None,
         owners=__ret__.owners,
         prefix=__ret__.prefix,
         start_after=__ret__.start_after)
+
+
+@_utilities.lift_output_func(get_bucket_objects)
+def get_bucket_objects_output(bucket: Optional[pulumi.Input[str]] = None,
+                              delimiter: Optional[pulumi.Input[Optional[str]]] = None,
+                              encoding_type: Optional[pulumi.Input[Optional[str]]] = None,
+                              fetch_owner: Optional[pulumi.Input[Optional[bool]]] = None,
+                              max_keys: Optional[pulumi.Input[Optional[int]]] = None,
+                              prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                              start_after: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketObjectsResult]:
+    """
+    > **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+
+    The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+
+
+    :param str bucket: Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+    :param str delimiter: A character used to group keys (Default: none)
+    :param str encoding_type: Encodes keys using this method (Default: none; besides none, only "url" can be used)
+    :param bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
+    :param int max_keys: Maximum object keys to return (Default: 1000)
+    :param str prefix: Limits results to object keys with this prefix (Default: none)
+    :param str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+    """
+    ...

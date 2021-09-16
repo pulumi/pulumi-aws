@@ -12,6 +12,7 @@ __all__ = [
     'GetServerResult',
     'AwaitableGetServerResult',
     'get_server',
+    'get_server_output',
 ]
 
 @pulumi.output_type
@@ -223,3 +224,25 @@ def get_server(server_id: Optional[str] = None,
         security_policy_name=__ret__.security_policy_name,
         server_id=__ret__.server_id,
         url=__ret__.url)
+
+
+@_utilities.lift_output_func(get_server)
+def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+    """
+    Use this data source to get the ARN of an AWS Transfer Server for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.transfer.get_server(server_id="s-1234567")
+    ```
+
+
+    :param str server_id: ID for an SFTP server.
+    """
+    ...

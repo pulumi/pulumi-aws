@@ -12,6 +12,7 @@ __all__ = [
     'GetPolicyResult',
     'AwaitableGetPolicyResult',
     'get_policy',
+    'get_policy_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,40 @@ def get_policy(arn: Optional[str] = None,
         policy=__ret__.policy,
         policy_id=__ret__.policy_id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_policy)
+def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      path_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+    """
+    This data source can be used to fetch information about a specific
+    IAM policy.
+
+    ## Example Usage
+    ### By ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(arn="arn:aws:iam::123456789012:policy/UsersManageOwnCredentials")
+    ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_policy(name="test_policy")
+    ```
+
+
+    :param str arn: The ARN of the IAM policy.
+    :param str name: The name of the IAM policy.
+    :param str path_prefix: The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+    :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
+    """
+    ...

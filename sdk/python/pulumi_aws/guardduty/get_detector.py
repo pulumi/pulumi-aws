@@ -12,6 +12,7 @@ __all__ = [
     'GetDetectorResult',
     'AwaitableGetDetectorResult',
     'get_detector',
+    'get_detector_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,24 @@ def get_detector(id: Optional[str] = None,
         id=__ret__.id,
         service_role_arn=__ret__.service_role_arn,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_detector)
+def get_detector_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
+    """
+    Retrieve information about a GuardDuty detector.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.guardduty.get_detector()
+    ```
+
+
+    :param str id: The ID of the detector.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetInfrastructureConfigurationResult',
     'AwaitableGetInfrastructureConfigurationResult',
     'get_infrastructure_configuration',
+    'get_infrastructure_configuration_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,28 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         terminate_instance_on_failure=__ret__.terminate_instance_on_failure)
+
+
+@_utilities.lift_output_func(get_infrastructure_configuration)
+def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = None,
+                                            resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
+    """
+    Provides details about an Image Builder Infrastructure Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_infrastructure_configuration(arn="arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the infrastructure configuration.
+    :param Mapping[str, str] resource_tags: Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the infrastructure configuration.
+    """
+    ...

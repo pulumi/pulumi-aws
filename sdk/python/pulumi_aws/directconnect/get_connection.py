@@ -12,6 +12,7 @@ __all__ = [
     'GetConnectionResult',
     'AwaitableGetConnectionResult',
     'get_connection',
+    'get_connection_output',
 ]
 
 @pulumi.output_type
@@ -173,3 +174,26 @@ def get_connection(name: Optional[str] = None,
         owner_account_id=__ret__.owner_account_id,
         provider_name=__ret__.provider_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_connection)
+def get_connection_output(name: Optional[pulumi.Input[str]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+    """
+    Retrieve information about a Direct Connect Connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.directconnect.get_connection(name="tf-dx-connection")
+    ```
+
+
+    :param str name: The name of the connection to retrieve.
+    :param Mapping[str, str] tags: A map of tags for the resource.
+    """
+    ...

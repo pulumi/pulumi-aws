@@ -4,6 +4,9 @@
 package waf
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,51 @@ type LookupRateBasedRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func LookupRateBasedRuleOutput(ctx *pulumi.Context, args LookupRateBasedRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRateBasedRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRateBasedRuleResult, error) {
+			args := v.(LookupRateBasedRuleArgs)
+			r, err := LookupRateBasedRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRateBasedRuleResultOutput)
+}
+
+// A collection of arguments for invoking getRateBasedRule.
+type LookupRateBasedRuleOutputArgs struct {
+	// The name of the WAF rate based rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupRateBasedRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRateBasedRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRateBasedRule.
+type LookupRateBasedRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRateBasedRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRateBasedRuleResult)(nil)).Elem()
+}
+
+func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutput() LookupRateBasedRuleResultOutput {
+	return o
+}
+
+func (o LookupRateBasedRuleResultOutput) ToLookupRateBasedRuleResultOutputWithContext(ctx context.Context) LookupRateBasedRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRateBasedRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRateBasedRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRateBasedRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRateBasedRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRateBasedRuleResultOutput{})
 }

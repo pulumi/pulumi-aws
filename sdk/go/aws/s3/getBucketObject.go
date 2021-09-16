@@ -4,6 +4,9 @@
 package s3
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -160,4 +163,176 @@ type LookupBucketObjectResult struct {
 	VersionId string `pulumi:"versionId"`
 	// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
 	WebsiteRedirectLocation string `pulumi:"websiteRedirectLocation"`
+}
+
+func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutputArgs, opts ...pulumi.InvokeOption) LookupBucketObjectResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBucketObjectResult, error) {
+			args := v.(LookupBucketObjectArgs)
+			r, err := LookupBucketObject(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBucketObjectResultOutput)
+}
+
+// A collection of arguments for invoking getBucketObject.
+type LookupBucketObjectOutputArgs struct {
+	// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The full path to the object inside the bucket
+	Key   pulumi.StringInput    `pulumi:"key"`
+	Range pulumi.StringPtrInput `pulumi:"range"`
+	// A map of tags assigned to the object.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Specific version ID of the object returned (defaults to latest version)
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (LookupBucketObjectOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBucketObjectArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBucketObject.
+type LookupBucketObjectResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBucketObjectResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBucketObjectResult)(nil)).Elem()
+}
+
+func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutput() LookupBucketObjectResultOutput {
+	return o
+}
+
+func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutputWithContext(ctx context.Context) LookupBucketObjectResultOutput {
+	return o
+}
+
+// Object data (see **limitations above** to understand cases in which this field is actually available)
+func (o LookupBucketObjectResultOutput) Body() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Body }).(pulumi.StringOutput)
+}
+
+func (o LookupBucketObjectResultOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
+func (o LookupBucketObjectResultOutput) BucketKeyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) bool { return v.BucketKeyEnabled }).(pulumi.BoolOutput)
+}
+
+// Specifies caching behavior along the request/reply chain.
+func (o LookupBucketObjectResultOutput) CacheControl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.CacheControl }).(pulumi.StringOutput)
+}
+
+// Specifies presentational information for the object.
+func (o LookupBucketObjectResultOutput) ContentDisposition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentDisposition }).(pulumi.StringOutput)
+}
+
+// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.
+func (o LookupBucketObjectResultOutput) ContentEncoding() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentEncoding }).(pulumi.StringOutput)
+}
+
+// The language the content is in.
+func (o LookupBucketObjectResultOutput) ContentLanguage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentLanguage }).(pulumi.StringOutput)
+}
+
+// Size of the body in bytes.
+func (o LookupBucketObjectResultOutput) ContentLength() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) int { return v.ContentLength }).(pulumi.IntOutput)
+}
+
+// A standard MIME type describing the format of the object data.
+func (o LookupBucketObjectResultOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
+func (o LookupBucketObjectResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
+func (o LookupBucketObjectResultOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// The date and time at which the object is no longer cacheable.
+func (o LookupBucketObjectResultOutput) Expires() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Expires }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupBucketObjectResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupBucketObjectResultOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+func (o LookupBucketObjectResultOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// A map of metadata stored with the object in S3
+func (o LookupBucketObjectResultOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// Indicates whether this object has an active [legal hold](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-legal-holds). This field is only returned if you have permission to view an object's legal hold status.
+func (o LookupBucketObjectResultOutput) ObjectLockLegalHoldStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockLegalHoldStatus }).(pulumi.StringOutput)
+}
+
+// The object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) currently in place for this object.
+func (o LookupBucketObjectResultOutput) ObjectLockMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockMode }).(pulumi.StringOutput)
+}
+
+// The date and time when this object's object lock will expire.
+func (o LookupBucketObjectResultOutput) ObjectLockRetainUntilDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ObjectLockRetainUntilDate }).(pulumi.StringOutput)
+}
+
+func (o LookupBucketObjectResultOutput) Range() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
+func (o LookupBucketObjectResultOutput) ServerSideEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.ServerSideEncryption }).(pulumi.StringOutput)
+}
+
+// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+func (o LookupBucketObjectResultOutput) SseKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.SseKmsKeyId }).(pulumi.StringOutput)
+}
+
+// [Storage class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) information of the object. Available for all objects except for `Standard` storage class objects.
+func (o LookupBucketObjectResultOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the object.
+func (o LookupBucketObjectResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The latest version ID of the object returned.
+func (o LookupBucketObjectResultOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+// If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.
+func (o LookupBucketObjectResultOutput) WebsiteRedirectLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.WebsiteRedirectLocation }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBucketObjectResultOutput{})
 }

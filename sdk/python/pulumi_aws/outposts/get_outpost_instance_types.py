@@ -12,6 +12,7 @@ __all__ = [
     'GetOutpostInstanceTypesResult',
     'AwaitableGetOutpostInstanceTypesResult',
     'get_outpost_instance_types',
+    'get_outpost_instance_types_output',
 ]
 
 @pulumi.output_type
@@ -92,3 +93,24 @@ def get_outpost_instance_types(arn: Optional[str] = None,
         arn=__ret__.arn,
         id=__ret__.id,
         instance_types=__ret__.instance_types)
+
+
+@_utilities.lift_output_func(get_outpost_instance_types)
+def get_outpost_instance_types_output(arn: Optional[pulumi.Input[str]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostInstanceTypesResult]:
+    """
+    Information about Outposts Instance Types.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost_instance_types(arn=data["aws_outposts_outpost"]["example"]["arn"])
+    ```
+
+
+    :param str arn: Outpost Amazon Resource Name (ARN).
+    """
+    ...

@@ -4,6 +4,9 @@
 package aws
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -83,4 +86,86 @@ type GetAmiIdsResult struct {
 	NameRegex     *string  `pulumi:"nameRegex"`
 	Owners        []string `pulumi:"owners"`
 	SortAscending *bool    `pulumi:"sortAscending"`
+}
+
+func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAmiIdsResult, error) {
+			args := v.(GetAmiIdsArgs)
+			r, err := GetAmiIds(ctx, &args, opts...)
+			return *r, err
+		}).(GetAmiIdsResultOutput)
+}
+
+// A collection of arguments for invoking getAmiIds.
+type GetAmiIdsOutputArgs struct {
+	// Limit search to users with *explicit* launch
+	// permission on  the image. Valid items are the numeric account ID or `self`.
+	ExecutableUsers pulumi.StringArrayInput `pulumi:"executableUsers"`
+	// One or more name/value pairs to filter off of. There
+	// are several valid keys, for a full reference, check out
+	// [describe-images in the AWS CLI reference][1].
+	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
+	// A regex string to apply to the AMI list returned
+	// by AWS. This allows more advanced filtering not supported from the AWS API.
+	// This filtering is done locally on what AWS returns, and could have a performance
+	// impact if the result is large. It is recommended to combine this with other
+	// options to narrow down the list AWS returns.
+	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
+	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// Used to sort AMIs by creation time.
+	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`
+}
+
+func (GetAmiIdsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAmiIds.
+type GetAmiIdsResultOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsResult)(nil)).Elem()
+}
+
+func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutput() GetAmiIdsResultOutput {
+	return o
+}
+
+func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Context) GetAmiIdsResultOutput {
+	return o
+}
+
+func (o GetAmiIdsResultOutput) ExecutableUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.ExecutableUsers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Filters() GetAmiIdsFilterArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []GetAmiIdsFilter { return v.Filters }).(GetAmiIdsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAmiIdsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) NameRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAmiIdsResultOutput) Owners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) SortAscending() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) *bool { return v.SortAscending }).(pulumi.BoolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAmiIdsResultOutput{})
 }

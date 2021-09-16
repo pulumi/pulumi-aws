@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -89,4 +92,84 @@ type LookupCustomerGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
 	Type string `pulumi:"type"`
+}
+
+func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupCustomerGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCustomerGatewayResult, error) {
+			args := v.(LookupCustomerGatewayArgs)
+			r, err := LookupCustomerGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCustomerGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getCustomerGateway.
+type LookupCustomerGatewayOutputArgs struct {
+	// One or more [name-value pairs][dcg-filters] to filter by.
+	Filters GetCustomerGatewayFilterArrayInput `pulumi:"filters"`
+	// The ID of the gateway.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Map of key-value pairs assigned to the gateway.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupCustomerGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomerGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCustomerGateway.
+type LookupCustomerGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCustomerGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCustomerGatewayResult)(nil)).Elem()
+}
+
+func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutput() LookupCustomerGatewayResultOutput {
+	return o
+}
+
+func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWithContext(ctx context.Context) LookupCustomerGatewayResultOutput {
+	return o
+}
+
+// The ARN of the customer gateway.
+func (o LookupCustomerGatewayResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// (Optional) The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
+func (o LookupCustomerGatewayResultOutput) BgpAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) int { return v.BgpAsn }).(pulumi.IntOutput)
+}
+
+// (Optional) A name for the customer gateway device.
+func (o LookupCustomerGatewayResultOutput) DeviceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.DeviceName }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomerGatewayResultOutput) Filters() GetCustomerGatewayFilterArrayOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) []GetCustomerGatewayFilter { return v.Filters }).(GetCustomerGatewayFilterArrayOutput)
+}
+
+func (o LookupCustomerGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) The IP address of the gateway's Internet-routable external interface.
+func (o LookupCustomerGatewayResultOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs assigned to the gateway.
+func (o LookupCustomerGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// (Optional) The type of customer gateway. The only type AWS supports at this time is "ipsec.1".
+func (o LookupCustomerGatewayResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCustomerGatewayResultOutput{})
 }

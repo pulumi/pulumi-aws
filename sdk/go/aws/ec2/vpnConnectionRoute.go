@@ -65,7 +65,7 @@ import (
 // 	})
 // }
 // ```
-type VpnConnectionRoute struct {
+type VpnConnectionRouteType struct {
 	pulumi.CustomResourceState
 
 	// The CIDR block associated with the local subnet of the customer network.
@@ -74,9 +74,9 @@ type VpnConnectionRoute struct {
 	VpnConnectionId pulumi.StringOutput `pulumi:"vpnConnectionId"`
 }
 
-// NewVpnConnectionRoute registers a new resource with the given unique name, arguments, and options.
-func NewVpnConnectionRoute(ctx *pulumi.Context,
-	name string, args *VpnConnectionRouteArgs, opts ...pulumi.ResourceOption) (*VpnConnectionRoute, error) {
+// NewVpnConnectionRouteType registers a new resource with the given unique name, arguments, and options.
+func NewVpnConnectionRouteType(ctx *pulumi.Context,
+	name string, args *VpnConnectionRouteTypeArgs, opts ...pulumi.ResourceOption) (*VpnConnectionRouteType, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -87,7 +87,7 @@ func NewVpnConnectionRoute(ctx *pulumi.Context,
 	if args.VpnConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpnConnectionId'")
 	}
-	var resource VpnConnectionRoute
+	var resource VpnConnectionRouteType
 	err := ctx.RegisterResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -95,11 +95,11 @@ func NewVpnConnectionRoute(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetVpnConnectionRoute gets an existing VpnConnectionRoute resource's state with the given name, ID, and optional
+// GetVpnConnectionRouteType gets an existing VpnConnectionRouteType resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetVpnConnectionRoute(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *VpnConnectionRouteState, opts ...pulumi.ResourceOption) (*VpnConnectionRoute, error) {
-	var resource VpnConnectionRoute
+func GetVpnConnectionRouteType(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *VpnConnectionRouteTypeState, opts ...pulumi.ResourceOption) (*VpnConnectionRouteType, error) {
+	var resource VpnConnectionRouteType
 	err := ctx.ReadResource("aws:ec2/vpnConnectionRoute:VpnConnectionRoute", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -107,233 +107,233 @@ func GetVpnConnectionRoute(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering VpnConnectionRoute resources.
-type vpnConnectionRouteState struct {
+// Input properties used for looking up and filtering VpnConnectionRouteType resources.
+type vpnConnectionRouteTypeState struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The ID of the VPN connection.
 	VpnConnectionId *string `pulumi:"vpnConnectionId"`
 }
 
-type VpnConnectionRouteState struct {
+type VpnConnectionRouteTypeState struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringPtrInput
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringPtrInput
 }
 
-func (VpnConnectionRouteState) ElementType() reflect.Type {
-	return reflect.TypeOf((*vpnConnectionRouteState)(nil)).Elem()
+func (VpnConnectionRouteTypeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*vpnConnectionRouteTypeState)(nil)).Elem()
 }
 
-type vpnConnectionRouteArgs struct {
+type vpnConnectionRouteTypeArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock string `pulumi:"destinationCidrBlock"`
 	// The ID of the VPN connection.
 	VpnConnectionId string `pulumi:"vpnConnectionId"`
 }
 
-// The set of arguments for constructing a VpnConnectionRoute resource.
-type VpnConnectionRouteArgs struct {
+// The set of arguments for constructing a VpnConnectionRouteType resource.
+type VpnConnectionRouteTypeArgs struct {
 	// The CIDR block associated with the local subnet of the customer network.
 	DestinationCidrBlock pulumi.StringInput
 	// The ID of the VPN connection.
 	VpnConnectionId pulumi.StringInput
 }
 
-func (VpnConnectionRouteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*vpnConnectionRouteArgs)(nil)).Elem()
+func (VpnConnectionRouteTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*vpnConnectionRouteTypeArgs)(nil)).Elem()
 }
 
-type VpnConnectionRouteInput interface {
+type VpnConnectionRouteTypeInput interface {
 	pulumi.Input
 
-	ToVpnConnectionRouteOutput() VpnConnectionRouteOutput
-	ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput
+	ToVpnConnectionRouteTypeOutput() VpnConnectionRouteTypeOutput
+	ToVpnConnectionRouteTypeOutputWithContext(ctx context.Context) VpnConnectionRouteTypeOutput
 }
 
-func (*VpnConnectionRoute) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnectionRoute)(nil))
+func (*VpnConnectionRouteType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionRouteType)(nil))
 }
 
-func (i *VpnConnectionRoute) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
-	return i.ToVpnConnectionRouteOutputWithContext(context.Background())
+func (i *VpnConnectionRouteType) ToVpnConnectionRouteTypeOutput() VpnConnectionRouteTypeOutput {
+	return i.ToVpnConnectionRouteTypeOutputWithContext(context.Background())
 }
 
-func (i *VpnConnectionRoute) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteOutput)
+func (i *VpnConnectionRouteType) ToVpnConnectionRouteTypeOutputWithContext(ctx context.Context) VpnConnectionRouteTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypeOutput)
 }
 
-func (i *VpnConnectionRoute) ToVpnConnectionRoutePtrOutput() VpnConnectionRoutePtrOutput {
-	return i.ToVpnConnectionRoutePtrOutputWithContext(context.Background())
+func (i *VpnConnectionRouteType) ToVpnConnectionRouteTypePtrOutput() VpnConnectionRouteTypePtrOutput {
+	return i.ToVpnConnectionRouteTypePtrOutputWithContext(context.Background())
 }
 
-func (i *VpnConnectionRoute) ToVpnConnectionRoutePtrOutputWithContext(ctx context.Context) VpnConnectionRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRoutePtrOutput)
+func (i *VpnConnectionRouteType) ToVpnConnectionRouteTypePtrOutputWithContext(ctx context.Context) VpnConnectionRouteTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypePtrOutput)
 }
 
-type VpnConnectionRoutePtrInput interface {
+type VpnConnectionRouteTypePtrInput interface {
 	pulumi.Input
 
-	ToVpnConnectionRoutePtrOutput() VpnConnectionRoutePtrOutput
-	ToVpnConnectionRoutePtrOutputWithContext(ctx context.Context) VpnConnectionRoutePtrOutput
+	ToVpnConnectionRouteTypePtrOutput() VpnConnectionRouteTypePtrOutput
+	ToVpnConnectionRouteTypePtrOutputWithContext(ctx context.Context) VpnConnectionRouteTypePtrOutput
 }
 
-type vpnConnectionRoutePtrType VpnConnectionRouteArgs
+type vpnConnectionRouteTypePtrType VpnConnectionRouteTypeArgs
 
-func (*vpnConnectionRoutePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnConnectionRoute)(nil))
+func (*vpnConnectionRouteTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionRouteType)(nil))
 }
 
-func (i *vpnConnectionRoutePtrType) ToVpnConnectionRoutePtrOutput() VpnConnectionRoutePtrOutput {
-	return i.ToVpnConnectionRoutePtrOutputWithContext(context.Background())
+func (i *vpnConnectionRouteTypePtrType) ToVpnConnectionRouteTypePtrOutput() VpnConnectionRouteTypePtrOutput {
+	return i.ToVpnConnectionRouteTypePtrOutputWithContext(context.Background())
 }
 
-func (i *vpnConnectionRoutePtrType) ToVpnConnectionRoutePtrOutputWithContext(ctx context.Context) VpnConnectionRoutePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRoutePtrOutput)
+func (i *vpnConnectionRouteTypePtrType) ToVpnConnectionRouteTypePtrOutputWithContext(ctx context.Context) VpnConnectionRouteTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypePtrOutput)
 }
 
-// VpnConnectionRouteArrayInput is an input type that accepts VpnConnectionRouteArray and VpnConnectionRouteArrayOutput values.
-// You can construct a concrete instance of `VpnConnectionRouteArrayInput` via:
+// VpnConnectionRouteTypeArrayInput is an input type that accepts VpnConnectionRouteTypeArray and VpnConnectionRouteTypeArrayOutput values.
+// You can construct a concrete instance of `VpnConnectionRouteTypeArrayInput` via:
 //
-//          VpnConnectionRouteArray{ VpnConnectionRouteArgs{...} }
-type VpnConnectionRouteArrayInput interface {
+//          VpnConnectionRouteTypeArray{ VpnConnectionRouteTypeArgs{...} }
+type VpnConnectionRouteTypeArrayInput interface {
 	pulumi.Input
 
-	ToVpnConnectionRouteArrayOutput() VpnConnectionRouteArrayOutput
-	ToVpnConnectionRouteArrayOutputWithContext(context.Context) VpnConnectionRouteArrayOutput
+	ToVpnConnectionRouteTypeArrayOutput() VpnConnectionRouteTypeArrayOutput
+	ToVpnConnectionRouteTypeArrayOutputWithContext(context.Context) VpnConnectionRouteTypeArrayOutput
 }
 
-type VpnConnectionRouteArray []VpnConnectionRouteInput
+type VpnConnectionRouteTypeArray []VpnConnectionRouteTypeInput
 
-func (VpnConnectionRouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*VpnConnectionRoute)(nil)).Elem()
+func (VpnConnectionRouteTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*VpnConnectionRouteType)(nil)).Elem()
 }
 
-func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutput() VpnConnectionRouteArrayOutput {
-	return i.ToVpnConnectionRouteArrayOutputWithContext(context.Background())
+func (i VpnConnectionRouteTypeArray) ToVpnConnectionRouteTypeArrayOutput() VpnConnectionRouteTypeArrayOutput {
+	return i.ToVpnConnectionRouteTypeArrayOutputWithContext(context.Background())
 }
 
-func (i VpnConnectionRouteArray) ToVpnConnectionRouteArrayOutputWithContext(ctx context.Context) VpnConnectionRouteArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteArrayOutput)
+func (i VpnConnectionRouteTypeArray) ToVpnConnectionRouteTypeArrayOutputWithContext(ctx context.Context) VpnConnectionRouteTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypeArrayOutput)
 }
 
-// VpnConnectionRouteMapInput is an input type that accepts VpnConnectionRouteMap and VpnConnectionRouteMapOutput values.
-// You can construct a concrete instance of `VpnConnectionRouteMapInput` via:
+// VpnConnectionRouteTypeMapInput is an input type that accepts VpnConnectionRouteTypeMap and VpnConnectionRouteTypeMapOutput values.
+// You can construct a concrete instance of `VpnConnectionRouteTypeMapInput` via:
 //
-//          VpnConnectionRouteMap{ "key": VpnConnectionRouteArgs{...} }
-type VpnConnectionRouteMapInput interface {
+//          VpnConnectionRouteTypeMap{ "key": VpnConnectionRouteTypeArgs{...} }
+type VpnConnectionRouteTypeMapInput interface {
 	pulumi.Input
 
-	ToVpnConnectionRouteMapOutput() VpnConnectionRouteMapOutput
-	ToVpnConnectionRouteMapOutputWithContext(context.Context) VpnConnectionRouteMapOutput
+	ToVpnConnectionRouteTypeMapOutput() VpnConnectionRouteTypeMapOutput
+	ToVpnConnectionRouteTypeMapOutputWithContext(context.Context) VpnConnectionRouteTypeMapOutput
 }
 
-type VpnConnectionRouteMap map[string]VpnConnectionRouteInput
+type VpnConnectionRouteTypeMap map[string]VpnConnectionRouteTypeInput
 
-func (VpnConnectionRouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*VpnConnectionRoute)(nil)).Elem()
+func (VpnConnectionRouteTypeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*VpnConnectionRouteType)(nil)).Elem()
 }
 
-func (i VpnConnectionRouteMap) ToVpnConnectionRouteMapOutput() VpnConnectionRouteMapOutput {
-	return i.ToVpnConnectionRouteMapOutputWithContext(context.Background())
+func (i VpnConnectionRouteTypeMap) ToVpnConnectionRouteTypeMapOutput() VpnConnectionRouteTypeMapOutput {
+	return i.ToVpnConnectionRouteTypeMapOutputWithContext(context.Background())
 }
 
-func (i VpnConnectionRouteMap) ToVpnConnectionRouteMapOutputWithContext(ctx context.Context) VpnConnectionRouteMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteMapOutput)
+func (i VpnConnectionRouteTypeMap) ToVpnConnectionRouteTypeMapOutputWithContext(ctx context.Context) VpnConnectionRouteTypeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionRouteTypeMapOutput)
 }
 
-type VpnConnectionRouteOutput struct{ *pulumi.OutputState }
+type VpnConnectionRouteTypeOutput struct{ *pulumi.OutputState }
 
-func (VpnConnectionRouteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnectionRoute)(nil))
+func (VpnConnectionRouteTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpnConnectionRouteType)(nil))
 }
 
-func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutput() VpnConnectionRouteOutput {
+func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypeOutput() VpnConnectionRouteTypeOutput {
 	return o
 }
 
-func (o VpnConnectionRouteOutput) ToVpnConnectionRouteOutputWithContext(ctx context.Context) VpnConnectionRouteOutput {
+func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypeOutputWithContext(ctx context.Context) VpnConnectionRouteTypeOutput {
 	return o
 }
 
-func (o VpnConnectionRouteOutput) ToVpnConnectionRoutePtrOutput() VpnConnectionRoutePtrOutput {
-	return o.ToVpnConnectionRoutePtrOutputWithContext(context.Background())
+func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypePtrOutput() VpnConnectionRouteTypePtrOutput {
+	return o.ToVpnConnectionRouteTypePtrOutputWithContext(context.Background())
 }
 
-func (o VpnConnectionRouteOutput) ToVpnConnectionRoutePtrOutputWithContext(ctx context.Context) VpnConnectionRoutePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionRoute) *VpnConnectionRoute {
+func (o VpnConnectionRouteTypeOutput) ToVpnConnectionRouteTypePtrOutputWithContext(ctx context.Context) VpnConnectionRouteTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnectionRouteType) *VpnConnectionRouteType {
 		return &v
-	}).(VpnConnectionRoutePtrOutput)
+	}).(VpnConnectionRouteTypePtrOutput)
 }
 
-type VpnConnectionRoutePtrOutput struct{ *pulumi.OutputState }
+type VpnConnectionRouteTypePtrOutput struct{ *pulumi.OutputState }
 
-func (VpnConnectionRoutePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnConnectionRoute)(nil))
+func (VpnConnectionRouteTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpnConnectionRouteType)(nil))
 }
 
-func (o VpnConnectionRoutePtrOutput) ToVpnConnectionRoutePtrOutput() VpnConnectionRoutePtrOutput {
+func (o VpnConnectionRouteTypePtrOutput) ToVpnConnectionRouteTypePtrOutput() VpnConnectionRouteTypePtrOutput {
 	return o
 }
 
-func (o VpnConnectionRoutePtrOutput) ToVpnConnectionRoutePtrOutputWithContext(ctx context.Context) VpnConnectionRoutePtrOutput {
+func (o VpnConnectionRouteTypePtrOutput) ToVpnConnectionRouteTypePtrOutputWithContext(ctx context.Context) VpnConnectionRouteTypePtrOutput {
 	return o
 }
 
-func (o VpnConnectionRoutePtrOutput) Elem() VpnConnectionRouteOutput {
-	return o.ApplyT(func(v *VpnConnectionRoute) VpnConnectionRoute {
+func (o VpnConnectionRouteTypePtrOutput) Elem() VpnConnectionRouteTypeOutput {
+	return o.ApplyT(func(v *VpnConnectionRouteType) VpnConnectionRouteType {
 		if v != nil {
 			return *v
 		}
-		var ret VpnConnectionRoute
+		var ret VpnConnectionRouteType
 		return ret
-	}).(VpnConnectionRouteOutput)
+	}).(VpnConnectionRouteTypeOutput)
 }
 
-type VpnConnectionRouteArrayOutput struct{ *pulumi.OutputState }
+type VpnConnectionRouteTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (VpnConnectionRouteArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnConnectionRoute)(nil))
+func (VpnConnectionRouteTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpnConnectionRouteType)(nil))
 }
 
-func (o VpnConnectionRouteArrayOutput) ToVpnConnectionRouteArrayOutput() VpnConnectionRouteArrayOutput {
+func (o VpnConnectionRouteTypeArrayOutput) ToVpnConnectionRouteTypeArrayOutput() VpnConnectionRouteTypeArrayOutput {
 	return o
 }
 
-func (o VpnConnectionRouteArrayOutput) ToVpnConnectionRouteArrayOutputWithContext(ctx context.Context) VpnConnectionRouteArrayOutput {
+func (o VpnConnectionRouteTypeArrayOutput) ToVpnConnectionRouteTypeArrayOutputWithContext(ctx context.Context) VpnConnectionRouteTypeArrayOutput {
 	return o
 }
 
-func (o VpnConnectionRouteArrayOutput) Index(i pulumi.IntInput) VpnConnectionRouteOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnConnectionRoute {
-		return vs[0].([]VpnConnectionRoute)[vs[1].(int)]
-	}).(VpnConnectionRouteOutput)
+func (o VpnConnectionRouteTypeArrayOutput) Index(i pulumi.IntInput) VpnConnectionRouteTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnConnectionRouteType {
+		return vs[0].([]VpnConnectionRouteType)[vs[1].(int)]
+	}).(VpnConnectionRouteTypeOutput)
 }
 
-type VpnConnectionRouteMapOutput struct{ *pulumi.OutputState }
+type VpnConnectionRouteTypeMapOutput struct{ *pulumi.OutputState }
 
-func (VpnConnectionRouteMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpnConnectionRoute)(nil))
+func (VpnConnectionRouteTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpnConnectionRouteType)(nil))
 }
 
-func (o VpnConnectionRouteMapOutput) ToVpnConnectionRouteMapOutput() VpnConnectionRouteMapOutput {
+func (o VpnConnectionRouteTypeMapOutput) ToVpnConnectionRouteTypeMapOutput() VpnConnectionRouteTypeMapOutput {
 	return o
 }
 
-func (o VpnConnectionRouteMapOutput) ToVpnConnectionRouteMapOutputWithContext(ctx context.Context) VpnConnectionRouteMapOutput {
+func (o VpnConnectionRouteTypeMapOutput) ToVpnConnectionRouteTypeMapOutputWithContext(ctx context.Context) VpnConnectionRouteTypeMapOutput {
 	return o
 }
 
-func (o VpnConnectionRouteMapOutput) MapIndex(k pulumi.StringInput) VpnConnectionRouteOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnConnectionRoute {
-		return vs[0].(map[string]VpnConnectionRoute)[vs[1].(string)]
-	}).(VpnConnectionRouteOutput)
+func (o VpnConnectionRouteTypeMapOutput) MapIndex(k pulumi.StringInput) VpnConnectionRouteTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnConnectionRouteType {
+		return vs[0].(map[string]VpnConnectionRouteType)[vs[1].(string)]
+	}).(VpnConnectionRouteTypeOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(VpnConnectionRouteOutput{})
-	pulumi.RegisterOutputType(VpnConnectionRoutePtrOutput{})
-	pulumi.RegisterOutputType(VpnConnectionRouteArrayOutput{})
-	pulumi.RegisterOutputType(VpnConnectionRouteMapOutput{})
+	pulumi.RegisterOutputType(VpnConnectionRouteTypeOutput{})
+	pulumi.RegisterOutputType(VpnConnectionRouteTypePtrOutput{})
+	pulumi.RegisterOutputType(VpnConnectionRouteTypeArrayOutput{})
+	pulumi.RegisterOutputType(VpnConnectionRouteTypeMapOutput{})
 }

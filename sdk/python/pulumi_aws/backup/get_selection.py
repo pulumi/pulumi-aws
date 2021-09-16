@@ -12,6 +12,7 @@ __all__ = [
     'GetSelectionResult',
     'AwaitableGetSelectionResult',
     'get_selection',
+    'get_selection_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,27 @@ def get_selection(plan_id: Optional[str] = None,
         plan_id=__ret__.plan_id,
         resources=__ret__.resources,
         selection_id=__ret__.selection_id)
+
+
+@_utilities.lift_output_func(get_selection)
+def get_selection_output(plan_id: Optional[pulumi.Input[str]] = None,
+                         selection_id: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSelectionResult]:
+    """
+    Use this data source to get information on an existing backup selection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_selection(plan_id=data["aws_backup_plan"]["example"]["id"],
+        selection_id="selection-id-example")
+    ```
+
+
+    :param str plan_id: The backup plan ID associated with the selection of resources.
+    :param str selection_id: The backup selection ID.
+    """
+    ...

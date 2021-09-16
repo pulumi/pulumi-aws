@@ -12,6 +12,7 @@ __all__ = [
     'GetTopicResult',
     'AwaitableGetTopicResult',
     'get_topic',
+    'get_topic_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,26 @@ def get_topic(name: Optional[str] = None,
         arn=__ret__.arn,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_topic)
+def get_topic_output(name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+    """
+    Use this data source to get the ARN of a topic in AWS Simple Notification
+    Service (SNS). By using this data source, you can reference SNS topics
+    without having to hard code the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sns.get_topic(name="an_example_topic")
+    ```
+
+
+    :param str name: The friendly name of the topic to match.
+    """
+    ...

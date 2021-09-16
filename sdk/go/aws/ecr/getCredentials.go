@@ -4,6 +4,9 @@
 package ecr
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,4 +32,62 @@ type GetCredentialsResult struct {
 	Id            string `pulumi:"id"`
 	ProxyEndpoint string `pulumi:"proxyEndpoint"`
 	RegistryId    string `pulumi:"registryId"`
+}
+
+func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCredentialsResult, error) {
+			args := v.(GetCredentialsArgs)
+			r, err := GetCredentials(ctx, &args, opts...)
+			return *r, err
+		}).(GetCredentialsResultOutput)
+}
+
+// A collection of arguments for invoking getCredentials.
+type GetCredentialsOutputArgs struct {
+	RegistryId pulumi.StringInput `pulumi:"registryId"`
+}
+
+func (GetCredentialsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCredentialsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCredentials.
+type GetCredentialsResultOutput struct{ *pulumi.OutputState }
+
+func (GetCredentialsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCredentialsResult)(nil)).Elem()
+}
+
+func (o GetCredentialsResultOutput) ToGetCredentialsResultOutput() GetCredentialsResultOutput {
+	return o
+}
+
+func (o GetCredentialsResultOutput) ToGetCredentialsResultOutputWithContext(ctx context.Context) GetCredentialsResultOutput {
+	return o
+}
+
+func (o GetCredentialsResultOutput) AuthorizationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
+}
+
+func (o GetCredentialsResultOutput) ExpiresAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.ExpiresAt }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCredentialsResultOutput) ProxyEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.ProxyEndpoint }).(pulumi.StringOutput)
+}
+
+func (o GetCredentialsResultOutput) RegistryId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.RegistryId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCredentialsResultOutput{})
 }

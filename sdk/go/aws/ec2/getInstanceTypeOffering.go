@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,68 @@ type GetInstanceTypeOfferingResult struct {
 	InstanceType           string   `pulumi:"instanceType"`
 	LocationType           *string  `pulumi:"locationType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+}
+
+func GetInstanceTypeOfferingOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetInstanceTypeOfferingResult, error) {
+			args := v.(GetInstanceTypeOfferingArgs)
+			r, err := GetInstanceTypeOffering(ctx, &args, opts...)
+			return *r, err
+		}).(GetInstanceTypeOfferingResultOutput)
+}
+
+// A collection of arguments for invoking getInstanceTypeOffering.
+type GetInstanceTypeOfferingOutputArgs struct {
+	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+	Filters GetInstanceTypeOfferingFilterArrayInput `pulumi:"filters"`
+	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
+	// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
+}
+
+func (GetInstanceTypeOfferingOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getInstanceTypeOffering.
+type GetInstanceTypeOfferingResultOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingResult)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingResultOutput) ToGetInstanceTypeOfferingResultOutput() GetInstanceTypeOfferingResultOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingResultOutput) ToGetInstanceTypeOfferingResultOutputWithContext(ctx context.Context) GetInstanceTypeOfferingResultOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingResultOutput) Filters() GetInstanceTypeOfferingFilterArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) []GetInstanceTypeOfferingFilter { return v.Filters }).(GetInstanceTypeOfferingFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetInstanceTypeOfferingResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// EC2 Instance Type.
+func (o GetInstanceTypeOfferingResultOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeOfferingResultOutput) LocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) *string { return v.LocationType }).(pulumi.StringPtrOutput)
+}
+
+func (o GetInstanceTypeOfferingResultOutput) PreferredInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingResult) []string { return v.PreferredInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingResultOutput{})
 }

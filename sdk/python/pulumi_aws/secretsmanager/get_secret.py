@@ -13,6 +13,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -208,3 +209,35 @@ def get_secret(arn: Optional[str] = None,
         rotation_lambda_arn=__ret__.rotation_lambda_arn,
         rotation_rules=__ret__.rotation_rules,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion`.
+
+    ## Example Usage
+    ### ARN
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
+    ```
+    ### Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_name = aws.secretsmanager.get_secret(name="example")
+    ```
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the secret to retrieve.
+    :param str name: The name of the secret to retrieve.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetBundleResult',
     'AwaitableGetBundleResult',
     'get_bundle',
+    'get_bundle_output',
 ]
 
 @pulumi.output_type
@@ -177,3 +178,38 @@ def get_bundle(bundle_id: Optional[str] = None,
         owner=__ret__.owner,
         root_storages=__ret__.root_storages,
         user_storages=__ret__.user_storages)
+
+
+@_utilities.lift_output_func(get_bundle)
+def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
+                      name: Optional[pulumi.Input[Optional[str]]] = None,
+                      owner: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBundleResult]:
+    """
+    Retrieve information about an AWS WorkSpaces bundle.
+
+    ## Example Usage
+    ### By ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
+    ```
+    ### By Owner & Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_bundle(name="Value with Windows 10 and Office 2016",
+        owner="AMAZON")
+    ```
+
+
+    :param str bundle_id: The ID of the bundle.
+    :param str name: The name of the bundle. You cannot combine this parameter with `bundle_id`.
+    :param str owner: The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    """
+    ...

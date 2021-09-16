@@ -14,6 +14,7 @@ __all__ = [
     'GetSecretResult',
     'AwaitableGetSecretResult',
     'get_secret',
+    'get_secret_output',
 ]
 
 @pulumi.output_type
@@ -69,3 +70,12 @@ def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs'
     return AwaitableGetSecretResult(
         id=__ret__.id,
         secrets=__ret__.secrets)
+
+
+@_utilities.lift_output_func(get_secret)
+def get_secret_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretSecretArgs']]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

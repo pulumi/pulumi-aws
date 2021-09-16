@@ -14,6 +14,7 @@ __all__ = [
     'GetNatGatewayResult',
     'AwaitableGetNatGatewayResult',
     'get_nat_gateway',
+    'get_nat_gateway_output',
 ]
 
 @pulumi.output_type
@@ -213,3 +214,49 @@ def get_nat_gateway(filters: Optional[Sequence[pulumi.InputType['GetNatGatewayFi
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_nat_gateway)
+def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNatGatewayFilterArgs']]]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
+                           state: Optional[pulumi.Input[Optional[str]]] = None,
+                           subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+    """
+    Provides details about a specific Nat Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"])
+    ```
+
+    Usage with tags:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    default = aws.ec2.get_nat_gateway(subnet_id=aws_subnet["public"]["id"],
+        tags={
+            "Name": "gw NAT",
+        })
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetNatGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str id: The id of the specific Nat Gateway to retrieve.
+    :param str state: The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+    :param str subnet_id: The id of subnet that the Nat Gateway resides in.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired Nat Gateway.
+    :param str vpc_id: The id of the VPC that the Nat Gateway resides in.
+    """
+    ...

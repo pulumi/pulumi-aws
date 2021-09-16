@@ -14,6 +14,7 @@ __all__ = [
     'GetInternetGatewayResult',
     'AwaitableGetInternetGatewayResult',
     'get_internet_gateway',
+    'get_internet_gateway_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,34 @@ def get_internet_gateway(filters: Optional[Sequence[pulumi.InputType['GetInterne
         internet_gateway_id=__ret__.internet_gateway_id,
         owner_id=__ret__.owner_id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_internet_gateway)
+def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']]]]] = None,
+                                internet_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
+    """
+    `ec2.InternetGateway` provides details about a specific Internet Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    vpc_id = config.require_object("vpcId")
+    default = aws.ec2.get_internet_gateway(filters=[aws.ec2.GetInternetGatewayFilterArgs(
+        name="attachment.vpc-id",
+        values=[vpc_id],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetInternetGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str internet_gateway_id: The id of the specific Internet Gateway to retrieve.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired Internet Gateway.
+    """
+    ...

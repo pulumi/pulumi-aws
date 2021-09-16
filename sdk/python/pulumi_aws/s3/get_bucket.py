@@ -12,6 +12,7 @@ __all__ = [
     'GetBucketResult',
     'AwaitableGetBucketResult',
     'get_bucket',
+    'get_bucket_output',
 ]
 
 @pulumi.output_type
@@ -195,3 +196,49 @@ def get_bucket(bucket: Optional[str] = None,
         region=__ret__.region,
         website_domain=__ret__.website_domain,
         website_endpoint=__ret__.website_endpoint)
+
+
+@_utilities.lift_output_func(get_bucket)
+def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
+    """
+    Provides details about a specific S3 bucket.
+
+    This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+    Distribution.
+
+    ## Example Usage
+    ### Route53 Record
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="bucket.test.com")
+    test_zone = aws.route53.get_zone(name="test.com.")
+    example = aws.route53.Record("example",
+        zone_id=test_zone.id,
+        name="bucket",
+        type="A",
+        aliases=[aws.route53.RecordAliasArgs(
+            name=selected.website_domain,
+            zone_id=selected.hosted_zone_id,
+        )])
+    ```
+    ### CloudFront Origin
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.s3.get_bucket(bucket="a-test-bucket")
+    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
+        domain_name=selected.bucket_domain_name,
+        origin_id="s3-selected-bucket",
+    )])
+    ```
+
+
+    :param str bucket: The name of the bucket
+    """
+    ...

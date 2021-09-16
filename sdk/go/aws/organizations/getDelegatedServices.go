@@ -4,6 +4,9 @@
 package organizations
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,56 @@ type GetDelegatedServicesResult struct {
 	DelegatedServices []GetDelegatedServicesDelegatedService `pulumi:"delegatedServices"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetDelegatedServicesOutput(ctx *pulumi.Context, args GetDelegatedServicesOutputArgs, opts ...pulumi.InvokeOption) GetDelegatedServicesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDelegatedServicesResult, error) {
+			args := v.(GetDelegatedServicesArgs)
+			r, err := GetDelegatedServices(ctx, &args, opts...)
+			return *r, err
+		}).(GetDelegatedServicesResultOutput)
+}
+
+// A collection of arguments for invoking getDelegatedServices.
+type GetDelegatedServicesOutputArgs struct {
+	// The account ID number of a delegated administrator account in the organization.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+}
+
+func (GetDelegatedServicesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedServicesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDelegatedServices.
+type GetDelegatedServicesResultOutput struct{ *pulumi.OutputState }
+
+func (GetDelegatedServicesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDelegatedServicesResult)(nil)).Elem()
+}
+
+func (o GetDelegatedServicesResultOutput) ToGetDelegatedServicesResultOutput() GetDelegatedServicesResultOutput {
+	return o
+}
+
+func (o GetDelegatedServicesResultOutput) ToGetDelegatedServicesResultOutputWithContext(ctx context.Context) GetDelegatedServicesResultOutput {
+	return o
+}
+
+func (o GetDelegatedServicesResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedServicesResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// The services for which the account is a delegated administrator, which have the following attributes:
+func (o GetDelegatedServicesResultOutput) DelegatedServices() GetDelegatedServicesDelegatedServiceArrayOutput {
+	return o.ApplyT(func(v GetDelegatedServicesResult) []GetDelegatedServicesDelegatedService { return v.DelegatedServices }).(GetDelegatedServicesDelegatedServiceArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDelegatedServicesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDelegatedServicesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDelegatedServicesResultOutput{})
 }

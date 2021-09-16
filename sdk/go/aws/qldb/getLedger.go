@@ -4,6 +4,9 @@
 package qldb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,4 +57,63 @@ type LookupLedgerResult struct {
 	Id              string `pulumi:"id"`
 	Name            string `pulumi:"name"`
 	PermissionsMode string `pulumi:"permissionsMode"`
+}
+
+func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLedgerResult, error) {
+			args := v.(LookupLedgerArgs)
+			r, err := LookupLedger(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLedgerResultOutput)
+}
+
+// A collection of arguments for invoking getLedger.
+type LookupLedgerOutputArgs struct {
+	// The friendly name of the ledger to match.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupLedgerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLedgerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLedger.
+type LookupLedgerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLedgerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLedgerResult)(nil)).Elem()
+}
+
+func (o LookupLedgerResultOutput) ToLookupLedgerResultOutput() LookupLedgerResultOutput {
+	return o
+}
+
+func (o LookupLedgerResultOutput) ToLookupLedgerResultOutputWithContext(ctx context.Context) LookupLedgerResultOutput {
+	return o
+}
+
+func (o LookupLedgerResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLedgerResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupLedgerResultOutput) DeletionProtection() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLedgerResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupLedgerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLedgerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupLedgerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLedgerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLedgerResultOutput) PermissionsMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLedgerResult) string { return v.PermissionsMode }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLedgerResultOutput{})
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetRoleResult',
     'AwaitableGetRoleResult',
     'get_role',
+    'get_role_output',
 ]
 
 @pulumi.output_type
@@ -201,3 +202,28 @@ def get_role(name: Optional[str] = None,
         permissions_boundary=__ret__.permissions_boundary,
         tags=__ret__.tags,
         unique_id=__ret__.unique_id)
+
+
+@_utilities.lift_output_func(get_role)
+def get_role_output(name: Optional[pulumi.Input[str]] = None,
+                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleResult]:
+    """
+    This data source can be used to fetch information about a specific
+    IAM role. By using this data source, you can reference IAM role
+    properties without having to hard code ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_role(name="an_example_role_name")
+    ```
+
+
+    :param str name: The friendly IAM role name to match.
+    :param Mapping[str, str] tags: The tags attached to the role.
+    """
+    ...

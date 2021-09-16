@@ -12,6 +12,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -387,3 +388,59 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
         status=__ret__.status,
         storage_type=__ret__.storage_type,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+                        db_snapshot_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+                        include_public: Optional[pulumi.Input[Optional[bool]]] = None,
+                        include_shared: Optional[pulumi.Input[Optional[bool]]] = None,
+                        most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                        snapshot_type: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Use this data source to get information about a DB Snapshot for use when provisioning DB instances
+
+    > **NOTE:** This data source does not apply to snapshots created on Aurora DB clusters.
+    See the `rds.ClusterSnapshot` data source for DB Cluster snapshots.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    prod = aws.rds.Instance("prod",
+        allocated_storage=10,
+        engine="mysql",
+        engine_version="5.6.17",
+        instance_class="db.t2.micro",
+        name="mydb",
+        username="foo",
+        password="bar",
+        db_subnet_group_name="my_database_subnet_group",
+        parameter_group_name="default.mysql5.6")
+    latest_prod_snapshot = prod.id.apply(lambda id: aws.rds.get_snapshot(db_instance_identifier=id,
+        most_recent=True))
+    # Use the latest production snapshot to create a dev instance.
+    dev = aws.rds.Instance("dev",
+        instance_class="db.t2.micro",
+        name="mydbdev",
+        snapshot_identifier=latest_prod_snapshot.id)
+    ```
+
+
+    :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
+    :param str db_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most
+           recent Snapshot.
+    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    """
+    ...

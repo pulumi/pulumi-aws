@@ -14,6 +14,7 @@ __all__ = [
     'GetAmiIdsResult',
     'AwaitableGetAmiIdsResult',
     'get_ami_ids',
+    'get_ami_ids_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,43 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
         name_regex=__ret__.name_regex,
         owners=__ret__.owners,
         sort_ascending=__ret__.sort_ascending)
+
+
+@_utilities.lift_output_func(get_ami_ids)
+def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                       filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]]]] = None,
+                       name_regex: Optional[pulumi.Input[Optional[str]]] = None,
+                       owners: Optional[pulumi.Input[Sequence[str]]] = None,
+                       sort_ascending: Optional[pulumi.Input[Optional[bool]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
+    """
+    Use this data source to get a list of AMI IDs matching the specified criteria.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
+            name="name",
+            values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
+        )],
+        owners=["099720109477"])
+    ```
+
+
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch
+           permission on  the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
+           are several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param str name_regex: A regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API.
+           This filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. It is recommended to combine this with other
+           options to narrow down the list AWS returns.
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param bool sort_ascending: Used to sort AMIs by creation time.
+    """
+    ...

@@ -14,6 +14,7 @@ __all__ = [
     'GetCoipPoolsResult',
     'AwaitableGetCoipPoolsResult',
     'get_coip_pools',
+    'get_coip_pools_output',
 ]
 
 @pulumi.output_type
@@ -99,3 +100,18 @@ def get_coip_pools(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolsFilt
         id=__ret__.id,
         pool_ids=__ret__.pool_ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_coip_pools)
+def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']]]]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoipPoolsResult]:
+    """
+    Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+
+
+    :param Sequence[pulumi.InputType['GetCoipPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired aws_ec2_coip_pools.
+    """
+    ...

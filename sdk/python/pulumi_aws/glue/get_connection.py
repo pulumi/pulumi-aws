@@ -13,6 +13,7 @@ __all__ = [
     'GetConnectionResult',
     'AwaitableGetConnectionResult',
     'get_connection',
+    'get_connection_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,25 @@ def get_connection(id: Optional[str] = None,
         match_criterias=__ret__.match_criterias,
         name=__ret__.name,
         physical_connection_requirements=__ret__.physical_connection_requirements)
+
+
+@_utilities.lift_output_func(get_connection)
+def get_connection_output(id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+    """
+    This data source can be used to fetch information about a specific Glue Connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.glue.get_connection(id="123456789123:connection")
+    ```
+
+
+    :param str id: A concatenation of the catalog ID and connection name. For example, if your account ID is
+           `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    """
+    ...

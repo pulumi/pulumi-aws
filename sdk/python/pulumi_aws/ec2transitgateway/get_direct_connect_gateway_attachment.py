@@ -14,6 +14,7 @@ __all__ = [
     'GetDirectConnectGatewayAttachmentResult',
     'AwaitableGetDirectConnectGatewayAttachmentResult',
     'get_direct_connect_gateway_attachment',
+    'get_direct_connect_gateway_attachment_output',
 ]
 
 @pulumi.output_type
@@ -125,3 +126,32 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[str] = None,
         id=__ret__.id,
         tags=__ret__.tags,
         transit_gateway_id=__ret__.transit_gateway_id)
+
+
+@_utilities.lift_output_func(get_direct_connect_gateway_attachment)
+def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                 filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']]]]] = None,
+                                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                                 transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
+    """
+    Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+
+    ## Example Usage
+    ### By Transit Gateway and Direct Connect Gateway Identifiers
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_direct_connect_gateway_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        dx_gateway_id=aws_dx_gateway["example"]["id"])
+    ```
+
+
+    :param str dx_gateway_id: Identifier of the Direct Connect Gateway.
+    :param Sequence[pulumi.InputType['GetDirectConnectGatewayAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+    :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
+    """
+    ...

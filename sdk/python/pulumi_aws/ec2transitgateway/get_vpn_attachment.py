@@ -14,6 +14,7 @@ __all__ = [
     'GetVpnAttachmentResult',
     'AwaitableGetVpnAttachmentResult',
     'get_vpn_attachment',
+    'get_vpn_attachment_output',
 ]
 
 @pulumi.output_type
@@ -138,3 +139,45 @@ def get_vpn_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpnAttach
         tags=__ret__.tags,
         transit_gateway_id=__ret__.transit_gateway_id,
         vpn_connection_id=__ret__.vpn_connection_id)
+
+
+@_utilities.lift_output_func(get_vpn_attachment)
+def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']]]]] = None,
+                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                              transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              vpn_connection_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnAttachmentResult]:
+    """
+    Get information on an EC2 Transit Gateway VPN Attachment.
+
+    > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `ec2.Tag` resource.
+
+    ## Example Usage
+    ### By Transit Gateway and VPN Connection Identifiers
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_vpn_attachment(transit_gateway_id=aws_ec2_transit_gateway["example"]["id"],
+        vpn_connection_id=aws_vpn_connection["example"]["id"])
+    ```
+    ### Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ec2transitgateway.get_vpn_attachment(filters=[aws.ec2transitgateway.GetVpnAttachmentFilterArgs(
+        name="resource-id",
+        values=["some-resource"],
+    )])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetVpnAttachmentFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+    :param str transit_gateway_id: Identifier of the EC2 Transit Gateway.
+    :param str vpn_connection_id: Identifier of the EC2 VPN Connection.
+    """
+    ...

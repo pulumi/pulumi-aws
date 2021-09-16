@@ -13,6 +13,7 @@ __all__ = [
     'GetWorkspaceResult',
     'AwaitableGetWorkspaceResult',
     'get_workspace',
+    'get_workspace_output',
 ]
 
 @pulumi.output_type
@@ -218,3 +219,40 @@ def get_workspace(directory_id: Optional[str] = None,
         volume_encryption_key=__ret__.volume_encryption_key,
         workspace_id=__ret__.workspace_id,
         workspace_properties=__ret__.workspace_properties)
+
+
+@_utilities.lift_output_func(get_workspace)
+def get_workspace_output(directory_id: Optional[pulumi.Input[Optional[str]]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         user_name: Optional[pulumi.Input[Optional[str]]] = None,
+                         workspace_id: Optional[pulumi.Input[Optional[str]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+    """
+    Use this data source to get information about a workspace in [AWS Workspaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) Service.
+
+    ## Example Usage
+    ### Filter By Workspace ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_workspace(workspace_id="ws-cj5xcxsz5")
+    ```
+    ### Filter By Directory ID & User Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_workspace(directory_id="d-9967252f57",
+        user_name="Example")
+    ```
+
+
+    :param str directory_id: The ID of the directory for the WorkSpace. You have to specify `user_name` along with `directory_id`. You cannot combine this parameter with `workspace_id`.
+    :param Mapping[str, str] tags: The tags for the WorkSpace.
+    :param str user_name: The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspace_id`.
+    :param str workspace_id: The ID of the WorkSpace. You cannot combine this parameter with `directory_id`.
+    """
+    ...

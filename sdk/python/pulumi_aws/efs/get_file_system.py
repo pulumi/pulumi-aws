@@ -13,6 +13,7 @@ __all__ = [
     'GetFileSystemResult',
     'AwaitableGetFileSystemResult',
     'get_file_system',
+    'get_file_system_output',
 ]
 
 @pulumi.output_type
@@ -257,3 +258,35 @@ def get_file_system(creation_token: Optional[str] = None,
         size_in_bytes=__ret__.size_in_bytes,
         tags=__ret__.tags,
         throughput_mode=__ret__.throughput_mode)
+
+
+@_utilities.lift_output_func(get_file_system)
+def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]] = None,
+                           file_system_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFileSystemResult]:
+    """
+    Provides information about an Elastic File System (EFS) File System.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    file_system_id = config.get("fileSystemId")
+    if file_system_id is None:
+        file_system_id = ""
+    by_id = aws.efs.get_file_system(file_system_id=file_system_id)
+    by_tag = aws.efs.get_file_system(tags={
+        "Environment": "dev",
+    })
+    ```
+
+
+    :param str creation_token: Restricts the list to the file system with this creation token.
+    :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
+    :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
+    """
+    ...

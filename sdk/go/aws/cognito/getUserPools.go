@@ -4,6 +4,9 @@
 package cognito
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,61 @@ type GetUserPoolsResult struct {
 	// The set of cognito user pool ids.
 	Ids  []string `pulumi:"ids"`
 	Name string   `pulumi:"name"`
+}
+
+func GetUserPoolsOutput(ctx *pulumi.Context, args GetUserPoolsOutputArgs, opts ...pulumi.InvokeOption) GetUserPoolsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUserPoolsResult, error) {
+			args := v.(GetUserPoolsArgs)
+			r, err := GetUserPools(ctx, &args, opts...)
+			return *r, err
+		}).(GetUserPoolsResultOutput)
+}
+
+// A collection of arguments for invoking getUserPools.
+type GetUserPoolsOutputArgs struct {
+	// Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetUserPoolsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUserPools.
+type GetUserPoolsResultOutput struct{ *pulumi.OutputState }
+
+func (GetUserPoolsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUserPoolsResult)(nil)).Elem()
+}
+
+func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutput() GetUserPoolsResultOutput {
+	return o
+}
+
+func (o GetUserPoolsResultOutput) ToGetUserPoolsResultOutputWithContext(ctx context.Context) GetUserPoolsResultOutput {
+	return o
+}
+
+// The set of cognito user pool Amazon Resource Names (ARNs).
+func (o GetUserPoolsResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUserPoolsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The set of cognito user pool ids.
+func (o GetUserPoolsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetUserPoolsResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUserPoolsResultOutput{})
 }

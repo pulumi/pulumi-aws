@@ -4,6 +4,9 @@
 package ebs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,4 +81,70 @@ type GetSnapshotIdsResult struct {
 	Ids                 []string `pulumi:"ids"`
 	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
+}
+
+func GetSnapshotIdsOutput(ctx *pulumi.Context, args GetSnapshotIdsOutputArgs, opts ...pulumi.InvokeOption) GetSnapshotIdsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSnapshotIdsResult, error) {
+			args := v.(GetSnapshotIdsArgs)
+			r, err := GetSnapshotIds(ctx, &args, opts...)
+			return *r, err
+		}).(GetSnapshotIdsResultOutput)
+}
+
+// A collection of arguments for invoking getSnapshotIds.
+type GetSnapshotIdsOutputArgs struct {
+	// One or more name/value pairs to filter off of. There are
+	// several valid keys, for a full reference, check out
+	// [describe-volumes in the AWS CLI reference][1].
+	Filters GetSnapshotIdsFilterArrayInput `pulumi:"filters"`
+	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// One or more AWS accounts IDs that can create volumes from the snapshot.
+	RestorableByUserIds pulumi.StringArrayInput `pulumi:"restorableByUserIds"`
+}
+
+func (GetSnapshotIdsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotIdsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSnapshotIds.
+type GetSnapshotIdsResultOutput struct{ *pulumi.OutputState }
+
+func (GetSnapshotIdsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSnapshotIdsResult)(nil)).Elem()
+}
+
+func (o GetSnapshotIdsResultOutput) ToGetSnapshotIdsResultOutput() GetSnapshotIdsResultOutput {
+	return o
+}
+
+func (o GetSnapshotIdsResultOutput) ToGetSnapshotIdsResultOutputWithContext(ctx context.Context) GetSnapshotIdsResultOutput {
+	return o
+}
+
+func (o GetSnapshotIdsResultOutput) Filters() GetSnapshotIdsFilterArrayOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) []GetSnapshotIdsFilter { return v.Filters }).(GetSnapshotIdsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSnapshotIdsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of EBS snapshot IDs, sorted by creation time in descending order.
+func (o GetSnapshotIdsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSnapshotIdsResultOutput) Owners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSnapshotIdsResultOutput) RestorableByUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSnapshotIdsResult) []string { return v.RestorableByUserIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSnapshotIdsResultOutput{})
 }

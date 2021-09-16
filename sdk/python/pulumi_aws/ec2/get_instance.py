@@ -14,6 +14,7 @@ __all__ = [
     'GetInstanceResult',
     'AwaitableGetInstanceResult',
     'get_instance',
+    'get_instance_output',
 ]
 
 @pulumi.output_type
@@ -621,3 +622,48 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         user_data=__ret__.user_data,
         user_data_base64=__ret__.user_data_base64,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
+
+
+@_utilities.lift_output_func(get_instance)
+def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]]]] = None,
+                        get_password_data: Optional[pulumi.Input[Optional[bool]]] = None,
+                        get_user_data: Optional[pulumi.Input[Optional[bool]]] = None,
+                        instance_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+    """
+    Use this data source to get the ID of an Amazon EC2 Instance for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_instance(filters=[
+            aws.ec2.GetInstanceFilterArgs(
+                name="image-id",
+                values=["ami-xxxxxxxx"],
+            ),
+            aws.ec2.GetInstanceFilterArgs(
+                name="tag:Name",
+                values=["instance-name-tag"],
+            ),
+        ],
+        instance_id="i-instanceid")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+           several valid keys, for a full reference, check out
+           [describe-instances in the AWS CLI reference][1].
+    :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+    :param bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+    :param str instance_id: Specify the exact Instance ID with which to populate the data source.
+    :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
+           exactly match a pair on the desired Instance.
+    :param Mapping[str, str] tags: A map of tags assigned to the Instance.
+    """
+    ...

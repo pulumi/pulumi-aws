@@ -14,6 +14,7 @@ __all__ = [
     'GetCustomerGatewayResult',
     'AwaitableGetCustomerGatewayResult',
     'get_customer_gateway',
+    'get_customer_gateway_output',
 ]
 
 @pulumi.output_type
@@ -173,3 +174,39 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
         ip_address=__ret__.ip_address,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_customer_gateway)
+def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']]]]] = None,
+                                id: Optional[pulumi.Input[Optional[str]]] = None,
+                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
+    """
+    Get an existing AWS Customer Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArgs(
+        name="tag:Name",
+        values=["foo-prod"],
+    )])
+    main = aws.ec2.VpnGateway("main",
+        vpc_id=aws_vpc["main"]["id"],
+        amazon_side_asn="7224")
+    transit = aws.ec2.VpnConnection("transit",
+        vpn_gateway_id=main.id,
+        customer_gateway_id=foo.id,
+        type=foo.type,
+        static_routes_only=False)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param str id: The ID of the gateway.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the gateway.
+    """
+    ...

@@ -4,6 +4,9 @@
 package ecs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -64,4 +67,81 @@ type LookupClusterResult struct {
 	Settings []GetClusterSetting `pulumi:"settings"`
 	// The status of the ECS Cluster
 	Status string `pulumi:"status"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type LookupClusterOutputArgs struct {
+	// The name of the ECS Cluster
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+// The ARN of the ECS Cluster
+func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterName }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The number of pending tasks for the ECS Cluster
+func (o LookupClusterResultOutput) PendingTasksCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.PendingTasksCount }).(pulumi.IntOutput)
+}
+
+// The number of registered container instances for the ECS Cluster
+func (o LookupClusterResultOutput) RegisteredContainerInstancesCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.RegisteredContainerInstancesCount }).(pulumi.IntOutput)
+}
+
+// The number of running tasks for the ECS Cluster
+func (o LookupClusterResultOutput) RunningTasksCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.RunningTasksCount }).(pulumi.IntOutput)
+}
+
+// The settings associated with the ECS Cluster.
+func (o LookupClusterResultOutput) Settings() GetClusterSettingArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterSetting { return v.Settings }).(GetClusterSettingArrayOutput)
+}
+
+// The status of the ECS Cluster
+func (o LookupClusterResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }

@@ -4,6 +4,9 @@
 package autoscaling
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,61 @@ type GetAmiIdsResult struct {
 	Id string `pulumi:"id"`
 	// A list of the Autoscaling Groups in the current region.
 	Names []string `pulumi:"names"`
+}
+
+func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAmiIdsResult, error) {
+			args := v.(GetAmiIdsArgs)
+			r, err := GetAmiIds(ctx, &args, opts...)
+			return *r, err
+		}).(GetAmiIdsResultOutput)
+}
+
+// A collection of arguments for invoking getAmiIds.
+type GetAmiIdsOutputArgs struct {
+	// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
+}
+
+func (GetAmiIdsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAmiIds.
+type GetAmiIdsResultOutput struct{ *pulumi.OutputState }
+
+func (GetAmiIdsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAmiIdsResult)(nil)).Elem()
+}
+
+func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutput() GetAmiIdsResultOutput {
+	return o
+}
+
+func (o GetAmiIdsResultOutput) ToGetAmiIdsResultOutputWithContext(ctx context.Context) GetAmiIdsResultOutput {
+	return o
+}
+
+// A list of the Autoscaling Groups Arns in the current region.
+func (o GetAmiIdsResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Filters() GetAmiIdsFilterArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []GetAmiIdsFilter { return v.Filters }).(GetAmiIdsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of the Autoscaling Groups in the current region.
+func (o GetAmiIdsResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAmiIdsResultOutput{})
 }

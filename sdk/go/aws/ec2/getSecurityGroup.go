@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -85,4 +88,82 @@ type LookupSecurityGroupResult struct {
 	Name        string                   `pulumi:"name"`
 	Tags        map[string]string        `pulumi:"tags"`
 	VpcId       string                   `pulumi:"vpcId"`
+}
+
+func LookupSecurityGroupOutput(ctx *pulumi.Context, args LookupSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecurityGroupResult, error) {
+			args := v.(LookupSecurityGroupArgs)
+			r, err := LookupSecurityGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecurityGroupResultOutput)
+}
+
+// A collection of arguments for invoking getSecurityGroup.
+type LookupSecurityGroupOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetSecurityGroupFilterArrayInput `pulumi:"filters"`
+	// The id of the specific security group to retrieve.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired security group.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The id of the VPC that the desired security group belongs to.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (LookupSecurityGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecurityGroup.
+type LookupSecurityGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecurityGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecurityGroupResult)(nil)).Elem()
+}
+
+func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutput() LookupSecurityGroupResultOutput {
+	return o
+}
+
+func (o LookupSecurityGroupResultOutput) ToLookupSecurityGroupResultOutputWithContext(ctx context.Context) LookupSecurityGroupResultOutput {
+	return o
+}
+
+// The computed ARN of the security group.
+func (o LookupSecurityGroupResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The description of the security group.
+func (o LookupSecurityGroupResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Filters() GetSecurityGroupFilterArrayOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) []GetSecurityGroupFilter { return v.Filters }).(GetSecurityGroupFilterArrayOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecurityGroupResultOutput{})
 }

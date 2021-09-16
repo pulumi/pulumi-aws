@@ -12,6 +12,7 @@ __all__ = [
     'GetAccessPointsResult',
     'AwaitableGetAccessPointsResult',
     'get_access_points',
+    'get_access_points_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,24 @@ def get_access_points(file_system_id: Optional[str] = None,
         file_system_id=__ret__.file_system_id,
         id=__ret__.id,
         ids=__ret__.ids)
+
+
+@_utilities.lift_output_func(get_access_points)
+def get_access_points_output(file_system_id: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointsResult]:
+    """
+    Provides information about multiple Elastic File System (EFS) Access Points.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.efs.get_access_points(file_system_id="fs-12345678")
+    ```
+
+
+    :param str file_system_id: EFS File System identifier.
+    """
+    ...

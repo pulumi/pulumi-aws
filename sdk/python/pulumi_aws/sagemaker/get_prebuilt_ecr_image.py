@@ -12,6 +12,7 @@ __all__ = [
     'GetPrebuiltEcrImageResult',
     'AwaitableGetPrebuiltEcrImageResult',
     'get_prebuilt_ecr_image',
+    'get_prebuilt_ecr_image_output',
 ]
 
 @pulumi.output_type
@@ -149,3 +150,35 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
         registry_id=__ret__.registry_id,
         registry_path=__ret__.registry_path,
         repository_name=__ret__.repository_name)
+
+
+@_utilities.lift_output_func(get_prebuilt_ecr_image)
+def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str]]] = None,
+                                  image_tag: Optional[pulumi.Input[Optional[str]]] = None,
+                                  region: Optional[pulumi.Input[Optional[str]]] = None,
+                                  repository_name: Optional[pulumi.Input[str]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrebuiltEcrImageResult]:
+    """
+    Get information about prebuilt Amazon SageMaker Docker images.
+
+    > **NOTE:** The AWS provider creates a validly constructed `registry_path` but does not verify that the `registry_path` corresponds to an existing image. For example, using a `registry_path` containing an `image_tag` that does not correspond to a Docker image in the ECR repository, will result in an error.
+
+    ## Example Usage
+
+    Basic usage:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.sagemaker.get_prebuilt_ecr_image(image_tag="2.2-1.0.11.0",
+        repository_name="sagemaker-scikit-learn")
+    ```
+
+
+    :param str dns_suffix: The DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
+    :param str image_tag: The image tag for the Docker image. If not specified, the AWS provider sets the value to `1`, which for many repositories indicates the latest version. Some repositories, such as XGBoost, do not support `1` or `latest` and specific version must be used.
+    :param str region: The region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+    :param str repository_name: The name of the repository, which is generally the algorithm or library. Values include `blazingtext`, `factorization-machines`, `forecasting-deepar`, `image-classification`, `ipinsights`, `kmeans`, `knn`, `lda`, `linear-learner`, `mxnet-inference-eia`, `mxnet-inference`, `mxnet-training`, `ntm`, `object-detection`, `object2vec`, `pca`, `pytorch-inference-eia`, `pytorch-inference`, `pytorch-training`, `randomcutforest`, `sagemaker-scikit-learn`, `sagemaker-sparkml-serving`, `sagemaker-xgboost`, `semantic-segmentation`, `seq2seq`, `tensorflow-inference-eia`, `tensorflow-inference`, and `tensorflow-training`.
+    """
+    ...

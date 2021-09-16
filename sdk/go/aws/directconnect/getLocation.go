@@ -4,6 +4,9 @@
 package directconnect
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,66 @@ type GetLocationResult struct {
 	LocationCode string `pulumi:"locationCode"`
 	// The name of the location. This includes the name of the colocation partner and the physical site of the building.
 	LocationName string `pulumi:"locationName"`
+}
+
+func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLocationResult, error) {
+			args := v.(GetLocationArgs)
+			r, err := GetLocation(ctx, &args, opts...)
+			return *r, err
+		}).(GetLocationResultOutput)
+}
+
+// A collection of arguments for invoking getLocation.
+type GetLocationOutputArgs struct {
+	// The code for the location to retrieve.
+	LocationCode pulumi.StringInput `pulumi:"locationCode"`
+}
+
+func (GetLocationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLocation.
+type GetLocationResultOutput struct{ *pulumi.OutputState }
+
+func (GetLocationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationResult)(nil)).Elem()
+}
+
+func (o GetLocationResultOutput) ToGetLocationResultOutput() GetLocationResultOutput {
+	return o
+}
+
+func (o GetLocationResultOutput) ToGetLocationResultOutputWithContext(ctx context.Context) GetLocationResultOutput {
+	return o
+}
+
+// The available port speeds for the location.
+func (o GetLocationResultOutput) AvailablePortSpeeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailablePortSpeeds }).(pulumi.StringArrayOutput)
+}
+
+// The names of the service providers for the location.
+func (o GetLocationResultOutput) AvailableProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLocationResult) []string { return v.AvailableProviders }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLocationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.LocationCode }).(pulumi.StringOutput)
+}
+
+// The name of the location. This includes the name of the colocation partner and the physical site of the building.
+func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLocationResultOutput{})
 }

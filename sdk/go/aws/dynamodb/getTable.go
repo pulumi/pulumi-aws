@@ -4,6 +4,9 @@
 package dynamodb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,125 @@ type LookupTableResult struct {
 	Tags                  map[string]string             `pulumi:"tags"`
 	Ttl                   GetTableTtl                   `pulumi:"ttl"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
+}
+
+func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTableResult, error) {
+			args := v.(LookupTableArgs)
+			r, err := LookupTable(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTableResultOutput)
+}
+
+// A collection of arguments for invoking getTable.
+type LookupTableOutputArgs struct {
+	// The name of the DynamoDB table.
+	Name                 pulumi.StringInput                   `pulumi:"name"`
+	ServerSideEncryption GetTableServerSideEncryptionPtrInput `pulumi:"serverSideEncryption"`
+	Tags                 pulumi.StringMapInput                `pulumi:"tags"`
+}
+
+func (LookupTableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTableArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTable.
+type LookupTableResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTableResult)(nil)).Elem()
+}
+
+func (o LookupTableResultOutput) ToLookupTableResultOutput() LookupTableResultOutput {
+	return o
+}
+
+func (o LookupTableResultOutput) ToLookupTableResultOutputWithContext(ctx context.Context) LookupTableResultOutput {
+	return o
+}
+
+func (o LookupTableResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) Attributes() GetTableAttributeArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableAttribute { return v.Attributes }).(GetTableAttributeArrayOutput)
+}
+
+func (o LookupTableResultOutput) BillingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.BillingMode }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) GlobalSecondaryIndexes() GetTableGlobalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GetTableGlobalSecondaryIndexArrayOutput)
+}
+
+func (o LookupTableResultOutput) HashKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.HashKey }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) LocalSecondaryIndexes() GetTableLocalSecondaryIndexArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableLocalSecondaryIndex { return v.LocalSecondaryIndexes }).(GetTableLocalSecondaryIndexArrayOutput)
+}
+
+func (o LookupTableResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) PointInTimeRecovery() GetTablePointInTimeRecoveryOutput {
+	return o.ApplyT(func(v LookupTableResult) GetTablePointInTimeRecovery { return v.PointInTimeRecovery }).(GetTablePointInTimeRecoveryOutput)
+}
+
+func (o LookupTableResultOutput) RangeKey() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.RangeKey }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) ReadCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTableResult) int { return v.ReadCapacity }).(pulumi.IntOutput)
+}
+
+func (o LookupTableResultOutput) Replicas() GetTableReplicaArrayOutput {
+	return o.ApplyT(func(v LookupTableResult) []GetTableReplica { return v.Replicas }).(GetTableReplicaArrayOutput)
+}
+
+func (o LookupTableResultOutput) ServerSideEncryption() GetTableServerSideEncryptionOutput {
+	return o.ApplyT(func(v LookupTableResult) GetTableServerSideEncryption { return v.ServerSideEncryption }).(GetTableServerSideEncryptionOutput)
+}
+
+func (o LookupTableResultOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) StreamEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTableResult) bool { return v.StreamEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupTableResultOutput) StreamLabel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.StreamLabel }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) StreamViewType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.StreamViewType }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupTableResultOutput) Ttl() GetTableTtlOutput {
+	return o.ApplyT(func(v LookupTableResult) GetTableTtl { return v.Ttl }).(GetTableTtlOutput)
+}
+
+func (o LookupTableResultOutput) WriteCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTableResult) int { return v.WriteCapacity }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTableResultOutput{})
 }

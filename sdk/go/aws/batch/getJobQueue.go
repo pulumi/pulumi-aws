@@ -4,6 +4,9 @@
 package batch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,93 @@ type LookupJobQueueResult struct {
 	StatusReason string `pulumi:"statusReason"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, opts ...pulumi.InvokeOption) LookupJobQueueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupJobQueueResult, error) {
+			args := v.(LookupJobQueueArgs)
+			r, err := LookupJobQueue(ctx, &args, opts...)
+			return *r, err
+		}).(LookupJobQueueResultOutput)
+}
+
+// A collection of arguments for invoking getJobQueue.
+type LookupJobQueueOutputArgs struct {
+	// The name of the job queue.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupJobQueueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobQueueArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getJobQueue.
+type LookupJobQueueResultOutput struct{ *pulumi.OutputState }
+
+func (LookupJobQueueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupJobQueueResult)(nil)).Elem()
+}
+
+func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutput() LookupJobQueueResultOutput {
+	return o
+}
+
+func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx context.Context) LookupJobQueueResultOutput {
+	return o
+}
+
+// The ARN of the job queue.
+func (o LookupJobQueueResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The compute environments that are attached to the job queue and the order in
+// which job placement is preferred. Compute environments are selected for job placement in ascending order.
+// * `compute_environment_order.#.order` - The order of the compute environment.
+// * `compute_environment_order.#.compute_environment` - The ARN of the compute environment.
+func (o LookupJobQueueResultOutput) ComputeEnvironmentOrders() GetJobQueueComputeEnvironmentOrderArrayOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) []GetJobQueueComputeEnvironmentOrder { return v.ComputeEnvironmentOrders }).(GetJobQueueComputeEnvironmentOrderArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupJobQueueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the job queue. Job queues with a higher priority are evaluated first when
+// associated with the same compute environment.
+func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
+func (o LookupJobQueueResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The current status of the job queue (for example, `CREATING` or `VALID`).
+func (o LookupJobQueueResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A short, human-readable string to provide additional details about the current status
+// of the job queue.
+func (o LookupJobQueueResultOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags
+func (o LookupJobQueueResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupJobQueueResultOutput{})
 }

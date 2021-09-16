@@ -14,6 +14,7 @@ __all__ = [
     'GetSnapshotResult',
     'AwaitableGetSnapshotResult',
     'get_snapshot',
+    'get_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -305,3 +306,47 @@ def get_snapshot(filters: Optional[Sequence[pulumi.InputType['GetSnapshotFilterA
         tags=__ret__.tags,
         volume_id=__ret__.volume_id,
         volume_size=__ret__.volume_size)
+
+
+@_utilities.lift_output_func(get_snapshot)
+def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSnapshotFilterArgs']]]]] = None,
+                        most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                        owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                        restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                        snapshot_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotResult]:
+    """
+    Use this data source to get information about an EBS Snapshot for use when provisioning EBS Volumes
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ebs_volume = aws.ebs.get_snapshot(filters=[
+            aws.ebs.GetSnapshotFilterArgs(
+                name="volume-size",
+                values=["40"],
+            ),
+            aws.ebs.GetSnapshotFilterArgs(
+                name="tag:Name",
+                values=["Example"],
+            ),
+        ],
+        most_recent=True,
+        owners=["self"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetSnapshotFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-snapshots in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most recent snapshot.
+    :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param Sequence[str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
+    :param Sequence[str] snapshot_ids: Returns information on a specific snapshot_id.
+    :param Mapping[str, str] tags: A map of tags for the resource.
+    """
+    ...

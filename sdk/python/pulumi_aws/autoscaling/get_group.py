@@ -13,6 +13,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -308,3 +309,24 @@ def get_group(name: Optional[str] = None,
         target_group_arns=__ret__.target_group_arns,
         termination_policies=__ret__.termination_policies,
         vpc_zone_identifier=__ret__.vpc_zone_identifier)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    Use this data source to get information on an existing autoscaling group.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.autoscaling.get_group(name="foo")
+    ```
+
+
+    :param str name: Specify the exact name of the desired autoscaling group.
+    """
+    ...

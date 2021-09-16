@@ -12,6 +12,7 @@ __all__ = [
     'GetProductResult',
     'AwaitableGetProductResult',
     'get_product',
+    'get_product_output',
 ]
 
 @pulumi.output_type
@@ -254,3 +255,31 @@ def get_product(accept_language: Optional[str] = None,
         support_url=__ret__.support_url,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_product)
+def get_product_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
+                       id: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
+    """
+    Provides information on a Service Catalog Product.
+
+    > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_product(id="prod-dnigbtea24ste")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str id: Product ID.
+    :param Mapping[str, str] tags: Tags to apply to the product.
+    """
+    ...

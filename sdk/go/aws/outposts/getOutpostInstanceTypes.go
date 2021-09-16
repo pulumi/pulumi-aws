@@ -4,6 +4,9 @@
 package outposts
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,4 +56,56 @@ type GetOutpostInstanceTypesResult struct {
 	Id string `pulumi:"id"`
 	// Set of instance types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
+}
+
+func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOutpostInstanceTypesResult, error) {
+			args := v.(GetOutpostInstanceTypesArgs)
+			r, err := GetOutpostInstanceTypes(ctx, &args, opts...)
+			return *r, err
+		}).(GetOutpostInstanceTypesResultOutput)
+}
+
+// A collection of arguments for invoking getOutpostInstanceTypes.
+type GetOutpostInstanceTypesOutputArgs struct {
+	// Outpost Amazon Resource Name (ARN).
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetOutpostInstanceTypesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOutpostInstanceTypesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOutpostInstanceTypes.
+type GetOutpostInstanceTypesResultOutput struct{ *pulumi.OutputState }
+
+func (GetOutpostInstanceTypesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOutpostInstanceTypesResult)(nil)).Elem()
+}
+
+func (o GetOutpostInstanceTypesResultOutput) ToGetOutpostInstanceTypesResultOutput() GetOutpostInstanceTypesResultOutput {
+	return o
+}
+
+func (o GetOutpostInstanceTypesResultOutput) ToGetOutpostInstanceTypesResultOutputWithContext(ctx context.Context) GetOutpostInstanceTypesResultOutput {
+	return o
+}
+
+func (o GetOutpostInstanceTypesResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of instance types.
+func (o GetOutpostInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOutpostInstanceTypesResultOutput{})
 }

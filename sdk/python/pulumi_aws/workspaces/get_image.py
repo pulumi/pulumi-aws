@@ -12,6 +12,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,24 @@ def get_image(image_id: Optional[str] = None,
         operating_system_type=__ret__.operating_system_type,
         required_tenancy=__ret__.required_tenancy,
         state=__ret__.state)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    Use this data source to get information about a Workspaces image.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
+    ```
+
+
+    :param str image_id: The ID of the image.
+    """
+    ...

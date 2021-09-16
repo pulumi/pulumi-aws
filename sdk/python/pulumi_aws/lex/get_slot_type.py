@@ -13,6 +13,7 @@ __all__ = [
     'GetSlotTypeResult',
     'AwaitableGetSlotTypeResult',
     'get_slot_type',
+    'get_slot_type_output',
 ]
 
 @pulumi.output_type
@@ -184,3 +185,27 @@ def get_slot_type(name: Optional[str] = None,
         name=__ret__.name,
         value_selection_strategy=__ret__.value_selection_strategy,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_slot_type)
+def get_slot_type_output(name: Optional[pulumi.Input[str]] = None,
+                         version: Optional[pulumi.Input[Optional[str]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlotTypeResult]:
+    """
+    Provides details about a specific Amazon Lex Slot Type.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    flower_types = aws.lex.get_slot_type(name="FlowerTypes",
+        version="1")
+    ```
+
+
+    :param str name: The name of the slot type. The name is case sensitive.
+    :param str version: The version of the slot type.
+    """
+    ...

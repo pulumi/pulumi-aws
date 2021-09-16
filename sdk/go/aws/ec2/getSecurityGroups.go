@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,4 +41,72 @@ type GetSecurityGroupsResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
 	VpcIds []string `pulumi:"vpcIds"`
+}
+
+func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSecurityGroupsResult, error) {
+			args := v.(GetSecurityGroupsArgs)
+			r, err := GetSecurityGroups(ctx, &args, opts...)
+			return *r, err
+		}).(GetSecurityGroupsResultOutput)
+}
+
+// A collection of arguments for invoking getSecurityGroups.
+type GetSecurityGroupsOutputArgs struct {
+	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+	Filters GetSecurityGroupsFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match for desired security groups.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetSecurityGroupsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecurityGroups.
+type GetSecurityGroupsResultOutput struct{ *pulumi.OutputState }
+
+func (GetSecurityGroupsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecurityGroupsResult)(nil)).Elem()
+}
+
+func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutput() GetSecurityGroupsResultOutput {
+	return o
+}
+
+func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutputWithContext(ctx context.Context) GetSecurityGroupsResultOutput {
+	return o
+}
+
+// ARNs of the matched security groups.
+func (o GetSecurityGroupsResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSecurityGroupsResultOutput) Filters() GetSecurityGroupsFilterArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) []GetSecurityGroupsFilter { return v.Filters }).(GetSecurityGroupsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSecurityGroupsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// IDs of the matches security groups.
+func (o GetSecurityGroupsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSecurityGroupsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The VPC IDs of the matched security groups. The data source's tag or filter *will span VPCs* unless the `vpc-id` filter is also used.
+func (o GetSecurityGroupsResultOutput) VpcIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecurityGroupsResult) []string { return v.VpcIds }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSecurityGroupsResultOutput{})
 }

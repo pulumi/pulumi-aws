@@ -12,6 +12,7 @@ __all__ = [
     'GetRouteResult',
     'AwaitableGetRouteResult',
     'get_route',
+    'get_route_output',
 ]
 
 @pulumi.output_type
@@ -244,3 +245,57 @@ def get_route(carrier_gateway_id: Optional[str] = None,
         route_table_id=__ret__.route_table_id,
         transit_gateway_id=__ret__.transit_gateway_id,
         vpc_peering_connection_id=__ret__.vpc_peering_connection_id)
+
+
+@_utilities.lift_output_func(get_route)
+def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     destination_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                     destination_ipv6_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                     destination_prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     egress_only_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     instance_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     nat_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     network_interface_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     route_table_id: Optional[pulumi.Input[str]] = None,
+                     transit_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     vpc_peering_connection_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+    """
+    `ec2.Route` provides details about a specific Route.
+
+    This resource can prove useful when finding the resource associated with a CIDR. For example, finding the peering connection associated with a CIDR value.
+
+    ## Example Usage
+
+    The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
+    route = aws.ec2.get_route(route_table_id=aws_route_table["selected"]["id"],
+        destination_cidr_block="10.0.1.0/24")
+    interface = aws.ec2.get_network_interface(id=route.network_interface_id)
+    ```
+
+
+    :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+    :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
+    :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
+    :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.
+    :param str egress_only_gateway_id: Egress Only Gateway ID of the Route belonging to the Route Table.
+    :param str gateway_id: Gateway ID of the Route belonging to the Route Table.
+    :param str instance_id: Instance ID of the Route belonging to the Route Table.
+    :param str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
+    :param str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
+    :param str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param str route_table_id: The ID of the specific Route Table containing the Route entry.
+    :param str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
+    :param str vpc_peering_connection_id: VPC Peering Connection ID of the Route belonging to the Route Table.
+    """
+    ...

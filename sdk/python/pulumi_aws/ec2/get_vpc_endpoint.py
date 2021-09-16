@@ -14,6 +14,7 @@ __all__ = [
     'GetVpcEndpointResult',
     'AwaitableGetVpcEndpointResult',
     'get_vpc_endpoint',
+    'get_vpc_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -308,3 +309,40 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
         tags=__ret__.tags,
         vpc_endpoint_type=__ret__.vpc_endpoint_type,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_vpc_endpoint)
+def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']]]]] = None,
+                            id: Optional[pulumi.Input[Optional[str]]] = None,
+                            service_name: Optional[pulumi.Input[Optional[str]]] = None,
+                            state: Optional[pulumi.Input[Optional[str]]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
+    """
+    The VPC Endpoint data source provides details about
+    a specific VPC endpoint.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    s3 = aws.ec2.get_vpc_endpoint(vpc_id=aws_vpc["foo"]["id"],
+        service_name="com.amazonaws.us-west-2.s3")
+    private_s3 = aws.ec2.VpcEndpointRouteTableAssociation("privateS3",
+        vpc_endpoint_id=s3.id,
+        route_table_id=aws_route_table["private"]["id"])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param str id: The ID of the specific VPC Endpoint to retrieve.
+    :param str service_name: The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+    :param str state: The state of the specific VPC Endpoint to retrieve.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the specific VPC Endpoint to retrieve.
+    :param str vpc_id: The ID of the VPC in which the specific VPC Endpoint is used.
+    """
+    ...

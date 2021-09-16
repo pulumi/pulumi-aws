@@ -12,6 +12,7 @@ __all__ = [
     'GetDocumentResult',
     'AwaitableGetDocumentResult',
     'get_document',
+    'get_document_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,42 @@ def get_document(document_format: Optional[str] = None,
         document_version=__ret__.document_version,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_document)
+def get_document_output(document_format: Optional[pulumi.Input[Optional[str]]] = None,
+                        document_version: Optional[pulumi.Input[Optional[str]]] = None,
+                        name: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentResult]:
+    """
+    Gets the contents of the specified Systems Manager document.
+
+    ## Example Usage
+
+    To get the contents of the document owned by AWS.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_document(name="AWS-GatherSoftwareInventory",
+        document_format="YAML")
+    pulumi.export("content", foo.content)
+    ```
+
+    To get the contents of the custom document.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ssm.get_document(name=aws_ssm_document["test"]["name"],
+        document_format="JSON")
+    ```
+
+
+    :param str document_format: Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+    :param str document_version: The document version for which you want information.
+    :param str name: The name of the Systems Manager document.
+    """
+    ...

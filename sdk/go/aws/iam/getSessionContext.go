@@ -4,6 +4,9 @@
 package iam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,4 +38,71 @@ type GetSessionContextResult struct {
 	IssuerName string `pulumi:"issuerName"`
 	// Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
 	SessionName string `pulumi:"sessionName"`
+}
+
+func GetSessionContextOutput(ctx *pulumi.Context, args GetSessionContextOutputArgs, opts ...pulumi.InvokeOption) GetSessionContextResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSessionContextResult, error) {
+			args := v.(GetSessionContextArgs)
+			r, err := GetSessionContext(ctx, &args, opts...)
+			return *r, err
+		}).(GetSessionContextResultOutput)
+}
+
+// A collection of arguments for invoking getSessionContext.
+type GetSessionContextOutputArgs struct {
+	// ARN for an assumed role.
+	Arn pulumi.StringInput `pulumi:"arn"`
+}
+
+func (GetSessionContextOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSessionContextArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSessionContext.
+type GetSessionContextResultOutput struct{ *pulumi.OutputState }
+
+func (GetSessionContextResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSessionContextResult)(nil)).Elem()
+}
+
+func (o GetSessionContextResultOutput) ToGetSessionContextResultOutput() GetSessionContextResultOutput {
+	return o
+}
+
+func (o GetSessionContextResultOutput) ToGetSessionContextResultOutputWithContext(ctx context.Context) GetSessionContextResultOutput {
+	return o
+}
+
+func (o GetSessionContextResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSessionContextResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// IAM source role ARN if `arn` corresponds to an STS assumed role. Otherwise, `issuerArn` is equal to `arn`.
+func (o GetSessionContextResultOutput) IssuerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.IssuerArn }).(pulumi.StringOutput)
+}
+
+// Unique identifier of the IAM role that issues the STS assumed role.
+func (o GetSessionContextResultOutput) IssuerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.IssuerId }).(pulumi.StringOutput)
+}
+
+// Name of the source role. Only available if `arn` corresponds to an STS assumed role.
+func (o GetSessionContextResultOutput) IssuerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.IssuerName }).(pulumi.StringOutput)
+}
+
+// Name of the STS session. Only available if `arn` corresponds to an STS assumed role.
+func (o GetSessionContextResultOutput) SessionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSessionContextResult) string { return v.SessionName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSessionContextResultOutput{})
 }

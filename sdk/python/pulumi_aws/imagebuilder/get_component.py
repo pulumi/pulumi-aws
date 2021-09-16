@@ -12,6 +12,7 @@ __all__ = [
     'GetComponentResult',
     'AwaitableGetComponentResult',
     'get_component',
+    'get_component_output',
 ]
 
 @pulumi.output_type
@@ -251,3 +252,26 @@ def get_component(arn: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_component)
+def get_component_output(arn: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
+    """
+    Provides details about an Image Builder Component.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_component(arn="arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the component.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the component.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetApplicationResult',
     'AwaitableGetApplicationResult',
     'get_application',
+    'get_application_output',
 ]
 
 @pulumi.output_type
@@ -118,3 +119,26 @@ def get_application(name: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_application)
+def get_application_output(name: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+    """
+    Retrieve information about an Elastic Beanstalk Application.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.elasticbeanstalk.get_application(name="example")
+    pulumi.export("arn", example.arn)
+    pulumi.export("description", example.description)
+    ```
+
+
+    :param str name: The name of the application
+    """
+    ...

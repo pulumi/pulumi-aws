@@ -12,6 +12,7 @@ __all__ = [
     'GetQueueResult',
     'AwaitableGetQueueResult',
     'get_queue',
+    'get_queue_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,28 @@ def get_queue(name: Optional[str] = None,
         name=__ret__.name,
         tags=__ret__.tags,
         url=__ret__.url)
+
+
+@_utilities.lift_output_func(get_queue)
+def get_queue_output(name: Optional[pulumi.Input[str]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+    """
+    Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
+    By using this data source, you can reference SQS queues without having to hardcode
+    the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sqs.get_queue(name="queue")
+    ```
+
+
+    :param str name: The name of the queue to match.
+    :param Mapping[str, str] tags: A map of tags for the resource.
+    """
+    ...

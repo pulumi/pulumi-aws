@@ -12,6 +12,7 @@ __all__ = [
     'GetStackResult',
     'AwaitableGetStackResult',
     'get_stack',
+    'get_stack_output',
 ]
 
 @pulumi.output_type
@@ -220,3 +221,34 @@ def get_stack(name: Optional[str] = None,
         tags=__ret__.tags,
         template_body=__ret__.template_body,
         timeout_in_minutes=__ret__.timeout_in_minutes)
+
+
+@_utilities.lift_output_func(get_stack)
+def get_stack_output(name: Optional[pulumi.Input[str]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
+    """
+    The CloudFormation Stack data source allows access to stack
+    outputs and other useful data including the template body.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    network = aws.cloudformation.get_stack(name="my-network-stack")
+    web = aws.ec2.Instance("web",
+        ami="ami-abb07bcb",
+        instance_type="t2.micro",
+        subnet_id=network.outputs["SubnetId"],
+        tags={
+            "Name": "HelloWorld",
+        })
+    ```
+
+
+    :param str name: The name of the stack
+    :param Mapping[str, str] tags: A map of tags associated with this stack.
+    """
+    ...

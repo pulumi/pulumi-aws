@@ -4,6 +4,9 @@
 package alb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -88,4 +91,88 @@ type LookupListenerResult struct {
 	Protocol        string            `pulumi:"protocol"`
 	SslPolicy       string            `pulumi:"sslPolicy"`
 	Tags            map[string]string `pulumi:"tags"`
+}
+
+func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupListenerResult, error) {
+			args := v.(LookupListenerArgs)
+			r, err := LookupListener(ctx, &args, opts...)
+			return *r, err
+		}).(LookupListenerResultOutput)
+}
+
+// A collection of arguments for invoking getListener.
+type LookupListenerOutputArgs struct {
+	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// ARN of the load balancer. Required if `arn` is not set.
+	LoadBalancerArn pulumi.StringPtrInput `pulumi:"loadBalancerArn"`
+	// Port of the listener. Required if `arn` is not set.
+	Port pulumi.IntPtrInput    `pulumi:"port"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupListenerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupListenerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getListener.
+type LookupListenerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupListenerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupListenerResult)(nil)).Elem()
+}
+
+func (o LookupListenerResultOutput) ToLookupListenerResultOutput() LookupListenerResultOutput {
+	return o
+}
+
+func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx context.Context) LookupListenerResultOutput {
+	return o
+}
+
+func (o LookupListenerResultOutput) AlpnPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.AlpnPolicy }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) CertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.CertificateArn }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) DefaultActions() GetListenerDefaultActionArrayOutput {
+	return o.ApplyT(func(v LookupListenerResult) []GetListenerDefaultAction { return v.DefaultActions }).(GetListenerDefaultActionArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupListenerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) LoadBalancerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupListenerResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupListenerResultOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) SslPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.SslPolicy }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupListenerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupListenerResultOutput{})
 }

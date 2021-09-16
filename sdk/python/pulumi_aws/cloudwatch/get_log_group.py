@@ -12,6 +12,7 @@ __all__ = [
     'GetLogGroupResult',
     'AwaitableGetLogGroupResult',
     'get_log_group',
+    'get_log_group_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,26 @@ def get_log_group(name: Optional[str] = None,
         name=__ret__.name,
         retention_in_days=__ret__.retention_in_days,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_log_group)
+def get_log_group_output(name: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupResult]:
+    """
+    Use this data source to get information about an AWS Cloudwatch Log Group
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudwatch.get_log_group(name="MyImportantLogs")
+    ```
+
+
+    :param str name: The name of the Cloudwatch log group
+    :param Mapping[str, str] tags: A map of tags to assign to the resource.
+    """
+    ...

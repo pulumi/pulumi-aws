@@ -12,6 +12,7 @@ __all__ = [
     'GetPortfolioResult',
     'AwaitableGetPortfolioResult',
     'get_portfolio',
+    'get_portfolio_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,28 @@ def get_portfolio(accept_language: Optional[str] = None,
         name=__ret__.name,
         provider_name=__ret__.provider_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_portfolio)
+def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
+                         id: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioResult]:
+    """
+    Provides information for a Service Catalog Portfolio.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    portfolio = aws.servicecatalog.get_portfolio(id="port-07052002")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str id: Portfolio identifier.
+    :param Mapping[str, str] tags: Tags applied to the portfolio.
+    """
+    ...

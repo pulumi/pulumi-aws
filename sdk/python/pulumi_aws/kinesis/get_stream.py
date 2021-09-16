@@ -12,6 +12,7 @@ __all__ = [
     'GetStreamResult',
     'AwaitableGetStreamResult',
     'get_stream',
+    'get_stream_output',
 ]
 
 @pulumi.output_type
@@ -192,3 +193,29 @@ def get_stream(name: Optional[str] = None,
         shard_level_metrics=__ret__.shard_level_metrics,
         status=__ret__.status,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_stream)
+def get_stream_output(name: Optional[pulumi.Input[str]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
+    """
+    Use this data source to get information about a Kinesis Stream for use in other
+    resources.
+
+    For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    stream = aws.kinesis.get_stream(name="stream-name")
+    ```
+
+
+    :param str name: The name of the Kinesis Stream.
+    :param Mapping[str, str] tags: A map of tags to assigned to the stream.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetPortfolioConstraintsResult',
     'AwaitableGetPortfolioConstraintsResult',
     'get_portfolio_constraints',
+    'get_portfolio_constraints_output',
 ]
 
 @pulumi.output_type
@@ -126,3 +127,29 @@ def get_portfolio_constraints(accept_language: Optional[str] = None,
         id=__ret__.id,
         portfolio_id=__ret__.portfolio_id,
         product_id=__ret__.product_id)
+
+
+@_utilities.lift_output_func(get_portfolio_constraints)
+def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
+                                     portfolio_id: Optional[pulumi.Input[str]] = None,
+                                     product_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
+    """
+    Provides information on Service Catalog Portfolio Constraints.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_portfolio_constraints(portfolio_id="port-3lli3b3an")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str portfolio_id: Portfolio identifier.
+    :param str product_id: Product identifier.
+    """
+    ...

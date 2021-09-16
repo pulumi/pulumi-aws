@@ -13,6 +13,7 @@ __all__ = [
     'GetBrokerResult',
     'AwaitableGetBrokerResult',
     'get_broker',
+    'get_broker_output',
 ]
 
 @pulumi.output_type
@@ -293,3 +294,35 @@ def get_broker(broker_id: Optional[str] = None,
         subnet_ids=__ret__.subnet_ids,
         tags=__ret__.tags,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_broker)
+def get_broker_output(broker_id: Optional[pulumi.Input[Optional[str]]] = None,
+                      broker_name: Optional[pulumi.Input[Optional[str]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrokerResult]:
+    """
+    Provides information about a MQ Broker.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    broker_id = config.get("brokerId")
+    if broker_id is None:
+        broker_id = ""
+    broker_name = config.get("brokerName")
+    if broker_name is None:
+        broker_name = ""
+    by_id = aws.mq.get_broker(broker_id=broker_id)
+    by_name = aws.mq.get_broker(broker_name=broker_name)
+    ```
+
+
+    :param str broker_id: The unique id of the mq broker.
+    :param str broker_name: The unique name of the mq broker.
+    """
+    ...

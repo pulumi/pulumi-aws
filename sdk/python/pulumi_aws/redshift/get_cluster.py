@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -477,3 +478,44 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Provides details about a specific redshift cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_cluster = aws.redshift.get_cluster(cluster_identifier="test-cluster")
+    test_stream = aws.kinesis.FirehoseDeliveryStream("testStream",
+        destination="redshift",
+        s3_configuration=aws.kinesis.FirehoseDeliveryStreamS3ConfigurationArgs(
+            role_arn=aws_iam_role["firehose_role"]["arn"],
+            bucket_arn=aws_s3_bucket["bucket"]["arn"],
+            buffer_size=10,
+            buffer_interval=400,
+            compression_format="GZIP",
+        ),
+        redshift_configuration=aws.kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs(
+            role_arn=aws_iam_role["firehose_role"]["arn"],
+            cluster_jdbcurl=f"jdbc:redshift://{test_cluster.endpoint}/{test_cluster.database_name}",
+            username="testuser",
+            password="T3stPass",
+            data_table_name="test-table",
+            copy_options="delimiter '|'",
+            data_table_columns="test-col",
+        ))
+    ```
+
+
+    :param str cluster_identifier: The cluster identifier
+    :param Mapping[str, str] tags: The tags associated to the cluster
+    """
+    ...

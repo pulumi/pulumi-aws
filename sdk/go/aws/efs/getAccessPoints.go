@@ -4,6 +4,9 @@
 package efs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,61 @@ type GetAccessPointsResult struct {
 	Id string `pulumi:"id"`
 	// Set of identifiers.
 	Ids []string `pulumi:"ids"`
+}
+
+func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAccessPointsResult, error) {
+			args := v.(GetAccessPointsArgs)
+			r, err := GetAccessPoints(ctx, &args, opts...)
+			return *r, err
+		}).(GetAccessPointsResultOutput)
+}
+
+// A collection of arguments for invoking getAccessPoints.
+type GetAccessPointsOutputArgs struct {
+	// EFS File System identifier.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+}
+
+func (GetAccessPointsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccessPoints.
+type GetAccessPointsResultOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsResult)(nil)).Elem()
+}
+
+func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutput() GetAccessPointsResultOutput {
+	return o
+}
+
+func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ctx context.Context) GetAccessPointsResultOutput {
+	return o
+}
+
+// Set of Amazon Resource Names (ARNs).
+func (o GetAccessPointsResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAccessPointsResultOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsResult) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAccessPointsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of identifiers.
+func (o GetAccessPointsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAccessPointsResultOutput{})
 }

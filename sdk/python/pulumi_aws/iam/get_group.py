@@ -13,6 +13,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,26 @@ def get_group(group_name: Optional[str] = None,
         id=__ret__.id,
         path=__ret__.path,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    This data source can be used to fetch information about a specific
+    IAM group. By using this data source, you can reference IAM group
+    properties without having to hard code ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_group(group_name="an_example_group_name")
+    ```
+
+
+    :param str group_name: The friendly IAM group name to match.
+    """
+    ...

@@ -4,6 +4,9 @@
 package batch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,4 +73,93 @@ type LookupComputeEnvironmentResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
 	Type string `pulumi:"type"`
+}
+
+func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupComputeEnvironmentResult, error) {
+			args := v.(LookupComputeEnvironmentArgs)
+			r, err := LookupComputeEnvironment(ctx, &args, opts...)
+			return *r, err
+		}).(LookupComputeEnvironmentResultOutput)
+}
+
+// A collection of arguments for invoking getComputeEnvironment.
+type LookupComputeEnvironmentOutputArgs struct {
+	// The name of the Batch Compute Environment
+	ComputeEnvironmentName pulumi.StringInput `pulumi:"computeEnvironmentName"`
+	// Key-value map of resource tags
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupComputeEnvironmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComputeEnvironmentArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getComputeEnvironment.
+type LookupComputeEnvironmentResultOutput struct{ *pulumi.OutputState }
+
+func (LookupComputeEnvironmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupComputeEnvironmentResult)(nil)).Elem()
+}
+
+func (o LookupComputeEnvironmentResultOutput) ToLookupComputeEnvironmentResultOutput() LookupComputeEnvironmentResultOutput {
+	return o
+}
+
+func (o LookupComputeEnvironmentResultOutput) ToLookupComputeEnvironmentResultOutputWithContext(ctx context.Context) LookupComputeEnvironmentResultOutput {
+	return o
+}
+
+// The ARN of the compute environment.
+func (o LookupComputeEnvironmentResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupComputeEnvironmentResultOutput) ComputeEnvironmentName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.ComputeEnvironmentName }).(pulumi.StringOutput)
+}
+
+// The ARN of the underlying Amazon ECS cluster used by the compute environment.
+func (o LookupComputeEnvironmentResultOutput) EcsClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.EcsClusterArn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupComputeEnvironmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+func (o LookupComputeEnvironmentResultOutput) ServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// The state of the compute environment (for example, `ENABLED` or `DISABLED`). If the state is `ENABLED`, then the compute environment accepts jobs from a queue and can scale out automatically based on queues.
+func (o LookupComputeEnvironmentResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// The current status of the compute environment (for example, `CREATING` or `VALID`).
+func (o LookupComputeEnvironmentResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// A short, human-readable string to provide additional details about the current status of the compute environment.
+func (o LookupComputeEnvironmentResultOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags
+func (o LookupComputeEnvironmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The type of the compute environment (for example, `MANAGED` or `UNMANAGED`).
+func (o LookupComputeEnvironmentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupComputeEnvironmentResultOutput{})
 }

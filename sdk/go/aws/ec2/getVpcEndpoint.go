@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -102,4 +105,142 @@ type LookupVpcEndpointResult struct {
 	// The VPC Endpoint type, `Gateway` or `Interface`.
 	VpcEndpointType string `pulumi:"vpcEndpointType"`
 	VpcId           string `pulumi:"vpcId"`
+}
+
+func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpcEndpointResult, error) {
+			args := v.(LookupVpcEndpointArgs)
+			r, err := LookupVpcEndpoint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpcEndpointResultOutput)
+}
+
+// A collection of arguments for invoking getVpcEndpoint.
+type LookupVpcEndpointOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetVpcEndpointFilterArrayInput `pulumi:"filters"`
+	// The ID of the specific VPC Endpoint to retrieve.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
+	// The state of the specific VPC Endpoint to retrieve.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the specific VPC Endpoint to retrieve.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The ID of the VPC in which the specific VPC Endpoint is used.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (LookupVpcEndpointOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpcEndpointArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVpcEndpoint.
+type LookupVpcEndpointResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpcEndpointResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpcEndpointResult)(nil)).Elem()
+}
+
+func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutput() LookupVpcEndpointResultOutput {
+	return o
+}
+
+func (o LookupVpcEndpointResultOutput) ToLookupVpcEndpointResultOutputWithContext(ctx context.Context) LookupVpcEndpointResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the VPC endpoint.
+func (o LookupVpcEndpointResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
+func (o LookupVpcEndpointResultOutput) CidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+func (o LookupVpcEndpointResultOutput) DnsEntries() GetVpcEndpointDnsEntryArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointDnsEntry { return v.DnsEntries }).(GetVpcEndpointDnsEntryArrayOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Filters() GetVpcEndpointFilterArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointFilter { return v.Filters }).(GetVpcEndpointFilterArrayOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
+func (o LookupVpcEndpointResultOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the AWS account that owns the VPC endpoint.
+func (o LookupVpcEndpointResultOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// The policy document associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+func (o LookupVpcEndpointResultOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
+func (o LookupVpcEndpointResultOutput) PrefixListId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
+func (o LookupVpcEndpointResultOutput) PrivateDnsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) bool { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
+func (o LookupVpcEndpointResultOutput) RequesterManaged() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) bool { return v.RequesterManaged }).(pulumi.BoolOutput)
+}
+
+// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
+func (o LookupVpcEndpointResultOutput) RouteTableIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.RouteTableIds }).(pulumi.StringArrayOutput)
+}
+
+// One or more security groups associated with the network interfaces. Applicable for endpoints of type `Interface`.
+func (o LookupVpcEndpointResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// One or more subnets in which the VPC Endpoint is located. Applicable for endpoints of type `Interface`.
+func (o LookupVpcEndpointResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The VPC Endpoint type, `Gateway` or `Interface`.
+func (o LookupVpcEndpointResultOutput) VpcEndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.VpcEndpointType }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpcEndpointResultOutput{})
 }

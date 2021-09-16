@@ -4,6 +4,9 @@
 package lex
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -69,4 +72,89 @@ type LookupBotAliasResult struct {
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// The name of the alias. The name is not case sensitive.
 	Name string `pulumi:"name"`
+}
+
+func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupBotAliasResult, error) {
+			args := v.(LookupBotAliasArgs)
+			r, err := LookupBotAlias(ctx, &args, opts...)
+			return *r, err
+		}).(LookupBotAliasResultOutput)
+}
+
+// A collection of arguments for invoking getBotAlias.
+type LookupBotAliasOutputArgs struct {
+	// The name of the bot.
+	BotName pulumi.StringInput `pulumi:"botName"`
+	// The name of the bot alias. The name is case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupBotAliasOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBotAliasArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBotAlias.
+type LookupBotAliasResultOutput struct{ *pulumi.OutputState }
+
+func (LookupBotAliasResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupBotAliasResult)(nil)).Elem()
+}
+
+func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutput() LookupBotAliasResultOutput {
+	return o
+}
+
+func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx context.Context) LookupBotAliasResultOutput {
+	return o
+}
+
+// The ARN of the bot alias.
+func (o LookupBotAliasResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the bot.
+func (o LookupBotAliasResultOutput) BotName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.BotName }).(pulumi.StringOutput)
+}
+
+// The version of the bot that the alias points to.
+func (o LookupBotAliasResultOutput) BotVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.BotVersion }).(pulumi.StringOutput)
+}
+
+// Checksum of the bot alias.
+func (o LookupBotAliasResultOutput) Checksum() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Checksum }).(pulumi.StringOutput)
+}
+
+// The date that the bot alias was created.
+func (o LookupBotAliasResultOutput) CreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// A description of the alias.
+func (o LookupBotAliasResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupBotAliasResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
+func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+// The name of the alias. The name is not case sensitive.
+func (o LookupBotAliasResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupBotAliasResultOutput{})
 }

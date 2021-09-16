@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,4 +81,87 @@ type LookupVpnGatewayResult struct {
 	Id               string                `pulumi:"id"`
 	State            string                `pulumi:"state"`
 	Tags             map[string]string     `pulumi:"tags"`
+}
+
+func LookupVpnGatewayOutput(ctx *pulumi.Context, args LookupVpnGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupVpnGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupVpnGatewayResult, error) {
+			args := v.(LookupVpnGatewayArgs)
+			r, err := LookupVpnGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupVpnGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getVpnGateway.
+type LookupVpnGatewayOutputArgs struct {
+	// The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+	AmazonSideAsn pulumi.StringPtrInput `pulumi:"amazonSideAsn"`
+	// The ID of a VPC attached to the specific VPN Gateway to retrieve.
+	AttachedVpcId pulumi.StringPtrInput `pulumi:"attachedVpcId"`
+	// The Availability Zone of the specific VPN Gateway to retrieve.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// Custom filter block as described below.
+	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
+	// The ID of the specific VPN Gateway to retrieve.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The state of the specific VPN Gateway to retrieve.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired VPN Gateway.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupVpnGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVpnGateway.
+type LookupVpnGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupVpnGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupVpnGatewayResult)(nil)).Elem()
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpnGatewayResultOutput {
+	return o
+}
+
+func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
+	return o
+}
+
+func (o LookupVpnGatewayResultOutput) AmazonSideAsn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AmazonSideAsn }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) AttachedVpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AttachedVpcId }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Filters() GetVpnGatewayFilterArrayOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) []GetVpnGatewayFilter { return v.Filters }).(GetVpnGatewayFilterArrayOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupVpnGatewayResultOutput{})
 }

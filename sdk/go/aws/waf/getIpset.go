@@ -4,6 +4,9 @@
 package waf
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,51 @@ type GetIpsetResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetIpsetResult, error) {
+			args := v.(GetIpsetArgs)
+			r, err := GetIpset(ctx, &args, opts...)
+			return *r, err
+		}).(GetIpsetResultOutput)
+}
+
+// A collection of arguments for invoking getIpset.
+type GetIpsetOutputArgs struct {
+	// The name of the WAF IP set.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetIpsetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpsetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIpset.
+type GetIpsetResultOutput struct{ *pulumi.OutputState }
+
+func (GetIpsetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIpsetResult)(nil)).Elem()
+}
+
+func (o GetIpsetResultOutput) ToGetIpsetResultOutput() GetIpsetResultOutput {
+	return o
+}
+
+func (o GetIpsetResultOutput) ToGetIpsetResultOutputWithContext(ctx context.Context) GetIpsetResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIpsetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpsetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetIpsetResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIpsetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIpsetResultOutput{})
 }

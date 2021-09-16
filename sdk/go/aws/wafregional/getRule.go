@@ -4,6 +4,9 @@
 package wafregional
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,4 +54,51 @@ type LookupRuleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func LookupRuleOutput(ctx *pulumi.Context, args LookupRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRuleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupRuleResult, error) {
+			args := v.(LookupRuleArgs)
+			r, err := LookupRule(ctx, &args, opts...)
+			return *r, err
+		}).(LookupRuleResultOutput)
+}
+
+// A collection of arguments for invoking getRule.
+type LookupRuleOutputArgs struct {
+	// The name of the WAF Regional rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupRuleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRuleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRule.
+type LookupRuleResultOutput struct{ *pulumi.OutputState }
+
+func (LookupRuleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupRuleResult)(nil)).Elem()
+}
+
+func (o LookupRuleResultOutput) ToLookupRuleResultOutput() LookupRuleResultOutput {
+	return o
+}
+
+func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.Context) LookupRuleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupRuleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupRuleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupRuleResultOutput{})
 }

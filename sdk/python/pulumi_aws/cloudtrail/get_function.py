@@ -12,6 +12,7 @@ __all__ = [
     'GetFunctionResult',
     'AwaitableGetFunctionResult',
     'get_function',
+    'get_function_output',
 ]
 
 @pulumi.output_type
@@ -185,3 +186,28 @@ def get_function(name: Optional[str] = None,
         runtime=__ret__.runtime,
         stage=__ret__.stage,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_function)
+def get_function_output(name: Optional[pulumi.Input[str]] = None,
+                        stage: Optional[pulumi.Input[str]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
+    """
+    Provides information about a CloudFront Function.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    function_name = config.require("functionName")
+    existing = aws.cloudtrail.get_function(name=function_name)
+    ```
+
+
+    :param str name: Name of the CloudFront function.
+    :param str stage: The function’s stage, either `DEVELOPMENT` or `LIVE`.
+    """
+    ...

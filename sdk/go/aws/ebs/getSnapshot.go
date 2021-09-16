@@ -4,6 +4,9 @@
 package ebs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,4 +112,139 @@ type LookupSnapshotResult struct {
 	VolumeId string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize int `pulumi:"volumeSize"`
+}
+
+func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSnapshotResult, error) {
+			args := v.(LookupSnapshotArgs)
+			r, err := LookupSnapshot(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSnapshotResultOutput)
+}
+
+// A collection of arguments for invoking getSnapshot.
+type LookupSnapshotOutputArgs struct {
+	// One or more name/value pairs to filter off of. There are
+	// several valid keys, for a full reference, check out
+	// [describe-snapshots in the AWS CLI reference][1].
+	Filters GetSnapshotFilterArrayInput `pulumi:"filters"`
+	// If more than one result is returned, use the most recent snapshot.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// One or more AWS accounts IDs that can create volumes from the snapshot.
+	RestorableByUserIds pulumi.StringArrayInput `pulumi:"restorableByUserIds"`
+	// Returns information on a specific snapshot_id.
+	SnapshotIds pulumi.StringArrayInput `pulumi:"snapshotIds"`
+	// A map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupSnapshotOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSnapshot.
+type LookupSnapshotResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSnapshotResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSnapshotResult)(nil)).Elem()
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutput() LookupSnapshotResultOutput {
+	return o
+}
+
+func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx context.Context) LookupSnapshotResultOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the EBS Snapshot.
+func (o LookupSnapshotResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The data encryption key identifier for the snapshot.
+func (o LookupSnapshotResultOutput) DataEncryptionKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.DataEncryptionKeyId }).(pulumi.StringOutput)
+}
+
+// A description for the snapshot
+func (o LookupSnapshotResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether the snapshot is encrypted.
+func (o LookupSnapshotResultOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+func (o LookupSnapshotResultOutput) Filters() GetSnapshotFilterArrayOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) []GetSnapshotFilter { return v.Filters }).(GetSnapshotFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSnapshotResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ARN for the KMS encryption key.
+func (o LookupSnapshotResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+// Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
+func (o LookupSnapshotResultOutput) OwnerAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OwnerAlias }).(pulumi.StringOutput)
+}
+
+// The AWS account ID of the EBS snapshot owner.
+func (o LookupSnapshotResultOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) Owners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSnapshotResultOutput) RestorableByUserIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.RestorableByUserIds }).(pulumi.StringArrayOutput)
+}
+
+// The snapshot ID (e.g. snap-59fcb34e).
+func (o LookupSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SnapshotId }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) SnapshotIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.SnapshotIds }).(pulumi.StringArrayOutput)
+}
+
+// The snapshot state.
+func (o LookupSnapshotResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+// A map of tags for the resource.
+func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The volume ID (e.g. vol-59fcb34e).
+func (o LookupSnapshotResultOutput) VolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VolumeId }).(pulumi.StringOutput)
+}
+
+// The size of the drive in GiBs.
+func (o LookupSnapshotResultOutput) VolumeSize() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) int { return v.VolumeSize }).(pulumi.IntOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSnapshotResultOutput{})
 }

@@ -14,6 +14,7 @@ __all__ = [
     'GetVpcResult',
     'AwaitableGetVpcResult',
     'get_vpc',
+    'get_vpc_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,34 @@ def get_vpc(cidr_block: Optional[str] = None,
         owner_id=__ret__.owner_id,
         state=__ret__.state,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_vpc)
+def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                   default: Optional[pulumi.Input[Optional[bool]]] = None,
+                   dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
+                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcFilterArgs']]]]] = None,
+                   id: Optional[pulumi.Input[Optional[str]]] = None,
+                   state: Optional[pulumi.Input[Optional[str]]] = None,
+                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
+    """
+    `ec2.Vpc` provides details about a specific VPC.
+
+    This resource can prove useful when a module accepts a vpc id as
+    an input variable and needs to, for example, determine the CIDR block of that
+    VPC.
+
+
+    :param str cidr_block: The cidr block of the desired VPC.
+    :param bool default: Boolean constraint on whether the desired VPC is
+           the default VPC for the region.
+    :param str dhcp_options_id: The DHCP options id of the desired VPC.
+    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param str id: The id of the specific VPC to retrieve.
+    :param str state: The current state of the desired VPC.
+           Can be either `"pending"` or `"available"`.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired VPC.
+    """
+    ...

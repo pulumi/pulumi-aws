@@ -12,6 +12,7 @@ __all__ = [
     'GetHostedZoneIdResult',
     'AwaitableGetHostedZoneIdResult',
     'get_hosted_zone_id',
+    'get_hosted_zone_id_output',
 ]
 
 @pulumi.output_type
@@ -90,3 +91,35 @@ def get_hosted_zone_id(region: Optional[str] = None,
     return AwaitableGetHostedZoneIdResult(
         id=__ret__.id,
         region=__ret__.region)
+
+
+@_utilities.lift_output_func(get_hosted_zone_id)
+def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneIdResult]:
+    """
+    Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
+    in a given region for the purpose of using in an AWS Route53 Alias.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.elb.get_hosted_zone_id()
+    www = aws.route53.Record("www",
+        zone_id=aws_route53_zone["primary"]["zone_id"],
+        name="example.com",
+        type="A",
+        aliases=[aws.route53.RecordAliasArgs(
+            name=aws_elb["main"]["dns_name"],
+            zone_id=main.id,
+            evaluate_target_health=True,
+        )])
+    ```
+
+
+    :param str region: Name of the region whose AWS ELB HostedZoneId is desired.
+           Defaults to the region from the AWS provider configuration.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -159,3 +160,28 @@ def get_service(cluster_arn: Optional[str] = None,
         scheduling_strategy=__ret__.scheduling_strategy,
         service_name=__ret__.service_name,
         task_definition=__ret__.task_definition)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(cluster_arn: Optional[pulumi.Input[str]] = None,
+                       service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    The ECS Service data source allows access to details of a specific
+    Service within a AWS ECS Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ecs.get_service(service_name="example",
+        cluster_arn=data["aws_ecs_cluster"]["example"]["arn"])
+    ```
+
+
+    :param str cluster_arn: The arn of the ECS Cluster
+    :param str service_name: The name of the ECS Service
+    """
+    ...

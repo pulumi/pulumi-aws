@@ -12,6 +12,7 @@ __all__ = [
     'GetDefaultTagsResult',
     'AwaitableGetDefaultTagsResult',
     'get_default_tags',
+    'get_default_tags_output',
 ]
 
 @pulumi.output_type
@@ -72,3 +73,14 @@ def get_default_tags(tags: Optional[Mapping[str, str]] = None,
     return AwaitableGetDefaultTagsResult(
         id=__ret__.id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_default_tags)
+def get_default_tags_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDefaultTagsResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param Mapping[str, str] tags: Blocks of default tags set on the provider. See details below.
+    """
+    ...

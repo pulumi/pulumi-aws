@@ -12,6 +12,7 @@ __all__ = [
     'GetRateBasedModResult',
     'AwaitableGetRateBasedModResult',
     'get_rate_based_mod',
+    'get_rate_based_mod_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,24 @@ def get_rate_based_mod(name: Optional[str] = None,
     return AwaitableGetRateBasedModResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_rate_based_mod)
+def get_rate_based_mod_output(name: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRateBasedModResult]:
+    """
+    `wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafregional.get_rate_based_mod(name="tfWAFRegionalRateBasedRule")
+    ```
+
+
+    :param str name: The name of the WAF Regional rate based rule.
+    """
+    ...

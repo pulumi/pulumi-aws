@@ -4,6 +4,9 @@
 package cloudformation
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,61 @@ type GetExportResult struct {
 	Name string `pulumi:"name"`
 	// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Value string `pulumi:"value"`
+}
+
+func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetExportResult, error) {
+			args := v.(GetExportArgs)
+			r, err := GetExport(ctx, &args, opts...)
+			return *r, err
+		}).(GetExportResultOutput)
+}
+
+// A collection of arguments for invoking getExport.
+type GetExportOutputArgs struct {
+	// The name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetExportOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExportArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getExport.
+type GetExportResultOutput struct{ *pulumi.OutputState }
+
+func (GetExportResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExportResult)(nil)).Elem()
+}
+
+func (o GetExportResultOutput) ToGetExportResultOutput() GetExportResultOutput {
+	return o
+}
+
+func (o GetExportResultOutput) ToGetExportResultOutputWithContext(ctx context.Context) GetExportResultOutput {
+	return o
+}
+
+// The exportingStackId (AWS ARNs) equivalent `ExportingStackId` from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+func (o GetExportResultOutput) ExportingStackId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.ExportingStackId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetExportResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetExportResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+func (o GetExportResultOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Value }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetExportResultOutput{})
 }

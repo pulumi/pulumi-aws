@@ -4,6 +4,9 @@
 package route53
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -100,4 +103,112 @@ type LookupZoneResult struct {
 	Tags                   map[string]string `pulumi:"tags"`
 	VpcId                  string            `pulumi:"vpcId"`
 	ZoneId                 string            `pulumi:"zoneId"`
+}
+
+func LookupZoneOutput(ctx *pulumi.Context, args LookupZoneOutputArgs, opts ...pulumi.InvokeOption) LookupZoneResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupZoneResult, error) {
+			args := v.(LookupZoneArgs)
+			r, err := LookupZone(ctx, &args, opts...)
+			return *r, err
+		}).(LookupZoneResultOutput)
+}
+
+// A collection of arguments for invoking getZone.
+type LookupZoneOutputArgs struct {
+	// The Hosted Zone name of the desired Hosted Zone.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Used with `name` field to get a private Hosted Zone.
+	PrivateZone pulumi.BoolPtrInput `pulumi:"privateZone"`
+	// The number of Record Set in the Hosted Zone.
+	ResourceRecordSetCount pulumi.IntPtrInput `pulumi:"resourceRecordSetCount"`
+	// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Used with `name` field to get a private Hosted Zone associated with the vpcId (in this case, privateZone is not mandatory).
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+	// The Hosted Zone id of the desired Hosted Zone.
+	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
+}
+
+func (LookupZoneOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getZone.
+type LookupZoneResultOutput struct{ *pulumi.OutputState }
+
+func (LookupZoneResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupZoneResult)(nil)).Elem()
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutput() LookupZoneResultOutput {
+	return o
+}
+
+func (o LookupZoneResultOutput) ToLookupZoneResultOutputWithContext(ctx context.Context) LookupZoneResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the Hosted Zone.
+func (o LookupZoneResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Caller Reference of the Hosted Zone.
+func (o LookupZoneResultOutput) CallerReference() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.CallerReference }).(pulumi.StringOutput)
+}
+
+// The comment field of the Hosted Zone.
+func (o LookupZoneResultOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupZoneResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+func (o LookupZoneResultOutput) LinkedServiceDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.LinkedServiceDescription }).(pulumi.StringOutput)
+}
+
+// The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+func (o LookupZoneResultOutput) LinkedServicePrincipal() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.LinkedServicePrincipal }).(pulumi.StringOutput)
+}
+
+func (o LookupZoneResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of DNS name servers for the Hosted Zone.
+func (o LookupZoneResultOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupZoneResult) []string { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupZoneResultOutput) PrivateZone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupZoneResult) *bool { return v.PrivateZone }).(pulumi.BoolPtrOutput)
+}
+
+// The number of Record Set in the Hosted Zone.
+func (o LookupZoneResultOutput) ResourceRecordSetCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupZoneResult) int { return v.ResourceRecordSetCount }).(pulumi.IntOutput)
+}
+
+func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupZoneResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func (o LookupZoneResultOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupZoneResult) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupZoneResultOutput{})
 }

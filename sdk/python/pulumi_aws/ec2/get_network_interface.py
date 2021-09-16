@@ -14,6 +14,7 @@ __all__ = [
     'GetNetworkInterfaceResult',
     'AwaitableGetNetworkInterfaceResult',
     'get_network_interface',
+    'get_network_interface_output',
 ]
 
 @pulumi.output_type
@@ -302,3 +303,28 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_network_interface)
+def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']]]]] = None,
+                                 id: Optional[pulumi.Input[Optional[str]]] = None,
+                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
+    """
+    Use this data source to get information about a Network Interface.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.ec2.get_network_interface(id="eni-01234567")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+    :param str id: The identifier for the network interface.
+    :param Mapping[str, str] tags: Any tags assigned to the network interface.
+    """
+    ...

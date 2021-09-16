@@ -4,6 +4,9 @@
 package ec2transitgateway
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -110,4 +113,115 @@ type LookupTransitGatewayResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled.
 	VpnEcmpSupport string `pulumi:"vpnEcmpSupport"`
+}
+
+func LookupTransitGatewayOutput(ctx *pulumi.Context, args LookupTransitGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTransitGatewayResult, error) {
+			args := v.(LookupTransitGatewayArgs)
+			r, err := LookupTransitGateway(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTransitGatewayResultOutput)
+}
+
+// A collection of arguments for invoking getTransitGateway.
+type LookupTransitGatewayOutputArgs struct {
+	// One or more configuration blocks containing name-values filters. Detailed below.
+	Filters GetTransitGatewayFilterArrayInput `pulumi:"filters"`
+	// Identifier of the EC2 Transit Gateway.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Key-value tags for the EC2 Transit Gateway
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupTransitGatewayOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransitGatewayArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTransitGateway.
+type LookupTransitGatewayResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTransitGatewayResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTransitGatewayResult)(nil)).Elem()
+}
+
+func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutput() LookupTransitGatewayResultOutput {
+	return o
+}
+
+func (o LookupTransitGatewayResultOutput) ToLookupTransitGatewayResultOutputWithContext(ctx context.Context) LookupTransitGatewayResultOutput {
+	return o
+}
+
+// Private Autonomous System Number (ASN) for the Amazon side of a BGP session
+func (o LookupTransitGatewayResultOutput) AmazonSideAsn() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) int { return v.AmazonSideAsn }).(pulumi.IntOutput)
+}
+
+// EC2 Transit Gateway Amazon Resource Name (ARN)
+func (o LookupTransitGatewayResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Identifier of the default association route table
+func (o LookupTransitGatewayResultOutput) AssociationDefaultRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.AssociationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// Whether resource attachment requests are automatically accepted.
+func (o LookupTransitGatewayResultOutput) AutoAcceptSharedAttachments() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.AutoAcceptSharedAttachments }).(pulumi.StringOutput)
+}
+
+// Whether resource attachments are automatically associated with the default association route table.
+func (o LookupTransitGatewayResultOutput) DefaultRouteTableAssociation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DefaultRouteTableAssociation }).(pulumi.StringOutput)
+}
+
+// Whether resource attachments automatically propagate routes to the default propagation route table.
+func (o LookupTransitGatewayResultOutput) DefaultRouteTablePropagation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DefaultRouteTablePropagation }).(pulumi.StringOutput)
+}
+
+// Description of the EC2 Transit Gateway
+func (o LookupTransitGatewayResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Whether DNS support is enabled.
+func (o LookupTransitGatewayResultOutput) DnsSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.DnsSupport }).(pulumi.StringOutput)
+}
+
+func (o LookupTransitGatewayResultOutput) Filters() GetTransitGatewayFilterArrayOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) []GetTransitGatewayFilter { return v.Filters }).(GetTransitGatewayFilterArrayOutput)
+}
+
+// EC2 Transit Gateway identifier
+func (o LookupTransitGatewayResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Identifier of the AWS account that owns the EC2 Transit Gateway
+func (o LookupTransitGatewayResultOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Identifier of the default propagation route table.
+func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+// Key-value tags for the EC2 Transit Gateway
+func (o LookupTransitGatewayResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Whether VPN Equal Cost Multipath Protocol support is enabled.
+func (o LookupTransitGatewayResultOutput) VpnEcmpSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.VpnEcmpSupport }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTransitGatewayResultOutput{})
 }

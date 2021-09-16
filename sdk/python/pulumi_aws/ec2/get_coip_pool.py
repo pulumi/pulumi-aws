@@ -14,6 +14,7 @@ __all__ = [
     'GetCoipPoolResult',
     'AwaitableGetCoipPoolResult',
     'get_coip_pool',
+    'get_coip_pool_output',
 ]
 
 @pulumi.output_type
@@ -154,3 +155,38 @@ def get_coip_pool(filters: Optional[Sequence[pulumi.InputType['GetCoipPoolFilter
         pool_cidrs=__ret__.pool_cidrs,
         pool_id=__ret__.pool_id,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_coip_pool)
+def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCoipPoolFilterArgs']]]]] = None,
+                         local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
+                         pool_id: Optional[pulumi.Input[Optional[str]]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoipPoolResult]:
+    """
+    Provides details about a specific EC2 Customer-Owned IP Pool.
+
+    This data source can prove useful when a module accepts a coip pool id as
+    an input variable and needs to, for example, determine the CIDR block of that
+    COIP Pool.
+
+    ## Example Usage
+
+    The following example returns a specific coip pool ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    coip_pool_id = config.require_object("coipPoolId")
+    selected = aws.ec2.get_coip_pool(id=coip_pool_id)
+    ```
+
+
+    :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
+    :param str pool_id: The id of the specific COIP Pool to retrieve.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired COIP Pool.
+    """
+    ...

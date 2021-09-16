@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -72,4 +75,73 @@ type GetSpotPriceResult struct {
 	SpotPrice string `pulumi:"spotPrice"`
 	// The timestamp at which the Spot Price value was published.
 	SpotPriceTimestamp string `pulumi:"spotPriceTimestamp"`
+}
+
+func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSpotPriceResult, error) {
+			args := v.(GetSpotPriceArgs)
+			r, err := GetSpotPrice(ctx, &args, opts...)
+			return *r, err
+		}).(GetSpotPriceResultOutput)
+}
+
+// A collection of arguments for invoking getSpotPrice.
+type GetSpotPriceOutputArgs struct {
+	// The availability zone in which to query Spot price information.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+	Filters GetSpotPriceFilterArrayInput `pulumi:"filters"`
+	// The type of instance for which to query Spot Price information.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+}
+
+func (GetSpotPriceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSpotPrice.
+type GetSpotPriceResultOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceResult)(nil)).Elem()
+}
+
+func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutput() GetSpotPriceResultOutput {
+	return o
+}
+
+func (o GetSpotPriceResultOutput) ToGetSpotPriceResultOutputWithContext(ctx context.Context) GetSpotPriceResultOutput {
+	return o
+}
+
+func (o GetSpotPriceResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o GetSpotPriceResultOutput) Filters() GetSpotPriceFilterArrayOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) []GetSpotPriceFilter { return v.Filters }).(GetSpotPriceFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSpotPriceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSpotPriceResultOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The most recent Spot Price value for the given instance type and AZ.
+func (o GetSpotPriceResultOutput) SpotPrice() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) string { return v.SpotPrice }).(pulumi.StringOutput)
+}
+
+// The timestamp at which the Spot Price value was published.
+func (o GetSpotPriceResultOutput) SpotPriceTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceResult) string { return v.SpotPriceTimestamp }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSpotPriceResultOutput{})
 }

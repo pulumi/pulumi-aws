@@ -4,6 +4,9 @@
 package globalaccelerator
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,86 @@ type LookupAcceleratorResult struct {
 	IpSets        []GetAcceleratorIpSet `pulumi:"ipSets"`
 	Name          string                `pulumi:"name"`
 	Tags          map[string]string     `pulumi:"tags"`
+}
+
+func LookupAcceleratorOutput(ctx *pulumi.Context, args LookupAcceleratorOutputArgs, opts ...pulumi.InvokeOption) LookupAcceleratorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupAcceleratorResult, error) {
+			args := v.(LookupAcceleratorArgs)
+			r, err := LookupAccelerator(ctx, &args, opts...)
+			return *r, err
+		}).(LookupAcceleratorResultOutput)
+}
+
+// A collection of arguments for invoking getAccelerator.
+type LookupAcceleratorOutputArgs struct {
+	// The full ARN of the Global Accelerator.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The unique name of the Global Accelerator.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupAcceleratorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAcceleratorArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAccelerator.
+type LookupAcceleratorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupAcceleratorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupAcceleratorResult)(nil)).Elem()
+}
+
+func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutput() LookupAcceleratorResultOutput {
+	return o
+}
+
+func (o LookupAcceleratorResultOutput) ToLookupAcceleratorResultOutputWithContext(ctx context.Context) LookupAcceleratorResultOutput {
+	return o
+}
+
+func (o LookupAcceleratorResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupAcceleratorResultOutput) Attributes() GetAcceleratorAttributeArrayOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorAttribute { return v.Attributes }).(GetAcceleratorAttributeArrayOutput)
+}
+
+func (o LookupAcceleratorResultOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+func (o LookupAcceleratorResultOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupAcceleratorResultOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupAcceleratorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupAcceleratorResultOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.IpAddressType }).(pulumi.StringOutput)
+}
+
+func (o LookupAcceleratorResultOutput) IpSets() GetAcceleratorIpSetArrayOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) []GetAcceleratorIpSet { return v.IpSets }).(GetAcceleratorIpSetArrayOutput)
+}
+
+func (o LookupAcceleratorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAcceleratorResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupAcceleratorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupAcceleratorResultOutput{})
 }

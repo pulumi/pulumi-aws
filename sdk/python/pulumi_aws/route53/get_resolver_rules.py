@@ -12,6 +12,7 @@ __all__ = [
     'GetResolverRulesResult',
     'AwaitableGetResolverRulesResult',
     'get_resolver_rules',
+    'get_resolver_rules_output',
 ]
 
 @pulumi.output_type
@@ -96,7 +97,7 @@ def get_resolver_rules(owner_id: Optional[str] = None,
                        share_status: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverRulesResult:
     """
-    `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
+    `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
 
@@ -143,3 +144,42 @@ def get_resolver_rules(owner_id: Optional[str] = None,
         resolver_rule_ids=__ret__.resolver_rule_ids,
         rule_type=__ret__.rule_type,
         share_status=__ret__.share_status)
+
+
+@_utilities.lift_output_func(get_resolver_rules)
+def get_resolver_rules_output(owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              rule_type: Optional[pulumi.Input[Optional[str]]] = None,
+                              share_status: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRulesResult]:
+    """
+    `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
+
+    ## Example Usage
+
+    Retrieving the default resolver rule.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(owner_id="Route 53 Resolver",
+        rule_type="RECURSIVE",
+        share_status="NOT_SHARED")
+    ```
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(rule_type="FORWARD",
+        share_status="SHARED_WITH_ME")
+    ```
+
+
+    :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
+    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
+    :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
+    :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
+    """
+    ...

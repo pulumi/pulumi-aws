@@ -4,6 +4,9 @@
 package imagebuilder
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,85 @@ type LookupDistributionConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Key-value map of resource tags for the distribution configuration.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDistributionConfigurationResult, error) {
+			args := v.(LookupDistributionConfigurationArgs)
+			r, err := LookupDistributionConfiguration(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDistributionConfigurationResultOutput)
+}
+
+// A collection of arguments for invoking getDistributionConfiguration.
+type LookupDistributionConfigurationOutputArgs struct {
+	// Amazon Resource Name (ARN) of the distribution configuration.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Key-value map of resource tags for the distribution configuration.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupDistributionConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDistributionConfigurationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDistributionConfiguration.
+type LookupDistributionConfigurationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDistributionConfigurationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDistributionConfigurationResult)(nil)).Elem()
+}
+
+func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigurationResultOutput() LookupDistributionConfigurationResultOutput {
+	return o
+}
+
+func (o LookupDistributionConfigurationResultOutput) ToLookupDistributionConfigurationResultOutputWithContext(ctx context.Context) LookupDistributionConfigurationResultOutput {
+	return o
+}
+
+func (o LookupDistributionConfigurationResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Date the distribution configuration was created.
+func (o LookupDistributionConfigurationResultOutput) DateCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateCreated }).(pulumi.StringOutput)
+}
+
+// Date the distribution configuration was updated.
+func (o LookupDistributionConfigurationResultOutput) DateUpdated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.DateUpdated }).(pulumi.StringOutput)
+}
+
+// Description to apply to distributed AMI.
+func (o LookupDistributionConfigurationResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Set of distributions.
+func (o LookupDistributionConfigurationResultOutput) Distributions() GetDistributionConfigurationDistributionArrayOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) []GetDistributionConfigurationDistribution {
+		return v.Distributions
+	}).(GetDistributionConfigurationDistributionArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDistributionConfigurationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the distribution configuration.
+func (o LookupDistributionConfigurationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags for the distribution configuration.
+func (o LookupDistributionConfigurationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDistributionConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDistributionConfigurationResultOutput{})
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetComputeEnvironmentResult',
     'AwaitableGetComputeEnvironmentResult',
     'get_compute_environment',
+    'get_compute_environment_output',
 ]
 
 @pulumi.output_type
@@ -187,3 +188,27 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
         status_reason=__ret__.status_reason,
         tags=__ret__.tags,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_compute_environment)
+def get_compute_environment_output(compute_environment_name: Optional[pulumi.Input[str]] = None,
+                                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
+    """
+    The Batch Compute Environment data source allows access to details of a specific
+    compute environment within AWS Batch.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    batch_mongo = aws.batch.get_compute_environment(compute_environment_name="batch-mongo-production")
+    ```
+
+
+    :param str compute_environment_name: The name of the Batch Compute Environment
+    :param Mapping[str, str] tags: Key-value map of resource tags
+    """
+    ...

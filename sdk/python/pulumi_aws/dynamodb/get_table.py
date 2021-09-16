@@ -14,6 +14,7 @@ __all__ = [
     'GetTableResult',
     'AwaitableGetTableResult',
     'get_table',
+    'get_table_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,26 @@ def get_table(name: Optional[str] = None,
         tags=__ret__.tags,
         ttl=__ret__.ttl,
         write_capacity=__ret__.write_capacity)
+
+
+@_utilities.lift_output_func(get_table)
+def get_table_output(name: Optional[pulumi.Input[str]] = None,
+                     server_side_encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']]]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
+    """
+    Provides information about a DynamoDB table.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    table_name = aws.dynamodb.get_table(name="tableName")
+    ```
+
+
+    :param str name: The name of the DynamoDB table.
+    """
+    ...

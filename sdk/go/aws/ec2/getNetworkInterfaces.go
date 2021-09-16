@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,4 +36,63 @@ type GetNetworkInterfacesResult struct {
 	// A list of all the network interface ids found. This data source will fail if none are found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func GetNetworkInterfacesOutput(ctx *pulumi.Context, args GetNetworkInterfacesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkInterfacesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetNetworkInterfacesResult, error) {
+			args := v.(GetNetworkInterfacesArgs)
+			r, err := GetNetworkInterfaces(ctx, &args, opts...)
+			return *r, err
+		}).(GetNetworkInterfacesResultOutput)
+}
+
+// A collection of arguments for invoking getNetworkInterfaces.
+type GetNetworkInterfacesOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetNetworkInterfacesFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired network interfaces.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetNetworkInterfacesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfacesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNetworkInterfaces.
+type GetNetworkInterfacesResultOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkInterfacesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkInterfacesResult)(nil)).Elem()
+}
+
+func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutput() GetNetworkInterfacesResultOutput {
+	return o
+}
+
+func (o GetNetworkInterfacesResultOutput) ToGetNetworkInterfacesResultOutputWithContext(ctx context.Context) GetNetworkInterfacesResultOutput {
+	return o
+}
+
+func (o GetNetworkInterfacesResultOutput) Filters() GetNetworkInterfacesFilterArrayOutput {
+	return o.ApplyT(func(v GetNetworkInterfacesResult) []GetNetworkInterfacesFilter { return v.Filters }).(GetNetworkInterfacesFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetNetworkInterfacesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkInterfacesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of all the network interface ids found. This data source will fail if none are found.
+func (o GetNetworkInterfacesResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkInterfacesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNetworkInterfacesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetNetworkInterfacesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetNetworkInterfacesResultOutput{})
 }

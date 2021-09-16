@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceAccountResult',
     'AwaitableGetServiceAccountResult',
     'get_service_account',
+    'get_service_account_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,59 @@ def get_service_account(region: Optional[str] = None,
         arn=__ret__.arn,
         id=__ret__.id,
         region=__ret__.region)
+
+
+@_utilities.lift_output_func(get_service_account)
+def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
+    """
+    Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
+    in a given region for the purpose of permitting in S3 bucket policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.elb.get_service_account()
+    elb_logs = aws.s3.Bucket("elbLogs",
+        acl="private",
+        policy=f\"\"\"{{
+      "Id": "Policy",
+      "Version": "2012-10-17",
+      "Statement": [
+        {{
+          "Action": [
+            "s3:PutObject"
+          ],
+          "Effect": "Allow",
+          "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
+          "Principal": {{
+            "AWS": [
+              "{main.arn}"
+            ]
+          }}
+        }}
+      ]
+    }}
+    \"\"\")
+    bar = aws.elb.LoadBalancer("bar",
+        availability_zones=["us-west-2a"],
+        access_logs=aws.elb.LoadBalancerAccessLogsArgs(
+            bucket=elb_logs.bucket,
+            interval=5,
+        ),
+        listeners=[aws.elb.LoadBalancerListenerArgs(
+            instance_port=8000,
+            instance_protocol="http",
+            lb_port=80,
+            lb_protocol="http",
+        )])
+    ```
+
+
+    :param str region: Name of the region whose AWS ELB account ID is desired.
+           Defaults to the region from the AWS provider configuration.
+    """
+    ...

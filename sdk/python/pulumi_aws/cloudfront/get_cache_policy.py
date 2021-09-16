@@ -13,6 +13,7 @@ __all__ = [
     'GetCachePolicyResult',
     'AwaitableGetCachePolicyResult',
     'get_cache_policy',
+    'get_cache_policy_output',
 ]
 
 @pulumi.output_type
@@ -158,3 +159,26 @@ def get_cache_policy(id: Optional[str] = None,
         min_ttl=__ret__.min_ttl,
         name=__ret__.name,
         parameters_in_cache_key_and_forwarded_to_origins=__ret__.parameters_in_cache_key_and_forwarded_to_origins)
+
+
+@_utilities.lift_output_func(get_cache_policy)
+def get_cache_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                            name: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
+    """
+    Use this data source to retrieve information about a CloudFront cache policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_cache_policy(name="example-policy")
+    ```
+
+
+    :param str id: The identifier for the cache policy.
+    :param str name: A unique name to identify the cache policy.
+    """
+    ...

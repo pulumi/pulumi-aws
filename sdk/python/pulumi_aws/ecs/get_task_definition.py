@@ -12,6 +12,7 @@ __all__ = [
     'GetTaskDefinitionResult',
     'AwaitableGetTaskDefinitionResult',
     'get_task_definition',
+    'get_task_definition_output',
 ]
 
 @pulumi.output_type
@@ -136,3 +137,16 @@ def get_task_definition(task_definition: Optional[str] = None,
         status=__ret__.status,
         task_definition=__ret__.task_definition,
         task_role_arn=__ret__.task_role_arn)
+
+
+@_utilities.lift_output_func(get_task_definition)
+def get_task_definition_output(task_definition: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
+    """
+    The ECS task definition data source allows access to details of
+    a specific AWS ECS task definition.
+
+
+    :param str task_definition: The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+    """
+    ...
