@@ -147,6 +147,11 @@ jobs:
         summaryName="${PROVIDER}_summary_`date +"%Y-%m-%d_%H-%M-%S"`.json"
         s3FullURI="s3://${{ secrets.S3_COVERAGE_BUCKET_NAME }}/summaries/${summaryName}"
         aws s3 cp ${{ env.COVERAGE_OUTPUT_DIR }}/summary.json ${s3FullURI} --acl bucket-owner-full-control
+    strategy:
+      fail-fast: true
+      matrix:
+        goversion:
+          - 1.16.x
   prerequisites:
     name: prerequisites
     runs-on: ubuntu-latest
