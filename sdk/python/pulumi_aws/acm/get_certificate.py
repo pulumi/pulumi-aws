@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -183,3 +184,44 @@ def get_certificate(domain: Optional[str] = None,
         statuses=__ret__.statuses,
         tags=__ret__.tags,
         types=__ret__.types)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
+                           key_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                           statuses: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Use this data source to get the ARN of a certificate in AWS Certificate
+    Manager (ACM), you can reference
+    it by domain without having to hard code the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    issued = aws.acm.get_certificate(domain="tf.example.com",
+        statuses=["ISSUED"])
+    amazon_issued = aws.acm.get_certificate(domain="tf.example.com",
+        most_recent=True,
+        types=["AMAZON_ISSUED"])
+    rsa4096 = aws.acm.get_certificate(domain="tf.example.com",
+        key_types=["RSA_4096"])
+    ```
+
+
+    :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
+    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+    :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
+           `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
+           are returned.
+    :param Mapping[str, str] tags: A mapping of tags for the resource.
+    :param Sequence[str] types: A list of types on which to filter the returned list. Valid values are `AMAZON_ISSUED` and `IMPORTED`.
+    """
+    ...

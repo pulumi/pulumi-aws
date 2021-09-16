@@ -12,6 +12,7 @@ __all__ = [
     'GetRateBasedRuleResult',
     'AwaitableGetRateBasedRuleResult',
     'get_rate_based_rule',
+    'get_rate_based_rule_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,24 @@ def get_rate_based_rule(name: Optional[str] = None,
     return AwaitableGetRateBasedRuleResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_rate_based_rule)
+def get_rate_based_rule_output(name: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRateBasedRuleResult]:
+    """
+    `waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.waf.get_rate_based_rule(name="tfWAFRateBasedRule")
+    ```
+
+
+    :param str name: The name of the WAF rate based rule.
+    """
+    ...

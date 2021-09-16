@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -346,3 +347,26 @@ def get_cluster(cluster_id: Optional[str] = None,
         snapshot_window=__ret__.snapshot_window,
         subnet_group_name=__ret__.subnet_group_name,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Use this data source to get information about an Elasticache Cluster
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
+    ```
+
+
+    :param str cluster_id: Group identifier.
+    :param Mapping[str, str] tags: The tags assigned to the resource
+    """
+    ...

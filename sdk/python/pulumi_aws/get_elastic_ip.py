@@ -14,6 +14,7 @@ __all__ = [
     'GetElasticIpResult',
     'AwaitableGetElasticIpResult',
     'get_elastic_ip',
+    'get_elastic_ip_output',
 ]
 
 warnings.warn("""aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp""", DeprecationWarning)
@@ -305,3 +306,61 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
         public_ip=__ret__.public_ip,
         public_ipv4_pool=__ret__.public_ipv4_pool,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_elastic_ip)
+def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetElasticIpFilterArgs']]]]] = None,
+                          id: Optional[pulumi.Input[Optional[str]]] = None,
+                          public_ip: Optional[pulumi.Input[Optional[str]]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticIpResult]:
+    """
+    `ec2.Eip` provides details about a specific Elastic IP.
+
+    ## Example Usage
+    ### Search By Allocation ID (VPC only)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
+    ```
+    ### Search By Filters (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_filter = aws.ec2.get_elastic_ip(filters=[aws.ec2.GetElasticIpFilterArgs(
+        name="tag:Name",
+        values=["exampleNameTagValue"],
+    )])
+    ```
+    ### Search By Public IP (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
+    ```
+    ### Search By Tags (EC2-Classic or VPC)
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_tags = aws.ec2.get_elastic_ip(tags={
+        "Name": "exampleNameTagValue",
+    })
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+    :param str id: The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
+    :param str public_ip: The public IP of the specific EIP to retrieve.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+    """
+    pulumi.log.warn("""get_elastic_ip is deprecated: aws.getElasticIp has been deprecated in favor of aws.ec2.getElasticIp""")
+    ...

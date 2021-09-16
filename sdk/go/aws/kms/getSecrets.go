@@ -4,6 +4,9 @@
 package kms
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,4 +33,56 @@ type GetSecretsResult struct {
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
 	Plaintext map[string]string  `pulumi:"plaintext"`
 	Secrets   []GetSecretsSecret `pulumi:"secrets"`
+}
+
+func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pulumi.InvokeOption) GetSecretsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSecretsResult, error) {
+			args := v.(GetSecretsArgs)
+			r, err := GetSecrets(ctx, &args, opts...)
+			return *r, err
+		}).(GetSecretsResultOutput)
+}
+
+// A collection of arguments for invoking getSecrets.
+type GetSecretsOutputArgs struct {
+	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+	Secrets GetSecretsSecretArrayInput `pulumi:"secrets"`
+}
+
+func (GetSecretsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecrets.
+type GetSecretsResultOutput struct{ *pulumi.OutputState }
+
+func (GetSecretsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsResult)(nil)).Elem()
+}
+
+func (o GetSecretsResultOutput) ToGetSecretsResultOutput() GetSecretsResultOutput {
+	return o
+}
+
+func (o GetSecretsResultOutput) ToGetSecretsResultOutputWithContext(ctx context.Context) GetSecretsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Map containing each `secret` `name` as the key with its decrypted plaintext value
+func (o GetSecretsResultOutput) Plaintext() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSecretsResult) map[string]string { return v.Plaintext }).(pulumi.StringMapOutput)
+}
+
+func (o GetSecretsResultOutput) Secrets() GetSecretsSecretArrayOutput {
+	return o.ApplyT(func(v GetSecretsResult) []GetSecretsSecret { return v.Secrets }).(GetSecretsSecretArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSecretsResultOutput{})
 }

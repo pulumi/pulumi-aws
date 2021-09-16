@@ -4,6 +4,9 @@
 package ec2transitgateway
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,72 @@ type GetDirectConnectGatewayAttachmentResult struct {
 	// Key-value tags for the EC2 Transit Gateway Attachment
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
+}
+
+func GetDirectConnectGatewayAttachmentOutput(ctx *pulumi.Context, args GetDirectConnectGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetDirectConnectGatewayAttachmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetDirectConnectGatewayAttachmentResult, error) {
+			args := v.(GetDirectConnectGatewayAttachmentArgs)
+			r, err := GetDirectConnectGatewayAttachment(ctx, &args, opts...)
+			return *r, err
+		}).(GetDirectConnectGatewayAttachmentResultOutput)
+}
+
+// A collection of arguments for invoking getDirectConnectGatewayAttachment.
+type GetDirectConnectGatewayAttachmentOutputArgs struct {
+	// Identifier of the Direct Connect Gateway.
+	DxGatewayId pulumi.StringPtrInput `pulumi:"dxGatewayId"`
+	// Configuration block(s) for filtering. Detailed below.
+	Filters GetDirectConnectGatewayAttachmentFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Identifier of the EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+}
+
+func (GetDirectConnectGatewayAttachmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectConnectGatewayAttachmentArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDirectConnectGatewayAttachment.
+type GetDirectConnectGatewayAttachmentResultOutput struct{ *pulumi.OutputState }
+
+func (GetDirectConnectGatewayAttachmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectConnectGatewayAttachmentResult)(nil)).Elem()
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) ToGetDirectConnectGatewayAttachmentResultOutput() GetDirectConnectGatewayAttachmentResultOutput {
+	return o
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) ToGetDirectConnectGatewayAttachmentResultOutputWithContext(ctx context.Context) GetDirectConnectGatewayAttachmentResultOutput {
+	return o
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) DxGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) *string { return v.DxGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) Filters() GetDirectConnectGatewayAttachmentFilterArrayOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) []GetDirectConnectGatewayAttachmentFilter {
+		return v.Filters
+	}).(GetDirectConnectGatewayAttachmentFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetDirectConnectGatewayAttachmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Key-value tags for the EC2 Transit Gateway Attachment
+func (o GetDirectConnectGatewayAttachmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentResultOutput{})
 }

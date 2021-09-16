@@ -4,6 +4,9 @@
 package sqs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,68 @@ type LookupQueueResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The URL of the queue.
 	Url string `pulumi:"url"`
+}
+
+func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupQueueResult, error) {
+			args := v.(LookupQueueArgs)
+			r, err := LookupQueue(ctx, &args, opts...)
+			return *r, err
+		}).(LookupQueueResultOutput)
+}
+
+// A collection of arguments for invoking getQueue.
+type LookupQueueOutputArgs struct {
+	// The name of the queue to match.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupQueueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupQueueArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getQueue.
+type LookupQueueResultOutput struct{ *pulumi.OutputState }
+
+func (LookupQueueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupQueueResult)(nil)).Elem()
+}
+
+func (o LookupQueueResultOutput) ToLookupQueueResultOutput() LookupQueueResultOutput {
+	return o
+}
+
+func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx context.Context) LookupQueueResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the queue.
+func (o LookupQueueResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of tags for the resource.
+func (o LookupQueueResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupQueueResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The URL of the queue.
+func (o LookupQueueResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupQueueResultOutput{})
 }

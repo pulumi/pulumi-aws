@@ -13,6 +13,7 @@ __all__ = [
     'GetDomainResult',
     'AwaitableGetDomainResult',
     'get_domain',
+    'get_domain_output',
 ]
 
 @pulumi.output_type
@@ -341,3 +342,26 @@ def get_domain(domain_name: Optional[str] = None,
         snapshot_options=__ret__.snapshot_options,
         tags=__ret__.tags,
         vpc_options=__ret__.vpc_options)
+
+
+@_utilities.lift_output_func(get_domain)
+def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+    """
+    Use this data source to get information about an Elasticsearch Domain
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    my_domain = aws.elasticsearch.get_domain(domain_name="my-domain-name")
+    ```
+
+
+    :param str domain_name: Name of the domain.
+    :param Mapping[str, str] tags: The tags assigned to the domain.
+    """
+    ...

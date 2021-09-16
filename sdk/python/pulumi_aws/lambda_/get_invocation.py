@@ -12,6 +12,7 @@ __all__ = [
     'GetInvocationResult',
     'AwaitableGetInvocationResult',
     'get_invocation',
+    'get_invocation_output',
 ]
 
 @pulumi.output_type
@@ -112,3 +113,22 @@ def get_invocation(function_name: Optional[str] = None,
         input=__ret__.input,
         qualifier=__ret__.qualifier,
         result=__ret__.result)
+
+
+@_utilities.lift_output_func(get_invocation)
+def get_invocation_output(function_name: Optional[pulumi.Input[str]] = None,
+                          input: Optional[pulumi.Input[str]] = None,
+                          qualifier: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInvocationResult]:
+    """
+    Use this data source to invoke custom lambda functions as data source.
+    The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
+    invocation type.
+
+
+    :param str function_name: The name of the lambda function.
+    :param str input: A string in JSON format that is passed as payload to the lambda function.
+    :param str qualifier: The qualifier (a.k.a version) of the lambda function. Defaults
+           to `$LATEST`.
+    """
+    ...

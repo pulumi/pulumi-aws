@@ -14,6 +14,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,19 @@ def get_user(filters: Optional[Sequence[pulumi.InputType['GetUserFilterArgs']]] 
         identity_store_id=__ret__.identity_store_id,
         user_id=__ret__.user_id,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetUserFilterArgs']]]] = None,
+                    identity_store_id: Optional[pulumi.Input[str]] = None,
+                    user_id: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Use this data source to get an Identity Store User.
+
+
+    :param Sequence[pulumi.InputType['GetUserFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    :param str user_id: The identifier for a user in the Identity Store.
+    """
+    ...

@@ -4,6 +4,9 @@
 package cur
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,101 @@ type LookupReportDefinitionResult struct {
 	S3Region string `pulumi:"s3Region"`
 	// The frequency on which report data are measured and displayed.
 	TimeUnit string `pulumi:"timeUnit"`
+}
+
+func LookupReportDefinitionOutput(ctx *pulumi.Context, args LookupReportDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupReportDefinitionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupReportDefinitionResult, error) {
+			args := v.(LookupReportDefinitionArgs)
+			r, err := LookupReportDefinition(ctx, &args, opts...)
+			return *r, err
+		}).(LookupReportDefinitionResultOutput)
+}
+
+// A collection of arguments for invoking getReportDefinition.
+type LookupReportDefinitionOutputArgs struct {
+	// The name of the report definition to match.
+	ReportName pulumi.StringInput `pulumi:"reportName"`
+}
+
+func (LookupReportDefinitionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportDefinitionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getReportDefinition.
+type LookupReportDefinitionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupReportDefinitionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupReportDefinitionResult)(nil)).Elem()
+}
+
+func (o LookupReportDefinitionResultOutput) ToLookupReportDefinitionResultOutput() LookupReportDefinitionResultOutput {
+	return o
+}
+
+func (o LookupReportDefinitionResultOutput) ToLookupReportDefinitionResultOutputWithContext(ctx context.Context) LookupReportDefinitionResultOutput {
+	return o
+}
+
+// A list of additional artifacts.
+func (o LookupReportDefinitionResultOutput) AdditionalArtifacts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) []string { return v.AdditionalArtifacts }).(pulumi.StringArrayOutput)
+}
+
+// A list of schema elements.
+func (o LookupReportDefinitionResultOutput) AdditionalSchemaElements() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) []string { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
+}
+
+// Preferred format for report.
+func (o LookupReportDefinitionResultOutput) Compression() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Compression }).(pulumi.StringOutput)
+}
+
+// Preferred compression format for report.
+func (o LookupReportDefinitionResultOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Format }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupReportDefinitionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// If true reports are updated after they have been finalized.
+func (o LookupReportDefinitionResultOutput) RefreshClosedReports() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) bool { return v.RefreshClosedReports }).(pulumi.BoolOutput)
+}
+
+func (o LookupReportDefinitionResultOutput) ReportName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.ReportName }).(pulumi.StringOutput)
+}
+
+// Overwrite the previous version of each report or to deliver the report in addition to the previous versions.
+func (o LookupReportDefinitionResultOutput) ReportVersioning() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.ReportVersioning }).(pulumi.StringOutput)
+}
+
+// Name of customer S3 bucket.
+func (o LookupReportDefinitionResultOutput) S3Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Bucket }).(pulumi.StringOutput)
+}
+
+// Preferred report path prefix.
+func (o LookupReportDefinitionResultOutput) S3Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Prefix }).(pulumi.StringOutput)
+}
+
+// Region of customer S3 bucket.
+func (o LookupReportDefinitionResultOutput) S3Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.S3Region }).(pulumi.StringOutput)
+}
+
+// The frequency on which report data are measured and displayed.
+func (o LookupReportDefinitionResultOutput) TimeUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReportDefinitionResult) string { return v.TimeUnit }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupReportDefinitionResultOutput{})
 }

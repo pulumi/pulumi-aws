@@ -4,6 +4,9 @@
 package rds
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -167,4 +170,202 @@ type GetOrderableDbInstanceResult struct {
 	SupportsStorageAutoscaling        bool     `pulumi:"supportsStorageAutoscaling"`
 	SupportsStorageEncryption         bool     `pulumi:"supportsStorageEncryption"`
 	Vpc                               bool     `pulumi:"vpc"`
+}
+
+func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOrderableDbInstanceResult, error) {
+			args := v.(GetOrderableDbInstanceArgs)
+			r, err := GetOrderableDbInstance(ctx, &args, opts...)
+			return *r, err
+		}).(GetOrderableDbInstanceResultOutput)
+}
+
+// A collection of arguments for invoking getOrderableDbInstance.
+type GetOrderableDbInstanceOutputArgs struct {
+	// Availability zone group.
+	AvailabilityZoneGroup pulumi.StringPtrInput `pulumi:"availabilityZoneGroup"`
+	// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+	EngineVersion pulumi.StringPtrInput `pulumi:"engineVersion"`
+	// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+	InstanceClass pulumi.StringPtrInput `pulumi:"instanceClass"`
+	// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
+	// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	PreferredEngineVersions pulumi.StringArrayInput `pulumi:"preferredEngineVersions"`
+	// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
+	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+	SupportsEnhancedMonitoring pulumi.BoolPtrInput `pulumi:"supportsEnhancedMonitoring"`
+	// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+	SupportsGlobalDatabases pulumi.BoolPtrInput `pulumi:"supportsGlobalDatabases"`
+	// Enable this to ensure a DB instance supports IAM database authentication.
+	SupportsIamDatabaseAuthentication pulumi.BoolPtrInput `pulumi:"supportsIamDatabaseAuthentication"`
+	// Enable this to ensure a DB instance supports provisioned IOPS.
+	SupportsIops pulumi.BoolPtrInput `pulumi:"supportsIops"`
+	// Enable this to ensure a DB instance supports Kerberos Authentication.
+	SupportsKerberosAuthentication pulumi.BoolPtrInput `pulumi:"supportsKerberosAuthentication"`
+	// Enable this to ensure a DB instance supports Performance Insights.
+	SupportsPerformanceInsights pulumi.BoolPtrInput `pulumi:"supportsPerformanceInsights"`
+	// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+	SupportsStorageAutoscaling pulumi.BoolPtrInput `pulumi:"supportsStorageAutoscaling"`
+	// Enable this to ensure a DB instance supports encrypted storage.
+	SupportsStorageEncryption pulumi.BoolPtrInput `pulumi:"supportsStorageEncryption"`
+	// Boolean that indicates whether to show only VPC or non-VPC offerings.
+	Vpc pulumi.BoolPtrInput `pulumi:"vpc"`
+}
+
+func (GetOrderableDbInstanceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrderableDbInstanceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOrderableDbInstance.
+type GetOrderableDbInstanceResultOutput struct{ *pulumi.OutputState }
+
+func (GetOrderableDbInstanceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrderableDbInstanceResult)(nil)).Elem()
+}
+
+func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutput() GetOrderableDbInstanceResultOutput {
+	return o
+}
+
+func (o GetOrderableDbInstanceResultOutput) ToGetOrderableDbInstanceResultOutputWithContext(ctx context.Context) GetOrderableDbInstanceResultOutput {
+	return o
+}
+
+func (o GetOrderableDbInstanceResultOutput) AvailabilityZoneGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.AvailabilityZoneGroup }).(pulumi.StringOutput)
+}
+
+// Availability zones where the instance is available.
+func (o GetOrderableDbInstanceResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetOrderableDbInstanceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) InstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.InstanceClass }).(pulumi.StringOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) LicenseModel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.LicenseModel }).(pulumi.StringOutput)
+}
+
+// Maximum total provisioned IOPS for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MaxIopsPerDbInstance() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MaxIopsPerDbInstance }).(pulumi.IntOutput)
+}
+
+// Maximum provisioned IOPS per GiB for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MaxIopsPerGib() pulumi.Float64Output {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) float64 { return v.MaxIopsPerGib }).(pulumi.Float64Output)
+}
+
+// Maximum storage size for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MaxStorageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MaxStorageSize }).(pulumi.IntOutput)
+}
+
+// Minimum total provisioned IOPS for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MinIopsPerDbInstance() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MinIopsPerDbInstance }).(pulumi.IntOutput)
+}
+
+// Minimum provisioned IOPS per GiB for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MinIopsPerGib() pulumi.Float64Output {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) float64 { return v.MinIopsPerGib }).(pulumi.Float64Output)
+}
+
+// Minimum storage size for a DB instance.
+func (o GetOrderableDbInstanceResultOutput) MinStorageSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) int { return v.MinStorageSize }).(pulumi.IntOutput)
+}
+
+// Whether a DB instance is Multi-AZ capable.
+func (o GetOrderableDbInstanceResultOutput) MultiAzCapable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.MultiAzCapable }).(pulumi.BoolOutput)
+}
+
+// Whether a DB instance supports RDS on Outposts.
+func (o GetOrderableDbInstanceResultOutput) OutpostCapable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.OutpostCapable }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) PreferredEngineVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.PreferredEngineVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.PreferredInstanceClasses }).(pulumi.StringArrayOutput)
+}
+
+// Whether a DB instance can have a read replica.
+func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+// A list of the supported DB engine modes.
+func (o GetOrderableDbInstanceResultOutput) SupportedEngineModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) []string { return v.SupportedEngineModes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsEnhancedMonitoring() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsEnhancedMonitoring }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsGlobalDatabases() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsGlobalDatabases }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsIamDatabaseAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsIamDatabaseAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsIops() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsIops }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsKerberosAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsKerberosAuthentication }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsPerformanceInsights() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsPerformanceInsights }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsStorageAutoscaling() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsStorageAutoscaling }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) SupportsStorageEncryption() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.SupportsStorageEncryption }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Vpc() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.Vpc }).(pulumi.BoolOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOrderableDbInstanceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package rds
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -127,4 +130,241 @@ type LookupInstanceResult struct {
 	Timezone string `pulumi:"timezone"`
 	// Provides a list of VPC security group elements that the DB instance belongs to.
 	VpcSecurityGroups []string `pulumi:"vpcSecurityGroups"`
+}
+
+func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupInstanceResult, error) {
+			args := v.(LookupInstanceArgs)
+			r, err := LookupInstance(ctx, &args, opts...)
+			return *r, err
+		}).(LookupInstanceResultOutput)
+}
+
+// A collection of arguments for invoking getInstance.
+type LookupInstanceOutputArgs struct {
+	// The name of the RDS instance
+	DbInstanceIdentifier pulumi.StringInput    `pulumi:"dbInstanceIdentifier"`
+	Tags                 pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupInstanceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInstanceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getInstance.
+type LookupInstanceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupInstanceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupInstanceResult)(nil)).Elem()
+}
+
+func (o LookupInstanceResultOutput) ToLookupInstanceResultOutput() LookupInstanceResultOutput {
+	return o
+}
+
+func (o LookupInstanceResultOutput) ToLookupInstanceResultOutputWithContext(ctx context.Context) LookupInstanceResultOutput {
+	return o
+}
+
+// The hostname of the RDS instance. See also `endpoint` and `port`.
+func (o LookupInstanceResultOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// Specifies the allocated storage size specified in gigabytes.
+func (o LookupInstanceResultOutput) AllocatedStorage() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
+}
+
+// Indicates that minor version patches are applied automatically.
+func (o LookupInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
+}
+
+// Specifies the name of the Availability Zone the DB instance is located in.
+func (o LookupInstanceResultOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// Specifies the number of days for which automatic DB snapshots are retained.
+func (o LookupInstanceResultOutput) BackupRetentionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
+}
+
+// Specifies the identifier of the CA certificate for the DB instance.
+func (o LookupInstanceResultOutput) CaCertIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.CaCertIdentifier }).(pulumi.StringOutput)
+}
+
+// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
+func (o LookupInstanceResultOutput) DbClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) for the DB instance.
+func (o LookupInstanceResultOutput) DbInstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbInstanceArn }).(pulumi.StringOutput)
+}
+
+// Contains the name of the compute and memory capacity class of the DB instance.
+func (o LookupInstanceResultOutput) DbInstanceClass() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbInstanceClass }).(pulumi.StringOutput)
+}
+
+func (o LookupInstanceResultOutput) DbInstanceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbInstanceIdentifier }).(pulumi.StringOutput)
+}
+
+// Specifies the port that the DB instance listens on.
+func (o LookupInstanceResultOutput) DbInstancePort() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.DbInstancePort }).(pulumi.IntOutput)
+}
+
+// Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+func (o LookupInstanceResultOutput) DbName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbName }).(pulumi.StringOutput)
+}
+
+// Provides the list of DB parameter groups applied to this DB instance.
+func (o LookupInstanceResultOutput) DbParameterGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbParameterGroups }).(pulumi.StringArrayOutput)
+}
+
+// Provides List of DB security groups associated to this DB instance.
+func (o LookupInstanceResultOutput) DbSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the subnet group associated with the DB instance.
+func (o LookupInstanceResultOutput) DbSubnetGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbSubnetGroup }).(pulumi.StringOutput)
+}
+
+// List of log types to export to cloudwatch.
+func (o LookupInstanceResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
+}
+
+// The connection endpoint in `address:port` format.
+func (o LookupInstanceResultOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Provides the name of the database engine to be used for this DB instance.
+func (o LookupInstanceResultOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Indicates the database engine version.
+func (o LookupInstanceResultOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// The canonical hosted zone ID of the DB instance (to be used in a Route 53 Alias record).
+func (o LookupInstanceResultOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupInstanceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the Provisioned IOPS (I/O operations per second) value.
+func (o LookupInstanceResultOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+// If StorageEncrypted is true, the KMS key identifier for the encrypted DB instance.
+func (o LookupInstanceResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// License model information for this DB instance.
+func (o LookupInstanceResultOutput) LicenseModel() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.LicenseModel }).(pulumi.StringOutput)
+}
+
+// Contains the master username for the DB instance.
+func (o LookupInstanceResultOutput) MasterUsername() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.MasterUsername }).(pulumi.StringOutput)
+}
+
+// The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
+func (o LookupInstanceResultOutput) MonitoringInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.MonitoringInterval }).(pulumi.IntOutput)
+}
+
+// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+func (o LookupInstanceResultOutput) MonitoringRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.MonitoringRoleArn }).(pulumi.StringOutput)
+}
+
+// Specifies if the DB instance is a Multi-AZ deployment.
+func (o LookupInstanceResultOutput) MultiAz() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
+}
+
+// Provides the list of option group memberships for this DB instance.
+func (o LookupInstanceResultOutput) OptionGroupMemberships() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.OptionGroupMemberships }).(pulumi.StringArrayOutput)
+}
+
+// The database port.
+func (o LookupInstanceResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Specifies the daily time range during which automated backups are created.
+func (o LookupInstanceResultOutput) PreferredBackupWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.PreferredBackupWindow }).(pulumi.StringOutput)
+}
+
+// Specifies the weekly time range during which system maintenance can occur in UTC.
+func (o LookupInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// Specifies the accessibility options for the DB instance.
+func (o LookupInstanceResultOutput) PubliclyAccessible() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+// The identifier of the source DB that this is a replica of.
+func (o LookupInstanceResultOutput) ReplicateSourceDb() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.ReplicateSourceDb }).(pulumi.StringOutput)
+}
+
+// The RDS Resource ID of this instance.
+func (o LookupInstanceResultOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// Specifies whether the DB instance is encrypted.
+func (o LookupInstanceResultOutput) StorageEncrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
+}
+
+// Specifies the storage type associated with DB instance.
+func (o LookupInstanceResultOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+func (o LookupInstanceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupInstanceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The time zone of the DB instance.
+func (o LookupInstanceResultOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+// Provides a list of VPC security group elements that the DB instance belongs to.
+func (o LookupInstanceResultOutput) VpcSecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.VpcSecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupInstanceResultOutput{})
 }

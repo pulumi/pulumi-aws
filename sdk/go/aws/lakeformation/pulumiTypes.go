@@ -1197,6 +1197,47 @@ func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataLocationOutput)
 }
 
+func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput {
+	return i.ToGetPermissionsDataLocationPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsDataLocationArgs) ToGetPermissionsDataLocationPtrOutputWithContext(ctx context.Context) GetPermissionsDataLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataLocationOutput).ToGetPermissionsDataLocationPtrOutputWithContext(ctx)
+}
+
+// GetPermissionsDataLocationPtrInput is an input type that accepts GetPermissionsDataLocationArgs, GetPermissionsDataLocationPtr and GetPermissionsDataLocationPtrOutput values.
+// You can construct a concrete instance of `GetPermissionsDataLocationPtrInput` via:
+//
+//          GetPermissionsDataLocationArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsDataLocationPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput
+	ToGetPermissionsDataLocationPtrOutputWithContext(context.Context) GetPermissionsDataLocationPtrOutput
+}
+
+type getPermissionsDataLocationPtrType GetPermissionsDataLocationArgs
+
+func GetPermissionsDataLocationPtr(v *GetPermissionsDataLocationArgs) GetPermissionsDataLocationPtrInput {
+	return (*getPermissionsDataLocationPtrType)(v)
+}
+
+func (*getPermissionsDataLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDataLocation)(nil)).Elem()
+}
+
+func (i *getPermissionsDataLocationPtrType) ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput {
+	return i.ToGetPermissionsDataLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsDataLocationPtrType) ToGetPermissionsDataLocationPtrOutputWithContext(ctx context.Context) GetPermissionsDataLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDataLocationPtrOutput)
+}
+
 type GetPermissionsDataLocationOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsDataLocationOutput) ElementType() reflect.Type {
@@ -1211,6 +1252,16 @@ func (o GetPermissionsDataLocationOutput) ToGetPermissionsDataLocationOutputWith
 	return o
 }
 
+func (o GetPermissionsDataLocationOutput) ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput {
+	return o.ToGetPermissionsDataLocationPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsDataLocationOutput) ToGetPermissionsDataLocationPtrOutputWithContext(ctx context.Context) GetPermissionsDataLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsDataLocation) *GetPermissionsDataLocation {
+		return &v
+	}).(GetPermissionsDataLocationPtrOutput)
+}
+
 // Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.Arn }).(pulumi.StringOutput)
@@ -1219,6 +1270,50 @@ func (o GetPermissionsDataLocationOutput) Arn() pulumi.StringOutput {
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsDataLocationOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDataLocation) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+type GetPermissionsDataLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsDataLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDataLocation)(nil)).Elem()
+}
+
+func (o GetPermissionsDataLocationPtrOutput) ToGetPermissionsDataLocationPtrOutput() GetPermissionsDataLocationPtrOutput {
+	return o
+}
+
+func (o GetPermissionsDataLocationPtrOutput) ToGetPermissionsDataLocationPtrOutputWithContext(ctx context.Context) GetPermissionsDataLocationPtrOutput {
+	return o
+}
+
+func (o GetPermissionsDataLocationPtrOutput) Elem() GetPermissionsDataLocationOutput {
+	return o.ApplyT(func(v *GetPermissionsDataLocation) GetPermissionsDataLocation {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsDataLocation
+		return ret
+	}).(GetPermissionsDataLocationOutput)
+}
+
+// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+func (o GetPermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Arn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsDataLocationPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDataLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetPermissionsDatabase struct {
@@ -1258,6 +1353,47 @@ func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabaseOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDatabaseOutput)
 }
 
+func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput {
+	return i.ToGetPermissionsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsDatabaseArgs) ToGetPermissionsDatabasePtrOutputWithContext(ctx context.Context) GetPermissionsDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDatabaseOutput).ToGetPermissionsDatabasePtrOutputWithContext(ctx)
+}
+
+// GetPermissionsDatabasePtrInput is an input type that accepts GetPermissionsDatabaseArgs, GetPermissionsDatabasePtr and GetPermissionsDatabasePtrOutput values.
+// You can construct a concrete instance of `GetPermissionsDatabasePtrInput` via:
+//
+//          GetPermissionsDatabaseArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsDatabasePtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput
+	ToGetPermissionsDatabasePtrOutputWithContext(context.Context) GetPermissionsDatabasePtrOutput
+}
+
+type getPermissionsDatabasePtrType GetPermissionsDatabaseArgs
+
+func GetPermissionsDatabasePtr(v *GetPermissionsDatabaseArgs) GetPermissionsDatabasePtrInput {
+	return (*getPermissionsDatabasePtrType)(v)
+}
+
+func (*getPermissionsDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDatabase)(nil)).Elem()
+}
+
+func (i *getPermissionsDatabasePtrType) ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput {
+	return i.ToGetPermissionsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsDatabasePtrType) ToGetPermissionsDatabasePtrOutputWithContext(ctx context.Context) GetPermissionsDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsDatabasePtrOutput)
+}
+
 type GetPermissionsDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsDatabaseOutput) ElementType() reflect.Type {
@@ -1272,6 +1408,16 @@ func (o GetPermissionsDatabaseOutput) ToGetPermissionsDatabaseOutputWithContext(
 	return o
 }
 
+func (o GetPermissionsDatabaseOutput) ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput {
+	return o.ToGetPermissionsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsDatabaseOutput) ToGetPermissionsDatabasePtrOutputWithContext(ctx context.Context) GetPermissionsDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsDatabase) *GetPermissionsDatabase {
+		return &v
+	}).(GetPermissionsDatabasePtrOutput)
+}
+
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
 func (o GetPermissionsDatabaseOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.CatalogId }).(pulumi.StringOutput)
@@ -1280,6 +1426,50 @@ func (o GetPermissionsDatabaseOutput) CatalogId() pulumi.StringOutput {
 // Name of the table resource.
 func (o GetPermissionsDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionsDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetPermissionsDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsDatabase)(nil)).Elem()
+}
+
+func (o GetPermissionsDatabasePtrOutput) ToGetPermissionsDatabasePtrOutput() GetPermissionsDatabasePtrOutput {
+	return o
+}
+
+func (o GetPermissionsDatabasePtrOutput) ToGetPermissionsDatabasePtrOutputWithContext(ctx context.Context) GetPermissionsDatabasePtrOutput {
+	return o
+}
+
+func (o GetPermissionsDatabasePtrOutput) Elem() GetPermissionsDatabaseOutput {
+	return o.ApplyT(func(v *GetPermissionsDatabase) GetPermissionsDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsDatabase
+		return ret
+	}).(GetPermissionsDatabaseOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetPermissionsTable struct {
@@ -1327,6 +1517,47 @@ func (i GetPermissionsTableArgs) ToGetPermissionsTableOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableOutput)
 }
 
+func (i GetPermissionsTableArgs) ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput {
+	return i.ToGetPermissionsTablePtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsTableArgs) ToGetPermissionsTablePtrOutputWithContext(ctx context.Context) GetPermissionsTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableOutput).ToGetPermissionsTablePtrOutputWithContext(ctx)
+}
+
+// GetPermissionsTablePtrInput is an input type that accepts GetPermissionsTableArgs, GetPermissionsTablePtr and GetPermissionsTablePtrOutput values.
+// You can construct a concrete instance of `GetPermissionsTablePtrInput` via:
+//
+//          GetPermissionsTableArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsTablePtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput
+	ToGetPermissionsTablePtrOutputWithContext(context.Context) GetPermissionsTablePtrOutput
+}
+
+type getPermissionsTablePtrType GetPermissionsTableArgs
+
+func GetPermissionsTablePtr(v *GetPermissionsTableArgs) GetPermissionsTablePtrInput {
+	return (*getPermissionsTablePtrType)(v)
+}
+
+func (*getPermissionsTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsTable)(nil)).Elem()
+}
+
+func (i *getPermissionsTablePtrType) ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput {
+	return i.ToGetPermissionsTablePtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsTablePtrType) ToGetPermissionsTablePtrOutputWithContext(ctx context.Context) GetPermissionsTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTablePtrOutput)
+}
+
 type GetPermissionsTableOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsTableOutput) ElementType() reflect.Type {
@@ -1339,6 +1570,16 @@ func (o GetPermissionsTableOutput) ToGetPermissionsTableOutput() GetPermissionsT
 
 func (o GetPermissionsTableOutput) ToGetPermissionsTableOutputWithContext(ctx context.Context) GetPermissionsTableOutput {
 	return o
+}
+
+func (o GetPermissionsTableOutput) ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput {
+	return o.ToGetPermissionsTablePtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsTableOutput) ToGetPermissionsTablePtrOutputWithContext(ctx context.Context) GetPermissionsTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsTable) *GetPermissionsTable {
+		return &v
+	}).(GetPermissionsTablePtrOutput)
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -1359,6 +1600,70 @@ func (o GetPermissionsTableOutput) Name() pulumi.StringOutput {
 // Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
 func (o GetPermissionsTableOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetPermissionsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
+}
+
+type GetPermissionsTablePtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsTable)(nil)).Elem()
+}
+
+func (o GetPermissionsTablePtrOutput) ToGetPermissionsTablePtrOutput() GetPermissionsTablePtrOutput {
+	return o
+}
+
+func (o GetPermissionsTablePtrOutput) ToGetPermissionsTablePtrOutputWithContext(ctx context.Context) GetPermissionsTablePtrOutput {
+	return o
+}
+
+func (o GetPermissionsTablePtrOutput) Elem() GetPermissionsTableOutput {
+	return o.ApplyT(func(v *GetPermissionsTable) GetPermissionsTable {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsTable
+		return ret
+	}).(GetPermissionsTableOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o GetPermissionsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+func (o GetPermissionsTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+func (o GetPermissionsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GetPermissionsTableWithColumns struct {
@@ -1414,6 +1719,47 @@ func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableWithColumnsOutput)
 }
 
+func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput {
+	return i.ToGetPermissionsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsTableWithColumnsArgs) ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableWithColumnsOutput).ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx)
+}
+
+// GetPermissionsTableWithColumnsPtrInput is an input type that accepts GetPermissionsTableWithColumnsArgs, GetPermissionsTableWithColumnsPtr and GetPermissionsTableWithColumnsPtrOutput values.
+// You can construct a concrete instance of `GetPermissionsTableWithColumnsPtrInput` via:
+//
+//          GetPermissionsTableWithColumnsArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsTableWithColumnsPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput
+	ToGetPermissionsTableWithColumnsPtrOutputWithContext(context.Context) GetPermissionsTableWithColumnsPtrOutput
+}
+
+type getPermissionsTableWithColumnsPtrType GetPermissionsTableWithColumnsArgs
+
+func GetPermissionsTableWithColumnsPtr(v *GetPermissionsTableWithColumnsArgs) GetPermissionsTableWithColumnsPtrInput {
+	return (*getPermissionsTableWithColumnsPtrType)(v)
+}
+
+func (*getPermissionsTableWithColumnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsTableWithColumns)(nil)).Elem()
+}
+
+func (i *getPermissionsTableWithColumnsPtrType) ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput {
+	return i.ToGetPermissionsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsTableWithColumnsPtrType) ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsTableWithColumnsPtrOutput)
+}
+
 type GetPermissionsTableWithColumnsOutput struct{ *pulumi.OutputState }
 
 func (GetPermissionsTableWithColumnsOutput) ElementType() reflect.Type {
@@ -1426,6 +1772,16 @@ func (o GetPermissionsTableWithColumnsOutput) ToGetPermissionsTableWithColumnsOu
 
 func (o GetPermissionsTableWithColumnsOutput) ToGetPermissionsTableWithColumnsOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsOutput {
 	return o
+}
+
+func (o GetPermissionsTableWithColumnsOutput) ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput {
+	return o.ToGetPermissionsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsTableWithColumnsOutput) ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsTableWithColumns) *GetPermissionsTableWithColumns {
+		return &v
+	}).(GetPermissionsTableWithColumnsPtrOutput)
 }
 
 // Identifier for the Data Catalog. By default, it is the account ID of the caller.
@@ -1458,6 +1814,90 @@ func (o GetPermissionsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetPermissionsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
 }
 
+type GetPermissionsTableWithColumnsPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsTableWithColumnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsTableWithColumns)(nil)).Elem()
+}
+
+func (o GetPermissionsTableWithColumnsPtrOutput) ToGetPermissionsTableWithColumnsPtrOutput() GetPermissionsTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o GetPermissionsTableWithColumnsPtrOutput) ToGetPermissionsTableWithColumnsPtrOutputWithContext(ctx context.Context) GetPermissionsTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o GetPermissionsTableWithColumnsPtrOutput) Elem() GetPermissionsTableWithColumnsOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) GetPermissionsTableWithColumns {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsTableWithColumns
+		return ret
+	}).(GetPermissionsTableWithColumnsOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsTableWithColumnsPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table. At least one of `columnNames` or `excludedColumnNames` is required.
+func (o GetPermissionsTableWithColumnsPtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o GetPermissionsTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table to exclude. At least one of `columnNames` or `excludedColumnNames` is required.
+func (o GetPermissionsTableWithColumnsPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the table resource.
+func (o GetPermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+func (o GetPermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsTableWithColumns) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
@@ -1476,7 +1916,11 @@ func init() {
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateTableDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDataLocationOutput{})
+	pulumi.RegisterOutputType(GetPermissionsDataLocationPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDatabaseOutput{})
+	pulumi.RegisterOutputType(GetPermissionsDatabasePtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsTableOutput{})
+	pulumi.RegisterOutputType(GetPermissionsTablePtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsTableWithColumnsOutput{})
+	pulumi.RegisterOutputType(GetPermissionsTableWithColumnsPtrOutput{})
 }

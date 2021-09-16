@@ -12,6 +12,7 @@ __all__ = [
     'GetStateMachineResult',
     'AwaitableGetStateMachineResult',
     'get_state_machine',
+    'get_state_machine_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,26 @@ def get_state_machine(name: Optional[str] = None,
         name=__ret__.name,
         role_arn=__ret__.role_arn,
         status=__ret__.status)
+
+
+@_utilities.lift_output_func(get_state_machine)
+def get_state_machine_output(name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineResult]:
+    """
+    Use this data source to get the ARN of a State Machine in AWS Step
+    Function (SFN). By using this data source, you can reference a
+    state machine without having to hard code the ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.sfn.get_state_machine(name="an_example_sfn_name")
+    ```
+
+
+    :param str name: The friendly name of the state machine to match.
+    """
+    ...

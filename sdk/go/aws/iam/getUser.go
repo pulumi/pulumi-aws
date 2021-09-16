@@ -4,6 +4,9 @@
 package iam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,79 @@ type LookupUserResult struct {
 	UserId string `pulumi:"userId"`
 	// The name associated to this User
 	UserName string `pulumi:"userName"`
+}
+
+func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupUserResult, error) {
+			args := v.(LookupUserArgs)
+			r, err := LookupUser(ctx, &args, opts...)
+			return *r, err
+		}).(LookupUserResultOutput)
+}
+
+// A collection of arguments for invoking getUser.
+type LookupUserOutputArgs struct {
+	// Map of key-value pairs associated with the user.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// The friendly IAM user name to match.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (LookupUserOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUser.
+type LookupUserResultOutput struct{ *pulumi.OutputState }
+
+func (LookupUserResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupUserResult)(nil)).Elem()
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutput() LookupUserResultOutput {
+	return o
+}
+
+func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.Context) LookupUserResultOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) assigned by AWS for this user.
+func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupUserResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Path in which this user was created.
+func (o LookupUserResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The ARN of the policy that is used to set the permissions boundary for the user.
+func (o LookupUserResultOutput) PermissionsBoundary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.PermissionsBoundary }).(pulumi.StringOutput)
+}
+
+// Map of key-value pairs associated with the user.
+func (o LookupUserResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The unique ID assigned by AWS for this user.
+func (o LookupUserResultOutput) UserId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.UserId }).(pulumi.StringOutput)
+}
+
+// The name associated to this User
+func (o LookupUserResultOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupUserResultOutput{})
 }

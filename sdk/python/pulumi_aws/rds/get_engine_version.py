@@ -12,6 +12,7 @@ __all__ = [
     'GetEngineVersionResult',
     'AwaitableGetEngineVersionResult',
     'get_engine_version',
+    'get_engine_version_output',
 ]
 
 @pulumi.output_type
@@ -305,3 +306,35 @@ def get_engine_version(engine: Optional[str] = None,
         valid_upgrade_targets=__ret__.valid_upgrade_targets,
         version=__ret__.version,
         version_description=__ret__.version_description)
+
+
+@_utilities.lift_output_func(get_engine_version)
+def get_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
+                              parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
+                              preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                              version: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEngineVersionResult]:
+    """
+    Information about an RDS engine version.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_engine_version(engine="mysql",
+        preferred_versions=[
+            "5.7.42",
+            "5.7.19",
+            "5.7.17",
+        ])
+    ```
+
+
+    :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+    :param str parameter_group_family: The name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
+    :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    :param str version: Version of the DB engine. For example, `5.7.22`, `10.1.34`, and `12.3`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    """
+    ...

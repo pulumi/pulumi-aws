@@ -14,9 +14,9 @@ TESTPARALLELISM := 10
 
 WORKING_DIR     := $(shell pwd)
 
-.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python cleanup
+.PHONY: development provider build_sdks build_nodejs build_dotnet build_go build_python
 
-development:: install_plugins provider build_sdks install_sdks #cleanup # Build the provider & SDKs for a development environment
+development:: install_plugins provider build_sdks install_sdks # Build the provider & SDKs for a development environment
 
 # Required for the codegen action that runs in pulumi/pulumi and pulumi/pulumi-terraform-bridge
 build:: install_plugins provider build_sdks install_sdks

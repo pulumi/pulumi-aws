@@ -14,6 +14,7 @@ __all__ = [
     'GetVolumeResult',
     'AwaitableGetVolumeResult',
     'get_volume',
+    'get_volume_output',
 ]
 
 @pulumi.output_type
@@ -280,3 +281,42 @@ def get_volume(filters: Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs'
         throughput=__ret__.throughput,
         volume_id=__ret__.volume_id,
         volume_type=__ret__.volume_type)
+
+
+@_utilities.lift_output_func(get_volume)
+def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVolumeFilterArgs']]]]] = None,
+                      most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeResult]:
+    """
+    Use this data source to get information about an EBS volume for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ebs_volume = aws.ebs.get_volume(filters=[
+            aws.ebs.GetVolumeFilterArgs(
+                name="volume-type",
+                values=["gp2"],
+            ),
+            aws.ebs.GetVolumeFilterArgs(
+                name="tag:Name",
+                values=["Example"],
+            ),
+        ],
+        most_recent=True)
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetVolumeFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-volumes in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most
+           recent Volume.
+    :param Mapping[str, str] tags: A map of tags for the resource.
+    """
+    ...

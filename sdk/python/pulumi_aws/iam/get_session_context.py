@@ -12,6 +12,7 @@ __all__ = [
     'GetSessionContextResult',
     'AwaitableGetSessionContextResult',
     'get_session_context',
+    'get_session_context_output',
 ]
 
 @pulumi.output_type
@@ -121,3 +122,14 @@ def get_session_context(arn: Optional[str] = None,
         issuer_id=__ret__.issuer_id,
         issuer_name=__ret__.issuer_name,
         session_name=__ret__.session_name)
+
+
+@_utilities.lift_output_func(get_session_context)
+def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionContextResult]:
+    """
+    Use this data source to access information about an existing resource.
+
+    :param str arn: ARN for an assumed role.
+    """
+    ...

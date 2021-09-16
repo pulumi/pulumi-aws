@@ -12,6 +12,7 @@ __all__ = [
     'GetCertificateResult',
     'AwaitableGetCertificateResult',
     'get_certificate',
+    'get_certificate_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,26 @@ def get_certificate(id: Optional[str] = None,
         thumbprint=__ret__.thumbprint,
         valid_from=__ret__.valid_from,
         valid_till=__ret__.valid_till)
+
+
+@_utilities.lift_output_func(get_certificate)
+def get_certificate_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                           latest_valid_till: Optional[pulumi.Input[Optional[bool]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
+    """
+    Information about an RDS Certificate.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.rds.get_certificate(latest_valid_till=True)
+    ```
+
+
+    :param str id: Certificate identifier. For example, `rds-ca-2019`.
+    :param bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    """
+    ...

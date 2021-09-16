@@ -12,6 +12,7 @@ __all__ = [
     'GetActivityResult',
     'AwaitableGetActivityResult',
     'get_activity',
+    'get_activity_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,26 @@ def get_activity(arn: Optional[str] = None,
         creation_date=__ret__.creation_date,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_activity)
+def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                        name: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
+    """
+    Provides a Step Functions Activity data source
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    sfn_activity = aws.sfn.get_activity(name="my-activity")
+    ```
+
+
+    :param str arn: The Amazon Resource Name (ARN) that identifies the activity.
+    :param str name: The name that identifies the activity.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetImageRecipeResult',
     'AwaitableGetImageRecipeResult',
     'get_image_recipe',
+    'get_image_recipe_output',
 ]
 
 @pulumi.output_type
@@ -226,3 +227,26 @@ def get_image_recipe(arn: Optional[str] = None,
         tags=__ret__.tags,
         version=__ret__.version,
         working_directory=__ret__.working_directory)
+
+
+@_utilities.lift_output_func(get_image_recipe)
+def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
+    """
+    Provides details about an Image Builder Image Recipe.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_recipe(arn="arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the image recipe.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image recipe.
+    """
+    ...

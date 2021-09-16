@@ -13,6 +13,7 @@ __all__ = [
     'GetLaunchConfigurationResult',
     'AwaitableGetLaunchConfigurationResult',
     'get_launch_configuration',
+    'get_launch_configuration_output',
 ]
 
 @pulumi.output_type
@@ -317,3 +318,24 @@ def get_launch_configuration(name: Optional[str] = None,
         user_data=__ret__.user_data,
         vpc_classic_link_id=__ret__.vpc_classic_link_id,
         vpc_classic_link_security_groups=__ret__.vpc_classic_link_security_groups)
+
+
+@_utilities.lift_output_func(get_launch_configuration)
+def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
+    """
+    Provides information about a Launch Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
+    ```
+
+
+    :param str name: The name of the launch configuration.
+    """
+    ...

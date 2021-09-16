@@ -13,6 +13,7 @@ __all__ = [
     'GetJobQueueResult',
     'AwaitableGetJobQueueResult',
     'get_job_queue',
+    'get_job_queue_output',
 ]
 
 @pulumi.output_type
@@ -180,3 +181,27 @@ def get_job_queue(name: Optional[str] = None,
         status=__ret__.status,
         status_reason=__ret__.status_reason,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_job_queue)
+def get_job_queue_output(name: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobQueueResult]:
+    """
+    The Batch Job Queue data source allows access to details of a specific
+    job queue within AWS Batch.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test_queue = aws.batch.get_job_queue(name="tf-test-batch-job-queue")
+    ```
+
+
+    :param str name: The name of the job queue.
+    :param Mapping[str, str] tags: Key-value map of resource tags
+    """
+    ...

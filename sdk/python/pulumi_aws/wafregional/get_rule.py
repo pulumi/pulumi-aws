@@ -12,6 +12,7 @@ __all__ = [
     'GetRuleResult',
     'AwaitableGetRuleResult',
     'get_rule',
+    'get_rule_output',
 ]
 
 @pulumi.output_type
@@ -79,3 +80,24 @@ def get_rule(name: Optional[str] = None,
     return AwaitableGetRuleResult(
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_rule)
+def get_rule_output(name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+    """
+    `wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafregional.get_rule(name="tfWAFRegionalRule")
+    ```
+
+
+    :param str name: The name of the WAF Regional rule.
+    """
+    ...

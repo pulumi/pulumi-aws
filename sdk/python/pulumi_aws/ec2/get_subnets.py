@@ -14,6 +14,7 @@ __all__ = [
     'GetSubnetsResult',
     'AwaitableGetSubnetsResult',
     'get_subnets',
+    'get_subnets_output',
 ]
 
 @pulumi.output_type
@@ -99,3 +100,18 @@ def get_subnets(filters: Optional[Sequence[pulumi.InputType['GetSubnetsFilterArg
         id=__ret__.id,
         ids=__ret__.ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_subnets)
+def get_subnets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetsFilterArgs']]]]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetsResult]:
+    """
+    This resource can be useful for getting back a set of subnet IDs.
+
+
+    :param Sequence[pulumi.InputType['GetSubnetsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired subnets.
+    """
+    ...

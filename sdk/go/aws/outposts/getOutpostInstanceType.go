@@ -4,6 +4,9 @@
 package outposts
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type GetOutpostInstanceTypeResult struct {
 	Id                     string   `pulumi:"id"`
 	InstanceType           string   `pulumi:"instanceType"`
 	PreferredInstanceTypes []string `pulumi:"preferredInstanceTypes"`
+}
+
+func GetOutpostInstanceTypeOutput(ctx *pulumi.Context, args GetOutpostInstanceTypeOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetOutpostInstanceTypeResult, error) {
+			args := v.(GetOutpostInstanceTypeArgs)
+			r, err := GetOutpostInstanceType(ctx, &args, opts...)
+			return *r, err
+		}).(GetOutpostInstanceTypeResultOutput)
+}
+
+// A collection of arguments for invoking getOutpostInstanceType.
+type GetOutpostInstanceTypeOutputArgs struct {
+	// Outpost Amazon Resource Name (ARN).
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Desired instance type. Conflicts with `preferredInstanceTypes`.
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
+	// Ordered list of preferred instance types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. Conflicts with `instanceType`.
+	PreferredInstanceTypes pulumi.StringArrayInput `pulumi:"preferredInstanceTypes"`
+}
+
+func (GetOutpostInstanceTypeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOutpostInstanceTypeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOutpostInstanceType.
+type GetOutpostInstanceTypeResultOutput struct{ *pulumi.OutputState }
+
+func (GetOutpostInstanceTypeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOutpostInstanceTypeResult)(nil)).Elem()
+}
+
+func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutput() GetOutpostInstanceTypeResultOutput {
+	return o
+}
+
+func (o GetOutpostInstanceTypeResultOutput) ToGetOutpostInstanceTypeResultOutputWithContext(ctx context.Context) GetOutpostInstanceTypeResultOutput {
+	return o
+}
+
+func (o GetOutpostInstanceTypeResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypeResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetOutpostInstanceTypeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetOutpostInstanceTypeResultOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypeResult) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+func (o GetOutpostInstanceTypeResultOutput) PreferredInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypeResult) []string { return v.PreferredInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetOutpostInstanceTypeResultOutput{})
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetOrderableDbInstanceResult',
     'AwaitableGetOrderableDbInstanceResult',
     'get_orderable_db_instance',
+    'get_orderable_db_instance_output',
 ]
 
 @pulumi.output_type
@@ -458,3 +459,84 @@ def get_orderable_db_instance(availability_zone_group: Optional[str] = None,
         supports_storage_autoscaling=__ret__.supports_storage_autoscaling,
         supports_storage_encryption=__ret__.supports_storage_encryption,
         vpc=__ret__.vpc)
+
+
+@_utilities.lift_output_func(get_orderable_db_instance)
+def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.Input[Optional[str]]] = None,
+                                     engine: Optional[pulumi.Input[str]] = None,
+                                     engine_version: Optional[pulumi.Input[Optional[str]]] = None,
+                                     instance_class: Optional[pulumi.Input[Optional[str]]] = None,
+                                     license_model: Optional[pulumi.Input[Optional[str]]] = None,
+                                     preferred_engine_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     storage_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                     supports_enhanced_monitoring: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_global_databases: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_iam_database_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_iops: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_kerberos_authentication: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_performance_insights: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_storage_autoscaling: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     supports_storage_encryption: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     vpc: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
+    """
+    Information about RDS orderable DB instances and valid parameter combinations.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_orderable_db_instance(engine="mysql",
+        engine_version="5.7.22",
+        license_model="general-public-license",
+        preferred_instance_classes=[
+            "db.r6.xlarge",
+            "db.m4.large",
+            "db.t3.small",
+        ],
+        storage_type="standard")
+    ```
+
+    Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.rds.get_orderable_db_instance(engine="mysql",
+        license_model="general-public-license",
+        preferred_engine_versions=[
+            "5.6.35",
+            "5.6.41",
+            "5.6.44",
+        ],
+        preferred_instance_classes=[
+            "db.t2.small",
+            "db.t3.medium",
+            "db.t3.large",
+        ])
+    ```
+
+
+    :param str availability_zone_group: Availability zone group.
+    :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+    :param str engine_version: Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+    :param str instance_class: DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+    :param str license_model: License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+    :param Sequence[str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+    :param bool supports_enhanced_monitoring: Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+    :param bool supports_global_databases: Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+    :param bool supports_iam_database_authentication: Enable this to ensure a DB instance supports IAM database authentication.
+    :param bool supports_iops: Enable this to ensure a DB instance supports provisioned IOPS.
+    :param bool supports_kerberos_authentication: Enable this to ensure a DB instance supports Kerberos Authentication.
+    :param bool supports_performance_insights: Enable this to ensure a DB instance supports Performance Insights.
+    :param bool supports_storage_autoscaling: Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+    :param bool supports_storage_encryption: Enable this to ensure a DB instance supports encrypted storage.
+    :param bool vpc: Boolean that indicates whether to show only VPC or non-VPC offerings.
+    """
+    ...

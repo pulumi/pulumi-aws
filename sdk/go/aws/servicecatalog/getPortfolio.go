@@ -4,6 +4,9 @@
 package servicecatalog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,84 @@ type LookupPortfolioResult struct {
 	ProviderName string `pulumi:"providerName"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupPortfolioOutput(ctx *pulumi.Context, args LookupPortfolioOutputArgs, opts ...pulumi.InvokeOption) LookupPortfolioResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPortfolioResult, error) {
+			args := v.(LookupPortfolioArgs)
+			r, err := LookupPortfolio(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPortfolioResultOutput)
+}
+
+// A collection of arguments for invoking getPortfolio.
+type LookupPortfolioOutputArgs struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	// Portfolio identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Tags applied to the portfolio.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupPortfolioOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPortfolioArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPortfolio.
+type LookupPortfolioResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPortfolioResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPortfolioResult)(nil)).Elem()
+}
+
+func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutput() LookupPortfolioResultOutput {
+	return o
+}
+
+func (o LookupPortfolioResultOutput) ToLookupPortfolioResultOutputWithContext(ctx context.Context) LookupPortfolioResultOutput {
+	return o
+}
+
+func (o LookupPortfolioResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Portfolio ARN.
+func (o LookupPortfolioResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Time the portfolio was created.
+func (o LookupPortfolioResultOutput) CreatedTime() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.CreatedTime }).(pulumi.StringOutput)
+}
+
+// Description of the portfolio
+func (o LookupPortfolioResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupPortfolioResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Portfolio name.
+func (o LookupPortfolioResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Name of the person or organization who owns the portfolio.
+func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Tags applied to the portfolio.
+func (o LookupPortfolioResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPortfolioResultOutput{})
 }

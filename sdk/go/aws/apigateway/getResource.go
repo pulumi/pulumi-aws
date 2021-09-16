@@ -4,6 +4,9 @@
 package apigateway
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -66,4 +69,67 @@ type LookupResourceResult struct {
 	// Set to the path relative to the parent Resource.
 	PathPart  string `pulumi:"pathPart"`
 	RestApiId string `pulumi:"restApiId"`
+}
+
+func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupResourceResult, error) {
+			args := v.(LookupResourceArgs)
+			r, err := LookupResource(ctx, &args, opts...)
+			return *r, err
+		}).(LookupResourceResultOutput)
+}
+
+// A collection of arguments for invoking getResource.
+type LookupResourceOutputArgs struct {
+	// The full path of the resource.  If no path is found, an error will be returned.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+	RestApiId pulumi.StringInput `pulumi:"restApiId"`
+}
+
+func (LookupResourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getResource.
+type LookupResourceResultOutput struct{ *pulumi.OutputState }
+
+func (LookupResourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupResourceResult)(nil)).Elem()
+}
+
+func (o LookupResourceResultOutput) ToLookupResourceResultOutput() LookupResourceResultOutput {
+	return o
+}
+
+func (o LookupResourceResultOutput) ToLookupResourceResultOutputWithContext(ctx context.Context) LookupResourceResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupResourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set to the ID of the parent Resource.
+func (o LookupResourceResultOutput) ParentId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.ParentId }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// Set to the path relative to the parent Resource.
+func (o LookupResourceResultOutput) PathPart() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.PathPart }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) RestApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.RestApiId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupResourceResultOutput{})
 }

@@ -4,6 +4,9 @@
 package elb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,4 +87,57 @@ type GetServiceAccountResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id     string  `pulumi:"id"`
 	Region *string `pulumi:"region"`
+}
+
+func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetServiceAccountResult, error) {
+			args := v.(GetServiceAccountArgs)
+			r, err := GetServiceAccount(ctx, &args, opts...)
+			return *r, err
+		}).(GetServiceAccountResultOutput)
+}
+
+// A collection of arguments for invoking getServiceAccount.
+type GetServiceAccountOutputArgs struct {
+	// Name of the region whose AWS ELB account ID is desired.
+	// Defaults to the region from the AWS provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetServiceAccountOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceAccountArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServiceAccount.
+type GetServiceAccountResultOutput struct{ *pulumi.OutputState }
+
+func (GetServiceAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceAccountResult)(nil)).Elem()
+}
+
+func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutput() GetServiceAccountResultOutput {
+	return o
+}
+
+func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContext(ctx context.Context) GetServiceAccountResultOutput {
+	return o
+}
+
+// The ARN of the AWS ELB service account in the selected region.
+func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetServiceAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetServiceAccountResultOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetServiceAccountResultOutput{})
 }

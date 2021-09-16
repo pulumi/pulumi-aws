@@ -12,6 +12,7 @@ __all__ = [
     'GetOutpostsResult',
     'AwaitableGetOutpostsResult',
     'get_outposts',
+    'get_outposts_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,30 @@ def get_outposts(availability_zone: Optional[str] = None,
         ids=__ret__.ids,
         owner_id=__ret__.owner_id,
         site_id=__ret__.site_id)
+
+
+@_utilities.lift_output_func(get_outposts)
+def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
+                        availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        site_id: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostsResult]:
+    """
+    Provides details about multiple Outposts.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outposts(site_id=data["aws_outposts_site"]["id"])
+    ```
+
+
+    :param str availability_zone: Availability Zone name.
+    :param str availability_zone_id: Availability Zone identifier.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
+    :param str site_id: Site identifier.
+    """
+    ...

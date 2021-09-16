@@ -14,6 +14,7 @@ __all__ = [
     'GetRouteTableResult',
     'AwaitableGetRouteTableResult',
     'get_route_table',
+    'get_route_table_output',
 ]
 
 @pulumi.output_type
@@ -170,3 +171,46 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
         id=__ret__.id,
         tags=__ret__.tags,
         transit_gateway_id=__ret__.transit_gateway_id)
+
+
+@_utilities.lift_output_func(get_route_table)
+def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
+    """
+    Get information on an EC2 Transit Gateway Route Table.
+
+    ## Example Usage
+    ### By Filter
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_route_table(filters=[
+        aws.ec2transitgateway.GetRouteTableFilterArgs(
+            name="default-association-route-table",
+            values=["true"],
+        ),
+        aws.ec2transitgateway.GetRouteTableFilterArgs(
+            name="transit-gateway-id",
+            values=["tgw-12345678"],
+        ),
+    ])
+    ```
+    ### By Identifier
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2transitgateway.get_route_table(id="tgw-rtb-12345678")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param str id: Identifier of the EC2 Transit Gateway Route Table.
+    :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
+    """
+    ...

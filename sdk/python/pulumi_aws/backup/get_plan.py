@@ -12,6 +12,7 @@ __all__ = [
     'GetPlanResult',
     'AwaitableGetPlanResult',
     'get_plan',
+    'get_plan_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,26 @@ def get_plan(plan_id: Optional[str] = None,
         plan_id=__ret__.plan_id,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_plan)
+def get_plan_output(plan_id: Optional[pulumi.Input[str]] = None,
+                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
+    """
+    Use this data source to get information on an existing backup plan.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.backup.get_plan(plan_id="tf_example_backup_plan_id")
+    ```
+
+
+    :param str plan_id: The backup plan ID.
+    :param Mapping[str, str] tags: Metadata that you can assign to help organize the plans you create.
+    """
+    ...

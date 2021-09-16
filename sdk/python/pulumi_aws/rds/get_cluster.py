@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -351,3 +352,25 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         storage_encrypted=__ret__.storage_encrypted,
         tags=__ret__.tags,
         vpc_security_group_ids=__ret__.vpc_security_group_ids)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Provides information about an RDS cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    cluster_name = aws.rds.get_cluster(cluster_identifier="clusterName")
+    ```
+
+
+    :param str cluster_identifier: The cluster identifier of the RDS cluster.
+    """
+    ...

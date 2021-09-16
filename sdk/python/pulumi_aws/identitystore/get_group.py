@@ -14,6 +14,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -111,3 +112,19 @@ def get_group(filters: Optional[Sequence[pulumi.InputType['GetGroupFilterArgs']]
         group_id=__ret__.group_id,
         id=__ret__.id,
         identity_store_id=__ret__.identity_store_id)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetGroupFilterArgs']]]] = None,
+                     group_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     identity_store_id: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    Use this data source to get an Identity Store Group.
+
+
+    :param Sequence[pulumi.InputType['GetGroupFilterArgs']] filters: Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+    :param str group_id: The identifier for a group in the Identity Store.
+    :param str identity_store_id: The Identity Store ID associated with the Single Sign-On Instance.
+    """
+    ...

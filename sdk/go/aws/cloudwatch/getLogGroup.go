@@ -4,6 +4,9 @@
 package cloudwatch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,78 @@ type LookupLogGroupResult struct {
 	RetentionInDays int `pulumi:"retentionInDays"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupLogGroupOutput(ctx *pulumi.Context, args LookupLogGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLogGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLogGroupResult, error) {
+			args := v.(LookupLogGroupArgs)
+			r, err := LookupLogGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLogGroupResultOutput)
+}
+
+// A collection of arguments for invoking getLogGroup.
+type LookupLogGroupOutputArgs struct {
+	// The name of the Cloudwatch log group
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of tags to assign to the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupLogGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLogGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLogGroup.
+type LookupLogGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLogGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLogGroupResult)(nil)).Elem()
+}
+
+func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutput() LookupLogGroupResultOutput {
+	return o
+}
+
+func (o LookupLogGroupResultOutput) ToLookupLogGroupResultOutputWithContext(ctx context.Context) LookupLogGroupResultOutput {
+	return o
+}
+
+// The ARN of the Cloudwatch log group
+func (o LookupLogGroupResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+func (o LookupLogGroupResultOutput) CreationTime() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) int { return v.CreationTime }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupLogGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The ARN of the KMS Key to use when encrypting log data.
+func (o LookupLogGroupResultOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupLogGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of days log events retained in the specified log group.
+func (o LookupLogGroupResultOutput) RetentionInDays() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) int { return v.RetentionInDays }).(pulumi.IntOutput)
+}
+
+// A map of tags to assign to the resource.
+func (o LookupLogGroupResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLogGroupResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLogGroupResultOutput{})
 }

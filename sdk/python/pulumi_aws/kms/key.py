@@ -33,7 +33,7 @@ class KeyArgs:
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
@@ -144,7 +144,7 @@ class KeyArgs:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 
@@ -190,7 +190,7 @@ class _KeyState:
         :param pulumi.Input[str] key_id: The globally unique identifier for the key.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -331,7 +331,7 @@ class _KeyState:
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[str]]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 
@@ -406,7 +406,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[bool] is_enabled: Specifies whether the key is enabled. Defaults to true.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         ...
     @overload
@@ -524,7 +524,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_id: The globally unique identifier for the key.
         :param pulumi.Input[str] key_usage: Specifies the intended use of the key. Valid values: `ENCRYPT_DECRYPT` or `SIGN_VERIFY`.
                Defaults to `ENCRYPT_DECRYPT`.
-        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        :param pulumi.Input[str] policy: A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -622,7 +622,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output[str]:
         """
-        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
+        A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.get_policy_document`, in the form that designates a principal, can be used.
         """
         return pulumi.get(self, "policy")
 

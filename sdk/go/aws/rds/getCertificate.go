@@ -4,6 +4,9 @@
 package rds
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,4 +70,87 @@ type GetCertificateResult struct {
 	ValidFrom string `pulumi:"validFrom"`
 	// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
 	ValidTill string `pulumi:"validTill"`
+}
+
+func GetCertificateOutput(ctx *pulumi.Context, args GetCertificateOutputArgs, opts ...pulumi.InvokeOption) GetCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCertificateResult, error) {
+			args := v.(GetCertificateArgs)
+			r, err := GetCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(GetCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type GetCertificateOutputArgs struct {
+	// Certificate identifier. For example, `rds-ca-2019`.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// When enabled, returns the certificate with the latest `ValidTill`.
+	LatestValidTill pulumi.BoolPtrInput `pulumi:"latestValidTill"`
+}
+
+func (GetCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type GetCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateResult)(nil)).Elem()
+}
+
+func (o GetCertificateResultOutput) ToGetCertificateResultOutput() GetCertificateResultOutput {
+	return o
+}
+
+func (o GetCertificateResultOutput) ToGetCertificateResultOutputWithContext(ctx context.Context) GetCertificateResultOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the certificate.
+func (o GetCertificateResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Type of certificate. For example, `CA`.
+func (o GetCertificateResultOutput) CertificateType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.CertificateType }).(pulumi.StringOutput)
+}
+
+// Boolean whether there is an override for the default certificate identifier.
+func (o GetCertificateResultOutput) CustomerOverride() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCertificateResult) bool { return v.CustomerOverride }).(pulumi.BoolOutput)
+}
+
+// If there is an override for the default certificate identifier, when the override expires.
+func (o GetCertificateResultOutput) CustomerOverrideValidTill() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.CustomerOverrideValidTill }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCertificateResultOutput) LatestValidTill() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCertificateResult) *bool { return v.LatestValidTill }).(pulumi.BoolPtrOutput)
+}
+
+// Thumbprint of the certificate.
+func (o GetCertificateResultOutput) Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.Thumbprint }).(pulumi.StringOutput)
+}
+
+// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
+func (o GetCertificateResultOutput) ValidFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.ValidFrom }).(pulumi.StringOutput)
+}
+
+// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate ending validity date.
+func (o GetCertificateResultOutput) ValidTill() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateResult) string { return v.ValidTill }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCertificateResultOutput{})
 }

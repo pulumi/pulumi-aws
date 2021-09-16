@@ -13,6 +13,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -243,3 +244,17 @@ def get_cluster(name: Optional[str] = None,
         tags=__ret__.tags,
         version=__ret__.version,
         vpc_config=__ret__.vpc_config)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Retrieve information about an EKS Cluster.
+
+
+    :param str name: The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+    :param Mapping[str, str] tags: Key-value map of resource tags.
+    """
+    ...

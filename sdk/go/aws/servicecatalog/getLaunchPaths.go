@@ -4,6 +4,9 @@
 package servicecatalog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,62 @@ type GetLaunchPathsResult struct {
 	ProductId string `pulumi:"productId"`
 	// Block with information about the launch path. See details below.
 	Summaries []GetLaunchPathsSummary `pulumi:"summaries"`
+}
+
+func GetLaunchPathsOutput(ctx *pulumi.Context, args GetLaunchPathsOutputArgs, opts ...pulumi.InvokeOption) GetLaunchPathsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetLaunchPathsResult, error) {
+			args := v.(GetLaunchPathsArgs)
+			r, err := GetLaunchPaths(ctx, &args, opts...)
+			return *r, err
+		}).(GetLaunchPathsResultOutput)
+}
+
+// A collection of arguments for invoking getLaunchPaths.
+type GetLaunchPathsOutputArgs struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	// Product identifier.
+	ProductId pulumi.StringInput `pulumi:"productId"`
+}
+
+func (GetLaunchPathsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLaunchPaths.
+type GetLaunchPathsResultOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchPathsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchPathsResult)(nil)).Elem()
+}
+
+func (o GetLaunchPathsResultOutput) ToGetLaunchPathsResultOutput() GetLaunchPathsResultOutput {
+	return o
+}
+
+func (o GetLaunchPathsResultOutput) ToGetLaunchPathsResultOutputWithContext(ctx context.Context) GetLaunchPathsResultOutput {
+	return o
+}
+
+func (o GetLaunchPathsResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetLaunchPathsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchPathsResultOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Block with information about the launch path. See details below.
+func (o GetLaunchPathsResultOutput) Summaries() GetLaunchPathsSummaryArrayOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) []GetLaunchPathsSummary { return v.Summaries }).(GetLaunchPathsSummaryArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetLaunchPathsResultOutput{})
 }

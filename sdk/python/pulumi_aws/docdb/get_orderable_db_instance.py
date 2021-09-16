@@ -12,6 +12,7 @@ __all__ = [
     'GetOrderableDbInstanceResult',
     'AwaitableGetOrderableDbInstanceResult',
     'get_orderable_db_instance',
+    'get_orderable_db_instance_output',
 ]
 
 @pulumi.output_type
@@ -164,3 +165,41 @@ def get_orderable_db_instance(engine: Optional[str] = None,
         license_model=__ret__.license_model,
         preferred_instance_classes=__ret__.preferred_instance_classes,
         vpc=__ret__.vpc)
+
+
+@_utilities.lift_output_func(get_orderable_db_instance)
+def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
+                                     engine_version: Optional[pulumi.Input[Optional[str]]] = None,
+                                     instance_class: Optional[pulumi.Input[Optional[str]]] = None,
+                                     license_model: Optional[pulumi.Input[Optional[str]]] = None,
+                                     preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     vpc: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
+    """
+    Information about DocumentDB orderable DB instances.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.docdb.get_orderable_db_instance(engine="docdb",
+        engine_version="3.6.0",
+        license_model="na",
+        preferred_instance_classes=[
+            "db.r5.large",
+            "db.r4.large",
+            "db.t3.medium",
+        ])
+    ```
+
+
+    :param str engine: DB engine. Default: `docdb`
+    :param str engine_version: Version of the DB engine.
+    :param str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
+    :param str license_model: License model. Default: `na`
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+    :param bool vpc: Enable to show only VPC.
+    """
+    ...

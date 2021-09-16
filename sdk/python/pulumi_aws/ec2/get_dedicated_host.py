@@ -12,6 +12,7 @@ __all__ = [
     'GetDedicatedHostResult',
     'AwaitableGetDedicatedHostResult',
     'get_dedicated_host',
+    'get_dedicated_host_output',
 ]
 
 @pulumi.output_type
@@ -202,3 +203,30 @@ def get_dedicated_host(host_id: Optional[str] = None,
         sockets=__ret__.sockets,
         tags=__ret__.tags,
         total_vcpus=__ret__.total_vcpus)
+
+
+@_utilities.lift_output_func(get_dedicated_host)
+def get_dedicated_host_output(host_id: Optional[pulumi.Input[str]] = None,
+                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostResult]:
+    """
+    Use this data source to get information about the host when allocating an EC2 Dedicated Host.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.ec2.DedicatedHost("test",
+        auto_placement="on",
+        availability_zone="us-west-1a",
+        host_recovery="on",
+        instance_type="c5.18xlarge")
+    test_data = test.id.apply(lambda id: aws.ec2.get_dedicated_host(host_id=id))
+    ```
+
+
+    :param str host_id: The host ID.
+    """
+    ...

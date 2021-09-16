@@ -13,6 +13,7 @@ __all__ = [
     'GetFunctionResult',
     'AwaitableGetFunctionResult',
     'get_function',
+    'get_function_output',
 ]
 
 @pulumi.output_type
@@ -419,3 +420,29 @@ def get_function(function_name: Optional[str] = None,
         tracing_config=__ret__.tracing_config,
         version=__ret__.version,
         vpc_config=__ret__.vpc_config)
+
+
+@_utilities.lift_output_func(get_function)
+def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
+                        qualifier: Optional[pulumi.Input[Optional[str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
+    """
+    Provides information about a Lambda Function.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    function_name = config.require("functionName")
+    existing = aws.lambda.get_function(function_name=function_name)
+    ```
+
+
+    :param str function_name: Name of the lambda function.
+    :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+    """
+    ...

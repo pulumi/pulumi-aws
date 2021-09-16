@@ -12,6 +12,7 @@ __all__ = [
     'GetOutpostResult',
     'AwaitableGetOutpostResult',
     'get_outpost',
+    'get_outpost_output',
 ]
 
 @pulumi.output_type
@@ -157,3 +158,30 @@ def get_outpost(arn: Optional[str] = None,
         name=__ret__.name,
         owner_id=__ret__.owner_id,
         site_id=__ret__.site_id)
+
+
+@_utilities.lift_output_func(get_outpost)
+def get_outpost_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                       id: Optional[pulumi.Input[Optional[str]]] = None,
+                       name: Optional[pulumi.Input[Optional[str]]] = None,
+                       owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostResult]:
+    """
+    Provides details about an Outposts Outpost.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_outpost(name="example")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN).
+    :param str id: Identifier of the Outpost.
+    :param str name: Name of the Outpost.
+    :param str owner_id: AWS Account identifier of the Outpost owner.
+    """
+    ...

@@ -14,6 +14,7 @@ __all__ = [
     'GetLocalGatewayRouteTableResult',
     'AwaitableGetLocalGatewayRouteTableResult',
     'get_local_gateway_route_table',
+    'get_local_gateway_route_table_output',
 ]
 
 @pulumi.output_type
@@ -153,3 +154,41 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
         outpost_arn=__ret__.outpost_arn,
         state=__ret__.state,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_local_gateway_route_table)
+def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]]]] = None,
+                                         local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                         local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                         outpost_arn: Optional[pulumi.Input[Optional[str]]] = None,
+                                         state: Optional[pulumi.Input[Optional[str]]] = None,
+                                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
+    """
+    Provides details about an EC2 Local Gateway Route Table.
+
+    This data source can prove useful when a module accepts a local gateway route table id as
+    an input variable and needs to, for example, find the associated Outpost or Local Gateway.
+
+    ## Example Usage
+
+    The following example returns a specific local gateway route table ID
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    aws_ec2_local_gateway_route_table = config.require_object("awsEc2LocalGatewayRouteTable")
+    selected = aws.ec2.get_local_gateway_route_table(local_gateway_route_table_id=aws_ec2_local_gateway_route_table)
+    ```
+
+
+    :param str local_gateway_id: The id of the specific local gateway route table to retrieve.
+    :param str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired local gateway route table
+    :param str outpost_arn: The arn of the Outpost the local gateway route table is associated with.
+    :param str state: The state of the local gateway route table.
+    :param Mapping[str, str] tags: A mapping of tags, each pair of which must exactly match
+           a pair on the desired local gateway route table.
+    """
+    ...

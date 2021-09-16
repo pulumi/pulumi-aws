@@ -4,6 +4,9 @@
 package elasticloadbalancing
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,4 +87,124 @@ type LookupLoadBalancerResult struct {
 	Subnets               []string                  `pulumi:"subnets"`
 	Tags                  map[string]string         `pulumi:"tags"`
 	ZoneId                string                    `pulumi:"zoneId"`
+}
+
+func LookupLoadBalancerOutput(ctx *pulumi.Context, args LookupLoadBalancerOutputArgs, opts ...pulumi.InvokeOption) LookupLoadBalancerResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLoadBalancerResult, error) {
+			args := v.(LookupLoadBalancerArgs)
+			r, err := LookupLoadBalancer(ctx, &args, opts...)
+			return *r, err
+		}).(LookupLoadBalancerResultOutput)
+}
+
+// A collection of arguments for invoking getLoadBalancer.
+type LookupLoadBalancerOutputArgs struct {
+	// The unique name of the load balancer.
+	Name pulumi.StringInput    `pulumi:"name"`
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupLoadBalancerOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getLoadBalancer.
+type LookupLoadBalancerResultOutput struct{ *pulumi.OutputState }
+
+func (LookupLoadBalancerResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLoadBalancerResult)(nil)).Elem()
+}
+
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutput() LookupLoadBalancerResultOutput {
+	return o
+}
+
+func (o LookupLoadBalancerResultOutput) ToLookupLoadBalancerResultOutputWithContext(ctx context.Context) LookupLoadBalancerResultOutput {
+	return o
+}
+
+func (o LookupLoadBalancerResultOutput) AccessLogs() GetLoadBalancerAccessLogsOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerAccessLogs { return v.AccessLogs }).(GetLoadBalancerAccessLogsOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) ConnectionDraining() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.ConnectionDraining }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) ConnectionDrainingTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.ConnectionDrainingTimeout }).(pulumi.IntOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) CrossZoneLoadBalancing() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.CrossZoneLoadBalancing }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) HealthCheck() GetLoadBalancerHealthCheckOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) GetLoadBalancerHealthCheck { return v.HealthCheck }).(GetLoadBalancerHealthCheckOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupLoadBalancerResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) IdleTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) int { return v.IdleTimeout }).(pulumi.IntOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Instances() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.Instances }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Internal() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.Internal }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Listeners() GetLoadBalancerListenerArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []GetLoadBalancerListener { return v.Listeners }).(GetLoadBalancerListenerArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) SourceSecurityGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.SourceSecurityGroup }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) SourceSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.SourceSecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) ZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.ZoneId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupLoadBalancerResultOutput{})
 }

@@ -4,6 +4,9 @@
 package imagebuilder
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,108 @@ type LookupImageRecipeResult struct {
 	Version string `pulumi:"version"`
 	// The working directory used during build and test workflows.
 	WorkingDirectory string `pulumi:"workingDirectory"`
+}
+
+func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupImageRecipeResult, error) {
+			args := v.(LookupImageRecipeArgs)
+			r, err := LookupImageRecipe(ctx, &args, opts...)
+			return *r, err
+		}).(LookupImageRecipeResultOutput)
+}
+
+// A collection of arguments for invoking getImageRecipe.
+type LookupImageRecipeOutputArgs struct {
+	// Amazon Resource Name (ARN) of the image recipe.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Key-value map of resource tags for the image recipe.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupImageRecipeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageRecipeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getImageRecipe.
+type LookupImageRecipeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupImageRecipeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupImageRecipeResult)(nil)).Elem()
+}
+
+func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutput() LookupImageRecipeResultOutput {
+	return o
+}
+
+func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContext(ctx context.Context) LookupImageRecipeResultOutput {
+	return o
+}
+
+func (o LookupImageRecipeResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Set of objects with block device mappings for the the image recipe.
+func (o LookupImageRecipeResultOutput) BlockDeviceMappings() GetImageRecipeBlockDeviceMappingArrayOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) []GetImageRecipeBlockDeviceMapping { return v.BlockDeviceMappings }).(GetImageRecipeBlockDeviceMappingArrayOutput)
+}
+
+// List of objects with components for the image recipe.
+func (o LookupImageRecipeResultOutput) Components() GetImageRecipeComponentArrayOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) []GetImageRecipeComponent { return v.Components }).(GetImageRecipeComponentArrayOutput)
+}
+
+// Date the image recipe was created.
+func (o LookupImageRecipeResultOutput) DateCreated() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.DateCreated }).(pulumi.StringOutput)
+}
+
+// Description of the image recipe.
+func (o LookupImageRecipeResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupImageRecipeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of the image recipe.
+func (o LookupImageRecipeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Owner of the image recipe.
+func (o LookupImageRecipeResultOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Platform of the image recipe.
+func (o LookupImageRecipeResultOutput) ParentImage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.ParentImage }).(pulumi.StringOutput)
+}
+
+// Platform of the image recipe.
+func (o LookupImageRecipeResultOutput) Platform() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Key-value map of resource tags for the image recipe.
+func (o LookupImageRecipeResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Version of the image recipe.
+func (o LookupImageRecipeResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// The working directory used during build and test workflows.
+func (o LookupImageRecipeResultOutput) WorkingDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageRecipeResult) string { return v.WorkingDirectory }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupImageRecipeResultOutput{})
 }

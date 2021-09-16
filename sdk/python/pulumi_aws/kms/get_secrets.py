@@ -14,6 +14,7 @@ __all__ = [
     'GetSecretsResult',
     'AwaitableGetSecretsResult',
     'get_secrets',
+    'get_secrets_output',
 ]
 
 @pulumi.output_type
@@ -85,3 +86,15 @@ def get_secrets(secrets: Optional[Sequence[pulumi.InputType['GetSecretsSecretArg
         id=__ret__.id,
         plaintext=__ret__.plaintext,
         secrets=__ret__.secrets)
+
+
+@_utilities.lift_output_func(get_secrets)
+def get_secrets_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretsSecretArgs']]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretsResult]:
+    """
+    Decrypt multiple secrets from data encrypted with the AWS KMS service.
+
+
+    :param Sequence[pulumi.InputType['GetSecretsSecretArgs']] secrets: One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+    """
+    ...

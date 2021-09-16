@@ -12,6 +12,7 @@ __all__ = [
     'GetEngineVersionResult',
     'AwaitableGetEngineVersionResult',
     'get_engine_version',
+    'get_engine_version_output',
 ]
 
 @pulumi.output_type
@@ -213,3 +214,34 @@ def get_engine_version(engine: Optional[str] = None,
         valid_upgrade_targets=__ret__.valid_upgrade_targets,
         version=__ret__.version,
         version_description=__ret__.version_description)
+
+
+@_utilities.lift_output_func(get_engine_version)
+def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
+                              parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
+                              preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                              version: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEngineVersionResult]:
+    """
+    Information about a Neptune engine version.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.neptune.get_engine_version(preferred_versions=[
+        "1.0.3.0",
+        "1.0.2.2",
+        "1.0.2.1",
+    ])
+    ```
+
+
+    :param str engine: DB engine. (Default: `neptune`)
+    :param str parameter_group_family: The name of a specific DB parameter group family. An example parameter group family is `neptune1`.
+    :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    :param str version: Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    """
+    ...

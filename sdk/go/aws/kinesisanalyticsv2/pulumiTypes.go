@@ -2403,9 +2403,9 @@ func (o ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration
 
 type ApplicationApplicationConfigurationSqlApplicationConfiguration struct {
 	// The input stream used by the application.
-	Input *ApplicationApplicationConfigurationSqlApplicationConfigurationInput `pulumi:"input"`
+	Input *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType `pulumi:"input"`
 	// The destination streams used by the application.
-	Outputs []ApplicationApplicationConfigurationSqlApplicationConfigurationOutput `pulumi:"outputs"`
+	Outputs []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType `pulumi:"outputs"`
 	// The reference data source used by the application.
 	ReferenceDataSource *ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource `pulumi:"referenceDataSource"`
 }
@@ -2423,9 +2423,9 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInput interfa
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationArgs struct {
 	// The input stream used by the application.
-	Input ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrInput `pulumi:"input"`
+	Input ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput `pulumi:"input"`
 	// The destination streams used by the application.
-	Outputs ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayInput `pulumi:"outputs"`
+	Outputs ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput `pulumi:"outputs"`
 	// The reference data source used by the application.
 	ReferenceDataSource ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrInput `pulumi:"referenceDataSource"`
 }
@@ -2508,17 +2508,17 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) To
 }
 
 // The input stream used by the application.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		return v.Input
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
 // The destination streams used by the application.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
 		return v.Outputs
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
 // The reference data source used by the application.
@@ -2553,23 +2553,23 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 }
 
 // The input stream used by the application.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Input() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		if v == nil {
 			return nil
 		}
 		return v.Input
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
 // The destination streams used by the application.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput) Outputs() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfiguration) []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
 		if v == nil {
 			return nil
 		}
 		return v.Outputs
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
 // The reference data source used by the application.
@@ -2582,7 +2582,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput)
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourcePtrOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInput struct {
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputType struct {
 	InAppStreamNames []string `pulumi:"inAppStreamNames"`
 	InputId          *string  `pulumi:"inputId"`
 	// Describes the number of in-application streams to create.
@@ -2602,18 +2602,18 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInput struct 
 	NamePrefix string `pulumi:"namePrefix"`
 }
 
-// ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput` via:
+// ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs{...}
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInputInput interface {
+//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeInput interface {
 	pulumi.Input
 
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs struct {
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs struct {
 	InAppStreamNames pulumi.StringArrayInput `pulumi:"inAppStreamNames"`
 	InputId          pulumi.StringPtrInput   `pulumi:"inputId"`
 	// Describes the number of in-application streams to create.
@@ -2633,169 +2633,171 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs str
 	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
 }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationInput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType)(nil)).Elem()
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
-	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutputWithContext(context.Background())
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
+	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutputWithContext(context.Background())
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput)
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput)
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(context.Background())
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput).ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx)
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput).ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx)
 }
 
-// ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrInput` via:
+// ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs, ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtr and ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs{...}
+//          ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{...}
 //
 //  or:
 //
 //          nil
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrInput interface {
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput interface {
 	pulumi.Input
 
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput
 }
 
-type applicationApplicationConfigurationSqlApplicationConfigurationInputPtrType ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs
+type applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs
 
-func ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtr(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrInput {
-	return (*applicationApplicationConfigurationSqlApplicationConfigurationInputPtrType)(v)
+func ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtr(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrInput {
+	return (*applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType)(v)
 }
 
-func (*applicationApplicationConfigurationSqlApplicationConfigurationInputPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationConfigurationSqlApplicationConfigurationInput)(nil)).Elem()
+func (*applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationApplicationConfigurationSqlApplicationConfigurationInputType)(nil)).Elem()
 }
 
-func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputPtrType) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(context.Background())
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(context.Background())
 }
 
-func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputPtrType) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput)
+func (i *applicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrType) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput struct{ *pulumi.OutputState }
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput struct{ *pulumi.OutputState }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationInput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationInputType)(nil)).Elem()
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return o.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(context.Background())
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return o.ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(context.Background())
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		return &v
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput)
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InAppStreamNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) []string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InAppStreamNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []string {
 		return v.InAppStreamNames
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InputId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *string { return v.InputId }).(pulumi.StringPtrOutput)
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
+		return v.InputId
+	}).(pulumi.StringPtrOutput)
 }
 
 // Describes the number of in-application streams to create.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
 		return v.InputParallelism
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput)
 }
 
 // The input processing configuration for the input.
 // An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
 		return v.InputProcessingConfiguration
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput)
 }
 
 // Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		return v.InputSchema
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaOutput)
 }
 
 // The point at which the application starts processing records from the streaming source.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
 		return v.InputStartingPositionConfigurations
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput)
 }
 
 // If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		return v.KinesisFirehoseInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
 // If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		return v.KinesisStreamsInput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput)
 }
 
 // The name prefix to use when creating an in-application stream.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput) NamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInput) string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) NamePrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) string {
 		return v.NamePrefix
 	}).(pulumi.StringOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput struct{ *pulumi.OutputState }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationApplicationConfigurationSqlApplicationConfigurationInput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationApplicationConfigurationSqlApplicationConfigurationInputType)(nil)).Elem()
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) ApplicationApplicationConfigurationSqlApplicationConfigurationInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) Elem() ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) ApplicationApplicationConfigurationSqlApplicationConfigurationInputType {
 		if v != nil {
 			return *v
 		}
-		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInput
+		var ret ApplicationApplicationConfigurationSqlApplicationConfigurationInputType
 		return ret
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput)
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput)
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InAppStreamNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) []string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InAppStreamNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []string {
 		if v == nil {
 			return nil
 		}
@@ -2803,8 +2805,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InputId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -2813,8 +2815,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // Describes the number of in-application streams to create.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputParallelism() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism {
 		if v == nil {
 			return nil
 		}
@@ -2824,8 +2826,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 
 // The input processing configuration for the input.
 // An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputProcessingConfiguration() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2834,8 +2836,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema {
 		if v == nil {
 			return nil
 		}
@@ -2844,8 +2846,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // The point at which the application starts processing records from the streaming source.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) InputStartingPositionConfigurations() ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -2854,8 +2856,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) KinesisFirehoseInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput {
 		if v == nil {
 			return nil
 		}
@@ -2864,8 +2866,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		if v == nil {
 			return nil
 		}
@@ -2874,8 +2876,8 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOu
 }
 
 // The name prefix to use when creating an in-application stream.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput) NamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInput) *string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *string {
 		if v == nil {
 			return nil
 		}
@@ -4598,7 +4600,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputKines
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutput struct {
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType struct {
 	// Describes the data format when records are written to the destination.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema `pulumi:"destinationSchema"`
 	// Identifies a Kinesis Data Firehose delivery stream as the destination.
@@ -4612,18 +4614,18 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutput struct
 	OutputId *string `pulumi:"outputId"`
 }
 
-// ApplicationApplicationConfigurationSqlApplicationConfigurationOutputInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputInput` via:
+// ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{...}
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputInput interface {
+//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...}
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput interface {
 	pulumi.Input
 
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs struct {
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs struct {
 	// Describes the data format when records are written to the destination.
 	DestinationSchema ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaInput `pulumi:"destinationSchema"`
 	// Identifies a Kinesis Data Firehose delivery stream as the destination.
@@ -4637,114 +4639,114 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs st
 	OutputId pulumi.StringPtrInput `pulumi:"outputId"`
 }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)(nil)).Elem()
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput {
-	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutputWithContext(context.Background())
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
+	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(context.Background())
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput)
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput)
 }
 
-// ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput values.
-// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayInput` via:
+// ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput is an input type that accepts ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray and ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput values.
+// You can construct a concrete instance of `ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput` via:
 //
-//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{...} }
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayInput interface {
+//          ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{ ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{...} }
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayInput interface {
 	pulumi.Input
 
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput
-	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput
+	ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutputWithContext(context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputInput
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray []ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeInput
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)(nil)).Elem()
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
-	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutputWithContext(context.Background())
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
+	return i.ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutputWithContext(context.Background())
 }
 
-func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput)
+func (i ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput struct{ *pulumi.OutputState }
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput struct{ *pulumi.OutputState }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)(nil)).Elem()
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
 	return o
 }
 
 // Describes the data format when records are written to the destination.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) DestinationSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) DestinationSchema() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema {
 		return v.DestinationSchema
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput)
 }
 
 // Identifies a Kinesis Data Firehose delivery stream as the destination.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) KinesisFirehoseOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) KinesisFirehoseOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput {
 		return v.KinesisFirehoseOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput)
 }
 
 // Identifies a Kinesis data stream as the destination.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) KinesisStreamsOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) KinesisStreamsOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput {
 		return v.KinesisStreamsOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputPtrOutput)
 }
 
 // Identifies a Lambda function as the destination.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) LambdaOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) LambdaOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput {
 		return v.LambdaOutput
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputPtrOutput)
 }
 
 // The name of the in-application stream.
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) string { return v.Name }).(pulumi.StringOutput)
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput) OutputId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutput) *string {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput) OutputId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType) *string {
 		return v.OutputId
 	}).(pulumi.StringPtrOutput)
 }
 
-type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput struct{ *pulumi.OutputState }
+type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)(nil)).Elem()
+func (ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)(nil)).Elem()
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput() ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput {
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) ToApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutputWithContext(ctx context.Context) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput {
 	return o
 }
 
-func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationApplicationConfigurationSqlApplicationConfigurationOutput {
-		return vs[0].([]ApplicationApplicationConfigurationSqlApplicationConfigurationOutput)[vs[1].(int)]
-	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput)
+func (o ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput) Index(i pulumi.IntInput) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType {
+		return vs[0].([]ApplicationApplicationConfigurationSqlApplicationConfigurationOutputType)[vs[1].(int)]
+	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput)
 }
 
 type ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema struct {
@@ -6866,8 +6868,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationOutput{})
@@ -6892,8 +6894,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputOutput{})
-	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputOutput{})
 	pulumi.RegisterOutputType(ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputPtrOutput{})

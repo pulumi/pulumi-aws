@@ -12,6 +12,7 @@ __all__ = [
     'GetRepositoryEndpointResult',
     'AwaitableGetRepositoryEndpointResult',
     'get_repository_endpoint',
+    'get_repository_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -133,3 +134,32 @@ def get_repository_endpoint(domain: Optional[str] = None,
         id=__ret__.id,
         repository=__ret__.repository,
         repository_endpoint=__ret__.repository_endpoint)
+
+
+@_utilities.lift_output_func(get_repository_endpoint)
+def get_repository_endpoint_output(domain: Optional[pulumi.Input[str]] = None,
+                                   domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
+                                   format: Optional[pulumi.Input[str]] = None,
+                                   repository: Optional[pulumi.Input[str]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
+    """
+    The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.codeartifact.get_repository_endpoint(domain=aws_codeartifact_domain["test"]["domain"],
+        repository=aws_codeartifact_repository["test"]["repository"],
+        format="npm")
+    ```
+
+
+    :param str domain: The name of the domain that contains the repository.
+    :param str domain_owner: The account number of the AWS account that owns the domain.
+    :param str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+    :param str repository: The name of the repository.
+    """
+    ...

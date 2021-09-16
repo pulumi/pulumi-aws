@@ -14,6 +14,7 @@ __all__ = [
     'GetInstanceTypeOfferingResult',
     'AwaitableGetInstanceTypeOfferingResult',
     'get_instance_type_offering',
+    'get_instance_type_offering_output',
 ]
 
 @pulumi.output_type
@@ -130,3 +131,38 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
         instance_type=__ret__.instance_type,
         location_type=__ret__.location_type,
         preferred_instance_types=__ret__.preferred_instance_types)
+
+
+@_utilities.lift_output_func(get_instance_type_offering)
+def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']]]]] = None,
+                                      location_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                      preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
+    """
+    Information about single EC2 Instance Type Offering.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArgs(
+            name="instance-type",
+            values=[
+                "t2.micro",
+                "t3.micro",
+            ],
+        )],
+        preferred_instance_types=[
+            "t3.micro",
+            "t2.micro",
+        ])
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+    :param Sequence[str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    """
+    ...

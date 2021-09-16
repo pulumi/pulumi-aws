@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,63 @@ type GetTransitGatewayRouteTablesResult struct {
 	// Set of Transit Gateway Route Table identifiers.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func GetTransitGatewayRouteTablesOutput(ctx *pulumi.Context, args GetTransitGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetTransitGatewayRouteTablesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetTransitGatewayRouteTablesResult, error) {
+			args := v.(GetTransitGatewayRouteTablesArgs)
+			r, err := GetTransitGatewayRouteTables(ctx, &args, opts...)
+			return *r, err
+		}).(GetTransitGatewayRouteTablesResultOutput)
+}
+
+// A collection of arguments for invoking getTransitGatewayRouteTables.
+type GetTransitGatewayRouteTablesOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetTransitGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
+	// A mapping of tags, each pair of which must exactly match
+	// a pair on the desired transit gateway route table.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetTransitGatewayRouteTablesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTransitGatewayRouteTables.
+type GetTransitGatewayRouteTablesResultOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayRouteTablesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesResult)(nil)).Elem()
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTablesResultOutput() GetTransitGatewayRouteTablesResultOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) ToGetTransitGatewayRouteTablesResultOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesResultOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) Filters() GetTransitGatewayRouteTablesFilterArrayOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) []GetTransitGatewayRouteTablesFilter { return v.Filters }).(GetTransitGatewayRouteTablesFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetTransitGatewayRouteTablesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of Transit Gateway Route Table identifiers.
+func (o GetTransitGatewayRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesResultOutput{})
 }

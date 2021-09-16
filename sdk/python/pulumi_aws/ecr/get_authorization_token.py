@@ -12,6 +12,7 @@ __all__ = [
     'GetAuthorizationTokenResult',
     'AwaitableGetAuthorizationTokenResult',
     'get_authorization_token',
+    'get_authorization_token_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,24 @@ def get_authorization_token(registry_id: Optional[str] = None,
         proxy_endpoint=__ret__.proxy_endpoint,
         registry_id=__ret__.registry_id,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_authorization_token)
+def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+    """
+    The ECR Authorization Token data source allows the authorization token, proxy endpoint, token expiration date, user name and password to be retrieved for an ECR repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    token = aws.ecr.get_authorization_token()
+    ```
+
+
+    :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
+    """
+    ...

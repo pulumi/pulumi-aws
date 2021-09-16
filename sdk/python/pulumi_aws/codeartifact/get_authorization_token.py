@@ -12,6 +12,7 @@ __all__ = [
     'GetAuthorizationTokenResult',
     'AwaitableGetAuthorizationTokenResult',
     'get_authorization_token',
+    'get_authorization_token_output',
 ]
 
 @pulumi.output_type
@@ -131,3 +132,28 @@ def get_authorization_token(domain: Optional[str] = None,
         duration_seconds=__ret__.duration_seconds,
         expiration=__ret__.expiration,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_authorization_token)
+def get_authorization_token_output(domain: Optional[pulumi.Input[str]] = None,
+                                   domain_owner: Optional[pulumi.Input[Optional[str]]] = None,
+                                   duration_seconds: Optional[pulumi.Input[Optional[int]]] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+    """
+    The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.codeartifact.get_authorization_token(domain=aws_codeartifact_domain["test"]["domain"])
+    ```
+
+
+    :param str domain: The name of the domain that is in scope for the generated authorization token.
+    :param str domain_owner: The account number of the AWS account that owns the domain.
+    :param int duration_seconds: The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    """
+    ...

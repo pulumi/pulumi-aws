@@ -4,6 +4,9 @@
 package servicequotas
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,4 +84,93 @@ type LookupServiceQuotaResult struct {
 	ServiceName string `pulumi:"serviceName"`
 	// Current value of the service quota.
 	Value float64 `pulumi:"value"`
+}
+
+func LookupServiceQuotaOutput(ctx *pulumi.Context, args LookupServiceQuotaOutputArgs, opts ...pulumi.InvokeOption) LookupServiceQuotaResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupServiceQuotaResult, error) {
+			args := v.(LookupServiceQuotaArgs)
+			r, err := LookupServiceQuota(ctx, &args, opts...)
+			return *r, err
+		}).(LookupServiceQuotaResultOutput)
+}
+
+// A collection of arguments for invoking getServiceQuota.
+type LookupServiceQuotaOutputArgs struct {
+	// Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+	QuotaCode pulumi.StringPtrInput `pulumi:"quotaCode"`
+	// Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+	QuotaName pulumi.StringPtrInput `pulumi:"quotaName"`
+	// Service code for the quota. Available values can be found with the `servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+}
+
+func (LookupServiceQuotaOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceQuotaArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getServiceQuota.
+type LookupServiceQuotaResultOutput struct{ *pulumi.OutputState }
+
+func (LookupServiceQuotaResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupServiceQuotaResult)(nil)).Elem()
+}
+
+func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutput() LookupServiceQuotaResultOutput {
+	return o
+}
+
+func (o LookupServiceQuotaResultOutput) ToLookupServiceQuotaResultOutputWithContext(ctx context.Context) LookupServiceQuotaResultOutput {
+	return o
+}
+
+// Whether the service quota is adjustable.
+func (o LookupServiceQuotaResultOutput) Adjustable() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) bool { return v.Adjustable }).(pulumi.BoolOutput)
+}
+
+// Amazon Resource Name (ARN) of the service quota.
+func (o LookupServiceQuotaResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Default value of the service quota.
+func (o LookupServiceQuotaResultOutput) DefaultValue() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupServiceQuotaResult) float64 { return v.DefaultValue }).(pulumi.Float64Output)
+}
+
+// Whether the service quota is global for the AWS account.
+func (o LookupServiceQuotaResultOutput) GlobalQuota() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) bool { return v.GlobalQuota }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupServiceQuotaResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceQuotaResultOutput) QuotaCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.QuotaCode }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceQuotaResultOutput) QuotaName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.QuotaName }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceQuotaResultOutput) ServiceCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.ServiceCode }).(pulumi.StringOutput)
+}
+
+// Name of the service.
+func (o LookupServiceQuotaResultOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Current value of the service quota.
+func (o LookupServiceQuotaResultOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupServiceQuotaResult) float64 { return v.Value }).(pulumi.Float64Output)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupServiceQuotaResultOutput{})
 }

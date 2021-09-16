@@ -12,6 +12,7 @@ __all__ = [
     'GetConfigurationResult',
     'AwaitableGetConfigurationResult',
     'get_configuration',
+    'get_configuration_output',
 ]
 
 @pulumi.output_type
@@ -144,3 +145,24 @@ def get_configuration(name: Optional[str] = None,
         latest_revision=__ret__.latest_revision,
         name=__ret__.name,
         server_properties=__ret__.server_properties)
+
+
+@_utilities.lift_output_func(get_configuration)
+def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+    """
+    Get information on an Amazon MSK Configuration.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_configuration(name="example")
+    ```
+
+
+    :param str name: Name of the configuration.
+    """
+    ...

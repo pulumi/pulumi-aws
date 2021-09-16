@@ -13,6 +13,7 @@ __all__ = [
     'GetRepositoryResult',
     'AwaitableGetRepositoryResult',
     'get_repository',
+    'get_repository_output',
 ]
 
 @pulumi.output_type
@@ -174,3 +175,28 @@ def get_repository(name: Optional[str] = None,
         registry_id=__ret__.registry_id,
         repository_url=__ret__.repository_url,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_repository)
+def get_repository_output(name: Optional[pulumi.Input[str]] = None,
+                          registry_id: Optional[pulumi.Input[Optional[str]]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
+    """
+    The ECR Repository data source allows the ARN, Repository URI and Registry ID to be retrieved for an ECR repository.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    service = aws.ecr.get_repository(name="ecr-repository")
+    ```
+
+
+    :param str name: The name of the ECR Repository.
+    :param str registry_id: The registry ID where the repository was created.
+    :param Mapping[str, str] tags: A map of tags assigned to the resource.
+    """
+    ...

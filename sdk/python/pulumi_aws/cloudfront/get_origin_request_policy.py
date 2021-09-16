@@ -13,6 +13,7 @@ __all__ = [
     'GetOriginRequestPolicyResult',
     'AwaitableGetOriginRequestPolicyResult',
     'get_origin_request_policy',
+    'get_origin_request_policy_output',
 ]
 
 @pulumi.output_type
@@ -145,3 +146,26 @@ def get_origin_request_policy(id: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         query_strings_configs=__ret__.query_strings_configs)
+
+
+@_utilities.lift_output_func(get_origin_request_policy)
+def get_origin_request_policy_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                                     name: Optional[pulumi.Input[Optional[str]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
+    """
+    ## Example Usage
+
+    The following example below creates a CloudFront origin request policy.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.cloudfront.get_origin_request_policy(name="example-policy")
+    ```
+
+
+    :param str id: The identifier for the origin request policy.
+    :param str name: Unique name to identify the origin request policy.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetWebAclResult',
     'AwaitableGetWebAclResult',
     'get_web_acl',
+    'get_web_acl_output',
 ]
 
 @pulumi.output_type
@@ -119,3 +120,27 @@ def get_web_acl(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         scope=__ret__.scope)
+
+
+@_utilities.lift_output_func(get_web_acl)
+def get_web_acl_output(name: Optional[pulumi.Input[str]] = None,
+                       scope: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
+    """
+    Retrieves the summary of a WAFv2 Web ACL.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.wafv2.get_web_acl(name="some-web-acl",
+        scope="REGIONAL")
+    ```
+
+
+    :param str name: The name of the WAFv2 Web ACL.
+    :param str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+    """
+    ...

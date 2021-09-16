@@ -103,7 +103,7 @@ import (
 //  ignore_changes = [auto_accept]
 //
 //  } }
-type VpcPeeringConnectionAccepter struct {
+type VpcPeeringConnectionAccepterType struct {
 	pulumi.CustomResourceState
 
 	// The status of the VPC Peering Connection request.
@@ -132,9 +132,9 @@ type VpcPeeringConnectionAccepter struct {
 	VpcPeeringConnectionId pulumi.StringOutput `pulumi:"vpcPeeringConnectionId"`
 }
 
-// NewVpcPeeringConnectionAccepter registers a new resource with the given unique name, arguments, and options.
-func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
-	name string, args *VpcPeeringConnectionAccepterArgs, opts ...pulumi.ResourceOption) (*VpcPeeringConnectionAccepter, error) {
+// NewVpcPeeringConnectionAccepterType registers a new resource with the given unique name, arguments, and options.
+func NewVpcPeeringConnectionAccepterType(ctx *pulumi.Context,
+	name string, args *VpcPeeringConnectionAccepterTypeArgs, opts ...pulumi.ResourceOption) (*VpcPeeringConnectionAccepterType, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -142,7 +142,7 @@ func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	if args.VpcPeeringConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcPeeringConnectionId'")
 	}
-	var resource VpcPeeringConnectionAccepter
+	var resource VpcPeeringConnectionAccepterType
 	err := ctx.RegisterResource("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -150,11 +150,11 @@ func NewVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetVpcPeeringConnectionAccepter gets an existing VpcPeeringConnectionAccepter resource's state with the given name, ID, and optional
+// GetVpcPeeringConnectionAccepterType gets an existing VpcPeeringConnectionAccepterType resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetVpcPeeringConnectionAccepter(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *VpcPeeringConnectionAccepterState, opts ...pulumi.ResourceOption) (*VpcPeeringConnectionAccepter, error) {
-	var resource VpcPeeringConnectionAccepter
+func GetVpcPeeringConnectionAccepterType(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *VpcPeeringConnectionAccepterTypeState, opts ...pulumi.ResourceOption) (*VpcPeeringConnectionAccepterType, error) {
+	var resource VpcPeeringConnectionAccepterType
 	err := ctx.ReadResource("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -162,8 +162,8 @@ func GetVpcPeeringConnectionAccepter(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering VpcPeeringConnectionAccepter resources.
-type vpcPeeringConnectionAccepterState struct {
+// Input properties used for looking up and filtering VpcPeeringConnectionAccepterType resources.
+type vpcPeeringConnectionAccepterTypeState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus *string `pulumi:"acceptStatus"`
 	// A configuration block that describes [VPC Peering Connection]
@@ -190,7 +190,7 @@ type vpcPeeringConnectionAccepterState struct {
 	VpcPeeringConnectionId *string `pulumi:"vpcPeeringConnectionId"`
 }
 
-type VpcPeeringConnectionAccepterState struct {
+type VpcPeeringConnectionAccepterTypeState struct {
 	// The status of the VPC Peering Connection request.
 	AcceptStatus pulumi.StringPtrInput
 	// A configuration block that describes [VPC Peering Connection]
@@ -217,11 +217,11 @@ type VpcPeeringConnectionAccepterState struct {
 	VpcPeeringConnectionId pulumi.StringPtrInput
 }
 
-func (VpcPeeringConnectionAccepterState) ElementType() reflect.Type {
-	return reflect.TypeOf((*vpcPeeringConnectionAccepterState)(nil)).Elem()
+func (VpcPeeringConnectionAccepterTypeState) ElementType() reflect.Type {
+	return reflect.TypeOf((*vpcPeeringConnectionAccepterTypeState)(nil)).Elem()
 }
 
-type vpcPeeringConnectionAccepterArgs struct {
+type vpcPeeringConnectionAccepterTypeArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter *VpcPeeringConnectionAccepterAccepter `pulumi:"accepter"`
@@ -238,8 +238,8 @@ type vpcPeeringConnectionAccepterArgs struct {
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
 }
 
-// The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
-type VpcPeeringConnectionAccepterArgs struct {
+// The set of arguments for constructing a VpcPeeringConnectionAccepterType resource.
+type VpcPeeringConnectionAccepterTypeArgs struct {
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
 	Accepter VpcPeeringConnectionAccepterAccepterPtrInput
@@ -256,199 +256,199 @@ type VpcPeeringConnectionAccepterArgs struct {
 	VpcPeeringConnectionId pulumi.StringInput
 }
 
-func (VpcPeeringConnectionAccepterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*vpcPeeringConnectionAccepterArgs)(nil)).Elem()
+func (VpcPeeringConnectionAccepterTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*vpcPeeringConnectionAccepterTypeArgs)(nil)).Elem()
 }
 
-type VpcPeeringConnectionAccepterInput interface {
+type VpcPeeringConnectionAccepterTypeInput interface {
 	pulumi.Input
 
-	ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput
-	ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput
+	ToVpcPeeringConnectionAccepterTypeOutput() VpcPeeringConnectionAccepterTypeOutput
+	ToVpcPeeringConnectionAccepterTypeOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeOutput
 }
 
-func (*VpcPeeringConnectionAccepter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
+func (*VpcPeeringConnectionAccepterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
-	return i.ToVpcPeeringConnectionAccepterOutputWithContext(context.Background())
+func (i *VpcPeeringConnectionAccepterType) ToVpcPeeringConnectionAccepterTypeOutput() VpcPeeringConnectionAccepterTypeOutput {
+	return i.ToVpcPeeringConnectionAccepterTypeOutputWithContext(context.Background())
 }
 
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterOutput)
+func (i *VpcPeeringConnectionAccepterType) ToVpcPeeringConnectionAccepterTypeOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return i.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
+func (i *VpcPeeringConnectionAccepterType) ToVpcPeeringConnectionAccepterTypePtrOutput() VpcPeeringConnectionAccepterTypePtrOutput {
+	return i.ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(context.Background())
 }
 
-func (i *VpcPeeringConnectionAccepter) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterPtrOutput)
+func (i *VpcPeeringConnectionAccepterType) ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
 
-type VpcPeeringConnectionAccepterPtrInput interface {
+type VpcPeeringConnectionAccepterTypePtrInput interface {
 	pulumi.Input
 
-	ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput
-	ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput
+	ToVpcPeeringConnectionAccepterTypePtrOutput() VpcPeeringConnectionAccepterTypePtrOutput
+	ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput
 }
 
-type vpcPeeringConnectionAccepterPtrType VpcPeeringConnectionAccepterArgs
+type vpcPeeringConnectionAccepterTypePtrType VpcPeeringConnectionAccepterTypeArgs
 
-func (*vpcPeeringConnectionAccepterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil))
+func (*vpcPeeringConnectionAccepterTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (i *vpcPeeringConnectionAccepterPtrType) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return i.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
+func (i *vpcPeeringConnectionAccepterTypePtrType) ToVpcPeeringConnectionAccepterTypePtrOutput() VpcPeeringConnectionAccepterTypePtrOutput {
+	return i.ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(context.Background())
 }
 
-func (i *vpcPeeringConnectionAccepterPtrType) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterPtrOutput)
+func (i *vpcPeeringConnectionAccepterTypePtrType) ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
 
-// VpcPeeringConnectionAccepterArrayInput is an input type that accepts VpcPeeringConnectionAccepterArray and VpcPeeringConnectionAccepterArrayOutput values.
-// You can construct a concrete instance of `VpcPeeringConnectionAccepterArrayInput` via:
+// VpcPeeringConnectionAccepterTypeArrayInput is an input type that accepts VpcPeeringConnectionAccepterTypeArray and VpcPeeringConnectionAccepterTypeArrayOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterTypeArrayInput` via:
 //
-//          VpcPeeringConnectionAccepterArray{ VpcPeeringConnectionAccepterArgs{...} }
-type VpcPeeringConnectionAccepterArrayInput interface {
+//          VpcPeeringConnectionAccepterTypeArray{ VpcPeeringConnectionAccepterTypeArgs{...} }
+type VpcPeeringConnectionAccepterTypeArrayInput interface {
 	pulumi.Input
 
-	ToVpcPeeringConnectionAccepterArrayOutput() VpcPeeringConnectionAccepterArrayOutput
-	ToVpcPeeringConnectionAccepterArrayOutputWithContext(context.Context) VpcPeeringConnectionAccepterArrayOutput
+	ToVpcPeeringConnectionAccepterTypeArrayOutput() VpcPeeringConnectionAccepterTypeArrayOutput
+	ToVpcPeeringConnectionAccepterTypeArrayOutputWithContext(context.Context) VpcPeeringConnectionAccepterTypeArrayOutput
 }
 
-type VpcPeeringConnectionAccepterArray []VpcPeeringConnectionAccepterInput
+type VpcPeeringConnectionAccepterTypeArray []VpcPeeringConnectionAccepterTypeInput
 
-func (VpcPeeringConnectionAccepterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*VpcPeeringConnectionAccepter)(nil)).Elem()
+func (VpcPeeringConnectionAccepterTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*VpcPeeringConnectionAccepterType)(nil)).Elem()
 }
 
-func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOutput() VpcPeeringConnectionAccepterArrayOutput {
-	return i.ToVpcPeeringConnectionAccepterArrayOutputWithContext(context.Background())
+func (i VpcPeeringConnectionAccepterTypeArray) ToVpcPeeringConnectionAccepterTypeArrayOutput() VpcPeeringConnectionAccepterTypeArrayOutput {
+	return i.ToVpcPeeringConnectionAccepterTypeArrayOutputWithContext(context.Background())
 }
 
-func (i VpcPeeringConnectionAccepterArray) ToVpcPeeringConnectionAccepterArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterArrayOutput)
+func (i VpcPeeringConnectionAccepterTypeArray) ToVpcPeeringConnectionAccepterTypeArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypeArrayOutput)
 }
 
-// VpcPeeringConnectionAccepterMapInput is an input type that accepts VpcPeeringConnectionAccepterMap and VpcPeeringConnectionAccepterMapOutput values.
-// You can construct a concrete instance of `VpcPeeringConnectionAccepterMapInput` via:
+// VpcPeeringConnectionAccepterTypeMapInput is an input type that accepts VpcPeeringConnectionAccepterTypeMap and VpcPeeringConnectionAccepterTypeMapOutput values.
+// You can construct a concrete instance of `VpcPeeringConnectionAccepterTypeMapInput` via:
 //
-//          VpcPeeringConnectionAccepterMap{ "key": VpcPeeringConnectionAccepterArgs{...} }
-type VpcPeeringConnectionAccepterMapInput interface {
+//          VpcPeeringConnectionAccepterTypeMap{ "key": VpcPeeringConnectionAccepterTypeArgs{...} }
+type VpcPeeringConnectionAccepterTypeMapInput interface {
 	pulumi.Input
 
-	ToVpcPeeringConnectionAccepterMapOutput() VpcPeeringConnectionAccepterMapOutput
-	ToVpcPeeringConnectionAccepterMapOutputWithContext(context.Context) VpcPeeringConnectionAccepterMapOutput
+	ToVpcPeeringConnectionAccepterTypeMapOutput() VpcPeeringConnectionAccepterTypeMapOutput
+	ToVpcPeeringConnectionAccepterTypeMapOutputWithContext(context.Context) VpcPeeringConnectionAccepterTypeMapOutput
 }
 
-type VpcPeeringConnectionAccepterMap map[string]VpcPeeringConnectionAccepterInput
+type VpcPeeringConnectionAccepterTypeMap map[string]VpcPeeringConnectionAccepterTypeInput
 
-func (VpcPeeringConnectionAccepterMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*VpcPeeringConnectionAccepter)(nil)).Elem()
+func (VpcPeeringConnectionAccepterTypeMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*VpcPeeringConnectionAccepterType)(nil)).Elem()
 }
 
-func (i VpcPeeringConnectionAccepterMap) ToVpcPeeringConnectionAccepterMapOutput() VpcPeeringConnectionAccepterMapOutput {
-	return i.ToVpcPeeringConnectionAccepterMapOutputWithContext(context.Background())
+func (i VpcPeeringConnectionAccepterTypeMap) ToVpcPeeringConnectionAccepterTypeMapOutput() VpcPeeringConnectionAccepterTypeMapOutput {
+	return i.ToVpcPeeringConnectionAccepterTypeMapOutputWithContext(context.Background())
 }
 
-func (i VpcPeeringConnectionAccepterMap) ToVpcPeeringConnectionAccepterMapOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterMapOutput)
+func (i VpcPeeringConnectionAccepterTypeMap) ToVpcPeeringConnectionAccepterTypeMapOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcPeeringConnectionAccepterTypeMapOutput)
 }
 
-type VpcPeeringConnectionAccepterOutput struct{ *pulumi.OutputState }
+type VpcPeeringConnectionAccepterTypeOutput struct{ *pulumi.OutputState }
 
-func (VpcPeeringConnectionAccepterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcPeeringConnectionAccepter)(nil))
+func (VpcPeeringConnectionAccepterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutput() VpcPeeringConnectionAccepterOutput {
+func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTypeOutput() VpcPeeringConnectionAccepterTypeOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterOutput {
+func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTypeOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
-	return o.ToVpcPeeringConnectionAccepterPtrOutputWithContext(context.Background())
+func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTypePtrOutput() VpcPeeringConnectionAccepterTypePtrOutput {
+	return o.ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(context.Background())
 }
 
-func (o VpcPeeringConnectionAccepterOutput) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepter) *VpcPeeringConnectionAccepter {
+func (o VpcPeeringConnectionAccepterTypeOutput) ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcPeeringConnectionAccepterType) *VpcPeeringConnectionAccepterType {
 		return &v
-	}).(VpcPeeringConnectionAccepterPtrOutput)
+	}).(VpcPeeringConnectionAccepterTypePtrOutput)
 }
 
-type VpcPeeringConnectionAccepterPtrOutput struct{ *pulumi.OutputState }
+type VpcPeeringConnectionAccepterTypePtrOutput struct{ *pulumi.OutputState }
 
-func (VpcPeeringConnectionAccepterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcPeeringConnectionAccepter)(nil))
+func (VpcPeeringConnectionAccepterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (o VpcPeeringConnectionAccepterPtrOutput) ToVpcPeeringConnectionAccepterPtrOutput() VpcPeeringConnectionAccepterPtrOutput {
+func (o VpcPeeringConnectionAccepterTypePtrOutput) ToVpcPeeringConnectionAccepterTypePtrOutput() VpcPeeringConnectionAccepterTypePtrOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterPtrOutput) ToVpcPeeringConnectionAccepterPtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterPtrOutput {
+func (o VpcPeeringConnectionAccepterTypePtrOutput) ToVpcPeeringConnectionAccepterTypePtrOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypePtrOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterPtrOutput) Elem() VpcPeeringConnectionAccepterOutput {
-	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) VpcPeeringConnectionAccepter {
+func (o VpcPeeringConnectionAccepterTypePtrOutput) Elem() VpcPeeringConnectionAccepterTypeOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) VpcPeeringConnectionAccepterType {
 		if v != nil {
 			return *v
 		}
-		var ret VpcPeeringConnectionAccepter
+		var ret VpcPeeringConnectionAccepterType
 		return ret
-	}).(VpcPeeringConnectionAccepterOutput)
+	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
-type VpcPeeringConnectionAccepterArrayOutput struct{ *pulumi.OutputState }
+type VpcPeeringConnectionAccepterTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (VpcPeeringConnectionAccepterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcPeeringConnectionAccepter)(nil))
+func (VpcPeeringConnectionAccepterTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (o VpcPeeringConnectionAccepterArrayOutput) ToVpcPeeringConnectionAccepterArrayOutput() VpcPeeringConnectionAccepterArrayOutput {
+func (o VpcPeeringConnectionAccepterTypeArrayOutput) ToVpcPeeringConnectionAccepterTypeArrayOutput() VpcPeeringConnectionAccepterTypeArrayOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterArrayOutput) ToVpcPeeringConnectionAccepterArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterArrayOutput {
+func (o VpcPeeringConnectionAccepterTypeArrayOutput) ToVpcPeeringConnectionAccepterTypeArrayOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeArrayOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterArrayOutput) Index(i pulumi.IntInput) VpcPeeringConnectionAccepterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepter {
-		return vs[0].([]VpcPeeringConnectionAccepter)[vs[1].(int)]
-	}).(VpcPeeringConnectionAccepterOutput)
+func (o VpcPeeringConnectionAccepterTypeArrayOutput) Index(i pulumi.IntInput) VpcPeeringConnectionAccepterTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepterType {
+		return vs[0].([]VpcPeeringConnectionAccepterType)[vs[1].(int)]
+	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
-type VpcPeeringConnectionAccepterMapOutput struct{ *pulumi.OutputState }
+type VpcPeeringConnectionAccepterTypeMapOutput struct{ *pulumi.OutputState }
 
-func (VpcPeeringConnectionAccepterMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcPeeringConnectionAccepter)(nil))
+func (VpcPeeringConnectionAccepterTypeMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VpcPeeringConnectionAccepterType)(nil))
 }
 
-func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMapOutput() VpcPeeringConnectionAccepterMapOutput {
+func (o VpcPeeringConnectionAccepterTypeMapOutput) ToVpcPeeringConnectionAccepterTypeMapOutput() VpcPeeringConnectionAccepterTypeMapOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterMapOutput) ToVpcPeeringConnectionAccepterMapOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterMapOutput {
+func (o VpcPeeringConnectionAccepterTypeMapOutput) ToVpcPeeringConnectionAccepterTypeMapOutputWithContext(ctx context.Context) VpcPeeringConnectionAccepterTypeMapOutput {
 	return o
 }
 
-func (o VpcPeeringConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcPeeringConnectionAccepterOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepter {
-		return vs[0].(map[string]VpcPeeringConnectionAccepter)[vs[1].(string)]
-	}).(VpcPeeringConnectionAccepterOutput)
+func (o VpcPeeringConnectionAccepterTypeMapOutput) MapIndex(k pulumi.StringInput) VpcPeeringConnectionAccepterTypeOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcPeeringConnectionAccepterType {
+		return vs[0].(map[string]VpcPeeringConnectionAccepterType)[vs[1].(string)]
+	}).(VpcPeeringConnectionAccepterTypeOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterOutput{})
-	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterPtrOutput{})
-	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterArrayOutput{})
-	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterMapOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeArrayOutput{})
+	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeMapOutput{})
 }

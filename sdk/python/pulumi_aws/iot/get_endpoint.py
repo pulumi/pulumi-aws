@@ -12,6 +12,7 @@ __all__ = [
     'GetEndpointResult',
     'AwaitableGetEndpointResult',
     'get_endpoint',
+    'get_endpoint_output',
 ]
 
 @pulumi.output_type
@@ -88,3 +89,15 @@ def get_endpoint(endpoint_type: Optional[str] = None,
         endpoint_address=__ret__.endpoint_address,
         endpoint_type=__ret__.endpoint_type,
         id=__ret__.id)
+
+
+@_utilities.lift_output_func(get_endpoint)
+def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+    """
+    Returns a unique endpoint specific to the AWS account making the call.
+
+
+    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+    """
+    ...

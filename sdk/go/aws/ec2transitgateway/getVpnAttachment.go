@@ -4,6 +4,9 @@
 package ec2transitgateway
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,4 +99,70 @@ type GetVpnAttachmentResult struct {
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
 	VpnConnectionId  *string           `pulumi:"vpnConnectionId"`
+}
+
+func GetVpnAttachmentOutput(ctx *pulumi.Context, args GetVpnAttachmentOutputArgs, opts ...pulumi.InvokeOption) GetVpnAttachmentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVpnAttachmentResult, error) {
+			args := v.(GetVpnAttachmentArgs)
+			r, err := GetVpnAttachment(ctx, &args, opts...)
+			return *r, err
+		}).(GetVpnAttachmentResultOutput)
+}
+
+// A collection of arguments for invoking getVpnAttachment.
+type GetVpnAttachmentOutputArgs struct {
+	// Configuration block(s) for filtering. Detailed below.
+	Filters GetVpnAttachmentFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Identifier of the EC2 Transit Gateway.
+	TransitGatewayId pulumi.StringPtrInput `pulumi:"transitGatewayId"`
+	// Identifier of the EC2 VPN Connection.
+	VpnConnectionId pulumi.StringPtrInput `pulumi:"vpnConnectionId"`
+}
+
+func (GetVpnAttachmentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnAttachmentArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVpnAttachment.
+type GetVpnAttachmentResultOutput struct{ *pulumi.OutputState }
+
+func (GetVpnAttachmentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpnAttachmentResult)(nil)).Elem()
+}
+
+func (o GetVpnAttachmentResultOutput) ToGetVpnAttachmentResultOutput() GetVpnAttachmentResultOutput {
+	return o
+}
+
+func (o GetVpnAttachmentResultOutput) ToGetVpnAttachmentResultOutputWithContext(ctx context.Context) GetVpnAttachmentResultOutput {
+	return o
+}
+
+func (o GetVpnAttachmentResultOutput) Filters() GetVpnAttachmentFilterArrayOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) []GetVpnAttachmentFilter { return v.Filters }).(GetVpnAttachmentFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVpnAttachmentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Key-value tags for the EC2 Transit Gateway VPN Attachment
+func (o GetVpnAttachmentResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o GetVpnAttachmentResultOutput) TransitGatewayId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) *string { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetVpnAttachmentResultOutput) VpnConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetVpnAttachmentResult) *string { return v.VpnConnectionId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVpnAttachmentResultOutput{})
 }

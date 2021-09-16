@@ -14,6 +14,7 @@ __all__ = [
     'GetAmiResult',
     'AwaitableGetAmiResult',
     'get_ami',
+    'get_ami_output',
 ]
 
 @pulumi.output_type
@@ -541,3 +542,62 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         tags=__ret__.tags,
         usage_operation=__ret__.usage_operation,
         virtualization_type=__ret__.virtualization_type)
+
+
+@_utilities.lift_output_func(get_ami)
+def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]]]] = None,
+                   most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                   name_regex: Optional[pulumi.Input[Optional[str]]] = None,
+                   owners: Optional[pulumi.Input[Sequence[str]]] = None,
+                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiResult]:
+    """
+    Use this data source to get the ID of a registered AMI for use in other
+    resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_ami(executable_users=["self"],
+        filters=[
+            aws.ec2.GetAmiFilterArgs(
+                name="name",
+                values=["myami-*"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="root-device-type",
+                values=["ebs"],
+            ),
+            aws.ec2.GetAmiFilterArgs(
+                name="virtualization-type",
+                values=["hvm"],
+            ),
+        ],
+        most_recent=True,
+        name_regex="^myami-\\d{3}",
+        owners=["self"])
+    ```
+
+
+    :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
+           the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+           several valid keys, for a full reference, check out
+           [describe-images in the AWS CLI reference][1].
+    :param bool most_recent: If more than one result is returned, use the most
+           recent AMI.
+    :param str name_regex: A regex string to apply to the AMI list returned
+           by AWS. This allows more advanced filtering not supported from the AWS API. This
+           filtering is done locally on what AWS returns, and could have a performance
+           impact if the result is large. It is recommended to combine this with other
+           options to narrow down the list AWS returns.
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param Mapping[str, str] tags: Any tags assigned to the image.
+           * `tags.#.key` - The key name of the tag.
+           * `tags.#.value` - The value of the tag.
+    """
+    ...

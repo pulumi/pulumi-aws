@@ -4,6 +4,9 @@
 package cloudwatch
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -62,4 +65,71 @@ type GetEventSourceResult struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The state of the event source (`ACTIVE` or `PENDING`)
 	State string `pulumi:"state"`
+}
+
+func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, opts ...pulumi.InvokeOption) GetEventSourceResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEventSourceResult, error) {
+			args := v.(GetEventSourceArgs)
+			r, err := GetEventSource(ctx, &args, opts...)
+			return *r, err
+		}).(GetEventSourceResultOutput)
+}
+
+// A collection of arguments for invoking getEventSource.
+type GetEventSourceOutputArgs struct {
+	// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+}
+
+func (GetEventSourceOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventSourceArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEventSource.
+type GetEventSourceResultOutput struct{ *pulumi.OutputState }
+
+func (GetEventSourceResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventSourceResult)(nil)).Elem()
+}
+
+func (o GetEventSourceResultOutput) ToGetEventSourceResultOutput() GetEventSourceResultOutput {
+	return o
+}
+
+func (o GetEventSourceResultOutput) ToGetEventSourceResultOutputWithContext(ctx context.Context) GetEventSourceResultOutput {
+	return o
+}
+
+// The ARN of the partner event source
+func (o GetEventSourceResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the SaaS partner that created the event source
+func (o GetEventSourceResultOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEventSourceResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the event source
+func (o GetEventSourceResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEventSourceResultOutput) NamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEventSourceResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// The state of the event source (`ACTIVE` or `PENDING`)
+func (o GetEventSourceResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEventSourceResultOutput{})
 }

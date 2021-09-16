@@ -4,6 +4,9 @@
 package cloudfront
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,4 +68,84 @@ type LookupCachePolicyResult struct {
 	Name   *string `pulumi:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
 	ParametersInCacheKeyAndForwardedToOrigins []GetCachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigins"`
+}
+
+func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupCachePolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCachePolicyResult, error) {
+			args := v.(LookupCachePolicyArgs)
+			r, err := LookupCachePolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCachePolicyResultOutput)
+}
+
+// A collection of arguments for invoking getCachePolicy.
+type LookupCachePolicyOutputArgs struct {
+	// The identifier for the cache policy.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A unique name to identify the cache policy.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupCachePolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCachePolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCachePolicy.
+type LookupCachePolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCachePolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCachePolicyResult)(nil)).Elem()
+}
+
+func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutput() LookupCachePolicyResultOutput {
+	return o
+}
+
+func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContext(ctx context.Context) LookupCachePolicyResultOutput {
+	return o
+}
+
+// A comment to describe the cache policy.
+func (o LookupCachePolicyResultOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+func (o LookupCachePolicyResultOutput) DefaultTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.DefaultTtl }).(pulumi.IntOutput)
+}
+
+// The current version of the cache policy.
+func (o LookupCachePolicyResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+func (o LookupCachePolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+func (o LookupCachePolicyResultOutput) MaxTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MaxTtl }).(pulumi.IntOutput)
+}
+
+// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
+func (o LookupCachePolicyResultOutput) MinTtl() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) int { return v.MinTtl }).(pulumi.IntOutput)
+}
+
+func (o LookupCachePolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+func (o LookupCachePolicyResultOutput) ParametersInCacheKeyAndForwardedToOrigins() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
+	return o.ApplyT(func(v LookupCachePolicyResult) []GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
+		return v.ParametersInCacheKeyAndForwardedToOrigins
+	}).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCachePolicyResultOutput{})
 }

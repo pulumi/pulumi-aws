@@ -4,6 +4,9 @@
 package sns
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -55,4 +58,56 @@ type LookupTopicResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTopicResult, error) {
+			args := v.(LookupTopicArgs)
+			r, err := LookupTopic(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTopicResultOutput)
+}
+
+// A collection of arguments for invoking getTopic.
+type LookupTopicOutputArgs struct {
+	// The friendly name of the topic to match.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupTopicOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTopic.
+type LookupTopicResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTopicResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTopicResult)(nil)).Elem()
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutput() LookupTopicResultOutput {
+	return o
+}
+
+func (o LookupTopicResultOutput) ToLookupTopicResultOutputWithContext(ctx context.Context) LookupTopicResultOutput {
+	return o
+}
+
+// Amazon Resource Name (ARN) of the found topic, suitable for referencing in other resources that support SNS topics.
+func (o LookupTopicResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTopicResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTopicResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTopicResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTopicResultOutput{})
 }

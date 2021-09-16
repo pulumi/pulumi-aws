@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceAccountResult',
     'AwaitableGetServiceAccountResult',
     'get_service_account',
+    'get_service_account_output',
 ]
 
 @pulumi.output_type
@@ -121,3 +122,53 @@ def get_service_account(region: Optional[str] = None,
         arn=__ret__.arn,
         id=__ret__.id,
         region=__ret__.region)
+
+
+@_utilities.lift_output_func(get_service_account)
+def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = None,
+                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceAccountResult]:
+    """
+    Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
+    in a given region for the purpose of allowing CloudTrail to store trail data in S3.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    main = aws.cloudtrail.get_service_account()
+    bucket = aws.s3.Bucket("bucket",
+        force_destroy=True,
+        policy=f\"\"\"{{
+      "Version": "2008-10-17",
+      "Statement": [
+        {{
+          "Sid": "Put bucket policy needed for trails",
+          "Effect": "Allow",
+          "Principal": {{
+            "AWS": "{main.arn}"
+          }},
+          "Action": "s3:PutObject",
+          "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*"
+        }},
+        {{
+          "Sid": "Get bucket policy needed for trails",
+          "Effect": "Allow",
+          "Principal": {{
+            "AWS": "{main.arn}"
+          }},
+          "Action": "s3:GetBucketAcl",
+          "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
+        }}
+      ]
+    }}
+
+    \"\"\")
+    ```
+
+
+    :param str region: Name of the region whose AWS CloudTrail account ID is desired.
+           Defaults to the region from the AWS provider configuration.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetDataLakeSettingsResult',
     'AwaitableGetDataLakeSettingsResult',
     'get_data_lake_settings',
+    'get_data_lake_settings_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,24 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
         create_table_default_permissions=__ret__.create_table_default_permissions,
         id=__ret__.id,
         trusted_resource_owners=__ret__.trusted_resource_owners)
+
+
+@_utilities.lift_output_func(get_data_lake_settings)
+def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
+    """
+    Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
+    ```
+
+
+    :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    """
+    ...

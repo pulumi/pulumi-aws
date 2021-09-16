@@ -12,6 +12,7 @@ __all__ = [
     'GetLedgerResult',
     'AwaitableGetLedgerResult',
     'get_ledger',
+    'get_ledger_output',
 ]
 
 @pulumi.output_type
@@ -109,3 +110,24 @@ def get_ledger(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         permissions_mode=__ret__.permissions_mode)
+
+
+@_utilities.lift_output_func(get_ledger)
+def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
+    """
+    Use this data source to fetch information about a Quantum Ledger Database.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.qldb.get_ledger(name="an_example_ledger")
+    ```
+
+
+    :param str name: The friendly name of the ledger to match.
+    """
+    ...

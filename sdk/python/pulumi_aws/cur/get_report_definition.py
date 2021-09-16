@@ -12,6 +12,7 @@ __all__ = [
     'GetReportDefinitionResult',
     'AwaitableGetReportDefinitionResult',
     'get_report_definition',
+    'get_report_definition_output',
 ]
 
 @pulumi.output_type
@@ -213,3 +214,28 @@ def get_report_definition(report_name: Optional[str] = None,
         s3_prefix=__ret__.s3_prefix,
         s3_region=__ret__.s3_region,
         time_unit=__ret__.time_unit)
+
+
+@_utilities.lift_output_func(get_report_definition)
+def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportDefinitionResult]:
+    """
+    Use this data source to get information on an AWS Cost and Usage Report Definition.
+
+    > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+
+    > *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    report_definition = aws.cur.get_report_definition(report_name="example")
+    ```
+
+
+    :param str report_name: The name of the report definition to match.
+    """
+    ...

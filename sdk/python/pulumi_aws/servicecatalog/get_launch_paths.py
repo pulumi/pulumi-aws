@@ -13,6 +13,7 @@ __all__ = [
     'GetLaunchPathsResult',
     'AwaitableGetLaunchPathsResult',
     'get_launch_paths',
+    'get_launch_paths_output',
 ]
 
 @pulumi.output_type
@@ -107,3 +108,27 @@ def get_launch_paths(accept_language: Optional[str] = None,
         id=__ret__.id,
         product_id=__ret__.product_id,
         summaries=__ret__.summaries)
+
+
+@_utilities.lift_output_func(get_launch_paths)
+def get_launch_paths_output(accept_language: Optional[pulumi.Input[Optional[str]]] = None,
+                            product_id: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchPathsResult]:
+    """
+    Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+
+    ## Example Usage
+    ### Basic Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicecatalog.get_launch_paths(product_id="prod-yakog5pdriver")
+    ```
+
+
+    :param str accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+    :param str product_id: Product identifier.
+    """
+    ...

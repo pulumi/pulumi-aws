@@ -4,6 +4,9 @@
 package pricing
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -118,4 +121,62 @@ type GetProductResult struct {
 	// Set to the product returned from the API.
 	Result      string `pulumi:"result"`
 	ServiceCode string `pulumi:"serviceCode"`
+}
+
+func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pulumi.InvokeOption) GetProductResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetProductResult, error) {
+			args := v.(GetProductArgs)
+			r, err := GetProduct(ctx, &args, opts...)
+			return *r, err
+		}).(GetProductResultOutput)
+}
+
+// A collection of arguments for invoking getProduct.
+type GetProductOutputArgs struct {
+	// A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+	Filters GetProductFilterArrayInput `pulumi:"filters"`
+	// The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
+}
+
+func (GetProductOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProductArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getProduct.
+type GetProductResultOutput struct{ *pulumi.OutputState }
+
+func (GetProductResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProductResult)(nil)).Elem()
+}
+
+func (o GetProductResultOutput) ToGetProductResultOutput() GetProductResultOutput {
+	return o
+}
+
+func (o GetProductResultOutput) ToGetProductResultOutputWithContext(ctx context.Context) GetProductResultOutput {
+	return o
+}
+
+func (o GetProductResultOutput) Filters() GetProductFilterArrayOutput {
+	return o.ApplyT(func(v GetProductResult) []GetProductFilter { return v.Filters }).(GetProductFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetProductResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProductResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set to the product returned from the API.
+func (o GetProductResultOutput) Result() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProductResult) string { return v.Result }).(pulumi.StringOutput)
+}
+
+func (o GetProductResultOutput) ServiceCode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProductResult) string { return v.ServiceCode }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetProductResultOutput{})
 }

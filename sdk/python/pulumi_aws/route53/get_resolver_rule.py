@@ -12,6 +12,7 @@ __all__ = [
     'GetResolverRuleResult',
     'AwaitableGetResolverRuleResult',
     'get_resolver_rule',
+    'get_resolver_rule_output',
 ]
 
 @pulumi.output_type
@@ -190,3 +191,37 @@ def get_resolver_rule(domain_name: Optional[str] = None,
         rule_type=__ret__.rule_type,
         share_status=__ret__.share_status,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_resolver_rule)
+def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[str]]] = None,
+                             name: Optional[pulumi.Input[Optional[str]]] = None,
+                             resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
+                             resolver_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
+                             rule_type: Optional[pulumi.Input[Optional[str]]] = None,
+                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleResult]:
+    """
+    `route53.ResolverRule` provides details about a specific Route53 Resolver rule.
+
+    ## Example Usage
+
+    The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rule(domain_name="subdomain.example.com",
+        rule_type="SYSTEM")
+    ```
+
+
+    :param str domain_name: The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+    :param str name: The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_endpoint_id: The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param str resolver_rule_id: The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+    :param str rule_type: The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+    :param Mapping[str, str] tags: A map of tags assigned to the resolver rule.
+    """
+    ...

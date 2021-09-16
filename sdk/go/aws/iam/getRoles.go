@@ -4,6 +4,9 @@
 package iam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -158,4 +161,69 @@ type GetRolesResult struct {
 	// Set of Names of the matched IAM roles.
 	Names      []string `pulumi:"names"`
 	PathPrefix *string  `pulumi:"pathPrefix"`
+}
+
+func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi.InvokeOption) GetRolesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRolesResult, error) {
+			args := v.(GetRolesArgs)
+			r, err := GetRoles(ctx, &args, opts...)
+			return *r, err
+		}).(GetRolesResultOutput)
+}
+
+// A collection of arguments for invoking getRoles.
+type GetRolesOutputArgs struct {
+	// A regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API.
+	// This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
+	// options to narrow down the list AWS returns.
+	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
+	// The path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
+}
+
+func (GetRolesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRoles.
+type GetRolesResultOutput struct{ *pulumi.OutputState }
+
+func (GetRolesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRolesResult)(nil)).Elem()
+}
+
+func (o GetRolesResultOutput) ToGetRolesResultOutput() GetRolesResultOutput {
+	return o
+}
+
+func (o GetRolesResultOutput) ToGetRolesResultOutputWithContext(ctx context.Context) GetRolesResultOutput {
+	return o
+}
+
+// Set of ARNs of the matched IAM roles.
+func (o GetRolesResultOutput) Arns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRolesResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRolesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRolesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRolesResultOutput) NameRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRolesResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
+}
+
+// Set of Names of the matched IAM roles.
+func (o GetRolesResultOutput) Names() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRolesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRolesResultOutput) PathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRolesResult) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRolesResultOutput{})
 }

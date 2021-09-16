@@ -4,6 +4,9 @@
 package backup
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,73 @@ type LookupPlanResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version string `pulumi:"version"`
+}
+
+func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pulumi.InvokeOption) LookupPlanResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPlanResult, error) {
+			args := v.(LookupPlanArgs)
+			r, err := LookupPlan(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPlanResultOutput)
+}
+
+// A collection of arguments for invoking getPlan.
+type LookupPlanOutputArgs struct {
+	// The backup plan ID.
+	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Metadata that you can assign to help organize the plans you create.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupPlanOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlanArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPlan.
+type LookupPlanResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPlanResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPlanResult)(nil)).Elem()
+}
+
+func (o LookupPlanResultOutput) ToLookupPlanResultOutput() LookupPlanResultOutput {
+	return o
+}
+
+func (o LookupPlanResultOutput) ToLookupPlanResultOutputWithContext(ctx context.Context) LookupPlanResultOutput {
+	return o
+}
+
+// The ARN of the backup plan.
+func (o LookupPlanResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPlanResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The display name of a backup plan.
+func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPlanResultOutput) PlanId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// Metadata that you can assign to help organize the plans you create.
+func (o LookupPlanResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPlanResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
+func (o LookupPlanResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPlanResultOutput{})
 }

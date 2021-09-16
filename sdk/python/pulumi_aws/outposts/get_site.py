@@ -12,6 +12,7 @@ __all__ = [
     'GetSiteResult',
     'AwaitableGetSiteResult',
     'get_site',
+    'get_site_output',
 ]
 
 @pulumi.output_type
@@ -105,3 +106,26 @@ def get_site(id: Optional[str] = None,
         description=__ret__.description,
         id=__ret__.id,
         name=__ret__.name)
+
+
+@_utilities.lift_output_func(get_site)
+def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
+                    name: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSiteResult]:
+    """
+    Provides details about an Outposts Site.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.outposts.get_site(name="example")
+    ```
+
+
+    :param str id: Identifier of the Site.
+    :param str name: Name of the Site.
+    """
+    ...

@@ -14,6 +14,7 @@ __all__ = [
     'GetInstancesResult',
     'AwaitableGetInstancesResult',
     'get_instances',
+    'get_instances_output',
 ]
 
 @pulumi.output_type
@@ -146,3 +147,28 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
         instance_tags=__ret__.instance_tags,
         private_ips=__ret__.private_ips,
         public_ips=__ret__.public_ips)
+
+
+@_utilities.lift_output_func(get_instances)
+def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
+                         instance_state_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                         instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
+    """
+    Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+    e.g. to allow easier migration from another management solution
+    or to make it easier for an operator to connect through bastion host(s).
+
+    > **Note:** It's strongly discouraged to use this data source for querying ephemeral
+    instances (e.g. managed via autoscaling group), as the output may change at any time
+    and you'd need to re-run `apply` every time an instance comes up or dies.
+
+
+    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+           several valid keys, for a full reference, check out
+           [describe-instances in the AWS CLI reference][1].
+    :param Sequence[str] instance_state_names: A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+    :param Mapping[str, str] instance_tags: A map of tags, each pair of which must
+           exactly match a pair on desired instances.
+    """
+    ...

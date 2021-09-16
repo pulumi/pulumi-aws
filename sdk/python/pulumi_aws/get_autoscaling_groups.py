@@ -14,6 +14,7 @@ __all__ = [
     'GetAutoscalingGroupsResult',
     'AwaitableGetAutoscalingGroupsResult',
     'get_autoscaling_groups',
+    'get_autoscaling_groups_output',
 ]
 
 warnings.warn("""aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds""", DeprecationWarning)
@@ -129,3 +130,44 @@ def get_autoscaling_groups(filters: Optional[Sequence[pulumi.InputType['GetAutos
         filters=__ret__.filters,
         id=__ret__.id,
         names=__ret__.names)
+
+
+@_utilities.lift_output_func(get_autoscaling_groups)
+def get_autoscaling_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']]]]] = None,
+                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoscalingGroupsResult]:
+    """
+    The Autoscaling Groups data source allows access to the list of AWS
+    ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    groups = aws.autoscaling.get_ami_ids(filters=[
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="key",
+            values=["Team"],
+        ),
+        aws.autoscaling.GetAmiIdsFilterArgs(
+            name="value",
+            values=["Pets"],
+        ),
+    ])
+    slack_notifications = aws.autoscaling.Notification("slackNotifications",
+        group_names=groups.names,
+        notifications=[
+            "autoscaling:EC2_INSTANCE_LAUNCH",
+            "autoscaling:EC2_INSTANCE_TERMINATE",
+            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ],
+        topic_arn="TOPIC ARN")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetAutoscalingGroupsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    """
+    pulumi.log.warn("""get_autoscaling_groups is deprecated: aws.getAutoscalingGroups has been deprecated in favor of aws.autoscaling.getAmiIds""")
+    ...

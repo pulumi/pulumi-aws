@@ -14,6 +14,7 @@ __all__ = [
     'GetSubnetIdsResult',
     'AwaitableGetSubnetIdsResult',
     'get_subnet_ids',
+    'get_subnet_ids_output',
 ]
 
 @pulumi.output_type
@@ -88,7 +89,7 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
                    vpc_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetIdsResult:
     """
-    `ec2.getSubnetIds` provides a set of ids for a vpc_id
+    `ec2.get_subnet_ids` provides a set of ids for a vpc_id
 
     This resource can be useful for getting back a set of subnet ids for a vpc.
 
@@ -114,3 +115,22 @@ def get_subnet_ids(filters: Optional[Sequence[pulumi.InputType['GetSubnetIdsFilt
         ids=__ret__.ids,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_subnet_ids)
+def get_subnet_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']]]]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          vpc_id: Optional[pulumi.Input[str]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetIdsResult]:
+    """
+    `ec2.get_subnet_ids` provides a set of ids for a vpc_id
+
+    This resource can be useful for getting back a set of subnet ids for a vpc.
+
+
+    :param Sequence[pulumi.InputType['GetSubnetIdsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired subnets.
+    :param str vpc_id: The VPC ID that you want to filter from.
+    """
+    ...

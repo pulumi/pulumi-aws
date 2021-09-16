@@ -12,6 +12,7 @@ __all__ = [
     'GetConnectionResult',
     'AwaitableGetConnectionResult',
     'get_connection',
+    'get_connection_output',
 ]
 
 @pulumi.output_type
@@ -147,3 +148,26 @@ def get_connection(arn: Optional[str] = None,
         name=__ret__.name,
         provider_type=__ret__.provider_type,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_connection)
+def get_connection_output(arn: Optional[pulumi.Input[str]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
+    """
+    Provides details about CodeStar Connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
+    ```
+
+
+    :param str arn: The CodeStar Connection ARN.
+    :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
+    """
+    ...

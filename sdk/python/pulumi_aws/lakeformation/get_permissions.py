@@ -14,6 +14,7 @@ __all__ = [
     'GetPermissionsResult',
     'AwaitableGetPermissionsResult',
     'get_permissions',
+    'get_permissions_output',
 ]
 
 @pulumi.output_type
@@ -203,3 +204,54 @@ def get_permissions(catalog_id: Optional[str] = None,
         principal=__ret__.principal,
         table=__ret__.table,
         table_with_columns=__ret__.table_with_columns)
+
+
+@_utilities.lift_output_func(get_permissions)
+def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           catalog_resource: Optional[pulumi.Input[Optional[bool]]] = None,
+                           data_location: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsDataLocationArgs']]]] = None,
+                           database: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsDatabaseArgs']]]] = None,
+                           principal: Optional[pulumi.Input[str]] = None,
+                           table: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsTableArgs']]]] = None,
+                           table_with_columns: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsTableWithColumnsArgs']]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
+    """
+    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+
+    > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+
+    ## Example Usage
+    ### Permissions For A Lake Formation S3 Resource
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+        data_location=aws.lakeformation.GetPermissionsDataLocationArgs(
+            arn=aws_lakeformation_resource["test"]["arn"],
+        ))
+    ```
+    ### Permissions For A Glue Catalog Database
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+        database=aws.lakeformation.GetPermissionsDatabaseArgs(
+            name=aws_glue_catalog_database["test"]["name"],
+            catalog_id="110376042874",
+        ))
+    ```
+
+
+    :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+    :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
+    :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+    :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
+    """
+    ...

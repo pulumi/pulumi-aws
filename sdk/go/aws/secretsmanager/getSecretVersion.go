@@ -4,6 +4,9 @@
 package secretsmanager
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -92,4 +95,83 @@ type LookupSecretVersionResult struct {
 	VersionId     string   `pulumi:"versionId"`
 	VersionStage  *string  `pulumi:"versionStage"`
 	VersionStages []string `pulumi:"versionStages"`
+}
+
+func LookupSecretVersionOutput(ctx *pulumi.Context, args LookupSecretVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSecretVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSecretVersionResult, error) {
+			args := v.(LookupSecretVersionArgs)
+			r, err := LookupSecretVersion(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSecretVersionResultOutput)
+}
+
+// A collection of arguments for invoking getSecretVersion.
+type LookupSecretVersionOutputArgs struct {
+	// Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `versionStage`.
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+	// Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+	VersionStage pulumi.StringPtrInput `pulumi:"versionStage"`
+}
+
+func (LookupSecretVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretVersionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecretVersion.
+type LookupSecretVersionResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSecretVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSecretVersionResult)(nil)).Elem()
+}
+
+func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutput() LookupSecretVersionResultOutput {
+	return o
+}
+
+func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithContext(ctx context.Context) LookupSecretVersionResultOutput {
+	return o
+}
+
+// The ARN of the secret.
+func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupSecretVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretBinary }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretVersionResultOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// The decrypted part of the protected secret information that was originally provided as a string.
+func (o LookupSecretVersionResultOutput) SecretString() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretString }).(pulumi.StringOutput)
+}
+
+// The unique identifier of this version of the secret.
+func (o LookupSecretVersionResultOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretVersionResultOutput) VersionStage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) *string { return v.VersionStage }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSecretVersionResultOutput) VersionStages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) []string { return v.VersionStages }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSecretVersionResultOutput{})
 }

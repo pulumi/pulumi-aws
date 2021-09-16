@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type GetSubnetsResult struct {
 	// A list of all the subnet ids found.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func GetSubnetsOutput(ctx *pulumi.Context, args GetSubnetsOutputArgs, opts ...pulumi.InvokeOption) GetSubnetsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSubnetsResult, error) {
+			args := v.(GetSubnetsArgs)
+			r, err := GetSubnets(ctx, &args, opts...)
+			return *r, err
+		}).(GetSubnetsResultOutput)
+}
+
+// A collection of arguments for invoking getSubnets.
+type GetSubnetsOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetSubnetsFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired subnets.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetSubnetsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSubnets.
+type GetSubnetsResultOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetsResult)(nil)).Elem()
+}
+
+func (o GetSubnetsResultOutput) ToGetSubnetsResultOutput() GetSubnetsResultOutput {
+	return o
+}
+
+func (o GetSubnetsResultOutput) ToGetSubnetsResultOutputWithContext(ctx context.Context) GetSubnetsResultOutput {
+	return o
+}
+
+func (o GetSubnetsResultOutput) Filters() GetSubnetsFilterArrayOutput {
+	return o.ApplyT(func(v GetSubnetsResult) []GetSubnetsFilter { return v.Filters }).(GetSubnetsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSubnetsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of all the subnet ids found.
+func (o GetSubnetsResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSubnetsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetSubnetsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSubnetsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSubnetsResultOutput{})
 }

@@ -13,6 +13,7 @@ __all__ = [
     'GetImagePipelineResult',
     'AwaitableGetImagePipelineResult',
     'get_image_pipeline',
+    'get_image_pipeline_output',
 ]
 
 @pulumi.output_type
@@ -278,3 +279,26 @@ def get_image_pipeline(arn: Optional[str] = None,
         schedules=__ret__.schedules,
         status=__ret__.status,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_image_pipeline)
+def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
+                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
+    """
+    Provides details about an Image Builder Image Pipeline.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the image pipeline.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image pipeline.
+    """
+    ...

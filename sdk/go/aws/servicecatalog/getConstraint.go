@@ -4,6 +4,9 @@
 package servicecatalog
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,89 @@ type LookupConstraintResult struct {
 	Status string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	Type string `pulumi:"type"`
+}
+
+func LookupConstraintOutput(ctx *pulumi.Context, args LookupConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupConstraintResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupConstraintResult, error) {
+			args := v.(LookupConstraintArgs)
+			r, err := LookupConstraint(ctx, &args, opts...)
+			return *r, err
+		}).(LookupConstraintResultOutput)
+}
+
+// A collection of arguments for invoking getConstraint.
+type LookupConstraintOutputArgs struct {
+	// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+	AcceptLanguage pulumi.StringPtrInput `pulumi:"acceptLanguage"`
+	// Description of the constraint.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Constraint identifier.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (LookupConstraintOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConstraintArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getConstraint.
+type LookupConstraintResultOutput struct{ *pulumi.OutputState }
+
+func (LookupConstraintResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupConstraintResult)(nil)).Elem()
+}
+
+func (o LookupConstraintResultOutput) ToLookupConstraintResultOutput() LookupConstraintResultOutput {
+	return o
+}
+
+func (o LookupConstraintResultOutput) ToLookupConstraintResultOutputWithContext(ctx context.Context) LookupConstraintResultOutput {
+	return o
+}
+
+func (o LookupConstraintResultOutput) AcceptLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConstraintResult) *string { return v.AcceptLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Description of the constraint.
+func (o LookupConstraintResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupConstraintResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Owner of the constraint.
+func (o LookupConstraintResultOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Constraint parameters in JSON format.
+func (o LookupConstraintResultOutput) Parameters() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Parameters }).(pulumi.StringOutput)
+}
+
+// Portfolio identifier.
+func (o LookupConstraintResultOutput) PortfolioId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.PortfolioId }).(pulumi.StringOutput)
+}
+
+// Product identifier.
+func (o LookupConstraintResultOutput) ProductId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Constraint status.
+func (o LookupConstraintResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
+func (o LookupConstraintResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConstraintResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupConstraintResultOutput{})
 }

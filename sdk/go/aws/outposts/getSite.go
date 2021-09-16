@@ -4,6 +4,9 @@
 package outposts
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,62 @@ type GetSiteResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
+}
+
+func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSiteResult, error) {
+			args := v.(GetSiteArgs)
+			r, err := GetSite(ctx, &args, opts...)
+			return *r, err
+		}).(GetSiteResultOutput)
+}
+
+// A collection of arguments for invoking getSite.
+type GetSiteOutputArgs struct {
+	// Identifier of the Site.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Name of the Site.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (GetSiteOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSiteArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSite.
+type GetSiteResultOutput struct{ *pulumi.OutputState }
+
+func (GetSiteResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSiteResult)(nil)).Elem()
+}
+
+func (o GetSiteResultOutput) ToGetSiteResultOutput() GetSiteResultOutput {
+	return o
+}
+
+func (o GetSiteResultOutput) ToGetSiteResultOutputWithContext(ctx context.Context) GetSiteResultOutput {
+	return o
+}
+
+// AWS Account identifier.
+func (o GetSiteResultOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Description.
+func (o GetSiteResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetSiteResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSiteResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSiteResultOutput{})
 }

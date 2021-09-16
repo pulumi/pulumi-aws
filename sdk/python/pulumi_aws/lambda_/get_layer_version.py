@@ -12,6 +12,7 @@ __all__ = [
     'GetLayerVersionResult',
     'AwaitableGetLayerVersionResult',
     'get_layer_version',
+    'get_layer_version_output',
 ]
 
 @pulumi.output_type
@@ -240,3 +241,30 @@ def get_layer_version(compatible_runtime: Optional[str] = None,
         source_code_hash=__ret__.source_code_hash,
         source_code_size=__ret__.source_code_size,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_layer_version)
+def get_layer_version_output(compatible_runtime: Optional[pulumi.Input[Optional[str]]] = None,
+                             layer_name: Optional[pulumi.Input[str]] = None,
+                             version: Optional[pulumi.Input[Optional[int]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
+    """
+    Provides information about a Lambda Layer Version.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    layer_name = config.require("layerName")
+    existing = aws.lambda.get_layer_version(layer_name=layer_name)
+    ```
+
+
+    :param str compatible_runtime: Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+    :param str layer_name: Name of the lambda layer.
+    :param int version: Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.
+    """
+    ...

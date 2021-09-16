@@ -14,6 +14,7 @@ __all__ = [
     'GetVpnGatewayResult',
     'AwaitableGetVpnGatewayResult',
     'get_vpn_gateway',
+    'get_vpn_gateway_output',
 ]
 
 @pulumi.output_type
@@ -162,3 +163,42 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
         id=__ret__.id,
         state=__ret__.state,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_vpn_gateway)
+def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]] = None,
+                           attached_vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
+                           filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']]]]] = None,
+                           id: Optional[pulumi.Input[Optional[str]]] = None,
+                           state: Optional[pulumi.Input[Optional[str]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
+    """
+    The VPN Gateway data source provides details about
+    a specific VPN gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
+        name="tag:Name",
+        values=["vpn-gw"],
+    )])
+    pulumi.export("vpnGatewayId", selected.id)
+    ```
+
+
+    :param str amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
+    :param str attached_vpc_id: The ID of a VPC attached to the specific VPN Gateway to retrieve.
+    :param str availability_zone: The Availability Zone of the specific VPN Gateway to retrieve.
+    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param str id: The ID of the specific VPN Gateway to retrieve.
+    :param str state: The state of the specific VPN Gateway to retrieve.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired VPN Gateway.
+    """
+    ...

@@ -13,6 +13,7 @@ __all__ = [
     'GetDomainNameResult',
     'AwaitableGetDomainNameResult',
     'get_domain_name',
+    'get_domain_name_output',
 ]
 
 @pulumi.output_type
@@ -252,3 +253,26 @@ def get_domain_name(domain_name: Optional[str] = None,
         regional_zone_id=__ret__.regional_zone_id,
         security_policy=__ret__.security_policy,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_domain_name)
+def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
+    """
+    Use this data source to get the custom domain name for use with AWS API Gateway.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigateway.get_domain_name(domain_name="api.example.com")
+    ```
+
+
+    :param str domain_name: The fully-qualified domain name to look up. If no domain name is found, an error will be returned.
+    :param Mapping[str, str] tags: Key-value map of tags for the resource.
+    """
+    ...

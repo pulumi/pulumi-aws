@@ -14,6 +14,7 @@ __all__ = [
     'GetVpcPeeringConnectionResult',
     'AwaitableGetVpcPeeringConnectionResult',
     'get_vpc_peering_connection',
+    'get_vpc_peering_connection_output',
 ]
 
 @pulumi.output_type
@@ -278,3 +279,56 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
         status=__ret__.status,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_vpc_peering_connection)
+def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                                      filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']]]]] = None,
+                                      id: Optional[pulumi.Input[Optional[str]]] = None,
+                                      owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                      peer_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                                      peer_owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                      peer_region: Optional[pulumi.Input[Optional[str]]] = None,
+                                      peer_vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                      region: Optional[pulumi.Input[Optional[str]]] = None,
+                                      status: Optional[pulumi.Input[Optional[str]]] = None,
+                                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                      vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
+    """
+    The VPC Peering Connection data source provides details about
+    a specific VPC peering connection.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    pc = aws.ec2.get_vpc_peering_connection(vpc_id=aws_vpc["foo"]["id"],
+        peer_cidr_block="10.0.1.0/22")
+    # Create a route table
+    rt = aws.ec2.RouteTable("rt", vpc_id=aws_vpc["foo"]["id"])
+    # Create a route
+    route = aws.ec2.Route("route",
+        route_table_id=rt.id,
+        destination_cidr_block=pc.peer_cidr_block,
+        vpc_peering_connection_id=pc.id)
+    ```
+
+
+    :param str cidr_block: The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param Sequence[pulumi.InputType['GetVpcPeeringConnectionFilterArgs']] filters: Custom filter block as described below.
+    :param str id: The ID of the specific VPC Peering Connection to retrieve.
+    :param str owner_id: The AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_cidr_block: The primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_owner_id: The AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_region: The region of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str peer_vpc_id: The ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
+    :param str region: The region of the requester VPC of the specific VPC Peering Connection to retrieve.
+    :param str status: The status of the specific VPC Peering Connection to retrieve.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired VPC Peering Connection.
+    :param str vpc_id: The ID of the requester VPC of the specific VPC Peering Connection to retrieve.
+    """
+    ...

@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterAuthResult',
     'AwaitableGetClusterAuthResult',
     'get_cluster_auth',
+    'get_cluster_auth_output',
 ]
 
 @pulumi.output_type
@@ -88,3 +89,20 @@ def get_cluster_auth(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         token=__ret__.token)
+
+
+@_utilities.lift_output_func(get_cluster_auth)
+def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterAuthResult]:
+    """
+    Get an authentication token to communicate with an EKS cluster.
+
+    Uses IAM credentials from the AWS provider to generate a temporary token that is compatible with
+    [AWS IAM Authenticator](https://github.com/kubernetes-sigs/aws-iam-authenticator) authentication.
+    This can be used to authenticate to an EKS cluster or to a cluster that has the AWS IAM Authenticator
+    server configured.
+
+
+    :param str name: The name of the cluster
+    """
+    ...

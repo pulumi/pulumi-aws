@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -76,4 +79,72 @@ type GetInstanceTypeOfferingsResult struct {
 	LocationTypes []string `pulumi:"locationTypes"`
 	// List of locations.
 	Locations []string `pulumi:"locations"`
+}
+
+func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetInstanceTypeOfferingsResult, error) {
+			args := v.(GetInstanceTypeOfferingsArgs)
+			r, err := GetInstanceTypeOfferings(ctx, &args, opts...)
+			return *r, err
+		}).(GetInstanceTypeOfferingsResultOutput)
+}
+
+// A collection of arguments for invoking getInstanceTypeOfferings.
+type GetInstanceTypeOfferingsOutputArgs struct {
+	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+	Filters GetInstanceTypeOfferingsFilterArrayInput `pulumi:"filters"`
+	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
+}
+
+func (GetInstanceTypeOfferingsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getInstanceTypeOfferings.
+type GetInstanceTypeOfferingsResultOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsResult)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOutput() GetInstanceTypeOfferingsResultOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsResultOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) Filters() GetInstanceTypeOfferingsFilterArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []GetInstanceTypeOfferingsFilter { return v.Filters }).(GetInstanceTypeOfferingsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of EC2 Instance Types.
+func (o GetInstanceTypeOfferingsResultOutput) InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) LocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) *string { return v.LocationType }).(pulumi.StringPtrOutput)
+}
+
+// List of location types.
+func (o GetInstanceTypeOfferingsResultOutput) LocationTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []string { return v.LocationTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of locations.
+func (o GetInstanceTypeOfferingsResultOutput) Locations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsResultOutput{})
 }

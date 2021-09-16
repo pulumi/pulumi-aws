@@ -12,6 +12,7 @@ __all__ = [
     'GetParameterResult',
     'AwaitableGetParameterResult',
     'get_parameter',
+    'get_parameter_output',
 ]
 
 @pulumi.output_type
@@ -134,3 +135,28 @@ def get_parameter(name: Optional[str] = None,
         value=__ret__.value,
         version=__ret__.version,
         with_decryption=__ret__.with_decryption)
+
+
+@_utilities.lift_output_func(get_parameter)
+def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
+                         with_decryption: Optional[pulumi.Input[Optional[bool]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
+    """
+    Provides an SSM Parameter data source.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    foo = aws.ssm.get_parameter(name="foo")
+    ```
+
+    > **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
+
+
+    :param str name: The name of the parameter.
+    :param bool with_decryption: Whether to return decrypted `SecureString` value. Defaults to `true`.
+    """
+    ...

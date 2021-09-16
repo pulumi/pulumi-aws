@@ -4,6 +4,9 @@
 package docdb
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,94 @@ type GetEngineVersionResult struct {
 	Version             string   `pulumi:"version"`
 	// The description of the database engine version.
 	VersionDescription string `pulumi:"versionDescription"`
+}
+
+func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs, opts ...pulumi.InvokeOption) GetEngineVersionResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEngineVersionResult, error) {
+			args := v.(GetEngineVersionArgs)
+			r, err := GetEngineVersion(ctx, &args, opts...)
+			return *r, err
+		}).(GetEngineVersionResultOutput)
+}
+
+// A collection of arguments for invoking getEngineVersion.
+type GetEngineVersionOutputArgs struct {
+	// DB engine. (Default: `docdb`)
+	Engine pulumi.StringPtrInput `pulumi:"engine"`
+	// The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+	ParameterGroupFamily pulumi.StringPtrInput `pulumi:"parameterGroupFamily"`
+	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
+	// Version of the DB engine. For example, `3.6.0`. If `version` and `preferredVersions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (GetEngineVersionOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEngineVersionArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEngineVersion.
+type GetEngineVersionResultOutput struct{ *pulumi.OutputState }
+
+func (GetEngineVersionResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEngineVersionResult)(nil)).Elem()
+}
+
+func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutput() GetEngineVersionResultOutput {
+	return o
+}
+
+func (o GetEngineVersionResultOutput) ToGetEngineVersionResultOutputWithContext(ctx context.Context) GetEngineVersionResultOutput {
+	return o
+}
+
+func (o GetEngineVersionResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+// The description of the database engine.
+func (o GetEngineVersionResultOutput) EngineDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.EngineDescription }).(pulumi.StringOutput)
+}
+
+// Set of log types that the database engine has available for export to CloudWatch Logs.
+func (o GetEngineVersionResultOutput) ExportableLogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.ExportableLogTypes }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEngineVersionResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEngineVersionResultOutput) ParameterGroupFamily() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.ParameterGroupFamily }).(pulumi.StringOutput)
+}
+
+func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
+func (o GetEngineVersionResultOutput) SupportsLogExportsToCloudwatch() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) bool { return v.SupportsLogExportsToCloudwatch }).(pulumi.BoolOutput)
+}
+
+// A set of engine versions that this database engine version can be upgraded to.
+func (o GetEngineVersionResultOutput) ValidUpgradeTargets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.ValidUpgradeTargets }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+// The description of the database engine version.
+func (o GetEngineVersionResultOutput) VersionDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.VersionDescription }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEngineVersionResultOutput{})
 }

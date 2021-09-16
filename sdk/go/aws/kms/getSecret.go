@@ -4,6 +4,9 @@
 package kms
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,4 +29,50 @@ type GetSecretResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id      string            `pulumi:"id"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
+}
+
+func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulumi.InvokeOption) GetSecretResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSecretResult, error) {
+			args := v.(GetSecretArgs)
+			r, err := GetSecret(ctx, &args, opts...)
+			return *r, err
+		}).(GetSecretResultOutput)
+}
+
+// A collection of arguments for invoking getSecret.
+type GetSecretOutputArgs struct {
+	Secrets GetSecretSecretArrayInput `pulumi:"secrets"`
+}
+
+func (GetSecretOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSecret.
+type GetSecretResultOutput struct{ *pulumi.OutputState }
+
+func (GetSecretResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretResult)(nil)).Elem()
+}
+
+func (o GetSecretResultOutput) ToGetSecretResultOutput() GetSecretResultOutput {
+	return o
+}
+
+func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Context) GetSecretResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSecretResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSecretResultOutput) Secrets() GetSecretSecretArrayOutput {
+	return o.ApplyT(func(v GetSecretResult) []GetSecretSecret { return v.Secrets }).(GetSecretSecretArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSecretResultOutput{})
 }

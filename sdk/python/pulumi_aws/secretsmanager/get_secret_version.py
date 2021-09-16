@@ -12,6 +12,7 @@ __all__ = [
     'GetSecretVersionResult',
     'AwaitableGetSecretVersionResult',
     'get_secret_version',
+    'get_secret_version_output',
 ]
 
 @pulumi.output_type
@@ -169,3 +170,40 @@ def get_secret_version(secret_id: Optional[str] = None,
         version_id=__ret__.version_id,
         version_stage=__ret__.version_stage,
         version_stages=__ret__.version_stages)
+
+
+@_utilities.lift_output_func(get_secret_version)
+def get_secret_version_output(secret_id: Optional[pulumi.Input[str]] = None,
+                              version_id: Optional[pulumi.Input[Optional[str]]] = None,
+                              version_stage: Optional[pulumi.Input[Optional[str]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretVersionResult]:
+    """
+    Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
+
+    ## Example Usage
+    ### Retrieve Current Secret Version
+
+    By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"])
+    ```
+    ### Retrieve Specific Secret Version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=data["aws_secretsmanager_secret"]["example"]["id"],
+        version_stage="example")
+    ```
+
+
+    :param str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+    :param str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
+    :param str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
+    """
+    ...

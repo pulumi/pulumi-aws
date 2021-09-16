@@ -12,6 +12,7 @@ __all__ = [
     'GetInstanceProfileResult',
     'AwaitableGetInstanceProfileResult',
     'get_instance_profile',
+    'get_instance_profile_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,26 @@ def get_instance_profile(name: Optional[str] = None,
         role_arn=__ret__.role_arn,
         role_id=__ret__.role_id,
         role_name=__ret__.role_name)
+
+
+@_utilities.lift_output_func(get_instance_profile)
+def get_instance_profile_output(name: Optional[pulumi.Input[str]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
+    """
+    This data source can be used to fetch information about a specific
+    IAM instance profile. By using this data source, you can reference IAM
+    instance profile properties without having to hard code ARNs as input.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.iam.get_instance_profile(name="an_example_instance_profile_name")
+    ```
+
+
+    :param str name: The friendly IAM instance profile name to match.
+    """
+    ...

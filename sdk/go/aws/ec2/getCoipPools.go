@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,4 +37,63 @@ type GetCoipPoolsResult struct {
 	// Set of COIP Pool Identifiers
 	PoolIds []string          `pulumi:"poolIds"`
 	Tags    map[string]string `pulumi:"tags"`
+}
+
+func GetCoipPoolsOutput(ctx *pulumi.Context, args GetCoipPoolsOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCoipPoolsResult, error) {
+			args := v.(GetCoipPoolsArgs)
+			r, err := GetCoipPools(ctx, &args, opts...)
+			return *r, err
+		}).(GetCoipPoolsResultOutput)
+}
+
+// A collection of arguments for invoking getCoipPools.
+type GetCoipPoolsOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
+	// A mapping of tags, each pair of which must exactly match
+	// a pair on the desired aws_ec2_coip_pools.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetCoipPoolsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCoipPools.
+type GetCoipPoolsResultOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolsResult)(nil)).Elem()
+}
+
+func (o GetCoipPoolsResultOutput) ToGetCoipPoolsResultOutput() GetCoipPoolsResultOutput {
+	return o
+}
+
+func (o GetCoipPoolsResultOutput) ToGetCoipPoolsResultOutputWithContext(ctx context.Context) GetCoipPoolsResultOutput {
+	return o
+}
+
+func (o GetCoipPoolsResultOutput) Filters() GetCoipPoolsFilterArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) []GetCoipPoolsFilter { return v.Filters }).(GetCoipPoolsFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Set of COIP Pool Identifiers
+func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCoipPoolsResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCoipPoolsResultOutput{})
 }

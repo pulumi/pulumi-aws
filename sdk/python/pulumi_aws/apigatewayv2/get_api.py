@@ -13,6 +13,7 @@ __all__ = [
     'GetApiResult',
     'AwaitableGetApiResult',
     'get_api',
+    'get_api_output',
 ]
 
 @pulumi.output_type
@@ -243,3 +244,26 @@ def get_api(api_id: Optional[str] = None,
         route_selection_expression=__ret__.route_selection_expression,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_api)
+def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
+                   tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
+    """
+    Provides details about a specific Amazon API Gateway Version 2 API.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.apigatewayv2.get_api(api_id="aabbccddee")
+    ```
+
+
+    :param str api_id: The API identifier.
+    :param Mapping[str, str] tags: A map of resource tags.
+    """
+    ...

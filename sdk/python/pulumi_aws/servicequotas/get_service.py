@@ -12,6 +12,7 @@ __all__ = [
     'GetServiceResult',
     'AwaitableGetServiceResult',
     'get_service',
+    'get_service_output',
 ]
 
 @pulumi.output_type
@@ -94,3 +95,26 @@ def get_service(service_name: Optional[str] = None,
         id=__ret__.id,
         service_code=__ret__.service_code,
         service_name=__ret__.service_name)
+
+
+@_utilities.lift_output_func(get_service)
+def get_service_output(service_name: Optional[pulumi.Input[str]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+    """
+    Retrieve information about a Service Quotas Service.
+
+    > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.servicequotas.get_service(service_name="Amazon Virtual Private Cloud (Amazon VPC)")
+    ```
+
+
+    :param str service_name: Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+    """
+    ...

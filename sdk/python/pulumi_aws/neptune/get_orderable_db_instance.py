@@ -12,6 +12,7 @@ __all__ = [
     'GetOrderableDbInstanceResult',
     'AwaitableGetOrderableDbInstanceResult',
     'get_orderable_db_instance',
+    'get_orderable_db_instance_output',
 ]
 
 @pulumi.output_type
@@ -344,3 +345,39 @@ def get_orderable_db_instance(engine: Optional[str] = None,
         supports_performance_insights=__ret__.supports_performance_insights,
         supports_storage_encryption=__ret__.supports_storage_encryption,
         vpc=__ret__.vpc)
+
+
+@_utilities.lift_output_func(get_orderable_db_instance)
+def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]]] = None,
+                                     engine_version: Optional[pulumi.Input[Optional[str]]] = None,
+                                     instance_class: Optional[pulumi.Input[Optional[str]]] = None,
+                                     license_model: Optional[pulumi.Input[Optional[str]]] = None,
+                                     preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                                     vpc: Optional[pulumi.Input[Optional[bool]]] = None,
+                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
+    """
+    Information about Neptune orderable DB instances.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.neptune.get_orderable_db_instance(engine_version="1.0.3.0",
+        preferred_instance_classes=[
+            "db.r5.large",
+            "db.r4.large",
+            "db.t3.medium",
+        ])
+    ```
+
+
+    :param str engine: DB engine. (Default: `neptune`)
+    :param str engine_version: Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
+    :param str instance_class: DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
+    :param str license_model: License model. (Default: `amazon-license`)
+    :param Sequence[str] preferred_instance_classes: Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param bool vpc: Enable to show only VPC offerings.
+    """
+    ...

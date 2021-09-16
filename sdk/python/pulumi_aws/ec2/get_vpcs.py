@@ -14,6 +14,7 @@ __all__ = [
     'GetVpcsResult',
     'AwaitableGetVpcsResult',
     'get_vpcs',
+    'get_vpcs_output',
 ]
 
 @pulumi.output_type
@@ -101,3 +102,20 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
         id=__ret__.id,
         ids=__ret__.ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_vpcs)
+def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]]]] = None,
+                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcsResult]:
+    """
+    This resource can be useful for getting back a list of VPC Ids for a region.
+
+    The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+
+
+    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired vpcs.
+    """
+    ...

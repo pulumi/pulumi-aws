@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,4 +76,79 @@ type GetCoipPoolResult struct {
 	PoolCidrs []string          `pulumi:"poolCidrs"`
 	PoolId    string            `pulumi:"poolId"`
 	Tags      map[string]string `pulumi:"tags"`
+}
+
+func GetCoipPoolOutput(ctx *pulumi.Context, args GetCoipPoolOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetCoipPoolResult, error) {
+			args := v.(GetCoipPoolArgs)
+			r, err := GetCoipPool(ctx, &args, opts...)
+			return *r, err
+		}).(GetCoipPoolResultOutput)
+}
+
+// A collection of arguments for invoking getCoipPool.
+type GetCoipPoolOutputArgs struct {
+	Filters GetCoipPoolFilterArrayInput `pulumi:"filters"`
+	// Local Gateway Route Table Id assigned to desired COIP Pool
+	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
+	// The id of the specific COIP Pool to retrieve.
+	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
+	// A mapping of tags, each pair of which must exactly match
+	// a pair on the desired COIP Pool.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetCoipPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCoipPool.
+type GetCoipPoolResultOutput struct{ *pulumi.OutputState }
+
+func (GetCoipPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoipPoolResult)(nil)).Elem()
+}
+
+func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutput() GetCoipPoolResultOutput {
+	return o
+}
+
+func (o GetCoipPoolResultOutput) ToGetCoipPoolResultOutputWithContext(ctx context.Context) GetCoipPoolResultOutput {
+	return o
+}
+
+// ARN of the COIP pool
+func (o GetCoipPoolResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetCoipPoolResultOutput) Filters() GetCoipPoolFilterArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) []GetCoipPoolFilter { return v.Filters }).(GetCoipPoolFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetCoipPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCoipPoolResultOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+}
+
+// Set of CIDR blocks in pool
+func (o GetCoipPoolResultOutput) PoolCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) []string { return v.PoolCidrs }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCoipPoolResultOutput) PoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+func (o GetCoipPoolResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetCoipPoolResultOutput{})
 }

@@ -4,6 +4,9 @@
 package ec2
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -149,4 +152,145 @@ type LookupSubnetResult struct {
 	State   string            `pulumi:"state"`
 	Tags    map[string]string `pulumi:"tags"`
 	VpcId   string            `pulumi:"vpcId"`
+}
+
+func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupSubnetResult, error) {
+			args := v.(LookupSubnetArgs)
+			r, err := LookupSubnet(ctx, &args, opts...)
+			return *r, err
+		}).(LookupSubnetResultOutput)
+}
+
+// A collection of arguments for invoking getSubnet.
+type LookupSubnetOutputArgs struct {
+	// Availability zone where the subnet must reside.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// ID of the Availability Zone for the subnet.
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+	// CIDR block of the desired subnet.
+	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// Whether the desired subnet must be the default subnet for its associated availability zone.
+	DefaultForAz pulumi.BoolPtrInput `pulumi:"defaultForAz"`
+	// Configuration block. Detailed below.
+	Filters GetSubnetFilterArrayInput `pulumi:"filters"`
+	// ID of the specific subnet to retrieve.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// IPv6 CIDR block of the desired subnet.
+	Ipv6CidrBlock pulumi.StringPtrInput `pulumi:"ipv6CidrBlock"`
+	// State that the desired subnet must have.
+	State pulumi.StringPtrInput `pulumi:"state"`
+	// Map of tags, each pair of which must exactly match a pair on the desired subnet.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// ID of the VPC that the desired subnet belongs to.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (LookupSubnetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubnetArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSubnet.
+type LookupSubnetResultOutput struct{ *pulumi.OutputState }
+
+func (LookupSubnetResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupSubnetResult)(nil)).Elem()
+}
+
+func (o LookupSubnetResultOutput) ToLookupSubnetResultOutput() LookupSubnetResultOutput {
+	return o
+}
+
+func (o LookupSubnetResultOutput) ToLookupSubnetResultOutputWithContext(ctx context.Context) LookupSubnetResultOutput {
+	return o
+}
+
+// ARN of the subnet.
+func (o LookupSubnetResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether an IPv6 address is assigned on creation.
+func (o LookupSubnetResultOutput) AssignIpv6AddressOnCreation() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.AssignIpv6AddressOnCreation }).(pulumi.BoolOutput)
+}
+
+func (o LookupSubnetResultOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) AvailabilityZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.AvailabilityZoneId }).(pulumi.StringOutput)
+}
+
+// Available IP addresses of the subnet.
+func (o LookupSubnetResultOutput) AvailableIpAddressCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupSubnetResult) int { return v.AvailableIpAddressCount }).(pulumi.IntOutput)
+}
+
+func (o LookupSubnetResultOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// Identifier of customer owned IPv4 address pool.
+func (o LookupSubnetResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) DefaultForAz() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultForAz }).(pulumi.BoolOutput)
+}
+
+func (o LookupSubnetResultOutput) Filters() GetSubnetFilterArrayOutput {
+	return o.ApplyT(func(v LookupSubnetResult) []GetSubnetFilter { return v.Filters }).(GetSubnetFilterArrayOutput)
+}
+
+func (o LookupSubnetResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+// Association ID of the IPv6 CIDR block.
+func (o LookupSubnetResultOutput) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringOutput)
+}
+
+// Whether customer owned IP addresses are assigned on network interface creation.
+func (o LookupSubnetResultOutput) MapCustomerOwnedIpOnLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.MapCustomerOwnedIpOnLaunch }).(pulumi.BoolOutput)
+}
+
+// Whether public IP addresses are assigned on instance launch.
+func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupSubnetResult) bool { return v.MapPublicIpOnLaunch }).(pulumi.BoolOutput)
+}
+
+// ARN of the Outpost.
+func (o LookupSubnetResultOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
+// ID of the AWS account that owns the subnet.
+func (o LookupSubnetResultOutput) OwnerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupSubnetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o LookupSubnetResultOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetResult) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupSubnetResultOutput{})
 }

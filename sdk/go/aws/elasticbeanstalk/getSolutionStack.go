@@ -4,6 +4,9 @@
 package elasticbeanstalk
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,65 @@ type GetSolutionStackResult struct {
 	// The name of the solution stack.
 	Name      string `pulumi:"name"`
 	NameRegex string `pulumi:"nameRegex"`
+}
+
+func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetSolutionStackResult, error) {
+			args := v.(GetSolutionStackArgs)
+			r, err := GetSolutionStack(ctx, &args, opts...)
+			return *r, err
+		}).(GetSolutionStackResultOutput)
+}
+
+// A collection of arguments for invoking getSolutionStack.
+type GetSolutionStackOutputArgs struct {
+	// If more than one result is returned, use the most
+	// recent solution stack.
+	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// A regex string to apply to the solution stack list returned
+	// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+	// AWS documentation for reference solution stack names.
+	NameRegex pulumi.StringInput `pulumi:"nameRegex"`
+}
+
+func (GetSolutionStackOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSolutionStackArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getSolutionStack.
+type GetSolutionStackResultOutput struct{ *pulumi.OutputState }
+
+func (GetSolutionStackResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSolutionStackResult)(nil)).Elem()
+}
+
+func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutput() GetSolutionStackResultOutput {
+	return o
+}
+
+func (o GetSolutionStackResultOutput) ToGetSolutionStackResultOutputWithContext(ctx context.Context) GetSolutionStackResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetSolutionStackResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSolutionStackResultOutput) MostRecent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the solution stack.
+func (o GetSolutionStackResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSolutionStackResultOutput) NameRegex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSolutionStackResult) string { return v.NameRegex }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetSolutionStackResultOutput{})
 }

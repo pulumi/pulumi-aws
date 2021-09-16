@@ -14,6 +14,7 @@ __all__ = [
     'GetRouteTableResult',
     'AwaitableGetRouteTableResult',
     'get_route_table',
+    'get_route_table_output',
 ]
 
 @pulumi.output_type
@@ -217,3 +218,44 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
         subnet_id=__ret__.subnet_id,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_route_table)
+def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]]]] = None,
+                           gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           subnet_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
+    """
+    `ec2.RouteTable` provides details about a specific Route Table.
+
+    This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
+
+    ## Example Usage
+
+    The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_route_table(subnet_id=subnet_id)
+    route = aws.ec2.Route("route",
+        route_table_id=selected.id,
+        destination_cidr_block="10.0.1.0/22",
+        vpc_peering_connection_id="pcx-45ff3dc1")
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: Configuration block. Detailed below.
+    :param str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param str route_table_id: ID of the specific Route Table to retrieve.
+    :param str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
+    :param str vpc_id: ID of the VPC that the desired Route Table belongs to.
+    """
+    ...

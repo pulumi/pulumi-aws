@@ -12,6 +12,7 @@ __all__ = [
     'GetPatchBaselineResult',
     'AwaitableGetPatchBaselineResult',
     'get_patch_baseline',
+    'get_patch_baseline_output',
 ]
 
 @pulumi.output_type
@@ -160,3 +161,46 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
         name_prefix=__ret__.name_prefix,
         operating_system=__ret__.operating_system,
         owner=__ret__.owner)
+
+
+@_utilities.lift_output_func(get_patch_baseline)
+def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[bool]]] = None,
+                              name_prefix: Optional[pulumi.Input[Optional[str]]] = None,
+                              operating_system: Optional[pulumi.Input[Optional[str]]] = None,
+                              owner: Optional[pulumi.Input[str]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPatchBaselineResult]:
+    """
+    Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
+
+    ## Example Usage
+
+    To retrieve a baseline provided by AWS:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    centos = aws.ssm.get_patch_baseline(name_prefix="AWS-",
+        operating_system="CENTOS",
+        owner="AWS")
+    ```
+
+    To retrieve a baseline on your account:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    default_custom = aws.ssm.get_patch_baseline(default_baseline=True,
+        name_prefix="MyCustomBaseline",
+        operating_system="WINDOWS",
+        owner="Self")
+    ```
+
+
+    :param bool default_baseline: Filters the results against the baselines default_baseline field.
+    :param str name_prefix: Filter results by the baseline name prefix.
+    :param str operating_system: The specified OS for the baseline.
+    :param str owner: The owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
+    """
+    ...

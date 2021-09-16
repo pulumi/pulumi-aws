@@ -12,6 +12,7 @@ __all__ = [
     'GetDistributionResult',
     'AwaitableGetDistributionResult',
     'get_distribution',
+    'get_distribution_output',
 ]
 
 @pulumi.output_type
@@ -189,3 +190,25 @@ def get_distribution(id: Optional[str] = None,
         last_modified_time=__ret__.last_modified_time,
         status=__ret__.status,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_distribution)
+def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
+    """
+    Use this data source to retrieve information about a CloudFront distribution.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.cloudfront.get_distribution(id="EDFDVBD632BHDS5")
+    ```
+
+
+    :param str id: The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+    """
+    ...

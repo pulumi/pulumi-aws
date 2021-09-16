@@ -4,6 +4,9 @@
 package elasticbeanstalk
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,65 @@ type LookupApplicationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
+}
+
+func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupApplicationResult, error) {
+			args := v.(LookupApplicationArgs)
+			r, err := LookupApplication(ctx, &args, opts...)
+			return *r, err
+		}).(LookupApplicationResultOutput)
+}
+
+// A collection of arguments for invoking getApplication.
+type LookupApplicationOutputArgs struct {
+	// The name of the application
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupApplicationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getApplication.
+type LookupApplicationResultOutput struct{ *pulumi.OutputState }
+
+func (LookupApplicationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupApplicationResult)(nil)).Elem()
+}
+
+func (o LookupApplicationResultOutput) ToLookupApplicationResultOutput() LookupApplicationResultOutput {
+	return o
+}
+
+func (o LookupApplicationResultOutput) ToLookupApplicationResultOutputWithContext(ctx context.Context) LookupApplicationResultOutput {
+	return o
+}
+
+func (o LookupApplicationResultOutput) AppversionLifecycle() GetApplicationAppversionLifecycleOutput {
+	return o.ApplyT(func(v LookupApplicationResult) GetApplicationAppversionLifecycle { return v.AppversionLifecycle }).(GetApplicationAppversionLifecycleOutput)
+}
+
+// The Amazon Resource Name (ARN) of the application.
+func (o LookupApplicationResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Short description of the application
+func (o LookupApplicationResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupApplicationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupApplicationResultOutput{})
 }

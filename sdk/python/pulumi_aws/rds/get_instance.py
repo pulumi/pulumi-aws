@@ -12,6 +12,7 @@ __all__ = [
     'GetInstanceResult',
     'AwaitableGetInstanceResult',
     'get_instance',
+    'get_instance_output',
 ]
 
 @pulumi.output_type
@@ -572,3 +573,25 @@ def get_instance(db_instance_identifier: Optional[str] = None,
         tags=__ret__.tags,
         timezone=__ret__.timezone,
         vpc_security_groups=__ret__.vpc_security_groups)
+
+
+@_utilities.lift_output_func(get_instance)
+def get_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+    """
+    Use this data source to get information about an RDS instance
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    database = aws.rds.get_instance(db_instance_identifier="my-test-database")
+    ```
+
+
+    :param str db_instance_identifier: The name of the RDS instance
+    """
+    ...

@@ -4,6 +4,9 @@
 package cloudfront
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -63,4 +66,79 @@ type LookupOriginRequestPolicyResult struct {
 	Name           *string                               `pulumi:"name"`
 	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
 	QueryStringsConfigs []GetOriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfigs"`
+}
+
+func LookupOriginRequestPolicyOutput(ctx *pulumi.Context, args LookupOriginRequestPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupOriginRequestPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupOriginRequestPolicyResult, error) {
+			args := v.(LookupOriginRequestPolicyArgs)
+			r, err := LookupOriginRequestPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupOriginRequestPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getOriginRequestPolicy.
+type LookupOriginRequestPolicyOutputArgs struct {
+	// The identifier for the origin request policy.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Unique name to identify the origin request policy.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (LookupOriginRequestPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOriginRequestPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getOriginRequestPolicy.
+type LookupOriginRequestPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupOriginRequestPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOriginRequestPolicyResult)(nil)).Elem()
+}
+
+func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutput() LookupOriginRequestPolicyResultOutput {
+	return o
+}
+
+func (o LookupOriginRequestPolicyResultOutput) ToLookupOriginRequestPolicyResultOutputWithContext(ctx context.Context) LookupOriginRequestPolicyResultOutput {
+	return o
+}
+
+// Comment to describe the origin request policy.
+func (o LookupOriginRequestPolicyResultOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+func (o LookupOriginRequestPolicyResultOutput) CookiesConfigs() GetOriginRequestPolicyCookiesConfigArrayOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) []GetOriginRequestPolicyCookiesConfig { return v.CookiesConfigs }).(GetOriginRequestPolicyCookiesConfigArrayOutput)
+}
+
+// The current version of the origin request policy.
+func (o LookupOriginRequestPolicyResultOutput) Etag() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
+}
+
+// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+func (o LookupOriginRequestPolicyResultOutput) HeadersConfigs() GetOriginRequestPolicyHeadersConfigArrayOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) []GetOriginRequestPolicyHeadersConfig { return v.HeadersConfigs }).(GetOriginRequestPolicyHeadersConfigArrayOutput)
+}
+
+func (o LookupOriginRequestPolicyResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOriginRequestPolicyResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+func (o LookupOriginRequestPolicyResultOutput) QueryStringsConfigs() GetOriginRequestPolicyQueryStringsConfigArrayOutput {
+	return o.ApplyT(func(v LookupOriginRequestPolicyResult) []GetOriginRequestPolicyQueryStringsConfig {
+		return v.QueryStringsConfigs
+	}).(GetOriginRequestPolicyQueryStringsConfigArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupOriginRequestPolicyResultOutput{})
 }

@@ -12,6 +12,7 @@ __all__ = [
     'GetPermissionSetResult',
     'AwaitableGetPermissionSetResult',
     'get_permission_set',
+    'get_permission_set_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,21 @@ def get_permission_set(arn: Optional[str] = None,
         relay_state=__ret__.relay_state,
         session_duration=__ret__.session_duration,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_permission_set)
+def get_permission_set_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                              instance_arn: Optional[pulumi.Input[str]] = None,
+                              name: Optional[pulumi.Input[Optional[str]]] = None,
+                              tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
+    """
+    Use this data source to get a Single Sign-On (SSO) Permission Set.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the permission set.
+    :param str instance_arn: The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+    :param str name: The name of the SSO Permission Set.
+    :param Mapping[str, str] tags: Key-value map of resource tags.
+    """
+    ...

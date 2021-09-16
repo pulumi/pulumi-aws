@@ -4,6 +4,9 @@
 package iam
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,4 +98,90 @@ type LookupPolicyResult struct {
 	PolicyId string `pulumi:"policyId"`
 	// Key-value mapping of tags for the IAM Policy.
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyResult, error) {
+			args := v.(LookupPolicyArgs)
+			r, err := LookupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getPolicy.
+type LookupPolicyOutputArgs struct {
+	// The ARN of the IAM policy.
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The name of the IAM policy.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
+	// Key-value mapping of tags for the IAM Policy.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPolicy.
+type LookupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutput() LookupPolicyResultOutput {
+	return o
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx context.Context) LookupPolicyResultOutput {
+	return o
+}
+
+func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The description of the policy.
+func (o LookupPolicyResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path to the policy.
+func (o LookupPolicyResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyResultOutput) PathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The policy document of the policy.
+func (o LookupPolicyResultOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+// The policy's ID.
+func (o LookupPolicyResultOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// Key-value mapping of tags for the IAM Policy.
+func (o LookupPolicyResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyResultOutput{})
 }

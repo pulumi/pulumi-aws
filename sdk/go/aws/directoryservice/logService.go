@@ -13,6 +13,49 @@ import (
 
 // Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/directoryservice"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+// 			RetentionInDays: pulumi.Int(14),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "ad_log_policyLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 			PolicyDocument: ad_log_policyPolicyDocument.ApplyT(func(ad_log_policyPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
+// 				return ad_log_policyPolicyDocument.Json, nil
+// 			}).(pulumi.StringOutput),
+// 			PolicyName: pulumi.String("ad-log-policy"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directoryservice.NewLogService(ctx, "exampleLogService", &directoryservice.LogServiceArgs{
+// 			DirectoryId:  pulumi.Any(aws_directory_service_directory.Example.Id),
+// 			LogGroupName: exampleLogGroup.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Directory Service Log Subscriptions can be imported using the directory id, e.g.

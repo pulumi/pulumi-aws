@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterSnapshotResult',
     'AwaitableGetClusterSnapshotResult',
     'get_cluster_snapshot',
+    'get_cluster_snapshot_output',
 ]
 
 @pulumi.output_type
@@ -348,3 +349,55 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         storage_encrypted=__ret__.storage_encrypted,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_cluster_snapshot)
+def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+                                db_cluster_snapshot_identifier: Optional[pulumi.Input[Optional[str]]] = None,
+                                include_public: Optional[pulumi.Input[Optional[bool]]] = None,
+                                include_shared: Optional[pulumi.Input[Optional[bool]]] = None,
+                                most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
+                                snapshot_type: Optional[pulumi.Input[Optional[str]]] = None,
+                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSnapshotResult]:
+    """
+    Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
+
+    > **NOTE:** This data source does not apply to snapshots created on DB Instances.
+    See the `rds.Snapshot` data source for DB Instance snapshots.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    development_final_snapshot = aws.rds.get_cluster_snapshot(db_cluster_identifier="development_cluster",
+        most_recent=True)
+    # Use the last snapshot of the dev database before it was destroyed to create
+    # a new dev database.
+    aurora_cluster = aws.rds.Cluster("auroraCluster",
+        cluster_identifier="development_cluster",
+        snapshot_identifier=development_final_snapshot.id,
+        db_subnet_group_name="my_db_subnet_group")
+    aurora_cluster_instance = aws.rds.ClusterInstance("auroraClusterInstance",
+        cluster_identifier=aurora_cluster.id,
+        instance_class="db.t2.small",
+        db_subnet_group_name="my_db_subnet_group")
+    ```
+
+
+    :param str db_cluster_identifier: Returns the list of snapshots created by the specific db_cluster
+    :param str db_cluster_snapshot_identifier: Returns information on a specific snapshot_id.
+    :param bool include_public: Set this value to true to include manual DB Cluster Snapshots that are public and can be
+           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param bool include_shared: Set this value to true to include shared manual DB Cluster Snapshots from other
+           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+           The default is `false`.
+    :param bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param str snapshot_type: The type of snapshots to be returned. If you don't specify a SnapshotType
+           value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, str] tags: A map of tags for the resource.
+    """
+    ...

@@ -14,6 +14,7 @@ __all__ = [
     'GetRouteTablesResult',
     'AwaitableGetRouteTablesResult',
     'get_route_tables',
+    'get_route_tables_output',
 ]
 
 @pulumi.output_type
@@ -112,3 +113,20 @@ def get_route_tables(filters: Optional[Sequence[pulumi.InputType['GetRouteTables
         ids=__ret__.ids,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_route_tables)
+def get_route_tables_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTablesFilterArgs']]]]] = None,
+                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                            vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablesResult]:
+    """
+    This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+
+
+    :param Sequence[pulumi.InputType['GetRouteTablesFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired route tables.
+    :param str vpc_id: The VPC ID that you want to filter from.
+    """
+    ...

@@ -4,6 +4,9 @@
 package workspaces
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,4 +98,86 @@ type GetBundleResult struct {
 	RootStorages []GetBundleRootStorage `pulumi:"rootStorages"`
 	// The user storage. See supported fields below.
 	UserStorages []GetBundleUserStorage `pulumi:"userStorages"`
+}
+
+func GetBundleOutput(ctx *pulumi.Context, args GetBundleOutputArgs, opts ...pulumi.InvokeOption) GetBundleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetBundleResult, error) {
+			args := v.(GetBundleArgs)
+			r, err := GetBundle(ctx, &args, opts...)
+			return *r, err
+		}).(GetBundleResultOutput)
+}
+
+// A collection of arguments for invoking getBundle.
+type GetBundleOutputArgs struct {
+	// The ID of the bundle.
+	BundleId pulumi.StringPtrInput `pulumi:"bundleId"`
+	// The name of the bundle. You cannot combine this parameter with `bundleId`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+	Owner pulumi.StringPtrInput `pulumi:"owner"`
+}
+
+func (GetBundleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBundleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getBundle.
+type GetBundleResultOutput struct{ *pulumi.OutputState }
+
+func (GetBundleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBundleResult)(nil)).Elem()
+}
+
+func (o GetBundleResultOutput) ToGetBundleResultOutput() GetBundleResultOutput {
+	return o
+}
+
+func (o GetBundleResultOutput) ToGetBundleResultOutputWithContext(ctx context.Context) GetBundleResultOutput {
+	return o
+}
+
+// The ID of the bundle.
+func (o GetBundleResultOutput) BundleId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleResult) *string { return v.BundleId }).(pulumi.StringPtrOutput)
+}
+
+// The compute type. See supported fields below.
+func (o GetBundleResultOutput) ComputeTypes() GetBundleComputeTypeArrayOutput {
+	return o.ApplyT(func(v GetBundleResult) []GetBundleComputeType { return v.ComputeTypes }).(GetBundleComputeTypeArrayOutput)
+}
+
+// The description of the bundle.
+func (o GetBundleResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBundleResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetBundleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBundleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the compute type.
+func (o GetBundleResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The owner of the bundle.
+func (o GetBundleResultOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetBundleResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+// The root volume. See supported fields below.
+func (o GetBundleResultOutput) RootStorages() GetBundleRootStorageArrayOutput {
+	return o.ApplyT(func(v GetBundleResult) []GetBundleRootStorage { return v.RootStorages }).(GetBundleRootStorageArrayOutput)
+}
+
+// The user storage. See supported fields below.
+func (o GetBundleResultOutput) UserStorages() GetBundleUserStorageArrayOutput {
+	return o.ApplyT(func(v GetBundleResult) []GetBundleUserStorage { return v.UserStorages }).(GetBundleUserStorageArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetBundleResultOutput{})
 }

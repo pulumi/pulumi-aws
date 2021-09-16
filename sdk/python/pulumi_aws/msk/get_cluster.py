@@ -12,6 +12,7 @@ __all__ = [
     'GetClusterResult',
     'AwaitableGetClusterResult',
     'get_cluster',
+    'get_cluster_output',
 ]
 
 @pulumi.output_type
@@ -199,3 +200,26 @@ def get_cluster(cluster_name: Optional[str] = None,
         number_of_broker_nodes=__ret__.number_of_broker_nodes,
         tags=__ret__.tags,
         zookeeper_connect_string=__ret__.zookeeper_connect_string)
+
+
+@_utilities.lift_output_func(get_cluster)
+def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+    """
+    Get information on an Amazon MSK Cluster.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_cluster(cluster_name="example")
+    ```
+
+
+    :param str cluster_name: Name of the cluster.
+    :param Mapping[str, str] tags: Map of key-value pairs assigned to the cluster.
+    """
+    ...

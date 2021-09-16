@@ -13,6 +13,7 @@ __all__ = [
     'GetImageResult',
     'AwaitableGetImageResult',
     'get_image',
+    'get_image_output',
 ]
 
 @pulumi.output_type
@@ -253,3 +254,27 @@ def get_image(arn: Optional[str] = None,
         platform=__ret__.platform,
         tags=__ret__.tags,
         version=__ret__.version)
+
+
+@_utilities.lift_output_func(get_image)
+def get_image_output(arn: Optional[pulumi.Input[str]] = None,
+                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+    """
+    Provides details about an Image Builder Image.
+
+    ## Example Usage
+    ### Latest
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.imagebuilder.get_image(arn="arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x")
+    ```
+
+
+    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the image.
+    """
+    ...

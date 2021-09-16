@@ -14,6 +14,7 @@ __all__ = [
     'GetInstanceTypeResult',
     'AwaitableGetInstanceTypeResult',
     'get_instance_type',
+    'get_instance_type_output',
 ]
 
 @pulumi.output_type
@@ -712,3 +713,60 @@ def get_instance_type(default_cores: Optional[int] = None,
         total_instance_storage=__ret__.total_instance_storage,
         valid_cores=__ret__.valid_cores,
         valid_threads_per_cores=__ret__.valid_threads_per_cores)
+
+
+@_utilities.lift_output_func(get_instance_type)
+def get_instance_type_output(default_cores: Optional[pulumi.Input[Optional[int]]] = None,
+                             default_threads_per_core: Optional[pulumi.Input[Optional[int]]] = None,
+                             fpgas: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeFpgaArgs']]]]] = None,
+                             gpuses: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeGpusArgs']]]]] = None,
+                             hypervisor: Optional[pulumi.Input[Optional[str]]] = None,
+                             inference_accelerators: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeInferenceAcceleratorArgs']]]]] = None,
+                             instance_disks: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeInstanceDiskArgs']]]]] = None,
+                             instance_type: Optional[pulumi.Input[str]] = None,
+                             maximum_ipv6_addresses_per_interface: Optional[pulumi.Input[Optional[int]]] = None,
+                             total_fpga_memory: Optional[pulumi.Input[Optional[int]]] = None,
+                             total_gpu_memory: Optional[pulumi.Input[Optional[int]]] = None,
+                             total_instance_storage: Optional[pulumi.Input[Optional[int]]] = None,
+                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeResult]:
+    """
+    Get characteristics for a single EC2 Instance Type.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ec2.get_instance_type(instance_type="t2.micro")
+    ```
+
+
+    :param int default_cores: The default number of cores for the instance type.
+    :param int default_threads_per_core: The  default  number of threads per core for the instance type.
+    :param Sequence[pulumi.InputType['GetInstanceTypeFpgaArgs']] fpgas: Describes the FPGA accelerator settings for the instance type.
+           * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
+           * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
+           * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+           * `fpgas.#.name` - The name of the FPGA accelerator.
+    :param Sequence[pulumi.InputType['GetInstanceTypeGpusArgs']] gpuses: Describes the GPU accelerators for the instance type.
+           * `gpus.#.count` - The number of GPUs for the instance type.
+           * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
+           * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+           * `gpus.#.name` - The name of the GPU accelerator.
+    :param str hypervisor: Indicates the hypervisor used for the instance type.
+           * `inference_accelerators` Describes the Inference accelerators for the instance type.
+           * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+           * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+           * `inference_accelerators.#.name` - The name of the Inference accelerator.
+    :param Sequence[pulumi.InputType['GetInstanceTypeInstanceDiskArgs']] instance_disks: Describes the disks for the instance type.
+           * `instance_disks.#.count` - The number of disks with this configuration.
+           * `instance_disks.#.size` - The size of the disk in GB.
+           * `instance_disks.#.type` - The type of disk.
+    :param str instance_type: Instance
+    :param int maximum_ipv6_addresses_per_interface: The maximum number of IPv6 addresses per network interface.
+    :param int total_fpga_memory: The total memory of all FPGA accelerators for the instance type (in MiB).
+    :param int total_gpu_memory: The total size of the memory for the GPU accelerators for the instance type (in MiB).
+    :param int total_instance_storage: The total size of the instance disks, in GB.
+    """
+    ...

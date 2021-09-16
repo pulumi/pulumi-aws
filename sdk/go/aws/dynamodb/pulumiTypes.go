@@ -1645,6 +1645,47 @@ func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableServerSideEncryptionOutput)
 }
 
+func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput {
+	return i.ToGetTableServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) GetTableServerSideEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableServerSideEncryptionOutput).ToGetTableServerSideEncryptionPtrOutputWithContext(ctx)
+}
+
+// GetTableServerSideEncryptionPtrInput is an input type that accepts GetTableServerSideEncryptionArgs, GetTableServerSideEncryptionPtr and GetTableServerSideEncryptionPtrOutput values.
+// You can construct a concrete instance of `GetTableServerSideEncryptionPtrInput` via:
+//
+//          GetTableServerSideEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type GetTableServerSideEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput
+	ToGetTableServerSideEncryptionPtrOutputWithContext(context.Context) GetTableServerSideEncryptionPtrOutput
+}
+
+type getTableServerSideEncryptionPtrType GetTableServerSideEncryptionArgs
+
+func GetTableServerSideEncryptionPtr(v *GetTableServerSideEncryptionArgs) GetTableServerSideEncryptionPtrInput {
+	return (*getTableServerSideEncryptionPtrType)(v)
+}
+
+func (*getTableServerSideEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableServerSideEncryption)(nil)).Elem()
+}
+
+func (i *getTableServerSideEncryptionPtrType) ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput {
+	return i.ToGetTableServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *getTableServerSideEncryptionPtrType) ToGetTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) GetTableServerSideEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableServerSideEncryptionPtrOutput)
+}
+
 type GetTableServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetTableServerSideEncryptionOutput) ElementType() reflect.Type {
@@ -1659,12 +1700,64 @@ func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionOutput
 	return o
 }
 
+func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput {
+	return o.ToGetTableServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) GetTableServerSideEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTableServerSideEncryption) *GetTableServerSideEncryption {
+		return &v
+	}).(GetTableServerSideEncryptionPtrOutput)
+}
+
 func (o GetTableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
 func (o GetTableServerSideEncryptionOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableServerSideEncryption) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type GetTableServerSideEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTableServerSideEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTableServerSideEncryption)(nil)).Elem()
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput {
+	return o
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) ToGetTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) GetTableServerSideEncryptionPtrOutput {
+	return o
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) Elem() GetTableServerSideEncryptionOutput {
+	return o.ApplyT(func(v *GetTableServerSideEncryption) GetTableServerSideEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret GetTableServerSideEncryption
+		return ret
+	}).(GetTableServerSideEncryptionOutput)
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTableServerSideEncryption) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTableServerSideEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetTableTtl struct {
@@ -1749,5 +1842,6 @@ func init() {
 	pulumi.RegisterOutputType(GetTableReplicaOutput{})
 	pulumi.RegisterOutputType(GetTableReplicaArrayOutput{})
 	pulumi.RegisterOutputType(GetTableServerSideEncryptionOutput{})
+	pulumi.RegisterOutputType(GetTableServerSideEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetTableTtlOutput{})
 }

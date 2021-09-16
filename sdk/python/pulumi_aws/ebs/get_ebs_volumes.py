@@ -14,6 +14,7 @@ __all__ = [
     'GetEbsVolumesResult',
     'AwaitableGetEbsVolumesResult',
     'get_ebs_volumes',
+    'get_ebs_volumes_output',
 ]
 
 @pulumi.output_type
@@ -79,7 +80,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEbsVolumesResult:
     """
-    `ebs.getEbsVolumes` provides identifying information for EBS volumes matching given criteria.
+    `ebs.get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
 
     This data source can be useful for getting a list of volume IDs with (for example) matching tags.
 
@@ -102,3 +103,20 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
         id=__ret__.id,
         ids=__ret__.ids,
         tags=__ret__.tags)
+
+
+@_utilities.lift_output_func(get_ebs_volumes)
+def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']]]]] = None,
+                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEbsVolumesResult]:
+    """
+    `ebs.get_ebs_volumes` provides identifying information for EBS volumes matching given criteria.
+
+    This data source can be useful for getting a list of volume IDs with (for example) matching tags.
+
+
+    :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
+    :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match
+           a pair on the desired volumes.
+    """
+    ...

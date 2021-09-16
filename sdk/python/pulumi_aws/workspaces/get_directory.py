@@ -13,6 +13,7 @@ __all__ = [
     'GetDirectoryResult',
     'AwaitableGetDirectoryResult',
     'get_directory',
+    'get_directory_output',
 ]
 
 @pulumi.output_type
@@ -265,3 +266,26 @@ def get_directory(directory_id: Optional[str] = None,
         workspace_access_properties=__ret__.workspace_access_properties,
         workspace_creation_properties=__ret__.workspace_creation_properties,
         workspace_security_group_id=__ret__.workspace_security_group_id)
+
+
+@_utilities.lift_output_func(get_directory)
+def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryResult]:
+    """
+    Retrieve information about an AWS WorkSpaces directory.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.workspaces.get_directory(directory_id="d-9067783251")
+    ```
+
+
+    :param str directory_id: The directory identifier for registration in WorkSpaces service.
+    :param Mapping[str, str] tags: A map of tags assigned to the WorkSpaces directory.
+    """
+    ...

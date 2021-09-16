@@ -14,6 +14,7 @@ __all__ = [
     'GetAvailabilityZoneResult',
     'AwaitableGetAvailabilityZoneResult',
     'get_availability_zone',
+    'get_availability_zone_output',
 ]
 
 @pulumi.output_type
@@ -194,7 +195,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
                           zone_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZoneResult:
     """
-    `getAvailabilityZone` provides details about a specific availability zone (AZ)
+    `get_availability_zone` provides details about a specific availability zone (AZ)
     in the current region.
 
     This can be used both to validate an availability zone given in a variable
@@ -203,7 +204,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
 
-    This is different from the `getAvailabilityZones` (plural) data source,
+    This is different from the `get_availability_zones` (plural) data source,
     which provides a list of the available zones.
 
 
@@ -240,3 +241,33 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
         state=__ret__.state,
         zone_id=__ret__.zone_id,
         zone_type=__ret__.zone_type)
+
+
+@_utilities.lift_output_func(get_availability_zone)
+def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[Optional[bool]]] = None,
+                                 filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']]]]] = None,
+                                 name: Optional[pulumi.Input[Optional[str]]] = None,
+                                 state: Optional[pulumi.Input[Optional[str]]] = None,
+                                 zone_id: Optional[pulumi.Input[Optional[str]]] = None,
+                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZoneResult]:
+    """
+    `get_availability_zone` provides details about a specific availability zone (AZ)
+    in the current region.
+
+    This can be used both to validate an availability zone given in a variable
+    and to split the AZ name into its component parts of an AWS region and an
+    AZ identifier letter. The latter may be useful e.g. for implementing a
+    consistent subnet numbering scheme across several regions by mapping both
+    the region and the subnet letter to network numbers.
+
+    This is different from the `get_availability_zones` (plural) data source,
+    which provides a list of the available zones.
+
+
+    :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+    :param Sequence[pulumi.InputType['GetAvailabilityZoneFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param str name: The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    :param str state: A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+    :param str zone_id: The zone ID of the availability zone to select.
+    """
+    ...

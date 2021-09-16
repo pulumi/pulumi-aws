@@ -12,6 +12,7 @@ __all__ = [
     'GetContainerDefinitionResult',
     'AwaitableGetContainerDefinitionResult',
     'get_container_definition',
+    'get_container_definition_output',
 ]
 
 @pulumi.output_type
@@ -198,3 +199,28 @@ def get_container_definition(container_name: Optional[str] = None,
         memory=__ret__.memory,
         memory_reservation=__ret__.memory_reservation,
         task_definition=__ret__.task_definition)
+
+
+@_utilities.lift_output_func(get_container_definition)
+def get_container_definition_output(container_name: Optional[pulumi.Input[str]] = None,
+                                    task_definition: Optional[pulumi.Input[str]] = None,
+                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerDefinitionResult]:
+    """
+    The ECS container definition data source allows access to details of
+    a specific container within an AWS ECS service.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    ecs_mongo = aws.ecs.get_container_definition(task_definition=aws_ecs_task_definition["mongo"]["id"],
+        container_name="mongodb")
+    ```
+
+
+    :param str container_name: The name of the container definition
+    :param str task_definition: The ARN of the task definition which contains the container
+    """
+    ...

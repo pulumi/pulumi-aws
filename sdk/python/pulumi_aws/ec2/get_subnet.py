@@ -14,6 +14,7 @@ __all__ = [
     'GetSubnetResult',
     'AwaitableGetSubnetResult',
     'get_subnet',
+    'get_subnet_output',
 ]
 
 @pulumi.output_type
@@ -329,3 +330,69 @@ def get_subnet(availability_zone: Optional[str] = None,
         state=__ret__.state,
         tags=__ret__.tags,
         vpc_id=__ret__.vpc_id)
+
+
+@_utilities.lift_output_func(get_subnet)
+def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
+                      availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
+                      cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                      default_for_az: Optional[pulumi.Input[Optional[bool]]] = None,
+                      filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetFilterArgs']]]]] = None,
+                      id: Optional[pulumi.Input[Optional[str]]] = None,
+                      ipv6_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
+                      state: Optional[pulumi.Input[Optional[str]]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                      vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetResult]:
+    """
+    `ec2.Subnet` provides details about a specific VPC subnet.
+
+    This resource can prove useful when a module accepts a subnet ID as an input variable and needs to, for example, determine the ID of the VPC that the subnet belongs to.
+
+    ## Example Usage
+
+    The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    config = pulumi.Config()
+    subnet_id = config.require_object("subnetId")
+    selected = aws.ec2.get_subnet(id=subnet_id)
+    subnet = aws.ec2.SecurityGroup("subnet",
+        vpc_id=selected.vpc_id,
+        ingress=[aws.ec2.SecurityGroupIngressArgs(
+            cidr_blocks=[selected.cidr_block],
+            from_port=80,
+            to_port=80,
+            protocol="tcp",
+        )])
+    ```
+    ### Filter Example
+
+    If you want to match against tag `Name`, use:
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+        name="tag:Name",
+        values=["yakdriver"],
+    )])
+    ```
+
+
+    :param str availability_zone: Availability zone where the subnet must reside.
+    :param str availability_zone_id: ID of the Availability Zone for the subnet.
+    :param str cidr_block: CIDR block of the desired subnet.
+    :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param str id: ID of the specific subnet to retrieve.
+    :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param str state: State that the desired subnet must have.
+    :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
+    :param str vpc_id: ID of the VPC that the desired subnet belongs to.
+    """
+    ...

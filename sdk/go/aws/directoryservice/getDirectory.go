@@ -4,6 +4,9 @@
 package directoryservice
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,121 @@ type LookupDirectoryResult struct {
 	// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
 	Type        string                   `pulumi:"type"`
 	VpcSettings []GetDirectoryVpcSetting `pulumi:"vpcSettings"`
+}
+
+func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupDirectoryResult, error) {
+			args := v.(LookupDirectoryArgs)
+			r, err := LookupDirectory(ctx, &args, opts...)
+			return *r, err
+		}).(LookupDirectoryResultOutput)
+}
+
+// A collection of arguments for invoking getDirectory.
+type LookupDirectoryOutputArgs struct {
+	// The ID of the directory.
+	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+	// A map of tags assigned to the directory/connector.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupDirectoryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDirectoryArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getDirectory.
+type LookupDirectoryResultOutput struct{ *pulumi.OutputState }
+
+func (LookupDirectoryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupDirectoryResult)(nil)).Elem()
+}
+
+func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutput() LookupDirectoryResultOutput {
+	return o
+}
+
+func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ctx context.Context) LookupDirectoryResultOutput {
+	return o
+}
+
+// The access URL for the directory/connector, such as http://alias.awsapps.com.
+func (o LookupDirectoryResultOutput) AccessUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.AccessUrl }).(pulumi.StringOutput)
+}
+
+// The alias for the directory/connector, such as `d-991708b282.awsapps.com`.
+func (o LookupDirectoryResultOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) ConnectSettings() GetDirectoryConnectSettingArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryConnectSetting { return v.ConnectSettings }).(GetDirectoryConnectSettingArrayOutput)
+}
+
+// A textual description for the directory/connector.
+func (o LookupDirectoryResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) DirectoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.DirectoryId }).(pulumi.StringOutput)
+}
+
+// A list of IP addresses of the DNS servers for the directory/connector.
+func (o LookupDirectoryResultOutput) DnsIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []string { return v.DnsIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// (for `MicrosoftAD`) The Microsoft AD edition (`Standard` or `Enterprise`).
+func (o LookupDirectoryResultOutput) Edition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Edition }).(pulumi.StringOutput)
+}
+
+// The directory/connector single-sign on status.
+func (o LookupDirectoryResultOutput) EnableSso() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) bool { return v.EnableSso }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupDirectoryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The fully qualified name for the directory/connector.
+func (o LookupDirectoryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the security group created by the directory/connector.
+func (o LookupDirectoryResultOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The short name of the directory/connector, such as `CORP`.
+func (o LookupDirectoryResultOutput) ShortName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.ShortName }).(pulumi.StringOutput)
+}
+
+// (for `SimpleAD` and `ADConnector`) The size of the directory/connector (`Small` or `Large`).
+func (o LookupDirectoryResultOutput) Size() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Size }).(pulumi.StringOutput)
+}
+
+// A map of tags assigned to the directory/connector.
+func (o LookupDirectoryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The directory type (`SimpleAD`, `ADConnector` or `MicrosoftAD`).
+func (o LookupDirectoryResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o LookupDirectoryResultOutput) VpcSettings() GetDirectoryVpcSettingArrayOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryVpcSetting { return v.VpcSettings }).(GetDirectoryVpcSettingArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupDirectoryResultOutput{})
 }

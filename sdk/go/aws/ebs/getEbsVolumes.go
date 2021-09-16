@@ -4,6 +4,9 @@
 package ebs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,4 +40,64 @@ type GetEbsVolumesResult struct {
 	// no volumes match the provided criteria.
 	Ids  []string          `pulumi:"ids"`
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts ...pulumi.InvokeOption) GetEbsVolumesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetEbsVolumesResult, error) {
+			args := v.(GetEbsVolumesArgs)
+			r, err := GetEbsVolumes(ctx, &args, opts...)
+			return *r, err
+		}).(GetEbsVolumesResultOutput)
+}
+
+// A collection of arguments for invoking getEbsVolumes.
+type GetEbsVolumesOutputArgs struct {
+	// Custom filter block as described below.
+	Filters GetEbsVolumesFilterArrayInput `pulumi:"filters"`
+	// A map of tags, each pair of which must exactly match
+	// a pair on the desired volumes.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetEbsVolumesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEbsVolumesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getEbsVolumes.
+type GetEbsVolumesResultOutput struct{ *pulumi.OutputState }
+
+func (GetEbsVolumesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEbsVolumesResult)(nil)).Elem()
+}
+
+func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutput() GetEbsVolumesResultOutput {
+	return o
+}
+
+func (o GetEbsVolumesResultOutput) ToGetEbsVolumesResultOutputWithContext(ctx context.Context) GetEbsVolumesResultOutput {
+	return o
+}
+
+func (o GetEbsVolumesResultOutput) Filters() GetEbsVolumesFilterArrayOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) []GetEbsVolumesFilter { return v.Filters }).(GetEbsVolumesFilterArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetEbsVolumesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A set of all the EBS Volume IDs found. This data source will fail if
+// no volumes match the provided criteria.
+func (o GetEbsVolumesResultOutput) Ids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEbsVolumesResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetEbsVolumesResultOutput{})
 }

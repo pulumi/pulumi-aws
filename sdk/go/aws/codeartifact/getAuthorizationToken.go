@@ -4,6 +4,9 @@
 package codeartifact
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -61,4 +64,73 @@ type GetAuthorizationTokenResult struct {
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+}
+
+func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAuthorizationTokenResult, error) {
+			args := v.(GetAuthorizationTokenArgs)
+			r, err := GetAuthorizationToken(ctx, &args, opts...)
+			return *r, err
+		}).(GetAuthorizationTokenResultOutput)
+}
+
+// A collection of arguments for invoking getAuthorizationToken.
+type GetAuthorizationTokenOutputArgs struct {
+	// The name of the domain that is in scope for the generated authorization token.
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The account number of the AWS account that owns the domain.
+	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
+	// The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+}
+
+func (GetAuthorizationTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthorizationTokenArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAuthorizationToken.
+type GetAuthorizationTokenResultOutput struct{ *pulumi.OutputState }
+
+func (GetAuthorizationTokenResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthorizationTokenResult)(nil)).Elem()
+}
+
+func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutput() GetAuthorizationTokenResultOutput {
+	return o
+}
+
+func (o GetAuthorizationTokenResultOutput) ToGetAuthorizationTokenResultOutputWithContext(ctx context.Context) GetAuthorizationTokenResultOutput {
+	return o
+}
+
+// Temporary authorization token.
+func (o GetAuthorizationTokenResultOutput) AuthorizationToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.AuthorizationToken }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) DomainOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.DomainOwner }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) DurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The time in UTC RFC3339 format when the authorization token expires.
+func (o GetAuthorizationTokenResultOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAuthorizationTokenResultOutput{})
 }

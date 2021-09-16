@@ -14,6 +14,7 @@ __all__ = [
     'GetLocalGatewayVirtualInterfaceResult',
     'AwaitableGetLocalGatewayVirtualInterfaceResult',
     'get_local_gateway_virtual_interface',
+    'get_local_gateway_virtual_interface_output',
 ]
 
 @pulumi.output_type
@@ -182,3 +183,28 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[pulumi.InputT
         peer_bgp_asn=__ret__.peer_bgp_asn,
         tags=__ret__.tags,
         vlan=__ret__.vlan)
+
+
+@_utilities.lift_output_func(get_local_gateway_virtual_interface)
+def get_local_gateway_virtual_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']]]]] = None,
+                                               id: Optional[pulumi.Input[Optional[str]]] = None,
+                                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayVirtualInterfaceResult]:
+    """
+    Provides details about an EC2 Local Gateway Virtual Interface. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = [aws.ec2.get_local_gateway_virtual_interface(id=__value) for __key, __value in data["aws_ec2_local_gateway_virtual_interface_group"]["example"]["local_gateway_virtual_interface_ids"]]
+    ```
+
+
+    :param Sequence[pulumi.InputType['GetLocalGatewayVirtualInterfaceFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+    :param str id: Identifier of EC2 Local Gateway Virtual Interface.
+    :param Mapping[str, str] tags: Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+    """
+    ...

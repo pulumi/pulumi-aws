@@ -12,6 +12,7 @@ __all__ = [
     'GetUserResult',
     'AwaitableGetUserResult',
     'get_user',
+    'get_user_output',
 ]
 
 @pulumi.output_type
@@ -150,3 +151,31 @@ def get_user(access_string: Optional[str] = None,
         passwords=__ret__.passwords,
         user_id=__ret__.user_id,
         user_name=__ret__.user_name)
+
+
+@_utilities.lift_output_func(get_user)
+def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
+                    engine: Optional[pulumi.Input[Optional[str]]] = None,
+                    no_password_required: Optional[pulumi.Input[Optional[bool]]] = None,
+                    passwords: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                    user_id: Optional[pulumi.Input[str]] = None,
+                    user_name: Optional[pulumi.Input[Optional[str]]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+    """
+    Use this data source to get information about an Elasticache User.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    bar = aws.elasticache.get_user(user_id="example")
+    ```
+
+
+    :param str access_string: A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+    :param str user_id: The identifier for the user.
+    :param str user_name: The user name of the user.
+    """
+    ...

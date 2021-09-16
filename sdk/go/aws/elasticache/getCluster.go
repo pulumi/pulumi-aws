@@ -4,6 +4,9 @@
 package elasticache
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -98,4 +101,158 @@ type LookupClusterResult struct {
 	SubnetGroupName string `pulumi:"subnetGroupName"`
 	// The tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
+}
+
+func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupClusterResult, error) {
+			args := v.(LookupClusterArgs)
+			r, err := LookupCluster(ctx, &args, opts...)
+			return *r, err
+		}).(LookupClusterResultOutput)
+}
+
+// A collection of arguments for invoking getCluster.
+type LookupClusterOutputArgs struct {
+	// Group identifier.
+	ClusterId pulumi.StringInput `pulumi:"clusterId"`
+	// The tags assigned to the resource
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (LookupClusterOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCluster.
+type LookupClusterResultOutput struct{ *pulumi.OutputState }
+
+func (LookupClusterResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupClusterResult)(nil)).Elem()
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
+	return o
+}
+
+func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The Availability Zone for the cache cluster.
+func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+// List of node objects including `id`, `address`, `port` and `availabilityZone`.
+// Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+func (o LookupClusterResultOutput) CacheNodes() GetClusterCacheNodeArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterCacheNode { return v.CacheNodes }).(GetClusterCacheNodeArrayOutput)
+}
+
+// (Memcached only) The DNS name of the cache cluster without the port appended.
+func (o LookupClusterResultOutput) ClusterAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) ClusterId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterId }).(pulumi.StringOutput)
+}
+
+// (Memcached only) The configuration endpoint to allow host discovery.
+func (o LookupClusterResultOutput) ConfigurationEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ConfigurationEndpoint }).(pulumi.StringOutput)
+}
+
+// Name of the cache engine.
+func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Version number of the cache engine.
+func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the weekly time range for when maintenance
+// on the cache cluster is performed.
+func (o LookupClusterResultOutput) MaintenanceWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceWindow }).(pulumi.StringOutput)
+}
+
+// The cluster node type.
+func (o LookupClusterResultOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+// An Amazon Resource Name (ARN) of an
+// SNS topic that ElastiCache notifications get sent to.
+func (o LookupClusterResultOutput) NotificationTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.NotificationTopicArn }).(pulumi.StringOutput)
+}
+
+// The number of cache nodes that the cache cluster has.
+func (o LookupClusterResultOutput) NumCacheNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.NumCacheNodes }).(pulumi.IntOutput)
+}
+
+// Name of the parameter group associated with this cache cluster.
+func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ParameterGroupName }).(pulumi.StringOutput)
+}
+
+// The port number on which each of the cache nodes will
+// accept connections.
+func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The replication group to which this cache cluster belongs.
+func (o LookupClusterResultOutput) ReplicationGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ReplicationGroupId }).(pulumi.StringOutput)
+}
+
+// List VPC security groups associated with the cache cluster.
+func (o LookupClusterResultOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// List of security group names associated with this cache cluster.
+func (o LookupClusterResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
+}
+
+// The number of days for which ElastiCache will
+// retain automatic cache cluster snapshots before deleting them.
+func (o LookupClusterResultOutput) SnapshotRetentionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
+}
+
+// The daily time range (in UTC) during which ElastiCache will
+// begin taking a daily snapshot of the cache cluster.
+func (o LookupClusterResultOutput) SnapshotWindow() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.SnapshotWindow }).(pulumi.StringOutput)
+}
+
+// Name of the subnet group associated to the cache cluster.
+func (o LookupClusterResultOutput) SubnetGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.SubnetGroupName }).(pulumi.StringOutput)
+}
+
+// The tags assigned to the resource
+func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupClusterResultOutput{})
 }
