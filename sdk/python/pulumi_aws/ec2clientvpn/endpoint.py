@@ -21,6 +21,7 @@ class EndpointArgs:
                  server_certificate_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_portal: Optional[pulumi.Input[str]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_protocol: Optional[pulumi.Input[str]] = None):
@@ -32,6 +33,7 @@ class EndpointArgs:
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[str] description: Name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
         """
@@ -43,6 +45,8 @@ class EndpointArgs:
             pulumi.set(__self__, "description", description)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if self_service_portal is not None:
+            pulumi.set(__self__, "self_service_portal", self_service_portal)
         if split_tunnel is not None:
             pulumi.set(__self__, "split_tunnel", split_tunnel)
         if tags is not None:
@@ -123,6 +127,18 @@ class EndpointArgs:
         pulumi.set(self, "dns_servers", value)
 
     @property
+    @pulumi.getter(name="selfServicePortal")
+    def self_service_portal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        """
+        return pulumi.get(self, "self_service_portal")
+
+    @self_service_portal.setter
+    def self_service_portal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_portal", value)
+
+    @property
     @pulumi.getter(name="splitTunnel")
     def split_tunnel(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -166,6 +182,7 @@ class _EndpointState:
                  description: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_portal: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -181,6 +198,7 @@ class _EndpointState:
         :param pulumi.Input[str] description: Name of the repository.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[str] status: The current state of the Client VPN endpoint.
@@ -200,6 +218,8 @@ class _EndpointState:
             pulumi.set(__self__, "dns_name", dns_name)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
+        if self_service_portal is not None:
+            pulumi.set(__self__, "self_service_portal", self_service_portal)
         if server_certificate_arn is not None:
             pulumi.set(__self__, "server_certificate_arn", server_certificate_arn)
         if split_tunnel is not None:
@@ -298,6 +318,18 @@ class _EndpointState:
         pulumi.set(self, "dns_servers", value)
 
     @property
+    @pulumi.getter(name="selfServicePortal")
+    def self_service_portal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        """
+        return pulumi.get(self, "self_service_portal")
+
+    @self_service_portal.setter
+    def self_service_portal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_portal", value)
+
+    @property
     @pulumi.getter(name="serverCertificateArn")
     def server_certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -374,6 +406,7 @@ class Endpoint(pulumi.CustomResource):
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['EndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_portal: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -419,6 +452,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointConnectionLogOptionsArgs']] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] description: Name of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[str] transport_protocol: The transport protocol to be used by the VPN session. Default value is `udp`.
@@ -482,6 +516,7 @@ class Endpoint(pulumi.CustomResource):
                  connection_log_options: Optional[pulumi.Input[pulumi.InputType['EndpointConnectionLogOptionsArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 self_service_portal: Optional[pulumi.Input[str]] = None,
                  server_certificate_arn: Optional[pulumi.Input[str]] = None,
                  split_tunnel: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -509,6 +544,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["connection_log_options"] = connection_log_options
             __props__.__dict__["description"] = description
             __props__.__dict__["dns_servers"] = dns_servers
+            __props__.__dict__["self_service_portal"] = self_service_portal
             if server_certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'server_certificate_arn'")
             __props__.__dict__["server_certificate_arn"] = server_certificate_arn
@@ -536,6 +572,7 @@ class Endpoint(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            self_service_portal: Optional[pulumi.Input[str]] = None,
             server_certificate_arn: Optional[pulumi.Input[str]] = None,
             split_tunnel: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -556,6 +593,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] description: Name of the repository.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
+        :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
         :param pulumi.Input[str] status: The current state of the Client VPN endpoint.
@@ -572,6 +610,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["dns_servers"] = dns_servers
+        __props__.__dict__["self_service_portal"] = self_service_portal
         __props__.__dict__["server_certificate_arn"] = server_certificate_arn
         __props__.__dict__["split_tunnel"] = split_tunnel
         __props__.__dict__["status"] = status
@@ -635,6 +674,14 @@ class Endpoint(pulumi.CustomResource):
         Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="selfServicePortal")
+    def self_service_portal(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        """
+        return pulumi.get(self, "self_service_portal")
 
     @property
     @pulumi.getter(name="serverCertificateArn")

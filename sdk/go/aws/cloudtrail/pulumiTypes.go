@@ -10,6 +10,263 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type TrailAdvancedEventSelector struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
+	FieldSelectors []TrailAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
+	// Specifies the name of the advanced event selector.
+	Name *string `pulumi:"name"`
+}
+
+// TrailAdvancedEventSelectorInput is an input type that accepts TrailAdvancedEventSelectorArgs and TrailAdvancedEventSelectorOutput values.
+// You can construct a concrete instance of `TrailAdvancedEventSelectorInput` via:
+//
+//          TrailAdvancedEventSelectorArgs{...}
+type TrailAdvancedEventSelectorInput interface {
+	pulumi.Input
+
+	ToTrailAdvancedEventSelectorOutput() TrailAdvancedEventSelectorOutput
+	ToTrailAdvancedEventSelectorOutputWithContext(context.Context) TrailAdvancedEventSelectorOutput
+}
+
+type TrailAdvancedEventSelectorArgs struct {
+	// Specifies the selector statements in an advanced event selector. Fields documented below.
+	FieldSelectors TrailAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
+	// Specifies the name of the advanced event selector.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TrailAdvancedEventSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TrailAdvancedEventSelectorArgs) ToTrailAdvancedEventSelectorOutput() TrailAdvancedEventSelectorOutput {
+	return i.ToTrailAdvancedEventSelectorOutputWithContext(context.Background())
+}
+
+func (i TrailAdvancedEventSelectorArgs) ToTrailAdvancedEventSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorOutput)
+}
+
+// TrailAdvancedEventSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorArray and TrailAdvancedEventSelectorArrayOutput values.
+// You can construct a concrete instance of `TrailAdvancedEventSelectorArrayInput` via:
+//
+//          TrailAdvancedEventSelectorArray{ TrailAdvancedEventSelectorArgs{...} }
+type TrailAdvancedEventSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTrailAdvancedEventSelectorArrayOutput() TrailAdvancedEventSelectorArrayOutput
+	ToTrailAdvancedEventSelectorArrayOutputWithContext(context.Context) TrailAdvancedEventSelectorArrayOutput
+}
+
+type TrailAdvancedEventSelectorArray []TrailAdvancedEventSelectorInput
+
+func (TrailAdvancedEventSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TrailAdvancedEventSelectorArray) ToTrailAdvancedEventSelectorArrayOutput() TrailAdvancedEventSelectorArrayOutput {
+	return i.ToTrailAdvancedEventSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TrailAdvancedEventSelectorArray) ToTrailAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorArrayOutput)
+}
+
+type TrailAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
+
+func (TrailAdvancedEventSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TrailAdvancedEventSelectorOutput) ToTrailAdvancedEventSelectorOutput() TrailAdvancedEventSelectorOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorOutput) ToTrailAdvancedEventSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorOutput {
+	return o
+}
+
+// Specifies the selector statements in an advanced event selector. Fields documented below.
+func (o TrailAdvancedEventSelectorOutput) FieldSelectors() TrailAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelector) []TrailAdvancedEventSelectorFieldSelector { return v.FieldSelectors }).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+// Specifies the name of the advanced event selector.
+func (o TrailAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelector) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type TrailAdvancedEventSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailAdvancedEventSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TrailAdvancedEventSelectorArrayOutput) ToTrailAdvancedEventSelectorArrayOutput() TrailAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorArrayOutput) ToTrailAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdvancedEventSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailAdvancedEventSelector {
+		return vs[0].([]TrailAdvancedEventSelector)[vs[1].(int)]
+	}).(TrailAdvancedEventSelectorOutput)
+}
+
+type TrailAdvancedEventSelectorFieldSelector struct {
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths []string `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals []string `pulumi:"equals"`
+	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field string `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths []string `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals []string `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+	NotStartsWiths []string `pulumi:"notStartsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths []string `pulumi:"startsWiths"`
+}
+
+// TrailAdvancedEventSelectorFieldSelectorInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArgs and TrailAdvancedEventSelectorFieldSelectorOutput values.
+// You can construct a concrete instance of `TrailAdvancedEventSelectorFieldSelectorInput` via:
+//
+//          TrailAdvancedEventSelectorFieldSelectorArgs{...}
+type TrailAdvancedEventSelectorFieldSelectorInput interface {
+	pulumi.Input
+
+	ToTrailAdvancedEventSelectorFieldSelectorOutput() TrailAdvancedEventSelectorFieldSelectorOutput
+	ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(context.Context) TrailAdvancedEventSelectorFieldSelectorOutput
+}
+
+type TrailAdvancedEventSelectorFieldSelectorArgs struct {
+	// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
+	// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+	Field pulumi.StringInput `pulumi:"field"`
+	// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
+	// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+	NotStartsWiths pulumi.StringArrayInput `pulumi:"notStartsWiths"`
+	// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+	StartsWiths pulumi.StringArrayInput `pulumi:"startsWiths"`
+}
+
+func (TrailAdvancedEventSelectorFieldSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TrailAdvancedEventSelectorFieldSelectorArgs) ToTrailAdvancedEventSelectorFieldSelectorOutput() TrailAdvancedEventSelectorFieldSelectorOutput {
+	return i.ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(context.Background())
+}
+
+func (i TrailAdvancedEventSelectorFieldSelectorArgs) ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorFieldSelectorOutput)
+}
+
+// TrailAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts TrailAdvancedEventSelectorFieldSelectorArray and TrailAdvancedEventSelectorFieldSelectorArrayOutput values.
+// You can construct a concrete instance of `TrailAdvancedEventSelectorFieldSelectorArrayInput` via:
+//
+//          TrailAdvancedEventSelectorFieldSelectorArray{ TrailAdvancedEventSelectorFieldSelectorArgs{...} }
+type TrailAdvancedEventSelectorFieldSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTrailAdvancedEventSelectorFieldSelectorArrayOutput() TrailAdvancedEventSelectorFieldSelectorArrayOutput
+	ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Context) TrailAdvancedEventSelectorFieldSelectorArrayOutput
+}
+
+type TrailAdvancedEventSelectorFieldSelectorArray []TrailAdvancedEventSelectorFieldSelectorInput
+
+func (TrailAdvancedEventSelectorFieldSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TrailAdvancedEventSelectorFieldSelectorArray) ToTrailAdvancedEventSelectorFieldSelectorArrayOutput() TrailAdvancedEventSelectorFieldSelectorArrayOutput {
+	return i.ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TrailAdvancedEventSelectorFieldSelectorArray) ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+type TrailAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
+
+func (TrailAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToTrailAdvancedEventSelectorFieldSelectorOutput() TrailAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) ToTrailAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+// A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) EndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.EndsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.Equals }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) string { return v.Field }).(pulumi.StringOutput)
+}
+
+// A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotEndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotEndsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) NotStartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.NotStartsWiths }).(pulumi.StringArrayOutput)
+}
+
+// A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+func (o TrailAdvancedEventSelectorFieldSelectorOutput) StartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailAdvancedEventSelectorFieldSelector) []string { return v.StartsWiths }).(pulumi.StringArrayOutput)
+}
+
+type TrailAdvancedEventSelectorFieldSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailAdvancedEventSelectorFieldSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) ToTrailAdvancedEventSelectorFieldSelectorArrayOutput() TrailAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) ToTrailAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TrailAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) TrailAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailAdvancedEventSelectorFieldSelector {
+		return vs[0].([]TrailAdvancedEventSelectorFieldSelector)[vs[1].(int)]
+	}).(TrailAdvancedEventSelectorFieldSelectorOutput)
+}
+
 type TrailEventSelector struct {
 	// Configuration block for data events. See details below.
 	DataResources []TrailEventSelectorDataResource `pulumi:"dataResources"`
@@ -329,6 +586,10 @@ func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSe
 }
 
 func init() {
+	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})
+	pulumi.RegisterOutputType(TrailAdvancedEventSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TrailAdvancedEventSelectorFieldSelectorOutput{})
+	pulumi.RegisterOutputType(TrailAdvancedEventSelectorFieldSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailEventSelectorDataResourceOutput{})

@@ -267,6 +267,8 @@ class WebAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        This example blocks requests coming from `192.0.7.0/24` and allows everything else.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,6 +354,8 @@ class WebAcl(pulumi.CustomResource):
         Provides a WAF Web ACL Resource
 
         ## Example Usage
+
+        This example blocks requests coming from `192.0.7.0/24` and allows everything else.
 
         ```python
         import pulumi

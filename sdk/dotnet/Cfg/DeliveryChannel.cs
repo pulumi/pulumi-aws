@@ -119,6 +119,12 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> S3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        /// </summary>
+        [Output("s3KmsKeyArn")]
+        public Output<string?> S3KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// Options for how AWS Config delivers configuration snapshots. See below
         /// </summary>
         [Output("snapshotDeliveryProperties")]
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? S3KeyPrefix { get; set; }
 
         /// <summary>
+        /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        /// </summary>
+        [Input("s3KmsKeyArn")]
+        public Input<string>? S3KmsKeyArn { get; set; }
+
+        /// <summary>
         /// Options for how AWS Config delivers configuration snapshots. See below
         /// </summary>
         [Input("snapshotDeliveryProperties")]
@@ -230,6 +242,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
+
+        /// <summary>
+        /// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        /// </summary>
+        [Input("s3KmsKeyArn")]
+        public Input<string>? S3KmsKeyArn { get; set; }
 
         /// <summary>
         /// Options for how AWS Config delivers configuration snapshots. See below

@@ -402,7 +402,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly loadBalancers!: pulumi.Output<string[] | undefined>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      */
     public readonly maxInstanceLifetime!: pulumi.Output<number | undefined>;
     /**
@@ -425,7 +425,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly minSize!: pulumi.Output<number>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      */
     public readonly mixedInstancesPolicy!: pulumi.Output<outputs.autoscaling.GroupMixedInstancesPolicy | undefined>;
     /**
@@ -674,7 +674,7 @@ export interface GroupState {
      */
     loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      */
     maxInstanceLifetime?: pulumi.Input<number>;
     /**
@@ -697,7 +697,7 @@ export interface GroupState {
      */
     minSize?: pulumi.Input<number>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      */
     mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicy>;
     /**
@@ -844,7 +844,7 @@ export interface GroupArgs {
      */
     loadBalancers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+     * The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
      */
     maxInstanceLifetime?: pulumi.Input<number>;
     /**
@@ -867,7 +867,7 @@ export interface GroupArgs {
      */
     minSize: pulumi.Input<number>;
     /**
-     * Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+     * Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
      */
     mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.GroupMixedInstancesPolicy>;
     /**

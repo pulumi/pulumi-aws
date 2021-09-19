@@ -483,7 +483,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
                  runtime_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  start_command: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] runtime: A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+        :param pulumi.Input[str] runtime: A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
         :param pulumi.Input[str] build_command: The command App Runner runs to build your application.
         :param pulumi.Input[str] port: The port that your application listens to in the container. Defaults to `"8080"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] runtime_environment_variables: Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
@@ -503,7 +503,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
     @pulumi.getter
     def runtime(self) -> pulumi.Input[str]:
         """
-        A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+        A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
         """
         return pulumi.get(self, "runtime")
 

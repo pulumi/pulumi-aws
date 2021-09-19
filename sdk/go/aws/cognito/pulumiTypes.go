@@ -2182,7 +2182,7 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 }
 
 type UserPoolLambdaConfigCustomEmailSender struct {
-	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion string `pulumi:"lambdaVersion"`
@@ -2200,7 +2200,7 @@ type UserPoolLambdaConfigCustomEmailSenderInput interface {
 }
 
 type UserPoolLambdaConfigCustomEmailSenderArgs struct {
-	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
@@ -2283,7 +2283,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCusto
 	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
 }
 
-// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -2317,7 +2317,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) Elem() UserPoolLambdaCon
 	}).(UserPoolLambdaConfigCustomEmailSenderOutput)
 }
 
-// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
 		if v == nil {
@@ -2338,7 +2338,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaVersion() pulumi.S
 }
 
 type UserPoolLambdaConfigCustomSmsSender struct {
-	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion string `pulumi:"lambdaVersion"`
@@ -2356,7 +2356,7 @@ type UserPoolLambdaConfigCustomSmsSenderInput interface {
 }
 
 type UserPoolLambdaConfigCustomSmsSenderArgs struct {
-	// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
@@ -2439,7 +2439,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomS
 	}).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
 }
 
-// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomSmsSenderOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -2473,7 +2473,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) Elem() UserPoolLambdaConfi
 	}).(UserPoolLambdaConfigCustomSmsSenderOutput)
 }
 
-// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) *string {
 		if v == nil {

@@ -356,7 +356,7 @@ namespace Pulumi.Aws.Iam
         /// Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.

@@ -5,12 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./access";
 export * from "./getServer";
 export * from "./server";
 export * from "./sshKey";
 export * from "./user";
 
 // Import resources to register:
+import { Access } from "./access";
 import { Server } from "./server";
 import { SshKey } from "./sshKey";
 import { User } from "./user";
@@ -19,6 +21,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:transfer/access:Access":
+                return new Access(name, <any>undefined, { urn })
             case "aws:transfer/server:Server":
                 return new Server(name, <any>undefined, { urn })
             case "aws:transfer/sshKey:SshKey":
@@ -30,6 +34,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "transfer/access", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/server", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/user", _module)

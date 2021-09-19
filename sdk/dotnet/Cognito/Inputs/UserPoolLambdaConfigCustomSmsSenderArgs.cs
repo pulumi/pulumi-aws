@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolLambdaConfigCustomSmsSenderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;

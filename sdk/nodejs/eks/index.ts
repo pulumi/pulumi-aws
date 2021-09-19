@@ -11,6 +11,9 @@ export * from "./fargateProfile";
 export * from "./getAddon";
 export * from "./getCluster";
 export * from "./getClusterAuth";
+export * from "./getClusters";
+export * from "./getNodeGroup";
+export * from "./getNodeGroups";
 export * from "./identityProviderConfig";
 export * from "./nodeGroup";
 

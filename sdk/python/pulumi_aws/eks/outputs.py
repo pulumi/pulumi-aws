@@ -31,6 +31,10 @@ __all__ = [
     'GetClusterIdentityOidcResult',
     'GetClusterKubernetesNetworkConfigResult',
     'GetClusterVpcConfigResult',
+    'GetNodeGroupRemoteAccessResult',
+    'GetNodeGroupResourceResult',
+    'GetNodeGroupResourceAutoscalingGroupResult',
+    'GetNodeGroupScalingConfigResult',
 ]
 
 @pulumi.output_type
@@ -937,5 +941,121 @@ class GetClusterVpcConfigResult(dict):
         The VPC associated with your cluster.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetNodeGroupRemoteAccessResult(dict):
+    def __init__(__self__, *,
+                 ec2_ssh_key: str,
+                 source_security_group_ids: Sequence[str]):
+        """
+        :param str ec2_ssh_key: EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+        :param Sequence[str] source_security_group_ids: Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+        """
+        pulumi.set(__self__, "ec2_ssh_key", ec2_ssh_key)
+        pulumi.set(__self__, "source_security_group_ids", source_security_group_ids)
+
+    @property
+    @pulumi.getter(name="ec2SshKey")
+    def ec2_ssh_key(self) -> str:
+        """
+        EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+        """
+        return pulumi.get(self, "ec2_ssh_key")
+
+    @property
+    @pulumi.getter(name="sourceSecurityGroupIds")
+    def source_security_group_ids(self) -> Sequence[str]:
+        """
+        Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+        """
+        return pulumi.get(self, "source_security_group_ids")
+
+
+@pulumi.output_type
+class GetNodeGroupResourceResult(dict):
+    def __init__(__self__, *,
+                 autoscaling_groups: Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult'],
+                 remote_access_security_group_id: str):
+        """
+        :param Sequence['GetNodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
+        :param str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
+        """
+        pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
+        pulumi.set(__self__, "remote_access_security_group_id", remote_access_security_group_id)
+
+    @property
+    @pulumi.getter(name="autoscalingGroups")
+    def autoscaling_groups(self) -> Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult']:
+        """
+        List of objects containing information about AutoScaling Groups.
+        """
+        return pulumi.get(self, "autoscaling_groups")
+
+    @property
+    @pulumi.getter(name="remoteAccessSecurityGroupId")
+    def remote_access_security_group_id(self) -> str:
+        """
+        Identifier of the remote access EC2 Security Group.
+        """
+        return pulumi.get(self, "remote_access_security_group_id")
+
+
+@pulumi.output_type
+class GetNodeGroupResourceAutoscalingGroupResult(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: Name of the AutoScaling Group.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the AutoScaling Group.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetNodeGroupScalingConfigResult(dict):
+    def __init__(__self__, *,
+                 desired_size: int,
+                 max_size: int,
+                 min_size: int):
+        """
+        :param int desired_size: Desired number of worker nodes.
+        :param int max_size: Maximum number of worker nodes.
+        :param int min_size: Minimum number of worker nodes.
+        """
+        pulumi.set(__self__, "desired_size", desired_size)
+        pulumi.set(__self__, "max_size", max_size)
+        pulumi.set(__self__, "min_size", min_size)
+
+    @property
+    @pulumi.getter(name="desiredSize")
+    def desired_size(self) -> int:
+        """
+        Desired number of worker nodes.
+        """
+        return pulumi.get(self, "desired_size")
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> int:
+        """
+        Maximum number of worker nodes.
+        """
+        return pulumi.get(self, "max_size")
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> int:
+        """
+        Minimum number of worker nodes.
+        """
+        return pulumi.get(self, "min_size")
 
 

@@ -7,12 +7,14 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./voiceConnector";
 export * from "./voiceConnectorGroup";
+export * from "./voiceConnectorLogging";
 export * from "./voiceConnectorOrganization";
 export * from "./voiceConnectorTermination";
 
 // Import resources to register:
 import { VoiceConnector } from "./voiceConnector";
 import { VoiceConnectorGroup } from "./voiceConnectorGroup";
+import { VoiceConnectorLogging } from "./voiceConnectorLogging";
 import { VoiceConnectorOrganization } from "./voiceConnectorOrganization";
 import { VoiceConnectorTermination } from "./voiceConnectorTermination";
 
@@ -24,6 +26,8 @@ const _module = {
                 return new VoiceConnector(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorGroup:VoiceConnectorGroup":
                 return new VoiceConnectorGroup(name, <any>undefined, { urn })
+            case "aws:chime/voiceConnectorLogging:VoiceConnectorLogging":
+                return new VoiceConnectorLogging(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization":
                 return new VoiceConnectorOrganization(name, <any>undefined, { urn })
             case "aws:chime/voiceConnectorTermination:VoiceConnectorTermination":
@@ -35,5 +39,6 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnector", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorLogging", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorOrganization", _module)
 pulumi.runtime.registerResourceModule("aws", "chime/voiceConnectorTermination", _module)

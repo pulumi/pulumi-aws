@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *                 codeConfigurationValues: {
  *                     buildCommand: "python setup.py develop",
  *                     port: "8000",
- *                     runtime: "python3",
+ *                     runtime: "PYTHON_3",
  *                     startCommand: "python runapp.py",
  *                 },
  *                 configurationSource: "API",

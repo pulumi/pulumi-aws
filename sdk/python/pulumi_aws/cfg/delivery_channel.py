@@ -18,6 +18,7 @@ class DeliveryChannelArgs:
                  s3_bucket_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -25,6 +26,7 @@ class DeliveryChannelArgs:
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
+        :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
@@ -33,6 +35,8 @@ class DeliveryChannelArgs:
             pulumi.set(__self__, "name", name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        if s3_kms_key_arn is not None:
+            pulumi.set(__self__, "s3_kms_key_arn", s3_kms_key_arn)
         if snapshot_delivery_properties is not None:
             pulumi.set(__self__, "snapshot_delivery_properties", snapshot_delivery_properties)
         if sns_topic_arn is not None:
@@ -75,6 +79,18 @@ class DeliveryChannelArgs:
         pulumi.set(self, "s3_key_prefix", value)
 
     @property
+    @pulumi.getter(name="s3KmsKeyArn")
+    def s3_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_arn")
+
+    @s3_kms_key_arn.setter
+    def s3_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_arn", value)
+
+    @property
     @pulumi.getter(name="snapshotDeliveryProperties")
     def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
         """
@@ -105,6 +121,7 @@ class _DeliveryChannelState:
                  name: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -112,6 +129,7 @@ class _DeliveryChannelState:
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
+        :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
@@ -121,6 +139,8 @@ class _DeliveryChannelState:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        if s3_kms_key_arn is not None:
+            pulumi.set(__self__, "s3_kms_key_arn", s3_kms_key_arn)
         if snapshot_delivery_properties is not None:
             pulumi.set(__self__, "snapshot_delivery_properties", snapshot_delivery_properties)
         if sns_topic_arn is not None:
@@ -163,6 +183,18 @@ class _DeliveryChannelState:
         pulumi.set(self, "s3_key_prefix", value)
 
     @property
+    @pulumi.getter(name="s3KmsKeyArn")
+    def s3_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_arn")
+
+    @s3_kms_key_arn.setter
+    def s3_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_kms_key_arn", value)
+
+    @property
     @pulumi.getter(name="snapshotDeliveryProperties")
     def snapshot_delivery_properties(self) -> Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']]:
         """
@@ -195,6 +227,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -260,6 +293,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
+        :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
@@ -344,6 +378,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
                  snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -363,6 +398,7 @@ class DeliveryChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
+            __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
             __props__.__dict__["snapshot_delivery_properties"] = snapshot_delivery_properties
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         super(DeliveryChannel, __self__).__init__(
@@ -378,6 +414,7 @@ class DeliveryChannel(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             s3_bucket_name: Optional[pulumi.Input[str]] = None,
             s3_key_prefix: Optional[pulumi.Input[str]] = None,
+            s3_kms_key_arn: Optional[pulumi.Input[str]] = None,
             snapshot_delivery_properties: Optional[pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']]] = None,
             sns_topic_arn: Optional[pulumi.Input[str]] = None) -> 'DeliveryChannel':
         """
@@ -390,6 +427,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         :param pulumi.Input[str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[str] s3_key_prefix: The prefix for the specified S3 bucket.
+        :param pulumi.Input[str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input[pulumi.InputType['DeliveryChannelSnapshotDeliveryPropertiesArgs']] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
         :param pulumi.Input[str] sns_topic_arn: The ARN of the SNS topic that AWS Config delivers notifications to.
         """
@@ -400,6 +438,7 @@ class DeliveryChannel(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["s3_bucket_name"] = s3_bucket_name
         __props__.__dict__["s3_key_prefix"] = s3_key_prefix
+        __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
         __props__.__dict__["snapshot_delivery_properties"] = snapshot_delivery_properties
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         return DeliveryChannel(resource_name, opts=opts, __props__=__props__)
@@ -427,6 +466,14 @@ class DeliveryChannel(pulumi.CustomResource):
         The prefix for the specified S3 bucket.
         """
         return pulumi.get(self, "s3_key_prefix")
+
+    @property
+    @pulumi.getter(name="s3KmsKeyArn")
+    def s3_kms_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        """
+        return pulumi.get(self, "s3_kms_key_arn")
 
     @property
     @pulumi.getter(name="snapshotDeliveryProperties")

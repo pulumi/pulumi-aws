@@ -37,7 +37,7 @@ import (
 // 						CodeConfigurationValues: &apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs{
 // 							BuildCommand: pulumi.String("python setup.py develop"),
 // 							Port:         pulumi.String("8000"),
-// 							Runtime:      pulumi.String("python3"),
+// 							Runtime:      pulumi.String("PYTHON_3"),
 // 							StartCommand: pulumi.String("python runapp.py"),
 // 						},
 // 						ConfigurationSource: pulumi.String("API"),

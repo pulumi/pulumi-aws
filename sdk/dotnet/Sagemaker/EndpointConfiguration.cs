@@ -64,6 +64,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        [Output("asyncInferenceConfig")]
+        public Output<Outputs.EndpointConfigurationAsyncInferenceConfig?> AsyncInferenceConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         /// </summary>
         [Output("dataCaptureConfig")]
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class EndpointConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        [Input("asyncInferenceConfig")]
+        public Input<Inputs.EndpointConfigurationAsyncInferenceConfigArgs>? AsyncInferenceConfig { get; set; }
+
+        /// <summary>
         /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         /// </summary>
         [Input("dataCaptureConfig")]
@@ -199,6 +211,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        [Input("asyncInferenceConfig")]
+        public Input<Inputs.EndpointConfigurationAsyncInferenceConfigGetArgs>? AsyncInferenceConfig { get; set; }
 
         /// <summary>
         /// Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.

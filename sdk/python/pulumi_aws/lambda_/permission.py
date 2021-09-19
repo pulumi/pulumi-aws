@@ -403,7 +403,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lambdatest.zip"),
             role=default_role.arn,
             handler="exports.handler",
-            runtime="python2.7")
+            runtime="python3.6")
         with_sns = aws.lambda_.Permission("withSns",
             action="lambda:InvokeFunction",
             function=func.name,
@@ -452,7 +452,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lamba_logging.zip"),
             handler="exports.handler",
             role=default_role.arn,
-            runtime="python2.7")
+            runtime="python3.6")
         logging_permission = aws.lambda_.Permission("loggingPermission",
             action="lambda:InvokeFunction",
             function=logging_function.name,
@@ -560,7 +560,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lambdatest.zip"),
             role=default_role.arn,
             handler="exports.handler",
-            runtime="python2.7")
+            runtime="python3.6")
         with_sns = aws.lambda_.Permission("withSns",
             action="lambda:InvokeFunction",
             function=func.name,
@@ -609,7 +609,7 @@ class Permission(pulumi.CustomResource):
             code=pulumi.FileArchive("lamba_logging.zip"),
             handler="exports.handler",
             role=default_role.arn,
-            runtime="python2.7")
+            runtime="python3.6")
         logging_permission = aws.lambda_.Permission("loggingPermission",
             action="lambda:InvokeFunction",
             function=logging_function.name,

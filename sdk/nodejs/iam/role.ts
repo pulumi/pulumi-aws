@@ -231,7 +231,7 @@ export class Role extends pulumi.CustomResource {
     /**
      * Creates a unique friendly name beginning with the specified prefix. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * Path to the role. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html) for more information.
      */

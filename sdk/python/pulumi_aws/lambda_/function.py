@@ -1105,7 +1105,10 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        ### CloudWatch Logging and Permissions
+        ### Lambda retries
+
+        Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+        ## CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
@@ -1258,7 +1261,10 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        ### CloudWatch Logging and Permissions
+        ### Lambda retries
+
+        Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+        ## CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 

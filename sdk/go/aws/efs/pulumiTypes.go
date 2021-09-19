@@ -655,7 +655,9 @@ func (o BackupPolicyBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
 
 type FileSystemLifecyclePolicy struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-	TransitionToIa string `pulumi:"transitionToIa"`
+	TransitionToIa *string `pulumi:"transitionToIa"`
+	// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+	TransitionToPrimaryStorageClass *string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 // FileSystemLifecyclePolicyInput is an input type that accepts FileSystemLifecyclePolicyArgs and FileSystemLifecyclePolicyOutput values.
@@ -671,7 +673,9 @@ type FileSystemLifecyclePolicyInput interface {
 
 type FileSystemLifecyclePolicyArgs struct {
 	// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-	TransitionToIa pulumi.StringInput `pulumi:"transitionToIa"`
+	TransitionToIa pulumi.StringPtrInput `pulumi:"transitionToIa"`
+	// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+	TransitionToPrimaryStorageClass pulumi.StringPtrInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 func (FileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -752,8 +756,13 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyPtrOutputWit
 }
 
 // Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
-func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
-	return o.ApplyT(func(v FileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
+func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToIa }).(pulumi.StringPtrOutput)
+}
+
+// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+func (o FileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemLifecyclePolicy) *string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringPtrOutput)
 }
 
 type FileSystemLifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -786,7 +795,17 @@ func (o FileSystemLifecyclePolicyPtrOutput) TransitionToIa() pulumi.StringPtrOut
 		if v == nil {
 			return nil
 		}
-		return &v.TransitionToIa
+		return v.TransitionToIa
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+func (o FileSystemLifecyclePolicyPtrOutput) TransitionToPrimaryStorageClass() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemLifecyclePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransitionToPrimaryStorageClass
 	}).(pulumi.StringPtrOutput)
 }
 

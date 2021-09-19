@@ -64,8 +64,11 @@ import * as utilities from "../utilities";
  * ```
  * ### Data Event Logging
  *
- * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html).
- * ### Logging All Lambda Function Invocations
+ * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 bucket objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
+ *
+ * * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
+ * * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
+ * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -85,7 +88,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging All S3 Bucket Object Events
+ * ### Logging All S3 Bucket Object Events By Using Basic Event Selectors
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -105,7 +108,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Logging Individual S3 Bucket Events
+ * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -125,6 +128,128 @@ import * as utilities from "../utilities";
  *             values: [important_bucket.then(important_bucket => `${important_bucket.arn}/`)],
  *         }],
  *     }],
+ * });
+ * ```
+ * ### Logging All S3 Bucket Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const not_important_bucket_1 = pulumi.output(aws.s3.getBucket({
+ *     bucket: "not-important-bucket-1",
+ * }));
+ * const not_important_bucket_2 = pulumi.output(aws.s3.getBucket({
+ *     bucket: "not-important-bucket-2",
+ * }));
+ * const example = new aws.cloudtrail.Trail("example", {
+ *     advancedEventSelectors: [
+ *         {
+ *             fieldSelectors: [
+ *                 {
+ *                     equals: ["Data"],
+ *                     field: "eventCategory",
+ *                 },
+ *                 {
+ *                     field: "resources.ARN",
+ *                     notEquals: [
+ *                         pulumi.interpolate`${not_important_bucket_1.arn}/`,
+ *                         pulumi.interpolate`${not_important_bucket_2.arn}/`,
+ *                     ],
+ *                 },
+ *                 {
+ *                     equals: ["AWS::S3::Object"],
+ *                     field: "resources.type",
+ *                 },
+ *             ],
+ *             name: "Log all S3 buckets objects events except for two S3 buckets",
+ *         },
+ *         {
+ *             fieldSelectors: [{
+ *                 equals: ["Management"],
+ *                 field: "eventCategory",
+ *             }],
+ *             name: "Log readOnly and writeOnly management events",
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const important_bucket_1 = pulumi.output(aws.s3.getBucket({
+ *     bucket: "important-bucket-1",
+ * }));
+ * const important_bucket_2 = pulumi.output(aws.s3.getBucket({
+ *     bucket: "important-bucket-2",
+ * }));
+ * const important_bucket_3 = pulumi.output(aws.s3.getBucket({
+ *     bucket: "important-bucket-3",
+ * }));
+ * const example = new aws.cloudtrail.Trail("example", {
+ *     advancedEventSelectors: [
+ *         {
+ *             fieldSelectors: [
+ *                 {
+ *                     equals: ["Data"],
+ *                     field: "eventCategory",
+ *                 },
+ *                 {
+ *                     equals: [
+ *                         "PutObject",
+ *                         "DeleteObject",
+ *                     ],
+ *                     field: "eventName",
+ *                 },
+ *                 {
+ *                     //The trailing slash is intentional; do not exclude it.
+ *                     equals: [
+ *                         pulumi.interpolate`${important_bucket_1.arn}/`,
+ *                         pulumi.interpolate`${important_bucket_2.arn}/`,
+ *                     ],
+ *                     field: "resources.ARN",
+ *                 },
+ *                 {
+ *                     equals: ["false"],
+ *                     field: "readOnly",
+ *                 },
+ *                 {
+ *                     equals: ["AWS::S3::Object"],
+ *                     field: "resources.type",
+ *                 },
+ *             ],
+ *             name: "Log PutObject and DeleteObject events for two S3 buckets",
+ *         },
+ *         {
+ *             fieldSelectors: [
+ *                 {
+ *                     equals: ["Data"],
+ *                     field: "eventCategory",
+ *                 },
+ *                 {
+ *                     field: "eventName",
+ *                     startsWiths: ["Delete"],
+ *                 },
+ *                 {
+ *                     //The trailing slash is intentional; do not exclude it.
+ *                     equals: [pulumi.interpolate`${important_bucket_3.arn}/important-prefix`],
+ *                     field: "resources.ARN",
+ *                 },
+ *                 {
+ *                     equals: ["false"],
+ *                     field: "readOnly",
+ *                 },
+ *                 {
+ *                     equals: ["AWS::S3::Object"],
+ *                     field: "resources.type",
+ *                 },
+ *             ],
+ *             name: "Log Delete* events for one S3 bucket",
+ *         },
+ *     ],
  * });
  * ```
  * ### Sending Events to CloudWatch Logs
@@ -214,6 +339,10 @@ export class Trail extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
+     */
+    public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.TrailAdvancedEventSelector[] | undefined>;
+    /**
      * ARN of the trail.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -234,7 +363,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly enableLogging!: pulumi.Output<boolean | undefined>;
     /**
-     * Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
     public readonly eventSelectors!: pulumi.Output<outputs.cloudtrail.TrailEventSelector[] | undefined>;
     /**
@@ -262,7 +391,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Name of the trail.
+     * Specifies the name of the advanced event selector.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -299,6 +428,7 @@ export class Trail extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrailState | undefined;
+            inputs["advancedEventSelectors"] = state ? state.advancedEventSelectors : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["cloudWatchLogsGroupArn"] = state ? state.cloudWatchLogsGroupArn : undefined;
             inputs["cloudWatchLogsRoleArn"] = state ? state.cloudWatchLogsRoleArn : undefined;
@@ -322,6 +452,7 @@ export class Trail extends pulumi.CustomResource {
             if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
+            inputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
             inputs["cloudWatchLogsGroupArn"] = args ? args.cloudWatchLogsGroupArn : undefined;
             inputs["cloudWatchLogsRoleArn"] = args ? args.cloudWatchLogsRoleArn : undefined;
             inputs["enableLogFileValidation"] = args ? args.enableLogFileValidation : undefined;
@@ -353,6 +484,10 @@ export class Trail extends pulumi.CustomResource {
  */
 export interface TrailState {
     /**
+     * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
+     */
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelector>[]>;
+    /**
      * ARN of the trail.
      */
     arn?: pulumi.Input<string>;
@@ -373,7 +508,7 @@ export interface TrailState {
      */
     enableLogging?: pulumi.Input<boolean>;
     /**
-     * Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
     eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
@@ -401,7 +536,7 @@ export interface TrailState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Name of the trail.
+     * Specifies the name of the advanced event selector.
      */
     name?: pulumi.Input<string>;
     /**
@@ -431,6 +566,10 @@ export interface TrailState {
  */
 export interface TrailArgs {
     /**
+     * Specifies an advanced event selector for enabling data event logging. Fields documented below. Conflicts with `eventSelector`.
+     */
+    advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailAdvancedEventSelector>[]>;
+    /**
      * Log group name using an ARN that represents the log group to which CloudTrail logs will be delivered. Note that CloudTrail requires the Log Stream wildcard.
      */
     cloudWatchLogsGroupArn?: pulumi.Input<string>;
@@ -447,7 +586,7 @@ export interface TrailArgs {
      */
     enableLogging?: pulumi.Input<boolean>;
     /**
-     * Configuration block of an event selector for enabling data event logging. See details below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these.
+     * Specifies an event selector for enabling data event logging. Fields documented below. Please note the [CloudTrail limits](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) when configuring these. Conflicts with `advancedEventSelector`.
      */
     eventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelector>[]>;
     /**
@@ -471,7 +610,7 @@ export interface TrailArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Name of the trail.
+     * Specifies the name of the advanced event selector.
      */
     name?: pulumi.Input<string>;
     /**

@@ -146,6 +146,8 @@ type Server struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
 	Certificate pulumi.StringPtrOutput `pulumi:"certificate"`
+	// The directory service id of the directory service you want to connect to.
+	DirectoryId pulumi.StringPtrOutput `pulumi:"directoryId"`
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
@@ -212,6 +214,8 @@ type serverState struct {
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
 	Certificate *string `pulumi:"certificate"`
+	// The directory service id of the directory service you want to connect to.
+	DirectoryId *string `pulumi:"directoryId"`
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain *string `pulumi:"domain"`
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
@@ -250,6 +254,8 @@ type ServerState struct {
 	Arn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
 	Certificate pulumi.StringPtrInput
+	// The directory service id of the directory service you want to connect to.
+	DirectoryId pulumi.StringPtrInput
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain pulumi.StringPtrInput
 	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`)
@@ -290,6 +296,8 @@ func (ServerState) ElementType() reflect.Type {
 type serverArgs struct {
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
 	Certificate *string `pulumi:"certificate"`
+	// The directory service id of the directory service you want to connect to.
+	DirectoryId *string `pulumi:"directoryId"`
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain *string `pulumi:"domain"`
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
@@ -322,6 +330,8 @@ type serverArgs struct {
 type ServerArgs struct {
 	// The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
 	Certificate pulumi.StringPtrInput
+	// The directory service id of the directory service you want to connect to.
+	DirectoryId pulumi.StringPtrInput
 	// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
 	Domain pulumi.StringPtrInput
 	// The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.

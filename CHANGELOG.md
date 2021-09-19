@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.59.0 of the AWS Terraform Provider
 * Upgrade to pulumi sdk + codegen v3.11.0
 * Upgrade to pulumi-terraform-bridge v3.7.0
 

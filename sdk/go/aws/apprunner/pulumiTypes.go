@@ -1374,7 +1374,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	BuildCommand *string `pulumi:"buildCommand"`
 	// The port that your application listens to in the container. Defaults to `"8080"`.
 	Port *string `pulumi:"port"`
-	// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+	// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
 	Runtime string `pulumi:"runtime"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables map[string]string `pulumi:"runtimeEnvironmentVariables"`
@@ -1398,7 +1398,7 @@ type ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationV
 	BuildCommand pulumi.StringPtrInput `pulumi:"buildCommand"`
 	// The port that your application listens to in the container. Defaults to `"8080"`.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+	// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
 	Runtime pulumi.StringInput `pulumi:"runtime"`
 	// Environment variables available to your running App Runner service. A map of key/value pairs. Keys with a prefix of `AWSAPPRUNNER` are reserved for system use and aren't valid.
 	RuntimeEnvironmentVariables pulumi.StringMapInput `pulumi:"runtimeEnvironmentVariables"`
@@ -1497,7 +1497,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesOutput) Runtime() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) string {
 		return v.Runtime
@@ -1562,7 +1562,7 @@ func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurati
 	}).(pulumi.StringPtrOutput)
 }
 
-// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
 func (o ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues) *string {
 		if v == nil {

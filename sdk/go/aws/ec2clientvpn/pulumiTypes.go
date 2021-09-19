@@ -17,6 +17,8 @@ type EndpointAuthenticationOption struct {
 	RootCertificateChainArn *string `pulumi:"rootCertificateChainArn"`
 	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
 	SamlProviderArn *string `pulumi:"samlProviderArn"`
+	// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+	SelfServiceSamlProviderArn *string `pulumi:"selfServiceSamlProviderArn"`
 	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type string `pulumi:"type"`
 }
@@ -39,6 +41,8 @@ type EndpointAuthenticationOptionArgs struct {
 	RootCertificateChainArn pulumi.StringPtrInput `pulumi:"rootCertificateChainArn"`
 	// The ARN of the IAM SAML identity provider if type is `federated-authentication`.
 	SamlProviderArn pulumi.StringPtrInput `pulumi:"samlProviderArn"`
+	// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+	SelfServiceSamlProviderArn pulumi.StringPtrInput `pulumi:"selfServiceSamlProviderArn"`
 	// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -107,6 +111,11 @@ func (o EndpointAuthenticationOptionOutput) RootCertificateChainArn() pulumi.Str
 // The ARN of the IAM SAML identity provider if type is `federated-authentication`.
 func (o EndpointAuthenticationOptionOutput) SamlProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SamlProviderArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+func (o EndpointAuthenticationOptionOutput) SelfServiceSamlProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAuthenticationOption) *string { return v.SelfServiceSamlProviderArn }).(pulumi.StringPtrOutput)
 }
 
 // The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.

@@ -26,6 +26,10 @@ __all__ = [
     'DomainDefaultUserSettingsTensorBoardAppSettings',
     'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec',
     'DomainRetentionPolicy',
+    'EndpointConfigurationAsyncInferenceConfig',
+    'EndpointConfigurationAsyncInferenceConfigClientConfig',
+    'EndpointConfigurationAsyncInferenceConfigOutputConfig',
+    'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig',
     'EndpointConfigurationDataCaptureConfig',
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader',
     'EndpointConfigurationDataCaptureConfigCaptureOption',
@@ -921,6 +925,204 @@ class DomainRetentionPolicy(dict):
 
 
 @pulumi.output_type
+class EndpointConfigurationAsyncInferenceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfig":
+            suggest = "output_config"
+        elif key == "clientConfig":
+            suggest = "client_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationAsyncInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationAsyncInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationAsyncInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_config: 'outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig',
+                 client_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigClientConfig'] = None):
+        """
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigArgs' output_config: Specifies the configuration for asynchronous inference invocation outputs.
+        :param 'EndpointConfigurationAsyncInferenceConfigClientConfigArgs' client_config: Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        """
+        pulumi.set(__self__, "output_config", output_config)
+        if client_config is not None:
+            pulumi.set(__self__, "client_config", client_config)
+
+    @property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> 'outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig':
+        """
+        Specifies the configuration for asynchronous inference invocation outputs.
+        """
+        return pulumi.get(self, "output_config")
+
+    @property
+    @pulumi.getter(name="clientConfig")
+    def client_config(self) -> Optional['outputs.EndpointConfigurationAsyncInferenceConfigClientConfig']:
+        """
+        Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        """
+        return pulumi.get(self, "client_config")
+
+
+@pulumi.output_type
+class EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentInvocationsPerInstance":
+            suggest = "max_concurrent_invocations_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationAsyncInferenceConfigClientConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationAsyncInferenceConfigClientConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationAsyncInferenceConfigClientConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_invocations_per_instance: Optional[int] = None):
+        """
+        :param int max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+        """
+        if max_concurrent_invocations_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
+
+    @property
+    @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
+    def max_concurrent_invocations_per_instance(self) -> Optional[int]:
+        """
+        The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+        """
+        return pulumi.get(self, "max_concurrent_invocations_per_instance")
+
+
+@pulumi.output_type
+class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationAsyncInferenceConfigOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationAsyncInferenceConfigOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationAsyncInferenceConfigOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: str,
+                 kms_key_id: Optional[str] = None,
+                 notification_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig'] = None):
+        """
+        :param str s3_output_path: The Amazon S3 location to upload inference responses to.
+        :param str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> str:
+        """
+        The Amazon S3 location to upload inference responses to.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig']:
+        """
+        Specifies the configuration for notifications of inference results for asynchronous inference.
+        """
+        return pulumi.get(self, "notification_config")
+
+
+@pulumi.output_type
+class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorTopic":
+            suggest = "error_topic"
+        elif key == "successTopic":
+            suggest = "success_topic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_topic: Optional[str] = None,
+                 success_topic: Optional[str] = None):
+        """
+        :param str error_topic: Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        :param str success_topic: Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        """
+        if error_topic is not None:
+            pulumi.set(__self__, "error_topic", error_topic)
+        if success_topic is not None:
+            pulumi.set(__self__, "success_topic", success_topic)
+
+    @property
+    @pulumi.getter(name="errorTopic")
+    def error_topic(self) -> Optional[str]:
+        """
+        Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+        """
+        return pulumi.get(self, "error_topic")
+
+    @property
+    @pulumi.getter(name="successTopic")
+    def success_topic(self) -> Optional[str]:
+        """
+        Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+        """
+        return pulumi.get(self, "success_topic")
+
+
+@pulumi.output_type
 class EndpointConfigurationDataCaptureConfig(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -962,7 +1164,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
         :param int initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
         :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: The content type headers to capture. Fields are documented below.
         :param bool enable_capture: Flag to enable data capture. Defaults to `false`.
-        :param str kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        :param str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
         """
         pulumi.set(__self__, "capture_options", capture_options)
         pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
@@ -1018,7 +1220,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+        The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
         """
         return pulumi.get(self, "kms_key_id")
 

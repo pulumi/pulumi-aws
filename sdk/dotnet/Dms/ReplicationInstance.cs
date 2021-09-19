@@ -14,6 +14,8 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -95,6 +97,14 @@ namespace Pulumi.Aws.Dms
     ///             VpcSecurityGroupIds = 
     ///             {
     ///                 "sg-12345678",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 dms_access_for_endpoint_AmazonDMSRedshiftS3Role,
+    ///                 dms_cloudwatch_logs_role_AmazonDMSCloudWatchLogsRole,
+    ///                 dms_vpc_role_AmazonDMSVPCManagementRole,
     ///             },
     ///         });
     ///     }

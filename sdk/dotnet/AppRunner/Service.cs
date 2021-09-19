@@ -40,7 +40,7 @@ namespace Pulumi.Aws.AppRunner
     ///                         {
     ///                             BuildCommand = "python setup.py develop",
     ///                             Port = "8000",
-    ///                             Runtime = "python3",
+    ///                             Runtime = "PYTHON_3",
     ///                             StartCommand = "python runapp.py",
     ///                         },
     ///                         ConfigurationSource = "API",

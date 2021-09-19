@@ -522,7 +522,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<string>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Output("maxInstanceLifetime")]
         public Output<int?> MaxInstanceLifetime { get; private set; } = null!;
@@ -555,7 +555,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
         [Output("mixedInstancesPolicy")]
         public Output<Outputs.GroupMixedInstancesPolicy?> MixedInstancesPolicy { get; private set; } = null!;
@@ -824,7 +824,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }
@@ -857,7 +857,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int> MinSize { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
         [Input("mixedInstancesPolicy")]
         public Input<Inputs.GroupMixedInstancesPolicyArgs>? MixedInstancesPolicy { get; set; }
@@ -1129,7 +1129,7 @@ namespace Pulumi.Aws.AutoScaling
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 604800 and 31536000 seconds.
+        /// The maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
         /// </summary>
         [Input("maxInstanceLifetime")]
         public Input<int>? MaxInstanceLifetime { get; set; }
@@ -1162,7 +1162,7 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? MinSize { get; set; }
 
         /// <summary>
-        /// Configuration block containing settings to define launch targets for Auto Scaling groups. Defined below.
+        /// Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         /// </summary>
         [Input("mixedInstancesPolicy")]
         public Input<Inputs.GroupMixedInstancesPolicyGetArgs>? MixedInstancesPolicy { get; set; }

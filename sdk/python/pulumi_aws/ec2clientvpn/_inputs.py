@@ -19,12 +19,14 @@ class EndpointAuthenticationOptionArgs:
                  type: pulumi.Input[str],
                  active_directory_id: Optional[pulumi.Input[str]] = None,
                  root_certificate_chain_arn: Optional[pulumi.Input[str]] = None,
-                 saml_provider_arn: Optional[pulumi.Input[str]] = None):
+                 saml_provider_arn: Optional[pulumi.Input[str]] = None,
+                 self_service_saml_provider_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
         :param pulumi.Input[str] active_directory_id: The ID of the Active Directory to be used for authentication if type is `directory-service-authentication`.
         :param pulumi.Input[str] root_certificate_chain_arn: The ARN of the client certificate. The certificate must be signed by a certificate authority (CA) and it must be provisioned in AWS Certificate Manager (ACM). Only necessary when type is set to `certificate-authentication`.
         :param pulumi.Input[str] saml_provider_arn: The ARN of the IAM SAML identity provider if type is `federated-authentication`.
+        :param pulumi.Input[str] self_service_saml_provider_arn: The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
         """
         pulumi.set(__self__, "type", type)
         if active_directory_id is not None:
@@ -33,6 +35,8 @@ class EndpointAuthenticationOptionArgs:
             pulumi.set(__self__, "root_certificate_chain_arn", root_certificate_chain_arn)
         if saml_provider_arn is not None:
             pulumi.set(__self__, "saml_provider_arn", saml_provider_arn)
+        if self_service_saml_provider_arn is not None:
+            pulumi.set(__self__, "self_service_saml_provider_arn", self_service_saml_provider_arn)
 
     @property
     @pulumi.getter
@@ -81,6 +85,18 @@ class EndpointAuthenticationOptionArgs:
     @saml_provider_arn.setter
     def saml_provider_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "saml_provider_arn", value)
+
+    @property
+    @pulumi.getter(name="selfServiceSamlProviderArn")
+    def self_service_saml_provider_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+        """
+        return pulumi.get(self, "self_service_saml_provider_arn")
+
+    @self_service_saml_provider_arn.setter
+    def self_service_saml_provider_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_saml_provider_arn", value)
 
 
 @pulumi.input_type
