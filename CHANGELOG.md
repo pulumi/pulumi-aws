@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 4.21.1 (2021-09-21)
+* Ensuring Go SDK doesn't get polluted with NodeJS, Python or DotNet SDK files
+
 ## 4.21.0 (2021-09-20)
 * Upgrade to v3.59.0 of the AWS Terraform Provider
 * Upgrade to pulumi sdk + codegen v3.11.0
