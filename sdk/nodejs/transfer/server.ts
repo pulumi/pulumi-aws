@@ -117,6 +117,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly certificate!: pulumi.Output<string | undefined>;
     /**
+     * The directory service id of the directory service you want to connect to.
+     */
+    public readonly directoryId!: pulumi.Output<string | undefined>;
+    /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      */
     public readonly domain!: pulumi.Output<string | undefined>;
@@ -189,6 +193,7 @@ export class Server extends pulumi.CustomResource {
             const state = argsOrState as ServerState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
+            inputs["directoryId"] = state ? state.directoryId : undefined;
             inputs["domain"] = state ? state.domain : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["endpointDetails"] = state ? state.endpointDetails : undefined;
@@ -207,6 +212,7 @@ export class Server extends pulumi.CustomResource {
         } else {
             const args = argsOrState as ServerArgs | undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["directoryId"] = args ? args.directoryId : undefined;
             inputs["domain"] = args ? args.domain : undefined;
             inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
@@ -243,6 +249,10 @@ export interface ServerState {
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      */
     certificate?: pulumi.Input<string>;
+    /**
+     * The directory service id of the directory service you want to connect to.
+     */
+    directoryId?: pulumi.Input<string>;
     /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      */
@@ -310,6 +320,10 @@ export interface ServerArgs {
      * The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
      */
     certificate?: pulumi.Input<string>;
+    /**
+     * The directory service id of the directory service you want to connect to.
+     */
+    directoryId?: pulumi.Input<string>;
     /**
      * The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
      */

@@ -695,6 +695,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_chime_voice_connector_group":       {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
 			"aws_chime_voice_connector_origination": {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
 			"aws_chime_voice_connector_termination": {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
+			"aws_chime_voice_connector_logging":     {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -2465,6 +2466,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
 			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
 			"aws_transfer_user":    {Tok: awsResource(transferMod, "User")},
+			"aws_transfer_access":  {Tok: awsResource(transferMod, "Access")},
 			// TimestreamWrite
 			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
 			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},
@@ -3942,6 +3944,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_eks_cluster_auth": {Tok: awsDataSource(eksMod, "getClusterAuth")},
 			"aws_eks_addon":        {Tok: awsDataSource(eksMod, "getAddon")},
+			"aws_eks_clusters":     {Tok: awsDataSource(eksMod, "getClusters")},
+			"aws_eks_node_group":   {Tok: awsDataSource(eksMod, "getNodeGroup")},
+			"aws_eks_node_groups":  {Tok: awsDataSource(eksMod, "getNodeGroups")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
 			"aws_elastic_beanstalk_hosted_zone":    {Tok: awsDataSource(elasticbeanstalkMod, "getHostedZone")},

@@ -16,12 +16,20 @@ namespace Pulumi.Aws.Efs.Outputs
         /// <summary>
         /// Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         /// </summary>
-        public readonly string TransitionToIa;
+        public readonly string? TransitionToIa;
+        /// <summary>
+        /// Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+        /// </summary>
+        public readonly string? TransitionToPrimaryStorageClass;
 
         [OutputConstructor]
-        private FileSystemLifecyclePolicy(string transitionToIa)
+        private FileSystemLifecyclePolicy(
+            string? transitionToIa,
+
+            string? transitionToPrimaryStorageClass)
         {
             TransitionToIa = transitionToIa;
+            TransitionToPrimaryStorageClass = transitionToPrimaryStorageClass;
         }
     }
 }

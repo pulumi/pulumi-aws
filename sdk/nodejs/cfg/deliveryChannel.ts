@@ -105,6 +105,10 @@ export class DeliveryChannel extends pulumi.CustomResource {
      */
     public readonly s3KeyPrefix!: pulumi.Output<string | undefined>;
     /**
+     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     */
+    public readonly s3KmsKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
     public readonly snapshotDeliveryProperties!: pulumi.Output<outputs.cfg.DeliveryChannelSnapshotDeliveryProperties | undefined>;
@@ -129,6 +133,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
+            inputs["s3KmsKeyArn"] = state ? state.s3KmsKeyArn : undefined;
             inputs["snapshotDeliveryProperties"] = state ? state.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
@@ -139,6 +144,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
+            inputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
             inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
             inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
@@ -166,6 +172,10 @@ export interface DeliveryChannelState {
      */
     s3KeyPrefix?: pulumi.Input<string>;
     /**
+     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     */
+    s3KmsKeyArn?: pulumi.Input<string>;
+    /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */
     snapshotDeliveryProperties?: pulumi.Input<inputs.cfg.DeliveryChannelSnapshotDeliveryProperties>;
@@ -191,6 +201,10 @@ export interface DeliveryChannelArgs {
      * The prefix for the specified S3 bucket.
      */
     s3KeyPrefix?: pulumi.Input<string>;
+    /**
+     * The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     */
+    s3KmsKeyArn?: pulumi.Input<string>;
     /**
      * Options for how AWS Config delivers configuration snapshots. See below
      */

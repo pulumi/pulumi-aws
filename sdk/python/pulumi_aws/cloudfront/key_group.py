@@ -163,6 +163,14 @@ class KeyGroup(pulumi.CustomResource):
             items=[example_public_key.id])
         ```
 
+        ## Import
+
+        CloudFront Key Group can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment to describe the key group..
@@ -190,6 +198,14 @@ class KeyGroup(pulumi.CustomResource):
         example_key_group = aws.cloudfront.KeyGroup("exampleKeyGroup",
             comment="example key group",
             items=[example_public_key.id])
+        ```
+
+        ## Import
+
+        CloudFront Key Group can be imported using the `id`, e.g.
+
+        ```sh
+         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
         :param str resource_name: The name of the resource.

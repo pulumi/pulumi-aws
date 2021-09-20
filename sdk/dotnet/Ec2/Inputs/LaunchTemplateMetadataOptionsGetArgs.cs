@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
+        [Input("httpProtocolIpv6")]
+        public Input<string>? HttpProtocolIpv6 { get; set; }
+
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
         /// </summary>

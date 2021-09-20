@@ -89,6 +89,8 @@ type DeliveryChannel struct {
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
+	// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	S3KmsKeyArn pulumi.StringPtrOutput `pulumi:"s3KmsKeyArn"`
 	// Options for how AWS Config delivers configuration snapshots. See below
 	SnapshotDeliveryProperties DeliveryChannelSnapshotDeliveryPropertiesPtrOutput `pulumi:"snapshotDeliveryProperties"`
 	// The ARN of the SNS topic that AWS Config delivers notifications to.
@@ -133,6 +135,8 @@ type deliveryChannelState struct {
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	S3KmsKeyArn *string `pulumi:"s3KmsKeyArn"`
 	// Options for how AWS Config delivers configuration snapshots. See below
 	SnapshotDeliveryProperties *DeliveryChannelSnapshotDeliveryProperties `pulumi:"snapshotDeliveryProperties"`
 	// The ARN of the SNS topic that AWS Config delivers notifications to.
@@ -146,6 +150,8 @@ type DeliveryChannelState struct {
 	S3BucketName pulumi.StringPtrInput
 	// The prefix for the specified S3 bucket.
 	S3KeyPrefix pulumi.StringPtrInput
+	// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	S3KmsKeyArn pulumi.StringPtrInput
 	// Options for how AWS Config delivers configuration snapshots. See below
 	SnapshotDeliveryProperties DeliveryChannelSnapshotDeliveryPropertiesPtrInput
 	// The ARN of the SNS topic that AWS Config delivers notifications to.
@@ -163,6 +169,8 @@ type deliveryChannelArgs struct {
 	S3BucketName string `pulumi:"s3BucketName"`
 	// The prefix for the specified S3 bucket.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	S3KmsKeyArn *string `pulumi:"s3KmsKeyArn"`
 	// Options for how AWS Config delivers configuration snapshots. See below
 	SnapshotDeliveryProperties *DeliveryChannelSnapshotDeliveryProperties `pulumi:"snapshotDeliveryProperties"`
 	// The ARN of the SNS topic that AWS Config delivers notifications to.
@@ -177,6 +185,8 @@ type DeliveryChannelArgs struct {
 	S3BucketName pulumi.StringInput
 	// The prefix for the specified S3 bucket.
 	S3KeyPrefix pulumi.StringPtrInput
+	// The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	S3KmsKeyArn pulumi.StringPtrInput
 	// Options for how AWS Config delivers configuration snapshots. See below
 	SnapshotDeliveryProperties DeliveryChannelSnapshotDeliveryPropertiesPtrInput
 	// The ARN of the SNS topic that AWS Config delivers notifications to.

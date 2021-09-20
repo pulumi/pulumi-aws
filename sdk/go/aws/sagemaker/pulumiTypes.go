@@ -2573,6 +2573,642 @@ func (o DomainRetentionPolicyPtrOutput) HomeEfsFileSystem() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointConfigurationAsyncInferenceConfig struct {
+	// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+	ClientConfig *EndpointConfigurationAsyncInferenceConfigClientConfig `pulumi:"clientConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfig `pulumi:"outputConfig"`
+}
+
+// EndpointConfigurationAsyncInferenceConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigArgs and EndpointConfigurationAsyncInferenceConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigArgs{...}
+type EndpointConfigurationAsyncInferenceConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigOutput() EndpointConfigurationAsyncInferenceConfigOutput
+	ToEndpointConfigurationAsyncInferenceConfigOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigOutput
+}
+
+type EndpointConfigurationAsyncInferenceConfigArgs struct {
+	// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+	ClientConfig EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput `pulumi:"clientConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigurationAsyncInferenceConfigOutputConfigInput `pulumi:"outputConfig"`
+}
+
+func (EndpointConfigurationAsyncInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutput() EndpointConfigurationAsyncInferenceConfigOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutput)
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigArgs) ToEndpointConfigurationAsyncInferenceConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigArgs) ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutput).ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationAsyncInferenceConfigPtrInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigArgs, EndpointConfigurationAsyncInferenceConfigPtr and EndpointConfigurationAsyncInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigPtrInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationAsyncInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigPtrOutput
+	ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigPtrOutput
+}
+
+type endpointConfigurationAsyncInferenceConfigPtrType EndpointConfigurationAsyncInferenceConfigArgs
+
+func EndpointConfigurationAsyncInferenceConfigPtr(v *EndpointConfigurationAsyncInferenceConfigArgs) EndpointConfigurationAsyncInferenceConfigPtrInput {
+	return (*endpointConfigurationAsyncInferenceConfigPtrType)(v)
+}
+
+func (*endpointConfigurationAsyncInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutput() EndpointConfigurationAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfigurationAsyncInferenceConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return o.ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutput) ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfig {
+		return &v
+	}).(EndpointConfigurationAsyncInferenceConfigPtrOutput)
+}
+
+// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+func (o EndpointConfigurationAsyncInferenceConfigOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
+		return v.ClientConfig
+	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+func (o EndpointConfigurationAsyncInferenceConfigOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfig) EndpointConfigurationAsyncInferenceConfigOutputConfig {
+		return v.OutputConfig
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) Elem() EndpointConfigurationAsyncInferenceConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) EndpointConfigurationAsyncInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationAsyncInferenceConfig
+		return ret
+	}).(EndpointConfigurationAsyncInferenceConfigOutput)
+}
+
+// Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) ClientConfig() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConfig
+	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+func (o EndpointConfigurationAsyncInferenceConfigPtrOutput) OutputConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputConfig
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigClientConfig struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+	MaxConcurrentInvocationsPerInstance *int `pulumi:"maxConcurrentInvocationsPerInstance"`
+}
+
+// EndpointConfigurationAsyncInferenceConfigClientConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigClientConfigArgs and EndpointConfigurationAsyncInferenceConfigClientConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigClientConfigInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigClientConfigArgs{...}
+type EndpointConfigurationAsyncInferenceConfigClientConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigClientConfigOutput() EndpointConfigurationAsyncInferenceConfigClientConfigOutput
+	ToEndpointConfigurationAsyncInferenceConfigClientConfigOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigOutput
+}
+
+type EndpointConfigurationAsyncInferenceConfigClientConfigArgs struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+	MaxConcurrentInvocationsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentInvocationsPerInstance"`
+}
+
+func (EndpointConfigurationAsyncInferenceConfigClientConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigClientConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigClientConfigArgs) ToEndpointConfigurationAsyncInferenceConfigClientConfigOutput() EndpointConfigurationAsyncInferenceConfigClientConfigOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigClientConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigClientConfigArgs) ToEndpointConfigurationAsyncInferenceConfigClientConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigClientConfigOutput)
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigClientConfigArgs) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigClientConfigArgs) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigClientConfigOutput).ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigClientConfigArgs, EndpointConfigurationAsyncInferenceConfigClientConfigPtr and EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigClientConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput
+	ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput
+}
+
+type endpointConfigurationAsyncInferenceConfigClientConfigPtrType EndpointConfigurationAsyncInferenceConfigClientConfigArgs
+
+func EndpointConfigurationAsyncInferenceConfigClientConfigPtr(v *EndpointConfigurationAsyncInferenceConfigClientConfigArgs) EndpointConfigurationAsyncInferenceConfigClientConfigPtrInput {
+	return (*endpointConfigurationAsyncInferenceConfigClientConfigPtrType)(v)
+}
+
+func (*endpointConfigurationAsyncInferenceConfigClientConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigClientConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigClientConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigClientConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigClientConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigClientConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigOutput() EndpointConfigurationAsyncInferenceConfigClientConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o.ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationAsyncInferenceConfigClientConfig) *EndpointConfigurationAsyncInferenceConfigClientConfig {
+		return &v
+	}).(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput)
+}
+
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
+		return v.MaxConcurrentInvocationsPerInstance
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigClientConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) Elem() EndpointConfigurationAsyncInferenceConfigClientConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigClientConfig) EndpointConfigurationAsyncInferenceConfigClientConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationAsyncInferenceConfigClientConfig
+		return ret
+	}).(EndpointConfigurationAsyncInferenceConfigClientConfigOutput)
+}
+
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+func (o EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigClientConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentInvocationsPerInstance
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfig struct {
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	NotificationConfig *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// EndpointConfigurationAsyncInferenceConfigOutputConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigOutputConfigArgs and EndpointConfigurationAsyncInferenceConfigOutputConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigOutputConfigInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigOutputConfigArgs{...}
+type EndpointConfigurationAsyncInferenceConfigOutputConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigOutput
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigArgs struct {
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	NotificationConfig EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigOutputConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput)
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput).ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationAsyncInferenceConfigOutputConfigPtrInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigOutputConfigArgs, EndpointConfigurationAsyncInferenceConfigOutputConfigPtr and EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigOutputConfigPtrInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigOutputConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationAsyncInferenceConfigOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput
+}
+
+type endpointConfigurationAsyncInferenceConfigOutputConfigPtrType EndpointConfigurationAsyncInferenceConfigOutputConfigArgs
+
+func EndpointConfigurationAsyncInferenceConfigOutputConfigPtr(v *EndpointConfigurationAsyncInferenceConfigOutputConfigArgs) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrInput {
+	return (*endpointConfigurationAsyncInferenceConfigOutputConfigPtrType)(v)
+}
+
+func (*endpointConfigurationAsyncInferenceConfigOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigOutputConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigOutputConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigOutputConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigOutputConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return o.ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfig {
+		return &v
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput)
+}
+
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
+		return v.NotificationConfig
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location to upload inference responses to.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigOutputConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) Elem() EndpointConfigurationAsyncInferenceConfigOutputConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) EndpointConfigurationAsyncInferenceConfigOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationAsyncInferenceConfigOutputConfig
+		return ret
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput)
+}
+
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) NotificationConfig() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationConfig
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location to upload inference responses to.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig struct {
+	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic *string `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+	SuccessTopic *string `pulumi:"successTopic"`
+}
+
+// EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs and EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs{...}
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs struct {
+	// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
+}
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput)
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput).ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput is an input type that accepts EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs, EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtr and EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput` via:
+//
+//          EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput
+	ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput
+}
+
+type endpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrType EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs
+
+func EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtr(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrInput {
+	return (*endpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrType)(v)
+}
+
+func (*endpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return i.ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrType) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o.ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
+		return &v
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput)
+}
+
+// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
+		return v.ErrorTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
+		return v.SuccessTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ToEndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) Elem() EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig
+		return ret
+	}).(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput)
+}
+
+// Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+func (o EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessTopic
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigurationDataCaptureConfig struct {
 	// The content type headers to capture. Fields are documented below.
 	CaptureContentTypeHeader *EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
@@ -2584,7 +3220,7 @@ type EndpointConfigurationDataCaptureConfig struct {
 	EnableCapture *bool `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
-	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -2610,7 +3246,7 @@ type EndpointConfigurationDataCaptureConfigArgs struct {
 	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
 	// Portion of data to capture. Should be between 0 and 100.
 	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
-	// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+	// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -2720,7 +3356,7 @@ func (o EndpointConfigurationDataCaptureConfigOutput) InitialSamplingPercentage(
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -2799,7 +3435,7 @@ func (o EndpointConfigurationDataCaptureConfigPtrOutput) InitialSamplingPercenta
 	}).(pulumi.IntPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+// The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
 func (o EndpointConfigurationDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfigurationDataCaptureConfig) *string {
 		if v == nil {
@@ -7835,6 +8471,14 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigClientConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigClientConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutputConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderOutput{})

@@ -4292,7 +4292,7 @@ export namespace apprunner {
          */
         port?: string;
         /**
-         * A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+         * A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
          */
         runtime: string;
         /**
@@ -6671,6 +6671,48 @@ export namespace cloudhsmv2 {
 }
 
 export namespace cloudtrail {
+    export interface TrailAdvancedEventSelector {
+        /**
+         * Specifies the selector statements in an advanced event selector. Fields documented below.
+         */
+        fieldSelectors: outputs.cloudtrail.TrailAdvancedEventSelectorFieldSelector[];
+        /**
+         * Specifies the name of the advanced event selector.
+         */
+        name?: string;
+    }
+
+    export interface TrailAdvancedEventSelectorFieldSelector {
+        /**
+         * A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+         */
+        endsWiths?: string[];
+        /**
+         * A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+         */
+        equals?: string[];
+        /**
+         * Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+         */
+        field: string;
+        /**
+         * A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+         */
+        notEndsWiths?: string[];
+        /**
+         * A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+         */
+        notEquals?: string[];
+        /**
+         * A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+         */
+        notStartsWiths?: string[];
+        /**
+         * A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+         */
+        startsWiths?: string[];
+    }
+
     export interface TrailEventSelector {
         /**
          * Configuration block for data events. See details below.
@@ -8405,7 +8447,7 @@ export namespace cognito {
 
     export interface UserPoolLambdaConfigCustomEmailSender {
         /**
-         * he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
          */
         lambdaArn: string;
         /**
@@ -8416,7 +8458,7 @@ export namespace cognito {
 
     export interface UserPoolLambdaConfigCustomSmsSender {
         /**
-         * he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
          */
         lambdaArn: string;
         /**
@@ -11349,6 +11391,7 @@ export namespace ec2 {
          * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
          */
         httpEndpoint: string;
+        httpProtocolIpv6?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
          */
@@ -12223,6 +12266,10 @@ export namespace ec2clientvpn {
          */
         samlProviderArn?: string;
         /**
+         * The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+         */
+        selfServiceSamlProviderArn?: string;
+        /**
          * The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
          */
         type: string;
@@ -12842,7 +12889,11 @@ export namespace efs {
         /**
          * Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
          */
-        transitionToIa: string;
+        transitionToIa?: string;
+        /**
+         * Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+         */
+        transitionToPrimaryStorageClass?: string;
     }
 
     export interface FileSystemSizeInByte {
@@ -13056,6 +13107,50 @@ export namespace eks {
         vpcId: string;
     }
 
+    export interface GetNodeGroupRemoteAccess {
+        /**
+         * EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+         */
+        ec2SshKey: string;
+        /**
+         * Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+         */
+        sourceSecurityGroupIds: string[];
+    }
+
+    export interface GetNodeGroupResource {
+        /**
+         * List of objects containing information about AutoScaling Groups.
+         */
+        autoscalingGroups: outputs.eks.GetNodeGroupResourceAutoscalingGroup[];
+        /**
+         * Identifier of the remote access EC2 Security Group.
+         */
+        remoteAccessSecurityGroupId: string;
+    }
+
+    export interface GetNodeGroupResourceAutoscalingGroup {
+        /**
+         * Name of the AutoScaling Group.
+         */
+        name: string;
+    }
+
+    export interface GetNodeGroupScalingConfig {
+        /**
+         * Desired number of worker nodes.
+         */
+        desiredSize: number;
+        /**
+         * Maximum number of worker nodes.
+         */
+        maxSize: number;
+        /**
+         * Minimum number of worker nodes.
+         */
+        minSize: number;
+    }
+
     export interface IdentityProviderConfigOidc {
         /**
          * Client ID for the OpenID Connect identity provider.
@@ -13175,7 +13270,6 @@ export namespace eks {
          */
         maxUnavailablePercentage?: number;
     }
-
 }
 
 export namespace elasticache {
@@ -24273,6 +24367,50 @@ export namespace sagemaker {
         homeEfsFileSystem?: string;
     }
 
+    export interface EndpointConfigurationAsyncInferenceConfig {
+        /**
+         * Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+         */
+        clientConfig?: outputs.sagemaker.EndpointConfigurationAsyncInferenceConfigClientConfig;
+        /**
+         * Specifies the configuration for asynchronous inference invocation outputs.
+         */
+        outputConfig: outputs.sagemaker.EndpointConfigurationAsyncInferenceConfigOutputConfig;
+    }
+
+    export interface EndpointConfigurationAsyncInferenceConfigClientConfig {
+        /**
+         * The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, Amazon SageMaker will choose an optimal value for you.
+         */
+        maxConcurrentInvocationsPerInstance?: number;
+    }
+
+    export interface EndpointConfigurationAsyncInferenceConfigOutputConfig {
+        /**
+         * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         */
+        kmsKeyId?: string;
+        /**
+         * Specifies the configuration for notifications of inference results for asynchronous inference.
+         */
+        notificationConfig?: outputs.sagemaker.EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig;
+        /**
+         * The Amazon S3 location to upload inference responses to.
+         */
+        s3OutputPath: string;
+    }
+
+    export interface EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig {
+        /**
+         * Amazon SNS topic to post a notification to when inference fails. If no topic is provided, no notification is sent on failure.
+         */
+        errorTopic?: string;
+        /**
+         * Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.
+         */
+        successTopic?: string;
+    }
+
     export interface EndpointConfigurationDataCaptureConfig {
         /**
          * The content type headers to capture. Fields are documented below.
@@ -24295,7 +24433,7 @@ export namespace sagemaker {
          */
         initialSamplingPercentage: number;
         /**
-         * Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
+         * The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
          */
         kmsKeyId?: string;
     }
@@ -27250,6 +27388,32 @@ export namespace timestreamwrite {
 }
 
 export namespace transfer {
+    export interface AccessHomeDirectoryMapping {
+        /**
+         * Represents an entry and a target.
+         */
+        entry: string;
+        /**
+         * Represents the map target.
+         */
+        target: string;
+    }
+
+    export interface AccessPosixProfile {
+        /**
+         * The POSIX group ID used for all EFS operations by this user.
+         */
+        gid: number;
+        /**
+         * The secondary POSIX group IDs used for all EFS operations by this user.
+         */
+        secondaryGids?: number[];
+        /**
+         * The POSIX user ID used for all EFS operations by this user.
+         */
+        uid: number;
+    }
+
     export interface ServerEndpointDetails {
         /**
          * A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.

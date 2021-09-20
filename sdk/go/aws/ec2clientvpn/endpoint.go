@@ -74,6 +74,8 @@ type Endpoint struct {
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers pulumi.StringArrayOutput `pulumi:"dnsServers"`
+	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+	SelfServicePortal pulumi.StringPtrOutput `pulumi:"selfServicePortal"`
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn pulumi.StringOutput `pulumi:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -141,6 +143,8 @@ type endpointState struct {
 	DnsName *string `pulumi:"dnsName"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+	SelfServicePortal *string `pulumi:"selfServicePortal"`
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn *string `pulumi:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -168,6 +172,8 @@ type EndpointState struct {
 	DnsName pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers pulumi.StringArrayInput
+	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+	SelfServicePortal pulumi.StringPtrInput
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn pulumi.StringPtrInput
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -195,6 +201,8 @@ type endpointArgs struct {
 	Description *string `pulumi:"description"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers []string `pulumi:"dnsServers"`
+	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+	SelfServicePortal *string `pulumi:"selfServicePortal"`
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn string `pulumi:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -216,6 +224,8 @@ type EndpointArgs struct {
 	Description pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers pulumi.StringArrayInput
+	// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+	SelfServicePortal pulumi.StringPtrInput
 	// The ARN of the ACM server certificate.
 	ServerCertificateArn pulumi.StringInput
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.

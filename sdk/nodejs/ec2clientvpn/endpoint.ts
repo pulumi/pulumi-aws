@@ -96,6 +96,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
+     * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+     */
+    public readonly selfServicePortal!: pulumi.Output<string | undefined>;
+    /**
      * The ARN of the ACM server certificate.
      */
     public readonly serverCertificateArn!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
+            inputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
             inputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
             inputs["splitTunnel"] = state ? state.splitTunnel : undefined;
             inputs["status"] = state ? state.status : undefined;
@@ -159,6 +164,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
+            inputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
             inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
             inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -208,6 +214,10 @@ export interface EndpointState {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+     */
+    selfServicePortal?: pulumi.Input<string>;
+    /**
      * The ARN of the ACM server certificate.
      */
     serverCertificateArn?: pulumi.Input<string>;
@@ -251,6 +261,10 @@ export interface EndpointArgs {
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+     */
+    selfServicePortal?: pulumi.Input<string>;
     /**
      * The ARN of the ACM server certificate.
      */

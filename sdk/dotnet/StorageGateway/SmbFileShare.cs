@@ -234,7 +234,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         /// </summary>
         [Output("validUserLists")]
         public Output<ImmutableArray<string>> ValidUserLists { get; private set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputList<string>? _validUserLists;
 
         /// <summary>
-        /// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         /// </summary>
         public InputList<string> ValidUserLists
         {
@@ -662,7 +662,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputList<string>? _validUserLists;
 
         /// <summary>
-        /// A list of users in the Active Directory that are allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
+        /// A list of users in the Active Directory that are allowed to access the file share. If you need to specify an Active directory group, add '@' before the name of the group. It will be set on Allowed group in AWS console. Only valid if `authentication` is set to `ActiveDirectory`.
         /// </summary>
         public InputList<string> ValidUserLists
         {

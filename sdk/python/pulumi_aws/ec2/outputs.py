@@ -3617,6 +3617,8 @@ class LaunchTemplateMetadataOptions(dict):
         suggest = None
         if key == "httpEndpoint":
             suggest = "http_endpoint"
+        elif key == "httpProtocolIpv6":
+            suggest = "http_protocol_ipv6"
         elif key == "httpPutResponseHopLimit":
             suggest = "http_put_response_hop_limit"
         elif key == "httpTokens":
@@ -3635,6 +3637,7 @@ class LaunchTemplateMetadataOptions(dict):
 
     def __init__(__self__, *,
                  http_endpoint: Optional[str] = None,
+                 http_protocol_ipv6: Optional[str] = None,
                  http_put_response_hop_limit: Optional[int] = None,
                  http_tokens: Optional[str] = None):
         """
@@ -3644,6 +3647,8 @@ class LaunchTemplateMetadataOptions(dict):
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -3656,6 +3661,11 @@ class LaunchTemplateMetadataOptions(dict):
         Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         """
         return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[str]:
+        return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")

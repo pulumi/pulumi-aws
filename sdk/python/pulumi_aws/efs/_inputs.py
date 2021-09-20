@@ -186,23 +186,40 @@ class BackupPolicyBackupPolicyArgs:
 @pulumi.input_type
 class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
-                 transition_to_ia: pulumi.Input[str]):
+                 transition_to_ia: Optional[pulumi.Input[str]] = None,
+                 transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] transition_to_ia: Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
+        :param pulumi.Input[str] transition_to_primary_storage_class: Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
         """
-        pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_ia is not None:
+            pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        if transition_to_primary_storage_class is not None:
+            pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIa")
-    def transition_to_ia(self) -> pulumi.Input[str]:
+    def transition_to_ia(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates how long it takes to transition files to the IA storage class. Valid values: `AFTER_7_DAYS`, `AFTER_14_DAYS`, `AFTER_30_DAYS`, `AFTER_60_DAYS`, or `AFTER_90_DAYS`.
         """
         return pulumi.get(self, "transition_to_ia")
 
     @transition_to_ia.setter
-    def transition_to_ia(self, value: pulumi.Input[str]):
+    def transition_to_ia(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transition_to_ia", value)
+
+    @property
+    @pulumi.getter(name="transitionToPrimaryStorageClass")
+    def transition_to_primary_storage_class(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the policy used to transition a file from infequent access storage to primary storage. Valid values: `AFTER_1_ACCESS`.
+        """
+        return pulumi.get(self, "transition_to_primary_storage_class")
+
+    @transition_to_primary_storage_class.setter
+    def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_to_primary_storage_class", value)
 
 
 @pulumi.input_type

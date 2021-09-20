@@ -424,6 +424,54 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
+                    ip_sets=[
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                            key="WEBSERVERS_HOSTS",
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                                definitions=[
+                                    "10.0.0.0/16",
+                                    "10.0.1.0/24",
+                                    "192.168.0.0/16",
+                                ],
+                            ),
+                        ),
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                            key="EXTERNAL_HOST",
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                                definitions=["1.2.3.4/32"],
+                            ),
+                        ),
+                    ],
+                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
+                        key="HTTP_PORTS",
+                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
+                            definitions=[
+                                "443",
+                                "80",
+                            ],
+                        ),
+                    )],
+                ),
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
+                ),
+            ),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
         ### Stateless Inspection with a Custom Action
 
         ```python
@@ -621,6 +669,54 @@ class RuleGroup(pulumi.CustomResource):
             capacity=100,
             type="STATEFUL",
             rules=(lambda path: open(path).read())("example.rules"),
+            tags={
+                "Tag1": "Value1",
+                "Tag2": "Value2",
+            })
+        ```
+        ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.networkfirewall.RuleGroup("example",
+            capacity=100,
+            type="STATEFUL",
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
+                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
+                    ip_sets=[
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                            key="WEBSERVERS_HOSTS",
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                                definitions=[
+                                    "10.0.0.0/16",
+                                    "10.0.1.0/24",
+                                    "192.168.0.0/16",
+                                ],
+                            ),
+                        ),
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                            key="EXTERNAL_HOST",
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                                definitions=["1.2.3.4/32"],
+                            ),
+                        ),
+                    ],
+                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
+                        key="HTTP_PORTS",
+                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
+                            definitions=[
+                                "443",
+                                "80",
+                            ],
+                        ),
+                    )],
+                ),
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                    rules_string=(lambda path: open(path).read())("suricata_rules_file"),
+                ),
+            ),
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",

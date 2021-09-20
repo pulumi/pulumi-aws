@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<ImmutableArray<string>> DnsServers { get; private set; } = null!;
 
         /// <summary>
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// </summary>
+        [Output("selfServicePortal")]
+        public Output<string?> SelfServicePortal { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the ACM server certificate.
         /// </summary>
         [Output("serverCertificateArn")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
         }
 
         /// <summary>
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// </summary>
+        [Input("selfServicePortal")]
+        public Input<string>? SelfServicePortal { get; set; }
+
+        /// <summary>
         /// The ARN of the ACM server certificate.
         /// </summary>
         [Input("serverCertificateArn", required: true)]
@@ -305,6 +317,12 @@ namespace Pulumi.Aws.Ec2ClientVpn
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
             set => _dnsServers = value;
         }
+
+        /// <summary>
+        /// Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
+        /// </summary>
+        [Input("selfServicePortal")]
+        public Input<string>? SelfServicePortal { get; set; }
 
         /// <summary>
         /// The ARN of the ACM server certificate.

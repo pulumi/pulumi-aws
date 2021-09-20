@@ -70,6 +70,10 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     */
+    public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationAsyncInferenceConfig | undefined>;
+    /**
      * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
      */
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigurationDataCaptureConfig | undefined>;
@@ -108,6 +112,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["asyncInferenceConfig"] = state ? state.asyncInferenceConfig : undefined;
             inputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
             inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -119,6 +124,7 @@ export class EndpointConfiguration extends pulumi.CustomResource {
             if ((!args || args.productionVariants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productionVariants'");
             }
+            inputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
             inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
             inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -142,6 +148,10 @@ export interface EndpointConfigurationState {
      * The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     */
+    asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
      * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
      */
@@ -172,6 +182,10 @@ export interface EndpointConfigurationState {
  * The set of arguments for constructing a EndpointConfiguration resource.
  */
 export interface EndpointConfigurationArgs {
+    /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     */
+    asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigurationAsyncInferenceConfig>;
     /**
      * Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
      */

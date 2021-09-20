@@ -2827,6 +2827,430 @@ func (o GetClusterVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }
 
+type GetNodeGroupRemoteAccess struct {
+	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+	Ec2SshKey string `pulumi:"ec2SshKey"`
+	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+	SourceSecurityGroupIds []string `pulumi:"sourceSecurityGroupIds"`
+}
+
+// GetNodeGroupRemoteAccessInput is an input type that accepts GetNodeGroupRemoteAccessArgs and GetNodeGroupRemoteAccessOutput values.
+// You can construct a concrete instance of `GetNodeGroupRemoteAccessInput` via:
+//
+//          GetNodeGroupRemoteAccessArgs{...}
+type GetNodeGroupRemoteAccessInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupRemoteAccessOutput() GetNodeGroupRemoteAccessOutput
+	ToGetNodeGroupRemoteAccessOutputWithContext(context.Context) GetNodeGroupRemoteAccessOutput
+}
+
+type GetNodeGroupRemoteAccessArgs struct {
+	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+	Ec2SshKey pulumi.StringInput `pulumi:"ec2SshKey"`
+	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+	SourceSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceSecurityGroupIds"`
+}
+
+func (GetNodeGroupRemoteAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupRemoteAccess)(nil)).Elem()
+}
+
+func (i GetNodeGroupRemoteAccessArgs) ToGetNodeGroupRemoteAccessOutput() GetNodeGroupRemoteAccessOutput {
+	return i.ToGetNodeGroupRemoteAccessOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupRemoteAccessArgs) ToGetNodeGroupRemoteAccessOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupRemoteAccessOutput)
+}
+
+// GetNodeGroupRemoteAccessArrayInput is an input type that accepts GetNodeGroupRemoteAccessArray and GetNodeGroupRemoteAccessArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupRemoteAccessArrayInput` via:
+//
+//          GetNodeGroupRemoteAccessArray{ GetNodeGroupRemoteAccessArgs{...} }
+type GetNodeGroupRemoteAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupRemoteAccessArrayOutput() GetNodeGroupRemoteAccessArrayOutput
+	ToGetNodeGroupRemoteAccessArrayOutputWithContext(context.Context) GetNodeGroupRemoteAccessArrayOutput
+}
+
+type GetNodeGroupRemoteAccessArray []GetNodeGroupRemoteAccessInput
+
+func (GetNodeGroupRemoteAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupRemoteAccess)(nil)).Elem()
+}
+
+func (i GetNodeGroupRemoteAccessArray) ToGetNodeGroupRemoteAccessArrayOutput() GetNodeGroupRemoteAccessArrayOutput {
+	return i.ToGetNodeGroupRemoteAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupRemoteAccessArray) ToGetNodeGroupRemoteAccessArrayOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupRemoteAccessArrayOutput)
+}
+
+type GetNodeGroupRemoteAccessOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupRemoteAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupRemoteAccess)(nil)).Elem()
+}
+
+func (o GetNodeGroupRemoteAccessOutput) ToGetNodeGroupRemoteAccessOutput() GetNodeGroupRemoteAccessOutput {
+	return o
+}
+
+func (o GetNodeGroupRemoteAccessOutput) ToGetNodeGroupRemoteAccessOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessOutput {
+	return o
+}
+
+// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
+func (o GetNodeGroupRemoteAccessOutput) Ec2SshKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupRemoteAccess) string { return v.Ec2SshKey }).(pulumi.StringOutput)
+}
+
+// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
+func (o GetNodeGroupRemoteAccessOutput) SourceSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNodeGroupRemoteAccess) []string { return v.SourceSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type GetNodeGroupRemoteAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupRemoteAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupRemoteAccess)(nil)).Elem()
+}
+
+func (o GetNodeGroupRemoteAccessArrayOutput) ToGetNodeGroupRemoteAccessArrayOutput() GetNodeGroupRemoteAccessArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupRemoteAccessArrayOutput) ToGetNodeGroupRemoteAccessArrayOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupRemoteAccessArrayOutput) Index(i pulumi.IntInput) GetNodeGroupRemoteAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupRemoteAccess {
+		return vs[0].([]GetNodeGroupRemoteAccess)[vs[1].(int)]
+	}).(GetNodeGroupRemoteAccessOutput)
+}
+
+type GetNodeGroupResource struct {
+	// List of objects containing information about AutoScaling Groups.
+	AutoscalingGroups []GetNodeGroupResourceAutoscalingGroup `pulumi:"autoscalingGroups"`
+	// Identifier of the remote access EC2 Security Group.
+	RemoteAccessSecurityGroupId string `pulumi:"remoteAccessSecurityGroupId"`
+}
+
+// GetNodeGroupResourceInput is an input type that accepts GetNodeGroupResourceArgs and GetNodeGroupResourceOutput values.
+// You can construct a concrete instance of `GetNodeGroupResourceInput` via:
+//
+//          GetNodeGroupResourceArgs{...}
+type GetNodeGroupResourceInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupResourceOutput() GetNodeGroupResourceOutput
+	ToGetNodeGroupResourceOutputWithContext(context.Context) GetNodeGroupResourceOutput
+}
+
+type GetNodeGroupResourceArgs struct {
+	// List of objects containing information about AutoScaling Groups.
+	AutoscalingGroups GetNodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
+	// Identifier of the remote access EC2 Security Group.
+	RemoteAccessSecurityGroupId pulumi.StringInput `pulumi:"remoteAccessSecurityGroupId"`
+}
+
+func (GetNodeGroupResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupResource)(nil)).Elem()
+}
+
+func (i GetNodeGroupResourceArgs) ToGetNodeGroupResourceOutput() GetNodeGroupResourceOutput {
+	return i.ToGetNodeGroupResourceOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupResourceArgs) ToGetNodeGroupResourceOutputWithContext(ctx context.Context) GetNodeGroupResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceOutput)
+}
+
+// GetNodeGroupResourceArrayInput is an input type that accepts GetNodeGroupResourceArray and GetNodeGroupResourceArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupResourceArrayInput` via:
+//
+//          GetNodeGroupResourceArray{ GetNodeGroupResourceArgs{...} }
+type GetNodeGroupResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupResourceArrayOutput() GetNodeGroupResourceArrayOutput
+	ToGetNodeGroupResourceArrayOutputWithContext(context.Context) GetNodeGroupResourceArrayOutput
+}
+
+type GetNodeGroupResourceArray []GetNodeGroupResourceInput
+
+func (GetNodeGroupResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupResource)(nil)).Elem()
+}
+
+func (i GetNodeGroupResourceArray) ToGetNodeGroupResourceArrayOutput() GetNodeGroupResourceArrayOutput {
+	return i.ToGetNodeGroupResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupResourceArray) ToGetNodeGroupResourceArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceArrayOutput)
+}
+
+type GetNodeGroupResourceOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupResource)(nil)).Elem()
+}
+
+func (o GetNodeGroupResourceOutput) ToGetNodeGroupResourceOutput() GetNodeGroupResourceOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceOutput) ToGetNodeGroupResourceOutputWithContext(ctx context.Context) GetNodeGroupResourceOutput {
+	return o
+}
+
+// List of objects containing information about AutoScaling Groups.
+func (o GetNodeGroupResourceOutput) AutoscalingGroups() GetNodeGroupResourceAutoscalingGroupArrayOutput {
+	return o.ApplyT(func(v GetNodeGroupResource) []GetNodeGroupResourceAutoscalingGroup { return v.AutoscalingGroups }).(GetNodeGroupResourceAutoscalingGroupArrayOutput)
+}
+
+// Identifier of the remote access EC2 Security Group.
+func (o GetNodeGroupResourceOutput) RemoteAccessSecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupResource) string { return v.RemoteAccessSecurityGroupId }).(pulumi.StringOutput)
+}
+
+type GetNodeGroupResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupResource)(nil)).Elem()
+}
+
+func (o GetNodeGroupResourceArrayOutput) ToGetNodeGroupResourceArrayOutput() GetNodeGroupResourceArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceArrayOutput) ToGetNodeGroupResourceArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceArrayOutput) Index(i pulumi.IntInput) GetNodeGroupResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupResource {
+		return vs[0].([]GetNodeGroupResource)[vs[1].(int)]
+	}).(GetNodeGroupResourceOutput)
+}
+
+type GetNodeGroupResourceAutoscalingGroup struct {
+	// Name of the AutoScaling Group.
+	Name string `pulumi:"name"`
+}
+
+// GetNodeGroupResourceAutoscalingGroupInput is an input type that accepts GetNodeGroupResourceAutoscalingGroupArgs and GetNodeGroupResourceAutoscalingGroupOutput values.
+// You can construct a concrete instance of `GetNodeGroupResourceAutoscalingGroupInput` via:
+//
+//          GetNodeGroupResourceAutoscalingGroupArgs{...}
+type GetNodeGroupResourceAutoscalingGroupInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupResourceAutoscalingGroupOutput() GetNodeGroupResourceAutoscalingGroupOutput
+	ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(context.Context) GetNodeGroupResourceAutoscalingGroupOutput
+}
+
+type GetNodeGroupResourceAutoscalingGroupArgs struct {
+	// Name of the AutoScaling Group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetNodeGroupResourceAutoscalingGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
+}
+
+func (i GetNodeGroupResourceAutoscalingGroupArgs) ToGetNodeGroupResourceAutoscalingGroupOutput() GetNodeGroupResourceAutoscalingGroupOutput {
+	return i.ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupResourceAutoscalingGroupArgs) ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceAutoscalingGroupOutput)
+}
+
+// GetNodeGroupResourceAutoscalingGroupArrayInput is an input type that accepts GetNodeGroupResourceAutoscalingGroupArray and GetNodeGroupResourceAutoscalingGroupArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupResourceAutoscalingGroupArrayInput` via:
+//
+//          GetNodeGroupResourceAutoscalingGroupArray{ GetNodeGroupResourceAutoscalingGroupArgs{...} }
+type GetNodeGroupResourceAutoscalingGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupResourceAutoscalingGroupArrayOutput() GetNodeGroupResourceAutoscalingGroupArrayOutput
+	ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Context) GetNodeGroupResourceAutoscalingGroupArrayOutput
+}
+
+type GetNodeGroupResourceAutoscalingGroupArray []GetNodeGroupResourceAutoscalingGroupInput
+
+func (GetNodeGroupResourceAutoscalingGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
+}
+
+func (i GetNodeGroupResourceAutoscalingGroupArray) ToGetNodeGroupResourceAutoscalingGroupArrayOutput() GetNodeGroupResourceAutoscalingGroupArrayOutput {
+	return i.ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupResourceAutoscalingGroupArray) ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceAutoscalingGroupArrayOutput)
+}
+
+type GetNodeGroupResourceAutoscalingGroupOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupResourceAutoscalingGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
+}
+
+func (o GetNodeGroupResourceAutoscalingGroupOutput) ToGetNodeGroupResourceAutoscalingGroupOutput() GetNodeGroupResourceAutoscalingGroupOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceAutoscalingGroupOutput) ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupOutput {
+	return o
+}
+
+// Name of the AutoScaling Group.
+func (o GetNodeGroupResourceAutoscalingGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupResourceAutoscalingGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetNodeGroupResourceAutoscalingGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupResourceAutoscalingGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
+}
+
+func (o GetNodeGroupResourceAutoscalingGroupArrayOutput) ToGetNodeGroupResourceAutoscalingGroupArrayOutput() GetNodeGroupResourceAutoscalingGroupArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceAutoscalingGroupArrayOutput) ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupResourceAutoscalingGroupArrayOutput) Index(i pulumi.IntInput) GetNodeGroupResourceAutoscalingGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupResourceAutoscalingGroup {
+		return vs[0].([]GetNodeGroupResourceAutoscalingGroup)[vs[1].(int)]
+	}).(GetNodeGroupResourceAutoscalingGroupOutput)
+}
+
+type GetNodeGroupScalingConfig struct {
+	// Desired number of worker nodes.
+	DesiredSize int `pulumi:"desiredSize"`
+	// Maximum number of worker nodes.
+	MaxSize int `pulumi:"maxSize"`
+	// Minimum number of worker nodes.
+	MinSize int `pulumi:"minSize"`
+}
+
+// GetNodeGroupScalingConfigInput is an input type that accepts GetNodeGroupScalingConfigArgs and GetNodeGroupScalingConfigOutput values.
+// You can construct a concrete instance of `GetNodeGroupScalingConfigInput` via:
+//
+//          GetNodeGroupScalingConfigArgs{...}
+type GetNodeGroupScalingConfigInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupScalingConfigOutput() GetNodeGroupScalingConfigOutput
+	ToGetNodeGroupScalingConfigOutputWithContext(context.Context) GetNodeGroupScalingConfigOutput
+}
+
+type GetNodeGroupScalingConfigArgs struct {
+	// Desired number of worker nodes.
+	DesiredSize pulumi.IntInput `pulumi:"desiredSize"`
+	// Maximum number of worker nodes.
+	MaxSize pulumi.IntInput `pulumi:"maxSize"`
+	// Minimum number of worker nodes.
+	MinSize pulumi.IntInput `pulumi:"minSize"`
+}
+
+func (GetNodeGroupScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupScalingConfig)(nil)).Elem()
+}
+
+func (i GetNodeGroupScalingConfigArgs) ToGetNodeGroupScalingConfigOutput() GetNodeGroupScalingConfigOutput {
+	return i.ToGetNodeGroupScalingConfigOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupScalingConfigArgs) ToGetNodeGroupScalingConfigOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupScalingConfigOutput)
+}
+
+// GetNodeGroupScalingConfigArrayInput is an input type that accepts GetNodeGroupScalingConfigArray and GetNodeGroupScalingConfigArrayOutput values.
+// You can construct a concrete instance of `GetNodeGroupScalingConfigArrayInput` via:
+//
+//          GetNodeGroupScalingConfigArray{ GetNodeGroupScalingConfigArgs{...} }
+type GetNodeGroupScalingConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetNodeGroupScalingConfigArrayOutput() GetNodeGroupScalingConfigArrayOutput
+	ToGetNodeGroupScalingConfigArrayOutputWithContext(context.Context) GetNodeGroupScalingConfigArrayOutput
+}
+
+type GetNodeGroupScalingConfigArray []GetNodeGroupScalingConfigInput
+
+func (GetNodeGroupScalingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupScalingConfig)(nil)).Elem()
+}
+
+func (i GetNodeGroupScalingConfigArray) ToGetNodeGroupScalingConfigArrayOutput() GetNodeGroupScalingConfigArrayOutput {
+	return i.ToGetNodeGroupScalingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetNodeGroupScalingConfigArray) ToGetNodeGroupScalingConfigArrayOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupScalingConfigArrayOutput)
+}
+
+type GetNodeGroupScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeGroupScalingConfig)(nil)).Elem()
+}
+
+func (o GetNodeGroupScalingConfigOutput) ToGetNodeGroupScalingConfigOutput() GetNodeGroupScalingConfigOutput {
+	return o
+}
+
+func (o GetNodeGroupScalingConfigOutput) ToGetNodeGroupScalingConfigOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigOutput {
+	return o
+}
+
+// Desired number of worker nodes.
+func (o GetNodeGroupScalingConfigOutput) DesiredSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.DesiredSize }).(pulumi.IntOutput)
+}
+
+// Maximum number of worker nodes.
+func (o GetNodeGroupScalingConfigOutput) MaxSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.MaxSize }).(pulumi.IntOutput)
+}
+
+// Minimum number of worker nodes.
+func (o GetNodeGroupScalingConfigOutput) MinSize() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
+}
+
+type GetNodeGroupScalingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNodeGroupScalingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNodeGroupScalingConfig)(nil)).Elem()
+}
+
+func (o GetNodeGroupScalingConfigArrayOutput) ToGetNodeGroupScalingConfigArrayOutput() GetNodeGroupScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupScalingConfigArrayOutput) ToGetNodeGroupScalingConfigArrayOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigArrayOutput {
+	return o
+}
+
+func (o GetNodeGroupScalingConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGroupScalingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNodeGroupScalingConfig {
+		return vs[0].([]GetNodeGroupScalingConfig)[vs[1].(int)]
+	}).(GetNodeGroupScalingConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
@@ -2868,4 +3292,12 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterKubernetesNetworkConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupRemoteAccessArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupResourceOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupResourceArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupResourceAutoscalingGroupOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupResourceAutoscalingGroupArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupScalingConfigOutput{})
+	pulumi.RegisterOutputType(GetNodeGroupScalingConfigArrayOutput{})
 }

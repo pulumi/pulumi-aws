@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .voice_connector import *
 from .voice_connector_group import *
+from .voice_connector_logging import *
 from .voice_connector_organization import *
 from .voice_connector_termination import *
 from ._inputs import *

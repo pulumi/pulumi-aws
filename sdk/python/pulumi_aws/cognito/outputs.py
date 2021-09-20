@@ -997,7 +997,7 @@ class UserPoolLambdaConfigCustomEmailSender(dict):
                  lambda_arn: str,
                  lambda_version: str):
         """
-        :param str lambda_arn: he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -1007,7 +1007,7 @@ class UserPoolLambdaConfigCustomEmailSender(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> str:
         """
-        he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -1045,7 +1045,7 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
                  lambda_arn: str,
                  lambda_version: str):
         """
-        :param str lambda_arn: he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param str lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -1055,7 +1055,7 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> str:
         """
-        he Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         """
         return pulumi.get(self, "lambda_arn")
 

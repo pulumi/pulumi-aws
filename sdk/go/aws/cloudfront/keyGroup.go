@@ -11,6 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// CloudFront Key Group can be imported using the `id`, e.g.
+//
+// ```sh
+//  $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+// ```
 type KeyGroup struct {
 	pulumi.CustomResourceState
 

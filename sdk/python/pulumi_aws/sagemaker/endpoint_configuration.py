@@ -16,6 +16,7 @@ __all__ = ['EndpointConfigurationArgs', 'EndpointConfiguration']
 class EndpointConfigurationArgs:
     def __init__(__self__, *,
                  production_variants: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]],
+                 async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
                  data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -23,12 +24,15 @@ class EndpointConfigurationArgs:
         """
         The set of arguments for constructing a EndpointConfiguration resource.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]] production_variants: Fields are documented below.
+        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "production_variants", production_variants)
+        if async_inference_config is not None:
+            pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
         if kms_key_arn is not None:
@@ -49,6 +53,18 @@ class EndpointConfigurationArgs:
     @production_variants.setter
     def production_variants(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointConfigurationProductionVariantArgs']]]):
         pulumi.set(self, "production_variants", value)
+
+    @property
+    @pulumi.getter(name="asyncInferenceConfig")
+    def async_inference_config(self) -> Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]:
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
+        return pulumi.get(self, "async_inference_config")
+
+    @async_inference_config.setter
+    def async_inference_config(self, value: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]):
+        pulumi.set(self, "async_inference_config", value)
 
     @property
     @pulumi.getter(name="dataCaptureConfig")
@@ -103,6 +119,7 @@ class EndpointConfigurationArgs:
 class _EndpointConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 async_inference_config: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']] = None,
                  data_capture_config: Optional[pulumi.Input['EndpointConfigurationDataCaptureConfigArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -112,6 +129,7 @@ class _EndpointConfigurationState:
         """
         Input properties used for looking up and filtering EndpointConfiguration resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+        :param pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs'] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input['EndpointConfigurationDataCaptureConfigArgs'] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -121,6 +139,8 @@ class _EndpointConfigurationState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if async_inference_config is not None:
+            pulumi.set(__self__, "async_inference_config", async_inference_config)
         if data_capture_config is not None:
             pulumi.set(__self__, "data_capture_config", data_capture_config)
         if kms_key_arn is not None:
@@ -145,6 +165,18 @@ class _EndpointConfigurationState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="asyncInferenceConfig")
+    def async_inference_config(self) -> Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]:
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
+        return pulumi.get(self, "async_inference_config")
+
+    @async_inference_config.setter
+    def async_inference_config(self, value: Optional[pulumi.Input['EndpointConfigurationAsyncInferenceConfigArgs']]):
+        pulumi.set(self, "async_inference_config", value)
 
     @property
     @pulumi.getter(name="dataCaptureConfig")
@@ -224,6 +256,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 async_inference_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationAsyncInferenceConfigArgs']]] = None,
                  data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -263,6 +296,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EndpointConfigurationAsyncInferenceConfigArgs']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -321,6 +355,7 @@ class EndpointConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 async_inference_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationAsyncInferenceConfigArgs']]] = None,
                  data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +373,7 @@ class EndpointConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointConfigurationArgs.__new__(EndpointConfigurationArgs)
 
+            __props__.__dict__["async_inference_config"] = async_inference_config
             __props__.__dict__["data_capture_config"] = data_capture_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
@@ -358,6 +394,7 @@ class EndpointConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            async_inference_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationAsyncInferenceConfigArgs']]] = None,
             data_capture_config: Optional[pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -372,6 +409,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
+        :param pulumi.Input[pulumi.InputType['EndpointConfigurationAsyncInferenceConfigArgs']] async_inference_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input[pulumi.InputType['EndpointConfigurationDataCaptureConfigArgs']] data_capture_config: Specifies the parameters to capture input/output of Sagemaker models endpoints. Fields are documented below.
         :param pulumi.Input[str] kms_key_arn: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint configuration. If omitted, this provider will assign a random, unique name.
@@ -384,6 +422,7 @@ class EndpointConfiguration(pulumi.CustomResource):
         __props__ = _EndpointConfigurationState.__new__(_EndpointConfigurationState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["async_inference_config"] = async_inference_config
         __props__.__dict__["data_capture_config"] = data_capture_config
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["name"] = name
@@ -399,6 +438,14 @@ class EndpointConfiguration(pulumi.CustomResource):
         The Amazon Resource Name (ARN) assigned by AWS to this endpoint configuration.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="asyncInferenceConfig")
+    def async_inference_config(self) -> pulumi.Output[Optional['outputs.EndpointConfigurationAsyncInferenceConfig']]:
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
+        return pulumi.get(self, "async_inference_config")
 
     @property
     @pulumi.getter(name="dataCaptureConfig")

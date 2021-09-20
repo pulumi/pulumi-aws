@@ -15,6 +15,8 @@ import (
 //
 // ## Example Usage
 //
+// This example blocks requests coming from `192.0.7.0/24` and allows everything else.
+//
 // ```go
 // package main
 //

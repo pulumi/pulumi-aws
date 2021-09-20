@@ -1440,6 +1440,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/voiceConnectorLogging",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorLogging:VoiceConnectorLogging": "VoiceConnectorLogging"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "chime/voiceConnectorOrganization",
   "fqn": "pulumi_aws.chime",
   "classes": {
@@ -6636,6 +6644,14 @@ _utilities.register(
   "fqn": "pulumi_aws.timestreamwrite",
   "classes": {
    "aws:timestreamwrite/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transfer/access",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/access:Access": "Access"
   }
  },
  {

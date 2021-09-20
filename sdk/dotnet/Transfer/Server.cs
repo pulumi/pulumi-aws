@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Certificate { get; private set; } = null!;
 
         /// <summary>
+        /// The directory service id of the directory service you want to connect to.
+        /// </summary>
+        [Output("directoryId")]
+        public Output<string?> DirectoryId { get; private set; } = null!;
+
+        /// <summary>
         /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
         [Output("domain")]
@@ -284,6 +290,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Certificate { get; set; }
 
         /// <summary>
+        /// The directory service id of the directory service you want to connect to.
+        /// </summary>
+        [Input("directoryId")]
+        public Input<string>? DirectoryId { get; set; }
+
+        /// <summary>
         /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         /// </summary>
         [Input("domain")]
@@ -384,6 +396,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
+
+        /// <summary>
+        /// The directory service id of the directory service you want to connect to.
+        /// </summary>
+        [Input("directoryId")]
+        public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
         /// The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.

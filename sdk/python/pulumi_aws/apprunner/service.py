@@ -364,7 +364,7 @@ class Service(pulumi.CustomResource):
                         code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs(
                             build_command="python setup.py develop",
                             port="8000",
-                            runtime="python3",
+                            runtime="PYTHON_3",
                             start_command="python runapp.py",
                         ),
                         configuration_source="API",
@@ -447,7 +447,7 @@ class Service(pulumi.CustomResource):
                         code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs(
                             build_command="python setup.py develop",
                             port="8000",
-                            runtime="python3",
+                            runtime="PYTHON_3",
                             start_command="python runapp.py",
                         ),
                         configuration_source="API",

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.AppRunner.Inputs
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `python3`, `nodejs12`.
+        /// A runtime environment type for building and running an App Runner service. Represents a programming language runtime. Valid values: `PYTHON_3`, `NODEJS_12`.
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;

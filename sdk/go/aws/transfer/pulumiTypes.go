@@ -10,6 +10,287 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessHomeDirectoryMapping struct {
+	// Represents an entry and a target.
+	Entry string `pulumi:"entry"`
+	// Represents the map target.
+	Target string `pulumi:"target"`
+}
+
+// AccessHomeDirectoryMappingInput is an input type that accepts AccessHomeDirectoryMappingArgs and AccessHomeDirectoryMappingOutput values.
+// You can construct a concrete instance of `AccessHomeDirectoryMappingInput` via:
+//
+//          AccessHomeDirectoryMappingArgs{...}
+type AccessHomeDirectoryMappingInput interface {
+	pulumi.Input
+
+	ToAccessHomeDirectoryMappingOutput() AccessHomeDirectoryMappingOutput
+	ToAccessHomeDirectoryMappingOutputWithContext(context.Context) AccessHomeDirectoryMappingOutput
+}
+
+type AccessHomeDirectoryMappingArgs struct {
+	// Represents an entry and a target.
+	Entry pulumi.StringInput `pulumi:"entry"`
+	// Represents the map target.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (AccessHomeDirectoryMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (i AccessHomeDirectoryMappingArgs) ToAccessHomeDirectoryMappingOutput() AccessHomeDirectoryMappingOutput {
+	return i.ToAccessHomeDirectoryMappingOutputWithContext(context.Background())
+}
+
+func (i AccessHomeDirectoryMappingArgs) ToAccessHomeDirectoryMappingOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessHomeDirectoryMappingOutput)
+}
+
+// AccessHomeDirectoryMappingArrayInput is an input type that accepts AccessHomeDirectoryMappingArray and AccessHomeDirectoryMappingArrayOutput values.
+// You can construct a concrete instance of `AccessHomeDirectoryMappingArrayInput` via:
+//
+//          AccessHomeDirectoryMappingArray{ AccessHomeDirectoryMappingArgs{...} }
+type AccessHomeDirectoryMappingArrayInput interface {
+	pulumi.Input
+
+	ToAccessHomeDirectoryMappingArrayOutput() AccessHomeDirectoryMappingArrayOutput
+	ToAccessHomeDirectoryMappingArrayOutputWithContext(context.Context) AccessHomeDirectoryMappingArrayOutput
+}
+
+type AccessHomeDirectoryMappingArray []AccessHomeDirectoryMappingInput
+
+func (AccessHomeDirectoryMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (i AccessHomeDirectoryMappingArray) ToAccessHomeDirectoryMappingArrayOutput() AccessHomeDirectoryMappingArrayOutput {
+	return i.ToAccessHomeDirectoryMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AccessHomeDirectoryMappingArray) ToAccessHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessHomeDirectoryMappingArrayOutput)
+}
+
+type AccessHomeDirectoryMappingOutput struct{ *pulumi.OutputState }
+
+func (AccessHomeDirectoryMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (o AccessHomeDirectoryMappingOutput) ToAccessHomeDirectoryMappingOutput() AccessHomeDirectoryMappingOutput {
+	return o
+}
+
+func (o AccessHomeDirectoryMappingOutput) ToAccessHomeDirectoryMappingOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingOutput {
+	return o
+}
+
+// Represents an entry and a target.
+func (o AccessHomeDirectoryMappingOutput) Entry() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessHomeDirectoryMapping) string { return v.Entry }).(pulumi.StringOutput)
+}
+
+// Represents the map target.
+func (o AccessHomeDirectoryMappingOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessHomeDirectoryMapping) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type AccessHomeDirectoryMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessHomeDirectoryMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessHomeDirectoryMapping)(nil)).Elem()
+}
+
+func (o AccessHomeDirectoryMappingArrayOutput) ToAccessHomeDirectoryMappingArrayOutput() AccessHomeDirectoryMappingArrayOutput {
+	return o
+}
+
+func (o AccessHomeDirectoryMappingArrayOutput) ToAccessHomeDirectoryMappingArrayOutputWithContext(ctx context.Context) AccessHomeDirectoryMappingArrayOutput {
+	return o
+}
+
+func (o AccessHomeDirectoryMappingArrayOutput) Index(i pulumi.IntInput) AccessHomeDirectoryMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessHomeDirectoryMapping {
+		return vs[0].([]AccessHomeDirectoryMapping)[vs[1].(int)]
+	}).(AccessHomeDirectoryMappingOutput)
+}
+
+type AccessPosixProfile struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid int `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids []int `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid int `pulumi:"uid"`
+}
+
+// AccessPosixProfileInput is an input type that accepts AccessPosixProfileArgs and AccessPosixProfileOutput values.
+// You can construct a concrete instance of `AccessPosixProfileInput` via:
+//
+//          AccessPosixProfileArgs{...}
+type AccessPosixProfileInput interface {
+	pulumi.Input
+
+	ToAccessPosixProfileOutput() AccessPosixProfileOutput
+	ToAccessPosixProfileOutputWithContext(context.Context) AccessPosixProfileOutput
+}
+
+type AccessPosixProfileArgs struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (AccessPosixProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPosixProfile)(nil)).Elem()
+}
+
+func (i AccessPosixProfileArgs) ToAccessPosixProfileOutput() AccessPosixProfileOutput {
+	return i.ToAccessPosixProfileOutputWithContext(context.Background())
+}
+
+func (i AccessPosixProfileArgs) ToAccessPosixProfileOutputWithContext(ctx context.Context) AccessPosixProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPosixProfileOutput)
+}
+
+func (i AccessPosixProfileArgs) ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput {
+	return i.ToAccessPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i AccessPosixProfileArgs) ToAccessPosixProfilePtrOutputWithContext(ctx context.Context) AccessPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPosixProfileOutput).ToAccessPosixProfilePtrOutputWithContext(ctx)
+}
+
+// AccessPosixProfilePtrInput is an input type that accepts AccessPosixProfileArgs, AccessPosixProfilePtr and AccessPosixProfilePtrOutput values.
+// You can construct a concrete instance of `AccessPosixProfilePtrInput` via:
+//
+//          AccessPosixProfileArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessPosixProfilePtrInput interface {
+	pulumi.Input
+
+	ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput
+	ToAccessPosixProfilePtrOutputWithContext(context.Context) AccessPosixProfilePtrOutput
+}
+
+type accessPosixProfilePtrType AccessPosixProfileArgs
+
+func AccessPosixProfilePtr(v *AccessPosixProfileArgs) AccessPosixProfilePtrInput {
+	return (*accessPosixProfilePtrType)(v)
+}
+
+func (*accessPosixProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPosixProfile)(nil)).Elem()
+}
+
+func (i *accessPosixProfilePtrType) ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput {
+	return i.ToAccessPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *accessPosixProfilePtrType) ToAccessPosixProfilePtrOutputWithContext(ctx context.Context) AccessPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessPosixProfilePtrOutput)
+}
+
+type AccessPosixProfileOutput struct{ *pulumi.OutputState }
+
+func (AccessPosixProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessPosixProfile)(nil)).Elem()
+}
+
+func (o AccessPosixProfileOutput) ToAccessPosixProfileOutput() AccessPosixProfileOutput {
+	return o
+}
+
+func (o AccessPosixProfileOutput) ToAccessPosixProfileOutputWithContext(ctx context.Context) AccessPosixProfileOutput {
+	return o
+}
+
+func (o AccessPosixProfileOutput) ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput {
+	return o.ToAccessPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (o AccessPosixProfileOutput) ToAccessPosixProfilePtrOutputWithContext(ctx context.Context) AccessPosixProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPosixProfile) *AccessPosixProfile {
+		return &v
+	}).(AccessPosixProfilePtrOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o AccessPosixProfileOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPosixProfile) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o AccessPosixProfileOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AccessPosixProfile) []int { return v.SecondaryGids }).(pulumi.IntArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o AccessPosixProfileOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v AccessPosixProfile) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type AccessPosixProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessPosixProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessPosixProfile)(nil)).Elem()
+}
+
+func (o AccessPosixProfilePtrOutput) ToAccessPosixProfilePtrOutput() AccessPosixProfilePtrOutput {
+	return o
+}
+
+func (o AccessPosixProfilePtrOutput) ToAccessPosixProfilePtrOutputWithContext(ctx context.Context) AccessPosixProfilePtrOutput {
+	return o
+}
+
+func (o AccessPosixProfilePtrOutput) Elem() AccessPosixProfileOutput {
+	return o.ApplyT(func(v *AccessPosixProfile) AccessPosixProfile {
+		if v != nil {
+			return *v
+		}
+		var ret AccessPosixProfile
+		return ret
+	}).(AccessPosixProfileOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o AccessPosixProfilePtrOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPosixProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.IntPtrOutput)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o AccessPosixProfilePtrOutput) SecondaryGids() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *AccessPosixProfile) []int {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryGids
+	}).(pulumi.IntArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o AccessPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AccessPosixProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.IntPtrOutput)
+}
+
 type ServerEndpointDetails struct {
 	// A list of address allocation IDs that are required to attach an Elastic IP address to your SFTP server's endpoint. This property can only be used when `endpointType` is set to `VPC`.
 	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
@@ -505,6 +786,10 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessHomeDirectoryMappingOutput{})
+	pulumi.RegisterOutputType(AccessHomeDirectoryMappingArrayOutput{})
+	pulumi.RegisterOutputType(AccessPosixProfileOutput{})
+	pulumi.RegisterOutputType(AccessPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
 	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryMappingOutput{})

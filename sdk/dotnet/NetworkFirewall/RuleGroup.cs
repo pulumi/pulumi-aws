@@ -202,6 +202,83 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// }
     /// ```
+    /// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.NetworkFirewall.RuleGroup("example", new Aws.NetworkFirewall.RuleGroupArgs
+    ///         {
+    ///             Capacity = 100,
+    ///             Type = "STATEFUL",
+    ///             RuleGroup = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupArgs
+    ///             {
+    ///                 RuleVariables = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesArgs
+    ///                 {
+    ///                     IpSets = 
+    ///                     {
+    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
+    ///                         {
+    ///                             Key = "WEBSERVERS_HOSTS",
+    ///                             IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
+    ///                             {
+    ///                                 Definitions = 
+    ///                                 {
+    ///                                     "10.0.0.0/16",
+    ///                                     "10.0.1.0/24",
+    ///                                     "192.168.0.0/16",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetArgs
+    ///                         {
+    ///                             Key = "EXTERNAL_HOST",
+    ///                             IpSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs
+    ///                             {
+    ///                                 Definitions = 
+    ///                                 {
+    ///                                     "1.2.3.4/32",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     PortSets = 
+    ///                     {
+    ///                         new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetArgs
+    ///                         {
+    ///                             Key = "HTTP_PORTS",
+    ///                             PortSet = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs
+    ///                             {
+    ///                                 Definitions = 
+    ///                                 {
+    ///                                     "443",
+    ///                                     "80",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RulesSource = new Aws.NetworkFirewall.Inputs.RuleGroupRuleGroupRulesSourceArgs
+    ///                 {
+    ///                     RulesString = File.ReadAllText("suricata_rules_file"),
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Tag1", "Value1" },
+    ///                 { "Tag2", "Value2" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Stateless Inspection with a Custom Action
     /// 
     /// ```csharp

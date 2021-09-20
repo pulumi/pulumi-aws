@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VoiceConnector{}
 	case "aws:chime/voiceConnectorGroup:VoiceConnectorGroup":
 		r = &VoiceConnectorGroup{}
+	case "aws:chime/voiceConnectorLogging:VoiceConnectorLogging":
+		r = &VoiceConnectorLogging{}
 	case "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization":
 		r = &VoiceConnectorOrganization{}
 	case "aws:chime/voiceConnectorTermination:VoiceConnectorTermination":
@@ -50,6 +52,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"chime/voiceConnectorGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"chime/voiceConnectorLogging",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

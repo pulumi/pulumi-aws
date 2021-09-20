@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
         /// </summary>
         public readonly string? SamlProviderArn;
         /// <summary>
+        /// The ARN of the IAM SAML identity provider for the self service portal if type is `federated-authentication`.
+        /// </summary>
+        public readonly string? SelfServiceSamlProviderArn;
+        /// <summary>
         /// The type of client authentication to be used. Specify `certificate-authentication` to use certificate-based authentication, `directory-service-authentication` to use Active Directory authentication, or `federated-authentication` to use Federated Authentication via SAML 2.0.
         /// </summary>
         public readonly string Type;
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
 
             string? samlProviderArn,
 
+            string? selfServiceSamlProviderArn,
+
             string type)
         {
             ActiveDirectoryId = activeDirectoryId;
             RootCertificateChainArn = rootCertificateChainArn;
             SamlProviderArn = samlProviderArn;
+            SelfServiceSamlProviderArn = selfServiceSamlProviderArn;
             Type = type;
         }
     }
