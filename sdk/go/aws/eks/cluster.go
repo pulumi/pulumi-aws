@@ -14,6 +14,41 @@ import (
 // Manages an EKS Cluster.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/eks"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eks.NewCluster(ctx, "example", &eks.ClusterArgs{
+// 			RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
+// 			VpcConfig: &eks.ClusterVpcConfigArgs{
+// 				SubnetIds: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Example1.Id),
+// 					pulumi.Any(aws_subnet.Example2.Id),
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			aws_iam_role_policy_attachment.Example - AmazonEKSClusterPolicy,
+// 			aws_iam_role_policy_attachment.Example - AmazonEKSVPCResourceController,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("endpoint", example.Endpoint)
+// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.ApplyT(func(certificateAuthority eks.ClusterCertificateAuthority) (string, error) {
+// 			return certificateAuthority.Data, nil
+// 		}).(pulumi.StringOutput))
+// 		return nil
+// 	})
+// }
+// ```
 // ### Example IAM Role for EKS Cluster
 //
 // ```go

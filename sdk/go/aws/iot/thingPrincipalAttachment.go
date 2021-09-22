@@ -12,6 +12,52 @@ import (
 )
 
 // Attaches Principal to AWS IoT Thing.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iot"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := iot.NewThing(ctx, "example", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		cert, err := iot.NewCertificate(ctx, "cert", &iot.CertificateArgs{
+// 			Csr:    readFileOrPanic("csr.pem"),
+// 			Active: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iot.NewThingPrincipalAttachment(ctx, "att", &iot.ThingPrincipalAttachmentArgs{
+// 			Principal: cert.Arn,
+// 			Thing:     example.Name,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ThingPrincipalAttachment struct {
 	pulumi.CustomResourceState
 

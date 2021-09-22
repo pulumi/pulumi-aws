@@ -177,6 +177,28 @@ class Repository(pulumi.CustomResource):
 
         > **NOTE:** This resource can only be used with `us-east-1` region.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        us_east1 = pulumi.providers.Aws("usEast1", region="us-east-1")
+        foo = aws.ecrpublic.Repository("foo",
+            repository_name="bar",
+            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
+                about_text="About Text",
+                architectures=["ARM"],
+                description="Description",
+                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                operating_systems=["Linux"],
+                usage_text="Usage Text",
+            ),
+            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+        ```
+
         ## Import
 
         ECR Public Repositories can be imported using the `repository_name`, e.g.
@@ -200,6 +222,28 @@ class Repository(pulumi.CustomResource):
         Provides a Public Elastic Container Registry Repository.
 
         > **NOTE:** This resource can only be used with `us-east-1` region.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+        import pulumi_pulumi as pulumi
+
+        us_east1 = pulumi.providers.Aws("usEast1", region="us-east-1")
+        foo = aws.ecrpublic.Repository("foo",
+            repository_name="bar",
+            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
+                about_text="About Text",
+                architectures=["ARM"],
+                description="Description",
+                logo_image_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())(image["png"]),
+                operating_systems=["Linux"],
+                usage_text="Usage Text",
+            ),
+            opts=pulumi.ResourceOptions(provider=aws["us_east_1"]))
+        ```
 
         ## Import
 

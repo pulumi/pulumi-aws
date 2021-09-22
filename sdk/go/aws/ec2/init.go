@@ -88,7 +88,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "aws:ec2/networkInterface:NetworkInterface":
 		r = &NetworkInterface{}
 	case "aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment":
-		r = &NetworkInterfaceAttachmentType{}
+		r = &NetworkInterfaceAttachment{}
 	case "aws:ec2/networkInterfaceSecurityGroupAttachment:NetworkInterfaceSecurityGroupAttachment":
 		r = &NetworkInterfaceSecurityGroupAttachment{}
 	case "aws:ec2/peeringConnectionOptions:PeeringConnectionOptions":
@@ -154,11 +154,11 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
 		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
-		r = &VpcPeeringConnectionAccepterType{}
+		r = &VpcPeeringConnectionAccepter{}
 	case "aws:ec2/vpnConnection:VpnConnection":
 		r = &VpnConnection{}
 	case "aws:ec2/vpnConnectionRoute:VpnConnectionRoute":
-		r = &VpnConnectionRouteType{}
+		r = &VpnConnectionRoute{}
 	case "aws:ec2/vpnGateway:VpnGateway":
 		r = &VpnGateway{}
 	case "aws:ec2/vpnGatewayAttachment:VpnGatewayAttachment":

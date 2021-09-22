@@ -65,6 +65,73 @@ import * as utilities from "../utilities";
  *     webAclId: fooWebAcl.id,
  * });
  * ```
+ * ### API Gateway Association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const ipset = new aws.wafregional.IpSet("ipset", {ipSetDescriptors: [{
+ *     type: "IPV4",
+ *     value: "192.0.7.0/24",
+ * }]});
+ * const fooRule = new aws.wafregional.Rule("fooRule", {
+ *     metricName: "tfWAFRule",
+ *     predicates: [{
+ *         dataId: ipset.id,
+ *         negated: false,
+ *         type: "IPMatch",
+ *     }],
+ * });
+ * const fooWebAcl = new aws.wafregional.WebAcl("fooWebAcl", {
+ *     metricName: "foo",
+ *     defaultAction: {
+ *         type: "ALLOW",
+ *     },
+ *     rules: [{
+ *         action: {
+ *             type: "BLOCK",
+ *         },
+ *         priority: 1,
+ *         ruleId: fooRule.id,
+ *     }],
+ * });
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ *     openapi: "3.0.1",
+ *     info: {
+ *         title: "example",
+ *         version: "1.0",
+ *     },
+ *     paths: {
+ *         "/path1": {
+ *             get: {
+ *                 "x-amazon-apigateway-integration": {
+ *                     httpMethod: "GET",
+ *                     payloadFormatVersion: "1.0",
+ *                     type: "HTTP_PROXY",
+ *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * })});
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "example",
+ * });
+ * const association = new aws.wafregional.WebAclAssociation("association", {
+ *     resourceArn: exampleStage.arn,
+ *     webAclId: fooWebAcl.id,
+ * });
+ * ```
  *
  * ## Import
  *

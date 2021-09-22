@@ -14,6 +14,95 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// &gt; **NOTE:** It is recommended to use this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ComputeSHA1(string input) {
+    /// 		return BitConverter.ToString(
+    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
+    /// 		).Replace("-","").ToLowerInvariant());
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "openapi", "3.0.1" },
+    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "title", "example" },
+    ///                     { "version", "1.0" },
+    ///                 } },
+    ///                 { "paths", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "httpMethod", "GET" },
+    ///                                 { "payloadFormatVersion", "1.0" },
+    ///                                 { "type", "HTTP_PROXY" },
+    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///             }),
+    ///         });
+    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             Triggers = 
+    ///             {
+    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             },
+    ///         });
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             Deployment = exampleDeployment.Id,
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = "example",
+    ///         });
+    ///         var all = new Aws.ApiGateway.MethodSettings("all", new Aws.ApiGateway.MethodSettingsArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = exampleStage.StageName,
+    ///             MethodPath = "*/*",
+    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///             {
+    ///                 MetricsEnabled = true,
+    ///                 LoggingLevel = "ERROR",
+    ///             },
+    ///         });
+    ///         var pathSpecific = new Aws.ApiGateway.MethodSettings("pathSpecific", new Aws.ApiGateway.MethodSettingsArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = exampleStage.StageName,
+    ///             MethodPath = "path1/GET",
+    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///             {
+    ///                 MetricsEnabled = true,
+    ///                 LoggingLevel = "INFO",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.

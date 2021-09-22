@@ -9,6 +9,70 @@ import {RestApi} from "./index";
 /**
  * Provides an API Gateway Authorizer.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const demoRestApi = new aws.apigateway.RestApi("demoRestApi", {});
+ * const invocationRole = new aws.iam.Role("invocationRole", {
+ *     path: "/",
+ *     assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "apigateway.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * const lambda = new aws.iam.Role("lambda", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const authorizer = new aws.lambda.Function("authorizer", {
+ *     code: new pulumi.asset.FileArchive("lambda-function.zip"),
+ *     role: lambda.arn,
+ *     handler: "exports.example",
+ * });
+ * const demoAuthorizer = new aws.apigateway.Authorizer("demoAuthorizer", {
+ *     restApi: demoRestApi.id,
+ *     authorizerUri: authorizer.invokeArn,
+ *     authorizerCredentials: invocationRole.arn,
+ * });
+ * const invocationPolicy = new aws.iam.RolePolicy("invocationPolicy", {
+ *     role: invocationRole.id,
+ *     policy: pulumi.interpolate`{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "lambda:InvokeFunction",
+ *       "Effect": "Allow",
+ *       "Resource": "${authorizer.arn}"
+ *     }
+ *   ]
+ * }
+ * `,
+ * });
+ * ```
+ *
  * ## Import
  *
  * AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.

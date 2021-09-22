@@ -233,6 +233,40 @@ class UserPoolUICustomization(pulumi.CustomResource):
         > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 
         ## Example Usage
+        ### UI customization settings for a single client
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+
+        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+            domain="example",
+            user_pool_id=example_user_pool.id)
+        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+            client_id=example_user_pool_client.id,
+            css=".label-customizable {font-weight: 400;}",
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            user_pool_id=example_user_pool_domain.user_pool_id)
+        ```
+        ### UI customization settings for all clients
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+
+        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+            domain="example",
+            user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+            css=".label-customizable {font-weight: 400;}",
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            user_pool_id=example_user_pool_domain.user_pool_id)
+        ```
 
         ## Import
 
@@ -261,6 +295,40 @@ class UserPoolUICustomization(pulumi.CustomResource):
         > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 
         ## Example Usage
+        ### UI customization settings for a single client
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+
+        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+            domain="example",
+            user_pool_id=example_user_pool.id)
+        example_user_pool_client = aws.cognito.UserPoolClient("exampleUserPoolClient", user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+            client_id=example_user_pool_client.id,
+            css=".label-customizable {font-weight: 400;}",
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            user_pool_id=example_user_pool_domain.user_pool_id)
+        ```
+        ### UI customization settings for all clients
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws as aws
+
+        example_user_pool = aws.cognito.UserPool("exampleUserPool")
+        example_user_pool_domain = aws.cognito.UserPoolDomain("exampleUserPoolDomain",
+            domain="example",
+            user_pool_id=example_user_pool.id)
+        example_user_pool_ui_customization = aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization",
+            css=".label-customizable {font-weight: 400;}",
+            image_file=(lambda path: base64.b64encode(open(path).read().encode()).decode())("logo.png"),
+            user_pool_id=example_user_pool_domain.user_pool_id)
+        ```
 
         ## Import
 

@@ -13,6 +13,45 @@ namespace Pulumi.Aws.Eks
     /// Manages an EKS Cluster.
     /// 
     /// ## Example Usage
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Eks.Cluster("example", new Aws.Eks.ClusterArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Example.Arn,
+    ///             VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
+    ///             {
+    ///                 SubnetIds = 
+    ///                 {
+    ///                     aws_subnet.Example1.Id,
+    ///                     aws_subnet.Example2.Id,
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSClusterPolicy,
+    ///                 aws_iam_role_policy_attachment.Example_AmazonEKSVPCResourceController,
+    ///             },
+    ///         });
+    ///         this.Endpoint = example.Endpoint;
+    ///         this.Kubeconfig_certificate_authority_data = example.CertificateAuthority.Apply(certificateAuthority =&gt; certificateAuthority.Data);
+    ///     }
+    /// 
+    ///     [Output("endpoint")]
+    ///     public Output&lt;string&gt; Endpoint { get; set; }
+    ///     [Output("kubeconfig-certificate-authority-data")]
+    ///     public Output&lt;string&gt; Kubeconfig_certificate_authority_data { get; set; }
+    /// }
+    /// ```
     /// ### Example IAM Role for EKS Cluster
     /// 
     /// ```csharp

@@ -22,6 +22,129 @@ import (
 // For information about server certificates in IAM, see [Managing Server
 // Certificates][2] in AWS Documentation.
 //
+// ## Example Usage
+//
+// **Using certs on file:**
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
+// 			CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+// 			PrivateKey:      readFileOrPanic("test-key.pem"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// **Example with cert in-line:**
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewServerCertificate(ctx, "testCertAlt", &iam.ServerCertificateArgs{
+// 			CertificateBody: pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN CERTIFICATE-----\n", "[......] # cert contents\n", "-----END CERTIFICATE-----\n", "\n")),
+// 			PrivateKey:      pulumi.String(fmt.Sprintf("%v%v%v%v", "-----BEGIN RSA PRIVATE KEY-----\n", "[......] # cert contents\n", "-----END RSA PRIVATE KEY-----\n", "\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// **Use in combination with an AWS ELB resource:**
+//
+// Some properties of an IAM Server Certificates cannot be updated while they are
+// in use. In order for this provider to effectively manage a Certificate in this situation, it is
+// recommended you utilize the `namePrefix` attribute and enable the
+// `createBeforeDestroy` [lifecycle block][lifecycle]. This will allow this provider
+// to create a new, updated `iam.ServerCertificate` resource and replace it in
+// dependant resources before attempting to destroy the old version.
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elb"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testCert, err := iam.NewServerCertificate(ctx, "testCert", &iam.ServerCertificateArgs{
+// 			NamePrefix:      pulumi.String("example-cert"),
+// 			CertificateBody: readFileOrPanic("self-ca-cert.pem"),
+// 			PrivateKey:      readFileOrPanic("test-key.pem"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elb.NewLoadBalancer(ctx, "ourapp", &elb.LoadBalancerArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-west-2a"),
+// 			},
+// 			CrossZoneLoadBalancing: pulumi.Bool(true),
+// 			Listeners: elb.LoadBalancerListenerArray{
+// 				&elb.LoadBalancerListenerArgs{
+// 					InstancePort:     pulumi.Int(8000),
+// 					InstanceProtocol: pulumi.String("http"),
+// 					LbPort:           pulumi.Int(443),
+// 					LbProtocol:       pulumi.String("https"),
+// 					SslCertificateId: testCert.Arn,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // IAM Server Certificates can be imported using the `name`, e.g.

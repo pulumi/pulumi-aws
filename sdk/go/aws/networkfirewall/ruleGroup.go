@@ -163,6 +163,119 @@ import (
 // 	})
 // }
 // ```
+// ### Stateful Inspection from rules specifications defined in Suricata flat format
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/networkfirewall"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+// 			Capacity: pulumi.Int(100),
+// 			Type:     pulumi.String("STATEFUL"),
+// 			Rules:    readFileOrPanic("example.rules"),
+// 			Tags: pulumi.StringMap{
+// 				"Tag1": pulumi.String("Value1"),
+// 				"Tag2": pulumi.String("Value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/networkfirewall"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := networkfirewall.NewRuleGroup(ctx, "example", &networkfirewall.RuleGroupArgs{
+// 			Capacity: pulumi.Int(100),
+// 			Type:     pulumi.String("STATEFUL"),
+// 			RuleGroup: &networkfirewall.RuleGroupRuleGroupArgs{
+// 				RuleVariables: &networkfirewall.RuleGroupRuleGroupRuleVariablesArgs{
+// 					IpSets: networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArray{
+// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+// 							Key: pulumi.String("WEBSERVERS_HOSTS"),
+// 							IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+// 								Definitions: pulumi.StringArray{
+// 									pulumi.String("10.0.0.0/16"),
+// 									pulumi.String("10.0.1.0/24"),
+// 									pulumi.String("192.168.0.0/16"),
+// 								},
+// 							},
+// 						},
+// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs{
+// 							Key: pulumi.String("EXTERNAL_HOST"),
+// 							IpSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs{
+// 								Definitions: pulumi.StringArray{
+// 									pulumi.String("1.2.3.4/32"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 					PortSets: networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArray{
+// 						&networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs{
+// 							Key: pulumi.String("HTTP_PORTS"),
+// 							PortSet: &networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs{
+// 								Definitions: pulumi.StringArray{
+// 									pulumi.String("443"),
+// 									pulumi.String("80"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 				RulesSource: &networkfirewall.RuleGroupRuleGroupRulesSourceArgs{
+// 					RulesString: readFileOrPanic("suricata_rules_file"),
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Tag1": pulumi.String("Value1"),
+// 				"Tag2": pulumi.String("Value2"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Stateless Inspection with a Custom Action
 //
 // ```go

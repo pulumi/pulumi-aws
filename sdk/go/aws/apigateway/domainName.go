@@ -78,6 +78,59 @@ import (
 // 	})
 // }
 // ```
+// ### Edge Optimized (IAM Certificate)
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+// 			DomainName:            pulumi.String("api.example.com"),
+// 			CertificateName:       pulumi.String("example-api"),
+// 			CertificateBody:       readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.crt")),
+// 			CertificateChain:      readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/ca.crt")),
+// 			CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.key")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					Name:                 exampleDomainName.CloudfrontDomainName,
+// 					ZoneId:               exampleDomainName.CloudfrontZoneId,
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Regional (ACM Certificate)
 //
 // ```go
@@ -94,6 +147,64 @@ import (
 // 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
 // 			DomainName:             pulumi.String("api.example.com"),
 // 			RegionalCertificateArn: pulumi.Any(aws_acm_certificate_validation.Example.Certificate_arn),
+// 			EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+// 				Types: pulumi.String{
+// 					"REGIONAL",
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = route53.NewRecord(ctx, "exampleRecord", &route53.RecordArgs{
+// 			Name:   exampleDomainName.DomainName,
+// 			Type:   pulumi.String("A"),
+// 			ZoneId: pulumi.Any(aws_route53_zone.Example.Id),
+// 			Aliases: route53.RecordAliasArray{
+// 				&route53.RecordAliasArgs{
+// 					EvaluateTargetHealth: pulumi.Bool(true),
+// 					Name:                 exampleDomainName.RegionalDomainName,
+// 					ZoneId:               exampleDomainName.RegionalZoneId,
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Regional (IAM Certificate)
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
+// 			CertificateBody:         readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.crt")),
+// 			CertificateChain:        readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/ca.crt")),
+// 			CertificatePrivateKey:   readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.key")),
+// 			DomainName:              pulumi.String("api.example.com"),
+// 			RegionalCertificateName: pulumi.String("example-api"),
 // 			EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
 // 				Types: pulumi.String{
 // 					"REGIONAL",

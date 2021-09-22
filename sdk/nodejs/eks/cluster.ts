@@ -9,6 +9,29 @@ import * as utilities from "../utilities";
  * Manages an EKS Cluster.
  *
  * ## Example Usage
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.Cluster("example", {
+ *     roleArn: aws_iam_role.example.arn,
+ *     vpcConfig: {
+ *         subnetIds: [
+ *             aws_subnet.example1.id,
+ *             aws_subnet.example2.id,
+ *         ],
+ *     },
+ * }, {
+ *     dependsOn: [
+ *         aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
+ *         aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
+ *     ],
+ * });
+ * export const endpoint = example.endpoint;
+ * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ * ```
  * ### Example IAM Role for EKS Cluster
  *
  * ```typescript

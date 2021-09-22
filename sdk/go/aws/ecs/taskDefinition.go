@@ -83,6 +83,210 @@ import (
 // 	})
 // }
 // ```
+// ### With AppMesh Proxy
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("service"),
+// 			ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+// 			ProxyConfiguration: &ecs.TaskDefinitionProxyConfigurationArgs{
+// 				Type:          pulumi.String("APPMESH"),
+// 				ContainerName: pulumi.String("applicationContainerName"),
+// 				Properties: pulumi.StringMap{
+// 					"AppPorts":         pulumi.String("8080"),
+// 					"EgressIgnoredIPs": pulumi.String("169.254.170.2,169.254.169.254"),
+// 					"IgnoredUID":       pulumi.String("1337"),
+// 					"ProxyEgressPort":  pulumi.String("15001"),
+// 					"ProxyIngressPort": pulumi.String("15000"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example Using `dockerVolumeConfiguration`
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("service"),
+// 			ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+// 			Volumes: ecs.TaskDefinitionVolumeArray{
+// 				&ecs.TaskDefinitionVolumeArgs{
+// 					Name: pulumi.String("service-storage"),
+// 					DockerVolumeConfiguration: &ecs.TaskDefinitionVolumeDockerVolumeConfigurationArgs{
+// 						Scope:         pulumi.String("shared"),
+// 						Autoprovision: pulumi.Bool(true),
+// 						Driver:        pulumi.String("local"),
+// 						DriverOpts: pulumi.StringMap{
+// 							"type":   pulumi.String("nfs"),
+// 							"device": pulumi.String(fmt.Sprintf("%v%v", aws_efs_file_system.Fs.Dns_name, ":/")),
+// 							"o":      pulumi.String(fmt.Sprintf("%v%v%v", "addr=", aws_efs_file_system.Fs.Dns_name, ",rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport")),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example Using `efsVolumeConfiguration`
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("service"),
+// 			ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+// 			Volumes: ecs.TaskDefinitionVolumeArray{
+// 				&ecs.TaskDefinitionVolumeArgs{
+// 					Name: pulumi.String("service-storage"),
+// 					EfsVolumeConfiguration: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationArgs{
+// 						FileSystemId:          pulumi.Any(aws_efs_file_system.Fs.Id),
+// 						RootDirectory:         pulumi.String("/opt/data"),
+// 						TransitEncryption:     pulumi.String("ENABLED"),
+// 						TransitEncryptionPort: pulumi.Int(2999),
+// 						AuthorizationConfig: &ecs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs{
+// 							AccessPointId: pulumi.Any(aws_efs_access_point.Test.Id),
+// 							Iam:           pulumi.String("ENABLED"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example Using `fsxWindowsFileServerVolumeConfiguration`
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/secretsmanager"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"username": "admin",
+// 			"password": aws_directory_service_directory.Test.Password,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		test, err := secretsmanager.NewSecretVersion(ctx, "test", &secretsmanager.SecretVersionArgs{
+// 			SecretId:     pulumi.Any(aws_secretsmanager_secret.Test.Id),
+// 			SecretString: pulumi.String(json0),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 			Family:               pulumi.String("service"),
+// 			ContainerDefinitions: readFileOrPanic("task-definitions/service.json"),
+// 			Volumes: ecs.TaskDefinitionVolumeArray{
+// 				&ecs.TaskDefinitionVolumeArgs{
+// 					Name: pulumi.String("service-storage"),
+// 					FsxWindowsFileServerVolumeConfiguration: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{
+// 						FileSystemId:  pulumi.Any(aws_fsx_windows_file_system.Test.Id),
+// 						RootDirectory: pulumi.String("\\data"),
+// 						AuthorizationConfig: &ecs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{
+// 							CredentialsParameter: test.Arn,
+// 							Domain:               pulumi.Any(aws_directory_service_directory.Test.Name),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Example Using `containerDefinitions` and `inferenceAccelerator`
 //
 // ```go

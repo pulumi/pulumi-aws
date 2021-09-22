@@ -37,7 +37,7 @@ import (
 // 	})
 // }
 // ```
-type NetworkInterfaceAttachmentType struct {
+type NetworkInterfaceAttachment struct {
 	pulumi.CustomResourceState
 
 	// The ENI Attachment ID.
@@ -52,9 +52,9 @@ type NetworkInterfaceAttachmentType struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 }
 
-// NewNetworkInterfaceAttachmentType registers a new resource with the given unique name, arguments, and options.
-func NewNetworkInterfaceAttachmentType(ctx *pulumi.Context,
-	name string, args *NetworkInterfaceAttachmentTypeArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachmentType, error) {
+// NewNetworkInterfaceAttachment registers a new resource with the given unique name, arguments, and options.
+func NewNetworkInterfaceAttachment(ctx *pulumi.Context,
+	name string, args *NetworkInterfaceAttachmentArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -68,7 +68,7 @@ func NewNetworkInterfaceAttachmentType(ctx *pulumi.Context,
 	if args.NetworkInterfaceId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaceId'")
 	}
-	var resource NetworkInterfaceAttachmentType
+	var resource NetworkInterfaceAttachment
 	err := ctx.RegisterResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -76,11 +76,11 @@ func NewNetworkInterfaceAttachmentType(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// GetNetworkInterfaceAttachmentType gets an existing NetworkInterfaceAttachmentType resource's state with the given name, ID, and optional
+// GetNetworkInterfaceAttachment gets an existing NetworkInterfaceAttachment resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetNetworkInterfaceAttachmentType(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *NetworkInterfaceAttachmentTypeState, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachmentType, error) {
-	var resource NetworkInterfaceAttachmentType
+func GetNetworkInterfaceAttachment(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *NetworkInterfaceAttachmentState, opts ...pulumi.ResourceOption) (*NetworkInterfaceAttachment, error) {
+	var resource NetworkInterfaceAttachment
 	err := ctx.ReadResource("aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -88,8 +88,8 @@ func GetNetworkInterfaceAttachmentType(ctx *pulumi.Context,
 	return &resource, nil
 }
 
-// Input properties used for looking up and filtering NetworkInterfaceAttachmentType resources.
-type networkInterfaceAttachmentTypeState struct {
+// Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
+type networkInterfaceAttachmentState struct {
 	// The ENI Attachment ID.
 	AttachmentId *string `pulumi:"attachmentId"`
 	// Network interface index (int).
@@ -102,7 +102,7 @@ type networkInterfaceAttachmentTypeState struct {
 	Status *string `pulumi:"status"`
 }
 
-type NetworkInterfaceAttachmentTypeState struct {
+type NetworkInterfaceAttachmentState struct {
 	// The ENI Attachment ID.
 	AttachmentId pulumi.StringPtrInput
 	// Network interface index (int).
@@ -115,11 +115,11 @@ type NetworkInterfaceAttachmentTypeState struct {
 	Status pulumi.StringPtrInput
 }
 
-func (NetworkInterfaceAttachmentTypeState) ElementType() reflect.Type {
-	return reflect.TypeOf((*networkInterfaceAttachmentTypeState)(nil)).Elem()
+func (NetworkInterfaceAttachmentState) ElementType() reflect.Type {
+	return reflect.TypeOf((*networkInterfaceAttachmentState)(nil)).Elem()
 }
 
-type networkInterfaceAttachmentTypeArgs struct {
+type networkInterfaceAttachmentArgs struct {
 	// Network interface index (int).
 	DeviceIndex int `pulumi:"deviceIndex"`
 	// Instance ID to attach.
@@ -128,8 +128,8 @@ type networkInterfaceAttachmentTypeArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
-// The set of arguments for constructing a NetworkInterfaceAttachmentType resource.
-type NetworkInterfaceAttachmentTypeArgs struct {
+// The set of arguments for constructing a NetworkInterfaceAttachment resource.
+type NetworkInterfaceAttachmentArgs struct {
 	// Network interface index (int).
 	DeviceIndex pulumi.IntInput
 	// Instance ID to attach.
@@ -138,199 +138,199 @@ type NetworkInterfaceAttachmentTypeArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 }
 
-func (NetworkInterfaceAttachmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*networkInterfaceAttachmentTypeArgs)(nil)).Elem()
+func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*networkInterfaceAttachmentArgs)(nil)).Elem()
 }
 
-type NetworkInterfaceAttachmentTypeInput interface {
+type NetworkInterfaceAttachmentInput interface {
 	pulumi.Input
 
-	ToNetworkInterfaceAttachmentTypeOutput() NetworkInterfaceAttachmentTypeOutput
-	ToNetworkInterfaceAttachmentTypeOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeOutput
+	ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput
+	ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput
 }
 
-func (*NetworkInterfaceAttachmentType) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceAttachmentType)(nil))
+func (*NetworkInterfaceAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
 }
 
-func (i *NetworkInterfaceAttachmentType) ToNetworkInterfaceAttachmentTypeOutput() NetworkInterfaceAttachmentTypeOutput {
-	return i.ToNetworkInterfaceAttachmentTypeOutputWithContext(context.Background())
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
+	return i.ToNetworkInterfaceAttachmentOutputWithContext(context.Background())
 }
 
-func (i *NetworkInterfaceAttachmentType) ToNetworkInterfaceAttachmentTypeOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypeOutput)
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentOutput)
 }
 
-func (i *NetworkInterfaceAttachmentType) ToNetworkInterfaceAttachmentTypePtrOutput() NetworkInterfaceAttachmentTypePtrOutput {
-	return i.ToNetworkInterfaceAttachmentTypePtrOutputWithContext(context.Background())
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentPtrOutput() NetworkInterfaceAttachmentPtrOutput {
+	return i.ToNetworkInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
 
-func (i *NetworkInterfaceAttachmentType) ToNetworkInterfaceAttachmentTypePtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypePtrOutput)
+func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentPtrOutput)
 }
 
-type NetworkInterfaceAttachmentTypePtrInput interface {
+type NetworkInterfaceAttachmentPtrInput interface {
 	pulumi.Input
 
-	ToNetworkInterfaceAttachmentTypePtrOutput() NetworkInterfaceAttachmentTypePtrOutput
-	ToNetworkInterfaceAttachmentTypePtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypePtrOutput
+	ToNetworkInterfaceAttachmentPtrOutput() NetworkInterfaceAttachmentPtrOutput
+	ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput
 }
 
-type networkInterfaceAttachmentTypePtrType NetworkInterfaceAttachmentTypeArgs
+type networkInterfaceAttachmentPtrType NetworkInterfaceAttachmentArgs
 
-func (*networkInterfaceAttachmentTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceAttachmentType)(nil))
+func (*networkInterfaceAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachment)(nil))
 }
 
-func (i *networkInterfaceAttachmentTypePtrType) ToNetworkInterfaceAttachmentTypePtrOutput() NetworkInterfaceAttachmentTypePtrOutput {
-	return i.ToNetworkInterfaceAttachmentTypePtrOutputWithContext(context.Background())
+func (i *networkInterfaceAttachmentPtrType) ToNetworkInterfaceAttachmentPtrOutput() NetworkInterfaceAttachmentPtrOutput {
+	return i.ToNetworkInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
 
-func (i *networkInterfaceAttachmentTypePtrType) ToNetworkInterfaceAttachmentTypePtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypePtrOutput)
+func (i *networkInterfaceAttachmentPtrType) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentPtrOutput)
 }
 
-// NetworkInterfaceAttachmentTypeArrayInput is an input type that accepts NetworkInterfaceAttachmentTypeArray and NetworkInterfaceAttachmentTypeArrayOutput values.
-// You can construct a concrete instance of `NetworkInterfaceAttachmentTypeArrayInput` via:
+// NetworkInterfaceAttachmentArrayInput is an input type that accepts NetworkInterfaceAttachmentArray and NetworkInterfaceAttachmentArrayOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentArrayInput` via:
 //
-//          NetworkInterfaceAttachmentTypeArray{ NetworkInterfaceAttachmentTypeArgs{...} }
-type NetworkInterfaceAttachmentTypeArrayInput interface {
+//          NetworkInterfaceAttachmentArray{ NetworkInterfaceAttachmentArgs{...} }
+type NetworkInterfaceAttachmentArrayInput interface {
 	pulumi.Input
 
-	ToNetworkInterfaceAttachmentTypeArrayOutput() NetworkInterfaceAttachmentTypeArrayOutput
-	ToNetworkInterfaceAttachmentTypeArrayOutputWithContext(context.Context) NetworkInterfaceAttachmentTypeArrayOutput
+	ToNetworkInterfaceAttachmentArrayOutput() NetworkInterfaceAttachmentArrayOutput
+	ToNetworkInterfaceAttachmentArrayOutputWithContext(context.Context) NetworkInterfaceAttachmentArrayOutput
 }
 
-type NetworkInterfaceAttachmentTypeArray []NetworkInterfaceAttachmentTypeInput
+type NetworkInterfaceAttachmentArray []NetworkInterfaceAttachmentInput
 
-func (NetworkInterfaceAttachmentTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]*NetworkInterfaceAttachmentType)(nil)).Elem()
+func (NetworkInterfaceAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]*NetworkInterfaceAttachment)(nil)).Elem()
 }
 
-func (i NetworkInterfaceAttachmentTypeArray) ToNetworkInterfaceAttachmentTypeArrayOutput() NetworkInterfaceAttachmentTypeArrayOutput {
-	return i.ToNetworkInterfaceAttachmentTypeArrayOutputWithContext(context.Background())
+func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutput() NetworkInterfaceAttachmentArrayOutput {
+	return i.ToNetworkInterfaceAttachmentArrayOutputWithContext(context.Background())
 }
 
-func (i NetworkInterfaceAttachmentTypeArray) ToNetworkInterfaceAttachmentTypeArrayOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypeArrayOutput)
+func (i NetworkInterfaceAttachmentArray) ToNetworkInterfaceAttachmentArrayOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentArrayOutput)
 }
 
-// NetworkInterfaceAttachmentTypeMapInput is an input type that accepts NetworkInterfaceAttachmentTypeMap and NetworkInterfaceAttachmentTypeMapOutput values.
-// You can construct a concrete instance of `NetworkInterfaceAttachmentTypeMapInput` via:
+// NetworkInterfaceAttachmentMapInput is an input type that accepts NetworkInterfaceAttachmentMap and NetworkInterfaceAttachmentMapOutput values.
+// You can construct a concrete instance of `NetworkInterfaceAttachmentMapInput` via:
 //
-//          NetworkInterfaceAttachmentTypeMap{ "key": NetworkInterfaceAttachmentTypeArgs{...} }
-type NetworkInterfaceAttachmentTypeMapInput interface {
+//          NetworkInterfaceAttachmentMap{ "key": NetworkInterfaceAttachmentArgs{...} }
+type NetworkInterfaceAttachmentMapInput interface {
 	pulumi.Input
 
-	ToNetworkInterfaceAttachmentTypeMapOutput() NetworkInterfaceAttachmentTypeMapOutput
-	ToNetworkInterfaceAttachmentTypeMapOutputWithContext(context.Context) NetworkInterfaceAttachmentTypeMapOutput
+	ToNetworkInterfaceAttachmentMapOutput() NetworkInterfaceAttachmentMapOutput
+	ToNetworkInterfaceAttachmentMapOutputWithContext(context.Context) NetworkInterfaceAttachmentMapOutput
 }
 
-type NetworkInterfaceAttachmentTypeMap map[string]NetworkInterfaceAttachmentTypeInput
+type NetworkInterfaceAttachmentMap map[string]NetworkInterfaceAttachmentInput
 
-func (NetworkInterfaceAttachmentTypeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]*NetworkInterfaceAttachmentType)(nil)).Elem()
+func (NetworkInterfaceAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]*NetworkInterfaceAttachment)(nil)).Elem()
 }
 
-func (i NetworkInterfaceAttachmentTypeMap) ToNetworkInterfaceAttachmentTypeMapOutput() NetworkInterfaceAttachmentTypeMapOutput {
-	return i.ToNetworkInterfaceAttachmentTypeMapOutputWithContext(context.Background())
+func (i NetworkInterfaceAttachmentMap) ToNetworkInterfaceAttachmentMapOutput() NetworkInterfaceAttachmentMapOutput {
+	return i.ToNetworkInterfaceAttachmentMapOutputWithContext(context.Background())
 }
 
-func (i NetworkInterfaceAttachmentTypeMap) ToNetworkInterfaceAttachmentTypeMapOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentTypeMapOutput)
+func (i NetworkInterfaceAttachmentMap) ToNetworkInterfaceAttachmentMapOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentMapOutput)
 }
 
-type NetworkInterfaceAttachmentTypeOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
-func (NetworkInterfaceAttachmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceAttachmentType)(nil))
+func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkInterfaceAttachment)(nil))
 }
 
-func (o NetworkInterfaceAttachmentTypeOutput) ToNetworkInterfaceAttachmentTypeOutput() NetworkInterfaceAttachmentTypeOutput {
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() NetworkInterfaceAttachmentOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeOutput) ToNetworkInterfaceAttachmentTypeOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeOutput {
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeOutput) ToNetworkInterfaceAttachmentTypePtrOutput() NetworkInterfaceAttachmentTypePtrOutput {
-	return o.ToNetworkInterfaceAttachmentTypePtrOutputWithContext(context.Background())
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentPtrOutput() NetworkInterfaceAttachmentPtrOutput {
+	return o.ToNetworkInterfaceAttachmentPtrOutputWithContext(context.Background())
 }
 
-func (o NetworkInterfaceAttachmentTypeOutput) ToNetworkInterfaceAttachmentTypePtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceAttachmentType) *NetworkInterfaceAttachmentType {
+func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkInterfaceAttachment) *NetworkInterfaceAttachment {
 		return &v
-	}).(NetworkInterfaceAttachmentTypePtrOutput)
+	}).(NetworkInterfaceAttachmentPtrOutput)
 }
 
-type NetworkInterfaceAttachmentTypePtrOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceAttachmentPtrOutput struct{ *pulumi.OutputState }
 
-func (NetworkInterfaceAttachmentTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkInterfaceAttachmentType)(nil))
+func (NetworkInterfaceAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NetworkInterfaceAttachment)(nil))
 }
 
-func (o NetworkInterfaceAttachmentTypePtrOutput) ToNetworkInterfaceAttachmentTypePtrOutput() NetworkInterfaceAttachmentTypePtrOutput {
+func (o NetworkInterfaceAttachmentPtrOutput) ToNetworkInterfaceAttachmentPtrOutput() NetworkInterfaceAttachmentPtrOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypePtrOutput) ToNetworkInterfaceAttachmentTypePtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypePtrOutput {
+func (o NetworkInterfaceAttachmentPtrOutput) ToNetworkInterfaceAttachmentPtrOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentPtrOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypePtrOutput) Elem() NetworkInterfaceAttachmentTypeOutput {
-	return o.ApplyT(func(v *NetworkInterfaceAttachmentType) NetworkInterfaceAttachmentType {
+func (o NetworkInterfaceAttachmentPtrOutput) Elem() NetworkInterfaceAttachmentOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) NetworkInterfaceAttachment {
 		if v != nil {
 			return *v
 		}
-		var ret NetworkInterfaceAttachmentType
+		var ret NetworkInterfaceAttachment
 		return ret
-	}).(NetworkInterfaceAttachmentTypeOutput)
+	}).(NetworkInterfaceAttachmentOutput)
 }
 
-type NetworkInterfaceAttachmentTypeArrayOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceAttachmentArrayOutput struct{ *pulumi.OutputState }
 
-func (NetworkInterfaceAttachmentTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetworkInterfaceAttachmentType)(nil))
+func (NetworkInterfaceAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkInterfaceAttachment)(nil))
 }
 
-func (o NetworkInterfaceAttachmentTypeArrayOutput) ToNetworkInterfaceAttachmentTypeArrayOutput() NetworkInterfaceAttachmentTypeArrayOutput {
+func (o NetworkInterfaceAttachmentArrayOutput) ToNetworkInterfaceAttachmentArrayOutput() NetworkInterfaceAttachmentArrayOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeArrayOutput) ToNetworkInterfaceAttachmentTypeArrayOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeArrayOutput {
+func (o NetworkInterfaceAttachmentArrayOutput) ToNetworkInterfaceAttachmentArrayOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentArrayOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceAttachmentTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceAttachmentType {
-		return vs[0].([]NetworkInterfaceAttachmentType)[vs[1].(int)]
-	}).(NetworkInterfaceAttachmentTypeOutput)
+func (o NetworkInterfaceAttachmentArrayOutput) Index(i pulumi.IntInput) NetworkInterfaceAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkInterfaceAttachment {
+		return vs[0].([]NetworkInterfaceAttachment)[vs[1].(int)]
+	}).(NetworkInterfaceAttachmentOutput)
 }
 
-type NetworkInterfaceAttachmentTypeMapOutput struct{ *pulumi.OutputState }
+type NetworkInterfaceAttachmentMapOutput struct{ *pulumi.OutputState }
 
-func (NetworkInterfaceAttachmentTypeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetworkInterfaceAttachmentType)(nil))
+func (NetworkInterfaceAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]NetworkInterfaceAttachment)(nil))
 }
 
-func (o NetworkInterfaceAttachmentTypeMapOutput) ToNetworkInterfaceAttachmentTypeMapOutput() NetworkInterfaceAttachmentTypeMapOutput {
+func (o NetworkInterfaceAttachmentMapOutput) ToNetworkInterfaceAttachmentMapOutput() NetworkInterfaceAttachmentMapOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeMapOutput) ToNetworkInterfaceAttachmentTypeMapOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentTypeMapOutput {
+func (o NetworkInterfaceAttachmentMapOutput) ToNetworkInterfaceAttachmentMapOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentMapOutput {
 	return o
 }
 
-func (o NetworkInterfaceAttachmentTypeMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceAttachmentTypeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkInterfaceAttachmentType {
-		return vs[0].(map[string]NetworkInterfaceAttachmentType)[vs[1].(string)]
-	}).(NetworkInterfaceAttachmentTypeOutput)
+func (o NetworkInterfaceAttachmentMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfaceAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetworkInterfaceAttachment {
+		return vs[0].(map[string]NetworkInterfaceAttachment)[vs[1].(string)]
+	}).(NetworkInterfaceAttachmentOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypePtrOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeArrayOutput{})
-	pulumi.RegisterOutputType(NetworkInterfaceAttachmentTypeMapOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(NetworkInterfaceAttachmentMapOutput{})
 }

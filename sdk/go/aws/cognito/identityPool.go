@@ -13,6 +13,70 @@ import (
 
 // Provides an AWS Cognito Identity Pool.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cognito"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.NewSamlProvider(ctx, "_default", &iam.SamlProviderArgs{
+// 			SamlMetadataDocument: readFileOrPanic("saml-metadata.xml"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cognito.NewIdentityPool(ctx, "main", &cognito.IdentityPoolArgs{
+// 			IdentityPoolName:               pulumi.String("identity pool"),
+// 			AllowUnauthenticatedIdentities: pulumi.Bool(false),
+// 			AllowClassicFlow:               pulumi.Bool(false),
+// 			CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
+// 				&cognito.IdentityPoolCognitoIdentityProviderArgs{
+// 					ClientId:             pulumi.String("6lhlkkfbfb4q5kpp90urffae"),
+// 					ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/us-east-1_Tv0493apJ"),
+// 					ServerSideTokenCheck: pulumi.Bool(false),
+// 				},
+// 				&cognito.IdentityPoolCognitoIdentityProviderArgs{
+// 					ClientId:             pulumi.String("7kodkvfqfb4qfkp39eurffae"),
+// 					ProviderName:         pulumi.String("cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu"),
+// 					ServerSideTokenCheck: pulumi.Bool(false),
+// 				},
+// 			},
+// 			SupportedLoginProviders: pulumi.StringMap{
+// 				"graph.facebook.com":  pulumi.String("7346241598935552"),
+// 				"accounts.google.com": pulumi.String("123456789012.apps.googleusercontent.com"),
+// 			},
+// 			SamlProviderArns: pulumi.StringArray{
+// 				_default.Arn,
+// 			},
+// 			OpenidConnectProviderArns: pulumi.StringArray{
+// 				pulumi.String("arn:aws:iam::123456789012:oidc-provider/id.example.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Cognito Identity Pool can be imported using the name, e.g.

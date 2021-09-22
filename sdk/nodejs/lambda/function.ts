@@ -19,6 +19,38 @@ import {ARN} from "..";
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
  *
  * ## Example Usage
+ * ### Basic Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const testLambda = new aws.lambda.Function("testLambda", {
+ *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     role: iamForLambda.arn,
+ *     handler: "index.test",
+ *     runtime: "nodejs12.x",
+ *     environment: {
+ *         variables: {
+ *             foo: "bar",
+ *         },
+ *     },
+ * });
+ * ```
  * ### Lambda Layers
  *
  * ```typescript

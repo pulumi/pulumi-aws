@@ -15,6 +15,79 @@ namespace Pulumi.Aws.Cognito
     /// &gt; **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
     /// 
     /// ## Example Usage
+    /// ### UI customization settings for a single client
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///             Domain = "example",
+    ///             UserPoolId = exampleUserPool.Id,
+    ///         });
+    ///         var exampleUserPoolClient = new Aws.Cognito.UserPoolClient("exampleUserPoolClient", new Aws.Cognito.UserPoolClientArgs
+    ///         {
+    ///             UserPoolId = exampleUserPool.Id,
+    ///         });
+    ///         var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new Aws.Cognito.UserPoolUICustomizationArgs
+    ///         {
+    ///             ClientId = exampleUserPoolClient.Id,
+    ///             Css = ".label-customizable {font-weight: 400;}",
+    ///             ImageFile = ReadFileBase64("logo.png"),
+    ///             UserPoolId = exampleUserPoolDomain.UserPoolId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### UI customization settings for all clients
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleUserPool = new Aws.Cognito.UserPool("exampleUserPool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var exampleUserPoolDomain = new Aws.Cognito.UserPoolDomain("exampleUserPoolDomain", new Aws.Cognito.UserPoolDomainArgs
+    ///         {
+    ///             Domain = "example",
+    ///             UserPoolId = exampleUserPool.Id,
+    ///         });
+    ///         var exampleUserPoolUICustomization = new Aws.Cognito.UserPoolUICustomization("exampleUserPoolUICustomization", new Aws.Cognito.UserPoolUICustomizationArgs
+    ///         {
+    ///             Css = ".label-customizable {font-weight: 400;}",
+    ///             ImageFile = ReadFileBase64("logo.png"),
+    ///             UserPoolId = exampleUserPoolDomain.UserPoolId,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

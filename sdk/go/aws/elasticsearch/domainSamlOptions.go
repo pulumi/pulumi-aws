@@ -14,6 +14,60 @@ import (
 // Manages SAML authentication options for an AWS Elasticsearch Domain.
 //
 // ## Example Usage
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/elasticsearch"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleDomain, err := elasticsearch.NewDomain(ctx, "exampleDomain", &elasticsearch.DomainArgs{
+// 			ElasticsearchVersion: pulumi.String("1.5"),
+// 			ClusterConfig: &elasticsearch.DomainClusterConfigArgs{
+// 				InstanceType: pulumi.String("r4.large.elasticsearch"),
+// 			},
+// 			SnapshotOptions: &elasticsearch.DomainSnapshotOptionsArgs{
+// 				AutomatedSnapshotStartHour: pulumi.Int(23),
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Domain": pulumi.String("TestDomain"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = elasticsearch.NewDomainSamlOptions(ctx, "exampleDomainSamlOptions", &elasticsearch.DomainSamlOptionsArgs{
+// 			DomainName: exampleDomain.DomainName,
+// 			SamlOptions: &elasticsearch.DomainSamlOptionsSamlOptionsArgs{
+// 				Enabled: pulumi.Bool(true),
+// 				Idp: &elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs{
+// 					EntityId:        pulumi.String("https://example.com"),
+// 					MetadataContent: readFileOrPanic("./saml-metadata.xml"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

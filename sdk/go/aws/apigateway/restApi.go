@@ -15,6 +15,181 @@ import (
 // > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2.
 //
 // ## Example Usage
+// ### OpenAPI Specification
+//
+// ```go
+// package main
+//
+// import (
+// 	"crypto/sha1"
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func sha1Hash(input string) string {
+// 	hash := sha1.Sum([]byte(input))
+// 	return hex.EncodeToString(hash[:])
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"openapi": "3.0.1",
+// 			"info": map[string]interface{}{
+// 				"title":   "example",
+// 				"version": "1.0",
+// 			},
+// 			"paths": map[string]interface{}{
+// 				"/path1": map[string]interface{}{
+// 					"get": map[string]interface{}{
+// 						"x-amazon-apigateway-integration": map[string]interface{}{
+// 							"httpMethod":           "GET",
+// 							"payloadFormatVersion": "1.0",
+// 							"type":                 "HTTP_PROXY",
+// 							"uri":                  "https://ip-ranges.amazonaws.com/ip-ranges.json",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", &apigateway.RestApiArgs{
+// 			Body: pulumi.String(json0),
+// 			EndpointConfiguration: &apigateway.RestApiEndpointConfigurationArgs{
+// 				Types: pulumi.String{
+// 					"REGIONAL",
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+// 			RestApi: exampleRestApi.ID(),
+// 			Triggers: pulumi.StringMap{
+// 				"redeployment": exampleRestApi.Body.ApplyT(func(body string) (pulumi.String, error) {
+// 					var _zero pulumi.String
+// 					tmpJSON1, err := json.Marshal(body)
+// 					if err != nil {
+// 						return _zero, err
+// 					}
+// 					json1 := string(tmpJSON1)
+// 					return json1, nil
+// 				}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+// 					return sha1Hash(toJSON), nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+// 			Deployment: exampleDeployment.ID(),
+// 			RestApi:    exampleRestApi.ID(),
+// 			StageName:  pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Resources
+//
+// ```go
+// package main
+//
+// import (
+// 	"crypto/sha1"
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/apigateway"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func sha1Hash(input string) string {
+// 	hash := sha1.Sum([]byte(input))
+// 	return hex.EncodeToString(hash[:])
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleResource, err := apigateway.NewResource(ctx, "exampleResource", &apigateway.ResourceArgs{
+// 			ParentId: exampleRestApi.RootResourceId,
+// 			PathPart: pulumi.String("example"),
+// 			RestApi:  exampleRestApi.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleMethod, err := apigateway.NewMethod(ctx, "exampleMethod", &apigateway.MethodArgs{
+// 			Authorization: pulumi.String("NONE"),
+// 			HttpMethod:    pulumi.String("GET"),
+// 			ResourceId:    exampleResource.ID(),
+// 			RestApi:       exampleRestApi.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleIntegration, err := apigateway.NewIntegration(ctx, "exampleIntegration", &apigateway.IntegrationArgs{
+// 			HttpMethod: exampleMethod.HttpMethod,
+// 			ResourceId: exampleResource.ID(),
+// 			RestApi:    exampleRestApi.ID(),
+// 			Type:       pulumi.String("MOCK"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDeployment, err := apigateway.NewDeployment(ctx, "exampleDeployment", &apigateway.DeploymentArgs{
+// 			RestApi: exampleRestApi.ID(),
+// 			Triggers: pulumi.StringMap{
+// 				"redeployment": pulumi.All(exampleResource.ID(), exampleMethod.ID(), exampleIntegration.ID()).ApplyT(func(_args []interface{}) (string, error) {
+// 					exampleResourceId := _args[0].(string)
+// 					exampleMethodId := _args[1].(string)
+// 					exampleIntegrationId := _args[2].(string)
+// 					var _zero string
+// 					tmpJSON0, err := json.Marshal([]string{
+// 						exampleResourceId,
+// 						exampleMethodId,
+// 						exampleIntegrationId,
+// 					})
+// 					if err != nil {
+// 						return _zero, err
+// 					}
+// 					json0 := string(tmpJSON0)
+// 					return json0, nil
+// 				}).(pulumi.StringOutput).ApplyT(func(toJSON string) (pulumi.String, error) {
+// 					return sha1Hash(toJSON), nil
+// 				}).(pulumi.StringOutput),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apigateway.NewStage(ctx, "exampleStage", &apigateway.StageArgs{
+// 			Deployment: exampleDeployment.ID(),
+// 			RestApi:    exampleRestApi.ID(),
+// 			StageName:  pulumi.String("example"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

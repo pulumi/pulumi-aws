@@ -11,6 +11,32 @@ import (
 )
 
 // Retrieve information about an EKS Cluster.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/eks"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := eks.LookupCluster(ctx, &eks.LookupClusterArgs{
+// 			Name: "example",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("endpoint", example.Endpoint)
+// 		ctx.Export("kubeconfig-certificate-authority-data", example.CertificateAuthority.Data)
+// 		ctx.Export("identity-oidc-issuer", example.Identities[0].Oidcs[0].Issuer)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("aws:eks/getCluster:getCluster", args, &rv, opts...)
