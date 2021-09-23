@@ -15,6 +15,59 @@ import (
 //
 // > **NOTE:** This resource can only be used with `us-east-1` region.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/base64"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecrpublic"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/providers"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func filebase64OrPanic(path string) pulumi.StringPtrInput {
+// 	if fileData, err := ioutil.ReadFile(path); err == nil {
+// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+// 	} else {
+// 		panic(err.Error())
+// 	}
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := providers.Newaws(ctx, "usEast1", &providers.awsArgs{
+// 			Region: "us-east-1",
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ecrpublic.NewRepository(ctx, "foo", &ecrpublic.RepositoryArgs{
+// 			RepositoryName: pulumi.String("bar"),
+// 			CatalogData: &ecrpublic.RepositoryCatalogDataArgs{
+// 				AboutText: pulumi.String("About Text"),
+// 				Architectures: pulumi.StringArray{
+// 					pulumi.String("ARM"),
+// 				},
+// 				Description:   pulumi.String("Description"),
+// 				LogoImageBlob: filebase64OrPanic(image.Png),
+// 				OperatingSystems: pulumi.StringArray{
+// 					pulumi.String("Linux"),
+// 				},
+// 				UsageText: pulumi.String("Usage Text"),
+// 			},
+// 		}, pulumi.Provider(aws.Us_east_1))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // ECR Public Repositories can be imported using the `repository_name`, e.g.

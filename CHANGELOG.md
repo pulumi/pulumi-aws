@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensures Go SDK types are unique in ec2 and wafv2 packages
+* Upgrade to pulumi sdk + codegen v3.13.0
+* Upgrade to pulumi-terraform-bridge v3.8.1
 
 ---
 

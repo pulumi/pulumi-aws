@@ -11,6 +11,52 @@ import {Deployment, RestApi} from "./index";
  * Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `awsApiMethodSettings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ *     openapi: "3.0.1",
+ *     info: {
+ *         title: "example",
+ *         version: "1.0",
+ *     },
+ *     paths: {
+ *         "/path1": {
+ *             get: {
+ *                 "x-amazon-apigateway-integration": {
+ *                     httpMethod: "GET",
+ *                     payloadFormatVersion: "1.0",
+ *                     type: "HTTP_PROXY",
+ *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * })});
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *     },
+ * });
+ * const exampleStage = new aws.apigateway.Stage("exampleStage", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "example",
+ * });
+ * const exampleMethodSettings = new aws.apigateway.MethodSettings("exampleMethodSettings", {
+ *     restApi: exampleRestApi.id,
+ *     stageName: exampleStage.stageName,
+ *     methodPath: "*&#47;*",
+ *     settings: {
+ *         metricsEnabled: true,
+ *         loggingLevel: "INFO",
+ *     },
+ * });
+ * ```
  * ### Managing the API Logging CloudWatch Log Group
  *
  * API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.

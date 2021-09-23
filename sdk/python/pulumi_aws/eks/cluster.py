@@ -428,6 +428,27 @@ class Cluster(pulumi.CustomResource):
         Manages an EKS Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Cluster("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                subnet_ids=[
+                    aws_subnet["example1"]["id"],
+                    aws_subnet["example2"]["id"],
+                ],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
+                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
+                ]))
+        pulumi.export("endpoint", example.endpoint)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        ```
         ### Example IAM Role for EKS Cluster
 
         ```python
@@ -509,6 +530,27 @@ class Cluster(pulumi.CustomResource):
         Manages an EKS Cluster.
 
         ## Example Usage
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.eks.Cluster("example",
+            role_arn=aws_iam_role["example"]["arn"],
+            vpc_config=aws.eks.ClusterVpcConfigArgs(
+                subnet_ids=[
+                    aws_subnet["example1"]["id"],
+                    aws_subnet["example2"]["id"],
+                ],
+            ),
+            opts=pulumi.ResourceOptions(depends_on=[
+                    aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
+                    aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
+                ]))
+        pulumi.export("endpoint", example.endpoint)
+        pulumi.export("kubeconfig-certificate-authority-data", example.certificate_authority.data)
+        ```
         ### Example IAM Role for EKS Cluster
 
         ```python

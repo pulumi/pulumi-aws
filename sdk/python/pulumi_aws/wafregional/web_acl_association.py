@@ -151,6 +151,69 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=foo_load_balancer.arn,
             web_acl_id=foo_web_acl.id)
         ```
+        ### API Gateway Association
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        foo_rule = aws.wafregional.Rule("fooRule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                data_id=ipset.id,
+                negated=False,
+                type="IPMatch",
+            )])
+        foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
+            metric_name="foo",
+            default_action=aws.wafregional.WebAclDefaultActionArgs(
+                type="ALLOW",
+            ),
+            rules=[aws.wafregional.WebAclRuleArgs(
+                action=aws.wafregional.WebAclRuleActionArgs(
+                    type="BLOCK",
+                ),
+                priority=1,
+                rule_id=foo_rule.id,
+            )])
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        association = aws.wafregional.WebAclAssociation("association",
+            resource_arn=example_stage.arn,
+            web_acl_id=foo_web_acl.id)
+        ```
 
         ## Import
 
@@ -224,6 +287,69 @@ class WebAclAssociation(pulumi.CustomResource):
             ])
         foo_web_acl_association = aws.wafregional.WebAclAssociation("fooWebAclAssociation",
             resource_arn=foo_load_balancer.arn,
+            web_acl_id=foo_web_acl.id)
+        ```
+        ### API Gateway Association
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+            type="IPV4",
+            value="192.0.7.0/24",
+        )])
+        foo_rule = aws.wafregional.Rule("fooRule",
+            metric_name="tfWAFRule",
+            predicates=[aws.wafregional.RulePredicateArgs(
+                data_id=ipset.id,
+                negated=False,
+                type="IPMatch",
+            )])
+        foo_web_acl = aws.wafregional.WebAcl("fooWebAcl",
+            metric_name="foo",
+            default_action=aws.wafregional.WebAclDefaultActionArgs(
+                type="ALLOW",
+            ),
+            rules=[aws.wafregional.WebAclRuleArgs(
+                action=aws.wafregional.WebAclRuleActionArgs(
+                    type="BLOCK",
+                ),
+                priority=1,
+                rule_id=foo_rule.id,
+            )])
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        association = aws.wafregional.WebAclAssociation("association",
+            resource_arn=example_stage.arn,
             web_acl_id=foo_web_acl.id)
         ```
 

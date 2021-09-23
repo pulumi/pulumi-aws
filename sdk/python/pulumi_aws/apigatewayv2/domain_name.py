@@ -234,6 +234,29 @@ class DomainName(pulumi.CustomResource):
                 security_policy="TLS_1_2",
             ))
         ```
+        ### Associated Route 53 Resource Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+            domain_name="http-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["zone_id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                name=example_domain_name.domain_name_configuration.target_domain_name,
+                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                evaluate_target_health=False,
+            )])
+        ```
 
         ## Import
 
@@ -277,6 +300,29 @@ class DomainName(pulumi.CustomResource):
                 endpoint_type="REGIONAL",
                 security_policy="TLS_1_2",
             ))
+        ```
+        ### Associated Route 53 Resource Record
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_domain_name = aws.apigatewayv2.DomainName("exampleDomainName",
+            domain_name="http-api.example.com",
+            domain_name_configuration=aws.apigatewayv2.DomainNameDomainNameConfigurationArgs(
+                certificate_arn=aws_acm_certificate["example"]["arn"],
+                endpoint_type="REGIONAL",
+                security_policy="TLS_1_2",
+            ))
+        example_record = aws.route53.Record("exampleRecord",
+            name=example_domain_name.domain_name,
+            type="A",
+            zone_id=aws_route53_zone["example"]["zone_id"],
+            aliases=[aws.route53.RecordAliasArgs(
+                name=example_domain_name.domain_name_configuration.target_domain_name,
+                zone_id=example_domain_name.domain_name_configuration.hosted_zone_id,
+                evaluate_target_health=False,
+            )])
         ```
 
         ## Import

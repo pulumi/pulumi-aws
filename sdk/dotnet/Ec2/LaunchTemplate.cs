@@ -12,6 +12,125 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an EC2 launch template resource. Can be used to create instances or auto scaling groups.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ec2.LaunchTemplate("foo", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             BlockDeviceMappings = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingArgs
+    ///                 {
+    ///                     DeviceName = "/dev/sda1",
+    ///                     Ebs = new Aws.Ec2.Inputs.LaunchTemplateBlockDeviceMappingEbsArgs
+    ///                     {
+    ///                         VolumeSize = 20,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             CapacityReservationSpecification = new Aws.Ec2.Inputs.LaunchTemplateCapacityReservationSpecificationArgs
+    ///             {
+    ///                 CapacityReservationPreference = "open",
+    ///             },
+    ///             CpuOptions = new Aws.Ec2.Inputs.LaunchTemplateCpuOptionsArgs
+    ///             {
+    ///                 CoreCount = 4,
+    ///                 ThreadsPerCore = 2,
+    ///             },
+    ///             CreditSpecification = new Aws.Ec2.Inputs.LaunchTemplateCreditSpecificationArgs
+    ///             {
+    ///                 CpuCredits = "standard",
+    ///             },
+    ///             DisableApiTermination = true,
+    ///             EbsOptimized = "true",
+    ///             ElasticGpuSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.LaunchTemplateElasticGpuSpecificationArgs
+    ///                 {
+    ///                     Type = "test",
+    ///                 },
+    ///             },
+    ///             ElasticInferenceAccelerator = new Aws.Ec2.Inputs.LaunchTemplateElasticInferenceAcceleratorArgs
+    ///             {
+    ///                 Type = "eia1.medium",
+    ///             },
+    ///             IamInstanceProfile = new Aws.Ec2.Inputs.LaunchTemplateIamInstanceProfileArgs
+    ///             {
+    ///                 Name = "test",
+    ///             },
+    ///             ImageId = "ami-test",
+    ///             InstanceInitiatedShutdownBehavior = "terminate",
+    ///             InstanceMarketOptions = new Aws.Ec2.Inputs.LaunchTemplateInstanceMarketOptionsArgs
+    ///             {
+    ///                 MarketType = "spot",
+    ///             },
+    ///             InstanceType = "t2.micro",
+    ///             KernelId = "test",
+    ///             KeyName = "test",
+    ///             LicenseSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.LaunchTemplateLicenseSpecificationArgs
+    ///                 {
+    ///                     LicenseConfigurationArn = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
+    ///                 },
+    ///             },
+    ///             MetadataOptions = new Aws.Ec2.Inputs.LaunchTemplateMetadataOptionsArgs
+    ///             {
+    ///                 HttpEndpoint = "enabled",
+    ///                 HttpTokens = "required",
+    ///                 HttpPutResponseHopLimit = 1,
+    ///             },
+    ///             Monitoring = new Aws.Ec2.Inputs.LaunchTemplateMonitoringArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///             NetworkInterfaces = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.LaunchTemplateNetworkInterfaceArgs
+    ///                 {
+    ///                     AssociatePublicIpAddress = "true",
+    ///                 },
+    ///             },
+    ///             Placement = new Aws.Ec2.Inputs.LaunchTemplatePlacementArgs
+    ///             {
+    ///                 AvailabilityZone = "us-west-2a",
+    ///             },
+    ///             RamDiskId = "test",
+    ///             VpcSecurityGroupIds = 
+    ///             {
+    ///                 "sg-12345678",
+    ///             },
+    ///             TagSpecifications = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.LaunchTemplateTagSpecificationArgs
+    ///                 {
+    ///                     ResourceType = "instance",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "Name", "test" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             UserData = ReadFileBase64($"{path.Module}/example.sh"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Launch Templates can be imported using the `id`, e.g.

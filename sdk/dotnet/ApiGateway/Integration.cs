@@ -67,6 +67,89 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// }
     /// ```
+    /// ## Lambda integration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var config = new Config();
+    ///         var myregion = config.RequireObject&lt;dynamic&gt;("myregion");
+    ///         var accountId = config.RequireObject&lt;dynamic&gt;("accountId");
+    ///         // API Gateway
+    ///         var api = new Aws.ApiGateway.RestApi("api", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var resource = new Aws.ApiGateway.Resource("resource", new Aws.ApiGateway.ResourceArgs
+    ///         {
+    ///             PathPart = "resource",
+    ///             ParentId = api.RootResourceId,
+    ///             RestApi = api.Id,
+    ///         });
+    ///         var method = new Aws.ApiGateway.Method("method", new Aws.ApiGateway.MethodArgs
+    ///         {
+    ///             RestApi = api.Id,
+    ///             ResourceId = resource.Id,
+    ///             HttpMethod = "GET",
+    ///             Authorization = "NONE",
+    ///         });
+    ///         // IAM
+    ///         var role = new Aws.Iam.Role("role", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var lambda = new Aws.Lambda.Function("lambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda.zip"),
+    ///             Role = role.Arn,
+    ///             Handler = "lambda.lambda_handler",
+    ///             Runtime = "python3.6",
+    ///         });
+    ///         var integration = new Aws.ApiGateway.Integration("integration", new Aws.ApiGateway.IntegrationArgs
+    ///         {
+    ///             RestApi = api.Id,
+    ///             ResourceId = resource.Id,
+    ///             HttpMethod = method.HttpMethod,
+    ///             IntegrationHttpMethod = "POST",
+    ///             Type = "AWS_PROXY",
+    ///             Uri = lambda.InvokeArn,
+    ///         });
+    ///         // Lambda
+    ///         var apigwLambda = new Aws.Lambda.Permission("apigwLambda", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = lambda.Name,
+    ///             Principal = "apigateway.amazonaws.com",
+    ///             SourceArn = Output.Tuple(api.Id, method.HttpMethod, resource.Path).Apply(values =&gt;
+    ///             {
+    ///                 var id = values.Item1;
+    ///                 var httpMethod = values.Item2;
+    ///                 var path = values.Item3;
+    ///                 return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
+    ///             }),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## VPC Link
     /// 
     /// ```csharp

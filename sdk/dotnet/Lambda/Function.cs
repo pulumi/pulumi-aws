@@ -21,6 +21,51 @@ namespace Pulumi.Aws.Lambda
     /// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda_function_payload.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "index.test",
+    ///             Runtime = "nodejs12.x",
+    ///             Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///             {
+    ///                 Variables = 
+    ///                 {
+    ///                     { "foo", "bar" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Lambda Layers
     /// 
     /// ```csharp

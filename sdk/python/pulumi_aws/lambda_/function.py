@@ -1050,6 +1050,37 @@ class Function(pulumi.CustomResource):
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs12.x",
+            environment=aws.lambda..FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python
@@ -1206,6 +1237,37 @@ class Function(pulumi.CustomResource):
         For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
 
         ## Example Usage
+        ### Basic Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs12.x",
+            environment=aws.lambda..FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
         ### Lambda Layers
 
         ```python

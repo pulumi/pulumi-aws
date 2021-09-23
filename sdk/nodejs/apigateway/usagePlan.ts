@@ -8,6 +8,73 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway Usage Plan.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as crypto from "crypto";
+ *
+ * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
+ *     openapi: "3.0.1",
+ *     info: {
+ *         title: "example",
+ *         version: "1.0",
+ *     },
+ *     paths: {
+ *         "/path1": {
+ *             get: {
+ *                 "x-amazon-apigateway-integration": {
+ *                     httpMethod: "GET",
+ *                     payloadFormatVersion: "1.0",
+ *                     type: "HTTP_PROXY",
+ *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * })});
+ * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
+ *     restApi: exampleRestApi.id,
+ *     triggers: {
+ *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
+ *     },
+ * });
+ * const development = new aws.apigateway.Stage("development", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "development",
+ * });
+ * const production = new aws.apigateway.Stage("production", {
+ *     deployment: exampleDeployment.id,
+ *     restApi: exampleRestApi.id,
+ *     stageName: "production",
+ * });
+ * const exampleUsagePlan = new aws.apigateway.UsagePlan("exampleUsagePlan", {
+ *     description: "my description",
+ *     productCode: "MYCODE",
+ *     apiStages: [
+ *         {
+ *             apiId: exampleRestApi.id,
+ *             stage: development.stageName,
+ *         },
+ *         {
+ *             apiId: exampleRestApi.id,
+ *             stage: production.stageName,
+ *         },
+ *     ],
+ *     quotaSettings: {
+ *         limit: 20,
+ *         offset: 2,
+ *         period: "WEEK",
+ *     },
+ *     throttleSettings: {
+ *         burstLimit: 5,
+ *         rateLimit: 10,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * AWS API Gateway Usage Plan can be imported using the `id`, e.g.

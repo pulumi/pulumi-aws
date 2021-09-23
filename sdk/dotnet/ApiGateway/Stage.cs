@@ -13,6 +13,82 @@ namespace Pulumi.Aws.ApiGateway
     /// Manages an API Gateway Stage. A stage is a named reference to a deployment, which can be done via the `aws.apigateway.Deployment` resource. Stages can be optionally managed further with the `aws.apigateway.BasePathMapping` resource, `aws.apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-stages.html).
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ComputeSHA1(string input) {
+    /// 		return BitConverter.ToString(
+    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
+    /// 		).Replace("-","").ToLowerInvariant());
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "openapi", "3.0.1" },
+    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "title", "example" },
+    ///                     { "version", "1.0" },
+    ///                 } },
+    ///                 { "paths", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "httpMethod", "GET" },
+    ///                                 { "payloadFormatVersion", "1.0" },
+    ///                                 { "type", "HTTP_PROXY" },
+    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///             }),
+    ///         });
+    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             Triggers = 
+    ///             {
+    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             },
+    ///         });
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             Deployment = exampleDeployment.Id,
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = "example",
+    ///         });
+    ///         var exampleMethodSettings = new Aws.ApiGateway.MethodSettings("exampleMethodSettings", new Aws.ApiGateway.MethodSettingsArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = exampleStage.StageName,
+    ///             MethodPath = "*/*",
+    ///             Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
+    ///             {
+    ///                 MetricsEnabled = true,
+    ///                 LoggingLevel = "INFO",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Managing the API Logging CloudWatch Log Group
     /// 
     /// API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `aws.cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, the `aws.cloudwatch.LogGroup` resource can be imported as a one time operation and recreation of the environment can occur without import.

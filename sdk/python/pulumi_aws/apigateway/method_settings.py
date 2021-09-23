@@ -167,6 +167,60 @@ class MethodSettings(pulumi.CustomResource):
 
         > **NOTE:** It is recommended to use this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        all = aws.apigateway.MethodSettings("all",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="ERROR",
+            ))
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
+
         ## Import
 
         `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
@@ -192,6 +246,60 @@ class MethodSettings(pulumi.CustomResource):
         Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
 
         > **NOTE:** It is recommended to use this resource in conjunction with the `apigateway.Stage` resource instead of a stage managed by the `apigateway.Deployment` resource optional `stage_name` argument. Stages managed by the `apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        example_stage = aws.apigateway.Stage("exampleStage",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="example")
+        all = aws.apigateway.MethodSettings("all",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="*/*",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="ERROR",
+            ))
+        path_specific = aws.apigateway.MethodSettings("pathSpecific",
+            rest_api=example_rest_api.id,
+            stage_name=example_stage.stage_name,
+            method_path="path1/GET",
+            settings=aws.apigateway.MethodSettingsSettingsArgs(
+                metrics_enabled=True,
+                logging_level="INFO",
+            ))
+        ```
 
         ## Import
 

@@ -47,6 +47,66 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * ## Lambda integration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const config = new pulumi.Config();
+ * const myregion = config.requireObject("myregion");
+ * const accountId = config.requireObject("accountId");
+ * // API Gateway
+ * const api = new aws.apigateway.RestApi("api", {});
+ * const resource = new aws.apigateway.Resource("resource", {
+ *     pathPart: "resource",
+ *     parentId: api.rootResourceId,
+ *     restApi: api.id,
+ * });
+ * const method = new aws.apigateway.Method("method", {
+ *     restApi: api.id,
+ *     resourceId: resource.id,
+ *     httpMethod: "GET",
+ *     authorization: "NONE",
+ * });
+ * // IAM
+ * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const lambda = new aws.lambda.Function("lambda", {
+ *     code: new pulumi.asset.FileArchive("lambda.zip"),
+ *     role: role.arn,
+ *     handler: "lambda.lambda_handler",
+ *     runtime: "python3.6",
+ * });
+ * const integration = new aws.apigateway.Integration("integration", {
+ *     restApi: api.id,
+ *     resourceId: resource.id,
+ *     httpMethod: method.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: lambda.invokeArn,
+ * });
+ * // Lambda
+ * const apigwLambda = new aws.lambda.Permission("apigwLambda", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": lambda.name,
+ *     principal: "apigateway.amazonaws.com",
+ *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
+ * });
+ * ```
+ *
  * ## VPC Link
  *
  * ```typescript

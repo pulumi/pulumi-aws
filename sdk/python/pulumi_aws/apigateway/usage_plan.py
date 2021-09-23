@@ -300,6 +300,70 @@ class UsagePlan(pulumi.CustomResource):
         """
         Provides an API Gateway Usage Plan.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        development = aws.apigateway.Stage("development",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="development")
+        production = aws.apigateway.Stage("production",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="production")
+        example_usage_plan = aws.apigateway.UsagePlan("exampleUsagePlan",
+            description="my description",
+            product_code="MYCODE",
+            api_stages=[
+                aws.apigateway.UsagePlanApiStageArgs(
+                    api_id=example_rest_api.id,
+                    stage=development.stage_name,
+                ),
+                aws.apigateway.UsagePlanApiStageArgs(
+                    api_id=example_rest_api.id,
+                    stage=production.stage_name,
+                ),
+            ],
+            quota_settings=aws.apigateway.UsagePlanQuotaSettingsArgs(
+                limit=20,
+                offset=2,
+                period="WEEK",
+            ),
+            throttle_settings=aws.apigateway.UsagePlanThrottleSettingsArgs(
+                burst_limit=5,
+                rate_limit=10,
+            ))
+        ```
+
         ## Import
 
         AWS API Gateway Usage Plan can be imported using the `id`, e.g.
@@ -326,6 +390,70 @@ class UsagePlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an API Gateway Usage Plan.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import hashlib
+        import json
+        import pulumi_aws as aws
+
+        example_rest_api = aws.apigateway.RestApi("exampleRestApi", body=json.dumps({
+            "openapi": "3.0.1",
+            "info": {
+                "title": "example",
+                "version": "1.0",
+            },
+            "paths": {
+                "/path1": {
+                    "get": {
+                        "x-amazon-apigateway-integration": {
+                            "httpMethod": "GET",
+                            "payloadFormatVersion": "1.0",
+                            "type": "HTTP_PROXY",
+                            "uri": "https://ip-ranges.amazonaws.com/ip-ranges.json",
+                        },
+                    },
+                },
+            },
+        }))
+        example_deployment = aws.apigateway.Deployment("exampleDeployment",
+            rest_api=example_rest_api.id,
+            triggers={
+                "redeployment": example_rest_api.body.apply(lambda body: json.dumps(body)).apply(lambda to_json: hashlib.sha1(to_json.encode()).hexdigest()),
+            })
+        development = aws.apigateway.Stage("development",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="development")
+        production = aws.apigateway.Stage("production",
+            deployment=example_deployment.id,
+            rest_api=example_rest_api.id,
+            stage_name="production")
+        example_usage_plan = aws.apigateway.UsagePlan("exampleUsagePlan",
+            description="my description",
+            product_code="MYCODE",
+            api_stages=[
+                aws.apigateway.UsagePlanApiStageArgs(
+                    api_id=example_rest_api.id,
+                    stage=development.stage_name,
+                ),
+                aws.apigateway.UsagePlanApiStageArgs(
+                    api_id=example_rest_api.id,
+                    stage=production.stage_name,
+                ),
+            ],
+            quota_settings=aws.apigateway.UsagePlanQuotaSettingsArgs(
+                limit=20,
+                offset=2,
+                period="WEEK",
+            ),
+            throttle_settings=aws.apigateway.UsagePlanThrottleSettingsArgs(
+                burst_limit=5,
+                rate_limit=10,
+            ))
+        ```
 
         ## Import
 

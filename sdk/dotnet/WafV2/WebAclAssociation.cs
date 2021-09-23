@@ -17,6 +17,92 @@ namespace Pulumi.Aws.WafV2
     /// [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
     /// [2]: https://www.terraform.io/docs/providers/aws/r/cloudfront_distribution.html#web_acl_id
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Security.Cryptography;
+    /// using System.Text;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ComputeSHA1(string input) {
+    /// 		return BitConverter.ToString(
+    /// 			SHA1.Create().ComputeHash(Encoding.UTF8.GetBytes(input))
+    /// 		).Replace("-","").ToLowerInvariant());
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var exampleRestApi = new Aws.ApiGateway.RestApi("exampleRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///             Body = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "openapi", "3.0.1" },
+    ///                 { "info", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "title", "example" },
+    ///                     { "version", "1.0" },
+    ///                 } },
+    ///                 { "paths", new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     { "/path1", new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         { "get", new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "x-amazon-apigateway-integration", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "httpMethod", "GET" },
+    ///                                 { "payloadFormatVersion", "1.0" },
+    ///                                 { "type", "HTTP_PROXY" },
+    ///                                 { "uri", "https://ip-ranges.amazonaws.com/ip-ranges.json" },
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///             }),
+    ///         });
+    ///         var exampleDeployment = new Aws.ApiGateway.Deployment("exampleDeployment", new Aws.ApiGateway.DeploymentArgs
+    ///         {
+    ///             RestApi = exampleRestApi.Id,
+    ///             Triggers = 
+    ///             {
+    ///                 { "redeployment", exampleRestApi.Body.Apply(body =&gt; JsonSerializer.Serialize(body)).Apply(toJSON =&gt; ComputeSHA1(toJSON)) },
+    ///             },
+    ///         });
+    ///         var exampleStage = new Aws.ApiGateway.Stage("exampleStage", new Aws.ApiGateway.StageArgs
+    ///         {
+    ///             Deployment = exampleDeployment.Id,
+    ///             RestApi = exampleRestApi.Id,
+    ///             StageName = "example",
+    ///         });
+    ///         var exampleWebAcl = new Aws.WafV2.WebAcl("exampleWebAcl", new Aws.WafV2.WebAclArgs
+    ///         {
+    ///             Scope = "REGIONAL",
+    ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
+    ///             {
+    ///                 Allow = ,
+    ///             },
+    ///             VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///             {
+    ///                 CloudwatchMetricsEnabled = false,
+    ///                 MetricName = "friendly-metric-name",
+    ///                 SampledRequestsEnabled = false,
+    ///             },
+    ///         });
+    ///         var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("exampleWebAclAssociation", new Aws.WafV2.WebAclAssociationArgs
+    ///         {
+    ///             ResourceArn = exampleStage.Arn,
+    ///             WebAclArn = exampleWebAcl.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.

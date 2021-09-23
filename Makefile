@@ -4,6 +4,7 @@ PROJECT          := github.com/${ORG}/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
 PROVIDER_PATH    := provider/v4
+SDK_PATH		 := sdk/v4
 VERSION_PATH     := ${PROVIDER_PATH}/pkg/version.Version
 
 TFGEN           := pulumi-tfgen-${PACK}
@@ -56,6 +57,8 @@ build_python:: # build the python sdk
 
 build_go:: # build the go sdk
 	$(WORKING_DIR)/bin/$(TFGEN) go --overlays provider/overlays/go --out sdk/go/
+#	cd sdk/ && \
+#	  GOGC=50 go list ${PROJECT}/${SDK_PATH}/go/aws/... | xargs -L 1 go build
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet:: # build the dotnet sdk

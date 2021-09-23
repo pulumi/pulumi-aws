@@ -12,6 +12,86 @@ namespace Pulumi.Aws.ApiGateway
     /// <summary>
     /// Provides an API Gateway Authorizer.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var demoRestApi = new Aws.ApiGateway.RestApi("demoRestApi", new Aws.ApiGateway.RestApiArgs
+    ///         {
+    ///         });
+    ///         var invocationRole = new Aws.Iam.Role("invocationRole", new Aws.Iam.RoleArgs
+    ///         {
+    ///             Path = "/",
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""apigateway.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var lambda = new Aws.Iam.Role("lambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var authorizer = new Aws.Lambda.Function("authorizer", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda-function.zip"),
+    ///             Role = lambda.Arn,
+    ///             Handler = "exports.example",
+    ///         });
+    ///         var demoAuthorizer = new Aws.ApiGateway.Authorizer("demoAuthorizer", new Aws.ApiGateway.AuthorizerArgs
+    ///         {
+    ///             RestApi = demoRestApi.Id,
+    ///             AuthorizerUri = authorizer.InvokeArn,
+    ///             AuthorizerCredentials = invocationRole.Arn,
+    ///         });
+    ///         var invocationPolicy = new Aws.Iam.RolePolicy("invocationPolicy", new Aws.Iam.RolePolicyArgs
+    ///         {
+    ///             Role = invocationRole.Id,
+    ///             Policy = authorizer.Arn.Apply(arn =&gt; @$"{{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {{
+    ///       ""Action"": ""lambda:InvokeFunction"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Resource"": ""{arn}""
+    ///     }}
+    ///   ]
+    /// }}
+    /// "),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// AWS API Gateway Authorizer can be imported using the `REST-API-ID/AUTHORIZER-ID`, e.g.
