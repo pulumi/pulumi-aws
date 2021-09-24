@@ -13,6 +13,7 @@ from .domain import *
 from .endpoint import *
 from .endpoint_configuration import *
 from .feature_group import *
+from .flow_definition import *
 from .get_prebuilt_ecr_image import *
 from .human_task_ui import *
 from .image import *

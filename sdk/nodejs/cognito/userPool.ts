@@ -153,7 +153,7 @@ export class UserPool extends pulumi.CustomResource {
     /**
      * Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
      */
-    public readonly lambdaConfig!: pulumi.Output<outputs.cognito.UserPoolLambdaConfig>;
+    public readonly lambdaConfig!: pulumi.Output<outputs.cognito.UserPoolLambdaConfig | undefined>;
     /**
      * Date the user pool was last modified.
      */

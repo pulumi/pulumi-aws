@@ -75,6 +75,7 @@ const (
 	codestarConnectionsMod      = "CodeStarConnections"      // CodeStar Connections
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
 	cognitoMod                  = "Cognito"                  // Cognito
+	connectMod                  = "Connect"                  // Connect
 	curMod                      = "Cur"                      // Cost and Usage Report
 	cfgMod                      = "Cfg"                      // Resource Config
 	datapipelineMod             = "DataPipeline"             // Data Pipeline
@@ -696,6 +697,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_chime_voice_connector_origination": {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
 			"aws_chime_voice_connector_termination": {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
 			"aws_chime_voice_connector_logging":     {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
+			"aws_chime_voice_connector_streaming":   {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// CloudFormation
@@ -860,6 +862,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool_client":               {Tok: awsResource(cognitoMod, "UserPoolClient")},
 			"aws_cognito_user_pool_domain":               {Tok: awsResource(cognitoMod, "UserPoolDomain")},
 			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
+
+			// Connect
+			"aws_connect_contact_flow": {Tok: awsResource(connectMod, "ContactFlow")},
+			"aws_connect_instance":     {Tok: awsResource(connectMod, "Instance")},
 
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
@@ -1263,10 +1269,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
-			"aws_ec2_tag":                 {Tok: awsResource(ec2Mod, "Tag")},
-			"aws_dedicated_host":          {Tok: awsResource(ec2Mod, "DedicatedHost")},
-			"aws_ec2_managed_prefix_list": {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
-			"aws_ec2_carrier_gateway":     {Tok: awsResource(ec2Mod, "CarrierGateway")},
+			"aws_ec2_tag":                       {Tok: awsResource(ec2Mod, "Tag")},
+			"aws_dedicated_host":                {Tok: awsResource(ec2Mod, "DedicatedHost")},
+			"aws_ec2_managed_prefix_list":       {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
+			"aws_ec2_carrier_gateway":           {Tok: awsResource(ec2Mod, "CarrierGateway")},
+			"aws_ec2_managed_prefix_list_entry": {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1358,6 +1365,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(efsMod, "FileSystem"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"creation_token": tfbridge.AutoName("creationToken", 255, "-"),
+					"lifecycle_policy": {
+						MaxItemsOne: boolRef(true),
+					},
 				},
 			},
 			"aws_efs_mount_target": {
@@ -1455,6 +1465,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
 			"aws_fsx_backup":              {Tok: awsResource(fsxMod, "Backup")},
+			"aws_fsx_ontap_file_system":   {Tok: awsResource(fsxMod, "OntapFileSystem")},
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -2175,8 +2186,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
-			"aws_sagemaker_device_fleet":  {Tok: awsResource(sagemakerMod, "DeviceFleet")},
-			"aws_sagemaker_human_task_ui": {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
+			"aws_sagemaker_device_fleet":    {Tok: awsResource(sagemakerMod, "DeviceFleet")},
+			"aws_sagemaker_human_task_ui":   {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
+			"aws_sagemaker_flow_definition": {Tok: awsResource(sagemakerMod, "FlowDefinition")},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
@@ -2731,6 +2743,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// AppStream
 			"aws_appstream_stack": {Tok: awsResource(appStreamMod, "Stack")},
+			"aws_appstream_fleet": {Tok: awsResource(appStreamMod, "Fleet")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3790,12 +3803,16 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_function":        {Tok: awsDataSource(cloudtrailMod, "getFunction")},
 			// CloudWatch
 			"aws_cloudwatch_log_group":        {Tok: awsDataSource(cloudwatchMod, "getLogGroup")},
+			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
 			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
 			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
 			// CodeCommit
 			"aws_codecommit_repository": {Tok: awsDataSource(codecommitMod, "getRepository")},
 			// Cognito
 			"aws_cognito_user_pools": {Tok: awsDataSource(cognitoMod, "getUserPools")},
+			// Connect
+			"aws_connect_contact_flow": {Tok: awsDataSource(connectMod, "getContactFlow")},
+			"aws_connect_instance":     {Tok: awsDataSource(connectMod, "getInstance")},
 			// DynamoDB
 			"aws_dynamodb_table": {
 				Tok: awsDataSource(dynamodbMod, "getTable"),
@@ -4015,6 +4032,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_role":               {Tok: awsDataSource(iamMod, "getRole")},
 			"aws_iam_server_certificate": {Tok: awsDataSource(iamMod, "getServerCertificate")},
 			"aws_iam_user":               {Tok: awsDataSource(iamMod, "getUser")},
+			"aws_iam_users":              {Tok: awsDataSource(iamMod, "getUsers")},
 			"aws_iam_session_context":    {Tok: awsDataSource(iamMod, "getSessionContext")},
 			"aws_iam_roles":              {Tok: awsDataSource(iamMod, "getRoles")},
 			// IdentityStore
@@ -4088,6 +4106,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_servicequotas_service_quota": {Tok: awsDataSource(servicequotasMod, "getServiceQuota")},
 			// MSK
 			"aws_msk_configuration": {Tok: awsDataSource(mskMod, "getConfiguration")},
+			"aws_msk_broker_nodes":  {Tok: awsDataSource(mskMod, "getBrokerNodes")},
+			"aws_msk_kafka_version": {Tok: awsDataSource(mskMod, "getKafkaVersion")},
 			// WAF
 			"aws_waf_rule":            {Tok: awsDataSource(wafMod, "getRule")},
 			"aws_waf_web_acl":         {Tok: awsDataSource(wafMod, "getWebAcl")},
@@ -4118,6 +4138,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_distribution":          {Tok: awsDataSource(cloudfrontMod, "getDistribution")},
 			"aws_cloudfront_origin_request_policy": {Tok: awsDataSource(cloudfrontMod, "getOriginRequestPolicy")},
 			"aws_cloudfront_cache_policy":          {Tok: awsDataSource(cloudfrontMod, "getCachePolicy")},
+			"aws_cloudfront_log_delivery_canonical_user_id": {
+				Tok: awsDataSource(cloudfrontMod, "getLogDeliveryCanonicalUserId"),
+			},
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},

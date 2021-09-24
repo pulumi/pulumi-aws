@@ -6751,9 +6751,7 @@ class VpcPeeringConnectionAccepter(dict):
                with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
                to the remote VPC.
         :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC. This is
-               [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-               inter-region VPC peering.
+               private IP addresses when queried from instances in the peer VPC.
         :param bool allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
                instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
                connection.
@@ -6780,9 +6778,7 @@ class VpcPeeringConnectionAccepter(dict):
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
         """
         Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC. This is
-        [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        inter-region VPC peering.
+        private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -6969,9 +6965,7 @@ class VpcPeeringConnectionRequester(dict):
                with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
                to the remote VPC.
         :param bool allow_remote_vpc_dns_resolution: Allow a local VPC to resolve public DNS hostnames to
-               private IP addresses when queried from instances in the peer VPC. This is
-               [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-               inter-region VPC peering.
+               private IP addresses when queried from instances in the peer VPC.
         :param bool allow_vpc_to_remote_classic_link: Allow a local VPC to communicate with a linked EC2-Classic
                instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
                connection.
@@ -6998,9 +6992,7 @@ class VpcPeeringConnectionRequester(dict):
     def allow_remote_vpc_dns_resolution(self) -> Optional[bool]:
         """
         Allow a local VPC to resolve public DNS hostnames to
-        private IP addresses when queried from instances in the peer VPC. This is
-        [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        inter-region VPC peering.
+        private IP addresses when queried from instances in the peer VPC.
         """
         return pulumi.get(self, "allow_remote_vpc_dns_resolution")
 
@@ -8493,6 +8485,7 @@ class GetLaunchTemplateInstanceMarketOptionSpotOptionResult(dict):
 class GetLaunchTemplateMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
+                 http_protocol_ipv6: str,
                  http_put_response_hop_limit: int,
                  http_tokens: str):
         """
@@ -8501,6 +8494,7 @@ class GetLaunchTemplateMetadataOptionResult(dict):
         :param str http_tokens: If session tokens are required: `optional`, `required`.
         """
         pulumi.set(__self__, "http_endpoint", http_endpoint)
+        pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         pulumi.set(__self__, "http_tokens", http_tokens)
 
@@ -8511,6 +8505,11 @@ class GetLaunchTemplateMetadataOptionResult(dict):
         The state of the metadata service: `enabled`, `disabled`.
         """
         return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> str:
+        return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")

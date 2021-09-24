@@ -214,7 +214,8 @@ class _ClusterState:
                  open_monitoring: Optional[pulumi.Input['ClusterOpenMonitoringArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 zookeeper_connect_string: Optional[pulumi.Input[str]] = None):
+                 zookeeper_connect_string: Optional[pulumi.Input[str]] = None,
+                 zookeeper_connect_string_tls: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
@@ -237,6 +238,7 @@ class _ClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] zookeeper_connect_string_tls: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -276,6 +278,8 @@ class _ClusterState:
             pulumi.set(__self__, "tags_all", tags_all)
         if zookeeper_connect_string is not None:
             pulumi.set(__self__, "zookeeper_connect_string", zookeeper_connect_string)
+        if zookeeper_connect_string_tls is not None:
+            pulumi.set(__self__, "zookeeper_connect_string_tls", zookeeper_connect_string_tls)
 
     @property
     @pulumi.getter
@@ -505,6 +509,18 @@ class _ClusterState:
     @zookeeper_connect_string.setter
     def zookeeper_connect_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "zookeeper_connect_string", value)
+
+    @property
+    @pulumi.getter(name="zookeeperConnectStringTls")
+    def zookeeper_connect_string_tls(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        """
+        return pulumi.get(self, "zookeeper_connect_string_tls")
+
+    @zookeeper_connect_string_tls.setter
+    def zookeeper_connect_string_tls(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "zookeeper_connect_string_tls", value)
 
 
 class Cluster(pulumi.CustomResource):
@@ -823,6 +839,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["current_version"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
+            __props__.__dict__["zookeeper_connect_string_tls"] = None
         super(Cluster, __self__).__init__(
             'aws:msk/cluster:Cluster',
             resource_name,
@@ -851,7 +868,8 @@ class Cluster(pulumi.CustomResource):
             open_monitoring: Optional[pulumi.Input[pulumi.InputType['ClusterOpenMonitoringArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            zookeeper_connect_string: Optional[pulumi.Input[str]] = None) -> 'Cluster':
+            zookeeper_connect_string: Optional[pulumi.Input[str]] = None,
+            zookeeper_connect_string_tls: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -879,6 +897,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] zookeeper_connect_string: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        :param pulumi.Input[str] zookeeper_connect_string_tls: A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -903,6 +922,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["zookeeper_connect_string"] = zookeeper_connect_string
+        __props__.__dict__["zookeeper_connect_string_tls"] = zookeeper_connect_string_tls
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1057,4 +1077,12 @@ class Cluster(pulumi.CustomResource):
         A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string")
+
+    @property
+    @pulumi.getter(name="zookeeperConnectStringTls")
+    def zookeeper_connect_string_tls(self) -> pulumi.Output[str]:
+        """
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        """
+        return pulumi.get(self, "zookeeper_connect_string_tls")
 

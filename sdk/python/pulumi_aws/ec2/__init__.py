@@ -81,6 +81,7 @@ from .local_gateway_route import *
 from .local_gateway_route_table_vpc_association import *
 from .main_route_table_association import *
 from .managed_prefix_list import *
+from .managed_prefix_list_entry import *
 from .nat_gateway import *
 from .network_acl import *
 from .network_acl_rule import *

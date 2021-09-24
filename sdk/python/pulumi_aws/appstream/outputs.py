@@ -9,11 +9,187 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FleetComputeCapacity',
+    'FleetDomainJoinInfo',
+    'FleetVpcConfig',
     'StackAccessEndpoint',
     'StackApplicationSettings',
     'StackStorageConnector',
     'StackUserSetting',
 ]
+
+@pulumi.output_type
+class FleetComputeCapacity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredInstances":
+            suggest = "desired_instances"
+        elif key == "inUse":
+            suggest = "in_use"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetComputeCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetComputeCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetComputeCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_instances: int,
+                 available: Optional[int] = None,
+                 in_use: Optional[int] = None,
+                 running: Optional[int] = None):
+        """
+        :param int desired_instances: Desired number of streaming instances.
+        :param int available: Number of currently available instances that can be used to stream sessions.
+        :param int in_use: Number of instances in use for streaming.
+        :param int running: Total number of simultaneous streaming instances that are running.
+        """
+        pulumi.set(__self__, "desired_instances", desired_instances)
+        if available is not None:
+            pulumi.set(__self__, "available", available)
+        if in_use is not None:
+            pulumi.set(__self__, "in_use", in_use)
+        if running is not None:
+            pulumi.set(__self__, "running", running)
+
+    @property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> int:
+        """
+        Desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
+
+    @property
+    @pulumi.getter
+    def available(self) -> Optional[int]:
+        """
+        Number of currently available instances that can be used to stream sessions.
+        """
+        return pulumi.get(self, "available")
+
+    @property
+    @pulumi.getter(name="inUse")
+    def in_use(self) -> Optional[int]:
+        """
+        Number of instances in use for streaming.
+        """
+        return pulumi.get(self, "in_use")
+
+    @property
+    @pulumi.getter
+    def running(self) -> Optional[int]:
+        """
+        Total number of simultaneous streaming instances that are running.
+        """
+        return pulumi.get(self, "running")
+
+
+@pulumi.output_type
+class FleetDomainJoinInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryName":
+            suggest = "directory_name"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetDomainJoinInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetDomainJoinInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetDomainJoinInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_name: Optional[str] = None,
+                 organizational_unit_distinguished_name: Optional[str] = None):
+        """
+        :param str directory_name: Fully qualified name of the directory (for example, corp.example.com).
+        :param str organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+
+    @property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional[str]:
+        """
+        Fully qualified name of the directory (for example, corp.example.com).
+        """
+        return pulumi.get(self, "directory_name")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        Distinguished name of the organizational unit for computer accounts.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+
+@pulumi.output_type
+class FleetVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Optional[Sequence[str]] = None,
+                 subnet_ids: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] security_group_ids: Identifiers of the security groups for the fleet or image builder.
+        :param Sequence[str] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Identifiers of the security groups for the fleet or image builder.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+        return pulumi.get(self, "subnet_ids")
+
 
 @pulumi.output_type
 class StackAccessEndpoint(dict):

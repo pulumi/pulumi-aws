@@ -1264,7 +1264,8 @@ func (o GetAccessPointRootDirectoryCreationInfoArrayOutput) Index(i pulumi.IntIn
 }
 
 type GetFileSystemLifecyclePolicy struct {
-	TransitionToIa string `pulumi:"transitionToIa"`
+	TransitionToIa                  string `pulumi:"transitionToIa"`
+	TransitionToPrimaryStorageClass string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 // GetFileSystemLifecyclePolicyInput is an input type that accepts GetFileSystemLifecyclePolicyArgs and GetFileSystemLifecyclePolicyOutput values.
@@ -1279,7 +1280,8 @@ type GetFileSystemLifecyclePolicyInput interface {
 }
 
 type GetFileSystemLifecyclePolicyArgs struct {
-	TransitionToIa pulumi.StringInput `pulumi:"transitionToIa"`
+	TransitionToIa                  pulumi.StringInput `pulumi:"transitionToIa"`
+	TransitionToPrimaryStorageClass pulumi.StringInput `pulumi:"transitionToPrimaryStorageClass"`
 }
 
 func (GetFileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -1310,6 +1312,10 @@ func (o GetFileSystemLifecyclePolicyOutput) ToGetFileSystemLifecyclePolicyOutput
 
 func (o GetFileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToIa }).(pulumi.StringOutput)
+}
+
+func (o GetFileSystemLifecyclePolicyOutput) TransitionToPrimaryStorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFileSystemLifecyclePolicy) string { return v.TransitionToPrimaryStorageClass }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -10,6 +10,512 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FleetComputeCapacity struct {
+	// Number of currently available instances that can be used to stream sessions.
+	Available *int `pulumi:"available"`
+	// Desired number of streaming instances.
+	DesiredInstances int `pulumi:"desiredInstances"`
+	// Number of instances in use for streaming.
+	InUse *int `pulumi:"inUse"`
+	// Total number of simultaneous streaming instances that are running.
+	Running *int `pulumi:"running"`
+}
+
+// FleetComputeCapacityInput is an input type that accepts FleetComputeCapacityArgs and FleetComputeCapacityOutput values.
+// You can construct a concrete instance of `FleetComputeCapacityInput` via:
+//
+//          FleetComputeCapacityArgs{...}
+type FleetComputeCapacityInput interface {
+	pulumi.Input
+
+	ToFleetComputeCapacityOutput() FleetComputeCapacityOutput
+	ToFleetComputeCapacityOutputWithContext(context.Context) FleetComputeCapacityOutput
+}
+
+type FleetComputeCapacityArgs struct {
+	// Number of currently available instances that can be used to stream sessions.
+	Available pulumi.IntPtrInput `pulumi:"available"`
+	// Desired number of streaming instances.
+	DesiredInstances pulumi.IntInput `pulumi:"desiredInstances"`
+	// Number of instances in use for streaming.
+	InUse pulumi.IntPtrInput `pulumi:"inUse"`
+	// Total number of simultaneous streaming instances that are running.
+	Running pulumi.IntPtrInput `pulumi:"running"`
+}
+
+func (FleetComputeCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeCapacity)(nil)).Elem()
+}
+
+func (i FleetComputeCapacityArgs) ToFleetComputeCapacityOutput() FleetComputeCapacityOutput {
+	return i.ToFleetComputeCapacityOutputWithContext(context.Background())
+}
+
+func (i FleetComputeCapacityArgs) ToFleetComputeCapacityOutputWithContext(ctx context.Context) FleetComputeCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityOutput)
+}
+
+func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
+	return i.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityOutput).ToFleetComputeCapacityPtrOutputWithContext(ctx)
+}
+
+// FleetComputeCapacityPtrInput is an input type that accepts FleetComputeCapacityArgs, FleetComputeCapacityPtr and FleetComputeCapacityPtrOutput values.
+// You can construct a concrete instance of `FleetComputeCapacityPtrInput` via:
+//
+//          FleetComputeCapacityArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetComputeCapacityPtrInput interface {
+	pulumi.Input
+
+	ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput
+	ToFleetComputeCapacityPtrOutputWithContext(context.Context) FleetComputeCapacityPtrOutput
+}
+
+type fleetComputeCapacityPtrType FleetComputeCapacityArgs
+
+func FleetComputeCapacityPtr(v *FleetComputeCapacityArgs) FleetComputeCapacityPtrInput {
+	return (*fleetComputeCapacityPtrType)(v)
+}
+
+func (*fleetComputeCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeCapacity)(nil)).Elem()
+}
+
+func (i *fleetComputeCapacityPtrType) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
+	return i.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetComputeCapacityPtrType) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityPtrOutput)
+}
+
+type FleetComputeCapacityOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeCapacity)(nil)).Elem()
+}
+
+func (o FleetComputeCapacityOutput) ToFleetComputeCapacityOutput() FleetComputeCapacityOutput {
+	return o
+}
+
+func (o FleetComputeCapacityOutput) ToFleetComputeCapacityOutputWithContext(ctx context.Context) FleetComputeCapacityOutput {
+	return o
+}
+
+func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
+	return o.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeCapacity) *FleetComputeCapacity {
+		return &v
+	}).(FleetComputeCapacityPtrOutput)
+}
+
+// Number of currently available instances that can be used to stream sessions.
+func (o FleetComputeCapacityOutput) Available() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.Available }).(pulumi.IntPtrOutput)
+}
+
+// Desired number of streaming instances.
+func (o FleetComputeCapacityOutput) DesiredInstances() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) int { return v.DesiredInstances }).(pulumi.IntOutput)
+}
+
+// Number of instances in use for streaming.
+func (o FleetComputeCapacityOutput) InUse() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.InUse }).(pulumi.IntPtrOutput)
+}
+
+// Total number of simultaneous streaming instances that are running.
+func (o FleetComputeCapacityOutput) Running() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.Running }).(pulumi.IntPtrOutput)
+}
+
+type FleetComputeCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeCapacity)(nil)).Elem()
+}
+
+func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
+	return o
+}
+
+func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
+	return o
+}
+
+func (o FleetComputeCapacityPtrOutput) Elem() FleetComputeCapacityOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) FleetComputeCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret FleetComputeCapacity
+		return ret
+	}).(FleetComputeCapacityOutput)
+}
+
+// Number of currently available instances that can be used to stream sessions.
+func (o FleetComputeCapacityPtrOutput) Available() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Available
+	}).(pulumi.IntPtrOutput)
+}
+
+// Desired number of streaming instances.
+func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredInstances
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of instances in use for streaming.
+func (o FleetComputeCapacityPtrOutput) InUse() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.InUse
+	}).(pulumi.IntPtrOutput)
+}
+
+// Total number of simultaneous streaming instances that are running.
+func (o FleetComputeCapacityPtrOutput) Running() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetComputeCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Running
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetDomainJoinInfo struct {
+	// Fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName *string `pulumi:"directoryName"`
+	// Distinguished name of the organizational unit for computer accounts.
+	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+}
+
+// FleetDomainJoinInfoInput is an input type that accepts FleetDomainJoinInfoArgs and FleetDomainJoinInfoOutput values.
+// You can construct a concrete instance of `FleetDomainJoinInfoInput` via:
+//
+//          FleetDomainJoinInfoArgs{...}
+type FleetDomainJoinInfoInput interface {
+	pulumi.Input
+
+	ToFleetDomainJoinInfoOutput() FleetDomainJoinInfoOutput
+	ToFleetDomainJoinInfoOutputWithContext(context.Context) FleetDomainJoinInfoOutput
+}
+
+type FleetDomainJoinInfoArgs struct {
+	// Fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName pulumi.StringPtrInput `pulumi:"directoryName"`
+	// Distinguished name of the organizational unit for computer accounts.
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+}
+
+func (FleetDomainJoinInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetDomainJoinInfo)(nil)).Elem()
+}
+
+func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoOutput() FleetDomainJoinInfoOutput {
+	return i.ToFleetDomainJoinInfoOutputWithContext(context.Background())
+}
+
+func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoOutputWithContext(ctx context.Context) FleetDomainJoinInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetDomainJoinInfoOutput)
+}
+
+func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput {
+	return i.ToFleetDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (i FleetDomainJoinInfoArgs) ToFleetDomainJoinInfoPtrOutputWithContext(ctx context.Context) FleetDomainJoinInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetDomainJoinInfoOutput).ToFleetDomainJoinInfoPtrOutputWithContext(ctx)
+}
+
+// FleetDomainJoinInfoPtrInput is an input type that accepts FleetDomainJoinInfoArgs, FleetDomainJoinInfoPtr and FleetDomainJoinInfoPtrOutput values.
+// You can construct a concrete instance of `FleetDomainJoinInfoPtrInput` via:
+//
+//          FleetDomainJoinInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetDomainJoinInfoPtrInput interface {
+	pulumi.Input
+
+	ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput
+	ToFleetDomainJoinInfoPtrOutputWithContext(context.Context) FleetDomainJoinInfoPtrOutput
+}
+
+type fleetDomainJoinInfoPtrType FleetDomainJoinInfoArgs
+
+func FleetDomainJoinInfoPtr(v *FleetDomainJoinInfoArgs) FleetDomainJoinInfoPtrInput {
+	return (*fleetDomainJoinInfoPtrType)(v)
+}
+
+func (*fleetDomainJoinInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetDomainJoinInfo)(nil)).Elem()
+}
+
+func (i *fleetDomainJoinInfoPtrType) ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput {
+	return i.ToFleetDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetDomainJoinInfoPtrType) ToFleetDomainJoinInfoPtrOutputWithContext(ctx context.Context) FleetDomainJoinInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetDomainJoinInfoPtrOutput)
+}
+
+type FleetDomainJoinInfoOutput struct{ *pulumi.OutputState }
+
+func (FleetDomainJoinInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetDomainJoinInfo)(nil)).Elem()
+}
+
+func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoOutput() FleetDomainJoinInfoOutput {
+	return o
+}
+
+func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoOutputWithContext(ctx context.Context) FleetDomainJoinInfoOutput {
+	return o
+}
+
+func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput {
+	return o.ToFleetDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (o FleetDomainJoinInfoOutput) ToFleetDomainJoinInfoPtrOutputWithContext(ctx context.Context) FleetDomainJoinInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetDomainJoinInfo) *FleetDomainJoinInfo {
+		return &v
+	}).(FleetDomainJoinInfoPtrOutput)
+}
+
+// Fully qualified name of the directory (for example, corp.example.com).
+func (o FleetDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
+}
+
+// Distinguished name of the organizational unit for computer accounts.
+func (o FleetDomainJoinInfoOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetDomainJoinInfo) *string { return v.OrganizationalUnitDistinguishedName }).(pulumi.StringPtrOutput)
+}
+
+type FleetDomainJoinInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetDomainJoinInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetDomainJoinInfo)(nil)).Elem()
+}
+
+func (o FleetDomainJoinInfoPtrOutput) ToFleetDomainJoinInfoPtrOutput() FleetDomainJoinInfoPtrOutput {
+	return o
+}
+
+func (o FleetDomainJoinInfoPtrOutput) ToFleetDomainJoinInfoPtrOutputWithContext(ctx context.Context) FleetDomainJoinInfoPtrOutput {
+	return o
+}
+
+func (o FleetDomainJoinInfoPtrOutput) Elem() FleetDomainJoinInfoOutput {
+	return o.ApplyT(func(v *FleetDomainJoinInfo) FleetDomainJoinInfo {
+		if v != nil {
+			return *v
+		}
+		var ret FleetDomainJoinInfo
+		return ret
+	}).(FleetDomainJoinInfoOutput)
+}
+
+// Fully qualified name of the directory (for example, corp.example.com).
+func (o FleetDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetDomainJoinInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Distinguished name of the organizational unit for computer accounts.
+func (o FleetDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetDomainJoinInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetVpcConfig struct {
+	// Identifiers of the security groups for the fleet or image builder.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// FleetVpcConfigInput is an input type that accepts FleetVpcConfigArgs and FleetVpcConfigOutput values.
+// You can construct a concrete instance of `FleetVpcConfigInput` via:
+//
+//          FleetVpcConfigArgs{...}
+type FleetVpcConfigInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigOutput() FleetVpcConfigOutput
+	ToFleetVpcConfigOutputWithContext(context.Context) FleetVpcConfigOutput
+}
+
+type FleetVpcConfigArgs struct {
+	// Identifiers of the security groups for the fleet or image builder.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (FleetVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return i.ToFleetVpcConfigOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput)
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return i.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FleetVpcConfigArgs) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigOutput).ToFleetVpcConfigPtrOutputWithContext(ctx)
+}
+
+// FleetVpcConfigPtrInput is an input type that accepts FleetVpcConfigArgs, FleetVpcConfigPtr and FleetVpcConfigPtrOutput values.
+// You can construct a concrete instance of `FleetVpcConfigPtrInput` via:
+//
+//          FleetVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput
+	ToFleetVpcConfigPtrOutputWithContext(context.Context) FleetVpcConfigPtrOutput
+}
+
+type fleetVpcConfigPtrType FleetVpcConfigArgs
+
+func FleetVpcConfigPtr(v *FleetVpcConfigArgs) FleetVpcConfigPtrInput {
+	return (*fleetVpcConfigPtrType)(v)
+}
+
+func (*fleetVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfig)(nil)).Elem()
+}
+
+func (i *fleetVpcConfigPtrType) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return i.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetVpcConfigPtrType) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetVpcConfigPtrOutput)
+}
+
+type FleetVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutput() FleetVpcConfigOutput {
+	return o
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigOutputWithContext(ctx context.Context) FleetVpcConfigOutput {
+	return o
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return o.ToFleetVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FleetVpcConfigOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetVpcConfig) *FleetVpcConfig {
+		return &v
+	}).(FleetVpcConfigPtrOutput)
+}
+
+// Identifiers of the security groups for the fleet or image builder.
+func (o FleetVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+func (o FleetVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type FleetVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetVpcConfig)(nil)).Elem()
+}
+
+func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutput() FleetVpcConfigPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigPtrOutput) ToFleetVpcConfigPtrOutputWithContext(ctx context.Context) FleetVpcConfigPtrOutput {
+	return o
+}
+
+func (o FleetVpcConfigPtrOutput) Elem() FleetVpcConfigOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) FleetVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FleetVpcConfig
+		return ret
+	}).(FleetVpcConfigOutput)
+}
+
+// Identifiers of the security groups for the fleet or image builder.
+func (o FleetVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+func (o FleetVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type StackAccessEndpoint struct {
 	EndpointType string  `pulumi:"endpointType"`
 	VpceId       *string `pulumi:"vpceId"`
@@ -480,6 +986,12 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})
+	pulumi.RegisterOutputType(FleetComputeCapacityPtrOutput{})
+	pulumi.RegisterOutputType(FleetDomainJoinInfoOutput{})
+	pulumi.RegisterOutputType(FleetDomainJoinInfoPtrOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
+	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsOutput{})

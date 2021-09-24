@@ -13,6 +13,7 @@ export * from "./domain";
 export * from "./endpoint";
 export * from "./endpointConfiguration";
 export * from "./featureGroup";
+export * from "./flowDefinition";
 export * from "./getPrebuiltEcrImage";
 export * from "./humanTaskUI";
 export * from "./image";
@@ -34,6 +35,7 @@ import { Domain } from "./domain";
 import { Endpoint } from "./endpoint";
 import { EndpointConfiguration } from "./endpointConfiguration";
 import { FeatureGroup } from "./featureGroup";
+import { FlowDefinition } from "./flowDefinition";
 import { HumanTaskUI } from "./humanTaskUI";
 import { Image } from "./image";
 import { ImageVersion } from "./imageVersion";
@@ -65,6 +67,8 @@ const _module = {
                 return new EndpointConfiguration(name, <any>undefined, { urn })
             case "aws:sagemaker/featureGroup:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
+            case "aws:sagemaker/flowDefinition:FlowDefinition":
+                return new FlowDefinition(name, <any>undefined, { urn })
             case "aws:sagemaker/humanTaskUI:HumanTaskUI":
                 return new HumanTaskUI(name, <any>undefined, { urn })
             case "aws:sagemaker/image:Image":
@@ -98,6 +102,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/flowDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)

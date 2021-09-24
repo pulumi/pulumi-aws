@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Cognito
         /// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         /// </summary>
         [Output("lambdaConfig")]
-        public Output<Outputs.UserPoolLambdaConfig> LambdaConfig { get; private set; } = null!;
+        public Output<Outputs.UserPoolLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
         /// <summary>
         /// Date the user pool was last modified.

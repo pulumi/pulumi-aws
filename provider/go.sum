@@ -210,6 +210,8 @@ github.com/aws/aws-sdk-go v1.40.37 h1:I+Q6cLctkFyMMrKukcDnj+i2kjrQ37LGiOM6xmsxC4
 github.com/aws/aws-sdk-go v1.40.37/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
 github.com/aws/aws-sdk-go v1.40.43 h1:froMtO2//9kCu1sK+dOfAcwxUu91p5KgUP4AL7SDwUQ=
 github.com/aws/aws-sdk-go v1.40.43/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
+github.com/aws/aws-sdk-go v1.40.46 h1:2O4qZ1ROLry/cYkHo14G0p8cnLKB5feIFXY7xWgq1n8=
+github.com/aws/aws-sdk-go v1.40.46/go.mod h1:585smgzpB/KqRA+K3y/NL/oYRqQvpNJYvLm+LY1U59Q=
 github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
 github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
@@ -971,6 +973,10 @@ github.com/pulumi/terraform-provider-aws v1.38.1-0.20210910104856-549e8bd00322 h
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210910104856-549e8bd00322/go.mod h1:WjdHjX7BShlg6aelRxsCXxy/dn8YtjZ8e1FajMB/WrA=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210919140801-9f75bddc51fd h1:Ps+i9GEef1ShQidZ+0C8hHz6axLaYvHfdU9XcamIZ5w=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20210919140801-9f75bddc51fd/go.mod h1:UkwXgsM1btZMxVhKZqks7w6q5yA6D9PWf4gq9yLS7pk=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210924173745-597ea3a81582 h1:3+XQyH0z7YDwPFqdXuvG96dYPWNkF8C8dxQAc2VjaJo=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210924173745-597ea3a81582/go.mod h1:bQbOte5cehqb/51sWkTlGE6dI62oSDNjWYXme3bmT5I=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210924181333-0239446592ec h1:5NIPvn4ZG0LdcrBZlegVGsURwfT2LydXssCmMwjFYiY=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20210924181333-0239446592ec/go.mod h1:bQbOte5cehqb/51sWkTlGE6dI62oSDNjWYXme3bmT5I=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

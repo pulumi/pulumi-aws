@@ -22,9 +22,7 @@ namespace Pulumi.Aws.Ec2.Inputs
 
         /// <summary>
         /// Allow a local VPC to resolve public DNS hostnames to
-        /// private IP addresses when queried from instances in the peer VPC. This is
-        /// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-        /// inter-region VPC peering.
+        /// private IP addresses when queried from instances in the peer VPC.
         /// </summary>
         [Input("allowRemoteVpcDnsResolution")]
         public Input<bool>? AllowRemoteVpcDnsResolution { get; set; }

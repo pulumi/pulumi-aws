@@ -79,6 +79,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MainRouteTableAssociation{}
 	case "aws:ec2/managedPrefixList:ManagedPrefixList":
 		r = &ManagedPrefixList{}
+	case "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry":
+		r = &ManagedPrefixListEntry{}
 	case "aws:ec2/natGateway:NatGateway":
 		r = &NatGateway{}
 	case "aws:ec2/networkAcl:NetworkAcl":
@@ -321,6 +323,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/managedPrefixList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/managedPrefixListEntry",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

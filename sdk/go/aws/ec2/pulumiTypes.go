@@ -8344,110 +8344,110 @@ func (o LaunchTemplateTagSpecificationArrayOutput) Index(i pulumi.IntInput) Laun
 	}).(LaunchTemplateTagSpecificationOutput)
 }
 
-type ManagedPrefixListEntry struct {
+type ManagedPrefixListEntryType struct {
 	// CIDR block of this entry.
 	Cidr string `pulumi:"cidr"`
 	// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
 	Description *string `pulumi:"description"`
 }
 
-// ManagedPrefixListEntryInput is an input type that accepts ManagedPrefixListEntryArgs and ManagedPrefixListEntryOutput values.
-// You can construct a concrete instance of `ManagedPrefixListEntryInput` via:
+// ManagedPrefixListEntryTypeInput is an input type that accepts ManagedPrefixListEntryTypeArgs and ManagedPrefixListEntryTypeOutput values.
+// You can construct a concrete instance of `ManagedPrefixListEntryTypeInput` via:
 //
-//          ManagedPrefixListEntryArgs{...}
-type ManagedPrefixListEntryInput interface {
+//          ManagedPrefixListEntryTypeArgs{...}
+type ManagedPrefixListEntryTypeInput interface {
 	pulumi.Input
 
-	ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput
-	ToManagedPrefixListEntryOutputWithContext(context.Context) ManagedPrefixListEntryOutput
+	ToManagedPrefixListEntryTypeOutput() ManagedPrefixListEntryTypeOutput
+	ToManagedPrefixListEntryTypeOutputWithContext(context.Context) ManagedPrefixListEntryTypeOutput
 }
 
-type ManagedPrefixListEntryArgs struct {
+type ManagedPrefixListEntryTypeArgs struct {
 	// CIDR block of this entry.
 	Cidr pulumi.StringInput `pulumi:"cidr"`
 	// Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 }
 
-func (ManagedPrefixListEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixListEntry)(nil)).Elem()
+func (ManagedPrefixListEntryTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (i ManagedPrefixListEntryArgs) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
-	return i.ToManagedPrefixListEntryOutputWithContext(context.Background())
+func (i ManagedPrefixListEntryTypeArgs) ToManagedPrefixListEntryTypeOutput() ManagedPrefixListEntryTypeOutput {
+	return i.ToManagedPrefixListEntryTypeOutputWithContext(context.Background())
 }
 
-func (i ManagedPrefixListEntryArgs) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryOutput)
+func (i ManagedPrefixListEntryTypeArgs) ToManagedPrefixListEntryTypeOutputWithContext(ctx context.Context) ManagedPrefixListEntryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryTypeOutput)
 }
 
-// ManagedPrefixListEntryArrayInput is an input type that accepts ManagedPrefixListEntryArray and ManagedPrefixListEntryArrayOutput values.
-// You can construct a concrete instance of `ManagedPrefixListEntryArrayInput` via:
+// ManagedPrefixListEntryTypeArrayInput is an input type that accepts ManagedPrefixListEntryTypeArray and ManagedPrefixListEntryTypeArrayOutput values.
+// You can construct a concrete instance of `ManagedPrefixListEntryTypeArrayInput` via:
 //
-//          ManagedPrefixListEntryArray{ ManagedPrefixListEntryArgs{...} }
-type ManagedPrefixListEntryArrayInput interface {
+//          ManagedPrefixListEntryTypeArray{ ManagedPrefixListEntryTypeArgs{...} }
+type ManagedPrefixListEntryTypeArrayInput interface {
 	pulumi.Input
 
-	ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput
-	ToManagedPrefixListEntryArrayOutputWithContext(context.Context) ManagedPrefixListEntryArrayOutput
+	ToManagedPrefixListEntryTypeArrayOutput() ManagedPrefixListEntryTypeArrayOutput
+	ToManagedPrefixListEntryTypeArrayOutputWithContext(context.Context) ManagedPrefixListEntryTypeArrayOutput
 }
 
-type ManagedPrefixListEntryArray []ManagedPrefixListEntryInput
+type ManagedPrefixListEntryTypeArray []ManagedPrefixListEntryTypeInput
 
-func (ManagedPrefixListEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedPrefixListEntry)(nil)).Elem()
+func (ManagedPrefixListEntryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput {
-	return i.ToManagedPrefixListEntryArrayOutputWithContext(context.Background())
+func (i ManagedPrefixListEntryTypeArray) ToManagedPrefixListEntryTypeArrayOutput() ManagedPrefixListEntryTypeArrayOutput {
+	return i.ToManagedPrefixListEntryTypeArrayOutputWithContext(context.Background())
 }
 
-func (i ManagedPrefixListEntryArray) ToManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryArrayOutput)
+func (i ManagedPrefixListEntryTypeArray) ToManagedPrefixListEntryTypeArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListEntryTypeArrayOutput)
 }
 
-type ManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
+type ManagedPrefixListEntryTypeOutput struct{ *pulumi.OutputState }
 
-func (ManagedPrefixListEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedPrefixListEntry)(nil)).Elem()
+func (ManagedPrefixListEntryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutput() ManagedPrefixListEntryOutput {
+func (o ManagedPrefixListEntryTypeOutput) ToManagedPrefixListEntryTypeOutput() ManagedPrefixListEntryTypeOutput {
 	return o
 }
 
-func (o ManagedPrefixListEntryOutput) ToManagedPrefixListEntryOutputWithContext(ctx context.Context) ManagedPrefixListEntryOutput {
+func (o ManagedPrefixListEntryTypeOutput) ToManagedPrefixListEntryTypeOutputWithContext(ctx context.Context) ManagedPrefixListEntryTypeOutput {
 	return o
 }
 
 // CIDR block of this entry.
-func (o ManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+func (o ManagedPrefixListEntryTypeOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v ManagedPrefixListEntryType) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
 // Description of this entry. Due to API limitations, updating only the description of an existing entry requires temporarily removing and re-adding the entry.
-func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ManagedPrefixListEntry) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o ManagedPrefixListEntryTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedPrefixListEntryType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-type ManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+type ManagedPrefixListEntryTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (ManagedPrefixListEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedPrefixListEntry)(nil)).Elem()
+func (ManagedPrefixListEntryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutput() ManagedPrefixListEntryArrayOutput {
+func (o ManagedPrefixListEntryTypeArrayOutput) ToManagedPrefixListEntryTypeArrayOutput() ManagedPrefixListEntryTypeArrayOutput {
 	return o
 }
 
-func (o ManagedPrefixListEntryArrayOutput) ToManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryArrayOutput {
+func (o ManagedPrefixListEntryTypeArrayOutput) ToManagedPrefixListEntryTypeArrayOutputWithContext(ctx context.Context) ManagedPrefixListEntryTypeArrayOutput {
 	return o
 }
 
-func (o ManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrefixListEntry {
-		return vs[0].([]ManagedPrefixListEntry)[vs[1].(int)]
-	}).(ManagedPrefixListEntryOutput)
+func (o ManagedPrefixListEntryTypeArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListEntryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedPrefixListEntryType {
+		return vs[0].([]ManagedPrefixListEntryType)[vs[1].(int)]
+	}).(ManagedPrefixListEntryTypeOutput)
 }
 
 type NetworkAclEgress struct {
@@ -13238,9 +13238,7 @@ type VpcPeeringConnectionAccepterType struct {
 	// to the remote VPC.
 	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC. This is
-	// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-	// inter-region VPC peering.
+	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 	// Allow a local VPC to communicate with a linked EC2-Classic
 	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
@@ -13265,9 +13263,7 @@ type VpcPeeringConnectionAccepterTypeArgs struct {
 	// to the remote VPC.
 	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC. This is
-	// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-	// inter-region VPC peering.
+	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 	// Allow a local VPC to communicate with a linked EC2-Classic
 	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
@@ -13360,9 +13356,7 @@ func (o VpcPeeringConnectionAccepterTypeOutput) AllowClassicLinkToRemoteVpc() pu
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC. This is
-// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-// inter-region VPC peering.
+// private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypeOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionAccepterType) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -13411,9 +13405,7 @@ func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowClassicLinkToRemoteVpc()
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC. This is
-// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-// inter-region VPC peering.
+// private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionAccepterTypePtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepterType) *bool {
 		if v == nil {
@@ -13815,9 +13807,7 @@ type VpcPeeringConnectionRequester struct {
 	// to the remote VPC.
 	AllowClassicLinkToRemoteVpc *bool `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC. This is
-	// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-	// inter-region VPC peering.
+	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution *bool `pulumi:"allowRemoteVpcDnsResolution"`
 	// Allow a local VPC to communicate with a linked EC2-Classic
 	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
@@ -13842,9 +13832,7 @@ type VpcPeeringConnectionRequesterArgs struct {
 	// to the remote VPC.
 	AllowClassicLinkToRemoteVpc pulumi.BoolPtrInput `pulumi:"allowClassicLinkToRemoteVpc"`
 	// Allow a local VPC to resolve public DNS hostnames to
-	// private IP addresses when queried from instances in the peer VPC. This is
-	// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-	// inter-region VPC peering.
+	// private IP addresses when queried from instances in the peer VPC.
 	AllowRemoteVpcDnsResolution pulumi.BoolPtrInput `pulumi:"allowRemoteVpcDnsResolution"`
 	// Allow a local VPC to communicate with a linked EC2-Classic
 	// instance in a peer VPC. This enables an outbound communication from the local VPC to the remote ClassicLink
@@ -13937,9 +13925,7 @@ func (o VpcPeeringConnectionRequesterOutput) AllowClassicLinkToRemoteVpc() pulum
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC. This is
-// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-// inter-region VPC peering.
+// private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcPeeringConnectionRequester) *bool { return v.AllowRemoteVpcDnsResolution }).(pulumi.BoolPtrOutput)
 }
@@ -13988,9 +13974,7 @@ func (o VpcPeeringConnectionRequesterPtrOutput) AllowClassicLinkToRemoteVpc() pu
 }
 
 // Allow a local VPC to resolve public DNS hostnames to
-// private IP addresses when queried from instances in the peer VPC. This is
-// [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-// inter-region VPC peering.
+// private IP addresses when queried from instances in the peer VPC.
 func (o VpcPeeringConnectionRequesterPtrOutput) AllowRemoteVpcDnsResolution() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionRequester) *bool {
 		if v == nil {
@@ -18526,7 +18510,8 @@ func (o GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput) Index(i pulu
 
 type GetLaunchTemplateMetadataOption struct {
 	// The state of the metadata service: `enabled`, `disabled`.
-	HttpEndpoint string `pulumi:"httpEndpoint"`
+	HttpEndpoint     string `pulumi:"httpEndpoint"`
+	HttpProtocolIpv6 string `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
@@ -18546,7 +18531,8 @@ type GetLaunchTemplateMetadataOptionInput interface {
 
 type GetLaunchTemplateMetadataOptionArgs struct {
 	// The state of the metadata service: `enabled`, `disabled`.
-	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	HttpEndpoint     pulumi.StringInput `pulumi:"httpEndpoint"`
+	HttpProtocolIpv6 pulumi.StringInput `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
 	// If session tokens are required: `optional`, `required`.
@@ -18607,6 +18593,10 @@ func (o GetLaunchTemplateMetadataOptionOutput) ToGetLaunchTemplateMetadataOption
 // The state of the metadata service: `enabled`, `disabled`.
 func (o GetLaunchTemplateMetadataOptionOutput) HttpEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateMetadataOptionOutput) HttpProtocolIpv6() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpProtocolIpv6 }).(pulumi.StringOutput)
 }
 
 // The desired HTTP PUT response hop limit for instance metadata requests.
@@ -19916,104 +19906,104 @@ func (o GetLocalGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetLocalGate
 	}).(GetLocalGatewaysFilterOutput)
 }
 
-type GetManagedPrefixListEntry struct {
+type GetManagedPrefixListEntryType struct {
 	Cidr        string `pulumi:"cidr"`
 	Description string `pulumi:"description"`
 }
 
-// GetManagedPrefixListEntryInput is an input type that accepts GetManagedPrefixListEntryArgs and GetManagedPrefixListEntryOutput values.
-// You can construct a concrete instance of `GetManagedPrefixListEntryInput` via:
+// GetManagedPrefixListEntryTypeInput is an input type that accepts GetManagedPrefixListEntryTypeArgs and GetManagedPrefixListEntryTypeOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListEntryTypeInput` via:
 //
-//          GetManagedPrefixListEntryArgs{...}
-type GetManagedPrefixListEntryInput interface {
+//          GetManagedPrefixListEntryTypeArgs{...}
+type GetManagedPrefixListEntryTypeInput interface {
 	pulumi.Input
 
-	ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput
-	ToGetManagedPrefixListEntryOutputWithContext(context.Context) GetManagedPrefixListEntryOutput
+	ToGetManagedPrefixListEntryTypeOutput() GetManagedPrefixListEntryTypeOutput
+	ToGetManagedPrefixListEntryTypeOutputWithContext(context.Context) GetManagedPrefixListEntryTypeOutput
 }
 
-type GetManagedPrefixListEntryArgs struct {
+type GetManagedPrefixListEntryTypeArgs struct {
 	Cidr        pulumi.StringInput `pulumi:"cidr"`
 	Description pulumi.StringInput `pulumi:"description"`
 }
 
-func (GetManagedPrefixListEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetManagedPrefixListEntry)(nil)).Elem()
+func (GetManagedPrefixListEntryTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (i GetManagedPrefixListEntryArgs) ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput {
-	return i.ToGetManagedPrefixListEntryOutputWithContext(context.Background())
+func (i GetManagedPrefixListEntryTypeArgs) ToGetManagedPrefixListEntryTypeOutput() GetManagedPrefixListEntryTypeOutput {
+	return i.ToGetManagedPrefixListEntryTypeOutputWithContext(context.Background())
 }
 
-func (i GetManagedPrefixListEntryArgs) ToGetManagedPrefixListEntryOutputWithContext(ctx context.Context) GetManagedPrefixListEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryOutput)
+func (i GetManagedPrefixListEntryTypeArgs) ToGetManagedPrefixListEntryTypeOutputWithContext(ctx context.Context) GetManagedPrefixListEntryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryTypeOutput)
 }
 
-// GetManagedPrefixListEntryArrayInput is an input type that accepts GetManagedPrefixListEntryArray and GetManagedPrefixListEntryArrayOutput values.
-// You can construct a concrete instance of `GetManagedPrefixListEntryArrayInput` via:
+// GetManagedPrefixListEntryTypeArrayInput is an input type that accepts GetManagedPrefixListEntryTypeArray and GetManagedPrefixListEntryTypeArrayOutput values.
+// You can construct a concrete instance of `GetManagedPrefixListEntryTypeArrayInput` via:
 //
-//          GetManagedPrefixListEntryArray{ GetManagedPrefixListEntryArgs{...} }
-type GetManagedPrefixListEntryArrayInput interface {
+//          GetManagedPrefixListEntryTypeArray{ GetManagedPrefixListEntryTypeArgs{...} }
+type GetManagedPrefixListEntryTypeArrayInput interface {
 	pulumi.Input
 
-	ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput
-	ToGetManagedPrefixListEntryArrayOutputWithContext(context.Context) GetManagedPrefixListEntryArrayOutput
+	ToGetManagedPrefixListEntryTypeArrayOutput() GetManagedPrefixListEntryTypeArrayOutput
+	ToGetManagedPrefixListEntryTypeArrayOutputWithContext(context.Context) GetManagedPrefixListEntryTypeArrayOutput
 }
 
-type GetManagedPrefixListEntryArray []GetManagedPrefixListEntryInput
+type GetManagedPrefixListEntryTypeArray []GetManagedPrefixListEntryTypeInput
 
-func (GetManagedPrefixListEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetManagedPrefixListEntry)(nil)).Elem()
+func (GetManagedPrefixListEntryTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (i GetManagedPrefixListEntryArray) ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput {
-	return i.ToGetManagedPrefixListEntryArrayOutputWithContext(context.Background())
+func (i GetManagedPrefixListEntryTypeArray) ToGetManagedPrefixListEntryTypeArrayOutput() GetManagedPrefixListEntryTypeArrayOutput {
+	return i.ToGetManagedPrefixListEntryTypeArrayOutputWithContext(context.Background())
 }
 
-func (i GetManagedPrefixListEntryArray) ToGetManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryArrayOutput)
+func (i GetManagedPrefixListEntryTypeArray) ToGetManagedPrefixListEntryTypeArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedPrefixListEntryTypeArrayOutput)
 }
 
-type GetManagedPrefixListEntryOutput struct{ *pulumi.OutputState }
+type GetManagedPrefixListEntryTypeOutput struct{ *pulumi.OutputState }
 
-func (GetManagedPrefixListEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetManagedPrefixListEntry)(nil)).Elem()
+func (GetManagedPrefixListEntryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (o GetManagedPrefixListEntryOutput) ToGetManagedPrefixListEntryOutput() GetManagedPrefixListEntryOutput {
+func (o GetManagedPrefixListEntryTypeOutput) ToGetManagedPrefixListEntryTypeOutput() GetManagedPrefixListEntryTypeOutput {
 	return o
 }
 
-func (o GetManagedPrefixListEntryOutput) ToGetManagedPrefixListEntryOutputWithContext(ctx context.Context) GetManagedPrefixListEntryOutput {
+func (o GetManagedPrefixListEntryTypeOutput) ToGetManagedPrefixListEntryTypeOutputWithContext(ctx context.Context) GetManagedPrefixListEntryTypeOutput {
 	return o
 }
 
-func (o GetManagedPrefixListEntryOutput) Cidr() pulumi.StringOutput {
-	return o.ApplyT(func(v GetManagedPrefixListEntry) string { return v.Cidr }).(pulumi.StringOutput)
+func (o GetManagedPrefixListEntryTypeOutput) Cidr() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListEntryType) string { return v.Cidr }).(pulumi.StringOutput)
 }
 
-func (o GetManagedPrefixListEntryOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetManagedPrefixListEntry) string { return v.Description }).(pulumi.StringOutput)
+func (o GetManagedPrefixListEntryTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedPrefixListEntryType) string { return v.Description }).(pulumi.StringOutput)
 }
 
-type GetManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }
+type GetManagedPrefixListEntryTypeArrayOutput struct{ *pulumi.OutputState }
 
-func (GetManagedPrefixListEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetManagedPrefixListEntry)(nil)).Elem()
+func (GetManagedPrefixListEntryTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedPrefixListEntryType)(nil)).Elem()
 }
 
-func (o GetManagedPrefixListEntryArrayOutput) ToGetManagedPrefixListEntryArrayOutput() GetManagedPrefixListEntryArrayOutput {
+func (o GetManagedPrefixListEntryTypeArrayOutput) ToGetManagedPrefixListEntryTypeArrayOutput() GetManagedPrefixListEntryTypeArrayOutput {
 	return o
 }
 
-func (o GetManagedPrefixListEntryArrayOutput) ToGetManagedPrefixListEntryArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryArrayOutput {
+func (o GetManagedPrefixListEntryTypeArrayOutput) ToGetManagedPrefixListEntryTypeArrayOutputWithContext(ctx context.Context) GetManagedPrefixListEntryTypeArrayOutput {
 	return o
 }
 
-func (o GetManagedPrefixListEntryArrayOutput) Index(i pulumi.IntInput) GetManagedPrefixListEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedPrefixListEntry {
-		return vs[0].([]GetManagedPrefixListEntry)[vs[1].(int)]
-	}).(GetManagedPrefixListEntryOutput)
+func (o GetManagedPrefixListEntryTypeArrayOutput) Index(i pulumi.IntInput) GetManagedPrefixListEntryTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedPrefixListEntryType {
+		return vs[0].([]GetManagedPrefixListEntryType)[vs[1].(int)]
+	}).(GetManagedPrefixListEntryTypeOutput)
 }
 
 type GetManagedPrefixListFilter struct {
@@ -23653,8 +23643,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
-	pulumi.RegisterOutputType(ManagedPrefixListEntryOutput{})
-	pulumi.RegisterOutputType(ManagedPrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeOutput{})
+	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressOutput{})
 	pulumi.RegisterOutputType(NetworkAclEgressArrayOutput{})
 	pulumi.RegisterOutputType(NetworkAclIngressOutput{})
@@ -23828,8 +23818,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLocalGatewayVirtualInterfaceGroupsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewaysFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetManagedPrefixListEntryOutput{})
-	pulumi.RegisterOutputType(GetManagedPrefixListEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListEntryTypeOutput{})
+	pulumi.RegisterOutputType(GetManagedPrefixListEntryTypeArrayOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterOutput{})
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})

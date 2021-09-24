@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// The state of the metadata service: `enabled`, `disabled`.
         /// </summary>
         public readonly string HttpEndpoint;
+        public readonly string HttpProtocolIpv6;
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests.
         /// </summary>
@@ -30,11 +31,14 @@ namespace Pulumi.Aws.Ec2.Outputs
         private GetLaunchTemplateMetadataOptionResult(
             string httpEndpoint,
 
+            string httpProtocolIpv6,
+
             int httpPutResponseHopLimit,
 
             string httpTokens)
         {
             HttpEndpoint = httpEndpoint;
+            HttpProtocolIpv6 = httpProtocolIpv6;
             HttpPutResponseHopLimit = httpPutResponseHopLimit;
             HttpTokens = httpTokens;
         }

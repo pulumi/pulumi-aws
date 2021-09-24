@@ -70,6 +70,7 @@ import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as config from "./config";
+import * as connect from "./connect";
 import * as cur from "./cur";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
@@ -217,6 +218,7 @@ export {
     codestarnotifications,
     cognito,
     config,
+    connect,
     cur,
     datapipeline,
     datasync,

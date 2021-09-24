@@ -7,8 +7,10 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cluster";
 export * from "./configuration";
+export * from "./getBrokerNodes";
 export * from "./getCluster";
 export * from "./getConfiguration";
+export * from "./getKafkaVersion";
 export * from "./scramSecretAssociation";
 
 // Import resources to register:

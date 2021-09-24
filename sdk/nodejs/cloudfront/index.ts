@@ -10,6 +10,7 @@ export * from "./distribution";
 export * from "./function";
 export * from "./getCachePolicy";
 export * from "./getDistribution";
+export * from "./getLogDeliveryCanonicalUserId";
 export * from "./getOriginRequestPolicy";
 export * from "./keyGroup";
 export * from "./monitoringSubscription";

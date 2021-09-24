@@ -220,6 +220,8 @@ type Cluster struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringOutput `pulumi:"zookeeperConnectString"`
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	ZookeeperConnectStringTls pulumi.StringOutput `pulumi:"zookeeperConnectStringTls"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -299,6 +301,8 @@ type clusterState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString *string `pulumi:"zookeeperConnectString"`
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	ZookeeperConnectStringTls *string `pulumi:"zookeeperConnectStringTls"`
 }
 
 type ClusterState struct {
@@ -341,6 +345,8 @@ type ClusterState struct {
 	TagsAll pulumi.StringMapInput
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString pulumi.StringPtrInput
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	ZookeeperConnectStringTls pulumi.StringPtrInput
 }
 
 func (ClusterState) ElementType() reflect.Type {

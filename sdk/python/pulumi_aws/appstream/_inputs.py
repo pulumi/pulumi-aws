@@ -9,11 +9,162 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'FleetComputeCapacityArgs',
+    'FleetDomainJoinInfoArgs',
+    'FleetVpcConfigArgs',
     'StackAccessEndpointArgs',
     'StackApplicationSettingsArgs',
     'StackStorageConnectorArgs',
     'StackUserSettingArgs',
 ]
+
+@pulumi.input_type
+class FleetComputeCapacityArgs:
+    def __init__(__self__, *,
+                 desired_instances: pulumi.Input[int],
+                 available: Optional[pulumi.Input[int]] = None,
+                 in_use: Optional[pulumi.Input[int]] = None,
+                 running: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] desired_instances: Desired number of streaming instances.
+        :param pulumi.Input[int] available: Number of currently available instances that can be used to stream sessions.
+        :param pulumi.Input[int] in_use: Number of instances in use for streaming.
+        :param pulumi.Input[int] running: Total number of simultaneous streaming instances that are running.
+        """
+        pulumi.set(__self__, "desired_instances", desired_instances)
+        if available is not None:
+            pulumi.set(__self__, "available", available)
+        if in_use is not None:
+            pulumi.set(__self__, "in_use", in_use)
+        if running is not None:
+            pulumi.set(__self__, "running", running)
+
+    @property
+    @pulumi.getter(name="desiredInstances")
+    def desired_instances(self) -> pulumi.Input[int]:
+        """
+        Desired number of streaming instances.
+        """
+        return pulumi.get(self, "desired_instances")
+
+    @desired_instances.setter
+    def desired_instances(self, value: pulumi.Input[int]):
+        pulumi.set(self, "desired_instances", value)
+
+    @property
+    @pulumi.getter
+    def available(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of currently available instances that can be used to stream sessions.
+        """
+        return pulumi.get(self, "available")
+
+    @available.setter
+    def available(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "available", value)
+
+    @property
+    @pulumi.getter(name="inUse")
+    def in_use(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of instances in use for streaming.
+        """
+        return pulumi.get(self, "in_use")
+
+    @in_use.setter
+    def in_use(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "in_use", value)
+
+    @property
+    @pulumi.getter
+    def running(self) -> Optional[pulumi.Input[int]]:
+        """
+        Total number of simultaneous streaming instances that are running.
+        """
+        return pulumi.get(self, "running")
+
+    @running.setter
+    def running(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "running", value)
+
+
+@pulumi.input_type
+class FleetDomainJoinInfoArgs:
+    def __init__(__self__, *,
+                 directory_name: Optional[pulumi.Input[str]] = None,
+                 organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
+        :param pulumi.Input[str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+
+    @property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the directory (for example, corp.example.com).
+        """
+        return pulumi.get(self, "directory_name")
+
+    @directory_name.setter
+    def directory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory_name", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Distinguished name of the organizational unit for computer accounts.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @organizational_unit_distinguished_name.setter
+    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+@pulumi.input_type
+class FleetVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Identifiers of the security groups for the fleet or image builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of the security groups for the fleet or image builder.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
 
 @pulumi.input_type
 class StackAccessEndpointArgs:

@@ -19,6 +19,7 @@ export * from "./getRoles";
 export * from "./getServerCertificate";
 export * from "./getSessionContext";
 export * from "./getUser";
+export * from "./getUsers";
 export * from "./group";
 export * from "./groupMembership";
 export * from "./groupPolicy";

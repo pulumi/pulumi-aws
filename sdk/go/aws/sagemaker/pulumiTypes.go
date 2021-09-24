@@ -4755,6 +4755,1184 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowDefinitionHumanLoopActivationConfig struct {
+	// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+	HumanLoopActivationConditionsConfig *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig `pulumi:"humanLoopActivationConditionsConfig"`
+}
+
+// FlowDefinitionHumanLoopActivationConfigInput is an input type that accepts FlowDefinitionHumanLoopActivationConfigArgs and FlowDefinitionHumanLoopActivationConfigOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopActivationConfigInput` via:
+//
+//          FlowDefinitionHumanLoopActivationConfigArgs{...}
+type FlowDefinitionHumanLoopActivationConfigInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopActivationConfigOutput() FlowDefinitionHumanLoopActivationConfigOutput
+	ToFlowDefinitionHumanLoopActivationConfigOutputWithContext(context.Context) FlowDefinitionHumanLoopActivationConfigOutput
+}
+
+type FlowDefinitionHumanLoopActivationConfigArgs struct {
+	// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+	HumanLoopActivationConditionsConfig FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput `pulumi:"humanLoopActivationConditionsConfig"`
+}
+
+func (FlowDefinitionHumanLoopActivationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfig)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigArgs) ToFlowDefinitionHumanLoopActivationConfigOutput() FlowDefinitionHumanLoopActivationConfigOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigArgs) ToFlowDefinitionHumanLoopActivationConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigOutput)
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigArgs) ToFlowDefinitionHumanLoopActivationConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigArgs) ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigOutput).ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopActivationConfigPtrInput is an input type that accepts FlowDefinitionHumanLoopActivationConfigArgs, FlowDefinitionHumanLoopActivationConfigPtr and FlowDefinitionHumanLoopActivationConfigPtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopActivationConfigPtrInput` via:
+//
+//          FlowDefinitionHumanLoopActivationConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopActivationConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopActivationConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigPtrOutput
+	ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(context.Context) FlowDefinitionHumanLoopActivationConfigPtrOutput
+}
+
+type flowDefinitionHumanLoopActivationConfigPtrType FlowDefinitionHumanLoopActivationConfigArgs
+
+func FlowDefinitionHumanLoopActivationConfigPtr(v *FlowDefinitionHumanLoopActivationConfigArgs) FlowDefinitionHumanLoopActivationConfigPtrInput {
+	return (*flowDefinitionHumanLoopActivationConfigPtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopActivationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopActivationConfig)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopActivationConfigPtrType) ToFlowDefinitionHumanLoopActivationConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopActivationConfigPtrType) ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigPtrOutput)
+}
+
+type FlowDefinitionHumanLoopActivationConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopActivationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigOutput) ToFlowDefinitionHumanLoopActivationConfigOutput() FlowDefinitionHumanLoopActivationConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigOutput) ToFlowDefinitionHumanLoopActivationConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigOutput) ToFlowDefinitionHumanLoopActivationConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return o.ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigOutput) ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopActivationConfig) *FlowDefinitionHumanLoopActivationConfig {
+		return &v
+	}).(FlowDefinitionHumanLoopActivationConfigPtrOutput)
+}
+
+// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+func (o FlowDefinitionHumanLoopActivationConfigOutput) HumanLoopActivationConditionsConfig() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopActivationConfig) *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+		return v.HumanLoopActivationConditionsConfig
+	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput)
+}
+
+type FlowDefinitionHumanLoopActivationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopActivationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopActivationConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) ToFlowDefinitionHumanLoopActivationConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) ToFlowDefinitionHumanLoopActivationConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) Elem() FlowDefinitionHumanLoopActivationConfigOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfig) FlowDefinitionHumanLoopActivationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopActivationConfig
+		return ret
+	}).(FlowDefinitionHumanLoopActivationConfigOutput)
+}
+
+// defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+func (o FlowDefinitionHumanLoopActivationConfigPtrOutput) HumanLoopActivationConditionsConfig() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfig) *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.HumanLoopActivationConditionsConfig
+	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput)
+}
+
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig struct {
+	// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+	HumanLoopActivationConditions string `pulumi:"humanLoopActivationConditions"`
+}
+
+// FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput is an input type that accepts FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs and FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput` via:
+//
+//          FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{...}
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput
+	ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutputWithContext(context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput
+}
+
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs struct {
+	// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+	HumanLoopActivationConditions pulumi.StringInput `pulumi:"humanLoopActivationConditions"`
+}
+
+func (FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput)
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput).ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput is an input type that accepts FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs, FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtr and FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput` via:
+//
+//          FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput
+	ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput
+}
+
+type flowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrType FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs
+
+func FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtr(v *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput {
+	return (*flowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrType) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrType) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput)
+}
+
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o.ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+		return &v
+	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput)
+}
+
+// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput) HumanLoopActivationConditions() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) string {
+		return v.HumanLoopActivationConditions
+	}).(pulumi.StringOutput)
+}
+
+type FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) ToFlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) Elem() FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig
+		return ret
+	}).(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput)
+}
+
+// A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+func (o FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput) HumanLoopActivationConditions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HumanLoopActivationConditions
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfig struct {
+	// The Amazon Resource Name (ARN) of the human task user interface.
+	HumanTaskUiArn string `pulumi:"humanTaskUiArn"`
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+	PublicWorkforceTaskPrice *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice `pulumi:"publicWorkforceTaskPrice"`
+	// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+	TaskAvailabilityLifetimeInSeconds *int `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+	TaskCount int `pulumi:"taskCount"`
+	// A description for the human worker task.
+	TaskDescription string `pulumi:"taskDescription"`
+	// An array of keywords used to describe the task so that workers can discover the task.
+	TaskKeywords []string `pulumi:"taskKeywords"`
+	// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+	TaskTimeLimitInSeconds *int `pulumi:"taskTimeLimitInSeconds"`
+	// A title for the human worker task.
+	TaskTitle string `pulumi:"taskTitle"`
+	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	WorkteamArn string `pulumi:"workteamArn"`
+}
+
+// FlowDefinitionHumanLoopConfigInput is an input type that accepts FlowDefinitionHumanLoopConfigArgs and FlowDefinitionHumanLoopConfigOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigInput` via:
+//
+//          FlowDefinitionHumanLoopConfigArgs{...}
+type FlowDefinitionHumanLoopConfigInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigOutput() FlowDefinitionHumanLoopConfigOutput
+	ToFlowDefinitionHumanLoopConfigOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigOutput
+}
+
+type FlowDefinitionHumanLoopConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the human task user interface.
+	HumanTaskUiArn pulumi.StringInput `pulumi:"humanTaskUiArn"`
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+	PublicWorkforceTaskPrice FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput `pulumi:"publicWorkforceTaskPrice"`
+	// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+	TaskAvailabilityLifetimeInSeconds pulumi.IntPtrInput `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+	TaskCount pulumi.IntInput `pulumi:"taskCount"`
+	// A description for the human worker task.
+	TaskDescription pulumi.StringInput `pulumi:"taskDescription"`
+	// An array of keywords used to describe the task so that workers can discover the task.
+	TaskKeywords pulumi.StringArrayInput `pulumi:"taskKeywords"`
+	// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+	TaskTimeLimitInSeconds pulumi.IntPtrInput `pulumi:"taskTimeLimitInSeconds"`
+	// A title for the human worker task.
+	TaskTitle pulumi.StringInput `pulumi:"taskTitle"`
+	// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+	WorkteamArn pulumi.StringInput `pulumi:"workteamArn"`
+}
+
+func (FlowDefinitionHumanLoopConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfig)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigOutput() FlowDefinitionHumanLoopConfigOutput {
+	return i.ToFlowDefinitionHumanLoopConfigOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigOutput)
+}
+
+func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigOutput).ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopConfigPtrInput is an input type that accepts FlowDefinitionHumanLoopConfigArgs, FlowDefinitionHumanLoopConfigPtr and FlowDefinitionHumanLoopConfigPtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPtrInput` via:
+//
+//          FlowDefinitionHumanLoopConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput
+	ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPtrOutput
+}
+
+type flowDefinitionHumanLoopConfigPtrType FlowDefinitionHumanLoopConfigArgs
+
+func FlowDefinitionHumanLoopConfigPtr(v *FlowDefinitionHumanLoopConfigArgs) FlowDefinitionHumanLoopConfigPtrInput {
+	return (*flowDefinitionHumanLoopConfigPtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfig)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopConfigPtrType) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopConfigPtrType) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigOutput() FlowDefinitionHumanLoopConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
+	return o.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfig {
+		return &v
+	}).(FlowDefinitionHumanLoopConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the human task user interface.
+func (o FlowDefinitionHumanLoopConfigOutput) HumanTaskUiArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.HumanTaskUiArn }).(pulumi.StringOutput)
+}
+
+// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+func (o FlowDefinitionHumanLoopConfigOutput) PublicWorkforceTaskPrice() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+		return v.PublicWorkforceTaskPrice
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *int { return v.TaskAvailabilityLifetimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskCount() pulumi.IntOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) int { return v.TaskCount }).(pulumi.IntOutput)
+}
+
+// A description for the human worker task.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.TaskDescription }).(pulumi.StringOutput)
+}
+
+// An array of keywords used to describe the task so that workers can discover the task.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskKeywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) []string { return v.TaskKeywords }).(pulumi.StringArrayOutput)
+}
+
+// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) *int { return v.TaskTimeLimitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// A title for the human worker task.
+func (o FlowDefinitionHumanLoopConfigOutput) TaskTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.TaskTitle }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+func (o FlowDefinitionHumanLoopConfigOutput) WorkteamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.WorkteamArn }).(pulumi.StringOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigPtrOutput) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPtrOutput) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPtrOutput) Elem() FlowDefinitionHumanLoopConfigOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) FlowDefinitionHumanLoopConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopConfig
+		return ret
+	}).(FlowDefinitionHumanLoopConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of the human task user interface.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HumanTaskUiArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) PublicWorkforceTaskPrice() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+		if v == nil {
+			return nil
+		}
+		return v.PublicWorkforceTaskPrice
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TaskAvailabilityLifetimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A description for the human worker task.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// An array of keywords used to describe the task so that workers can discover the task.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskKeywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskKeywords
+	}).(pulumi.StringArrayOutput)
+}
+
+// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TaskTimeLimitInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// A title for the human worker task.
+func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskTitle
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+func (o FlowDefinitionHumanLoopConfigPtrOutput) WorkteamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkteamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice struct {
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+	AmountInUsd *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd `pulumi:"amountInUsd"`
+}
+
+// FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceInput is an input type that accepts FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs and FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceInput` via:
+//
+//          FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{...}
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs struct {
+	// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+	AmountInUsd FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput `pulumi:"amountInUsd"`
+}
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput)
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput).ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput is an input type that accepts FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs, FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtr and FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput` via:
+//
+//          FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput
+}
+
+type flowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrType FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
+
+func FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtr(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput {
+	return (*flowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrType) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrType) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+		return &v
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput) AmountInUsd() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+		return v.AmountInUsd
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) Elem() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice
+		return ret
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput)
+}
+
+// Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput) AmountInUsd() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+		if v == nil {
+			return nil
+		}
+		return v.AmountInUsd
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd struct {
+	// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+	Cents *int `pulumi:"cents"`
+	// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+	Dollars *int `pulumi:"dollars"`
+	// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+	TenthFractionsOfACent *int `pulumi:"tenthFractionsOfACent"`
+}
+
+// FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdInput is an input type that accepts FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs and FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdInput` via:
+//
+//          FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{...}
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs struct {
+	// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+	Cents pulumi.IntPtrInput `pulumi:"cents"`
+	// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+	Dollars pulumi.IntPtrInput `pulumi:"dollars"`
+	// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+	TenthFractionsOfACent pulumi.IntPtrInput `pulumi:"tenthFractionsOfACent"`
+}
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput)
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput).ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput is an input type that accepts FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs, FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtr and FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput` via:
+//
+//          FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput
+	ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput
+}
+
+type flowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrType FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
+
+func FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtr(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrInput {
+	return (*flowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return i.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+		return &v
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) Cents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Cents }).(pulumi.IntPtrOutput)
+}
+
+// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) Dollars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Dollars }).(pulumi.IntPtrOutput)
+}
+
+// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		return v.TenthFractionsOfACent
+	}).(pulumi.IntPtrOutput)
+}
+
+type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ToFlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Elem() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd
+		return ret
+	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput)
+}
+
+// The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Cents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Cents
+	}).(pulumi.IntPtrOutput)
+}
+
+// The whole number of dollars in the amount. Valid value range between `0` and `2`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Dollars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Dollars
+	}).(pulumi.IntPtrOutput)
+}
+
+// Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+func (o FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TenthFractionsOfACent
+	}).(pulumi.IntPtrOutput)
+}
+
+type FlowDefinitionHumanLoopRequestSource struct {
+	// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+	AwsManagedHumanLoopRequestSource string `pulumi:"awsManagedHumanLoopRequestSource"`
+}
+
+// FlowDefinitionHumanLoopRequestSourceInput is an input type that accepts FlowDefinitionHumanLoopRequestSourceArgs and FlowDefinitionHumanLoopRequestSourceOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopRequestSourceInput` via:
+//
+//          FlowDefinitionHumanLoopRequestSourceArgs{...}
+type FlowDefinitionHumanLoopRequestSourceInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopRequestSourceOutput() FlowDefinitionHumanLoopRequestSourceOutput
+	ToFlowDefinitionHumanLoopRequestSourceOutputWithContext(context.Context) FlowDefinitionHumanLoopRequestSourceOutput
+}
+
+type FlowDefinitionHumanLoopRequestSourceArgs struct {
+	// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+	AwsManagedHumanLoopRequestSource pulumi.StringInput `pulumi:"awsManagedHumanLoopRequestSource"`
+}
+
+func (FlowDefinitionHumanLoopRequestSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopRequestSource)(nil)).Elem()
+}
+
+func (i FlowDefinitionHumanLoopRequestSourceArgs) ToFlowDefinitionHumanLoopRequestSourceOutput() FlowDefinitionHumanLoopRequestSourceOutput {
+	return i.ToFlowDefinitionHumanLoopRequestSourceOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopRequestSourceArgs) ToFlowDefinitionHumanLoopRequestSourceOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopRequestSourceOutput)
+}
+
+func (i FlowDefinitionHumanLoopRequestSourceArgs) ToFlowDefinitionHumanLoopRequestSourcePtrOutput() FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return i.ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionHumanLoopRequestSourceArgs) ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopRequestSourceOutput).ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionHumanLoopRequestSourcePtrInput is an input type that accepts FlowDefinitionHumanLoopRequestSourceArgs, FlowDefinitionHumanLoopRequestSourcePtr and FlowDefinitionHumanLoopRequestSourcePtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionHumanLoopRequestSourcePtrInput` via:
+//
+//          FlowDefinitionHumanLoopRequestSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionHumanLoopRequestSourcePtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionHumanLoopRequestSourcePtrOutput() FlowDefinitionHumanLoopRequestSourcePtrOutput
+	ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(context.Context) FlowDefinitionHumanLoopRequestSourcePtrOutput
+}
+
+type flowDefinitionHumanLoopRequestSourcePtrType FlowDefinitionHumanLoopRequestSourceArgs
+
+func FlowDefinitionHumanLoopRequestSourcePtr(v *FlowDefinitionHumanLoopRequestSourceArgs) FlowDefinitionHumanLoopRequestSourcePtrInput {
+	return (*flowDefinitionHumanLoopRequestSourcePtrType)(v)
+}
+
+func (*flowDefinitionHumanLoopRequestSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopRequestSource)(nil)).Elem()
+}
+
+func (i *flowDefinitionHumanLoopRequestSourcePtrType) ToFlowDefinitionHumanLoopRequestSourcePtrOutput() FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return i.ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionHumanLoopRequestSourcePtrType) ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopRequestSourcePtrOutput)
+}
+
+type FlowDefinitionHumanLoopRequestSourceOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopRequestSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionHumanLoopRequestSource)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopRequestSourceOutput) ToFlowDefinitionHumanLoopRequestSourceOutput() FlowDefinitionHumanLoopRequestSourceOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopRequestSourceOutput) ToFlowDefinitionHumanLoopRequestSourceOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourceOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopRequestSourceOutput) ToFlowDefinitionHumanLoopRequestSourcePtrOutput() FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return o.ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionHumanLoopRequestSourceOutput) ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopRequestSource) *FlowDefinitionHumanLoopRequestSource {
+		return &v
+	}).(FlowDefinitionHumanLoopRequestSourcePtrOutput)
+}
+
+// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+func (o FlowDefinitionHumanLoopRequestSourceOutput) AwsManagedHumanLoopRequestSource() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionHumanLoopRequestSource) string { return v.AwsManagedHumanLoopRequestSource }).(pulumi.StringOutput)
+}
+
+type FlowDefinitionHumanLoopRequestSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionHumanLoopRequestSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionHumanLoopRequestSource)(nil)).Elem()
+}
+
+func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) ToFlowDefinitionHumanLoopRequestSourcePtrOutput() FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) ToFlowDefinitionHumanLoopRequestSourcePtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopRequestSourcePtrOutput {
+	return o
+}
+
+func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) Elem() FlowDefinitionHumanLoopRequestSourceOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopRequestSource) FlowDefinitionHumanLoopRequestSource {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionHumanLoopRequestSource
+		return ret
+	}).(FlowDefinitionHumanLoopRequestSourceOutput)
+}
+
+// Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+func (o FlowDefinitionHumanLoopRequestSourcePtrOutput) AwsManagedHumanLoopRequestSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionHumanLoopRequestSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsManagedHumanLoopRequestSource
+	}).(pulumi.StringPtrOutput)
+}
+
+type FlowDefinitionOutputConfig struct {
+	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where the object containing human output will be made available.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// FlowDefinitionOutputConfigInput is an input type that accepts FlowDefinitionOutputConfigArgs and FlowDefinitionOutputConfigOutput values.
+// You can construct a concrete instance of `FlowDefinitionOutputConfigInput` via:
+//
+//          FlowDefinitionOutputConfigArgs{...}
+type FlowDefinitionOutputConfigInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionOutputConfigOutput() FlowDefinitionOutputConfigOutput
+	ToFlowDefinitionOutputConfigOutputWithContext(context.Context) FlowDefinitionOutputConfigOutput
+}
+
+type FlowDefinitionOutputConfigArgs struct {
+	// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The Amazon S3 path where the object containing human output will be made available.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (FlowDefinitionOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionOutputConfig)(nil)).Elem()
+}
+
+func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigOutput() FlowDefinitionOutputConfigOutput {
+	return i.ToFlowDefinitionOutputConfigOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigOutput)
+}
+
+func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
+	return i.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigOutput).ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx)
+}
+
+// FlowDefinitionOutputConfigPtrInput is an input type that accepts FlowDefinitionOutputConfigArgs, FlowDefinitionOutputConfigPtr and FlowDefinitionOutputConfigPtrOutput values.
+// You can construct a concrete instance of `FlowDefinitionOutputConfigPtrInput` via:
+//
+//          FlowDefinitionOutputConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowDefinitionOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput
+	ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Context) FlowDefinitionOutputConfigPtrOutput
+}
+
+type flowDefinitionOutputConfigPtrType FlowDefinitionOutputConfigArgs
+
+func FlowDefinitionOutputConfigPtr(v *FlowDefinitionOutputConfigArgs) FlowDefinitionOutputConfigPtrInput {
+	return (*flowDefinitionOutputConfigPtrType)(v)
+}
+
+func (*flowDefinitionOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionOutputConfig)(nil)).Elem()
+}
+
+func (i *flowDefinitionOutputConfigPtrType) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
+	return i.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *flowDefinitionOutputConfigPtrType) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigPtrOutput)
+}
+
+type FlowDefinitionOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowDefinitionOutputConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigOutput() FlowDefinitionOutputConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigOutput {
+	return o
+}
+
+func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
+	return o.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionOutputConfig) *FlowDefinitionOutputConfig {
+		return &v
+	}).(FlowDefinitionOutputConfigPtrOutput)
+}
+
+// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+func (o FlowDefinitionOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowDefinitionOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 path where the object containing human output will be made available.
+func (o FlowDefinitionOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowDefinitionOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type FlowDefinitionOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowDefinitionOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowDefinitionOutputConfig)(nil)).Elem()
+}
+
+func (o FlowDefinitionOutputConfigPtrOutput) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionOutputConfigPtrOutput) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
+	return o
+}
+
+func (o FlowDefinitionOutputConfigPtrOutput) Elem() FlowDefinitionOutputConfigOutput {
+	return o.ApplyT(func(v *FlowDefinitionOutputConfig) FlowDefinitionOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FlowDefinitionOutputConfig
+		return ret
+	}).(FlowDefinitionOutputConfigOutput)
+}
+
+// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+func (o FlowDefinitionOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 path where the object containing human output will be made available.
+func (o FlowDefinitionOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
 type HumanTaskUIUiTemplate struct {
 	// The content of the Liquid template for the worker user interface.
 	Content *string `pulumi:"content"`
@@ -8499,6 +9677,20 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopRequestSourceOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionHumanLoopRequestSourcePtrOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionOutputConfigOutput{})
+	pulumi.RegisterOutputType(FlowDefinitionOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplateOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})

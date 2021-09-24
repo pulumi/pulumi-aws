@@ -104,6 +104,8 @@ if typing.TYPE_CHECKING:
     cognito = __cognito
     import pulumi_aws.config as __config
     config = __config
+    import pulumi_aws.connect as __connect
+    connect = __connect
     import pulumi_aws.cur as __cur
     cur = __cur
     import pulumi_aws.datapipeline as __datapipeline
@@ -353,6 +355,7 @@ else:
     codestarnotifications = _utilities.lazy_import('pulumi_aws.codestarnotifications')
     cognito = _utilities.lazy_import('pulumi_aws.cognito')
     config = _utilities.lazy_import('pulumi_aws.config')
+    connect = _utilities.lazy_import('pulumi_aws.connect')
     cur = _utilities.lazy_import('pulumi_aws.cur')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
@@ -1104,6 +1107,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appstream/fleet",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/fleet:Fleet": "Fleet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/stack",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -1452,6 +1463,14 @@ _utilities.register(
   "fqn": "pulumi_aws.chime",
   "classes": {
    "aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization": "VoiceConnectorOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "chime/voiceConnectorStreaming",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming": "VoiceConnectorStreaming"
   }
  },
  {
@@ -1972,6 +1991,22 @@ _utilities.register(
   "fqn": "pulumi_aws.cognito",
   "classes": {
    "aws:cognito/userPoolUICustomization:UserPoolUICustomization": "UserPoolUICustomization"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/contactFlow",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/contactFlow:ContactFlow": "ContactFlow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/instance",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/instance:Instance": "Instance"
   }
  },
  {
@@ -2644,6 +2679,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/managedPrefixList:ManagedPrefixList": "ManagedPrefixList"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/managedPrefixListEntry",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry": "ManagedPrefixListEntry"
   }
  },
  {
@@ -3644,6 +3687,14 @@ _utilities.register(
   "fqn": "pulumi_aws.fsx",
   "classes": {
    "aws:fsx/lustreFileSystem:LustreFileSystem": "LustreFileSystem"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/ontapFileSystem",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/ontapFileSystem:OntapFileSystem": "OntapFileSystem"
   }
  },
  {
@@ -5804,6 +5855,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/featureGroup:FeatureGroup": "FeatureGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/flowDefinition",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/flowDefinition:FlowDefinition": "FlowDefinition"
   }
  },
  {

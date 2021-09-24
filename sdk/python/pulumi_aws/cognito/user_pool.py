@@ -1342,7 +1342,7 @@ class UserPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lambdaConfig")
-    def lambda_config(self) -> pulumi.Output['outputs.UserPoolLambdaConfig']:
+    def lambda_config(self) -> pulumi.Output[Optional['outputs.UserPoolLambdaConfig']]:
         """
         Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
         """
